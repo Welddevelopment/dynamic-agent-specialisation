@@ -21,6 +21,8 @@ Candidate packages include model policy, instructions, context, tools, memory, a
 
 The provider-neutral runtime now supports bounded tool loops, tenant/role/version-isolated memory, authority checks before execution, external verification, lost-response reconciliation, and fail-closed unknown outcomes.
 
+Structured model boundaries now exist for both complete candidate architecture and runtime tool decisions. The real Responses provider is disabled unless code-level authorization and the explicit `DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED` flag are both present; current pricing must be injected rather than silently hard-coded.
+
 ## Five current synthetic roles
 
 1. Procurement exception resolution.
@@ -53,4 +55,3 @@ Not demonstrated:
 - real measured human-effort reduction;
 - customer value, production reliability, security approval, or market demand;
 - complete bounded Level 1.
-
