@@ -1,0 +1,14 @@
+{
+  "name": "dynamic-agent-specialisation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "test": "node --test",
+    "evaluate": "node src/cli.js evaluate",
+    "audit": "node src/cli.js audit",
+    "demo": "node src/cli.js demo",
+    "console": "node src/console/server.js"
+  }
+}
