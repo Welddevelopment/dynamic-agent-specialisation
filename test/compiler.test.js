@@ -12,6 +12,8 @@ test("same compiler completes five structurally different role adapters", () => 
   assert.equal(run.results.length, 5);
   assert.equal(run.evidenceValid, true);
   assert.equal(run.paidModelCostUsd, 0);
+  assert.equal(run.stress.passed, true);
+  assert.ok(run.stress.checks >= 10_000);
   for (const { result } of run.results) {
     assert.ok(result.tournament.recommendation);
     assert.equal(result.tournament.recommendation.safetyViolations, 0);

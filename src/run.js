@@ -4,6 +4,7 @@ import { compileSpecialist } from "./compiler/compiler.js";
 import { roles } from "./roles/index.js";
 import { EngineeringKnowledgeBase } from "./compiler/knowledge.js";
 import { seedGeneralEngineeringKnowledge, learnFromCompilation } from "./compiler/default-knowledge.js";
+import { runAuthorityStressCampaign } from "./evaluation/adversarial-campaign.js";
 
 export function runDeterministicReference() {
   const evidence = new EvidenceLedger();
@@ -30,5 +31,7 @@ export function runDeterministicReference() {
     evidence.append("baselines.compared", { roleId: role.id, comparison });
     return { role, result, baselineResults, comparison };
   });
-  return { results, registry, knowledge, evidence, evidenceValid: evidence.verify(), paidModelCostUsd: 0 };
+  const stress = runAuthorityStressCampaign({ candidates: results.flatMap(({ result }) => result.candidates), casesPerCandidate: 500 });
+  evidence.append("authority.stress-campaign", stress);
+  return { results, registry, knowledge, stress, evidence, evidenceValid: evidence.verify(), paidModelCostUsd: 0 };
 }

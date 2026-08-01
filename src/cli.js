@@ -3,7 +3,7 @@ import { runDeterministicReference } from "./run.js";
 const command = process.argv[2] ?? "evaluate";
 const run = runDeterministicReference();
 if (command === "audit") {
-  console.log(JSON.stringify({ evidenceValid: run.evidenceValid, records: run.evidence.records().length, roles: run.results.length, paidModelCostUsd: run.paidModelCostUsd }, null, 2));
+  console.log(JSON.stringify({ evidenceValid: run.evidenceValid, records: run.evidence.records().length, roles: run.results.length, authorityStress: run.stress, paidModelCostUsd: run.paidModelCostUsd }, null, 2));
 } else {
   console.log(JSON.stringify({
     status: "deterministic-reference-only", paidModelCostUsd: run.paidModelCostUsd, evidenceValid: run.evidenceValid,
