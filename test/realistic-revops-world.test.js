@@ -90,6 +90,7 @@ test("RevOps verifier reports exact missing external outcomes", async () => {
   const failed = result.itemChecks.find((item) => item.leadId === "lead-r102");
   assert.deepEqual(failed.missingOutcomes, ["owner:owner-am-1"]);
   assert.ok(failed.observedOutcomes.includes("account:account-acme"));
+  assert.equal(result.recoveryClass, "missing-outcome");
 });
 
 test("doing nothing and blindly routing every lead both fail", async () => {

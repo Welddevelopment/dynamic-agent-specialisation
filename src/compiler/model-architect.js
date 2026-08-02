@@ -34,7 +34,7 @@ export class ModelCandidateArchitect {
       model: "candidate-architect-policy",
       purpose: "construct-complete-specialist-candidates",
       input: {
-        instruction: "Return JSON only. Return exactly the requested number of materially different complete specialist candidates. Keep every string concise and every array minimal. Do not add explanations outside candidate fields. Do not invent authority. The verifier must be independent, and every field in the candidate contract is required. If requireCompleteContext is true, include every declared environment context source; never claim complete context while omitting one.",
+        instruction: "Return JSON only. Return exactly the requested number of materially different complete specialist candidates. Use the supplied engineering knowledge as design priors while keeping candidates materially different. Keep every string concise but include the operational rules required for complete outcomes. Do not add explanations outside candidate fields. Do not invent authority. The verifier must be independent, and every field in the candidate contract is required. If requireCompleteContext is true, include every declared environment context source; never claim complete context while omitting one.",
         brief, knowledgeEntries, priorSpecialists: priorSpecialists.map((entry) => ({ id: entry.id, version: entry.version, compatibility: entry.compatibility, evidence: entry.evidence })),
         requiredCandidateFields: ["id", "roleId", "model", "instructions", "context", "tools", "memory", "authority", "escalation", "verifier", "limits", "strategy", "provenance", "version"],
         minimumCandidates: this.minimumCandidates,

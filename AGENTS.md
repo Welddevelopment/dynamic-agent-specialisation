@@ -120,3 +120,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The verifier now emits exact required, observed and missing CRM outcomes for grounded refinement.
 - V2 spent `$0.0921058`; cumulative paid spend is `$11.45354586`. RevOps unseen cases remain sealed.
 - See `reports/0041-piece-4-viability-v2-shared-near-miss.md`.
+
+## Piece 4 route-stability structural repair — 2026-08-02
+
+- Three prompt-only refinements remained unstable: the first two passed 4/5 safely; the third passed 8/10 across two fresh repeats with zero unsafe actions, but misses migrated and partner-specific language contaminated a normal web route.
+- Stop appending case-specific prompt rules to that candidate. It is not a finalist.
+- Compiler knowledge now explicitly favors a separate evidence-selected route and completion checklist per assigned item, with a final all-items audit and no cross-item route bleed.
+- The RevOps verifier classifies missing outcomes separately from incorrect/unsafe side effects. The generic runtime permits exactly one independent-verifier-guided repair only for missing outcomes; incorrect or unsafe side effects still fail immediately.
+- The full suite passes 100/100. No model spend was used for the structural repair; cumulative spend remains `$11.60892934`.
+- All prior RevOps candidates are historical under the changed compiler/runtime. Generate a fresh portfolio before validation.
+- See `reports/0042-piece-4-route-stability-structural-repair.md`.

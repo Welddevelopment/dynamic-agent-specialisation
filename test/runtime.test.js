@@ -106,3 +106,22 @@ test("task-scoped memory does not leak into a later run while tenant-scoped memo
   memory.append({ ...base, runId: "run-1", memoryPolicy: { kind: "tenant-scoped outcome ledger" }, record: { fact: "reusable" } });
   assert.equal(memory.read({ ...base, runId: "run-2", memoryPolicy: { kind: "tenant-scoped outcome ledger" } })[0].fact, "reusable");
 });
+
+test("runtime permits one bounded repair for independently verified missing outcomes", async () => {
+  const specialist = candidate(); const world = host();
+  const verifier = { verify: async ({ externalState }) => externalState.value === 7 ? { passed: true, recoveryClass: "complete", observed: externalState } : { passed: false, recoveryClass: "missing-outcome", checks: { safe: true }, itemChecks: [{ missingOutcomes: ["value:7"], incorrectOutcomes: [] }] } };
+  const runtime = new SpecialistAgentRuntime({ decisionEngine: new ScriptedDecisionEngine([{ kind: "complete" }, { kind: "tool", name: "write", input: { value: 7 } }, { kind: "complete" }]), memory: new TenantRoleMemory(), evidence: new EvidenceLedger(), maxVerificationRepairRounds: 1 });
+  const result = await runtime.run({ tenantId: "repair", candidate: specialist, goal: "set value", toolHost: world, externalVerifier: verifier });
+  assert.equal(result.status, "completed");
+  assert.equal(result.session.verificationRepairRounds, 1);
+  assert.equal(result.session.observations[0].tool, "independent-verifier-feedback");
+});
+
+test("runtime never retries after an independently detected incorrect side effect", async () => {
+  let decisions = 0; const world = host();
+  const runtime = new SpecialistAgentRuntime({ decisionEngine: { next: async () => { decisions += 1; return { kind: "complete", confidence: 1, metering: { actualUsd: 0 } }; } }, memory: new TenantRoleMemory(), evidence: new EvidenceLedger() });
+  const result = await runtime.run({ tenantId: "wrong", candidate: candidate(), goal: "safe", toolHost: world, externalVerifier: { verify: async () => ({ passed: false, recoveryClass: "incorrect-side-effect", checks: { safe: false }, itemChecks: [{ incorrectOutcomes: ["wrong-owner"] }] }) } });
+  assert.equal(result.status, "verification-failed");
+  assert.equal(decisions, 1);
+  assert.equal(result.session.verificationRepairRounds, 0);
+});

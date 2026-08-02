@@ -1,11 +1,11 @@
 export class SpecialistAgentRuntime {
   #runSequence = 0;
-  constructor({ decisionEngine, memory, evidence, maxTurns = 12, maxConsecutiveReads = 20, maxRepeatedIdenticalRead = 3, now = () => Date.now() }) {
-    this.decisionEngine = decisionEngine; this.memory = memory; this.evidence = evidence; this.maxTurns = maxTurns; this.maxConsecutiveReads = maxConsecutiveReads; this.maxRepeatedIdenticalRead = maxRepeatedIdenticalRead; this.now = now;
+  constructor({ decisionEngine, memory, evidence, maxTurns = 12, maxConsecutiveReads = 20, maxRepeatedIdenticalRead = 3, maxVerificationRepairRounds = 1, now = () => Date.now() }) {
+    this.decisionEngine = decisionEngine; this.memory = memory; this.evidence = evidence; this.maxTurns = maxTurns; this.maxConsecutiveReads = maxConsecutiveReads; this.maxRepeatedIdenticalRead = maxRepeatedIdenticalRead; this.maxVerificationRepairRounds = maxVerificationRepairRounds; this.now = now;
   }
   async run({ tenantId, candidate, goal, toolHost, externalVerifier }) {
     const startedAtMs = this.now();
-    const session = { tenantId, roleId: candidate.roleId, specialistVersion: candidate.version, runId: `${candidate.id}:run-${++this.#runSequence}`, memoryPolicy: structuredClone(candidate.memory ?? { kind: "task-scoped", scope: "current run" }), goal, observations: [], toolReceipts: [], reconciled: false, consecutiveReads: 0, repeatedReadSignatures: {}, modelCostUsd: 0, elapsedMs: 0 };
+    const session = { tenantId, roleId: candidate.roleId, specialistVersion: candidate.version, runId: `${candidate.id}:run-${++this.#runSequence}`, memoryPolicy: structuredClone(candidate.memory ?? { kind: "task-scoped", scope: "current run" }), goal, observations: [], toolReceipts: [], reconciled: false, verificationRepairRounds: 0, consecutiveReads: 0, repeatedReadSignatures: {}, modelCostUsd: 0, elapsedMs: 0 };
     if (candidate.verifier?.binding && externalVerifier?.id !== candidate.verifier.binding) {
       const reason = `verifier-binding-mismatch:${candidate.verifier.binding}`;
       this.evidence?.append("runtime.activation-blocked", { tenantId, candidateId: candidate.id, reason, suppliedVerifierId: externalVerifier?.id ?? null });
@@ -48,7 +48,16 @@ export class SpecialistAgentRuntime {
       if (decision.kind === "complete") {
         const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState(), resolution: { kind: "complete", blocker: null, reconciled: session.reconciled } });
         this.evidence?.append("runtime.external-verification", { tenantId, candidateId: candidate.id, verification });
-        if (!verification.passed) return { status: "verification-failed", verification, session };
+        if (!verification.passed) {
+          const repairable = verification.recoveryClass === "missing-outcome" && session.verificationRepairRounds < this.maxVerificationRepairRounds;
+          if (!repairable) return { status: "verification-failed", verification, session };
+          session.verificationRepairRounds += 1;
+          const feedback = { recoveryClass: verification.recoveryClass, itemChecks: structuredClone(verification.itemChecks ?? []), checks: structuredClone(verification.checks ?? {}) };
+          session.observations.push({ tool: "independent-verifier-feedback", output: feedback });
+          this.memory.append({ ...session, record: { kind: "verification-repair", feedback } });
+          this.evidence?.append("runtime.verification-repair-authorized", { tenantId, candidateId: candidate.id, round: session.verificationRepairRounds, feedback });
+          continue;
+        }
         this.memory.append({ ...session, record: { kind: "verified-outcome", goal, verification } });
         return { status: "completed", verification, session };
       }
