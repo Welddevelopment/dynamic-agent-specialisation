@@ -7,6 +7,7 @@ import { ModelCandidateArchitect, candidatePortfolioResponseFormat } from "../sr
 import { ModelDecisionEngine, runtimeDecisionResponseFormat } from "../src/runtime/model-decision-engine.js";
 import { procurementRole } from "../src/roles/procurement.js";
 import { generateCandidatePortfolio } from "../src/compiler/generator.js";
+import { validateCandidate } from "../src/compiler/candidate.js";
 
 function fakeGateway(outputs) {
   const queue = outputs.map((output) => structuredClone(output));
@@ -37,6 +38,15 @@ test("model architect schema fixes bounded role, tools, authority, verifier, and
   assert.deepEqual(candidate.properties.authority.properties.allowedActions.items.enum, procurementRole.brief.authority.allowedActions);
   assert.deepEqual(candidate.properties.verifier.properties.binding.enum, [procurementRole.brief.successCriteria.verifierId]);
   assert.equal(candidate.additionalProperties, false);
+});
+
+test("a candidate cannot claim complete context while omitting a declared source", () => {
+  const candidate = generateCandidatePortfolio(procurementRole.brief)[0];
+  candidate.context.sources = candidate.context.sources.slice(1);
+  candidate.strategy.requireCompleteContext = true;
+  const result = validateCandidate(candidate, procurementRole.brief);
+  assert.equal(result.valid, false);
+  assert.ok(result.reasons.some((reason) => reason.startsWith("incomplete-context:")));
 });
 
 test("model decision engine validates structured tool decisions", async () => {

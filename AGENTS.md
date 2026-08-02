@@ -102,3 +102,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The deterministic reference passes every exposed case; the full suite is 95/95. This is benchmark validation, not model-specialist evidence.
 - No model call was made for this phase. Cumulative spend remains `$11.29883626`.
 - See `reports/0039-piece-4-revops-deterministic-foundation.md`.
+
+## Piece 4 RevOps viability v1 environment discovery — 2026-08-02
+
+- Preserve V1, but do not use it as a fair candidate-quality verdict. Candidate 5 passed 1/2 safely; candidates 1 and 3 were safe near-misses; candidates 2 and 4 were fail-closed before acting.
+- The duplicate route was not observable to a model because the synthetic world omitted a bounded existing-lead search while the deterministic reference read full state. A redacted `search-leads`/`lead-index` boundary now repairs that unfairness.
+- Candidate validation now rejects `requireCompleteContext: true` when any role-declared context source is omitted. The architect prompt states the same invariant.
+- V1 spent `$0.0626038`; cumulative paid spend is `$11.36144006`.
+- The repaired full suite passes 97/97. RevOps unseen cases remain sealed, and V1 candidates must not be reused under the changed contract.
+- See `reports/0040-piece-4-viability-v1-environment-discovery.md`.

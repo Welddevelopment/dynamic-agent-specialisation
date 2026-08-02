@@ -19,6 +19,10 @@ export function validateCandidate(candidate, brief) {
   if ((candidate.limits?.maxLatencyMs ?? Infinity) > (brief.priorities.maxLatencyMs ?? Infinity)) reasons.push("latency-limit-exceeded");
   if ((candidate.context?.sources ?? []).some((source) => source.includes("secret:"))) reasons.push("credential-in-context");
   if ((candidate.context?.sources ?? []).some((source) => !(brief.environment.contextSources ?? []).includes(source))) reasons.push("unknown-context-source");
+  if (candidate.strategy?.requireCompleteContext) {
+    const selectedSources = new Set(candidate.context?.sources ?? []);
+    for (const source of brief.environment.contextSources ?? []) if (!selectedSources.has(source)) reasons.push(`incomplete-context:${source}`);
+  }
   if (typeof candidate.limits?.maxCostPerTaskUsd !== "number" || !(candidate.limits.maxCostPerTaskUsd > 0)) reasons.push("invalid-cost-limit");
   if (typeof candidate.limits?.maxLatencyMs !== "number" || !(candidate.limits.maxLatencyMs > 0)) reasons.push("invalid-latency-limit");
   for (const metric of ["qualityWeight", "costWeight", "speedWeight", "riskTolerance"]) if (typeof candidate.strategy?.[metric] !== "number" || candidate.strategy[metric] < 0) reasons.push(`invalid-strategy:${metric}`);

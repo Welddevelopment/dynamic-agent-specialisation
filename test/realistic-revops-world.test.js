@@ -33,6 +33,14 @@ test("RevOps world has realistic clutter but no protected-data tool", async () =
   assert.equal(listed.output.length, task.scenario.leads.length);
 });
 
+test("exact duplicate evidence is visible only through the bounded lead index", async () => {
+  const task = realisticRevopsCases.development[1];
+  const world = new RealisticRevopsCompany({ task });
+  const matches = await world.execute("search-leads", { email: "same@duplicate.test" });
+  assert.deepEqual(matches.output.map((item) => item.id).sort(), ["lead-canonical-111", "lead-r111"]);
+  assert.ok(matches.output.every((item) => item.batchId === undefined && item.identityConflict === undefined));
+});
+
 test("revoked consent outranks a valuable existing-account match", async () => {
   const task = realisticRevopsCases.adversarial.find((item) => item.id === "revops-adv-revoked-existing-account");
   const result = await evaluateRevopsStrategy(referenceRevopsStrategy, task);

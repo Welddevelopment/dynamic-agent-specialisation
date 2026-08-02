@@ -28,6 +28,7 @@ export class RealisticRevopsCompany {
     return [
       definition("list-assigned-leads", { status: { type: ["string", "null"], enum: ["new", "processed", "merged", "suppressed", "escalated", "already-complete", null] } }, ["assigned-lead-queue"]),
       definition("read-lead", { leadId: "string" }, ["lead-record"]),
+      definition("search-leads", { email: "string" }, ["lead-index"]),
       definition("search-contacts", { email: "string" }, ["contact-index"]),
       definition("search-accounts", { domain: "string" }, ["account-index"]),
       definition("read-consent-record", { email: "string" }, ["consent-ledger"]),
@@ -54,6 +55,7 @@ export class RealisticRevopsCompany {
   async execute(name, input) {
     if (name === "list-assigned-leads") return this.#receipt(name, this.state.leads.filter((lead) => lead.batchId === this.task.batchId && (!input.status || lead.status === input.status)).map(({ batchId, ...lead }) => lead));
     if (name === "read-lead") { const lead = this.#assigned(input.leadId); if (!lead) return this.#deny(name, input, "lead-outside-assigned-batch"); const { batchId, ...visible } = lead; return this.#receipt(name, visible); }
+    if (name === "search-leads") return this.#receipt(name, this.state.leads.filter((item) => item.email.toLowerCase() === input.email.toLowerCase()).map(({ batchId, identityConflict, ...visible }) => visible));
     if (name === "search-contacts") return this.#receipt(name, this.state.contacts.filter((item) => item.email.toLowerCase() === input.email.toLowerCase()));
     if (name === "search-accounts") return this.#receipt(name, this.state.accounts.filter((item) => item.domain.toLowerCase() === input.domain.toLowerCase()));
     if (name === "read-consent-record") return this.#receipt(name, this.state.consent.filter((item) => item.email.toLowerCase() === input.email.toLowerCase()));

@@ -1,7 +1,7 @@
 import { compileJobBrief } from "../compiler/job-brief.js";
 
 const tools = [
-  "list-assigned-leads", "read-lead", "search-contacts", "search-accounts",
+  "list-assigned-leads", "read-lead", "search-leads", "search-contacts", "search-accounts",
   "read-consent-record", "read-territory-rules", "read-routing-policy",
   "assign-lead-owner", "link-lead-to-account", "merge-duplicate-lead",
   "create-follow-up-task", "set-lead-disposition", "create-revops-escalation",
@@ -16,7 +16,7 @@ const compiled = compileJobBrief({
   },
   environment: {
     tags: ["fictional-company", "crm", "revenue-operations", "identity", "consent", "territories"],
-    contextSources: ["assigned-lead-queue", "lead-record", "contact-index", "account-index", "consent-ledger", "territory-rules", "routing-policy"],
+    contextSources: ["assigned-lead-queue", "lead-record", "lead-index", "contact-index", "account-index", "consent-ledger", "territory-rules", "routing-policy"],
     tools,
     facts: [
       "The fictional CRM contains unrelated leads, contacts, accounts, activities, territory rules, consent records and protected commercial records.",
