@@ -17,5 +17,6 @@
     ,"model:refinement": "node --env-file=.env src/experiments/piece2-refinement.js"
     ,"model:validation": "node --env-file=.env src/experiments/piece2-stage.js validation",
     "model:adversarial": "node --env-file=.env src/experiments/piece2-stage.js adversarial"
+    ,"model:cycle2:refinement": "node --env-file=.env src/experiments/piece2-cycle2-refinement.js"
   }
 }

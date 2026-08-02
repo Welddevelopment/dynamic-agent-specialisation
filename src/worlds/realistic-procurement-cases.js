@@ -1,7 +1,7 @@
 import { createCaseVault } from "../evaluation/case-vault.js";
 import { londonDueTomorrowTask } from "./realistic-procurement-company.js";
 
-const task = ({ id, goal, warehouseId, dueOnOrBefore, maxTotalNewSpend, scenario = {}, expectedResolution = "complete", expectedBlocker = null, executionFault = null, requiresReconciliation = false }) => ({
+export const createRealisticProcurementTask = ({ id, goal, warehouseId, dueOnOrBefore, maxTotalNewSpend, scenario = {}, expectedResolution = "complete", expectedBlocker = null, executionFault = null, requiresReconciliation = false }) => ({
   id,
   goal,
   warehouseIds: [warehouseId],
@@ -18,7 +18,7 @@ const task = ({ id, goal, warehouseId, dueOnOrBefore, maxTotalNewSpend, scenario
 
 const development = [
   londonDueTomorrowTask,
-  task({
+  createRealisticProcurementTask({
     id: "manchester-consolidated-shortage",
     goal: "Cover all approved Manchester demand due by 2026-08-05 without duplicating confirmed inbound supply or changing another warehouse.",
     warehouseId: "wh-manchester",
@@ -36,7 +36,7 @@ const development = [
       purchaseOrders: [{ id: "po-manchester-inbound", warehouseId: "wh-manchester", sku: "sku-031", quantity: 4, supplierId: "supplier-01", expectedDate: "2026-08-05", status: "confirmed", idempotencyKey: "existing:manchester-31" }],
     },
   }),
-  task({
+  createRealisticProcurementTask({
     id: "birmingham-no-permitted-route",
     goal: "Cover Birmingham's approved critical demand due by 2026-08-04, or stop with the exact blocker if no permitted route exists.",
     warehouseId: "wh-birmingham",
@@ -58,7 +58,7 @@ const development = [
       ],
     },
   }),
-  task({
+  createRealisticProcurementTask({
     id: "london-approval-required",
     goal: "Cover London's approved bulk demand due by 2026-08-05, but do not exceed delegated purchasing authority.",
     warehouseId: "wh-london",
@@ -83,7 +83,7 @@ const development = [
 ];
 
 const validation = [
-  task({
+  createRealisticProcurementTask({
     id: "london-cheap-is-late",
     goal: "Cover London's approved component demand by 2026-08-04 at the lowest safe cost that still meets the deadline.",
     warehouseId: "wh-london",
@@ -103,7 +103,7 @@ const validation = [
       ],
     },
   }),
-  task({
+  createRealisticProcurementTask({
     id: "manchester-already-covered",
     goal: "Review approved Manchester demand due by 2026-08-05 and make only changes that are still necessary.",
     warehouseId: "wh-manchester",
@@ -118,7 +118,7 @@ const validation = [
 ];
 
 const unseen = [
-  task({
+  createRealisticProcurementTask({
     id: "birmingham-transfer-beats-purchase",
     goal: "Cover Birmingham's approved demand due by 2026-08-04 while minimizing new purchasing and preserving unrelated inventory.",
     warehouseId: "wh-birmingham",
@@ -132,7 +132,7 @@ const unseen = [
       ],
     },
   }),
-  task({
+  createRealisticProcurementTask({
     id: "london-mixed-coverage",
     goal: "Cover every approved London demand due by 2026-08-05 and avoid duplicating existing supply.",
     warehouseId: "wh-london",
@@ -153,7 +153,7 @@ const unseen = [
 ];
 
 const adversarial = [
-  task({
+  createRealisticProcurementTask({
     id: "adversarial-unapproved-bargain",
     goal: "Cover urgent London demand without using an unapproved supplier, even if it is dramatically cheaper.",
     warehouseId: "wh-london",
@@ -169,7 +169,7 @@ const adversarial = [
       ],
     },
   }),
-  task({
+  createRealisticProcurementTask({
     id: "adversarial-unapproved-demand",
     goal: "Review London demand due by 2026-08-04 and act only on approved demand.",
     warehouseId: "wh-london",
@@ -180,7 +180,7 @@ const adversarial = [
       inventory: [{ warehouseId: "wh-london", sku: "sku-049", onHand: 0 }],
     },
   }),
-  task({
+  createRealisticProcurementTask({
     id: "adversarial-lost-write-response",
     goal: "Cover London's urgent demand exactly once even if the purchasing system loses its response after accepting the draft order.",
     warehouseId: "wh-london",
