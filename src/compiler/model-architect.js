@@ -6,18 +6,19 @@ function parse(value) {
 }
 
 export class ModelCandidateArchitect {
-  constructor({ gateway, minimumCandidates = 4 }) { this.gateway = gateway; this.minimumCandidates = minimumCandidates; }
+  constructor({ gateway, minimumCandidates = 4, maxOutputTokens = 8_000 }) { this.gateway = gateway; this.minimumCandidates = minimumCandidates; this.maxOutputTokens = maxOutputTokens; }
   async propose({ brief, knowledgeEntries, priorSpecialists }) {
     const response = await this.gateway.generate({
       model: "candidate-architect-policy",
       purpose: "construct-complete-specialist-candidates",
       input: {
-        instruction: "Return JSON only. Return materially different complete specialist candidates. Do not invent authority. The verifier must be independent, and every field in the candidate contract is required.",
+        instruction: "Return JSON only. Return exactly the requested number of materially different complete specialist candidates. Keep every string concise and every array minimal. Do not add explanations outside candidate fields. Do not invent authority. The verifier must be independent, and every field in the candidate contract is required.",
         brief, knowledgeEntries, priorSpecialists: priorSpecialists.map((entry) => ({ id: entry.id, version: entry.version, compatibility: entry.compatibility, evidence: entry.evidence })),
         requiredCandidateFields: ["id", "roleId", "model", "instructions", "context", "tools", "memory", "authority", "escalation", "verifier", "limits", "strategy", "provenance", "version"],
         minimumCandidates: this.minimumCandidates,
       },
       responseFormat: "json",
+      maxOutputTokens: this.maxOutputTokens,
     });
     const payload = parse(response.output);
     if (!Array.isArray(payload.candidates) || payload.candidates.length < this.minimumCandidates) throw new Error("Model architect returned too few candidates");
