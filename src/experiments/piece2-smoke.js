@@ -10,14 +10,14 @@ import { OpenAIResponsesProvider } from "../providers/openai-responses.js";
 import { RealisticProcurementCompany, londonDueTomorrowTask } from "../worlds/realistic-procurement-company.js";
 
 const SMOKE_LIMIT_USD = 2;
-const PRIOR_SPEND_USD = 0.004876;
+const PRIOR_SPEND_USD = 0.006418;
 const MODEL = "gpt-5.6-luna";
 const pricing = { inputPerMillionUsd: 0.20, cachedInputPerMillionUsd: 0.02, outputPerMillionUsd: 1.20 };
 
 if (process.env.DAS_ENABLE_PAID_MODEL_CALLS !== "JOEL_APPROVED") throw new Error("Paid smoke requires DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED");
 if (!process.env.OPENAI_API_KEY) throw new Error("OPENAI_API_KEY is missing");
 
-const outputDir = path.resolve("artifacts/runs/piece2-smoke/attempt-2");
+const outputDir = path.resolve("artifacts/runs/piece2-smoke/attempt-3");
 fs.mkdirSync(outputDir, { recursive: true });
 const evidence = new EvidenceLedger(path.join(outputDir, "evidence.jsonl"));
 const budget = new BudgetGuard({ hardLimitUsd: SMOKE_LIMIT_USD - PRIOR_SPEND_USD, warningUsd: 1.50 - PRIOR_SPEND_USD });
