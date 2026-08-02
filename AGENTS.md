@@ -155,3 +155,10 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - V1 spent `$0.0463594`; cumulative spend is `$12.21236712`.
 - Rerun all five development cases under policy v2 before constructing a new freeze.
 - See `reports/0045-piece-4-validation-v1-policy-contract-failure.md`.
+
+## Paid-model pricing reconciliation — 2026-08-02
+
+- Paid calls are paused while four RevOps attempts are reconciled: their genuine Terra/Sol calls were recorded internally at Luna rates.
+- The technical outcomes are unchanged. Cost totals and any cost-based ranking must use the corrected ledger.
+- A central fail-closed model-pricing registry now prevents future experiments from silently applying one model's rate to another.
+- See `reports/0046-model-pricing-accounting-reconciliation.md`.
