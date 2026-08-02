@@ -28,3 +28,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Total paid-model campaign spend through Piece 2: $1.98507724.
 - Procurement cases are now exposed. Do not reuse them as unseen evidence for a modified candidate.
 - Next valid Level 1 step is a substantially different second role using the same core and new prospective human-effort measurement.
+
+## Optional target-driven improvement — 2026-08-02
+
+- Further self-improvement is optional and disabled by default. Never spend model budget merely because a specialist has been compiled.
+- The customer may configure metrics, minimum improvement, non-negotiable quality/safety floors, hard model spend, hard elapsed time, search rounds, repeat evidence and search persistence.
+- The controller must stop with an explicit reason after success, a hard limit, repeated negligible progress, no plausible remaining path or the round ceiling. Preserve the best near-miss and every attempted design.
+- Targets cannot be weakened during a run and unseen cases remain unavailable to the improvement loop.
+- The private console exposes configuration, live run events, candidate measurements, rejection reasons, cumulative spend and completed receipts. Starting remains locked until a role-specific runner is attached and verified.
+- See `reports/0026-target-driven-improvement-controller.md` and `reports/0027-optional-improvement-console.md`.

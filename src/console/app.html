@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Specialist Compiler</title>
+    <link rel="stylesheet" href="/app.css">
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="wordmark" href="#">Specialist Compiler</a>
+      <div class="topbar-status"><span class="status-dot"></span><span id="boundary">Loading local evidence</span></div>
+    </header>
+    <div class="shell">
+      <aside>
+        <p class="nav-caption">Workspace</p>
+        <button class="nav-item active" data-page="overview">Overview</button>
+        <button class="nav-item" data-page="improve">Improve further <span class="optional">Optional</span></button>
+        <p class="nav-caption role-caption">Specialists</p>
+        <div id="roles"></div>
+        <div class="evidence-state"><span>Evidence chain</span><strong id="evidence-state">Checking</strong></div>
+      </aside>
+      <main id="main" aria-live="polite"></main>
+    </div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
