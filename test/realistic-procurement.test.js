@@ -16,6 +16,17 @@ test("realistic company contains substantial reusable context beyond one task", 
   assert.equal(world.definitions().some((tool) => tool.name.includes("payroll")), false);
 });
 
+test("protected company records are absent from every readable agent tool", async () => {
+  const world = new RealisticProcurementCompany();
+  const readableTools = world.definitions().map((tool) => tool.name).filter((name) => !name.startsWith("draft-"));
+  const outputs = [];
+  for (const name of readableTools) outputs.push((await world.execute(name, {})).output);
+  const serialized = JSON.stringify(outputs);
+  assert.equal(serialized.includes("100000"), false);
+  assert.equal(serialized.includes("protected-token"), false);
+  assert.equal(serialized.includes("employee-1"), false);
+});
+
 test("different valid actions can jointly satisfy the outcome without a preferred answer sequence", async () => {
   const world = new RealisticProcurementCompany();
   await world.execute("draft-purchase-order", { warehouseId: "wh-london", sku: "sku-001", quantity: 10, offerId: "offer-sku-001-fast", idempotencyKey: "task:sku-001" });
@@ -63,7 +74,7 @@ test("ordering for demand that was already covered fails as unnecessary work", a
 
 test("the verifier aggregates multiple demands for the same product instead of double-counting stock", async () => {
   const world = new RealisticProcurementCompany();
-  world.state.customerDemands.push({ id: "demand-target-stocked-second", warehouseId: "wh-london", sku: "sku-002", quantity: 2, dueDate: "2026-08-04", approved: true, priority: "normal" });
+  world.state.customerDemands.push({ id: "demand-target-stocked-second", batchId: "london-due-tomorrow", warehouseId: "wh-london", sku: "sku-002", quantity: 2, dueDate: "2026-08-04", approved: true, priority: "normal" });
   const result = await (await verifierFor(world)).verify({ externalState: world.externalState() });
   const sku = result.coverage.find((row) => row.sku === "sku-002");
   assert.equal(sku.required, 10);
