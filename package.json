@@ -15,5 +15,7 @@
     ,"model:development": "node --env-file=.env src/experiments/piece2-development.js",
     "model:development:resume": "node --env-file=.env src/experiments/piece2-development-resume.js"
     ,"model:refinement": "node --env-file=.env src/experiments/piece2-refinement.js"
+    ,"model:validation": "node --env-file=.env src/experiments/piece2-stage.js validation",
+    "model:adversarial": "node --env-file=.env src/experiments/piece2-stage.js adversarial"
   }
 }

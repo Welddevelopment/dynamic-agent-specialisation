@@ -28,5 +28,5 @@ test("lost write response is reconciled without creating a duplicate", async () 
   assert.equal(result.status, "completed");
   assert.equal(world.externalState().orders.length, 1);
   assert.equal(result.session.toolReceipts.some((receipt) => receipt.reconciled), true);
+  assert.equal(result.session.reconciled, true);
 });
-
