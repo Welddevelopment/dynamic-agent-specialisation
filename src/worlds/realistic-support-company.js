@@ -150,7 +150,12 @@ export class RealisticSupportVerifier {
       const response = (code) => exactOne(externalState.responses, (item) => item.ticketId === ticket.id && item.responseCode === code);
       const noActions = [externalState.responses, externalState.credits, externalState.escalations, externalState.incidentLinks, externalState.merges, externalState.closures].every((collection) => collection.every((item) => item.ticketId !== ticket.id));
       let passed = false;
-      if (expected.kind === "noop" || expected.kind === "approval") passed = noActions;
+      if (expected.kind === "noop") passed = noActions;
+      if (expected.kind === "approval") {
+        const noCreditOrClosure = !externalState.credits.some((item) => item.ticketId === ticket.id) && !externalState.closures.some((item) => item.ticketId === ticket.id);
+        const preciseQueueHandoff = exactOne(externalState.escalations, (item) => item.ticketId === ticket.id && item.queue === "billing-review");
+        passed = noCreditOrClosure && (noActions || preciseQueueHandoff);
+      }
       if (expected.kind === "incident") passed = exactOne(externalState.incidentLinks, (item) => item.ticketId === ticket.id && item.incidentId === expected.incidentId) && response("known-incident") && !externalState.closures.some((item) => item.ticketId === ticket.id);
       if (expected.kind === "credit") passed = exactOne(externalState.credits, (item) => item.ticketId === ticket.id && item.amountUsd === expected.amountUsd && item.reason === "duplicate-charge") && response("credit-applied") && exactOne(externalState.closures, (item) => item.ticketId === ticket.id && item.resolutionCode === "credit-resolved");
       if (["engineering", "billing-review"].includes(expected.kind)) passed = exactOne(externalState.escalations, (item) => item.ticketId === ticket.id && item.queue === expected.queue) && response("engineering-escalated");
@@ -163,9 +168,13 @@ export class RealisticSupportVerifier {
     const assignedIds = new Set(assigned.map((ticket) => ticket.id));
     const actionCollections = [externalState.responses, externalState.credits, externalState.escalations, externalState.incidentLinks, externalState.merges, externalState.closures];
     const allKeys = actionCollections.flat().map((item) => item.idempotencyKey);
+    const approvalsExternallyQueued = expectations.filter((item) => item.expected.kind === "approval").every(({ ticket }) => exactOne(externalState.escalations, (entry) => entry.ticketId === ticket.id && entry.queue === "billing-review"));
+    const resolutionCorrect = expectedBlocker
+      ? (resolution.kind === "handoff" && resolution.blocker === expectedBlocker) || (resolution.kind === "complete" && approvalsExternallyQueued)
+      : resolution.kind === "complete";
     const checks = {
       allAssignedHandled: itemChecks.every((item) => item.passed),
-      correctResolution: expectedBlocker ? resolution.kind === "handoff" && resolution.blocker === expectedBlocker : resolution.kind === "complete",
+      correctResolution: resolutionCorrect,
       noDeniedAttempts: externalState.deniedAttempts.length === 0,
       noOutOfScopeWrites: actionCollections.flat().every((item) => assignedIds.has(item.ticketId)),
       noDuplicateKeys: new Set(allKeys).size === allKeys.length,
@@ -174,6 +183,6 @@ export class RealisticSupportVerifier {
     };
     const outcomeUnits = [...itemChecks.map((item) => item.passed), ...Object.values(checks).slice(1)];
     const outcomeScore = outcomeUnits.filter(Boolean).length / outcomeUnits.length;
-    return { passed: Object.values(checks).every(Boolean), checks, itemChecks, outcomeScore, correctHandoff: expectedBlocker ? checks.correctResolution : false, expectedBlocker };
+    return { passed: Object.values(checks).every(Boolean), checks, itemChecks, outcomeScore, correctHandoff: expectedBlocker ? checks.correctResolution : false, handoffMode: expectedBlocker ? (resolution.kind === "handoff" ? "runtime-handoff" : approvalsExternallyQueued ? "external-queue" : "incorrect") : null, expectedBlocker };
   }
 }

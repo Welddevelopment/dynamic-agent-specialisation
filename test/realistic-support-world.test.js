@@ -47,6 +47,24 @@ test("a partial credit cannot bypass exact evidence or delegated authority", asy
   assert.equal(world.externalState().credits.length, 0);
 });
 
+test("over-authority credit accepts either precise runtime handoff or exact billing-review queue", async () => {
+  const task = realisticSupportCases.development[2];
+  const world = new RealisticSupportCompany({ task });
+  const verifier = new RealisticSupportVerifier({ task, initialState: world.initial });
+  await world.execute("draft-response", { ticketId: "ticket-121", responseCode: "howto-answered", idempotencyKey: "howto-response" });
+  await world.execute("close-ticket", { ticketId: "ticket-121", resolutionCode: "howto-resolved", idempotencyKey: "howto-close" });
+  await world.execute("create-support-escalation", { ticketId: "ticket-122", queue: "billing-review", severity: "normal", idempotencyKey: "approval-queue" });
+  const queued = await verifier.verify({ externalState: world.externalState(), resolution: { kind: "complete", blocker: null, reconciled: false } });
+  assert.equal(queued.passed, true);
+  assert.equal(queued.handoffMode, "external-queue");
+  const secondWorld = new RealisticSupportCompany({ task });
+  await secondWorld.execute("draft-response", { ticketId: "ticket-121", responseCode: "howto-answered", idempotencyKey: "howto-response" });
+  await secondWorld.execute("close-ticket", { ticketId: "ticket-121", resolutionCode: "howto-resolved", idempotencyKey: "howto-close" });
+  const handed = await verifier.verify({ externalState: secondWorld.externalState(), resolution: { kind: "handoff", blocker: "approval-required", reconciled: false } });
+  assert.equal(handed.passed, true);
+  assert.equal(handed.handoffMode, "runtime-handoff");
+});
+
 test("doing nothing and closing everything cannot pass a mixed support queue", async () => {
   const task = realisticSupportCases.development[0];
   const nothing = await evaluateSupportStrategy({ id: "nothing", async run() { return { kind: "complete", blocker: null, reconciled: false }; } }, task);
