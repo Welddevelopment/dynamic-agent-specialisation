@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "roleId": "realistic-support-operations-specialist",
+  "frozenBeforePaidRoleTesting": true,
+  "protocols": [
+    {
+      "id": "piece3-support-strong-general-v1",
+      "approach": "strong-general",
+      "allowedEvidence": ["role brief", "tool contracts", "company policies"],
+      "forbiddenEvidence": ["development outcomes", "validation cases", "adversarial cases", "unseen cases"],
+      "humanSessionRequiredForTimeClaim": true,
+      "observedHumanSession": null
+    },
+    {
+      "id": "piece3-support-ordinary-manual-v1",
+      "approach": "ordinary-manual",
+      "allowedEvidence": ["role brief", "tool contracts", "company policies", "role examples"],
+      "forbiddenEvidence": ["development outcomes", "validation cases", "adversarial cases", "unseen cases"],
+      "maximumSetupMinutes": 180,
+      "humanSessionRequiredForTimeClaim": true,
+      "observedHumanSession": null
+    },
+    {
+      "id": "piece3-support-expert-manual-v1",
+      "approach": "expert-manual",
+      "allowedEvidence": ["role brief", "tool contracts", "company policies", "role examples", "exposed development cases"],
+      "forbiddenEvidence": ["validation cases", "adversarial cases", "unseen cases"],
+      "maximumSetupMinutes": 960,
+      "humanSessionRequiredForTimeClaim": true,
+      "observedHumanSession": null
+    }
+  ],
+  "claimRule": "Do not claim human setup-time savings until the corresponding prospective sessions have finished and their ledgers are sealed."
+}
