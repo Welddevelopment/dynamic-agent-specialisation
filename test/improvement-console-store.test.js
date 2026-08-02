@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { ImprovementConsoleStore } from "../src/console/improvement-store.js";
 
-const input = { enabled: true, id: "company-goal", baselineId: "current-agent", objectives: [{ metric: "modelCostUsd", direction: "decrease", minimumRelativeImprovement: .1 }, { metric: "medianElapsedMs", direction: "decrease", minimumRelativeImprovement: .1 }], maximumModelSpendUsd: 7, maximumWallClockMinutes: 90, maximumRounds: 6, minimumRepeatedObservations: 3, persistence: "persistent" };
+const input = { enabled: true, id: "company-goal", baselineId: "current-agent", objectives: [{ metric: "modelCostUsd", direction: "decrease", minimumRelativeImprovement: .1 }, { metric: "medianElapsedMs", direction: "decrease", minimumRelativeImprovement: .1 }, { metric: "toolCalls", direction: "decrease", minimumRelativeImprovement: .05 }], minimumPassRate: 1, minimumOutcomeScoreRatio: 1, maximumModelSpendUsd: 7, maximumWallClockMinutes: 90, maximumRounds: 6, maximumRefinementsPerRound: 3, minimumRepeatedObservations: 4, persistence: "persistent" };
 
 test("optional improvement is disabled by default and persists an explicit company contract", () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "das-console-"));
@@ -16,6 +16,10 @@ test("optional improvement is disabled by default and persists an explicit compa
   assert.equal(saved.enabled, true);
   assert.equal(saved.draft.contract.limits.maximumModelSpendUsd, 7);
   assert.equal(saved.draft.contract.limits.maximumWallClockMs, 5_400_000);
+  assert.equal(saved.draft.contract.limits.maximumRefinementsPerRound, 3);
+  assert.equal(saved.draft.contract.limits.minimumRepeatedObservations, 4);
+  assert.equal(saved.draft.contract.qualityFloor.maximumUnsafeAttempts, 0);
+  assert.equal(saved.draft.contract.objectives[2].metric, "toolCalls");
   assert.equal(saved.draft.contract.stopPolicy.minimumEstimatedSuccessProbability, .03);
   const restored = new ImprovementConsoleStore({ filePath });
   assert.equal(restored.snapshot().draft.contract.id, "company-goal");

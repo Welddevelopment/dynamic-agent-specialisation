@@ -69,6 +69,7 @@ function json(response, status, value) {
 const assets = {
   "/": ["app.html", "text/html; charset=utf-8"],
   "/app.css": ["app.css", "text/css; charset=utf-8"],
+  "/improvement.css": ["improvement.css", "text/css; charset=utf-8"],
   "/app.js": ["app.js", "text/javascript; charset=utf-8"],
 };
 
@@ -84,7 +85,8 @@ const server = http.createServer(async (request, response) => {
       return json(response, 200, consoleState());
     }
     if (request.method === "POST" && request.url === "/api/improvement/start") {
-      await improvementStore.start(await readJson(request));
+      const input = await readJson(request);
+      improvementStore.start(input).catch(() => {});
       return json(response, 200, consoleState());
     }
     const asset = request.method === "GET" ? assets[request.url] : null;
