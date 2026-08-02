@@ -91,6 +91,26 @@ function routeFor(lead, initial) {
 }
 
 const exactOne = (collection, predicate) => collection.filter(predicate).length === 1;
+function outcomeReceipt(externalState, lead, route) {
+  const observedOutcomes = [
+    ...externalState.ownerAssignments.filter((item) => item.leadId === lead.id).map((item) => `owner:${item.ownerId}`),
+    ...externalState.accountLinks.filter((item) => item.leadId === lead.id).map((item) => `account:${item.accountId}`),
+    ...externalState.leadMerges.filter((item) => item.leadId === lead.id).map((item) => `merge:${item.canonicalLeadId}`),
+    ...externalState.followUpTasks.filter((item) => item.leadId === lead.id).map((item) => `task:${item.taskType}:${item.ownerId}`),
+    ...externalState.dispositions.filter((item) => item.leadId === lead.id).map((item) => `disposition:${item.disposition}`),
+    ...externalState.escalations.filter((item) => item.leadId === lead.id).map((item) => `escalation:${item.queue}`),
+  ];
+  let requiredOutcomes = [];
+  if (route.kind === "noop") requiredOutcomes = ["no-action"];
+  if (route.kind === "suppress") requiredOutcomes = ["disposition:do-not-contact", "no-owner", "no-task"];
+  if (route.kind === "identity-review" || route.kind === "territory-review") requiredOutcomes = [`escalation:${route.kind}`, "no-owner", "no-task"];
+  if (route.kind === "merge") requiredOutcomes = [`merge:${route.canonicalLeadId}`, "no-task"];
+  if (route.kind === "qualified") requiredOutcomes = [`owner:${route.ownerId}`, `task:first-touch:${route.ownerId}`, "disposition:qualified"];
+  if (route.kind === "partner") requiredOutcomes = [`owner:${route.ownerId}`, `task:partner-follow-up:${route.ownerId}`, "disposition:qualified"];
+  if (route.kind === "expansion") requiredOutcomes = [`account:${route.accountId}`, `owner:${route.ownerId}`, `task:expansion-review:${route.ownerId}`, "disposition:expansion"];
+  const present = (required) => required === "no-action" ? observedOutcomes.length === 0 : required === "no-owner" ? !observedOutcomes.some((item) => item.startsWith("owner:")) : required === "no-task" ? !observedOutcomes.some((item) => item.startsWith("task:")) : observedOutcomes.includes(required);
+  return { requiredOutcomes, observedOutcomes, missingOutcomes: requiredOutcomes.filter((item) => !present(item)) };
+}
 export class RealisticRevopsVerifier {
   constructor({ task, initialState }) { this.id = "realistic-revops-external-state-v1"; this.task = structuredClone(task); this.initial = structuredClone(initialState); }
   async verify({ externalState, resolution }) {
@@ -110,7 +130,7 @@ export class RealisticRevopsVerifier {
       if (route.kind === "qualified") passed = owner(route.ownerId) && task("first-touch", route.ownerId) && disposition("qualified");
       if (route.kind === "partner") passed = owner(route.ownerId) && task("partner-follow-up", route.ownerId) && disposition("qualified");
       if (route.kind === "expansion") passed = exactOne(externalState.accountLinks, (item) => item.leadId === lead.id && item.accountId === route.accountId) && owner(route.ownerId) && task("expansion-review", route.ownerId) && disposition("expansion");
-      return { leadId: lead.id, expected: route.kind, passed };
+      return { leadId: lead.id, expected: route.kind, passed, ...outcomeReceipt(externalState, lead, route) };
     });
     const assignedIds = new Set(assigned.map((lead) => lead.id));
     const keys = actionCollections.flat().map((item) => item.idempotencyKey);

@@ -76,6 +76,22 @@ test("lost assignment response reconciles without a duplicate", async () => {
   assert.equal(result.externalState.ownerAssignments.length, 1);
 });
 
+test("RevOps verifier reports exact missing external outcomes", async () => {
+  const task = realisticRevopsCases.development[0];
+  const world = new RealisticRevopsCompany({ task });
+  await world.execute("assign-lead-owner", { leadId: "lead-r101", ownerId: "owner-em-1", idempotencyKey: "new-owner" });
+  await world.execute("create-follow-up-task", { leadId: "lead-r101", taskType: "first-touch", ownerId: "owner-em-1", idempotencyKey: "new-task" });
+  await world.execute("set-lead-disposition", { leadId: "lead-r101", disposition: "qualified", idempotencyKey: "new-disp" });
+  await world.execute("link-lead-to-account", { leadId: "lead-r102", accountId: "account-acme", idempotencyKey: "exp-account" });
+  await world.execute("create-follow-up-task", { leadId: "lead-r102", taskType: "expansion-review", ownerId: "owner-am-1", idempotencyKey: "exp-task" });
+  await world.execute("set-lead-disposition", { leadId: "lead-r102", disposition: "expansion", idempotencyKey: "exp-disp" });
+  const verifier = new RealisticRevopsVerifier({ task, initialState: world.initial });
+  const result = await verifier.verify({ externalState: world.externalState(), resolution: { kind: "complete", reconciled: false } });
+  const failed = result.itemChecks.find((item) => item.leadId === "lead-r102");
+  assert.deepEqual(failed.missingOutcomes, ["owner:owner-am-1"]);
+  assert.ok(failed.observedOutcomes.includes("account:account-acme"));
+});
+
 test("doing nothing and blindly routing every lead both fail", async () => {
   const task = realisticRevopsCases.development[1];
   const nothing = await evaluateRevopsStrategy({ id: "nothing", async run() { return { kind: "complete", reconciled: false }; } }, task);

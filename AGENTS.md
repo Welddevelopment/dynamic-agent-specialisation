@@ -111,3 +111,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - V1 spent `$0.0626038`; cumulative paid spend is `$11.36144006`.
 - The repaired full suite passes 97/97. RevOps unseen cases remain sealed, and V1 candidates must not be reused under the changed contract.
 - See `reports/0040-piece-4-viability-v1-environment-discovery.md`.
+
+## Piece 4 RevOps viability v2 shared near-miss — 2026-08-02
+
+- Five fresh candidates ran after the environment repair. All solved the duplicate-plus-revoked-consent case safely; none fully solved the new-lead-plus-existing-account case.
+- The three strongest passed 1/2 with 0.9375 mean outcome score and zero unsafe attempts. Candidate 3 was cheapest at `$0.0184528`.
+- The exact shared miss was the existing-account owner-assignment write: strong candidates linked the account, created the correctly owned expansion task and set expansion disposition, but did not separately assign the lead to that existing owner.
+- The verifier now emits exact required, observed and missing CRM outcomes for grounded refinement.
+- V2 spent `$0.0921058`; cumulative paid spend is `$11.45354586`. RevOps unseen cases remain sealed.
+- See `reports/0041-piece-4-viability-v2-shared-near-miss.md`.
