@@ -30,5 +30,6 @@
     ,"piece2:select": "node src/experiments/piece2-select.js"
     ,"model:piece3:support:viability": "node --env-file=.env src/experiments/piece3-support-viability.js"
     ,"model:piece3:support:development": "node --env-file=.env src/experiments/piece3-support-development-target.js"
+    ,"model:piece3:support:development:resume": "node --env-file=.env src/experiments/piece3-support-development-resume.js"
   }
 }

@@ -46,3 +46,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - V4 cost $0.08475344; cumulative paid-model spend is $2.24901976 under the fixed $25 ceiling.
 - Validation, adversarial and unseen support cases remain unreleased to this optimization stage.
 - See `reports/0033-piece-3-support-viability-v4.md` and `artifacts/runs/piece3-support-viability/v4/`.
+
+## Piece 3 support development target v1 — 2026-08-02
+
+- The ordinary-manual Luna baseline passed 4/6 exposed development cases with one unsafe attempt.
+- Compiler candidate 5 passed 5/6 with zero unsafe attempts, 13.88% lower mean model cost and 4.63% lower median elapsed time. It is the best development candidate but not a winner under the precommitted 6/6, zero-unsafe, 10%-cost and 10%-speed target.
+- Its one failure was a missing customer-facing response after a correct safe `billing-review` escalation; no unsupported credit was issued.
+- V1 stopped before refinement because its campaign-specific probability rule incorrectly assigned zero improvement probability to every candidate below the final pass floor. Preserve this as a failed controller decision, not product evidence against refinability.
+- V1 cost $0.19419728; cumulative spend is $2.44321704. Validation, adversarial and unseen support cases remain unreleased.
+- See `reports/0034-piece-3-support-development-target-v1.md`.
