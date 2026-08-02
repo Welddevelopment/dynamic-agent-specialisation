@@ -12,7 +12,7 @@ export class ModelCandidateArchitect {
       model: "candidate-architect-policy",
       purpose: "construct-complete-specialist-candidates",
       input: {
-        instruction: "Return materially different complete specialist candidates. Do not invent authority. The verifier must be independent, and every field in the candidate contract is required.",
+        instruction: "Return JSON only. Return materially different complete specialist candidates. Do not invent authority. The verifier must be independent, and every field in the candidate contract is required.",
         brief, knowledgeEntries, priorSpecialists: priorSpecialists.map((entry) => ({ id: entry.id, version: entry.version, compatibility: entry.compatibility, evidence: entry.evidence })),
         requiredCandidateFields: ["id", "roleId", "model", "instructions", "context", "tools", "memory", "authority", "escalation", "verifier", "limits", "strategy", "provenance", "version"],
         minimumCandidates: this.minimumCandidates,
@@ -25,4 +25,3 @@ export class ModelCandidateArchitect {
     return { candidates: validations.filter((entry) => entry.valid).map((entry) => entry.candidate), rejected: validations.filter((entry) => !entry.valid), modelReceipt: { provider: response.provider, model: response.model, actualUsd: response.actualUsd, cached: response.cached } };
   }
 }
-

@@ -1,10 +1,29 @@
 function estimateTokens(value) { return Math.ceil(JSON.stringify(value).length / 4); }
 
+function extractOutput(body) {
+  if (body.output_parsed != null) return body.output_parsed;
+  if (typeof body.output_text === "string") return body.output_text;
+  const text = (body.output ?? []).flatMap((item) => item.type === "message" ? item.content ?? [] : [])
+    .filter((item) => item.type === "output_text" && typeof item.text === "string")
+    .map((item) => item.text)
+    .join("");
+  if (text) return text;
+  throw new Error("OpenAI Responses payload contained no extractable model output");
+}
+
+function textFormat(responseFormat) {
+  if (!responseFormat) return undefined;
+  if (responseFormat === "json") return { format: { type: "json_object" } };
+  if (responseFormat.type === "json_schema") return { format: { type: "json_schema", name: responseFormat.name, strict: true, schema: responseFormat.schema } };
+  if (typeof responseFormat === "object") return { format: { type: "json_object" } };
+  throw new Error("Unsupported response format");
+}
+
 export class OpenAIResponsesProvider {
-  constructor({ apiKey, pricing, fetchImpl = fetch, allowPaidCalls = false, environment = process.env }) {
+  constructor({ apiKey, pricing, fetchImpl = fetch, allowPaidCalls = false, environment = process.env, modelMap = {} }) {
     if (!apiKey) throw new Error("OpenAI API key is required");
     if (!pricing?.inputPerMillionUsd || !pricing?.outputPerMillionUsd) throw new Error("Explicit current pricing is required");
-    this.id = "openai-responses"; this.apiKey = apiKey; this.pricing = pricing; this.fetchImpl = fetchImpl;
+    this.id = "openai-responses"; this.apiKey = apiKey; this.pricing = pricing; this.fetchImpl = fetchImpl; this.modelMap = structuredClone(modelMap);
     this.enabled = allowPaidCalls && environment.DAS_ENABLE_PAID_MODEL_CALLS === "JOEL_APPROVED";
   }
   projectCost(request) {
@@ -14,18 +33,26 @@ export class OpenAIResponsesProvider {
   }
   async generate(request) {
     if (!this.enabled) throw new Error("Paid model calls require Joel approval and DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED");
+    const model = this.modelMap[request.model] ?? request.model;
+    const body = { model, input: typeof request.input === "string" ? request.input : JSON.stringify(request.input), max_output_tokens: request.maxOutputTokens ?? 4_000, store: false };
+    const format = textFormat(request.responseFormat);
+    if (format) body.text = format;
+    if (request.reasoningEffort) body.reasoning = { effort: request.reasoningEffort };
     const response = await this.fetchImpl("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: { authorization: `Bearer ${this.apiKey}`, "content-type": "application/json" },
-      body: JSON.stringify({ model: request.model, input: request.input, max_output_tokens: request.maxOutputTokens ?? 4_000 }),
+      body: JSON.stringify(body),
     });
-    if (!response.ok) throw new Error(`OpenAI Responses request failed with ${response.status}`);
-    const body = await response.json();
-    const usage = body.usage ?? { input_tokens: 0, output_tokens: 0, input_tokens_details: { cached_tokens: 0 } };
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => ({}));
+      const message = errorBody?.error?.message ? `: ${errorBody.error.message}` : "";
+      throw new Error(`OpenAI Responses request failed with ${response.status}${message}`);
+    }
+    const responseBody = await response.json();
+    const usage = responseBody.usage ?? { input_tokens: 0, output_tokens: 0, input_tokens_details: { cached_tokens: 0 } };
     const cached = usage.input_tokens_details?.cached_tokens ?? 0;
     const uncached = Math.max(0, usage.input_tokens - cached);
     const actualUsd = uncached / 1_000_000 * this.pricing.inputPerMillionUsd + cached / 1_000_000 * (this.pricing.cachedInputPerMillionUsd ?? this.pricing.inputPerMillionUsd) + usage.output_tokens / 1_000_000 * this.pricing.outputPerMillionUsd;
-    return { output: body.output_parsed ?? body.output_text ?? body.output, usage, actualUsd };
+    return { output: extractOutput(responseBody), usage, actualUsd, responseId: responseBody.id, resolvedModel: model };
   }
 }
-

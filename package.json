@@ -9,6 +9,7 @@
     "evaluate": "node src/cli.js evaluate",
     "audit": "node src/cli.js audit",
     "demo": "node src/cli.js demo",
-    "console": "node src/console/server.js"
+    "console": "node src/console/server.js",
+    "model:smoke": "node --env-file=.env src/experiments/piece2-smoke.js"
   }
 }
