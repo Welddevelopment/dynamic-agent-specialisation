@@ -8,7 +8,8 @@ function extractOutput(body) {
     .map((item) => item.text)
     .join("");
   if (text) return text;
-  throw new Error("OpenAI Responses payload contained no extractable model output");
+  const reason = body.incomplete_details?.reason ?? body.status ?? "unknown";
+  throw new Error(`OpenAI Responses payload contained no extractable model output (${reason})`);
 }
 
 function textFormat(responseFormat) {

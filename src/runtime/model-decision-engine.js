@@ -42,7 +42,7 @@ export class ModelDecisionEngine {
       purpose: "specialist-runtime-decision",
       input: { instruction: "Choose exactly one next decision. For a tool decision, provide its exact permitted name and input, with null for optional filters you do not use; reason and blocker must be null. For complete, set name, input, reason, and blocker to null. For escalate, set name and input to null, give a precise reason, and select the exact blocker. Never claim completion until the external state should satisfy the entire goal. Never escalate merely because investigation is unfinished.", instructions: candidate.instructions, goal, turn, boundedContext: candidate.context, observations, memory, tools, authority: candidate.authority, escalation: candidate.escalation },
       responseFormat: runtimeDecisionResponseFormat(tools),
-      maxOutputTokens: 500,
+      maxOutputTokens: 1_200,
     });
     const decision = parse(response.output);
     if (!decision || !["tool", "complete", "escalate"].includes(decision.kind)) throw new Error("Model returned an invalid decision kind");
