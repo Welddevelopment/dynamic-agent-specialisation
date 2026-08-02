@@ -92,3 +92,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Total paid-model campaign spend through support closure is `$11.29883626` under the fixed `$25` ceiling.
 - Do not claim customer/production reliability, universal support performance, prospective human-effort savings, or complete Level 1.
 - See `reports/0038-piece-3-support-role-closure.md`.
+
+## Piece 4 RevOps deterministic foundation — 2026-08-02
+
+- The third rich role is a bounded CRM/revenue-operations world, structurally different from procurement and support.
+- It contains realistic unrelated leads, contacts and accounts; consent, territory and routing evidence; protected commercial state; thirteen bounded tools; independent external-state verification; idempotent recovery; and seven distinct routing outcomes plus no-op.
+- Five development, three validation and three adversarial cases are exposed. Four prospective unseen cases remain sealed.
+- Strong-general Terra, ordinary-manual Luna and expert-manual Sol baselines are defined and validated before paid testing.
+- The deterministic reference passes every exposed case; the full suite is 95/95. This is benchmark validation, not model-specialist evidence.
+- No model call was made for this phase. Cumulative spend remains `$11.29883626`.
+- See `reports/0039-piece-4-revops-deterministic-foundation.md`.
