@@ -171,3 +171,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The same compiler-selected Terra specialist is frozen unchanged. Baselines and runtime contracts are hashed before evaluation.
 - Every exposed Cycle 2 case passes the deterministic reference. No Cycle 2 model call has yet been made.
 - See `reports/0047-piece-4-cycle2-freeze.md`.
+
+## Independent completion at hard runtime limits — 2026-08-02
+
+- Cycle 2 validation v1 passed 2/3. In the failed five-route case, every external item outcome was correct and safe, but the candidate's `$0.55` task budget blocked its final `complete` model call.
+- The runtime now invokes the bound independent external verifier at cost, latency or turn limits. It completes only if the entire real outcome already passes; otherwise the original limit block remains.
+- This preserves the customer's budget and does not let the candidate grade itself.
+- The runtime change requires a fresh prospective evaluation and later cross-role confirmation. Do not retroactively rewrite the preserved 2/3 result.
+- See `reports/0048-independent-limit-completion.md`.

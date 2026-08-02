@@ -125,3 +125,27 @@ test("runtime never retries after an independently detected incorrect side effec
   assert.equal(decisions, 1);
   assert.equal(result.session.verificationRepairRounds, 0);
 });
+
+test("runtime can close a fully correct outcome through the independent verifier at a hard cost stop", async () => {
+  let decisions = 0;
+  const decisionEngine = { next: async () => {
+    decisions += 1;
+    if (decisions === 1) return { kind: "tool", name: "write", input: { value: 7 }, confidence: 1, metering: { actualUsd: .49 } };
+    throw new Error("candidate-task-cost-limit-before-call");
+  } };
+  const verifier = { verify: async ({ externalState, resolution }) => ({ passed: externalState.value === 7 && resolution.kind === "complete", recoveryClass: externalState.value === 7 ? "complete" : "missing-outcome" }) };
+  const runtime = new SpecialistAgentRuntime({ decisionEngine, memory: new TenantRoleMemory(), evidence: new EvidenceLedger() });
+  const result = await runtime.run({ tenantId: "limit-complete", candidate: candidate({ limits: { maxCostPerTaskUsd: .5 } }), goal: "set value", toolHost: host(), externalVerifier: verifier });
+  assert.equal(result.status, "completed");
+  assert.equal(result.completionSource, "independent-limit-state-check");
+  assert.equal(result.limitReason, "candidate-task-cost-limit-before-call");
+});
+
+test("runtime remains blocked at a hard limit when independent external state is incomplete", async () => {
+  const decisionEngine = { next: async () => { throw new Error("candidate-task-cost-limit-before-call"); } };
+  const runtime = new SpecialistAgentRuntime({ decisionEngine, memory: new TenantRoleMemory(), evidence: new EvidenceLedger() });
+  const result = await runtime.run({ tenantId: "limit-blocked", candidate: candidate({ limits: { maxCostPerTaskUsd: .01 } }), goal: "set value", toolHost: host(), externalVerifier: { verify: async () => ({ passed: false, recoveryClass: "missing-outcome" }) } });
+  assert.equal(result.status, "blocked");
+  assert.equal(result.reason, "candidate-task-cost-limit-before-call");
+  assert.equal(result.verification.passed, false);
+});

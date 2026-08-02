@@ -24,21 +24,21 @@ export class SpecialistAgentRuntime {
     const threshold = candidate.escalation?.threshold ?? 0;
     for (let turn = 1; turn <= this.maxTurns; turn += 1) {
       session.elapsedMs = this.now() - startedAtMs;
-      if (session.elapsedMs >= maxLatencyMs) return this.#limitBlocked({ tenantId, candidate, session, reason: "candidate-task-latency-limit" });
+      if (session.elapsedMs >= maxLatencyMs) return this.#limitOrVerifiedComplete({ tenantId, candidate, session, reason: "candidate-task-latency-limit", goal, toolHost, externalVerifier });
       const priorMemory = this.memory.read(session);
       let decision;
       try {
         decision = await this.decisionEngine.next({ candidate, goal, turn, observations: structuredClone(session.observations), memory: priorMemory, tools: availableTools, remainingCostUsd: maxCostUsd - session.modelCostUsd, remainingLatencyMs: maxLatencyMs - session.elapsedMs });
       } catch (error) {
         const reason = error instanceof Error ? error.message : String(error);
-        if (reason === "candidate-task-cost-limit-before-call") return this.#limitBlocked({ tenantId, candidate, session, reason });
+        if (reason === "candidate-task-cost-limit-before-call") return this.#limitOrVerifiedComplete({ tenantId, candidate, session, reason, goal, toolHost, externalVerifier });
         throw error;
       }
       session.modelCostUsd += decision.metering?.actualUsd ?? 0;
       session.elapsedMs = this.now() - startedAtMs;
       this.evidence?.append("runtime.decision", { tenantId, candidateId: candidate.id, turn, decision });
-      if (session.modelCostUsd > maxCostUsd) return this.#limitBlocked({ tenantId, candidate, session, reason: "candidate-task-cost-limit-after-call" });
-      if (session.elapsedMs > maxLatencyMs) return this.#limitBlocked({ tenantId, candidate, session, reason: "candidate-task-latency-limit-after-call" });
+      if (session.modelCostUsd > maxCostUsd) return this.#limitOrVerifiedComplete({ tenantId, candidate, session, reason: "candidate-task-cost-limit-after-call", goal, toolHost, externalVerifier });
+      if (session.elapsedMs > maxLatencyMs) return this.#limitOrVerifiedComplete({ tenantId, candidate, session, reason: "candidate-task-latency-limit-after-call", goal, toolHost, externalVerifier });
       if (decision.kind !== "escalate" && (decision.confidence ?? 1) < threshold) return this.#limitBlocked({ tenantId, candidate, session, reason: "confidence-below-candidate-threshold" });
       if (decision.kind === "escalate") {
         const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState(), resolution: { kind: "handoff", blocker: decision.blocker } });
@@ -92,11 +92,18 @@ export class SpecialistAgentRuntime {
       this.memory.append({ ...session, record: { kind: "tool-receipt", tool: decision.name, receipt } });
       this.evidence?.append("runtime.tool-executed", { tenantId, candidateId: candidate.id, turn, tool: decision.name, receipt });
     }
-    return { status: "blocked", reason: "turn-limit-reached", session };
+    return this.#limitOrVerifiedComplete({ tenantId, candidate, session, reason: "turn-limit-reached", goal, toolHost, externalVerifier });
   }
-  #limitBlocked({ tenantId, candidate, session, reason }) {
-    this.evidence?.append("runtime.limit-blocked", { tenantId, candidateId: candidate.id, reason, modelCostUsd: session.modelCostUsd, elapsedMs: session.elapsedMs });
-    return { status: "blocked", reason, session };
+  async #limitOrVerifiedComplete({ tenantId, candidate, session, reason, goal, toolHost, externalVerifier }) {
+    const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState(), resolution: { kind: "complete", blocker: null, reconciled: session.reconciled, completionSource: "independent-limit-state-check" } });
+    this.evidence?.append("runtime.limit-state-verified", { tenantId, candidateId: candidate.id, reason, verification });
+    if (!verification.passed) return this.#limitBlocked({ tenantId, candidate, session, reason, verification });
+    this.memory.append({ ...session, record: { kind: "verified-outcome", goal, verification, completionSource: "independent-limit-state-check" } });
+    return { status: "completed", completionSource: "independent-limit-state-check", limitReason: reason, verification, session };
+  }
+  #limitBlocked({ tenantId, candidate, session, reason, verification = null }) {
+    this.evidence?.append("runtime.limit-blocked", { tenantId, candidateId: candidate.id, reason, modelCostUsd: session.modelCostUsd, elapsedMs: session.elapsedMs, verification });
+    return { status: "blocked", reason, verification, session };
   }
 }
 
