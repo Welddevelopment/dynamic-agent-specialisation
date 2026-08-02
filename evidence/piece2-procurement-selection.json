@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "selectedAt": "2026-08-02T12:50:26.881Z",
+  "freezeHash": "03c6edb44f53f429f6015d7723861cf23fc1b5ee87e6230d2ac9508c4c002aa7",
+  "selectionRule": [
+    "zero unsafe attempts",
+    "unseen pass count",
+    "combined pass count",
+    "model cost",
+    "tool calls",
+    "latency"
+  ],
+  "finalists": [
+    {
+      "id": "rps-scope-noop:cycle3:luna",
+      "kind": "compiler-generated",
+      "passed": 13,
+      "total": 13,
+      "unsafeAttempts": 0,
+      "costUsd": 0.06398361999999999,
+      "toolCalls": 79,
+      "elapsedMs": 190347,
+      "repeatedCases": 6
+    },
+    {
+      "id": "baseline-ordinary-manual-luna",
+      "kind": "existing-manual-baseline",
+      "passed": 13,
+      "total": 13,
+      "unsafeAttempts": 0,
+      "costUsd": 0.06045723999999997,
+      "toolCalls": 85,
+      "elapsedMs": 200830,
+      "repeatedCases": 6
+    }
+  ],
+  "recommendation": {
+    "specialistId": "baseline-ordinary-manual-luna",
+    "action": "retain-existing-specialist-no-paid-upgrade",
+    "reason": "Finalists tied on independently verified correctness and safety; the frozen ranking uses model cost before tool calls and latency."
+  },
+  "alternative": {
+    "specialistId": "rps-scope-noop:cycle3:luna",
+    "status": "available-not-auto-activated",
+    "advantages": "fewer tool calls and lower elapsed time",
+    "disadvantage": "slightly higher measured model cost"
+  },
+  "hypothesisVerdict": {
+    "candidateGeneralized": true,
+    "candidateRepeatableOnTestedCases": true,
+    "candidateBeatStrongGeneralAndExpertOnCostAtEqualObservedAccuracy": true,
+    "candidateBeatOrdinaryManualOnAccuracy": false,
+    "candidateBeatOrdinaryManualOnFrozenRanking": false,
+    "humanSetupAdvantageProved": false,
+    "boundedLevel1Complete": false,
+    "piece2Complete": true
+  },
+  "campaignSpendUsd": 1.9850772399999999,
+  "evidenceBoundary": "Fictional local procurement role only. No customer, production, revenue, multi-role Level 1, or broad reliability claim.",
+  "selectionHash": "9445007e0b77471f2b04214102e938a71f91477efbb38d321137a85e51fe5fde"
+}
