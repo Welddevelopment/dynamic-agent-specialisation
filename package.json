@@ -20,5 +20,6 @@
     ,"model:cycle2:refinement": "node --env-file=.env src/experiments/piece2-cycle2-refinement.js"
     ,"model:cycle2:validation": "node --env-file=.env src/experiments/piece2-cycle2-stage.js validation",
     "model:cycle2:adversarial": "node --env-file=.env src/experiments/piece2-cycle2-stage.js adversarial"
+    ,"model:cycle3:search": "node --env-file=.env src/experiments/piece2-cycle3-search.js"
   }
 }
