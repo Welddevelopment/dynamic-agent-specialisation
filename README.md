@@ -8,6 +8,8 @@ The bounded three-role technical mechanism is now complete across fictional proc
 
 This is not customer evidence, production reliability, proof of human setup-time savings, or general superiority over incumbent agent-building workflows. See `reports/0054-bounded-level1-technical-closeout.md`.
 
+Work has begun toward bounded Level 1.5: independently verified outcome monitoring, bounded drift-triggered optimization requests, disposable → zero-authority shadow → authorized canary gates, promotion, quarantine, rollback, durable restart recovery, and private-console visibility. The deterministic three-role lifecycle rehearsal passes, but no fresh model-backed or customer lifecycle campaign has completed, so Level 1.5 is not yet claimed. See `reports/0055-level1-5-lifecycle-foundation.md`.
+
 ## Commands
 
 ```bash

@@ -61,3 +61,23 @@ Not demonstrated:
 ## Closeout distinction
 
 The bounded Level 1 technical mechanism is complete. The broader external evidence contract is not: the human-effort ledger has not yet been used in a prospective human-engineer study, and no customer or production environment has been evaluated.
+
+## Level 1.5 bridge
+
+```text
+active versioned specialist
+  -> bound independent runtime verdict
+  -> sealed version-specific performance observation
+  -> healthy: continue
+     drift: optional bounded optimization request
+     unsafe: immediate halt/quarantine
+  -> development challenger
+  -> disposable offline gate
+  -> zero-authority shadow gate
+  -> explicitly authorized bounded canary
+  -> promote or quarantine
+  -> ongoing monitoring
+  -> rollback to prior proven registry record on regression
+```
+
+The control plane, persistence, runtime-observation bridge and deterministic three-role rehearsal exist. A fresh model-backed end-to-end challenger lifecycle and real dispatcher/event source remain open, so bounded Level 1.5 is not yet complete.

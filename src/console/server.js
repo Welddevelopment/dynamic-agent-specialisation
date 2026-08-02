@@ -28,14 +28,46 @@ function historicalPiece2() {
   };
 }
 
+function readOptionalJson(file) {
+  const resolved = path.resolve(file);
+  return fs.existsSync(resolved) ? JSON.parse(fs.readFileSync(resolved, "utf8")) : null;
+}
+
+function productEvidenceState() {
+  const closeout = readOptionalJson("artifacts/level1/technical-closeout-v1.json");
+  const registry = readOptionalJson("artifacts/level1/registry-v1.json");
+  const lifecycle = readOptionalJson("artifacts/level15/rehearsal-v1/summary.json");
+  return {
+    level1: closeout,
+    registry: registry ? {
+      integrityHash: registry.integrityHash,
+      revision: registry.revision,
+      selections: registry.selections.map((record) => ({ roleId: record.roleId, selectionVersion: record.selectionVersion, decision: record.decision, candidateId: record.selected.candidate.id, candidateVersion: record.selected.candidate.version, alternativesPreserved: record.alternatives.length, recordHash: record.recordHash })),
+    } : null,
+    lifecycle,
+  };
+}
+
 function consoleState() {
+  const product = productEvidenceState();
+  const latestCloseout = product.level1 ? {
+    id: "bounded-level1-closeout",
+    label: "Bounded Level 1 technical mechanism",
+    status: product.level1.verdict.boundedLevel1TechnicalMechanismComplete ? "complete" : "incomplete",
+    result: product.level1.verdict.wording,
+    stopReason: "Three-role technical closeout",
+    spendUsd: product.level1.paidModelSpend.cumulativeSpentUsd,
+    selectionHash: product.registry?.integrityHash ?? null,
+    boundary: "Fictional local evidence. No customer deployment, production reliability, or human-effort advantage claimed.",
+  } : null;
   return {
     boundary: "Private local console — synthetic evidence only",
     paidModelCostUsd: run.paidModelCostUsd,
     evidenceValid: run.evidenceValid,
     improvementRunnerAvailable: false,
     improvement: improvementStore.snapshot(),
-    historicalImprovementRuns: [historicalPiece2()].filter(Boolean),
+    historicalImprovementRuns: [latestCloseout, historicalPiece2()].filter(Boolean),
+    product,
     roles: run.results.map(({ role, result, comparison, baselineResults }) => ({
       id: role.id,
       name: role.brief.role,
@@ -70,6 +102,7 @@ const assets = {
   "/": ["app.html", "text/html; charset=utf-8"],
   "/app.css": ["app.css", "text/css; charset=utf-8"],
   "/improvement.css": ["improvement.css", "text/css; charset=utf-8"],
+  "/lifecycle.css": ["lifecycle.css", "text/css; charset=utf-8"],
   "/app.js": ["app.js", "text/javascript; charset=utf-8"],
 };
 

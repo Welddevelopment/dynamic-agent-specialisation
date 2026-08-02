@@ -48,7 +48,7 @@ export class DurableSpecialistRegistry {
 
   registerSelection({ role, selectedCandidate, alternatives = [], decision, evidence, compatibility, evidenceReferences = [] }) {
     if (!role?.id || selectedCandidate?.roleId !== role.id) throw new Error("Selection role does not match candidate");
-    if (!["activate-compiler-specialist", "retain-existing-specialist"].includes(decision)) throw new Error("Unknown selection decision");
+    if (!["activate-compiler-specialist", "retain-existing-specialist", "rollback-to-proven-specialist"].includes(decision)) throw new Error("Unknown selection decision");
     assertCandidateIntegrity(selectedCandidate);
     assertSelectionEvidence(evidence, selectedCandidate.id);
     for (const alternative of alternatives) {

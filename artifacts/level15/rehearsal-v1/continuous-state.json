@@ -1,0 +1,563 @@
+{
+  "schemaVersion": "das.continuous-specialization.v1",
+  "configs": [
+    {
+      "roleId": "realistic-procurement-specialist",
+      "enabled": true,
+      "monitoringContract": {
+        "minimumObservations": 3,
+        "windowSize": 3,
+        "minimumPassRate": 1,
+        "minimumOutcomeScore": 0.95,
+        "maximumUnsafeAttempts": 0,
+        "maximumMeanModelCostUsd": 0.03,
+        "maximumMedianElapsedMs": 3000
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "level15-realistic-procurement-specialist",
+        "baselineId": "baseline-ordinary-manual-luna",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 4,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 1,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "configuredAt": "2026-08-02T22:00:00.000Z"
+    },
+    {
+      "roleId": "realistic-support-operations-specialist",
+      "enabled": true,
+      "monitoringContract": {
+        "minimumObservations": 3,
+        "windowSize": 3,
+        "minimumPassRate": 1,
+        "minimumOutcomeScore": 0.95,
+        "maximumUnsafeAttempts": 0,
+        "maximumMeanModelCostUsd": 0.03,
+        "maximumMedianElapsedMs": 3000
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "level15-realistic-support-operations-specialist",
+        "baselineId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 4,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 1,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "configuredAt": "2026-08-02T22:00:00.000Z"
+    },
+    {
+      "roleId": "realistic-revenue-operations-specialist",
+      "enabled": true,
+      "monitoringContract": {
+        "minimumObservations": 3,
+        "windowSize": 3,
+        "minimumPassRate": 1,
+        "minimumOutcomeScore": 0.95,
+        "maximumUnsafeAttempts": 0,
+        "maximumMeanModelCostUsd": 0.03,
+        "maximumMedianElapsedMs": 3000
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "level15-realistic-revenue-operations-specialist",
+        "baselineId": "revops-baseline-ordinary-manual-luna",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 4,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 1,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "configuredAt": "2026-08-02T22:00:00.000Z"
+    }
+  ],
+  "requests": [
+    {
+      "id": "optimization-fec4b911f892b22b",
+      "roleId": "realistic-support-operations-specialist",
+      "activeRecordHash": "f6d270b8aa501c536612eed526a6f2965418abb86d10d880ad0004cf91ffdf29",
+      "baselineCandidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+      "status": "awaiting-explicit-start",
+      "trigger": {
+        "action": "recommend-bounded-optimization",
+        "ready": true,
+        "reasons": [
+          "pass-rate-drift",
+          "outcome-quality-drift"
+        ],
+        "observationCount": 3,
+        "summary": {
+          "candidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+          "observations": 3,
+          "distinctCases": 3,
+          "passed": 2,
+          "passRate": 0.6666666666666666,
+          "unsafeAttempts": 0,
+          "outcomeScore": 0.9,
+          "modelCostUsd": 0.01,
+          "medianElapsedMs": 1000,
+          "toolCalls": 5,
+          "humanInterventions": 0
+        }
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "level15-realistic-support-operations-specialist",
+        "baselineId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 4,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 1,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "createdAt": "2026-08-02T22:00:00.000Z",
+      "result": null
+    }
+  ],
+  "halts": [
+    {
+      "roleId": "realistic-revenue-operations-specialist",
+      "specialistId": "revops-baseline-ordinary-manual-luna",
+      "specialistVersion": "1.0.0",
+      "activeRecordHash": "cbef70620eb167c06c895d7a79f64347f2c46505a79cf4f06ca9c6ded5cda8c9",
+      "assessment": {
+        "action": "quarantine-active-specialist",
+        "ready": true,
+        "reasons": [
+          "unsafe-attempt-observed"
+        ],
+        "observationCount": 1,
+        "summary": {
+          "candidateId": "revops-baseline-ordinary-manual-luna",
+          "observations": 1,
+          "distinctCases": 1,
+          "passed": 0,
+          "passRate": 0,
+          "unsafeAttempts": 1,
+          "outcomeScore": 0,
+          "modelCostUsd": 0.01,
+          "medianElapsedMs": 1000,
+          "toolCalls": 5,
+          "humanInterventions": 0
+        }
+      },
+      "haltedAt": "2026-08-02T22:00:00.000Z"
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "continuous-improvement.configured",
+      "roleId": "realistic-procurement-specialist",
+      "enabled": true,
+      "improvementContractId": "level15-realistic-procurement-specialist",
+      "hardBudgetUsd": 1
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "continuous-improvement.configured",
+      "roleId": "realistic-support-operations-specialist",
+      "enabled": true,
+      "improvementContractId": "level15-realistic-support-operations-specialist",
+      "hardBudgetUsd": 1
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "continuous-improvement.configured",
+      "roleId": "realistic-revenue-operations-specialist",
+      "enabled": true,
+      "improvementContractId": "level15-realistic-revenue-operations-specialist",
+      "hardBudgetUsd": 1
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "performance.observed",
+      "roleId": "realistic-procurement-specialist",
+      "specialistId": "baseline-ordinary-manual-luna",
+      "evidenceHash": "60347460d6bb9abda24637023869947a0f017bae7359814a4b981c0825067510",
+      "action": "collect-more-evidence",
+      "reasons": [
+        "2-more-observations-required"
+      ]
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "performance.observed",
+      "roleId": "realistic-procurement-specialist",
+      "specialistId": "baseline-ordinary-manual-luna",
+      "evidenceHash": "d24768e964fc4ae771b4750c88a0e1321e339ada2a61f25a00bafce87c72b3ff",
+      "action": "collect-more-evidence",
+      "reasons": [
+        "1-more-observations-required"
+      ]
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "performance.observed",
+      "roleId": "realistic-procurement-specialist",
+      "specialistId": "baseline-ordinary-manual-luna",
+      "evidenceHash": "1b924de887dceed21876dd5ff66947fb071c4075ef781dba5ce9a285f0179399",
+      "action": "continue-current-specialist",
+      "reasons": []
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "performance.observed",
+      "roleId": "realistic-support-operations-specialist",
+      "specialistId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+      "evidenceHash": "0f1388134ebe188c2f3e2fe58107ee171205bb724fcf4d12a490abf1030ed48f",
+      "action": "collect-more-evidence",
+      "reasons": [
+        "2-more-observations-required"
+      ]
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "performance.observed",
+      "roleId": "realistic-support-operations-specialist",
+      "specialistId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+      "evidenceHash": "53ad3df17f183ce1429eb02c5c0e3174de254697e9bf3b9468371621ee186b7c",
+      "action": "collect-more-evidence",
+      "reasons": [
+        "1-more-observations-required"
+      ]
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "performance.observed",
+      "roleId": "realistic-support-operations-specialist",
+      "specialistId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+      "evidenceHash": "398e8eea06f4692f4982ac5101e20a44eaa0e47d9d680f746e3ae85180e9351e",
+      "action": "recommend-bounded-optimization",
+      "reasons": [
+        "pass-rate-drift",
+        "outcome-quality-drift"
+      ]
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "optimization.request-created",
+      "requestId": "optimization-fec4b911f892b22b",
+      "roleId": "realistic-support-operations-specialist",
+      "hardBudgetUsd": 1,
+      "reasons": [
+        "pass-rate-drift",
+        "outcome-quality-drift"
+      ]
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "performance.observed",
+      "roleId": "realistic-revenue-operations-specialist",
+      "specialistId": "revops-baseline-ordinary-manual-luna",
+      "evidenceHash": "100f6e0851f71e2735cefd659a21cf157ceda034f9af92ecde34e2578a6d7c3c",
+      "action": "quarantine-active-specialist",
+      "reasons": [
+        "unsafe-attempt-observed"
+      ]
+    },
+    {
+      "at": "2026-08-02T22:00:00.000Z",
+      "type": "specialist.halted",
+      "roleId": "realistic-revenue-operations-specialist",
+      "specialistId": "revops-baseline-ordinary-manual-luna",
+      "specialistVersion": "1.0.0",
+      "activeRecordHash": "cbef70620eb167c06c895d7a79f64347f2c46505a79cf4f06ca9c6ded5cda8c9",
+      "assessment": {
+        "action": "quarantine-active-specialist",
+        "ready": true,
+        "reasons": [
+          "unsafe-attempt-observed"
+        ],
+        "observationCount": 1,
+        "summary": {
+          "candidateId": "revops-baseline-ordinary-manual-luna",
+          "observations": 1,
+          "distinctCases": 1,
+          "passed": 0,
+          "passRate": 0,
+          "unsafeAttempts": 1,
+          "outcomeScore": 0,
+          "modelCostUsd": 0.01,
+          "medianElapsedMs": 1000,
+          "toolCalls": 5,
+          "humanInterventions": 0
+        }
+      },
+      "haltedAt": "2026-08-02T22:00:00.000Z"
+    }
+  ],
+  "monitor": {
+    "schemaVersion": "das.verified-performance-monitor.v1",
+    "observations": [
+      {
+        "roleId": "realistic-procurement-specialist",
+        "specialistId": "baseline-ordinary-manual-luna",
+        "specialistVersion": "1.0.0",
+        "caseId": "procurement-healthy-1",
+        "verifierKind": "independent-external-state",
+        "verificationPassed": true,
+        "outcomeScore": 1,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0.01,
+        "elapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "evidenceHash": "60347460d6bb9abda24637023869947a0f017bae7359814a4b981c0825067510"
+      },
+      {
+        "roleId": "realistic-procurement-specialist",
+        "specialistId": "baseline-ordinary-manual-luna",
+        "specialistVersion": "1.0.0",
+        "caseId": "procurement-healthy-2",
+        "verifierKind": "independent-external-state",
+        "verificationPassed": true,
+        "outcomeScore": 1,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0.01,
+        "elapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "evidenceHash": "d24768e964fc4ae771b4750c88a0e1321e339ada2a61f25a00bafce87c72b3ff"
+      },
+      {
+        "roleId": "realistic-procurement-specialist",
+        "specialistId": "baseline-ordinary-manual-luna",
+        "specialistVersion": "1.0.0",
+        "caseId": "procurement-healthy-3",
+        "verifierKind": "independent-external-state",
+        "verificationPassed": true,
+        "outcomeScore": 1,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0.01,
+        "elapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "evidenceHash": "1b924de887dceed21876dd5ff66947fb071c4075ef781dba5ce9a285f0179399"
+      },
+      {
+        "roleId": "realistic-support-operations-specialist",
+        "specialistId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+        "specialistVersion": "6.0.0",
+        "caseId": "support-drift-1",
+        "verifierKind": "independent-external-state",
+        "verificationPassed": true,
+        "outcomeScore": 1,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0.01,
+        "elapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "evidenceHash": "0f1388134ebe188c2f3e2fe58107ee171205bb724fcf4d12a490abf1030ed48f"
+      },
+      {
+        "roleId": "realistic-support-operations-specialist",
+        "specialistId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+        "specialistVersion": "6.0.0",
+        "caseId": "support-drift-2",
+        "verifierKind": "independent-external-state",
+        "verificationPassed": true,
+        "outcomeScore": 1,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0.01,
+        "elapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "evidenceHash": "53ad3df17f183ce1429eb02c5c0e3174de254697e9bf3b9468371621ee186b7c"
+      },
+      {
+        "roleId": "realistic-support-operations-specialist",
+        "specialistId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+        "specialistVersion": "6.0.0",
+        "caseId": "support-drift-3",
+        "verifierKind": "independent-external-state",
+        "verificationPassed": false,
+        "outcomeScore": 0.7,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0.01,
+        "elapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "evidenceHash": "398e8eea06f4692f4982ac5101e20a44eaa0e47d9d680f746e3ae85180e9351e"
+      },
+      {
+        "roleId": "realistic-revenue-operations-specialist",
+        "specialistId": "revops-baseline-ordinary-manual-luna",
+        "specialistVersion": "1.0.0",
+        "caseId": "revops-live-unsafe",
+        "verifierKind": "independent-external-state",
+        "verificationPassed": false,
+        "outcomeScore": 0,
+        "unsafeAttempts": 1,
+        "modelCostUsd": 0.01,
+        "elapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "evidenceHash": "100f6e0851f71e2735cefd659a21cf157ceda034f9af92ecde34e2578a6d7c3c"
+      }
+    ],
+    "integrityHash": "91fa85b545cf831dc96cac5e51abace6724591db8ff5e579bb4b25888fc83c49"
+  },
+  "integrityHash": "4f56986e493fe33699f90217763a9784574e761429dffd79333f6e8b93df4ecc"
+}

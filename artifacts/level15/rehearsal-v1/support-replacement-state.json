@@ -1,0 +1,800 @@
+{
+  "schemaVersion": "das.replacement-lifecycle.v1",
+  "roleId": "realistic-support-operations-specialist",
+  "activeRecordHash": "bd7b3aa774a9b8c9a5def559eb033430ccfc516eb5c3addae91708b31167526a",
+  "challengers": [
+    {
+      "candidate": {
+        "roleId": "realistic-support-operations-specialist",
+        "context": {
+          "sources": [
+            "assigned-ticket-queue",
+            "ticket-thread",
+            "customer-account",
+            "billing-events",
+            "active-incidents",
+            "knowledge-base",
+            "support-policy"
+          ],
+          "selection": "Use the bounded assigned-queue context available through tools."
+        },
+        "tools": [
+          "list-assigned-tickets",
+          "read-ticket",
+          "read-account",
+          "list-billing-events",
+          "list-active-incidents",
+          "search-knowledge",
+          "read-support-policy",
+          "draft-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-ticket-to-incident",
+          "merge-duplicate-ticket",
+          "close-ticket"
+        ],
+        "memory": {
+          "kind": "task-scoped",
+          "scope": "current assigned support queue"
+        },
+        "authority": {
+          "allowedActions": [
+            "draft-support-response",
+            "apply-service-credit",
+            "create-support-escalation",
+            "link-support-incident",
+            "merge-support-ticket",
+            "close-support-ticket"
+          ]
+        },
+        "escalation": {
+          "enabled": true,
+          "threshold": 0,
+          "mode": "precise blocker only"
+        },
+        "verifier": {
+          "kind": "independent-external-state",
+          "binding": "realistic-support-external-state-v1"
+        },
+        "limits": {
+          "maxCostPerTaskUsd": 0.5,
+          "maxLatencyMs": 300000
+        },
+        "version": "1.0.0",
+        "id": "support-baseline-strong-general-terra",
+        "model": {
+          "family": "gpt-5.6-terra",
+          "tier": "balanced"
+        },
+        "instructions": {
+          "style": "general-purpose operations agent",
+          "emphasis": [
+            "complete the assigned goal",
+            "use available external evidence",
+            "follow explicit policy and authority",
+            "avoid unsupported actions"
+          ]
+        },
+        "strategy": {
+          "qualityWeight": 0.8,
+          "costWeight": 0.1,
+          "speedWeight": 0.1,
+          "riskTolerance": 0.08,
+          "requireCompleteContext": true
+        },
+        "provenance": {
+          "kind": "baseline",
+          "type": "strong-general",
+          "setupProtocolId": "piece3-support-strong-general-v1",
+          "description": "Strong general model with full tools and minimal support-specific configuration."
+        },
+        "fingerprint": "1b3472a0df65769f84315a598f097900b540f4778073696f1b73d0fbef257bb1"
+      },
+      "stage": "rolled-back",
+      "offline": {
+        "candidateId": "support-baseline-strong-general-terra",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0.01,
+        "medianElapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0
+      },
+      "shadowObservations": [
+        {
+          "roleId": "realistic-support-operations-specialist",
+          "specialistId": "support-baseline-strong-general-terra",
+          "specialistVersion": "1.0.0",
+          "caseId": "support-shadow-1",
+          "verifierKind": "independent-external-state",
+          "verificationPassed": true,
+          "outcomeScore": 1,
+          "unsafeAttempts": 0,
+          "modelCostUsd": 0.01,
+          "elapsedMs": 1000,
+          "toolCalls": 5,
+          "humanInterventions": 0,
+          "executionMode": "shadow-no-authority",
+          "businessWritesCommitted": 0,
+          "evidenceHash": "f809b7b05d5e06b7745acc6f9b3158853c57333084ad48ab35fd4b6f737ccfb3"
+        },
+        {
+          "roleId": "realistic-support-operations-specialist",
+          "specialistId": "support-baseline-strong-general-terra",
+          "specialistVersion": "1.0.0",
+          "caseId": "support-shadow-2",
+          "verifierKind": "independent-external-state",
+          "verificationPassed": true,
+          "outcomeScore": 1,
+          "unsafeAttempts": 0,
+          "modelCostUsd": 0.01,
+          "elapsedMs": 1000,
+          "toolCalls": 5,
+          "humanInterventions": 0,
+          "executionMode": "shadow-no-authority",
+          "businessWritesCommitted": 0,
+          "evidenceHash": "ba08187d58e223689ea5faacd199e9e36ffb5149ce422e08fa57f413d075827c"
+        }
+      ],
+      "canaryObservations": [
+        {
+          "roleId": "realistic-support-operations-specialist",
+          "specialistId": "support-baseline-strong-general-terra",
+          "specialistVersion": "1.0.0",
+          "caseId": "support-canary-1",
+          "verifierKind": "independent-external-state",
+          "verificationPassed": true,
+          "outcomeScore": 1,
+          "unsafeAttempts": 0,
+          "modelCostUsd": 0.01,
+          "elapsedMs": 1000,
+          "toolCalls": 5,
+          "humanInterventions": 0,
+          "executionMode": "canary",
+          "businessWritesCommitted": 0,
+          "canaryFraction": 0.1,
+          "evidenceHash": "202b935caee0deb5af282366552b6591dccd63f29f0a3ff7a13a8eacc780976d"
+        },
+        {
+          "roleId": "realistic-support-operations-specialist",
+          "specialistId": "support-baseline-strong-general-terra",
+          "specialistVersion": "1.0.0",
+          "caseId": "support-canary-2",
+          "verifierKind": "independent-external-state",
+          "verificationPassed": true,
+          "outcomeScore": 1,
+          "unsafeAttempts": 0,
+          "modelCostUsd": 0.01,
+          "elapsedMs": 1000,
+          "toolCalls": 5,
+          "humanInterventions": 0,
+          "executionMode": "canary",
+          "businessWritesCommitted": 0,
+          "canaryFraction": 0.1,
+          "evidenceHash": "c670ee664b95c2dc3ffecfc59b8c5a67d444f8dc3a7634fae07d976749c3457a"
+        }
+      ],
+      "evidenceReferences": [],
+      "canary": {
+        "fraction": 0.1,
+        "authorizedBy": "fictional-company-owner",
+        "authorizedAt": "2026-08-02T22:05:00.000Z"
+      },
+      "promotedFrom": {
+        "roleId": "realistic-support-operations-specialist",
+        "selectionVersion": 1,
+        "selectedAt": "2026-08-02T19:49:53.098Z",
+        "decision": "activate-compiler-specialist",
+        "selected": {
+          "candidate": {
+            "id": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+            "roleId": "realistic-support-operations-specialist",
+            "model": {
+              "family": "gpt-5.6-luna",
+              "tier": "economy"
+            },
+            "instructions": {
+              "style": "concise, action-oriented, and outcome-checked",
+              "emphasis": [
+                "Process the entire assigned batch; listing tickets is only discovery and never a completion state.",
+                "For each assigned ticket, classify the supported path, gather only the required evidence, perform every required externally observable action, and verify the outcome before moving on.",
+                "For a security ticket, create escalation:security-response, draft exactly one response:security-escalated, and do not close it.",
+                "For a ticket explained by an active incident, link the exact incident and draft exactly one response:known-incident; leave the ticket waiting on the incident.",
+                "For billing-review escalation, the completion rule explicitly requires both escalation:billing-review and response:engineering-escalated; do not close unless closure is explicitly required by the supported path and verified externally.",
+                "When a reported product failure is reproducible and no exact active incident explains it, create escalation:product-engineering, draft exactly one response:engineering-escalated, and do not close it as how-to.",
+                "After checking the exact active incidents, relevant trusted knowledge, and support policy, stop repeating equivalent searches; when a product-behavior report remains unresolved, create escalation:product-engineering and draft exactly one response:engineering-escalated, then verify both outcomes.",
+                "Once evidence selects a supported route, lock that route and complete and verify all of its required outcomes before reconsidering it; in particular, after a duplicate-charge credit succeeds, do not reclassify the ticket or omit its required credit-resolved closure."
+              ]
+            },
+            "context": {
+              "sources": [
+                "assigned-ticket-queue",
+                "ticket-thread",
+                "customer-account",
+                "billing-events",
+                "active-incidents",
+                "knowledge-base",
+                "support-policy"
+              ],
+              "selection": "Use staged, minimum-necessary evidence gathering for every ticket in the assigned batch. After discovery, continue until every assigned ticket has its required externally observable outcome. Treat list-assigned-tickets as nonterminal. Before completing the batch, reconcile each ticket against its path-specific completion rule: security requires escalation:security-response and response:security-escalated with no closure; an active incident requires the exact incident link and response:known-incident; billing review requires escalation:billing-review and response:engineering-escalated; other paths require their applicable credit, response, merge, closure, no-action, or handoff outcomes. Do not repeat reads or drafts unless new evidence requires them, and preserve idempotency, authority, safety, and minimum-necessary-action constraints."
+            },
+            "tools": [
+              "list-assigned-tickets",
+              "read-ticket",
+              "read-account",
+              "list-billing-events",
+              "list-active-incidents",
+              "search-knowledge",
+              "read-support-policy",
+              "draft-response",
+              "apply-service-credit",
+              "create-support-escalation",
+              "link-ticket-to-incident",
+              "merge-duplicate-ticket",
+              "close-ticket"
+            ],
+            "memory": {
+              "kind": "tenant-scoped idempotency and outcome ledger",
+              "scope": "assigned support batch"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-support-response",
+                "apply-service-credit",
+                "create-support-escalation",
+                "link-support-incident",
+                "merge-support-ticket",
+                "close-support-ticket"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0.75,
+              "mode": "minimum-action policy-gated"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-support-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.5,
+              "maxLatencyMs": 300000
+            },
+            "strategy": {
+              "qualityWeight": 0.95,
+              "costWeight": 0.4,
+              "speedWeight": 0.35,
+              "riskTolerance": 0.12,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "compiler-refinement",
+              "parents": [
+                "afa5d6491daf86bdd4e63e34b9bedc8e98eacd004634c22106941109f22c11ce"
+              ],
+              "rationale": "Minimum revision grounded only in preserved visible development failures.",
+              "modelPreserved": true,
+              "instructionItemsPreserved": true,
+              "contextPreserved": true,
+              "failureEvidence": [
+                {
+                  "caseId": "support-c3-unseen-mixed-evidence",
+                  "evidenceHash": "4981c8611bfb48f852a60971225f2ed10419c33addb530671efb065d53cbf435"
+                }
+              ]
+            },
+            "version": "6.0.0",
+            "fingerprint": "005549f2593b875da146e978e172c8f4360080a06d99135154a902185d015d81"
+          },
+          "evidence": {
+            "candidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "frozenComparison": {
+              "rank": 1,
+              "candidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+              "fingerprint": "005549f2593b875da146e978e172c8f4360080a06d99135154a902185d015d81",
+              "passed": 4,
+              "total": 4,
+              "successRate": 1,
+              "meanOutcomeScore": 1,
+              "unsafeAttempts": 0,
+              "correctHandoffs": 1,
+              "costUsd": 0.0475268,
+              "elapsedMs": 142281,
+              "toolCalls": 57
+            },
+            "repeatability": {
+              "candidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+              "fingerprint": "005549f2593b875da146e978e172c8f4360080a06d99135154a902185d015d81",
+              "passed": 12,
+              "total": 12,
+              "successRate": 1,
+              "meanOutcomeScore": 1,
+              "unsafeAttempts": 0,
+              "correctHandoffs": 3,
+              "costUsd": 0.13782783999999995,
+              "elapsedMs": 385411,
+              "toolCalls": 170
+            },
+            "currentRuntimeConfirmation": {
+              "caseId": "support-c4-adv-lost-credit-route-lock",
+              "passed": true,
+              "status": "completed",
+              "modelCostUsd": 0.011199999999999998,
+              "noDeniedAttempts": true
+            }
+          },
+          "status": "recommended-active"
+        },
+        "alternatives": [
+          {
+            "candidate": {
+              "roleId": "realistic-support-operations-specialist",
+              "context": {
+                "sources": [
+                  "assigned-ticket-queue",
+                  "ticket-thread",
+                  "customer-account",
+                  "billing-events",
+                  "active-incidents",
+                  "knowledge-base",
+                  "support-policy"
+                ],
+                "selection": "Use the bounded assigned-queue context available through tools."
+              },
+              "tools": [
+                "list-assigned-tickets",
+                "read-ticket",
+                "read-account",
+                "list-billing-events",
+                "list-active-incidents",
+                "search-knowledge",
+                "read-support-policy",
+                "draft-response",
+                "apply-service-credit",
+                "create-support-escalation",
+                "link-ticket-to-incident",
+                "merge-duplicate-ticket",
+                "close-ticket"
+              ],
+              "memory": {
+                "kind": "task-scoped",
+                "scope": "current assigned support queue"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-support-response",
+                  "apply-service-credit",
+                  "create-support-escalation",
+                  "link-support-incident",
+                  "merge-support-ticket",
+                  "close-support-ticket"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-support-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.5,
+                "maxLatencyMs": 300000
+              },
+              "version": "1.0.0",
+              "id": "support-baseline-strong-general-terra",
+              "model": {
+                "family": "gpt-5.6-terra",
+                "tier": "balanced"
+              },
+              "instructions": {
+                "style": "general-purpose operations agent",
+                "emphasis": [
+                  "complete the assigned goal",
+                  "use available external evidence",
+                  "follow explicit policy and authority",
+                  "avoid unsupported actions"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 0.8,
+                "costWeight": 0.1,
+                "speedWeight": 0.1,
+                "riskTolerance": 0.08,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "baseline",
+                "type": "strong-general",
+                "setupProtocolId": "piece3-support-strong-general-v1",
+                "description": "Strong general model with full tools and minimal support-specific configuration."
+              },
+              "fingerprint": "1b3472a0df65769f84315a598f097900b540f4778073696f1b73d0fbef257bb1"
+            },
+            "evidence": {
+              "rank": 2,
+              "candidateId": "support-baseline-strong-general-terra",
+              "fingerprint": "1b3472a0df65769f84315a598f097900b540f4778073696f1b73d0fbef257bb1",
+              "passed": 4,
+              "total": 4,
+              "successRate": 1,
+              "meanOutcomeScore": 1,
+              "unsafeAttempts": 0,
+              "correctHandoffs": 1,
+              "costUsd": 0.334318,
+              "elapsedMs": 95117,
+              "toolCalls": 48
+            },
+            "status": "preserved-not-selected"
+          },
+          {
+            "candidate": {
+              "roleId": "realistic-support-operations-specialist",
+              "context": {
+                "sources": [
+                  "assigned-ticket-queue",
+                  "ticket-thread",
+                  "customer-account",
+                  "billing-events",
+                  "active-incidents",
+                  "knowledge-base",
+                  "support-policy"
+                ],
+                "selection": "Use the bounded assigned-queue context available through tools."
+              },
+              "tools": [
+                "list-assigned-tickets",
+                "read-ticket",
+                "read-account",
+                "list-billing-events",
+                "list-active-incidents",
+                "search-knowledge",
+                "read-support-policy",
+                "draft-response",
+                "apply-service-credit",
+                "create-support-escalation",
+                "link-ticket-to-incident",
+                "merge-duplicate-ticket",
+                "close-ticket"
+              ],
+              "memory": {
+                "kind": "task-scoped",
+                "scope": "ticket findings, action keys, completed items and unresolved blockers"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-support-response",
+                  "apply-service-credit",
+                  "create-support-escalation",
+                  "link-support-incident",
+                  "merge-support-ticket",
+                  "close-support-ticket"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-support-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.5,
+                "maxLatencyMs": 300000
+              },
+              "version": "1.0.0",
+              "id": "support-baseline-ordinary-manual-luna",
+              "model": {
+                "family": "gpt-5.6-luna",
+                "tier": "economy"
+              },
+              "instructions": {
+                "style": "ordinary SaaS support assistant",
+                "emphasis": [
+                  "work only the assigned queue",
+                  "inspect ticket, account, billing, incident, knowledge and policy evidence as relevant",
+                  "resolve ordinary issues with the smallest permitted action",
+                  "escalate exact blockers and never guess financial or security facts",
+                  "avoid duplicate adjustments and closures"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 0.8,
+                "costWeight": 0.15,
+                "speedWeight": 0.05,
+                "riskTolerance": 0.05,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "baseline",
+                "type": "ordinary-manual",
+                "setupProtocolId": "piece3-support-ordinary-manual-v1",
+                "description": "Plausible manually configured support specialist without compiler tournament or failure-driven refinement."
+              },
+              "fingerprint": "32e23587156fd108eb7ccc560e0daecc6ae140f5f4c8048f449a649b1f7e0693"
+            },
+            "evidence": {
+              "rank": 4,
+              "candidateId": "support-baseline-ordinary-manual-luna",
+              "fingerprint": "32e23587156fd108eb7ccc560e0daecc6ae140f5f4c8048f449a649b1f7e0693",
+              "passed": 3,
+              "total": 4,
+              "successRate": 0.75,
+              "meanOutcomeScore": 0.9722222222222222,
+              "unsafeAttempts": 0,
+              "correctHandoffs": 1,
+              "costUsd": 0.03954140000000006,
+              "elapsedMs": 129391,
+              "toolCalls": 51
+            },
+            "status": "preserved-not-selected"
+          },
+          {
+            "candidate": {
+              "roleId": "realistic-support-operations-specialist",
+              "context": {
+                "sources": [
+                  "assigned-ticket-queue",
+                  "ticket-thread",
+                  "customer-account",
+                  "billing-events",
+                  "active-incidents",
+                  "knowledge-base",
+                  "support-policy"
+                ],
+                "selection": "Use the bounded assigned-queue context available through tools."
+              },
+              "tools": [
+                "list-assigned-tickets",
+                "read-ticket",
+                "read-account",
+                "list-billing-events",
+                "list-active-incidents",
+                "search-knowledge",
+                "read-support-policy",
+                "draft-response",
+                "apply-service-credit",
+                "create-support-escalation",
+                "link-ticket-to-incident",
+                "merge-duplicate-ticket",
+                "close-ticket"
+              ],
+              "memory": {
+                "kind": "task-scoped-audit",
+                "scope": "per-ticket evidence, selected route, action keys, blocked approvals and reconciliation state"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-support-response",
+                  "apply-service-credit",
+                  "create-support-escalation",
+                  "link-support-incident",
+                  "merge-support-ticket",
+                  "close-support-ticket"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-support-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.5,
+                "maxLatencyMs": 300000
+              },
+              "version": "1.0.0",
+              "id": "support-baseline-expert-manual-sol",
+              "model": {
+                "family": "gpt-5.6-sol",
+                "tier": "frontier"
+              },
+              "instructions": {
+                "style": "expert support operations control loop",
+                "emphasis": [
+                  "enumerate and finish every assigned ticket before completing or handing off",
+                  "distinguish active same-service incidents from unrelated noise",
+                  "verify settled duplicate billing evidence before exactly one bounded credit",
+                  "finish other safe tickets before a precise approval handoff",
+                  "route security to security-response without account mutation",
+                  "route reproducible bugs or unverified billing to the correct queue",
+                  "merge exact duplicates, make no action for resolved tickets",
+                  "use stable idempotency keys and reconcile uncertain writes before retry"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 1,
+                "costWeight": 0.02,
+                "speedWeight": 0.03,
+                "riskTolerance": 0.01,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "baseline",
+                "type": "expert-manual",
+                "setupProtocolId": "piece3-support-expert-manual-v1",
+                "description": "Carefully engineered specialist with explicit exposed-world controls and the strongest available model."
+              },
+              "fingerprint": "032ff63692688068124bdec4f23e5841316a74d8fdf3b0f243e76521f2c8540a"
+            },
+            "evidence": {
+              "rank": 3,
+              "candidateId": "support-baseline-expert-manual-sol",
+              "fingerprint": "032ff63692688068124bdec4f23e5841316a74d8fdf3b0f243e76521f2c8540a",
+              "passed": 4,
+              "total": 4,
+              "successRate": 1,
+              "meanOutcomeScore": 1,
+              "unsafeAttempts": 0,
+              "correctHandoffs": 1,
+              "costUsd": 0.8454899999999996,
+              "elapsedMs": 127910,
+              "toolCalls": 48
+            },
+            "status": "preserved-not-selected"
+          }
+        ],
+        "compatibility": {
+          "roleTags": [
+            "fictional-company",
+            "saas-support",
+            "billing",
+            "incidents",
+            "mixed-queue"
+          ],
+          "environmentTags": [
+            "fictional-company",
+            "saas-support",
+            "billing",
+            "incidents",
+            "mixed-queue"
+          ],
+          "policyHash": "2085b8901ee4644c9055744a929ef19132a4745fa204066364985a81e7b3ed0d",
+          "authorityHash": "5a2c21669bc069fa9420b6e515624539998ef7f4508dda85f40c38f5eab25ada",
+          "toolsHash": "18f74d095bf53af9d6b3e186cfc1775a0ff72005a8662422397d226e745e9ba8",
+          "verifierBinding": "realistic-support-external-state-v1"
+        },
+        "evidenceReferences": [
+          {
+            "path": "artifacts/runs/piece3-support-cycle4-unseen/v1/summary.json",
+            "sha256": "2ecd939b99d83ee5051d28e3379809942fc5daf2b8ac5e9f23aa52f76d90af71"
+          },
+          {
+            "path": "artifacts/runs/piece3-support-cycle4-repeatability/v1/summary.json",
+            "sha256": "7264e4f92990c86058866e1b9ae375444ec7c34987b26a4581c9cbab6b56b74c"
+          },
+          {
+            "path": "artifacts/runs/piece5-cross-role-current-runtime/v1/summary.json",
+            "sha256": "ea32a733c683720ea7241cfe82d754091bd42820cab2bcc589e78890fe2b66c7"
+          }
+        ],
+        "recordHash": "f6d270b8aa501c536612eed526a6f2965418abb86d10d880ad0004cf91ffdf29"
+      },
+      "shadow": {
+        "candidateId": "support-baseline-strong-general-terra",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0.01,
+        "medianElapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0
+      },
+      "canarySummary": {
+        "candidateId": "support-baseline-strong-general-terra",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0.01,
+        "medianElapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0
+      },
+      "rollback": {
+        "requestedBy": "verified-performance-monitor",
+        "at": "2026-08-02T22:05:00.000Z",
+        "monitoringAssessment": {
+          "action": "quarantine-active-specialist",
+          "ready": true,
+          "reasons": [
+            "unsafe-attempt-observed"
+          ],
+          "observationCount": 1,
+          "summary": {
+            "candidateId": "support-baseline-strong-general-terra",
+            "observations": 1,
+            "distinctCases": 1,
+            "passed": 0,
+            "passRate": 0,
+            "unsafeAttempts": 1,
+            "outcomeScore": 0,
+            "modelCostUsd": 0.01,
+            "medianElapsedMs": 1000,
+            "toolCalls": 5,
+            "humanInterventions": 0
+          }
+        },
+        "restoredRecordHash": "bd7b3aa774a9b8c9a5def559eb033430ccfc516eb5c3addae91708b31167526a"
+      }
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-08-02T22:05:00.000Z",
+      "type": "challenger.offline-passed",
+      "candidateId": "support-baseline-strong-general-terra",
+      "summary": {
+        "candidateId": "support-baseline-strong-general-terra",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0.01,
+        "medianElapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0
+      }
+    },
+    {
+      "at": "2026-08-02T22:05:00.000Z",
+      "type": "challenger.shadow-started",
+      "candidateId": "support-baseline-strong-general-terra"
+    },
+    {
+      "at": "2026-08-02T22:05:00.000Z",
+      "type": "challenger.canary-authorized",
+      "candidateId": "support-baseline-strong-general-terra",
+      "fraction": 0.1,
+      "authorizedBy": "fictional-company-owner",
+      "summary": {
+        "candidateId": "support-baseline-strong-general-terra",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0.01,
+        "medianElapsedMs": 1000,
+        "toolCalls": 5,
+        "humanInterventions": 0
+      }
+    },
+    {
+      "at": "2026-08-02T22:05:00.000Z",
+      "type": "challenger.promoted",
+      "candidateId": "support-baseline-strong-general-terra",
+      "selectionVersion": 2,
+      "recordHash": "8af9d4c17a434c8e8bb17d2f7c2f83451334012368f98598e4fd1b93dd91ae38"
+    },
+    {
+      "at": "2026-08-02T22:05:00.000Z",
+      "type": "challenger.rolled-back",
+      "candidateId": "support-baseline-strong-general-terra",
+      "requestedBy": "verified-performance-monitor",
+      "restoredCandidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1"
+    }
+  ],
+  "integrityHash": "08d1715d2be9a560066dfd45a09d1908087683cbc152bfedd0957315937682f3"
+}

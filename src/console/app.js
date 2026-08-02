@@ -23,6 +23,20 @@ function overview() {
   return `<p class="kicker">Autonomous recommendation · human control on demand</p><h1 class="page-title">Build the strongest specialist you can actually prove.</h1><p class="lede">The compiler designs candidates, tests them against external outcomes, recommends the strongest measured fit, and keeps every serious alternative inspectable. Further self-improvement is optional and budget-bound.</p><div class="metric-row"><div class="metric"><span>Reference roles</span><strong>${state.roles.length}</strong></div><div class="metric"><span>Evidence chain</span><strong>${state.evidenceValid ? "Valid" : "Invalid"}</strong></div><div class="metric"><span>Latest paid experiment</span><strong>${historical ? `$${historical.spendUsd.toFixed(2)}` : "None"}</strong></div></div>${historical ? `<div class="card"><p class="kicker">Latest honest decision</p><h2>${esc(historical.label)}</h2><p>${esc(historical.result)}. ${esc(historical.stopReason)}.</p><p class="explain">${esc(historical.boundary)}</p></div>` : ""}`;
 }
 
+function lifecycle() {
+  const registry = state.product?.registry;
+  const rehearsal = state.product?.lifecycle;
+  if (!registry) return `<p class="kicker">Specialist lifecycle</p><h1 class="page-title">No durable specialist registry is loaded.</h1><p class="lede">Complete and verify the bounded Level 1 export before lifecycle controls become available.</p>`;
+  const names = { "realistic-procurement-specialist": "Procurement", "realistic-support-operations-specialist": "SaaS support", "realistic-revenue-operations-specialist": "CRM / RevOps" };
+  const selected = registry.selections.map((selection) => `<article class="lifecycle-card"><div class="lifecycle-card-head"><h2>${esc(names[selection.roleId] ?? selection.roleId)}</h2><span class="decision ${selection.decision.includes("retain") ? "retained" : "activated"}">${selection.decision.includes("retain") ? "Existing fit retained" : "Compiler fit activated"}</span></div><p class="candidate-name">${esc(selection.candidateId)}</p><div class="lifecycle-meta"><span>Package ${esc(selection.candidateVersion)}</span><span>${selection.alternativesPreserved} alternatives preserved</span></div><code>${esc(selection.recordHash)}</code></article>`).join("");
+  const roleEvents = rehearsal ? [
+    ["Healthy evidence", "Continue", rehearsal.roles.procurement, "No search was started when the active specialist remained inside its contract."],
+    ["Measured drift", "Bounded search", rehearsal.roles.support, "A capped request stayed unstarted until explicit approval; the trial challenger later regressed and rolled back."],
+    ["Unsafe outcome", "Halt", rehearsal.roles.revops, "Safety bypassed the ordinary drift window and stopped the active specialist immediately."],
+  ] : [];
+  return `<p class="kicker">Continuous specialisation</p><h1 class="page-title">Improve the specialist without gambling live work.</h1><p class="lede">Independent outcomes decide whether the active package continues, asks for a bounded search, or halts. Development winners still pass offline, shadow and canary gates before promotion.</p><div class="lifecycle-grid">${selected}</div><section class="lifecycle-rail"><div class="panel-head"><div><h2>Lifecycle rehearsal</h2><p class="explain">Constructed local fixtures verify the control machinery. They are not customer or model-performance evidence.</p></div><span class="evidence-chip">${rehearsal?.status === "completed" ? "All checks passed" : "Not run"}</span></div><div class="path-rail">${roleEvents.map(([signal,action,detail,copy])=>`<article class="path-step"><span>${esc(signal)}</span><strong>${esc(action)}</strong><p>${esc(copy)}</p><code>${esc(detail?.branch ?? "No fixture")}</code></article>`).join("")}</div></section><section class="boundary-note"><strong>The boundary is deliberate.</strong><p>Monitoring and lifecycle state are durable and tamper-evident. Further optimisation remains optional, model spend requires explicit start, canaries require accountable authorization, and no synthetic result is presented as production reliability.</p></section>`;
+}
+
 function improvement() {
   const draft = state.improvement.draft;
   const contract = draft?.contract;
@@ -74,7 +88,7 @@ function bind() {
 }
 
 function render() {
-  main.innerHTML = page === "improve" ? improvement() : page === "role" ? rolePage() : overview();
+  main.innerHTML = page === "improve" ? improvement() : page === "lifecycle" ? lifecycle() : page === "role" ? rolePage() : overview();
   main.classList.remove("flash");
   requestAnimationFrame(() => main.classList.add("flash"));
   bind();

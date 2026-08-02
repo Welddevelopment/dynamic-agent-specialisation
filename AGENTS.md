@@ -223,3 +223,17 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - This completes the bounded technical mechanism, not the external evidence case. Do not claim prospective human setup savings, customer value, production reliability, universal role coverage, or general superiority over LangChain, CrewAI, Microsoft, or other workflows.
 - The human-effort ledger is implemented and tested, but zero real prospective human-engineer sessions have been conducted.
 - See `reports/0053-cross-role-current-runtime-confirmation.md`, `reports/0054-bounded-level1-technical-closeout.md`, `artifacts/level1/registry-v1.json`, and `artifacts/level1/technical-closeout-v1.json`.
+
+## Level 1.5 lifecycle foundation — 2026-08-02
+
+- Full bounded Level 1.5 is not yet claimed.
+- Real runtime verdicts can now become sealed version-specific monitor observations, but only when the specialist is bound to the supplied independent verifier and an independent terminal verdict exists.
+- Monitoring distinguishes ordinary drift from safety: drift may create a bounded optimization request; any unsafe active observation halts the role immediately.
+- Optional optimization remains disabled by default. Even when enabled, a request cannot spend without explicit confirmation and a verified role-specific runner. Development winners never auto-promote.
+- Challenger lifecycle is disposable offline → zero-authority shadow → explicitly authorized bounded canary → promote or quarantine. Shadow evidence with any committed business write is rejected; canary evidence cannot exceed its authorized traffic fraction.
+- A promoted specialist can roll back to the prior proven registry record after independently monitored regression.
+- Monitoring, requests, halts, canary stage, registry records and events persist with integrity checks across restart.
+- A deterministic three-role rehearsal passed all six checks at `$0`: healthy procurement continued; support drift created a `$1`-capped unstarted request and exercised promotion plus rollback; unsafe RevOps halted.
+- The private console has a read-only lifecycle page grounded in saved Level 1/1.5 artifacts. Its served data and syntax were verified; final in-app visual QA did not complete because the preview tab did not attach cleanly.
+- Remaining finish-line work: a fresh model-backed joined lifecycle from drift-triggered bounded search through prospective offline/shadow/canary evaluation, plus a verified live role-specific runner/dispatcher. Customer and production evidence remain separate gaps.
+- See `docs/LEVEL_1_5_CONTRACT.md`, `reports/0055-level1-5-lifecycle-foundation.md`, and `artifacts/level15/rehearsal-v1/`.

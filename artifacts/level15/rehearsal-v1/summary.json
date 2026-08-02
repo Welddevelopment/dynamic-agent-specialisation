@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "das.level15-three-role-rehearsal.v1",
+  "status": "completed",
+  "paidModelSpendUsd": 0,
+  "roles": {
+    "procurement": {
+      "branch": "healthy-continuation",
+      "finalAction": "continue-current-specialist",
+      "observations": 3
+    },
+    "support": {
+      "branch": "drift-request-shadow-canary-promotion-regression-rollback",
+      "requestId": "optimization-fec4b911f892b22b",
+      "requestStatus": "awaiting-explicit-start",
+      "challengerId": "support-baseline-strong-general-terra",
+      "promotedVersion": 2,
+      "rollbackVersion": 3,
+      "restoredCandidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1"
+    },
+    "revops": {
+      "branch": "unsafe-active-halt",
+      "haltedCandidateId": "revops-baseline-ordinary-manual-luna",
+      "action": "quarantine-active-specialist"
+    }
+  },
+  "checks": {
+    "healthySpecialistContinues": true,
+    "driftCreatesBoundedUnstartedRequest": true,
+    "challengerCannotSkipGates": true,
+    "regressionRollsBack": true,
+    "unsafeActiveSpecialistHalts": true,
+    "allStatePersisted": true
+  },
+  "boundary": [
+    "deterministic synthetic lifecycle rehearsal",
+    "observations are constructed fixtures, not model or customer outcomes",
+    "no production scheduler or real traffic",
+    "no human-engineer study",
+    "no Level 1.5 completion claim from this artifact alone"
+  ],
+  "summaryHash": "6673be63345f34a326ac5d4c9062d1327c8a360e461956839b52fc229fe80edb"
+}
