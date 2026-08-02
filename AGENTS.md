@@ -203,3 +203,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Do not claim a RevOps optimization win. Fresh-repeat stability is still required for both selected baseline and compiler specialist.
 - Correct cumulative paid spend is `$20.20587712`.
 - See `reports/0051-piece-4-revops-unseen-comparison.md`.
+
+## Piece 4 RevOps repeatability — 2026-08-02
+
+- Selected ordinary Luna passed 12/12 fresh repeats safely at `$0.17375196`.
+- Compiler Terra passed 11/12 safely at `$2.698924`; one six-route repeat stopped before the final revoked-consent item at its task budget.
+- RevOps closes as a retain-existing result, not an optimization win. The product rejected the less stable, more expensive compiler package.
+- Correct cumulative paid spend is `$23.07855308`, leaving `$1.92144692` under the fixed `$25` ceiling.
+- See `reports/0052-piece-4-revops-repeatability.md`.
