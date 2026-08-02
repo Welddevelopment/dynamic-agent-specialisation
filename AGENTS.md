@@ -55,3 +55,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - V1 stopped before refinement because its campaign-specific probability rule incorrectly assigned zero improvement probability to every candidate below the final pass floor. Preserve this as a failed controller decision, not product evidence against refinability.
 - V1 cost $0.19419728; cumulative spend is $2.44321704. Validation, adversarial and unseen support cases remain unreleased.
 - See `reports/0034-piece-3-support-development-target-v1.md`.
+
+## Piece 3 support development resume v2 — 2026-08-02
+
+- The corrected resume reused V1 measurements, refined only candidate 5 and reran the revision on all six exposed development cases.
+- The revision regressed to 4/6, remained safe, cost 6.96% more than baseline and was 2.86% slower. It was rejected; no further refinement cleared the minimum probability threshold.
+- The original candidate 5 remains the best near-miss: 5/6, zero unsafe attempts, 13.88% cheaper and 4.63% faster than the ordinary-manual baseline. It is not activated or described as a winner.
+- V2 cost $0.056048. V1 plus V2 cost $0.25024528. Cumulative paid-model spend is $2.49926504.
+- This demonstrates bounded comparison, regression rejection and rational stopping—not successful automatic self-improvement, a support winner or Level 1 completion.
+- See `reports/0035-piece-3-support-development-resume-v2.md`.
