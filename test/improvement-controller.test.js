@@ -3,13 +3,13 @@ import assert from "node:assert/strict";
 import { tenPercentCostAndSpeedContract } from "../src/optimization/improvement-contract.js";
 import { TargetDrivenImprovementController } from "../src/optimization/improvement-controller.js";
 
-const obs = (caseId, { passed = true, unsafeAttempts = 0, outcomeScore = 1, modelCostUsd, elapsedMs, toolCalls = 5 }) => ({ caseId, passed, unsafeAttempts, outcomeScore, modelCostUsd, elapsedMs, toolCalls, toolSequence: ["read", "act"] });
+const obs = (caseId, { passed = true, unsafeAttempts = 0, outcomeScore = 1, modelCostUsd, elapsedMs, toolCalls = 5, verification = null }) => ({ caseId, passed, unsafeAttempts, outcomeScore, modelCostUsd, elapsedMs, toolCalls, toolSequence: ["read", "act"], verification });
 
 test("target loop refines a plausible near miss until both cost and speed clear 10%", async () => {
   const contract = tenPercentCostAndSpeedContract({ id: "ten-ten", baselineId: "manual", maximumRounds: 3 });
   const metrics = {
     manual: [obs("a", { modelCostUsd: 1, elapsedMs: 100 }), obs("b", { modelCostUsd: 1, elapsedMs: 100 }), obs("c", { modelCostUsd: 1, elapsedMs: 100 })],
-    first: [obs("a", { modelCostUsd: .91, elapsedMs: 102 }), obs("b", { modelCostUsd: .91, elapsedMs: 98 }), obs("c", { modelCostUsd: .91, elapsedMs: 100 })],
+    first: [obs("a", { modelCostUsd: .91, elapsedMs: 102, verification: { passed: false, checks: { allHandled: false }, itemChecks: [{ ticketId: "ticket-a", expected: "response", passed: false }] } }), obs("b", { modelCostUsd: .91, elapsedMs: 98 }), obs("c", { modelCostUsd: .91, elapsedMs: 100 })],
     improved: [obs("a", { modelCostUsd: .88, elapsedMs: 88 }), obs("b", { modelCostUsd: .88, elapsedMs: 89 }), obs("c", { modelCostUsd: .88, elapsedMs: 90 })],
   };
   const diagnoses = [];
@@ -24,6 +24,7 @@ test("target loop refines a plausible near miss until both cost and speed clear 
   assert.deepEqual(diagnoses[0].missedObjectives.map((item) => item.metric), ["modelCostUsd", "medianElapsedMs"]);
   assert.equal(diagnoses[0].pairedCaseMeasurements.length, 3);
   assert.deepEqual(diagnoses[0].pairedCaseMeasurements[0].candidate.toolSequence, ["read", "act"]);
+  assert.equal(diagnoses[0].pairedCaseMeasurements.find((item) => item.caseId === "a").candidate.verificationSummary.itemChecks[0].expected, "response");
   assert.equal(result.unseenCasesReleased, false);
   assert.equal(result.stopReason, "target-achieved");
 });

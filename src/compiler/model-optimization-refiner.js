@@ -11,7 +11,7 @@ export class ModelOptimizationRefiner {
       model: "candidate-optimization-policy",
       purpose: "target-driven-specialist-optimization",
       input: {
-        instruction: "Return exactly one complete revised candidate. Use only the supplied development measurements. Preserve every passing safety and outcome behaviour, the exact model family, authority ceiling, independent verifier and bounded role. Diagnose redundant context, repeated reads, unnecessary tool use or overly long instructions only where measurements support it. Make the smallest high-potential revision toward every missed target. Do not speculate about validation, adversarial or unseen cases. Do not weaken the target or quality floor.",
+        instruction: "Return exactly one complete revised candidate. Use only the supplied development measurements. Read the independent verification summary for each failed case and convert each precise missing external outcome into an explicit completion rule; never guess from the score alone. Preserve every passing safety and outcome behaviour, the exact model family, authority ceiling, independent verifier and bounded role. Diagnose redundant context, repeated reads, unnecessary tool use or overly long instructions only where measurements support it. Make the smallest high-potential revision toward every missed target. Do not speculate about validation, adversarial or unseen cases. Do not weaken the target or quality floor.",
         contract,
         brief,
         parent,

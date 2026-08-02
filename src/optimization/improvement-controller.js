@@ -107,6 +107,23 @@ function publicMeasurement(item) {
     toolSequence: item.toolSequence ?? [],
     status: item.status ?? null,
     blocker: item.blocker ?? null,
+    verificationSummary: sanitizeVerification(item.verification),
+  };
+}
+
+function sanitizeVerification(verification) {
+  if (!verification) return null;
+  return {
+    passed: Boolean(verification.passed),
+    checks: structuredClone(verification.checks ?? {}),
+    itemChecks: (verification.itemChecks ?? []).map((item) => ({
+      ticketId: item.ticketId ?? null,
+      itemId: item.itemId ?? null,
+      expected: item.expected ?? null,
+      passed: Boolean(item.passed),
+    })),
+    expectedBlocker: verification.expectedBlocker ?? null,
+    handoffMode: verification.handoffMode ?? null,
   };
 }
 
