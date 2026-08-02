@@ -6,12 +6,12 @@ function parse(value) { return typeof value === "string" ? JSON.parse(value) : s
 
 export class ModelCandidateRefiner {
   constructor({ gateway, maxOutputTokens = 8_000 }) { this.gateway = gateway; this.maxOutputTokens = maxOutputTokens; }
-  async refine({ brief, parent, developmentFailures }) {
+  async refine({ brief, parent, developmentFailures, preserveModel = false }) {
     const response = await this.gateway.generate({
       model: "candidate-refiner-policy",
       purpose: "controlled-specialist-refinement",
       input: {
-        instruction: "Return exactly one complete revised candidate. Correct only weaknesses directly supported by the supplied visible development failures. Preserve the role, authority ceiling, independent verifier, and bounded tools. Do not use or speculate about validation, adversarial, or unseen cases. Make the smallest useful configuration change.",
+        instruction: `Return exactly one complete revised candidate. Correct only weaknesses directly supported by the supplied visible development failures. Preserve the role, authority ceiling, independent verifier, and bounded tools.${preserveModel ? " Preserve the exact model family and tier." : ""} Do not use or speculate about validation, adversarial, or unseen cases. Make the smallest useful configuration change.`,
         brief,
         parent,
         developmentFailures,
@@ -23,11 +23,13 @@ export class ModelCandidateRefiner {
     if (!Array.isArray(payload.candidates) || payload.candidates.length !== 1) throw new Error("Refiner returned the wrong candidate count");
     const child = payload.candidates[0];
     child.id = `${parent.id}:refined-1`;
-    child.version = "1.1.0";
+    child.version = `${Number(parent.version?.split(".")[0] ?? 1) + 1}.0.0`;
+    if (preserveModel) child.model = structuredClone(parent.model);
     child.provenance = {
       kind: "compiler-refinement",
       parents: [parent.fingerprint ?? digest(parent)],
       rationale: "Minimum revision grounded only in preserved visible development failures.",
+      modelPreserved: preserveModel,
       failureEvidence: developmentFailures.map((failure) => ({ caseId: failure.caseId, evidenceHash: digest(failure) })),
     };
     const validation = validateCandidate(child, brief);

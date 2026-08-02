@@ -19,3 +19,15 @@ test("model refiner binds provenance to visible failure and preserves validation
   assert.deepEqual(result.candidate.provenance.failureEvidence.map((item) => item.caseId), ["visible-case"]);
   assert.ok(result.differences.includes("instructions"));
 });
+
+test("model refiner can preserve the parent's exact model during a configuration repair", async () => {
+  const parent = generateCandidatePortfolio(realisticProcurementBrief)[0];
+  const child = structuredClone(parent);
+  child.model = { family: "different-model", tier: "expensive" };
+  child.instructions.emphasis = [...child.instructions.emphasis, "distinguish a reproducible failure from a how-to question"];
+  const provider = { id: "fake", projectCost: () => .01, generate: async () => ({ output: { candidates: [child] }, actualUsd: .001, usage: {}, resolvedModel: "fake-model" }) };
+  const gateway = new MeteredModelGateway({ provider, budget: new BudgetGuard({ hardLimitUsd: 1 }), cache: new ModelResponseCache(), evidence: new EvidenceLedger() });
+  const result = await new ModelCandidateRefiner({ gateway }).refine({ brief: realisticProcurementBrief, parent, preserveModel: true, developmentFailures: [{ caseId: "visible-case", missingOutcomes: ["engineering-escalation"] }] });
+  assert.deepEqual(result.candidate.model, parent.model);
+  assert.equal(result.candidate.provenance.modelPreserved, true);
+});
