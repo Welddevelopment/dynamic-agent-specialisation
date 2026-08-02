@@ -158,7 +158,8 @@ Autonomous recommendation and activation by default; optional executive, enginee
 
 ## Paid-model pricing reconciliation — 2026-08-02
 
-- Paid calls are paused while four RevOps attempts are reconciled: their genuine Terra/Sol calls were recorded internally at Luna rates.
+- Four RevOps attempts were reconciled after their genuine Terra/Sol calls were recorded internally at Luna rates.
 - The technical outcomes are unchanged. Cost totals and any cost-based ranking must use the corrected ledger.
 - A central fail-closed model-pricing registry now prevents future experiments from silently applying one model's rate to another.
+- The correction was `$3.53455452`. Correct cumulative paid-model spend is `$15.81897132`, leaving `$9.18102868` under the fixed `$25` ceiling.
 - See `reports/0046-model-pricing-accounting-reconciliation.md`.
