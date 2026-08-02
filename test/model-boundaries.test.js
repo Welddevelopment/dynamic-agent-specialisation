@@ -40,7 +40,7 @@ test("model architect schema fixes bounded role, tools, authority, verifier, and
 });
 
 test("model decision engine validates structured tool decisions", async () => {
-  const engine = new ModelDecisionEngine({ gateway: fakeGateway([{ kind: "tool", name: "read-inventory", input: {} }]) });
+  const engine = new ModelDecisionEngine({ gateway: fakeGateway([{ kind: "tool", name: "read-inventory", input: {}, reason: null, blocker: null }]) });
   const decision = await engine.next({ candidate: generateCandidatePortfolio(procurementRole.brief)[0], goal: "restock", turn: 1, observations: [], memory: [], tools: [{ name: "read-inventory" }] });
   assert.equal(decision.kind, "tool");
   assert.equal(decision.name, "read-inventory");
@@ -58,6 +58,7 @@ test("runtime decision schema binds tool names and exact input fields", () => {
   ]);
   assert.equal(format.type, "json_schema");
   assert.deepEqual(format.schema.properties.name.enum, ["read", "write", null]);
+  assert.deepEqual(format.schema.properties.blocker.enum, ["no-permitted-route", "approval-required", null]);
   assert.deepEqual(format.schema.properties.input.anyOf[1].required, ["id", "amount"]);
   assert.equal(format.schema.additionalProperties, false);
 });

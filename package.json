@@ -12,5 +12,6 @@
     "console": "node src/console/server.js",
     "model:smoke": "node --env-file=.env src/experiments/piece2-smoke.js",
     "model:viability": "node --env-file=.env src/experiments/piece2-viability.js"
+    ,"model:development": "node --env-file=.env src/experiments/piece2-development.js"
   }
 }

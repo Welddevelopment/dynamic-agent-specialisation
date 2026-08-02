@@ -13,7 +13,7 @@ function inputSchema(tool) {
   return { type: "object", properties, required: Object.keys(properties), additionalProperties: false };
 }
 
-export function runtimeDecisionResponseFormat(tools) {
+export function runtimeDecisionResponseFormat(tools, blockers = ["no-permitted-route", "approval-required"]) {
   const possibleInputs = tools.map(inputSchema);
   if (!possibleInputs.length) possibleInputs.push({ type: "object", properties: {}, required: [], additionalProperties: false });
   return {
@@ -26,8 +26,9 @@ export function runtimeDecisionResponseFormat(tools) {
         name: { type: ["string", "null"], enum: [...tools.map((tool) => tool.name), null] },
         input: { anyOf: [...possibleInputs, { type: "null" }] },
         reason: { type: ["string", "null"] },
+        blocker: { type: ["string", "null"], enum: [...blockers, null] },
       },
-      required: ["kind", "name", "input", "reason"],
+      required: ["kind", "name", "input", "reason", "blocker"],
       additionalProperties: false,
     },
   };
@@ -39,16 +40,16 @@ export class ModelDecisionEngine {
     const response = await this.gateway.generate({
       model: candidate.model.family,
       purpose: "specialist-runtime-decision",
-      input: { instruction: "Choose exactly one next decision. For a tool decision, provide its exact permitted name and input, with null for optional filters you do not use. For complete, set name and input to null. For escalate, set name and input to null and give a precise reason. Never claim completion until the external state should satisfy the entire goal.", instructions: candidate.instructions, goal, turn, boundedContext: candidate.context, observations, memory, tools, authority: candidate.authority, escalation: candidate.escalation },
+      input: { instruction: "Choose exactly one next decision. For a tool decision, provide its exact permitted name and input, with null for optional filters you do not use; reason and blocker must be null. For complete, set name, input, reason, and blocker to null. For escalate, set name and input to null, give a precise reason, and select the exact blocker. Never claim completion until the external state should satisfy the entire goal. Never escalate merely because investigation is unfinished.", instructions: candidate.instructions, goal, turn, boundedContext: candidate.context, observations, memory, tools, authority: candidate.authority, escalation: candidate.escalation },
       responseFormat: runtimeDecisionResponseFormat(tools),
       maxOutputTokens: 500,
     });
     const decision = parse(response.output);
     if (!decision || !["tool", "complete", "escalate"].includes(decision.kind)) throw new Error("Model returned an invalid decision kind");
     if (decision.kind === "tool" && (typeof decision.name !== "string" || !decision.input || typeof decision.input !== "object")) throw new Error("Model returned an invalid tool decision");
-    if (decision.kind === "escalate" && typeof decision.reason !== "string") throw new Error("Model returned an invalid escalation");
+    if (decision.kind === "escalate" && (typeof decision.reason !== "string" || typeof decision.blocker !== "string")) throw new Error("Model returned an invalid escalation");
     if (decision.kind === "tool") return { kind: "tool", name: decision.name, input: decision.input };
-    if (decision.kind === "escalate") return { kind: "escalate", reason: decision.reason };
+    if (decision.kind === "escalate") return { kind: "escalate", reason: decision.reason, blocker: decision.blocker };
     return { kind: "complete" };
   }
 }

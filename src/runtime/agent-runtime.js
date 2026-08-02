@@ -8,7 +8,11 @@ export class SpecialistAgentRuntime {
       const priorMemory = this.memory.read(session);
       const decision = await this.decisionEngine.next({ candidate, goal, turn, observations: structuredClone(session.observations), memory: priorMemory, tools: toolHost.definitions().filter((tool) => candidate.tools.includes(tool.name)) });
       this.evidence?.append("runtime.decision", { tenantId, candidateId: candidate.id, turn, decision });
-      if (decision.kind === "escalate") return { status: "escalated", reason: decision.reason, session };
+      if (decision.kind === "escalate") {
+        const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState(), resolution: { kind: "handoff", blocker: decision.blocker } });
+        this.evidence?.append("runtime.external-verification", { tenantId, candidateId: candidate.id, verification });
+        return { status: verification.passed ? "handoff" : "verification-failed", reason: decision.reason, blocker: decision.blocker, verification, session };
+      }
       if (decision.kind === "complete") {
         const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState() });
         this.evidence?.append("runtime.external-verification", { tenantId, candidateId: candidate.id, verification });

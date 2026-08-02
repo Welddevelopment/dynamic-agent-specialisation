@@ -35,6 +35,16 @@ test("generic runtime blocks a tool absent from the candidate before host execut
   assert.equal(executed, false);
 });
 
+test("generic runtime gives escalations to the independent verifier", async () => {
+  const specialist = candidate();
+  const world = host();
+  const verifier = { verify: async ({ resolution }) => ({ passed: resolution.kind === "handoff" && resolution.blocker === "approval-required" }) };
+  const runtime = new SpecialistAgentRuntime({ decisionEngine: new ScriptedDecisionEngine([{ kind: "escalate", blocker: "approval-required", reason: "Delegated authority is insufficient." }]), memory: new TenantRoleMemory(), evidence: new EvidenceLedger() });
+  const result = await runtime.run({ tenantId: "tenant-a", candidate: specialist, goal: "procure", toolHost: world, externalVerifier: verifier });
+  assert.equal(result.status, "handoff");
+  assert.equal(result.verification.passed, true);
+});
+
 test("memory remains isolated by tenant, role, and specialist version", () => {
   const memory = new TenantRoleMemory();
   memory.append({ tenantId: "a", roleId: "r", specialistVersion: "1", record: { secret: "a-only" } });
@@ -42,4 +52,3 @@ test("memory remains isolated by tenant, role, and specialist version", () => {
   assert.equal(memory.read({ tenantId: "a", roleId: "r", specialistVersion: "2" }).length, 0);
   assert.equal(memory.read({ tenantId: "a", roleId: "r", specialistVersion: "1" })[0].secret, "a-only");
 });
-
