@@ -163,3 +163,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - A central fail-closed model-pricing registry now prevents future experiments from silently applying one model's rate to another.
 - The correction was `$3.53455452`. Correct cumulative paid-model spend is `$15.81897132`, leaving `$9.18102868` under the fixed `$25` ceiling.
 - See `reports/0046-model-pricing-accounting-reconciliation.md`.
+
+## Piece 4 RevOps Cycle 2 freeze — 2026-08-02
+
+- The repaired machine-readable routing policy passed the full 5/5 development regression safely.
+- A fresh precommitted Cycle 2 contains three validation cases, three adversarial precedence cases and four sealed prospective unseen cases.
+- The same compiler-selected Terra specialist is frozen unchanged. Baselines and runtime contracts are hashed before evaluation.
+- Every exposed Cycle 2 case passes the deterministic reference. No Cycle 2 model call has yet been made.
+- See `reports/0047-piece-4-cycle2-freeze.md`.
