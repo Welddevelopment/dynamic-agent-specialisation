@@ -48,7 +48,7 @@ export class RealisticSupportCompany {
   }
   definitions() {
     return [
-      definition("list-assigned-tickets", { status: "nullable-string" }, ["assigned-ticket-queue"]),
+      definition("list-assigned-tickets", { status: { type: ["string", "null"], enum: ["open", "escalated", "closed", "waiting-on-incident", "merged", null] } }, ["assigned-ticket-queue"]),
       definition("read-ticket", { ticketId: "string" }, ["ticket-thread"]),
       definition("read-account", { customerId: "string" }, ["customer-account"]),
       definition("list-billing-events", { customerId: "string" }, ["billing-events"]),

@@ -12,6 +12,14 @@ test("support role exposes a different bounded tool and policy surface", () => {
   assert.equal(realisticSupportBrief.successCriteria.independent, true);
 });
 
+test("assigned-ticket status filter cannot confuse priority with workflow status", () => {
+  const task = realisticSupportCases.development[0];
+  const world = new RealisticSupportCompany({ task });
+  const schema = world.definitions().find((tool) => tool.name === "list-assigned-tickets").inputSchema.status;
+  assert.deepEqual(schema.enum, ["open", "escalated", "closed", "waiting-on-incident", "merged", null]);
+  assert.equal(schema.enum.includes("urgent"), false);
+});
+
 test("deterministic reference resolves every exposed support case", async () => {
   const cases = [...realisticSupportCases.development, ...realisticSupportCases.validation, ...realisticSupportCases.adversarial];
   assert.equal(cases.length, 14);
