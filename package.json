@@ -25,5 +25,6 @@
     "model:cycle3:adversarial": "node --env-file=.env src/experiments/piece2-cycle3-stage.js adversarial"
     ,"model:baselines": "node --env-file=.env src/experiments/piece2-baseline-stage.js"
     ,"piece2:freeze": "node src/experiments/piece2-freeze.js"
+    ,"model:unseen": "node --env-file=.env src/experiments/piece2-unseen.js"
   }
 }
