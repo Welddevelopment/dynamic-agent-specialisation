@@ -1,6 +1,6 @@
 import { digest } from "../core/canonical.js";
 
-const definition = (name, inputSchema = {}) => ({ name, inputSchema });
+const definition = (name, inputSchema = {}, requiredContextSources = []) => ({ name, inputSchema, requiredContextSources });
 const responseCodes = new Set(["known-incident", "credit-applied", "engineering-escalated", "howto-answered", "security-escalated"]);
 const resolutionCodes = new Set(["credit-resolved", "howto-resolved"]);
 const searchStopWords = new Set(["a", "an", "and", "for", "how", "i", "or", "the", "to", "our", "we"]);
@@ -48,19 +48,19 @@ export class RealisticSupportCompany {
   }
   definitions() {
     return [
-      definition("list-assigned-tickets", { status: "nullable-string" }),
-      definition("read-ticket", { ticketId: "string" }),
-      definition("read-account", { customerId: "string" }),
-      definition("list-billing-events", { customerId: "string" }),
-      definition("list-active-incidents", { service: "nullable-string" }),
-      definition("search-knowledge", { query: "string" }),
-      definition("read-support-policy"),
-      definition("draft-response", { ticketId: "string", responseCode: { type: "string", enum: [...responseCodes] }, idempotencyKey: "string" }),
-      definition("apply-service-credit", { ticketId: "string", amountUsd: "number", reason: { type: "string", enum: ["duplicate-charge", "verified-outage"] }, idempotencyKey: "string" }),
-      definition("create-support-escalation", { ticketId: "string", queue: { type: "string", enum: ["product-engineering", "security-response", "billing-review"] }, severity: { type: "string", enum: ["normal", "urgent"] }, idempotencyKey: "string" }),
-      definition("link-ticket-to-incident", { ticketId: "string", incidentId: "string", idempotencyKey: "string" }),
-      definition("merge-duplicate-ticket", { ticketId: "string", canonicalTicketId: "string", idempotencyKey: "string" }),
-      definition("close-ticket", { ticketId: "string", resolutionCode: { type: "string", enum: [...resolutionCodes] }, idempotencyKey: "string" }),
+      definition("list-assigned-tickets", { status: "nullable-string" }, ["assigned-ticket-queue"]),
+      definition("read-ticket", { ticketId: "string" }, ["ticket-thread"]),
+      definition("read-account", { customerId: "string" }, ["customer-account"]),
+      definition("list-billing-events", { customerId: "string" }, ["billing-events"]),
+      definition("list-active-incidents", { service: "nullable-string" }, ["active-incidents"]),
+      definition("search-knowledge", { query: "string" }, ["knowledge-base"]),
+      definition("read-support-policy", {}, ["support-policy"]),
+      definition("draft-response", { ticketId: "string", responseCode: { type: "string", enum: [...responseCodes] }, idempotencyKey: "string" }, ["ticket-thread"]),
+      definition("apply-service-credit", { ticketId: "string", amountUsd: "number", reason: { type: "string", enum: ["duplicate-charge", "verified-outage"] }, idempotencyKey: "string" }, ["billing-events", "support-policy"]),
+      definition("create-support-escalation", { ticketId: "string", queue: { type: "string", enum: ["product-engineering", "security-response", "billing-review"] }, severity: { type: "string", enum: ["normal", "urgent"] }, idempotencyKey: "string" }, ["support-policy"]),
+      definition("link-ticket-to-incident", { ticketId: "string", incidentId: "string", idempotencyKey: "string" }, ["active-incidents"]),
+      definition("merge-duplicate-ticket", { ticketId: "string", canonicalTicketId: "string", idempotencyKey: "string" }, ["assigned-ticket-queue"]),
+      definition("close-ticket", { ticketId: "string", resolutionCode: { type: "string", enum: [...resolutionCodes] }, idempotencyKey: "string" }, ["ticket-thread"]),
     ];
   }
   requiredAction(name) {
@@ -169,7 +169,7 @@ function outcomeReceipt(externalState, ticket, expected) {
 }
 
 export class RealisticSupportVerifier {
-  constructor({ task, initialState }) { this.task = structuredClone(task); this.initial = structuredClone(initialState); }
+  constructor({ task, initialState }) { this.id = "realistic-support-external-state-v1"; this.task = structuredClone(task); this.initial = structuredClone(initialState); }
   async verify({ externalState, resolution }) {
     const assigned = this.initial.tickets.filter((ticket) => ticket.batchId === this.task.batchId);
     const expectations = assigned.map((ticket) => ({ ticket, expected: expectedFor(ticket, this.initial, this.task) }));

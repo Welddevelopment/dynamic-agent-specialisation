@@ -64,3 +64,45 @@ test("memory remains isolated by tenant, role, and specialist version", () => {
   assert.equal(memory.read({ tenantId: "a", roleId: "r", specialistVersion: "2" }).length, 0);
   assert.equal(memory.read({ tenantId: "a", roleId: "r", specialistVersion: "1" })[0].secret, "a-only");
 });
+
+test("runtime refuses a verifier that is not the candidate's bound independent checker", async () => {
+  let decided = false;
+  const decisionEngine = { next: async () => { decided = true; return { kind: "complete", confidence: 1 }; } };
+  const specialist = candidate({ verifier: { kind: "independent-external-state", binding: "expected-verifier" } });
+  const runtime = new SpecialistAgentRuntime({ decisionEngine, memory: new TenantRoleMemory(), evidence: new EvidenceLedger() });
+  const result = await runtime.run({ tenantId: "a", candidate: specialist, goal: "set value", toolHost: host(), externalVerifier: { id: "wrong-verifier", verify: async () => ({ passed: true }) } });
+  assert.equal(result.status, "blocked");
+  assert.equal(result.reason, "verifier-binding-mismatch:expected-verifier");
+  assert.equal(decided, false);
+});
+
+test("runtime hides tools whose required context source is absent", async () => {
+  const specialist = candidate({ context: { sources: ["safe-read"] }, tools: ["write"], authority: { allowedActions: ["write-record"] } });
+  const toolHost = host();
+  toolHost.definitions = () => [{ name: "write", requiredContextSources: ["write-policy"] }];
+  const runtime = new SpecialistAgentRuntime({ decisionEngine: new ScriptedDecisionEngine([{ kind: "tool", name: "write", input: { value: 7 } }]), memory: new TenantRoleMemory(), evidence: new EvidenceLedger() });
+  const result = await runtime.run({ tenantId: "a", candidate: specialist, goal: "set value", toolHost, externalVerifier: { verify: async () => ({ passed: false }) } });
+  assert.equal(result.status, "blocked");
+  assert.equal(result.reason, "tool-not-allowed-or-context-missing:write");
+  assert.equal(toolHost.externalState().value, 0);
+});
+
+test("runtime fail-closes below the candidate's confidence threshold before acting", async () => {
+  const specialist = candidate({ escalation: { enabled: true, threshold: .8, mode: "fail closed" } });
+  const decisionEngine = { next: async () => ({ kind: "tool", name: "write", input: { value: 7 }, confidence: .6, metering: { actualUsd: .001, elapsedMs: 1 } }) };
+  const toolHost = host();
+  const runtime = new SpecialistAgentRuntime({ decisionEngine, memory: new TenantRoleMemory(), evidence: new EvidenceLedger() });
+  const result = await runtime.run({ tenantId: "a", candidate: specialist, goal: "set value", toolHost, externalVerifier: { verify: async () => ({ passed: false }) } });
+  assert.equal(result.status, "blocked");
+  assert.equal(result.reason, "confidence-below-candidate-threshold");
+  assert.equal(toolHost.externalState().value, 0);
+});
+
+test("task-scoped memory does not leak into a later run while tenant-scoped memory can be reused", () => {
+  const memory = new TenantRoleMemory();
+  const base = { tenantId: "tenant", roleId: "role", specialistVersion: "1" };
+  memory.append({ ...base, runId: "run-1", memoryPolicy: { kind: "task-scoped" }, record: { fact: "first" } });
+  assert.equal(memory.read({ ...base, runId: "run-2", memoryPolicy: { kind: "task-scoped" } }).length, 0);
+  memory.append({ ...base, runId: "run-1", memoryPolicy: { kind: "tenant-scoped outcome ledger" }, record: { fact: "reusable" } });
+  assert.equal(memory.read({ ...base, runId: "run-2", memoryPolicy: { kind: "tenant-scoped outcome ledger" } })[0].fact, "reusable");
+});

@@ -18,6 +18,7 @@ export class MeteredModelGateway {
   constructor({ provider, budget, cache, evidence, secrets = [] }) {
     this.provider = provider; this.budget = budget; this.cache = cache; this.evidence = evidence; this.secrets = secrets;
   }
+  projectCost(request) { return this.cache.get(request) ? 0 : this.provider.projectCost(request); }
   async generate(request) {
     const cached = this.cache.get(request);
     if (cached) { this.evidence?.append("model.cache-hit", { requestHash: digest(request), model: request.model }); return { ...cached, cached: true }; }

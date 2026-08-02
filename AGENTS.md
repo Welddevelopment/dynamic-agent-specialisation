@@ -74,3 +74,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Revision 2 is a functional development finalist only. Support validation, adversarial and unseen cases remain unreleased; no support winner or complete Level 1 is claimed.
 - V3b cost `$0.10412399999999998`; cumulative paid-model spend is `$2.60338904` under the fixed `$25` ceiling.
 - See `reports/0036-piece-3-support-exact-feedback-v3b.md`.
+
+## Enforced specialist-package runtime — 2026-08-02
+
+- Candidate verifier binding, context-to-tool availability, task-versus-tenant memory scope, projected and actual per-task model cost, elapsed-task latency, and escalation confidence are now enforced by the runtime rather than merely recorded.
+- Candidate strategy, limits, memory policy and remaining budget are present in every model decision context. Candidate validation now checks the independent verifier identity, tool/context membership, numeric limits, escalation threshold, strategy fields and memory policy.
+- The full local suite passes 73/73, including new fail-closed tests for wrong verifier, missing context, insufficient confidence, projected cost and memory isolation.
+- No paid call was made for this implementation. Earlier paid results remain historical evidence, but the changed decision schema/runtime means they cannot be the final post-change Level 1 evaluation.
+- See `reports/0037-enforced-specialist-package-runtime.md`.

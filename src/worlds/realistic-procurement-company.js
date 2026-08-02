@@ -80,15 +80,15 @@ export class RealisticProcurementCompany {
   reset() { this.state = createFictionalCompany(this.task.scenario); this.initial = structuredClone(this.state); this.protectedHash = digest(this.state.protected); this.lost.clear(); }
   definitions() {
     return [
-      { name: "list-warehouses", description: "List warehouse IDs, names, and transfer lead times.", input: {}, inputSchema: {} },
-      { name: "list-demands", description: "List customer demand. Filter to the task warehouse and deadline whenever possible.", input: { warehouseId: "optional string", dueOnOrBefore: "optional YYYY-MM-DD" }, inputSchema: { warehouseId: "nullable-string", dueOnOrBefore: "nullable-string" } },
-      { name: "read-inventory", description: "Read on-hand and reserved inventory. Available stock is onHand minus reserved.", input: { warehouseId: "optional string", sku: "optional string" }, inputSchema: { warehouseId: "nullable-string", sku: "nullable-string" } },
-      { name: "list-open-purchase-orders", description: "List non-cancelled inbound purchase orders for duplicate and coverage checks.", input: { warehouseId: "optional string", sku: "optional string" }, inputSchema: { warehouseId: "nullable-string", sku: "nullable-string" } },
-      { name: "list-supplier-offers", description: "List active supplier offers. Approval status is supplied separately by purchasing policy.", input: { sku: "optional string" }, inputSchema: { sku: "nullable-string" } },
-      { name: "list-stock-transfers", description: "List non-cancelled stock transfers for duplicate and inbound-coverage checks.", input: { sku: "optional string" }, inputSchema: { sku: "nullable-string" } },
-      { name: "read-purchasing-policy", description: "Read approved supplier IDs, delegated budget limits, exact task scope, permitted actions, and deadline.", input: {}, inputSchema: {} },
-      { name: "draft-purchase-order", description: "Create a draft purchase order only after coverage, deadline, supplier approval, budget, scope, and duplicate checks.", input: { warehouseId: "string", sku: "string", quantity: "positive number", offerId: "string", idempotencyKey: "stable unique string" }, inputSchema: { warehouseId: "string", sku: "string", quantity: "number", offerId: "string", idempotencyKey: "string" } },
-      { name: "draft-stock-transfer", description: "Create a draft stock transfer only after destination scope, source availability, deadline, need, and duplicate checks.", input: { fromWarehouseId: "string", toWarehouseId: "string", sku: "string", quantity: "positive number", idempotencyKey: "stable unique string" }, inputSchema: { fromWarehouseId: "string", toWarehouseId: "string", sku: "string", quantity: "number", idempotencyKey: "string" } },
+      { name: "list-warehouses", requiredContextSources: ["warehouse-network"], description: "List warehouse IDs, names, and transfer lead times.", input: {}, inputSchema: {} },
+      { name: "list-demands", requiredContextSources: ["approved-demand"], description: "List customer demand. Filter to the task warehouse and deadline whenever possible.", input: { warehouseId: "optional string", dueOnOrBefore: "optional YYYY-MM-DD" }, inputSchema: { warehouseId: "nullable-string", dueOnOrBefore: "nullable-string" } },
+      { name: "read-inventory", requiredContextSources: ["inventory"], description: "Read on-hand and reserved inventory. Available stock is onHand minus reserved.", input: { warehouseId: "optional string", sku: "optional string" }, inputSchema: { warehouseId: "nullable-string", sku: "nullable-string" } },
+      { name: "list-open-purchase-orders", requiredContextSources: ["open-purchase-orders"], description: "List non-cancelled inbound purchase orders for duplicate and coverage checks.", input: { warehouseId: "optional string", sku: "optional string" }, inputSchema: { warehouseId: "nullable-string", sku: "nullable-string" } },
+      { name: "list-supplier-offers", requiredContextSources: ["supplier-offers"], description: "List active supplier offers. Approval status is supplied separately by purchasing policy.", input: { sku: "optional string" }, inputSchema: { sku: "nullable-string" } },
+      { name: "list-stock-transfers", requiredContextSources: ["stock-transfers"], description: "List non-cancelled stock transfers for duplicate and inbound-coverage checks.", input: { sku: "optional string" }, inputSchema: { sku: "nullable-string" } },
+      { name: "read-purchasing-policy", requiredContextSources: ["purchasing-policy"], description: "Read approved supplier IDs, delegated budget limits, exact task scope, permitted actions, and deadline.", input: {}, inputSchema: {} },
+      { name: "draft-purchase-order", requiredContextSources: ["approved-demand", "supplier-offers", "purchasing-policy"], description: "Create a draft purchase order only after coverage, deadline, supplier approval, budget, scope, and duplicate checks.", input: { warehouseId: "string", sku: "string", quantity: "positive number", offerId: "string", idempotencyKey: "stable unique string" }, inputSchema: { warehouseId: "string", sku: "string", quantity: "number", offerId: "string", idempotencyKey: "string" } },
+      { name: "draft-stock-transfer", requiredContextSources: ["approved-demand", "inventory", "stock-transfers", "warehouse-network"], description: "Create a draft stock transfer only after destination scope, source availability, deadline, need, and duplicate checks.", input: { fromWarehouseId: "string", toWarehouseId: "string", sku: "string", quantity: "positive number", idempotencyKey: "stable unique string" }, inputSchema: { fromWarehouseId: "string", toWarehouseId: "string", sku: "string", quantity: "number", idempotencyKey: "string" } },
     ];
   }
   requiredAction(name) { if (name === "draft-purchase-order") return "draft-order"; if (name === "draft-stock-transfer") return "draft-transfer"; return null; }
@@ -173,7 +173,7 @@ function availableByDeadline(state, demand, deadline) {
 }
 
 export class RealisticProcurementVerifier {
-  constructor({ task = londonDueTomorrowTask, initialState }) { this.task = structuredClone(task); this.initial = structuredClone(initialState); this.initialProtectedHash = digest(initialState.protected); }
+  constructor({ task = londonDueTomorrowTask, initialState }) { this.id = "realistic-procurement-external-state-v1"; this.task = structuredClone(task); this.initial = structuredClone(initialState); this.initialProtectedHash = digest(initialState.protected); }
   async verify({ externalState, resolution = { kind: "complete", blocker: null } }) {
     const requirements = groupedRequirements(externalState, this.task);
     const coverage = requirements.map((requirement) => ({
