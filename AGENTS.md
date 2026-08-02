@@ -138,3 +138,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - No compiler finalist advances. Test the two compiler configurations unchanged on Terra before changing prompts or paying for Sol variants.
 - Comparison spend was `$0.24856918`; cumulative spend is `$12.04116712`.
 - See `reports/0043-piece-4-development-baseline-comparison.md`.
+
+## Piece 4 RevOps evidence-led model promotion — 2026-08-02
+
+- Both compiler configurations that passed 4/5 development cases on Luna passed 5/5 safely after promotion to Terra with every other package dimension unchanged.
+- Candidate 3 is selected: one verifier-guided repair, `$0.059286`, versus candidate 1's four repairs and `$0.0655546`.
+- This is development evidence only. Validation, adversarial and unseen cases remain unreleased.
+- Promotion spend was `$0.1248406`; cumulative paid-model spend is `$12.16600772` under the fixed `$25` ceiling.
+- See `reports/0044-piece-4-evidence-led-model-promotion.md`.
