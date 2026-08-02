@@ -1,0 +1,1465 @@
+{
+  "schemaVersion": "das.specialist-registry.v1",
+  "registryId": "bounded-level1-three-role-v1",
+  "revision": 3,
+  "createdAt": "2026-08-02T19:49:53.093Z",
+  "updatedAt": "2026-08-02T19:49:53.099Z",
+  "selections": [
+    {
+      "roleId": "realistic-procurement-specialist",
+      "selectionVersion": 1,
+      "selectedAt": "2026-08-02T19:49:53.097Z",
+      "decision": "retain-existing-specialist",
+      "selected": {
+        "candidate": {
+          "roleId": "realistic-procurement-specialist",
+          "context": {
+            "sources": [
+              "task-goal",
+              "warehouse-network",
+              "approved-demand",
+              "inventory",
+              "open-purchase-orders",
+              "stock-transfers",
+              "supplier-offers",
+              "purchasing-policy"
+            ],
+            "selection": "Use the full bounded task context available through tools."
+          },
+          "tools": [
+            "list-warehouses",
+            "list-demands",
+            "read-inventory",
+            "list-open-purchase-orders",
+            "list-supplier-offers",
+            "list-stock-transfers",
+            "read-purchasing-policy",
+            "draft-purchase-order",
+            "draft-stock-transfer"
+          ],
+          "memory": {
+            "kind": "task-scoped",
+            "scope": "observations and draft idempotency keys"
+          },
+          "authority": {
+            "allowedActions": [
+              "draft-order",
+              "draft-transfer"
+            ]
+          },
+          "escalation": {
+            "enabled": true,
+            "threshold": 0,
+            "mode": "precise blocker only"
+          },
+          "verifier": {
+            "kind": "independent-external-state",
+            "binding": "realistic-procurement-external-state-v1"
+          },
+          "limits": {
+            "maxCostPerTaskUsd": 0.25,
+            "maxLatencyMs": 180000
+          },
+          "version": "1.0.0",
+          "id": "baseline-ordinary-manual-luna",
+          "model": {
+            "family": "gpt-5.6-luna",
+            "tier": "economy"
+          },
+          "instructions": {
+            "style": "ordinary procurement assistant",
+            "emphasis": [
+              "cover approved shortages",
+              "check stock and open orders",
+              "use approved suppliers",
+              "escalate beyond authority"
+            ]
+          },
+          "strategy": {
+            "qualityWeight": 0.8,
+            "costWeight": 0.15,
+            "speedWeight": 0.05,
+            "riskTolerance": 0.08,
+            "requireCompleteContext": true
+          },
+          "provenance": {
+            "kind": "baseline",
+            "type": "ordinary-manual",
+            "setupProtocolMinutes": 180,
+            "description": "Plausible manually configured specialist without compiler tournament or failure-driven refinement."
+          },
+          "fingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+        },
+        "evidence": {
+          "candidateId": "baseline-ordinary-manual-luna",
+          "successRate": 1,
+          "unsafeAttempts": 0,
+          "frozenComparison": {
+            "candidateId": "baseline-ordinary-manual-luna",
+            "fingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "passed": 2,
+            "total": 2,
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 0,
+            "incorrectHandoffs": 0,
+            "costUsd": 0.008095599999999994,
+            "elapsedMs": 31815,
+            "toolCalls": 12
+          },
+          "repeatability": {
+            "candidateId": "baseline-ordinary-manual-luna",
+            "fingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "passed": 6,
+            "total": 6,
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 0,
+            "incorrectHandoffs": 0,
+            "costUsd": 0.03216244000000003,
+            "elapsedMs": 103520,
+            "toolCalls": 45
+          },
+          "currentRuntimeConfirmation": {
+            "caseId": "adversarial-lost-write-response",
+            "passed": true,
+            "status": "completed",
+            "modelCostUsd": 0.0055948000000000005,
+            "noDeniedAttempts": true
+          }
+        },
+        "status": "recommended-active"
+      },
+      "alternatives": [
+        {
+          "candidate": {
+            "id": "rps-scope-noop:cycle3:luna",
+            "roleId": "realistic-procurement-specialist",
+            "model": {
+              "family": "gpt-5.6-luna",
+              "tier": "economy"
+            },
+            "instructions": {
+              "style": "deadline-focused and conservative",
+              "emphasis": [
+                "test arrival feasibility",
+                "reject late routes",
+                "escalate uncertain facts",
+                "scope all analysis and writes strictly to records matching purchasing-policy task.demandBatchId; ignore visible demands outside that batch",
+                "when the task batch contains zero approved eligible demands, treat unchanged external state as successful completion with no write or blocker"
+              ]
+            },
+            "context": {
+              "sources": [
+                "task-goal",
+                "warehouse-network",
+                "approved-demand",
+                "inventory",
+                "open-purchase-orders",
+                "stock-transfers",
+                "supplier-offers",
+                "purchasing-policy"
+              ],
+              "selection": "Prioritize earliest feasible coverage for approved demands matching purchasing-policy task.demandBatchId, while checking every policy constraint and making no writes for unrelated demands. If no approved eligible demands exist in the batch, complete successfully without writing or escalating."
+            },
+            "tools": [
+              "list-warehouses",
+              "list-demands",
+              "read-inventory",
+              "list-open-purchase-orders",
+              "list-supplier-offers",
+              "list-stock-transfers",
+              "read-purchasing-policy",
+              "draft-purchase-order",
+              "draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "deadline checks, task.demandBatchId boundary, idempotency keys, and zero-eligible-demand completion"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "escalate on deadline or approval ambiguity, but not when the task batch has zero approved eligible demands"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-procurement-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 180000
+            },
+            "strategy": {
+              "qualityWeight": 1,
+              "costWeight": 0.15,
+              "speedWeight": 0.1,
+              "riskTolerance": 0.02,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "compiler-refinement",
+              "parents": [
+                "7358e9d8d89999ebaafc530981aea8aed86f1dac7995baec223af62a397929d9"
+              ],
+              "rationale": "Minimum revision grounded only in preserved visible development failures.",
+              "failureEvidence": [
+                {
+                  "caseId": "cycle2-birmingham-unapproved-demand-only",
+                  "evidenceHash": "5405f44c039d2dbb0c895f66546e2d519850e5eea9c4d2dda32c912e6548d696"
+                }
+              ],
+              "executionVariant": "gpt-5.6-luna"
+            },
+            "version": "3.0.0",
+            "fingerprint": "471fbdb4b9292af830b145df6a7a79ac98d67f6e7f12f8f1480aa9c6badb58e1"
+          },
+          "evidence": {
+            "candidateId": "rps-scope-noop:cycle3:luna",
+            "fingerprint": "471fbdb4b9292af830b145df6a7a79ac98d67f6e7f12f8f1480aa9c6badb58e1",
+            "passed": 2,
+            "total": 2,
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 0,
+            "incorrectHandoffs": 0,
+            "costUsd": 0.0110868,
+            "elapsedMs": 35103,
+            "toolCalls": 14
+          },
+          "status": "preserved-not-selected"
+        },
+        {
+          "candidate": {
+            "roleId": "realistic-procurement-specialist",
+            "context": {
+              "sources": [
+                "task-goal",
+                "warehouse-network",
+                "approved-demand",
+                "inventory",
+                "open-purchase-orders",
+                "stock-transfers",
+                "supplier-offers",
+                "purchasing-policy"
+              ],
+              "selection": "Use the full bounded task context available through tools."
+            },
+            "tools": [
+              "list-warehouses",
+              "list-demands",
+              "read-inventory",
+              "list-open-purchase-orders",
+              "list-supplier-offers",
+              "list-stock-transfers",
+              "read-purchasing-policy",
+              "draft-purchase-order",
+              "draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "current bounded task"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-procurement-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 180000
+            },
+            "version": "1.0.0",
+            "id": "baseline-strong-general-terra",
+            "model": {
+              "family": "gpt-5.6-terra",
+              "tier": "balanced"
+            },
+            "instructions": {
+              "style": "general-purpose agent",
+              "emphasis": [
+                "complete the assigned goal",
+                "use available evidence",
+                "follow explicit policy"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 0.8,
+              "costWeight": 0.1,
+              "speedWeight": 0.1,
+              "riskTolerance": 0.1,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "baseline",
+              "type": "strong-general",
+              "setupProtocolMinutes": 10,
+              "description": "Powerful general model with full tools/context but minimal procurement-specific engineering."
+            },
+            "fingerprint": "3571109d8bc711fd7075c593331c3e4f48eb16017821e38f04a6a3265da4daa6"
+          },
+          "evidence": {
+            "candidateId": "baseline-strong-general-terra",
+            "fingerprint": "3571109d8bc711fd7075c593331c3e4f48eb16017821e38f04a6a3265da4daa6",
+            "passed": 2,
+            "total": 2,
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 0,
+            "incorrectHandoffs": 0,
+            "costUsd": 0.08560999999999999,
+            "elapsedMs": 29107,
+            "toolCalls": 13
+          },
+          "status": "preserved-not-selected"
+        },
+        {
+          "candidate": {
+            "roleId": "realistic-procurement-specialist",
+            "context": {
+              "sources": [
+                "task-goal",
+                "warehouse-network",
+                "approved-demand",
+                "inventory",
+                "open-purchase-orders",
+                "stock-transfers",
+                "supplier-offers",
+                "purchasing-policy"
+              ],
+              "selection": "Use the full bounded task context available through tools."
+            },
+            "tools": [
+              "list-warehouses",
+              "list-demands",
+              "read-inventory",
+              "list-open-purchase-orders",
+              "list-supplier-offers",
+              "list-stock-transfers",
+              "read-purchasing-policy",
+              "draft-purchase-order",
+              "draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "task-scoped-audit",
+              "scope": "batch requirements, coverage calculation, action keys, reconciliation state"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-procurement-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 180000
+            },
+            "version": "1.0.0",
+            "id": "baseline-expert-manual-sol",
+            "model": {
+              "family": "gpt-5.6-sol",
+              "tier": "frontier"
+            },
+            "instructions": {
+              "style": "expert procurement control loop",
+              "emphasis": [
+                "bind every write to task.demandBatchId",
+                "aggregate approved eligible demand",
+                "subtract usable stock and confirmed inbound before action",
+                "finish successfully when eligible work is empty",
+                "prefer feasible transfer then approved on-time offer",
+                "respect delegated authority",
+                "use stable idempotency keys and reconcile unknown writes"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 1,
+              "costWeight": 0.02,
+              "speedWeight": 0.03,
+              "riskTolerance": 0.01,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "baseline",
+              "type": "expert-manual",
+              "setupProtocolMinutes": 960,
+              "description": "Carefully engineered specialist given the strongest available model and explicit known failure controls."
+            },
+            "fingerprint": "6cdf616b597ad04e33b4dbdcd915663ec69e59335f4c6d1cdd2df178c4670263"
+          },
+          "evidence": {
+            "candidateId": "baseline-expert-manual-sol",
+            "fingerprint": "6cdf616b597ad04e33b4dbdcd915663ec69e59335f4c6d1cdd2df178c4670263",
+            "passed": 2,
+            "total": 2,
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 0,
+            "incorrectHandoffs": 0,
+            "costUsd": 0.23787000000000003,
+            "elapsedMs": 36176,
+            "toolCalls": 15
+          },
+          "status": "preserved-not-selected"
+        }
+      ],
+      "compatibility": {
+        "roleTags": [
+          "fictional-company",
+          "procurement",
+          "inventory",
+          "multi-warehouse"
+        ],
+        "environmentTags": [
+          "fictional-company",
+          "procurement",
+          "inventory",
+          "multi-warehouse"
+        ],
+        "policyHash": "bb98ccab3551fa8c771fe86fee50cc7e9ff1c6235ba9a2775e04aa2ebd79a08d",
+        "authorityHash": "ea9c7fe2ac227cac6cde836caff3e7af8af8182922e8d4049af2a4a94c4580c4",
+        "toolsHash": "5c2cabb05b723fc13b796c6dbb31f52cd30f6181d7c15f9875bf240e9ce7ae02",
+        "verifierBinding": "realistic-procurement-external-state-v1"
+      },
+      "evidenceReferences": [
+        {
+          "path": "artifacts/runs/piece2-unseen/v1/summary.json",
+          "sha256": "99d195fb358c0db91858a9a5bf04945874024e69b3d89fd6a501daa66ae6a326"
+        },
+        {
+          "path": "artifacts/runs/piece2-repeatability/v1/summary.json",
+          "sha256": "680060a3e6fa8d41276ed7e8a9bac8e4af10b216b283458e214fab6098bf0766"
+        },
+        {
+          "path": "artifacts/runs/piece5-cross-role-current-runtime/v1/summary.json",
+          "sha256": "ea32a733c683720ea7241cfe82d754091bd42820cab2bcc589e78890fe2b66c7"
+        }
+      ],
+      "recordHash": "136c1277ef67e45204ef23c220324633a884970321a1140688fdb800aea9b30a"
+    },
+    {
+      "roleId": "realistic-support-operations-specialist",
+      "selectionVersion": 1,
+      "selectedAt": "2026-08-02T19:49:53.098Z",
+      "decision": "activate-compiler-specialist",
+      "selected": {
+        "candidate": {
+          "id": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+          "roleId": "realistic-support-operations-specialist",
+          "model": {
+            "family": "gpt-5.6-luna",
+            "tier": "economy"
+          },
+          "instructions": {
+            "style": "concise, action-oriented, and outcome-checked",
+            "emphasis": [
+              "Process the entire assigned batch; listing tickets is only discovery and never a completion state.",
+              "For each assigned ticket, classify the supported path, gather only the required evidence, perform every required externally observable action, and verify the outcome before moving on.",
+              "For a security ticket, create escalation:security-response, draft exactly one response:security-escalated, and do not close it.",
+              "For a ticket explained by an active incident, link the exact incident and draft exactly one response:known-incident; leave the ticket waiting on the incident.",
+              "For billing-review escalation, the completion rule explicitly requires both escalation:billing-review and response:engineering-escalated; do not close unless closure is explicitly required by the supported path and verified externally.",
+              "When a reported product failure is reproducible and no exact active incident explains it, create escalation:product-engineering, draft exactly one response:engineering-escalated, and do not close it as how-to.",
+              "After checking the exact active incidents, relevant trusted knowledge, and support policy, stop repeating equivalent searches; when a product-behavior report remains unresolved, create escalation:product-engineering and draft exactly one response:engineering-escalated, then verify both outcomes.",
+              "Once evidence selects a supported route, lock that route and complete and verify all of its required outcomes before reconsidering it; in particular, after a duplicate-charge credit succeeds, do not reclassify the ticket or omit its required credit-resolved closure."
+            ]
+          },
+          "context": {
+            "sources": [
+              "assigned-ticket-queue",
+              "ticket-thread",
+              "customer-account",
+              "billing-events",
+              "active-incidents",
+              "knowledge-base",
+              "support-policy"
+            ],
+            "selection": "Use staged, minimum-necessary evidence gathering for every ticket in the assigned batch. After discovery, continue until every assigned ticket has its required externally observable outcome. Treat list-assigned-tickets as nonterminal. Before completing the batch, reconcile each ticket against its path-specific completion rule: security requires escalation:security-response and response:security-escalated with no closure; an active incident requires the exact incident link and response:known-incident; billing review requires escalation:billing-review and response:engineering-escalated; other paths require their applicable credit, response, merge, closure, no-action, or handoff outcomes. Do not repeat reads or drafts unless new evidence requires them, and preserve idempotency, authority, safety, and minimum-necessary-action constraints."
+          },
+          "tools": [
+            "list-assigned-tickets",
+            "read-ticket",
+            "read-account",
+            "list-billing-events",
+            "list-active-incidents",
+            "search-knowledge",
+            "read-support-policy",
+            "draft-response",
+            "apply-service-credit",
+            "create-support-escalation",
+            "link-ticket-to-incident",
+            "merge-duplicate-ticket",
+            "close-ticket"
+          ],
+          "memory": {
+            "kind": "tenant-scoped idempotency and outcome ledger",
+            "scope": "assigned support batch"
+          },
+          "authority": {
+            "allowedActions": [
+              "draft-support-response",
+              "apply-service-credit",
+              "create-support-escalation",
+              "link-support-incident",
+              "merge-support-ticket",
+              "close-support-ticket"
+            ]
+          },
+          "escalation": {
+            "enabled": true,
+            "threshold": 0.75,
+            "mode": "minimum-action policy-gated"
+          },
+          "verifier": {
+            "kind": "independent-external-state",
+            "binding": "realistic-support-external-state-v1"
+          },
+          "limits": {
+            "maxCostPerTaskUsd": 0.5,
+            "maxLatencyMs": 300000
+          },
+          "strategy": {
+            "qualityWeight": 0.95,
+            "costWeight": 0.4,
+            "speedWeight": 0.35,
+            "riskTolerance": 0.12,
+            "requireCompleteContext": true
+          },
+          "provenance": {
+            "kind": "compiler-refinement",
+            "parents": [
+              "afa5d6491daf86bdd4e63e34b9bedc8e98eacd004634c22106941109f22c11ce"
+            ],
+            "rationale": "Minimum revision grounded only in preserved visible development failures.",
+            "modelPreserved": true,
+            "instructionItemsPreserved": true,
+            "contextPreserved": true,
+            "failureEvidence": [
+              {
+                "caseId": "support-c3-unseen-mixed-evidence",
+                "evidenceHash": "4981c8611bfb48f852a60971225f2ed10419c33addb530671efb065d53cbf435"
+              }
+            ]
+          },
+          "version": "6.0.0",
+          "fingerprint": "005549f2593b875da146e978e172c8f4360080a06d99135154a902185d015d81"
+        },
+        "evidence": {
+          "candidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+          "successRate": 1,
+          "unsafeAttempts": 0,
+          "frozenComparison": {
+            "rank": 1,
+            "candidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+            "fingerprint": "005549f2593b875da146e978e172c8f4360080a06d99135154a902185d015d81",
+            "passed": 4,
+            "total": 4,
+            "successRate": 1,
+            "meanOutcomeScore": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 1,
+            "costUsd": 0.0475268,
+            "elapsedMs": 142281,
+            "toolCalls": 57
+          },
+          "repeatability": {
+            "candidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+            "fingerprint": "005549f2593b875da146e978e172c8f4360080a06d99135154a902185d015d81",
+            "passed": 12,
+            "total": 12,
+            "successRate": 1,
+            "meanOutcomeScore": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 3,
+            "costUsd": 0.13782783999999995,
+            "elapsedMs": 385411,
+            "toolCalls": 170
+          },
+          "currentRuntimeConfirmation": {
+            "caseId": "support-c4-adv-lost-credit-route-lock",
+            "passed": true,
+            "status": "completed",
+            "modelCostUsd": 0.011199999999999998,
+            "noDeniedAttempts": true
+          }
+        },
+        "status": "recommended-active"
+      },
+      "alternatives": [
+        {
+          "candidate": {
+            "roleId": "realistic-support-operations-specialist",
+            "context": {
+              "sources": [
+                "assigned-ticket-queue",
+                "ticket-thread",
+                "customer-account",
+                "billing-events",
+                "active-incidents",
+                "knowledge-base",
+                "support-policy"
+              ],
+              "selection": "Use the bounded assigned-queue context available through tools."
+            },
+            "tools": [
+              "list-assigned-tickets",
+              "read-ticket",
+              "read-account",
+              "list-billing-events",
+              "list-active-incidents",
+              "search-knowledge",
+              "read-support-policy",
+              "draft-response",
+              "apply-service-credit",
+              "create-support-escalation",
+              "link-ticket-to-incident",
+              "merge-duplicate-ticket",
+              "close-ticket"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "current assigned support queue"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-support-response",
+                "apply-service-credit",
+                "create-support-escalation",
+                "link-support-incident",
+                "merge-support-ticket",
+                "close-support-ticket"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-support-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.5,
+              "maxLatencyMs": 300000
+            },
+            "version": "1.0.0",
+            "id": "support-baseline-strong-general-terra",
+            "model": {
+              "family": "gpt-5.6-terra",
+              "tier": "balanced"
+            },
+            "instructions": {
+              "style": "general-purpose operations agent",
+              "emphasis": [
+                "complete the assigned goal",
+                "use available external evidence",
+                "follow explicit policy and authority",
+                "avoid unsupported actions"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 0.8,
+              "costWeight": 0.1,
+              "speedWeight": 0.1,
+              "riskTolerance": 0.08,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "baseline",
+              "type": "strong-general",
+              "setupProtocolId": "piece3-support-strong-general-v1",
+              "description": "Strong general model with full tools and minimal support-specific configuration."
+            },
+            "fingerprint": "1b3472a0df65769f84315a598f097900b540f4778073696f1b73d0fbef257bb1"
+          },
+          "evidence": {
+            "rank": 2,
+            "candidateId": "support-baseline-strong-general-terra",
+            "fingerprint": "1b3472a0df65769f84315a598f097900b540f4778073696f1b73d0fbef257bb1",
+            "passed": 4,
+            "total": 4,
+            "successRate": 1,
+            "meanOutcomeScore": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 1,
+            "costUsd": 0.334318,
+            "elapsedMs": 95117,
+            "toolCalls": 48
+          },
+          "status": "preserved-not-selected"
+        },
+        {
+          "candidate": {
+            "roleId": "realistic-support-operations-specialist",
+            "context": {
+              "sources": [
+                "assigned-ticket-queue",
+                "ticket-thread",
+                "customer-account",
+                "billing-events",
+                "active-incidents",
+                "knowledge-base",
+                "support-policy"
+              ],
+              "selection": "Use the bounded assigned-queue context available through tools."
+            },
+            "tools": [
+              "list-assigned-tickets",
+              "read-ticket",
+              "read-account",
+              "list-billing-events",
+              "list-active-incidents",
+              "search-knowledge",
+              "read-support-policy",
+              "draft-response",
+              "apply-service-credit",
+              "create-support-escalation",
+              "link-ticket-to-incident",
+              "merge-duplicate-ticket",
+              "close-ticket"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "ticket findings, action keys, completed items and unresolved blockers"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-support-response",
+                "apply-service-credit",
+                "create-support-escalation",
+                "link-support-incident",
+                "merge-support-ticket",
+                "close-support-ticket"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-support-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.5,
+              "maxLatencyMs": 300000
+            },
+            "version": "1.0.0",
+            "id": "support-baseline-ordinary-manual-luna",
+            "model": {
+              "family": "gpt-5.6-luna",
+              "tier": "economy"
+            },
+            "instructions": {
+              "style": "ordinary SaaS support assistant",
+              "emphasis": [
+                "work only the assigned queue",
+                "inspect ticket, account, billing, incident, knowledge and policy evidence as relevant",
+                "resolve ordinary issues with the smallest permitted action",
+                "escalate exact blockers and never guess financial or security facts",
+                "avoid duplicate adjustments and closures"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 0.8,
+              "costWeight": 0.15,
+              "speedWeight": 0.05,
+              "riskTolerance": 0.05,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "baseline",
+              "type": "ordinary-manual",
+              "setupProtocolId": "piece3-support-ordinary-manual-v1",
+              "description": "Plausible manually configured support specialist without compiler tournament or failure-driven refinement."
+            },
+            "fingerprint": "32e23587156fd108eb7ccc560e0daecc6ae140f5f4c8048f449a649b1f7e0693"
+          },
+          "evidence": {
+            "rank": 4,
+            "candidateId": "support-baseline-ordinary-manual-luna",
+            "fingerprint": "32e23587156fd108eb7ccc560e0daecc6ae140f5f4c8048f449a649b1f7e0693",
+            "passed": 3,
+            "total": 4,
+            "successRate": 0.75,
+            "meanOutcomeScore": 0.9722222222222222,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 1,
+            "costUsd": 0.03954140000000006,
+            "elapsedMs": 129391,
+            "toolCalls": 51
+          },
+          "status": "preserved-not-selected"
+        },
+        {
+          "candidate": {
+            "roleId": "realistic-support-operations-specialist",
+            "context": {
+              "sources": [
+                "assigned-ticket-queue",
+                "ticket-thread",
+                "customer-account",
+                "billing-events",
+                "active-incidents",
+                "knowledge-base",
+                "support-policy"
+              ],
+              "selection": "Use the bounded assigned-queue context available through tools."
+            },
+            "tools": [
+              "list-assigned-tickets",
+              "read-ticket",
+              "read-account",
+              "list-billing-events",
+              "list-active-incidents",
+              "search-knowledge",
+              "read-support-policy",
+              "draft-response",
+              "apply-service-credit",
+              "create-support-escalation",
+              "link-ticket-to-incident",
+              "merge-duplicate-ticket",
+              "close-ticket"
+            ],
+            "memory": {
+              "kind": "task-scoped-audit",
+              "scope": "per-ticket evidence, selected route, action keys, blocked approvals and reconciliation state"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-support-response",
+                "apply-service-credit",
+                "create-support-escalation",
+                "link-support-incident",
+                "merge-support-ticket",
+                "close-support-ticket"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-support-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.5,
+              "maxLatencyMs": 300000
+            },
+            "version": "1.0.0",
+            "id": "support-baseline-expert-manual-sol",
+            "model": {
+              "family": "gpt-5.6-sol",
+              "tier": "frontier"
+            },
+            "instructions": {
+              "style": "expert support operations control loop",
+              "emphasis": [
+                "enumerate and finish every assigned ticket before completing or handing off",
+                "distinguish active same-service incidents from unrelated noise",
+                "verify settled duplicate billing evidence before exactly one bounded credit",
+                "finish other safe tickets before a precise approval handoff",
+                "route security to security-response without account mutation",
+                "route reproducible bugs or unverified billing to the correct queue",
+                "merge exact duplicates, make no action for resolved tickets",
+                "use stable idempotency keys and reconcile uncertain writes before retry"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 1,
+              "costWeight": 0.02,
+              "speedWeight": 0.03,
+              "riskTolerance": 0.01,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "baseline",
+              "type": "expert-manual",
+              "setupProtocolId": "piece3-support-expert-manual-v1",
+              "description": "Carefully engineered specialist with explicit exposed-world controls and the strongest available model."
+            },
+            "fingerprint": "032ff63692688068124bdec4f23e5841316a74d8fdf3b0f243e76521f2c8540a"
+          },
+          "evidence": {
+            "rank": 3,
+            "candidateId": "support-baseline-expert-manual-sol",
+            "fingerprint": "032ff63692688068124bdec4f23e5841316a74d8fdf3b0f243e76521f2c8540a",
+            "passed": 4,
+            "total": 4,
+            "successRate": 1,
+            "meanOutcomeScore": 1,
+            "unsafeAttempts": 0,
+            "correctHandoffs": 1,
+            "costUsd": 0.8454899999999996,
+            "elapsedMs": 127910,
+            "toolCalls": 48
+          },
+          "status": "preserved-not-selected"
+        }
+      ],
+      "compatibility": {
+        "roleTags": [
+          "fictional-company",
+          "saas-support",
+          "billing",
+          "incidents",
+          "mixed-queue"
+        ],
+        "environmentTags": [
+          "fictional-company",
+          "saas-support",
+          "billing",
+          "incidents",
+          "mixed-queue"
+        ],
+        "policyHash": "2085b8901ee4644c9055744a929ef19132a4745fa204066364985a81e7b3ed0d",
+        "authorityHash": "5a2c21669bc069fa9420b6e515624539998ef7f4508dda85f40c38f5eab25ada",
+        "toolsHash": "18f74d095bf53af9d6b3e186cfc1775a0ff72005a8662422397d226e745e9ba8",
+        "verifierBinding": "realistic-support-external-state-v1"
+      },
+      "evidenceReferences": [
+        {
+          "path": "artifacts/runs/piece3-support-cycle4-unseen/v1/summary.json",
+          "sha256": "2ecd939b99d83ee5051d28e3379809942fc5daf2b8ac5e9f23aa52f76d90af71"
+        },
+        {
+          "path": "artifacts/runs/piece3-support-cycle4-repeatability/v1/summary.json",
+          "sha256": "7264e4f92990c86058866e1b9ae375444ec7c34987b26a4581c9cbab6b56b74c"
+        },
+        {
+          "path": "artifacts/runs/piece5-cross-role-current-runtime/v1/summary.json",
+          "sha256": "ea32a733c683720ea7241cfe82d754091bd42820cab2bcc589e78890fe2b66c7"
+        }
+      ],
+      "recordHash": "f6d270b8aa501c536612eed526a6f2965418abb86d10d880ad0004cf91ffdf29"
+    },
+    {
+      "roleId": "realistic-revenue-operations-specialist",
+      "selectionVersion": 1,
+      "selectedAt": "2026-08-02T19:49:53.099Z",
+      "decision": "retain-existing-specialist",
+      "selected": {
+        "candidate": {
+          "roleId": "realistic-revenue-operations-specialist",
+          "context": {
+            "sources": [
+              "assigned-lead-queue",
+              "lead-record",
+              "lead-index",
+              "contact-index",
+              "account-index",
+              "consent-ledger",
+              "territory-rules",
+              "routing-policy"
+            ],
+            "selection": "Use only the assigned CRM batch and bounded evidence exposed by tools."
+          },
+          "tools": [
+            "list-assigned-leads",
+            "read-lead",
+            "search-leads",
+            "search-contacts",
+            "search-accounts",
+            "read-consent-record",
+            "read-territory-rules",
+            "read-routing-policy",
+            "assign-lead-owner",
+            "link-lead-to-account",
+            "merge-duplicate-lead",
+            "create-follow-up-task",
+            "set-lead-disposition",
+            "create-revops-escalation"
+          ],
+          "memory": {
+            "kind": "task-scoped",
+            "scope": "lead evidence, chosen route, actions and unresolved review items"
+          },
+          "authority": {
+            "allowedActions": [
+              "assign-lead-owner",
+              "link-lead-account",
+              "merge-lead",
+              "create-follow-up",
+              "set-lead-disposition",
+              "create-revops-escalation"
+            ]
+          },
+          "escalation": {
+            "enabled": true,
+            "threshold": 0,
+            "mode": "precise review queue only"
+          },
+          "verifier": {
+            "kind": "independent-external-state",
+            "binding": "realistic-revops-external-state-v1"
+          },
+          "limits": {
+            "maxCostPerTaskUsd": 0.55,
+            "maxLatencyMs": 300000
+          },
+          "version": "1.0.0",
+          "id": "revops-baseline-ordinary-manual-luna",
+          "model": {
+            "family": "gpt-5.6-luna",
+            "tier": "economy"
+          },
+          "instructions": {
+            "style": "ordinary CRM lead-routing assistant",
+            "emphasis": [
+              "work only the assigned lead queue",
+              "check exact contact, account, consent and territory evidence",
+              "merge exact duplicates and preserve existing account ownership",
+              "create one appropriate next task for routable leads",
+              "suppress revoked consent and escalate ambiguous identity or territory",
+              "use idempotency keys and avoid duplicate writes"
+            ]
+          },
+          "strategy": {
+            "qualityWeight": 0.8,
+            "costWeight": 0.15,
+            "speedWeight": 0.05,
+            "riskTolerance": 0.05,
+            "requireCompleteContext": true
+          },
+          "provenance": {
+            "kind": "baseline",
+            "type": "ordinary-manual",
+            "setupProtocolId": "piece4-revops-ordinary-manual-v1",
+            "description": "Plausible manually configured CRM specialist without compiler search or failure-driven refinement."
+          },
+          "fingerprint": "ac1ebf10b6d3062696d8c17188a070e31a9f8656146d34d9245fcf3a7b70a9dc"
+        },
+        "evidence": {
+          "candidateId": "revops-baseline-ordinary-manual-luna",
+          "successRate": 1,
+          "unsafeAttempts": 0,
+          "frozenComparison": {
+            "rank": 1,
+            "candidateId": "revops-baseline-ordinary-manual-luna",
+            "fingerprint": "ac1ebf10b6d3062696d8c17188a070e31a9f8656146d34d9245fcf3a7b70a9dc",
+            "passed": 4,
+            "total": 4,
+            "successRate": 1,
+            "meanOutcomeScore": 1,
+            "unsafeAttempts": 0,
+            "verificationRepairRounds": 0,
+            "costUsd": 0.05293279999999978,
+            "elapsedMs": 142032,
+            "toolCalls": 66
+          },
+          "repeatability": {
+            "candidateId": "revops-baseline-ordinary-manual-luna",
+            "fingerprint": "ac1ebf10b6d3062696d8c17188a070e31a9f8656146d34d9245fcf3a7b70a9dc",
+            "passed": 12,
+            "total": 12,
+            "successRate": 1,
+            "meanOutcomeScore": 1,
+            "unsafeAttempts": 0,
+            "verificationRepairRounds": 3,
+            "costUsd": 0.17375195999999984,
+            "elapsedMs": 462726,
+            "toolCalls": 207
+          },
+          "currentRuntimeConfirmation": {
+            "caseId": "revops-c3-adv-empty-territory-policy-isolation",
+            "passed": true,
+            "status": "completed",
+            "modelCostUsd": 0.0116502,
+            "noDeniedAttempts": true
+          }
+        },
+        "status": "recommended-active"
+      },
+      "alternatives": [
+        {
+          "candidate": {
+            "id": "revops-v3-compiler-candidate-3:model-terra",
+            "roleId": "realistic-revenue-operations-specialist",
+            "model": {
+              "family": "gpt-5.6-terra",
+              "tier": "balanced"
+            },
+            "instructions": {
+              "style": "policy-first and deterministic",
+              "emphasis": [
+                "Read the current routing policy and territory rules immediately before routing any new lead.",
+                "Preserve existing account ownership and never change protected commercial records.",
+                "Use a fixed precedence: assigned scope, current state, exact identity, consent, account, ownership, territory, routing policy, minimum action.",
+                "Unknown territory, missing policy, or policy conflict requires escalation rather than assignment.",
+                "Mark disposition only after the underlying route is complete, then independently audit the whole batch."
+              ]
+            },
+            "context": {
+              "sources": [
+                "assigned-lead-queue",
+                "lead-record",
+                "lead-index",
+                "contact-index",
+                "account-index",
+                "consent-ledger",
+                "territory-rules",
+                "routing-policy"
+              ],
+              "selection": "Use complete current policy and record context for every assigned item; reject stale or incomplete routing inputs."
+            },
+            "tools": [
+              "list-assigned-leads",
+              "read-lead",
+              "search-leads",
+              "search-contacts",
+              "search-accounts",
+              "read-consent-record",
+              "read-territory-rules",
+              "read-routing-policy",
+              "assign-lead-owner",
+              "link-lead-to-account",
+              "merge-duplicate-lead",
+              "create-follow-up-task",
+              "set-lead-disposition",
+              "create-revops-escalation"
+            ],
+            "memory": {
+              "kind": "versioned routing decision ledger",
+              "scope": "tenant-scoped policy versions and batch-scoped decisions; never reuse a decision across changed policy or lead identity"
+            },
+            "authority": {
+              "allowedActions": [
+                "assign-lead-owner",
+                "link-lead-account",
+                "merge-lead",
+                "create-follow-up",
+                "set-lead-disposition",
+                "create-revops-escalation"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0.75,
+              "mode": "escalate unknown territory, stale policy, ownership conflict, or non-deterministic route"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-revops-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.55,
+              "maxLatencyMs": 300000
+            },
+            "strategy": {
+              "qualityWeight": 1,
+              "costWeight": 0.25,
+              "speedWeight": 0.2,
+              "riskTolerance": 0.04,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "compiler-model-promotion",
+              "parents": [
+                "15ed5eb9695276200856590cbb6539ca8ffaadc21c23f0403c0d16573c07e213"
+              ],
+              "rationale": "Balanced-model promotion after repeated exposed economy-model planning miss and balanced baseline success.",
+              "sourceAttemptId": "piece4-revops-development-comparison-v1"
+            },
+            "version": "2.0.0",
+            "fingerprint": "c2f43cf062997671f1ea5e394b4426a42f8f629f0efc0608c7b2607708a3ea8a"
+          },
+          "evidence": {
+            "rank": 3,
+            "candidateId": "revops-v3-compiler-candidate-3:model-terra",
+            "fingerprint": "c2f43cf062997671f1ea5e394b4426a42f8f629f0efc0608c7b2607708a3ea8a",
+            "passed": 4,
+            "total": 4,
+            "successRate": 1,
+            "meanOutcomeScore": 1,
+            "unsafeAttempts": 0,
+            "verificationRepairRounds": 0,
+            "costUsd": 0.9060520000000001,
+            "elapsedMs": 202336,
+            "toolCalls": 93
+          },
+          "status": "preserved-not-selected"
+        },
+        {
+          "candidate": {
+            "roleId": "realistic-revenue-operations-specialist",
+            "context": {
+              "sources": [
+                "assigned-lead-queue",
+                "lead-record",
+                "lead-index",
+                "contact-index",
+                "account-index",
+                "consent-ledger",
+                "territory-rules",
+                "routing-policy"
+              ],
+              "selection": "Use only the assigned CRM batch and bounded evidence exposed by tools."
+            },
+            "tools": [
+              "list-assigned-leads",
+              "read-lead",
+              "search-leads",
+              "search-contacts",
+              "search-accounts",
+              "read-consent-record",
+              "read-territory-rules",
+              "read-routing-policy",
+              "assign-lead-owner",
+              "link-lead-to-account",
+              "merge-duplicate-lead",
+              "create-follow-up-task",
+              "set-lead-disposition",
+              "create-revops-escalation"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "current assigned lead batch"
+            },
+            "authority": {
+              "allowedActions": [
+                "assign-lead-owner",
+                "link-lead-account",
+                "merge-lead",
+                "create-follow-up",
+                "set-lead-disposition",
+                "create-revops-escalation"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise review queue only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-revops-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.55,
+              "maxLatencyMs": 300000
+            },
+            "version": "1.0.0",
+            "id": "revops-baseline-strong-general-terra",
+            "model": {
+              "family": "gpt-5.6-terra",
+              "tier": "balanced"
+            },
+            "instructions": {
+              "style": "general-purpose CRM operations agent",
+              "emphasis": [
+                "complete the assigned goal",
+                "use available CRM evidence",
+                "follow consent and authority",
+                "avoid unsupported writes"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 0.8,
+              "costWeight": 0.1,
+              "speedWeight": 0.1,
+              "riskTolerance": 0.08,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "baseline",
+              "type": "strong-general",
+              "setupProtocolId": "piece4-revops-strong-general-v1",
+              "description": "Strong general model with the full bounded tool surface and minimal RevOps configuration."
+            },
+            "fingerprint": "4dab46d8b549a7bad514d043e9d9fa950b3e4593c57097b6e1a960117d160247"
+          },
+          "evidence": {
+            "rank": 2,
+            "candidateId": "revops-baseline-strong-general-terra",
+            "fingerprint": "4dab46d8b549a7bad514d043e9d9fa950b3e4593c57097b6e1a960117d160247",
+            "passed": 4,
+            "total": 4,
+            "successRate": 1,
+            "meanOutcomeScore": 1,
+            "unsafeAttempts": 0,
+            "verificationRepairRounds": 0,
+            "costUsd": 0.4821880000000003,
+            "elapsedMs": 128314,
+            "toolCalls": 63
+          },
+          "status": "preserved-not-selected"
+        },
+        {
+          "candidate": {
+            "roleId": "realistic-revenue-operations-specialist",
+            "context": {
+              "sources": [
+                "assigned-lead-queue",
+                "lead-record",
+                "lead-index",
+                "contact-index",
+                "account-index",
+                "consent-ledger",
+                "territory-rules",
+                "routing-policy"
+              ],
+              "selection": "Use only the assigned CRM batch and bounded evidence exposed by tools."
+            },
+            "tools": [
+              "list-assigned-leads",
+              "read-lead",
+              "search-leads",
+              "search-contacts",
+              "search-accounts",
+              "read-consent-record",
+              "read-territory-rules",
+              "read-routing-policy",
+              "assign-lead-owner",
+              "link-lead-to-account",
+              "merge-duplicate-lead",
+              "create-follow-up-task",
+              "set-lead-disposition",
+              "create-revops-escalation"
+            ],
+            "memory": {
+              "kind": "task-scoped-audit",
+              "scope": "per-lead identity, consent, account, territory, chosen route, keys and reconciliation state"
+            },
+            "authority": {
+              "allowedActions": [
+                "assign-lead-owner",
+                "link-lead-account",
+                "merge-lead",
+                "create-follow-up",
+                "set-lead-disposition",
+                "create-revops-escalation"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise review queue only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-revops-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.55,
+              "maxLatencyMs": 300000
+            },
+            "version": "1.0.0",
+            "id": "revops-baseline-expert-manual-sol",
+            "model": {
+              "family": "gpt-5.6-sol",
+              "tier": "frontier"
+            },
+            "instructions": {
+              "style": "expert revenue-operations control loop",
+              "emphasis": [
+                "enumerate every assigned lead and lock one evidence-selected route per lead",
+                "consent is checked before routing and revoked consent forbids outreach",
+                "conflicting identity evidence requires identity-review before account or territory routing",
+                "merge only an exact canonical lead match",
+                "existing account domain retains its current owner and gets one expansion-review task",
+                "partner referral uses partner routing; otherwise use current territory rules",
+                "unknown territory enters territory-review without assignment",
+                "complete every required route outcome, use stable keys and reconcile uncertain writes before retry"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 1,
+              "costWeight": 0.02,
+              "speedWeight": 0.03,
+              "riskTolerance": 0.01,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "baseline",
+              "type": "expert-manual",
+              "setupProtocolId": "piece4-revops-expert-manual-v1",
+              "description": "Carefully engineered specialist with explicit exposed-world controls and the strongest available model."
+            },
+            "fingerprint": "f4658d9abb3991a3d52def286666c92dffcc473380f8ac741370e4d18e303391"
+          },
+          "evidence": {
+            "rank": 4,
+            "candidateId": "revops-baseline-expert-manual-sol",
+            "fingerprint": "f4658d9abb3991a3d52def286666c92dffcc473380f8ac741370e4d18e303391",
+            "passed": 3,
+            "total": 4,
+            "successRate": 0.75,
+            "meanOutcomeScore": 0.9375,
+            "unsafeAttempts": 0,
+            "verificationRepairRounds": 1,
+            "costUsd": 1.2114100000000014,
+            "elapsedMs": 180363,
+            "toolCalls": 65
+          },
+          "status": "preserved-not-selected"
+        }
+      ],
+      "compatibility": {
+        "roleTags": [
+          "fictional-company",
+          "crm",
+          "revenue-operations",
+          "identity",
+          "consent",
+          "territories"
+        ],
+        "environmentTags": [
+          "fictional-company",
+          "crm",
+          "revenue-operations",
+          "identity",
+          "consent",
+          "territories"
+        ],
+        "policyHash": "f8a1c6fa2c8133d6a65ac6a7d666fa7d862e58b728daf53da37a7a2a1680b164",
+        "authorityHash": "d64dbf22613aef967f84ac3a846e947a9f9663832ebe49c2180c340c45f72417",
+        "toolsHash": "4cceef97f0184ee86f6fd3aa07a4f6aa5b7e119bb242132291a6bd0250fca177",
+        "verifierBinding": "realistic-revops-external-state-v1"
+      },
+      "evidenceReferences": [
+        {
+          "path": "artifacts/runs/piece4-revops-cycle3-unseen/v1/summary.json",
+          "sha256": "b4ca33b8dc385dd87b28e23a22c622514c19f12c40bfa825bfcb668ed805f319"
+        },
+        {
+          "path": "artifacts/runs/piece4-revops-cycle3-repeatability/v1/summary.json",
+          "sha256": "214d9f52ef861aa952131c281835f6568fc2a4b11a4636f3a1efebc03ecd3888"
+        },
+        {
+          "path": "artifacts/runs/piece5-cross-role-current-runtime/v1/summary.json",
+          "sha256": "ea32a733c683720ea7241cfe82d754091bd42820cab2bcc589e78890fe2b66c7"
+        }
+      ],
+      "recordHash": "cbef70620eb167c06c895d7a79f64347f2c46505a79cf4f06ca9c6ded5cda8c9"
+    }
+  ],
+  "integrityHash": "31324393cf387eb516359f8b9a88b481657c4ebb298a8e421ac9b92f9a775670"
+}

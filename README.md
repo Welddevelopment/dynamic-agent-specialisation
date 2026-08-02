@@ -4,7 +4,9 @@ An independent, bounded Level 1 specialist-agent compiler.
 
 Given a business role, systems, policies, authority, examples, success criteria, and operating priorities, the compiler constructs multiple complete specialist candidates, rejects invalid designs, evaluates realistic survivors, independently verifies outcomes, and recommends the strongest proven fit. Alternative Pareto-optimal specialists remain available for safe switching.
 
-The repository now includes a completed model-backed procurement experiment. The generated specialist generalized and repeated successfully, but tied an ordinary manual baseline on correctness and lost the frozen ranking narrowly on cost. The system correctly recommended retaining the existing setup rather than claiming an unproved upgrade. This is one bounded fictional role, not complete Level 1, a production system, or customer evidence. See `reports/0025-piece-2-complete.md`.
+The bounded three-role technical mechanism is now complete across fictional procurement, SaaS support, and CRM/RevOps worlds. One compiler-created specialist earned activation; two existing ordinary specialists were correctly retained when the generated alternatives did not prove an upgrade. Selected packages and serious alternatives are versioned in a durable, tamper-evident registry and remain subject to fail-closed activation checks.
+
+This is not customer evidence, production reliability, proof of human setup-time savings, or general superiority over incumbent agent-building workflows. See `reports/0054-bounded-level1-technical-closeout.md`.
 
 ## Commands
 
@@ -13,4 +15,5 @@ npm test
 npm run evaluate
 npm run audit
 npm run demo
+node src/experiments/build-level1-registry-v1.js
 ```

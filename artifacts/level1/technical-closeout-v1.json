@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "das.level1-technical-closeout.v1",
+  "createdAt": "2026-08-02T19:49:53.101Z",
+  "verdict": {
+    "boundedLevel1TechnicalMechanismComplete": true,
+    "fullExternalEvidenceContractComplete": false,
+    "wording": "The bounded three-role Level 1 technical mechanism is complete. Human-effort advantage, customer value, production reliability, and general framework superiority remain unproved."
+  },
+  "selections": [
+    {
+      "roleId": "realistic-procurement-specialist",
+      "decision": "retain-existing-specialist",
+      "candidateId": "baseline-ordinary-manual-luna",
+      "candidateVersion": "1.0.0",
+      "alternativesPreserved": 3,
+      "recordHash": "136c1277ef67e45204ef23c220324633a884970321a1140688fdb800aea9b30a"
+    },
+    {
+      "roleId": "realistic-support-operations-specialist",
+      "decision": "activate-compiler-specialist",
+      "candidateId": "support-compiler-candidate-5:opt-1:opt-2:refined-1:refined-1:refined-1",
+      "candidateVersion": "6.0.0",
+      "alternativesPreserved": 3,
+      "recordHash": "f6d270b8aa501c536612eed526a6f2965418abb86d10d880ad0004cf91ffdf29"
+    },
+    {
+      "roleId": "realistic-revenue-operations-specialist",
+      "decision": "retain-existing-specialist",
+      "candidateId": "revops-baseline-ordinary-manual-luna",
+      "candidateVersion": "1.0.0",
+      "alternativesPreserved": 3,
+      "recordHash": "cbef70620eb167c06c895d7a79f64347f2c46505a79cf4f06ca9c6ded5cda8c9"
+    }
+  ],
+  "technicalChecks": {
+    "threeSubstantiallyDifferentRoles": true,
+    "multipleCompleteCandidatesPerRole": true,
+    "generalOrdinaryAndExpertBaselines": true,
+    "frozenProspectiveCasesAndLeakageControls": true,
+    "independentExternalOutcomeVerification": true,
+    "currentRuntimeCrossRoleConfirmation": true,
+    "exactPaidCostLedger": true,
+    "failuresPreserved": true,
+    "durableVersionedWinners": true,
+    "seriousAlternativesPreserved": true,
+    "safeActivationAndSwitchingImplemented": true,
+    "prospectiveHumanEffortInstrumentationImplemented": true
+  },
+  "humanEffort": {
+    "ledgerImplementedAndTested": true,
+    "realProspectiveHumanSessions": 0,
+    "allowedClaim": "The system records human decisions, edits, interventions, and elapsed setup time prospectively.",
+    "forbiddenClaim": "The compiler has proved that it reduces human setup time."
+  },
+  "evidenceGaps": {
+    "prospectiveHumanEngineerComparisonCompleted": false,
+    "customerWorkflowValidated": false,
+    "productionReliabilityEstablished": false,
+    "generalSuperiorityOverAgentFrameworksEstablished": false
+  },
+  "paidModelSpend": {
+    "currency": "USD",
+    "hardLimitUsd": 25,
+    "cumulativeSpentUsd": 23.10699808,
+    "through": "piece5-cross-role-current-runtime-v1",
+    "updatedAt": "2026-08-02T19:42:43.712Z"
+  },
+  "registry": {
+    "path": "/Users/joeljeon/Desktop/Dynamic Agent Specialisation/artifacts/level1/registry-v1.json",
+    "sha256": "07bee4a6dc59e492f4ab01040de399d301e9634ae281e6831ade6abbe91b5143"
+  },
+  "sourceEvidence": [
+    {
+      "path": "artifacts/runs/piece2-unseen/v1/summary.json",
+      "sha256": "99d195fb358c0db91858a9a5bf04945874024e69b3d89fd6a501daa66ae6a326"
+    },
+    {
+      "path": "artifacts/runs/piece2-repeatability/v1/summary.json",
+      "sha256": "680060a3e6fa8d41276ed7e8a9bac8e4af10b216b283458e214fab6098bf0766"
+    },
+    {
+      "path": "artifacts/runs/piece3-support-cycle4-unseen/v1/summary.json",
+      "sha256": "2ecd939b99d83ee5051d28e3379809942fc5daf2b8ac5e9f23aa52f76d90af71"
+    },
+    {
+      "path": "artifacts/runs/piece3-support-cycle4-repeatability/v1/summary.json",
+      "sha256": "7264e4f92990c86058866e1b9ae375444ec7c34987b26a4581c9cbab6b56b74c"
+    },
+    {
+      "path": "artifacts/runs/piece4-revops-cycle3-unseen/v1/summary.json",
+      "sha256": "b4ca33b8dc385dd87b28e23a22c622514c19f12c40bfa825bfcb668ed805f319"
+    },
+    {
+      "path": "artifacts/runs/piece4-revops-cycle3-repeatability/v1/summary.json",
+      "sha256": "214d9f52ef861aa952131c281835f6568fc2a4b11a4636f3a1efebc03ecd3888"
+    },
+    {
+      "path": "artifacts/runs/piece5-cross-role-current-runtime/v1/summary.json",
+      "sha256": "ea32a733c683720ea7241cfe82d754091bd42820cab2bcc589e78890fe2b66c7"
+    },
+    {
+      "path": "artifacts/runs/paid-campaign-state.json",
+      "sha256": "8b877edb94a66d2fbf25990d76f4eee41b595770648457432d08479827c7625d"
+    }
+  ]
+}

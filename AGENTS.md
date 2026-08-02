@@ -211,3 +211,15 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - RevOps closes as a retain-existing result, not an optimization win. The product rejected the less stable, more expensive compiler package.
 - Correct cumulative paid spend is `$23.07855308`, leaving `$1.92144692` under the fixed `$25` ceiling.
 - See `reports/0052-piece-4-revops-repeatability.md`.
+
+## Bounded Level 1 technical closeout — 2026-08-02
+
+- The bounded three-role technical mechanism is complete across realistic fictional procurement, SaaS-support and CRM/RevOps worlds.
+- Final product decisions are mixed by design: retain the ordinary Luna specialist for procurement; activate the compiler-created Luna specialist for support; retain the ordinary Luna specialist for RevOps.
+- The compiler specialist won the support prospective comparison and passed 12/12 fresh repeats. The system rejected unproved upgrades in the other two roles rather than forcing a compiler win.
+- The selected specialist for each role passed a representative high-risk case on the current shared runtime: 3/3, zero unsafe/denied attempts, `$0.028445` incremental spend.
+- A durable integrity-checked registry now preserves the exact versioned winner and three serious alternatives per role, reloads after process exit, detects mutation, and remains subject to fail-closed environment and transition checks before activation or switching.
+- Full local suite: 112/112 passed. Exact cumulative paid-model spend: `$23.10699808` under the fixed `$25` ceiling.
+- This completes the bounded technical mechanism, not the external evidence case. Do not claim prospective human setup savings, customer value, production reliability, universal role coverage, or general superiority over LangChain, CrewAI, Microsoft, or other workflows.
+- The human-effort ledger is implemented and tested, but zero real prospective human-engineer sessions have been conducted.
+- See `reports/0053-cross-role-current-runtime-confirmation.md`, `reports/0054-bounded-level1-technical-closeout.md`, `artifacts/level1/registry-v1.json`, and `artifacts/level1/technical-closeout-v1.json`.
