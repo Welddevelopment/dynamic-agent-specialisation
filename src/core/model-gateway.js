@@ -27,9 +27,9 @@ export class MeteredModelGateway {
     try {
       const response = await this.provider.generate(request);
       this.budget.settle(reservation.id, response.actualUsd, response.usage);
-      const safe = { output: response.output, usage: response.usage, actualUsd: response.actualUsd, provider: this.provider.id, model: request.model };
+      const safe = { output: response.output, usage: response.usage, actualUsd: response.actualUsd, provider: this.provider.id, model: request.model, resolvedModel: response.resolvedModel ?? request.model };
       this.cache.set(request, safe);
-      this.evidence?.append("model.call-settled", { reservationId: reservation.id, actualUsd: response.actualUsd, usage: response.usage, responseHash: digest(response.output) });
+      this.evidence?.append("model.call-settled", { reservationId: reservation.id, actualUsd: response.actualUsd, usage: response.usage, resolvedModel: response.resolvedModel ?? request.model, responseHash: digest(response.output) });
       return { ...safe, cached: false };
     } catch (error) {
       this.budget.cancel(reservation.id, error instanceof Error ? error.message : String(error));
@@ -44,4 +44,3 @@ export class PaidCallsDisabledProvider {
   projectCost() { return 0.01; }
   async generate() { throw new Error("Paid model calls are disabled pending Joel's approval"); }
 }
-
