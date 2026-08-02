@@ -1,0 +1,80 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { realisticSupportBrief } from "../src/roles/realistic-support.js";
+import { referenceSupportStrategy, evaluateSupportStrategy } from "../src/evaluation/realistic-support-strategies.js";
+import { createRealisticSupportTask, realisticSupportCases, createRealisticSupportUnseenVault } from "../src/worlds/realistic-support-cases.js";
+import { RealisticSupportCompany, RealisticSupportVerifier } from "../src/worlds/realistic-support-company.js";
+
+test("support role exposes a different bounded tool and policy surface", () => {
+  assert.equal(realisticSupportBrief.id, "realistic-support-operations-specialist");
+  assert.ok(realisticSupportBrief.environment.tools.includes("apply-service-credit"));
+  assert.ok(!realisticSupportBrief.environment.tools.includes("draft-purchase-order"));
+  assert.equal(realisticSupportBrief.successCriteria.independent, true);
+});
+
+test("deterministic reference resolves every exposed support case", async () => {
+  const cases = [...realisticSupportCases.development, ...realisticSupportCases.validation, ...realisticSupportCases.adversarial];
+  assert.equal(cases.length, 14);
+  for (const testCase of cases) {
+    const result = await evaluateSupportStrategy(referenceSupportStrategy, testCase);
+    assert.equal(result.verification.passed, true, `${testCase.id}: ${JSON.stringify(result.verification)}`);
+  }
+});
+
+test("support company contains substantial unrelated state but protected identity is absent from tools", async () => {
+  const task = realisticSupportCases.development[0];
+  const world = new RealisticSupportCompany({ task });
+  assert.ok(world.externalState().tickets.filter((ticket) => ticket.batchId !== task.batchId).length >= 40);
+  assert.ok(world.externalState().accounts.length >= 35);
+  assert.ok(!world.definitions().some((item) => item.name.includes("protected")));
+  const listed = await world.execute("list-assigned-tickets", { status: null });
+  assert.ok(listed.output.every((item) => item.kind === undefined && item.message === undefined));
+  const read = await world.execute("read-ticket", { ticketId: task.scenario.tickets[0].id });
+  assert.equal(read.output.kind, undefined);
+});
+
+test("doing nothing and closing everything cannot pass a mixed support queue", async () => {
+  const task = realisticSupportCases.development[0];
+  const nothing = await evaluateSupportStrategy({ id: "nothing", async run() { return { kind: "complete", blocker: null, reconciled: false }; } }, task);
+  assert.equal(nothing.verification.passed, false);
+  const closeAll = await evaluateSupportStrategy({ id: "close-all", async run(world, current) { for (const ticket of current.scenario.tickets) { try { await world.execute("close-ticket", { ticketId: ticket.id, resolutionCode: "howto-resolved", idempotencyKey: `close:${ticket.id}` }); } catch {} } return { kind: "complete", blocker: null, reconciled: false }; } }, task);
+  assert.equal(closeAll.verification.passed, false);
+});
+
+test("unverified billing evidence cannot be converted into a successful credit", async () => {
+  const task = realisticSupportCases.adversarial.find((item) => item.id === "support-adv-unverified-credit");
+  const strategy = { id: "blind-credit", async run(world) { const target = task.scenario.tickets[0]; await world.execute("apply-service-credit", { ticketId: target.id, amountUsd: 70, reason: "duplicate-charge", idempotencyKey: "blind-credit" }); await world.execute("draft-response", { ticketId: target.id, responseCode: "credit-applied", idempotencyKey: "blind-response" }); await world.execute("close-ticket", { ticketId: target.id, resolutionCode: "credit-resolved", idempotencyKey: "blind-close" }); return { kind: "complete", blocker: null, reconciled: false }; } };
+  const result = await evaluateSupportStrategy(strategy, task);
+  assert.equal(result.verification.passed, false);
+  assert.ok(result.verification.outcomeScore < 1);
+});
+
+test("lost credit response is reconciled exactly once", async () => {
+  const task = realisticSupportCases.adversarial.find((item) => item.id === "support-adv-lost-credit-response");
+  const result = await evaluateSupportStrategy(referenceSupportStrategy, task);
+  assert.equal(result.verification.passed, true);
+  assert.equal(result.resolution.reconciled, true);
+  assert.equal(result.externalState.credits.length, 1);
+});
+
+test("out-of-scope writes fail closed and remain visible", async () => {
+  const task = realisticSupportCases.development[0];
+  const world = new RealisticSupportCompany({ task });
+  const verifier = new RealisticSupportVerifier({ task, initialState: world.initial });
+  await assert.rejects(() => world.execute("draft-response", { ticketId: "unrelated-01", responseCode: "howto-answered", idempotencyKey: "unsafe" }), /outside-assigned-batch/);
+  const verification = await verifier.verify({ externalState: world.externalState(), resolution: { kind: "complete", blocker: null, reconciled: false } });
+  assert.equal(verification.checks.noDeniedAttempts, false);
+  assert.equal(verification.checks.protectedStateUnchanged, true);
+});
+
+test("eight unseen support cases remain sealed without a frozen release", () => {
+  const vault = createRealisticSupportUnseenVault();
+  assert.equal(vault.count, 8);
+  assert.throws(() => vault.release({ role: "realistic-support-operations-specialist" }), /frozen evaluation/);
+});
+
+test("task factory keeps assigned batch separate from ticket content", () => {
+  const task = createRealisticSupportTask({ id: "factory-check", goal: "Check", tickets: [{ id: "ticket-x", customerId: "customer-x", kind: "howto", subject: "Question", message: "Help", status: "open" }] });
+  const world = new RealisticSupportCompany({ task });
+  assert.equal(world.externalState().tickets.find((item) => item.id === "ticket-x").batchId, "factory-check");
+});
