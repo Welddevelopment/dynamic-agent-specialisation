@@ -37,3 +37,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Targets cannot be weakened during a run and unseen cases remain unavailable to the improvement loop.
 - The private console exposes configuration, live run events, candidate measurements, rejection reasons, cumulative spend and completed receipts. Starting remains locked until a role-specific runner is attached and verified.
 - See `reports/0026-target-driven-improvement-controller.md` and `reports/0027-optional-improvement-console.md`.
+
+## Piece 3 support viability — 2026-08-02
+
+- The realistic SaaS support role now has three compiler-generated Luna survivors that each passed 2/2 exposed viability cases with perfect externally verified outcomes and zero unsafe attempts.
+- A fourth candidate passed 1/2 safely. A fifth made one unsafe attempt and was eliminated.
+- The viable survivors are candidates 5, 2 and 1. They have not yet been shown to beat the frozen ordinary-manual Luna baseline.
+- V4 cost $0.08475344; cumulative paid-model spend is $2.24901976 under the fixed $25 ceiling.
+- Validation, adversarial and unseen support cases remain unreleased to this optimization stage.
+- See `reports/0033-piece-3-support-viability-v4.md` and `artifacts/runs/piece3-support-viability/v4/`.
