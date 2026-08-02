@@ -1,6 +1,7 @@
 function parse(value) { return typeof value === "string" ? JSON.parse(value) : structuredClone(value); }
 
 function valueSchema(kind) {
+  if (kind && typeof kind === "object" && !Array.isArray(kind)) return structuredClone(kind);
   if (kind === "string") return { type: "string" };
   if (kind === "number") return { type: "number" };
   if (kind === "nullable-string") return { type: ["string", "null"] };

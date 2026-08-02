@@ -13,12 +13,12 @@ import { OpenAIResponsesProvider } from "../providers/openai-responses.js";
 import { realisticSupportCases } from "../worlds/realistic-support-cases.js";
 import { runModelSupportCase, summarizeSupportStage } from "./model-support-runner.js";
 
-const attemptId = "piece3-support-viability-v2";
+const attemptId = "piece3-support-viability-v3";
 const PRICING = { inputPerMillionUsd: .2, cachedInputPerMillionUsd: .02, outputPerMillionUsd: 1.2 };
 if (process.env.DAS_ENABLE_PAID_MODEL_CALLS !== "JOEL_APPROVED" || !process.env.OPENAI_API_KEY) throw new Error("Approved paid model environment is required");
 const campaign = paidCampaignState();
-if (campaign.through === attemptId) throw new Error("Piece 3 support viability v2 is already settled");
-const outputDir = path.resolve("artifacts/runs/piece3-support-viability/v2");
+if (campaign.through === attemptId) throw new Error("Piece 3 support viability v3 is already settled");
+const outputDir = path.resolve("artifacts/runs/piece3-support-viability/v3");
 fs.mkdirSync(outputDir, { recursive: true });
 const evidence = new EvidenceLedger(path.join(outputDir, "evidence.jsonl"));
 const budget = new BudgetGuard({ hardLimitUsd: Math.min(3, campaign.hardLimitUsd - campaign.cumulativeSpentUsd), warningUsd: 2.5 });

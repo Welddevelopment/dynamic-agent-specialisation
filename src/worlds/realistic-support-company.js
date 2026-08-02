@@ -55,12 +55,12 @@ export class RealisticSupportCompany {
       definition("list-active-incidents", { service: "nullable-string" }),
       definition("search-knowledge", { query: "string" }),
       definition("read-support-policy"),
-      definition("draft-response", { ticketId: "string", responseCode: "string", idempotencyKey: "string" }),
-      definition("apply-service-credit", { ticketId: "string", amountUsd: "number", reason: "string", idempotencyKey: "string" }),
-      definition("create-support-escalation", { ticketId: "string", queue: "string", severity: "string", idempotencyKey: "string" }),
+      definition("draft-response", { ticketId: "string", responseCode: { type: "string", enum: [...responseCodes] }, idempotencyKey: "string" }),
+      definition("apply-service-credit", { ticketId: "string", amountUsd: "number", reason: { type: "string", enum: ["duplicate-charge", "verified-outage"] }, idempotencyKey: "string" }),
+      definition("create-support-escalation", { ticketId: "string", queue: { type: "string", enum: ["product-engineering", "security-response", "billing-review"] }, severity: { type: "string", enum: ["normal", "urgent"] }, idempotencyKey: "string" }),
       definition("link-ticket-to-incident", { ticketId: "string", incidentId: "string", idempotencyKey: "string" }),
       definition("merge-duplicate-ticket", { ticketId: "string", canonicalTicketId: "string", idempotencyKey: "string" }),
-      definition("close-ticket", { ticketId: "string", resolutionCode: "string", idempotencyKey: "string" }),
+      definition("close-ticket", { ticketId: "string", resolutionCode: { type: "string", enum: [...resolutionCodes] }, idempotencyKey: "string" }),
     ];
   }
   requiredAction(name) {
@@ -88,7 +88,7 @@ export class RealisticSupportCompany {
         const score = query.filter((queryToken) => document.some((documentToken) => tokenMatches(queryToken, documentToken))).length;
         return { item, score };
       }).filter((entry) => entry.score > 0).sort((left, right) => right.score - left.score);
-      return this.#receipt(name, matches.map(({ item }) => ({ id: item.id, title: item.title, resolutionCode: item.resolutionCode, answer: item.answer })));
+      return this.#receipt(name, matches.map(({ item }) => ({ id: item.id, title: item.title, responseCode: item.responseCode, closureCode: item.closureCode, answer: item.answer })));
     }
     if (name === "read-support-policy") return this.#receipt(name, this.state.policy);
     const ticket = this.#assigned(input.ticketId);

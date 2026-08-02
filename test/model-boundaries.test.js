@@ -62,3 +62,9 @@ test("runtime decision schema binds tool names and exact input fields", () => {
   assert.deepEqual(format.schema.properties.input.anyOf[1].required, ["id", "amount"]);
   assert.equal(format.schema.additionalProperties, false);
 });
+
+test("runtime decision schema can expose exact allowed string values", () => {
+  const format = runtimeDecisionResponseFormat([{ name: "close", inputSchema: { resolution: { type: "string", enum: ["resolved", "duplicate"] } } }]);
+  const toolInput = format.schema.properties.input.anyOf[0];
+  assert.deepEqual(toolInput.properties.resolution.enum, ["resolved", "duplicate"]);
+});

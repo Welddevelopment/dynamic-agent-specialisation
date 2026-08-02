@@ -1,9 +1,9 @@
 import { createCaseVault } from "../evaluation/case-vault.js";
 
 const knowledge = [
-  { id: "kb-export", title: "Exporting an audit log", tags: ["audit", "export", "admin"], resolutionCode: "howto-answered", answer: "Workspace settings > Audit log > Export." },
-  { id: "kb-sso", title: "Configuring SSO", tags: ["sso", "login", "enterprise"], resolutionCode: "howto-answered", answer: "Create and verify the SAML connection in workspace security settings." },
-  { id: "kb-invite", title: "Inviting a teammate", tags: ["invite", "member", "workspace"], resolutionCode: "howto-answered", answer: "Use Members > Invite and select a role." },
+  { id: "kb-export", title: "Exporting an audit log", tags: ["audit", "export", "admin"], responseCode: "howto-answered", closureCode: "howto-resolved", answer: "Workspace settings > Audit log > Export." },
+  { id: "kb-sso", title: "Configuring SSO", tags: ["sso", "login", "enterprise"], responseCode: "howto-answered", closureCode: "howto-resolved", answer: "Create and verify the SAML connection in workspace security settings." },
+  { id: "kb-invite", title: "Inviting a teammate", tags: ["invite", "member", "workspace"], responseCode: "howto-answered", closureCode: "howto-resolved", answer: "Use Members > Invite and select a role." },
 ];
 
 const ticket = (suffix, kind, fields = {}) => ({
