@@ -179,3 +179,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - This preserves the customer's budget and does not let the candidate grade itself.
 - The runtime change requires a fresh prospective evaluation and later cross-role confirmation. Do not retroactively rewrite the preserved 2/3 result.
 - See `reports/0048-independent-limit-completion.md`.
+
+## Piece 4 limit regression and Cycle 3 freeze — 2026-08-02
+
+- The preserved five-route case now passes with every outcome correct, zero unsafe attempts and independent completion at `$0.536557`, below the specialist's `$0.55` model limit.
+- Cycle 3 freezes three never-run precedence cases as validation, three new compound adversarial cases and the four still-sealed Cycle 2 prospective cases.
+- Candidate, baselines, role, runtime and cases are hashed. Every exposed Cycle 3 case passes the deterministic reference.
+- Correct cumulative paid spend is `$17.04477832` before Cycle 3.
+- See `reports/0049-piece-4-limit-regression-and-cycle3-freeze.md`.
