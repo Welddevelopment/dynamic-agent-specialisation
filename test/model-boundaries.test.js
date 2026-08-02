@@ -4,7 +4,7 @@ import { BudgetGuard } from "../src/core/budget.js";
 import { EvidenceLedger } from "../src/core/evidence.js";
 import { MeteredModelGateway, ModelResponseCache } from "../src/core/model-gateway.js";
 import { ModelCandidateArchitect, candidatePortfolioResponseFormat } from "../src/compiler/model-architect.js";
-import { ModelDecisionEngine } from "../src/runtime/model-decision-engine.js";
+import { ModelDecisionEngine, runtimeDecisionResponseFormat } from "../src/runtime/model-decision-engine.js";
 import { procurementRole } from "../src/roles/procurement.js";
 import { generateCandidatePortfolio } from "../src/compiler/generator.js";
 
@@ -49,4 +49,15 @@ test("model decision engine validates structured tool decisions", async () => {
 test("model decision engine rejects malformed output", async () => {
   const engine = new ModelDecisionEngine({ gateway: fakeGateway([{ kind: "tool", name: 7, input: null }]) });
   await assert.rejects(() => engine.next({ candidate: generateCandidatePortfolio(procurementRole.brief)[0], goal: "restock", turn: 1, observations: [], memory: [], tools: [] }), /invalid tool decision/);
+});
+
+test("runtime decision schema binds tool names and exact input fields", () => {
+  const format = runtimeDecisionResponseFormat([
+    { name: "read", inputSchema: { id: "nullable-string" } },
+    { name: "write", inputSchema: { id: "string", amount: "number" } },
+  ]);
+  assert.equal(format.type, "json_schema");
+  assert.deepEqual(format.schema.properties.name.enum, ["read", "write", null]);
+  assert.deepEqual(format.schema.properties.input.anyOf[1].required, ["id", "amount"]);
+  assert.equal(format.schema.additionalProperties, false);
 });
