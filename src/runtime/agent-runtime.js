@@ -1,9 +1,9 @@
 export class SpecialistAgentRuntime {
-  constructor({ decisionEngine, memory, evidence, maxTurns = 12 }) {
-    this.decisionEngine = decisionEngine; this.memory = memory; this.evidence = evidence; this.maxTurns = maxTurns;
+  constructor({ decisionEngine, memory, evidence, maxTurns = 12, maxConsecutiveReads = 20, maxRepeatedIdenticalRead = 3 }) {
+    this.decisionEngine = decisionEngine; this.memory = memory; this.evidence = evidence; this.maxTurns = maxTurns; this.maxConsecutiveReads = maxConsecutiveReads; this.maxRepeatedIdenticalRead = maxRepeatedIdenticalRead;
   }
   async run({ tenantId, candidate, goal, toolHost, externalVerifier }) {
-    const session = { tenantId, roleId: candidate.roleId, specialistVersion: candidate.version, goal, observations: [], toolReceipts: [], reconciled: false };
+    const session = { tenantId, roleId: candidate.roleId, specialistVersion: candidate.version, goal, observations: [], toolReceipts: [], reconciled: false, consecutiveReads: 0, repeatedReadSignatures: {} };
     for (let turn = 1; turn <= this.maxTurns; turn += 1) {
       const priorMemory = this.memory.read(session);
       const decision = await this.decisionEngine.next({ candidate, goal, turn, observations: structuredClone(session.observations), memory: priorMemory, tools: toolHost.definitions().filter((tool) => candidate.tools.includes(tool.name)) });
@@ -25,6 +25,16 @@ export class SpecialistAgentRuntime {
       if (!definition || !candidate.tools.includes(decision.name)) return { status: "blocked", reason: `tool-not-allowed:${decision.name}`, session };
       const requiredAction = toolHost.requiredAction(decision.name);
       if (requiredAction && !candidate.authority.allowedActions.includes(requiredAction)) return { status: "blocked", reason: `authority-missing:${requiredAction}`, session };
+      if (!requiredAction) {
+        session.consecutiveReads += 1;
+        const signature = `${decision.name}:${JSON.stringify(decision.input)}`;
+        session.repeatedReadSignatures[signature] = (session.repeatedReadSignatures[signature] ?? 0) + 1;
+        if (session.consecutiveReads > this.maxConsecutiveReads) return { status: "blocked", reason: "non-progress-read-limit", session };
+        if (session.repeatedReadSignatures[signature] > this.maxRepeatedIdenticalRead) return { status: "blocked", reason: `repeated-identical-read:${decision.name}`, session };
+      } else {
+        session.consecutiveReads = 0;
+        session.repeatedReadSignatures = {};
+      }
       let receipt;
       try {
         receipt = await toolHost.execute(decision.name, decision.input, { tenantId, candidateId: candidate.id, turn });

@@ -45,6 +45,18 @@ test("generic runtime gives escalations to the independent verifier", async () =
   assert.equal(result.verification.passed, true);
 });
 
+test("generic runtime stops repeated identical reads instead of spending forever", async () => {
+  const candidate = { roleId: "loop-test", version: "1", id: "looping", tools: ["read"], authority: { allowedActions: [] } };
+  const decisions = Array.from({ length: 6 }, () => ({ kind: "tool", name: "read", input: {} }));
+  const toolHost = { definitions: () => [{ name: "read", inputSchema: {} }], requiredAction: () => null, execute: async () => ({ id: "read", output: { unchanged: true } }), externalState: () => ({}) };
+  const verifier = { verify: async () => ({ passed: false }) };
+  const runtime = new SpecialistAgentRuntime({ decisionEngine: new ScriptedDecisionEngine(decisions), memory: new TenantRoleMemory(), evidence: new EvidenceLedger(), maxTurns: 8, maxRepeatedIdenticalRead: 2 });
+  const result = await runtime.run({ tenantId: "tenant", candidate, goal: "Read once", toolHost, externalVerifier: verifier });
+  assert.equal(result.status, "blocked");
+  assert.equal(result.reason, "repeated-identical-read:read");
+  assert.equal(result.session.toolReceipts.length, 2);
+});
+
 test("memory remains isolated by tenant, role, and specialist version", () => {
   const memory = new TenantRoleMemory();
   memory.append({ tenantId: "a", roleId: "r", specialistVersion: "1", record: { secret: "a-only" } });

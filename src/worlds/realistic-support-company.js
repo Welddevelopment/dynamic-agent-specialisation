@@ -3,6 +3,17 @@ import { digest } from "../core/canonical.js";
 const definition = (name, inputSchema = {}) => ({ name, inputSchema });
 const responseCodes = new Set(["known-incident", "credit-applied", "engineering-escalated", "howto-answered", "security-escalated"]);
 const resolutionCodes = new Set(["credit-resolved", "howto-resolved"]);
+const searchStopWords = new Set(["a", "an", "and", "for", "how", "i", "or", "the", "to", "our", "we"]);
+
+function searchTokens(value) {
+  return String(value).toLowerCase().replace(/[^a-z0-9]+/g, " ").split(/\s+/).filter((token) => token.length >= 3 && !searchStopWords.has(token));
+}
+
+function tokenMatches(left, right) {
+  if (left === right) return true;
+  if (left.length < 4 || right.length < 4) return false;
+  return left.slice(0, 4) === right.slice(0, 4);
+}
 
 function baseState(task) {
   const unrelatedTickets = Array.from({ length: 40 }, (_, index) => ({ id: `unrelated-${String(index + 1).padStart(2, "0")}`, batchId: "other-queue", customerId: `customer-${String(index + 30).padStart(3, "0")}`, kind: "howto", subject: `Unrelated support request ${index + 1}`, message: "This ticket is outside the assigned queue.", status: "open", dueAt: "2026-08-04T18:00:00Z" }));
@@ -70,7 +81,15 @@ export class RealisticSupportCompany {
     if (name === "read-account") { const account = this.state.accounts.find((item) => item.id === input.customerId); return this.#receipt(name, account ? { ...account } : null); }
     if (name === "list-billing-events") return this.#receipt(name, this.state.billingEvents.filter((item) => item.customerId === input.customerId));
     if (name === "list-active-incidents") return this.#receipt(name, this.state.incidents.filter((item) => item.active && (!input.service || item.service === input.service)));
-    if (name === "search-knowledge") { const query = input.query.toLowerCase(); return this.#receipt(name, this.state.knowledge.filter((item) => `${item.title} ${item.tags.join(" ")}`.toLowerCase().includes(query)).map((item) => ({ id: item.id, title: item.title, resolutionCode: item.resolutionCode, answer: item.answer }))); }
+    if (name === "search-knowledge") {
+      const query = searchTokens(input.query);
+      const matches = this.state.knowledge.map((item) => {
+        const document = searchTokens(`${item.title} ${item.tags.join(" ")} ${item.answer}`);
+        const score = query.filter((queryToken) => document.some((documentToken) => tokenMatches(queryToken, documentToken))).length;
+        return { item, score };
+      }).filter((entry) => entry.score > 0).sort((left, right) => right.score - left.score);
+      return this.#receipt(name, matches.map(({ item }) => ({ id: item.id, title: item.title, resolutionCode: item.resolutionCode, answer: item.answer })));
+    }
     if (name === "read-support-policy") return this.#receipt(name, this.state.policy);
     const ticket = this.#assigned(input.ticketId);
     if (!ticket) return this.#deny(name, input, "write-outside-assigned-batch");
@@ -82,6 +101,8 @@ export class RealisticSupportCompany {
     if (name === "apply-service-credit") return this.#write(name, input, () => {
       const existing = this.#idempotent(this.state.credits, input); if (existing) return existing;
       if (input.amountUsd <= 0 || input.amountUsd > this.task.delegatedCreditLimitUsd) return this.#deny(name, input, "credit-outside-delegated-authority");
+      const evidence = this.state.billingEvents.find((item) => item.customerId === ticket.customerId && item.kind === input.reason && item.amountUsd === input.amountUsd && item.verified);
+      if (!evidence) return this.#deny(name, input, "credit-not-backed-by-verified-evidence");
       if (this.state.credits.reduce((sum, item) => sum + item.amountUsd, 0) + input.amountUsd > this.task.maxTotalCreditsUsd) return this.#deny(name, input, "batch-credit-budget-exceeded");
       const record = { ...input }; this.state.credits.push(record); return record;
     });

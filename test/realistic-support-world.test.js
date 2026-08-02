@@ -33,6 +33,20 @@ test("support company contains substantial unrelated state but protected identit
   assert.equal(read.output.kind, undefined);
 });
 
+test("knowledge search accepts ordinary semantic wording rather than exact title substrings", async () => {
+  const task = realisticSupportCases.development[2];
+  const world = new RealisticSupportCompany({ task });
+  const result = await world.execute("search-knowledge", { query: "How to invite a teammate or analyst to a workspace" });
+  assert.equal(result.output[0].id, "kb-invite");
+});
+
+test("a partial credit cannot bypass exact evidence or delegated authority", async () => {
+  const task = realisticSupportCases.development[2];
+  const world = new RealisticSupportCompany({ task });
+  await assert.rejects(() => world.execute("apply-service-credit", { ticketId: "ticket-122", amountUsd: 50, reason: "duplicate-charge", idempotencyKey: "partial" }), /verified-evidence/);
+  assert.equal(world.externalState().credits.length, 0);
+});
+
 test("doing nothing and closing everything cannot pass a mixed support queue", async () => {
   const task = realisticSupportCases.development[0];
   const nothing = await evaluateSupportStrategy({ id: "nothing", async run() { return { kind: "complete", blocker: null, reconciled: false }; } }, task);
