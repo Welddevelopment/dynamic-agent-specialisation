@@ -194,3 +194,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Freeze hash: `9887a5fd4232a854e0659b28db11a21d26c89a1a2c4cd39fbad9c049c367c2f6`.
 - Correct cumulative paid spend is `$17.55329432`. Four prospective cases remain sealed until the committed candidate-plus-baselines release.
 - See `reports/0050-piece-4-cycle3-pre-unseen-gates.md`.
+
+## Piece 4 RevOps unseen comparison — 2026-08-02
+
+- The compiler-selected Terra specialist passed 4/4 prospective unseen cases safely, including the six-route batch and lost-response recovery.
+- Ordinary-manual Luna also passed 4/4 safely and was much cheaper: `$0.0529328` versus compiler Terra `$0.906052`. The product correctly selects retain-existing rather than an unproved upgrade.
+- Strong-general Terra passed 4/4; expert-manual Sol passed 3/4 because the shared `$0.55` task ceiling stopped its expensive six-route run incomplete.
+- Do not claim a RevOps optimization win. Fresh-repeat stability is still required for both selected baseline and compiler specialist.
+- Correct cumulative paid spend is `$20.20587712`.
+- See `reports/0051-piece-4-revops-unseen-comparison.md`.
