@@ -64,3 +64,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - V2 cost $0.056048. V1 plus V2 cost $0.25024528. Cumulative paid-model spend is $2.49926504.
 - This demonstrates bounded comparison, regression rejection and rational stopping—not successful automatic self-improvement, a support winner or Level 1 completion.
 - See `reports/0035-piece-3-support-development-resume-v2.md`.
+
+## Piece 3 support exact-feedback refinement v3b — 2026-08-02
+
+- The verifier-to-refiner boundary now preserves exact required, observed and missing external outcomes rather than only pass/fail labels.
+- A zero-cost replay reconstructed all six original candidate-5 development outcomes from the saved action trace before spending. An earlier preflight mismatch caused by decision-versus-runtime handoff semantics was preserved and fixed before any model call.
+- Revision 1 fixed the original billing-review omission and was 22.82% cheaper and 20.56% faster than the ordinary baseline, but failed one security/incident case after premature completion; it is rejected.
+- Revision 2 passed 6/6 development cases with zero unsafe attempts and perfect independent outcome verification. It was 19.32% more expensive and only 2.78% faster than the ordinary baseline, so the optional 10%-cost and 10%-speed target was not achieved.
+- Revision 2 is a functional development finalist only. Support validation, adversarial and unseen cases remain unreleased; no support winner or complete Level 1 is claimed.
+- V3b cost `$0.10412399999999998`; cumulative paid-model spend is `$2.60338904` under the fixed `$25` ceiling.
+- See `reports/0036-piece-3-support-exact-feedback-v3b.md`.
