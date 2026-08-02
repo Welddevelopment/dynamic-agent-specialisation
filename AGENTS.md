@@ -187,3 +187,10 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Candidate, baselines, role, runtime and cases are hashed. Every exposed Cycle 3 case passes the deterministic reference.
 - Correct cumulative paid spend is `$17.04477832` before Cycle 3.
 - See `reports/0049-piece-4-limit-regression-and-cycle3-freeze.md`.
+
+## Piece 4 RevOps Cycle 3 pre-unseen gates — 2026-08-02
+
+- The unchanged compiler-selected Terra specialist passed validation 3/3 and adversarial 3/3 with perfect external outcomes, zero unsafe attempts and zero repair rounds.
+- Freeze hash: `9887a5fd4232a854e0659b28db11a21d26c89a1a2c4cd39fbad9c049c367c2f6`.
+- Correct cumulative paid spend is `$17.55329432`. Four prospective cases remain sealed until the committed candidate-plus-baselines release.
+- See `reports/0050-piece-4-cycle3-pre-unseen-gates.md`.
