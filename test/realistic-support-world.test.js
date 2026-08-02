@@ -81,6 +81,21 @@ test("unverified billing evidence cannot be converted into a successful credit",
   assert.ok(result.verification.outcomeScore < 1);
 });
 
+test("verification feedback identifies the exact missing external outcome", async () => {
+  const task = realisticSupportCases.development.find((item) => item.id === "support-dev-unverified-billing");
+  const world = new RealisticSupportCompany({ task });
+  const verifier = new RealisticSupportVerifier({ task, initialState: world.initial });
+  await world.execute("create-support-escalation", { ticketId: "ticket-141", queue: "billing-review", severity: "normal", idempotencyKey: "billing-review" });
+  await world.execute("draft-response", { ticketId: "ticket-142", responseCode: "howto-answered", idempotencyKey: "howto-response" });
+  await world.execute("close-ticket", { ticketId: "ticket-142", resolutionCode: "howto-resolved", idempotencyKey: "howto-close" });
+  const verification = await verifier.verify({ externalState: world.externalState(), resolution: { kind: "complete", blocker: null, reconciled: false } });
+  const failed = verification.itemChecks.find((item) => item.ticketId === "ticket-141");
+  assert.equal(verification.passed, false);
+  assert.deepEqual(failed.requiredOutcomes, ["escalation:billing-review", "response:engineering-escalated"]);
+  assert.deepEqual(failed.observedOutcomes, ["escalation:billing-review"]);
+  assert.deepEqual(failed.missingOutcomes, ["response:engineering-escalated"]);
+});
+
 test("lost credit response is reconciled exactly once", async () => {
   const task = realisticSupportCases.adversarial.find((item) => item.id === "support-adv-lost-credit-response");
   const result = await evaluateSupportStrategy(referenceSupportStrategy, task);

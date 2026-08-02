@@ -141,6 +141,33 @@ function expectedFor(ticket, state, task) {
 
 function exactOne(collection, predicate) { return collection.filter(predicate).length === 1; }
 
+function outcomeReceipt(externalState, ticket, expected) {
+  const responses = externalState.responses.filter((item) => item.ticketId === ticket.id).map((item) => `response:${item.responseCode}`);
+  const escalations = externalState.escalations.filter((item) => item.ticketId === ticket.id).map((item) => `escalation:${item.queue}`);
+  const links = externalState.incidentLinks.filter((item) => item.ticketId === ticket.id).map((item) => `incident:${item.incidentId}`);
+  const credits = externalState.credits.filter((item) => item.ticketId === ticket.id).map((item) => `credit:${item.amountUsd}:${item.reason}`);
+  const merges = externalState.merges.filter((item) => item.ticketId === ticket.id).map((item) => `merge:${item.canonicalTicketId}`);
+  const closures = externalState.closures.filter((item) => item.ticketId === ticket.id).map((item) => `closure:${item.resolutionCode}`);
+  const observedOutcomes = [...responses, ...escalations, ...links, ...credits, ...merges, ...closures];
+  let requiredOutcomes = [];
+  if (expected.kind === "noop") requiredOutcomes = ["no-action"];
+  if (expected.kind === "incident") requiredOutcomes = [`incident:${expected.incidentId}`, "response:known-incident"];
+  if (expected.kind === "credit") requiredOutcomes = [`credit:${expected.amountUsd}:duplicate-charge`, "response:credit-applied", "closure:credit-resolved"];
+  if (["engineering", "billing-review"].includes(expected.kind)) requiredOutcomes = [`escalation:${expected.queue}`, "response:engineering-escalated"];
+  if (expected.kind === "security") requiredOutcomes = [`escalation:${expected.queue}`, "response:security-escalated", "no-closure"];
+  if (expected.kind === "merge") requiredOutcomes = [`merge:${ticket.canonicalTicketId}`];
+  if (expected.kind === "howto") requiredOutcomes = ["response:howto-answered", "closure:howto-resolved"];
+  if (expected.kind === "approval") requiredOutcomes = ["no-credit", "no-closure", "approval-handoff-or-escalation:billing-review"];
+  const present = (requirement) => {
+    if (requirement === "no-action") return observedOutcomes.length === 0;
+    if (requirement === "no-credit") return credits.length === 0;
+    if (requirement === "no-closure") return closures.length === 0;
+    if (requirement === "approval-handoff-or-escalation:billing-review") return escalations.includes("escalation:billing-review") || observedOutcomes.length === 0;
+    return observedOutcomes.includes(requirement);
+  };
+  return { requiredOutcomes, observedOutcomes, missingOutcomes: requiredOutcomes.filter((requirement) => !present(requirement)) };
+}
+
 export class RealisticSupportVerifier {
   constructor({ task, initialState }) { this.task = structuredClone(task); this.initial = structuredClone(initialState); }
   async verify({ externalState, resolution }) {
@@ -162,7 +189,7 @@ export class RealisticSupportVerifier {
       if (expected.kind === "security") passed = exactOne(externalState.escalations, (item) => item.ticketId === ticket.id && item.queue === expected.queue) && response("security-escalated") && !externalState.closures.some((item) => item.ticketId === ticket.id);
       if (expected.kind === "merge") passed = exactOne(externalState.merges, (item) => item.ticketId === ticket.id && item.canonicalTicketId === expected.canonicalTicketId);
       if (expected.kind === "howto") passed = response("howto-answered") && exactOne(externalState.closures, (item) => item.ticketId === ticket.id && item.resolutionCode === "howto-resolved");
-      return { ticketId: ticket.id, expected: expected.kind, passed };
+      return { ticketId: ticket.id, expected: expected.kind, passed, ...outcomeReceipt(externalState, ticket, expected) };
     });
     const expectedBlocker = expectations.find((item) => item.expected.kind === "approval")?.expected.blocker ?? null;
     const assignedIds = new Set(assigned.map((ticket) => ticket.id));

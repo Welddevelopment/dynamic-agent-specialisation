@@ -9,7 +9,7 @@ test("target loop refines a plausible near miss until both cost and speed clear 
   const contract = tenPercentCostAndSpeedContract({ id: "ten-ten", baselineId: "manual", maximumRounds: 3 });
   const metrics = {
     manual: [obs("a", { modelCostUsd: 1, elapsedMs: 100 }), obs("b", { modelCostUsd: 1, elapsedMs: 100 }), obs("c", { modelCostUsd: 1, elapsedMs: 100 })],
-    first: [obs("a", { modelCostUsd: .91, elapsedMs: 102, verification: { passed: false, checks: { allHandled: false }, itemChecks: [{ ticketId: "ticket-a", expected: "response", passed: false }] } }), obs("b", { modelCostUsd: .91, elapsedMs: 98 }), obs("c", { modelCostUsd: .91, elapsedMs: 100 })],
+    first: [obs("a", { modelCostUsd: .91, elapsedMs: 102, verification: { passed: false, checks: { allHandled: false }, itemChecks: [{ ticketId: "ticket-a", expected: "response", passed: false, requiredOutcomes: ["response:resolved"], observedOutcomes: [], missingOutcomes: ["response:resolved"] }] } }), obs("b", { modelCostUsd: .91, elapsedMs: 98 }), obs("c", { modelCostUsd: .91, elapsedMs: 100 })],
     improved: [obs("a", { modelCostUsd: .88, elapsedMs: 88 }), obs("b", { modelCostUsd: .88, elapsedMs: 89 }), obs("c", { modelCostUsd: .88, elapsedMs: 90 })],
   };
   const diagnoses = [];
@@ -25,6 +25,7 @@ test("target loop refines a plausible near miss until both cost and speed clear 
   assert.equal(diagnoses[0].pairedCaseMeasurements.length, 3);
   assert.deepEqual(diagnoses[0].pairedCaseMeasurements[0].candidate.toolSequence, ["read", "act"]);
   assert.equal(diagnoses[0].pairedCaseMeasurements.find((item) => item.caseId === "a").candidate.verificationSummary.itemChecks[0].expected, "response");
+  assert.deepEqual(diagnoses[0].pairedCaseMeasurements.find((item) => item.caseId === "a").candidate.verificationSummary.itemChecks[0].missingOutcomes, ["response:resolved"]);
   assert.equal(result.unseenCasesReleased, false);
   assert.equal(result.stopReason, "target-achieved");
 });
