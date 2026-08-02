@@ -82,3 +82,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The full local suite passes 73/73, including new fail-closed tests for wrong verifier, missing context, insufficient confidence, projected cost and memory isolation.
 - No paid call was made for this implementation. Earlier paid results remain historical evidence, but the changed decision schema/runtime means they cannot be the final post-change Level 1 evaluation.
 - See `reports/0037-enforced-specialist-package-runtime.md`.
+
+## Piece 3 support role closure — 2026-08-02
+
+- The realistic SaaS-support role is now closed as the second technically complete rich role. It does not complete bounded Level 1; a third substantially different rich role is still required.
+- Preserve the failed path: an earlier unseen run missed one case, and the first repeatability campaign passed only 17/18 safely. Those misses produced evidence-exhaustion and route-locking repairs rather than being erased.
+- The final compiler specialist passed 4/4 frozen prospective Cycle 4 cases with zero unsafe attempts. Strong-general Terra and expert Sol also passed 4/4 safely, but the compiler specialist ranked first under the precommitted safety/outcome/cost ordering at `$0.0475268`, versus `$0.334318` and `$0.84549`. Ordinary Luna passed 3/4 safely.
+- The same frozen candidate then passed three fresh repeats: 12/12, zero unsafe attempts, three correct handoffs and `$0.13782784` spend. Each repeat used a fresh gateway and empty response cache.
+- Total paid-model campaign spend through support closure is `$11.29883626` under the fixed `$25` ceiling.
+- Do not claim customer/production reliability, universal support performance, prospective human-effort savings, or complete Level 1.
+- See `reports/0038-piece-3-support-role-closure.md`.
