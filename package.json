@@ -14,5 +14,6 @@
     "model:viability": "node --env-file=.env src/experiments/piece2-viability.js"
     ,"model:development": "node --env-file=.env src/experiments/piece2-development.js",
     "model:development:resume": "node --env-file=.env src/experiments/piece2-development-resume.js"
+    ,"model:refinement": "node --env-file=.env src/experiments/piece2-refinement.js"
   }
 }
