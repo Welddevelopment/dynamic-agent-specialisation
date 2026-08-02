@@ -130,3 +130,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The full suite passes 100/100. No model spend was used for the structural repair; cumulative spend remains `$11.60892934`.
 - All prior RevOps candidates are historical under the changed compiler/runtime. Generate a fresh portfolio before validation.
 - See `reports/0042-piece-4-route-stability-structural-repair.md`.
+
+## Piece 4 RevOps development baseline comparison — 2026-08-02
+
+- Strong-general Terra and expert-manual Sol each passed 5/5 development cases safely with one repair. Both compiler Luna finalists and ordinary-manual Luna passed 4/5 safely.
+- All Luna configurations created the same incorrect `first-touch` task on a partner route; Terra and Sol solved that exposed route. Recovery correctly refused because this was an incorrect side effect, not a missing outcome.
+- No compiler finalist advances. Test the two compiler configurations unchanged on Terra before changing prompts or paying for Sol variants.
+- Comparison spend was `$0.24856918`; cumulative spend is `$12.04116712`.
+- See `reports/0043-piece-4-development-baseline-comparison.md`.
