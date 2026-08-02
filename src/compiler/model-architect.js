@@ -7,7 +7,7 @@ export function candidatePortfolioResponseFormat(brief, count) {
     id: { type: "string" },
     roleId: { type: "string", enum: [brief.id] },
     model: object({ family: { type: "string" }, tier: { type: "string" } }),
-    instructions: object({ style: { type: "string" }, emphasis: { type: "array", items: { type: "string" }, minItems: 1, maxItems: 5 } }),
+    instructions: object({ style: { type: "string" }, emphasis: { type: "array", items: { type: "string" }, minItems: 1, maxItems: 8 } }),
     context: object({ sources: { type: "array", items: { type: "string", enum: brief.environment.contextSources }, minItems: 1 }, selection: { type: "string" } }),
     tools: { type: "array", items: { type: "string", enum: brief.environment.tools }, minItems: 1 },
     memory: object({ kind: { type: "string" }, scope: { type: "string" } }),
