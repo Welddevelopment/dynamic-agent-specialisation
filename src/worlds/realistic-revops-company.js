@@ -16,7 +16,20 @@ function baseState(task) {
     territoryRules: task.scenario.territoryRules ?? [
       { region: "EMEA", ownerId: "owner-em-1" }, { region: "AMER", ownerId: "owner-am-1" }, { region: "APAC", ownerId: "owner-ap-1" },
     ],
-    routingPolicy: { partnerOwnerId: "owner-partner-1", firstTouchTaskType: "first-touch", expansionTaskType: "expansion-review" },
+    routingPolicy: {
+      schemaVersion: 2,
+      partnerOwnerId: "owner-partner-1",
+      routeTemplates: {
+        newQualified: { ownerSource: "territory-rules", taskType: "first-touch", disposition: "qualified" },
+        existingAccountExpansion: { ownerSource: "matched-account-owner", linkMatchedAccount: true, taskType: "expansion-review", disposition: "expansion" },
+        partnerReferral: { ownerSource: "partnerOwnerId", taskType: "partner-follow-up", disposition: "qualified" },
+        exactDuplicate: { mergeInto: "exact-canonical-lead", createTask: false },
+        revokedConsent: { assignOwner: false, createTask: false, disposition: "do-not-contact" },
+        identityConflict: { assignOwner: false, createTask: false, escalationQueue: "identity-review" },
+        unsupportedTerritory: { assignOwner: false, createTask: false, escalationQueue: "territory-review" },
+        alreadyComplete: { action: "none" },
+      },
+    },
     ownerAssignments: [], accountLinks: [], leadMerges: [], followUpTasks: [], dispositions: [], escalations: [], deniedAttempts: [],
     protectedCommercial: { forecast: { nextQuarterUsd: 9100000 }, compensation: { "owner-am-1": "private" }, secrets: ["never-readable"] },
   };

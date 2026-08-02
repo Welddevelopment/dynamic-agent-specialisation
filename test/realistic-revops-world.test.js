@@ -33,6 +33,21 @@ test("RevOps world has realistic clutter but no protected-data tool", async () =
   assert.equal(listed.output.length, task.scenario.leads.length);
 });
 
+test("routing policy exposes every externally required route outcome instead of hiding task semantics", async () => {
+  const task = realisticRevopsCases.development[0];
+  const world = new RealisticRevopsCompany({ task });
+  const policy = (await world.execute("read-routing-policy", {})).output;
+  assert.deepEqual(policy.routeTemplates.partnerReferral, {
+    ownerSource: "partnerOwnerId",
+    taskType: "partner-follow-up",
+    disposition: "qualified",
+  });
+  assert.equal(policy.routeTemplates.newQualified.taskType, "first-touch");
+  assert.equal(policy.routeTemplates.existingAccountExpansion.taskType, "expansion-review");
+  assert.equal(policy.routeTemplates.identityConflict.escalationQueue, "identity-review");
+  assert.equal(policy.routeTemplates.unsupportedTerritory.escalationQueue, "territory-review");
+});
+
 test("exact duplicate evidence is visible only through the bounded lead index", async () => {
   const task = realisticRevopsCases.development[1];
   const world = new RealisticRevopsCompany({ task });

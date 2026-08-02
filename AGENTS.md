@@ -146,3 +146,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - This is development evidence only. Validation, adversarial and unseen cases remain unreleased.
 - Promotion spend was `$0.1248406`; cumulative paid-model spend is `$12.16600772` under the fixed `$25` ceiling.
 - See `reports/0044-piece-4-evidence-led-model-promotion.md`.
+
+## Piece 4 RevOps validation v1 policy-contract failure — 2026-08-02
+
+- The selected candidate passed 2/3 validation cases safely, but used `first-touch` instead of `partner-follow-up` on a correctly identified partner route. The verifier classified the incorrect side effect and refused repair.
+- The visible routing policy omitted the partner task mapping required by the hidden verifier. The world now exposes machine-readable outcome templates for every supported route rather than asking models to guess hidden policy semantics.
+- Preserve V1 as an incomplete-environment discovery, not a fair final candidate verdict. Its cases are now exposed.
+- V1 spent `$0.0463594`; cumulative spend is `$12.21236712`.
+- Rerun all five development cases under policy v2 before constructing a new freeze.
+- See `reports/0045-piece-4-validation-v1-policy-contract-failure.md`.
