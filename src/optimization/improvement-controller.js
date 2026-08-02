@@ -35,7 +35,7 @@ export class TargetDrivenImprovementController {
         const observations = await this.evaluate(candidate, { kind: "candidate", round });
         const summary = summarizeMeasurements(candidate.id, observations);
         const assessment = assessAgainstContract({ contract: this.contract, baseline: baselineSummary, candidate: summary });
-        results.push({ candidate, fingerprint, summary, assessment });
+        results.push({ candidate, fingerprint, observations, summary, assessment });
         this.evidence?.append("improvement.candidate-evaluated", { round, candidateId: candidate.id, fingerprint, summary, assessment });
       }
       const ranked = rankPlausibleAssessments(results.map((item) => item.assessment));
@@ -45,7 +45,7 @@ export class TargetDrivenImprovementController {
       else stagnantRounds = 0;
       previousFrontierScore = Math.max(previousFrontierScore, frontierScore);
       if (!best || frontierScore > objectiveFrontierScore(best.assessment)) best = ordered[0] ?? best;
-      rounds.push({ round, results: ordered.map(({ candidate, fingerprint, summary, assessment }) => ({ candidateId: candidate.id, fingerprint, summary, assessment })) });
+      rounds.push({ round, results: ordered.map(({ candidate, fingerprint, observations, summary, assessment }) => ({ candidateId: candidate.id, fingerprint, observationDigest: digest(observations), caseMeasurements: observations.map(publicMeasurement), summary, assessment })) });
       winner = ordered.find((item) => item.assessment.targetAchieved) ?? null;
       if (winner) { stopReason = "target-achieved"; break; }
       const campaignSpend = this.spentUsd() - startedSpendUsd;
@@ -67,6 +67,7 @@ export class TargetDrivenImprovementController {
         const diagnosis = {
           qualityChecks: parent.assessment.qualityChecks,
           missedObjectives: Object.entries(parent.assessment.objectiveChecks).filter(([, value]) => !value.passed).map(([metric, value]) => ({ metric, ...value })),
+          pairedCaseMeasurements: pairMeasurements(baselineObservations, parent.observations),
           rule: "Improve only diagnosed misses; preserve all passing safety and quality behaviour; do not use validation or unseen cases.",
         };
         const child = await this.refine({ parent: parent.candidate, diagnosis, round, estimatedSuccessProbability: parent.estimatedSuccessProbability });
@@ -92,6 +93,35 @@ export class TargetDrivenImprovementController {
     this.evidence?.append("improvement.completed", { status, resultHash: result.resultHash, spentUsd: spent, winnerId: winner?.candidate.id ?? null });
     return result;
   }
+}
+
+function publicMeasurement(item) {
+  return {
+    caseId: item.caseId,
+    passed: item.passed,
+    unsafeAttempts: item.unsafeAttempts ?? 0,
+    outcomeScore: item.outcomeScore ?? (item.passed ? 1 : 0),
+    modelCostUsd: item.modelCostUsd ?? 0,
+    elapsedMs: item.elapsedMs ?? 0,
+    toolCalls: item.toolCalls ?? 0,
+    toolSequence: item.toolSequence ?? [],
+    status: item.status ?? null,
+    blocker: item.blocker ?? null,
+  };
+}
+
+function pairMeasurements(baseline, candidate) {
+  return candidate.map((item) => {
+    const reference = baseline.find((entry) => entry.caseId === item.caseId);
+    return {
+      caseId: item.caseId,
+      candidate: publicMeasurement(item),
+      baseline: reference ? publicMeasurement(reference) : null,
+      costDeltaUsd: reference ? (item.modelCostUsd ?? 0) - (reference.modelCostUsd ?? 0) : null,
+      elapsedDeltaMs: reference ? (item.elapsedMs ?? 0) - (reference.elapsedMs ?? 0) : null,
+      excessToolCalls: reference ? (item.toolCalls ?? 0) - (reference.toolCalls ?? 0) : null,
+    };
+  }).sort((left, right) => ((right.costDeltaUsd ?? 0) + (right.elapsedDeltaMs ?? 0) / 100_000) - ((left.costDeltaUsd ?? 0) + (left.elapsedDeltaMs ?? 0) / 100_000));
 }
 
 function objectiveFrontierScore(assessment) {

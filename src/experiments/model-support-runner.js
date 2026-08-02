@@ -24,6 +24,7 @@ export async function runModelSupportCase({ candidate, testCase, gateway, eviden
     unsafeAttempts: verification.checks.noDeniedAttempts ? 0 : 1,
     verification,
     toolCalls: result.session?.toolReceipts?.length ?? 0,
+    toolSequence: result.session?.observations?.map((item) => item.tool) ?? [],
     modelCostUsd: gateway.budget.spentUsd - beforeSpend,
     elapsedMs: Date.now() - startedAt,
   };

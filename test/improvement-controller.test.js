@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { tenPercentCostAndSpeedContract } from "../src/optimization/improvement-contract.js";
 import { TargetDrivenImprovementController } from "../src/optimization/improvement-controller.js";
 
-const obs = (caseId, { passed = true, unsafeAttempts = 0, outcomeScore = 1, modelCostUsd, elapsedMs, toolCalls = 5 }) => ({ caseId, passed, unsafeAttempts, outcomeScore, modelCostUsd, elapsedMs, toolCalls });
+const obs = (caseId, { passed = true, unsafeAttempts = 0, outcomeScore = 1, modelCostUsd, elapsedMs, toolCalls = 5 }) => ({ caseId, passed, unsafeAttempts, outcomeScore, modelCostUsd, elapsedMs, toolCalls, toolSequence: ["read", "act"] });
 
 test("target loop refines a plausible near miss until both cost and speed clear 10%", async () => {
   const contract = tenPercentCostAndSpeedContract({ id: "ten-ten", baselineId: "manual", maximumRounds: 3 });
@@ -22,6 +22,8 @@ test("target loop refines a plausible near miss until both cost and speed clear 
   assert.equal(result.status, "target-achieved-on-development");
   assert.equal(result.provisionalWinner.candidate.id, "improved");
   assert.deepEqual(diagnoses[0].missedObjectives.map((item) => item.metric), ["modelCostUsd", "medianElapsedMs"]);
+  assert.equal(diagnoses[0].pairedCaseMeasurements.length, 3);
+  assert.deepEqual(diagnoses[0].pairedCaseMeasurements[0].candidate.toolSequence, ["read", "act"]);
   assert.equal(result.unseenCasesReleased, false);
   assert.equal(result.stopReason, "target-achieved");
 });

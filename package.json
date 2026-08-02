@@ -28,5 +28,6 @@
     ,"model:unseen": "node --env-file=.env src/experiments/piece2-unseen.js"
     ,"model:repeatability": "node --env-file=.env src/experiments/piece2-repeatability.js"
     ,"piece2:select": "node src/experiments/piece2-select.js"
+    ,"model:piece3:support:viability": "node --env-file=.env src/experiments/piece3-support-viability.js"
   }
 }

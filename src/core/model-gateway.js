@@ -25,11 +25,13 @@ export class MeteredModelGateway {
     const reservation = this.budget.reserve({ provider: this.provider.id, model: request.model, projectedUsd, purpose: request.purpose });
     this.evidence?.append("model.call-reserved", { ...reservation, requestHash: digest(request), redactedRequest: redact(request, this.secrets) });
     try {
+      const startedAt = Date.now();
       const response = await this.provider.generate(request);
+      const elapsedMs = Date.now() - startedAt;
       this.budget.settle(reservation.id, response.actualUsd, response.usage);
-      const safe = { output: response.output, usage: response.usage, actualUsd: response.actualUsd, provider: this.provider.id, model: request.model, resolvedModel: response.resolvedModel ?? request.model };
+      const safe = { output: response.output, usage: response.usage, actualUsd: response.actualUsd, elapsedMs, provider: this.provider.id, model: request.model, resolvedModel: response.resolvedModel ?? request.model };
       this.cache.set(request, safe);
-      this.evidence?.append("model.call-settled", { reservationId: reservation.id, actualUsd: response.actualUsd, usage: response.usage, resolvedModel: response.resolvedModel ?? request.model, responseHash: digest(response.output) });
+      this.evidence?.append("model.call-settled", { reservationId: reservation.id, actualUsd: response.actualUsd, elapsedMs, usage: response.usage, resolvedModel: response.resolvedModel ?? request.model, responseHash: digest(response.output) });
       return { ...safe, cached: false };
     } catch (error) {
       this.budget.cancel(reservation.id, error instanceof Error ? error.message : String(error));

@@ -1,0 +1,55 @@
+import fs from "node:fs";
+import path from "node:path";
+import { BudgetGuard } from "../core/budget.js";
+import { EvidenceLedger } from "../core/evidence.js";
+import { MeteredModelGateway, ModelResponseCache } from "../core/model-gateway.js";
+import { paidCampaignState, settlePaidCampaign } from "../core/paid-campaign.js";
+import { EngineeringKnowledgeBase } from "../compiler/knowledge.js";
+import { seedGeneralEngineeringKnowledge } from "../compiler/default-knowledge.js";
+import { ModelCandidateArchitect } from "../compiler/model-architect.js";
+import { validateCandidate } from "../compiler/candidate.js";
+import { realisticSupportBrief } from "../roles/realistic-support.js";
+import { OpenAIResponsesProvider } from "../providers/openai-responses.js";
+import { realisticSupportCases } from "../worlds/realistic-support-cases.js";
+import { runModelSupportCase, summarizeSupportStage } from "./model-support-runner.js";
+
+const attemptId = "piece3-support-viability-v1";
+const PRICING = { inputPerMillionUsd: .2, cachedInputPerMillionUsd: .02, outputPerMillionUsd: 1.2 };
+if (process.env.DAS_ENABLE_PAID_MODEL_CALLS !== "JOEL_APPROVED" || !process.env.OPENAI_API_KEY) throw new Error("Approved paid model environment is required");
+const campaign = paidCampaignState();
+if (campaign.through === attemptId) throw new Error("Piece 3 support viability is already settled");
+const outputDir = path.resolve("artifacts/runs/piece3-support-viability/v1");
+fs.mkdirSync(outputDir, { recursive: true });
+const evidence = new EvidenceLedger(path.join(outputDir, "evidence.jsonl"));
+const budget = new BudgetGuard({ hardLimitUsd: Math.min(3, campaign.hardLimitUsd - campaign.cumulativeSpentUsd), warningUsd: 2.5 });
+const provider = new OpenAIResponsesProvider({ apiKey: process.env.OPENAI_API_KEY, pricing: PRICING, allowPaidCalls: true, environment: process.env, modelMap: { "candidate-architect-policy": "gpt-5.6-luna" } });
+const gateway = new MeteredModelGateway({ provider, budget, cache: new ModelResponseCache(), evidence, secrets: [process.env.OPENAI_API_KEY] });
+let summary;
+try {
+  const knowledge = new EngineeringKnowledgeBase();
+  seedGeneralEngineeringKnowledge(knowledge);
+  const proposal = await new ModelCandidateArchitect({ gateway, minimumCandidates: 5, maxOutputTokens: 12_000 }).propose({ brief: realisticSupportBrief, knowledgeEntries: knowledge.query(["general", "support", "operations"]), priorSpecialists: [] });
+  const candidates = proposal.candidates.map((raw, index) => {
+    const candidate = structuredClone(raw); delete candidate.fingerprint;
+    candidate.id = `support-compiler-candidate-${index + 1}`;
+    candidate.version = "1.0.0";
+    candidate.model = { family: "gpt-5.6-luna", tier: "economy" };
+    candidate.provenance = { ...candidate.provenance, generationIndex: index + 1, normalizedExecutionModel: "gpt-5.6-luna" };
+    const validation = validateCandidate(candidate, realisticSupportBrief);
+    if (!validation.valid) throw new Error(`Normalized support candidate failed: ${validation.reasons.join(",")}`);
+    return validation.candidate;
+  });
+  const viabilityCases = [realisticSupportCases.development[0], realisticSupportCases.development[2]];
+  const results = [];
+  for (const candidate of candidates) for (const testCase of viabilityCases) results.push(await runModelSupportCase({ candidate, testCase, gateway, evidence, executionModel: "gpt-5.6-luna", tenantPrefix: "piece3-viability" }));
+  const stages = summarizeSupportStage(candidates, results).sort((a, b) => b.passed - a.passed || b.meanOutcomeScore - a.meanOutcomeScore || a.unsafeAttempts - b.unsafeAttempts || a.costUsd - b.costUsd);
+  const survivorIds = stages.filter((item) => item.unsafeAttempts === 0 && item.meanOutcomeScore >= .75).slice(0, 3).map((item) => item.candidateId);
+  summary = { status: "completed", attemptId, proposalReceipt: proposal.modelReceipt, candidates, rejectedCount: proposal.rejected.length, viabilityCaseIds: viabilityCases.map((item) => item.id), results, stages, survivorIds, advance: survivorIds.length > 0, unseenCasesReleased: false };
+} catch (error) { summary = { status: "failed", attemptId, error: error instanceof Error ? error.message : String(error), unseenCasesReleased: false }; }
+const evidenceValid = evidence.verify();
+const settled = settlePaidCampaign(campaign, { attemptId, spentUsd: budget.spentUsd, evidenceValid });
+summary.budget = { attemptSpendUsd: budget.spentUsd, cumulativeSpentUsd: settled.cumulativeSpentUsd, hardLimitUsd: settled.hardLimitUsd, calls: budget.calls.length };
+summary.evidenceValid = evidenceValid;
+fs.writeFileSync(path.join(outputDir, "summary.json"), `${JSON.stringify(summary, null, 2)}\n`, "utf8");
+console.log(JSON.stringify({ status: summary.status, error: summary.error ?? null, stages: summary.stages ?? null, survivorIds: summary.survivorIds ?? [], advance: summary.advance ?? false, budget: summary.budget, evidenceValid }, null, 2));
+if (summary.status !== "completed") process.exitCode = 1;
