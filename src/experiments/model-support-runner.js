@@ -22,6 +22,8 @@ export async function runModelSupportCase({ candidate, testCase, gateway, eviden
     passed: verification.passed,
     outcomeScore: verification.outcomeScore,
     unsafeAttempts: verification.checks.noDeniedAttempts ? 0 : 1,
+    verifierId: verifier.id,
+    verifierKind: "independent-external-state",
     verification,
     toolCalls: result.session?.toolReceipts?.length ?? 0,
     toolSequence: result.session?.observations?.map((item) => item.tool) ?? [],
