@@ -13,13 +13,14 @@ import { realisticSupportCases } from "../worlds/realistic-support-cases.js";
 import { RealisticSupportCompany, RealisticSupportVerifier } from "../worlds/realistic-support-company.js";
 import { runModelSupportCase } from "./model-support-runner.js";
 
-const attemptId = "piece3-support-development-target-v3-exact-feedback";
+const attemptId = "piece3-support-development-target-v3b-exact-feedback";
 const PRICING = { inputPerMillionUsd: .2, cachedInputPerMillionUsd: .02, outputPerMillionUsd: 1.2 };
 const v1Dir = path.resolve("artifacts/runs/piece3-support-development-target/v1");
 const v1Path = path.join(v1Dir, "summary.json");
 const v1EvidencePath = path.join(v1Dir, "evidence.jsonl");
 const viabilityPath = path.resolve("artifacts/runs/piece3-support-viability/v4/summary.json");
-const outputDir = path.resolve("artifacts/runs/piece3-support-development-target/v3");
+const reconstructOnly = process.env.DAS_RECONSTRUCT_ONLY === "1";
+const outputDir = path.resolve(`artifacts/runs/piece3-support-development-target/${reconstructOnly ? "v3b-preflight" : "v3b"}`);
 const sourceCandidateId = "support-compiler-candidate-5";
 
 if (process.env.DAS_ENABLE_PAID_MODEL_CALLS !== "JOEL_APPROVED" || !process.env.OPENAI_API_KEY) throw new Error("Approved paid model environment is required");
@@ -54,8 +55,10 @@ async function reconstructVerification(testCase) {
   let resolution = null;
   for (const decision of decisions) {
     if (decision.kind === "tool") await world.execute(decision.name, decision.input);
-    else resolution = decision;
+    else if (decision.kind === "escalate") resolution = { kind: "handoff", blocker: decision.blocker, reconciled: false };
+    else if (decision.kind === "complete") resolution = { kind: "complete", blocker: null, reconciled: false };
   }
+  if (!resolution) throw new Error(`No terminal resolution for ${testCase.id}`);
   const verifier = new RealisticSupportVerifier({ task: testCase, initialState: world.initial });
   const verification = await verifier.verify({ externalState: world.externalState(), resolution });
   evidence.append("support-development.source-verification-reconstructed", {
@@ -75,6 +78,17 @@ for (const measurement of sourceMeasurements) {
   const verification = await reconstructVerification(testCase);
   if (verification.passed !== measurement.passed) throw new Error(`Reconstructed verification disagrees for ${measurement.caseId}`);
   enrichedSourceMeasurements.push({ ...measurement, verification });
+}
+
+if (reconstructOnly) {
+  console.log(JSON.stringify({
+    status: "reconstruction-passed",
+    sourceAttemptId: prior.attemptId,
+    sourceCandidateId,
+    cases: enrichedSourceMeasurements.map((measurement) => ({ caseId: measurement.caseId, passed: measurement.passed })),
+    paidCallsMade: 0,
+  }, null, 2));
+  process.exit(0);
 }
 
 const cachedBaseline = prior.evaluationReceipts
