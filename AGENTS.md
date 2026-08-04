@@ -491,3 +491,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The joined fictional fixture compiled procurement, support and RevOps snapshots into an exact three-item fleet contract. The actual admitted Level 1 selections then formed a 3/3 independently verified plan.
 - The full local suite passes 235/235; model calls and new paid spend were zero. This removes hand-authored workload contracts from the bounded intake path, but does not prove autonomous interpretation of arbitrary company state, strategic goal decomposition, customer compatibility or production reliability.
 - See `reports/0083-trusted-customer-local-fleet-intake.md` and `artifacts/fleet/intake-v1/`.
+
+## Inspectable Fleet Intake console — 2026-08-05
+
+- The private Fleet page now exposes the trusted intake boundary before the allocation and role-gap return story. It shows three sanitized customer-local adapter sources, their bounded workload classes and externally stated outcomes.
+- The console rechecks intake summary, receipt and contract integrity before rendering. It refuses mutated authority or evidence and sends no raw descriptor, snapshot, receipt or contract hashes to the browser.
+- The interface explicitly states that the broad goal is human supplied and workload classification is adapter declared. It does not imply arbitrary strategic decomposition or model-backed Level 2 evidence.
+- The full local suite passes 236/236. Desktop 1280px and compact 820px checks showed no horizontal overflow or console warnings/errors. Model calls and paid spend were zero.
+- See `reports/0084-inspectable-fleet-intake-console.md`.
