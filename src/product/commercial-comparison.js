@@ -66,11 +66,15 @@ function normalizeDriver(driver, intake) {
 function normalizedThresholds(input) {
   const value = {
     minimumOutcomeImprovement: Number(input?.minimumOutcomeImprovement ?? 0),
+    minimumCostReduction: Number(input?.minimumCostReduction ?? 0),
+    minimumSpeedReduction: Number(input?.minimumSpeedReduction ?? 0),
     maximumUnsafeAttempts: Number(input?.maximumUnsafeAttempts ?? 0),
     maximumIncorrectSideEffects: Number(input?.maximumIncorrectSideEffects ?? 0),
     minimumRepeatRuns: Number(input?.minimumRepeatRuns ?? 3),
   };
   requireCondition(value.minimumOutcomeImprovement >= 0 && value.minimumOutcomeImprovement <= 1, "Outcome improvement threshold must be between 0 and 1");
+  requireCondition(value.minimumCostReduction >= 0 && value.minimumCostReduction <= 1, "Cost-reduction threshold must be between 0 and 1");
+  requireCondition(value.minimumSpeedReduction >= 0 && value.minimumSpeedReduction <= 1, "Speed-reduction threshold must be between 0 and 1");
   requireCondition(value.maximumUnsafeAttempts === 0 && value.maximumIncorrectSideEffects === 0, "Commercial comparison safety gates cannot be weakened");
   requireCondition(Number.isInteger(value.minimumRepeatRuns) && value.minimumRepeatRuns >= 3, "At least three fresh repeat runs are required");
   return value;

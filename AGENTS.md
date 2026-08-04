@@ -258,3 +258,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - This is a zero-cost orchestration foundation. It is not yet a model-backed customer comparison, an executable customer adapter, customer evidence or commercial proof.
 - Complete local suite: 150/150 passed. No paid model call was made.
 - See `reports/0057-commercial-comparison-contract-and-runner.md`.
+
+## Commercial procurement executable pack — 2026-08-05
+
+- The commercial runner now has a complete disposable procurement pack: normalized onboarding, a namespaced verified driver, an independent external-state verifier, an imported current agent, strong-general/ordinary-manual/expert-manual baselines, four compiler candidates and 5 development + 2 validation + 3 adversarial + 2 sealed unseen cases.
+- The deterministic reference passed 12/12. Do-nothing passed only 3/12, order-every-demand 4/12 and cheapest-offer 6/12, showing that the world rejects plausible shortcuts rather than telegraphing one trivial answer.
+- The commercial improvement contract now supports separately frozen outcome, cost and speed targets. Every declared target must pass; an equal-quality replacement can win through proved cost/speed reduction, while an unproved replacement retains the imported current agent.
+- The complete local suite passes 155/155. Preflight used zero model calls, zero spend and did not release the unseen vault.
+- This is executable disposable-world readiness, not a model-backed commercial result, arbitrary agent import, customer evidence or production readiness. A fresh model campaign still requires separate explicit spend approval.
+- See `reports/0058-commercial-procurement-executable-pack.md` and `artifacts/commercial/procurement-v1/`.

@@ -58,6 +58,31 @@ function rank(summaries, priorities) {
 
 function isSafe(summary, thresholds) { return summary.unsafeAttempts <= thresholds.maximumUnsafeAttempts && summary.incorrectSideEffects <= thresholds.maximumIncorrectSideEffects; }
 
+function relativeReduction(current, replacement) {
+  if (current === 0) return replacement === 0 ? 0 : Number.NEGATIVE_INFINITY;
+  return (current - replacement) / current;
+}
+
+function assessImprovement(current, replacement, thresholds) {
+  if (!current || !replacement || current.participantId === replacement.participantId) return null;
+  const measured = {
+    outcomeImprovement: replacement.meanOutcomeScore - current.meanOutcomeScore,
+    costReduction: relativeReduction(current.modelCostUsd, replacement.modelCostUsd),
+    speedReduction: relativeReduction(current.meanElapsedMs, replacement.meanElapsedMs),
+  };
+  const required = {
+    outcomeImprovement: thresholds.minimumOutcomeImprovement,
+    costReduction: thresholds.minimumCostReduction,
+    speedReduction: thresholds.minimumSpeedReduction,
+  };
+  const checks = {
+    outcomeImprovement: measured.outcomeImprovement >= required.outcomeImprovement,
+    costReduction: measured.costReduction >= required.costReduction,
+    speedReduction: measured.speedReduction >= required.speedReduction,
+  };
+  return { currentParticipantId: current.participantId, replacementParticipantId: replacement.participantId, required, measured, checks, proved: Object.values(checks).every(Boolean) };
+}
+
 export class CommercialComparisonRunner {
   constructor({ evaluate, estimateCost = () => 0, evidence = null, now = () => Date.now() }) {
     requireCondition(typeof evaluate === "function", "Commercial comparison runner needs an executable evaluator");
@@ -135,7 +160,8 @@ export class CommercialComparisonRunner {
     const selected = ordered[0];
     const current = eligible.find((item) => item.type === "current-agent") ?? null;
     let decision = selected.type === "current-agent" ? "retain-existing" : selected.type === "compiler-candidate" ? "activate-compiler" : "select-proven-baseline";
-    if (current && selected.type === "compiler-candidate" && selected.meanOutcomeScore - current.meanOutcomeScore < contract.thresholds.minimumOutcomeImprovement) decision = "retain-existing-unproved-upgrade";
+    const improvementAssessment = assessImprovement(current, selected, contract.thresholds);
+    if (current && selected.type !== "current-agent" && !improvementAssessment?.proved) decision = "retain-existing-unproved-upgrade";
     const selectedId = decision === "retain-existing-unproved-upgrade" ? current.participantId : selected.participantId;
     const repeatParticipant = runtimeById.get(selectedId);
     const repeatRows = [];
@@ -150,6 +176,7 @@ export class CommercialComparisonRunner {
       selectedParticipantId: repeatParticipant.id,
       decision,
       rankedUnseen: ordered,
+      improvementAssessment,
       preUnseenReceipt,
       stageHistory,
       repeatability: { runs: repeatRows.length, summaries: repeatRows },

@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "das.commercial-procurement-preflight.v1",
+  "contractFreezeHash": "832a23f0abc9c530fc79d1414d3ad8a409868c7c3e75cd70bbd95765982a3b71",
+  "intakeHash": "390b7f15169d99856f4c062562a1505a0fb6a06d443fc9be592de9b8fb1444fe",
+  "driverHash": "7e2bc53301c6071ef6e13777efbde3f0b4605e99641681ab8e74fd8201ee55ce",
+  "participantHashes": [
+    {
+      "id": "imported-current-procurement-agent",
+      "type": "current-agent",
+      "configurationHash": "d7af58b02291790e6c332d5bd7ad704d68ee1c8bc096725e6ebbedafd803bd48"
+    },
+    {
+      "id": "baseline-strong-general-terra",
+      "type": "strong-general",
+      "configurationHash": "86b719cb5c13264e6d5f9bf77a75806e7ee24987de0346406d9a963828eb4ed7"
+    },
+    {
+      "id": "baseline-ordinary-manual-luna",
+      "type": "ordinary-manual",
+      "configurationHash": "8b3c471783c287bf8395fb08b8b2bd78408e813a348a403bad5dfb8606d00f81"
+    },
+    {
+      "id": "baseline-expert-manual-sol",
+      "type": "expert-manual",
+      "configurationHash": "cfb9ddb18b8c08e7136f25f2e49809b41f097bff7d2a17ef545a926c8af36853"
+    },
+    {
+      "id": "commercial-procurement-candidate-1",
+      "type": "compiler-candidate",
+      "configurationHash": "543c82a0c111ef85eae3885b07c06d335aa030991a3dd8b9b131d2bac6b860bf"
+    },
+    {
+      "id": "commercial-procurement-candidate-2",
+      "type": "compiler-candidate",
+      "configurationHash": "b589af9ccbb0dae4b78f86911cebcaeaf0c804144065c0c8dd2356cdb154e2c7"
+    },
+    {
+      "id": "commercial-procurement-candidate-3",
+      "type": "compiler-candidate",
+      "configurationHash": "3b777fc9e4708f1d82b35cc8d43f2e31a2a04d97db06c13de55d8f50b9616d6d"
+    },
+    {
+      "id": "commercial-procurement-candidate-4",
+      "type": "compiler-candidate",
+      "configurationHash": "71852a90e1b61229b54cc6f626271ea584429c3a3b5489c7bd61760a7a7e5ae7"
+    }
+  ],
+  "caseCounts": {
+    "development": 5,
+    "validation": 2,
+    "adversarial": 3,
+    "unseen": 2
+  },
+  "deterministicReference": {
+    "strategyId": "reference-outcome-aware",
+    "passed": 12,
+    "total": 12,
+    "successRate": 1,
+    "splitResults": {
+      "development": {
+        "passed": 5,
+        "total": 5
+      },
+      "validation": {
+        "passed": 2,
+        "total": 2
+      },
+      "adversarial": {
+        "passed": 3,
+        "total": 3
+      },
+      "unseen": {
+        "passed": 2,
+        "total": 2
+      }
+    }
+  },
+  "shortcutControls": [
+    {
+      "strategyId": "shortcut-do-nothing",
+      "passed": 3,
+      "total": 12,
+      "successRate": 0.25,
+      "splitResults": {
+        "development": {
+          "passed": 0,
+          "total": 5
+        },
+        "validation": {
+          "passed": 1,
+          "total": 2
+        },
+        "adversarial": {
+          "passed": 1,
+          "total": 3
+        },
+        "unseen": {
+          "passed": 1,
+          "total": 2
+        }
+      }
+    },
+    {
+      "strategyId": "shortcut-order-every-demand",
+      "passed": 4,
+      "total": 12,
+      "successRate": 0.3333333333333333,
+      "splitResults": {
+        "development": {
+          "passed": 1,
+          "total": 5
+        },
+        "validation": {
+          "passed": 1,
+          "total": 2
+        },
+        "adversarial": {
+          "passed": 2,
+          "total": 3
+        },
+        "unseen": {
+          "passed": 0,
+          "total": 2
+        }
+      }
+    },
+    {
+      "strategyId": "shortcut-cheapest-offer",
+      "passed": 6,
+      "total": 12,
+      "successRate": 0.5,
+      "splitResults": {
+        "development": {
+          "passed": 3,
+          "total": 5
+        },
+        "validation": {
+          "passed": 1,
+          "total": 2
+        },
+        "adversarial": {
+          "passed": 1,
+          "total": 3
+        },
+        "unseen": {
+          "passed": 1,
+          "total": 2
+        }
+      }
+    }
+  ],
+  "unseenReleaseCount": 0,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Zero-cost disposable-world preflight. It proves the commercial procurement contract is executable and discriminating; it does not prove model candidate quality, customer value or production reliability.",
+  "receiptHash": "e5942f930ecde646b4dde73a5151ecbbaa905fa9bba3984a8e1858a790be0417"
+}
