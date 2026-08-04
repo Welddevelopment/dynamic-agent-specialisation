@@ -499,3 +499,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The interface explicitly states that the broad goal is human supplied and workload classification is adapter declared. It does not imply arbitrary strategic decomposition or model-backed Level 2 evidence.
 - The full local suite passes 236/236. Desktop 1280px and compact 820px checks showed no horizontal overflow or console warnings/errors. Model calls and paid spend were zero.
 - See `reports/0084-inspectable-fleet-intake-console.md`.
+
+## Prospective Level 2 model-campaign preflight — 2026-08-05
+
+- A new prospective campaign plan binds three fresh sealed fictional role tasks to the exact admitted procurement, support and RevOps Level 1 selections, their candidate fingerprints, selection records, assignment hashes, verifiers, models, task limits, customer-local intake receipt and independently verified fleet plan.
+- The zero-cost plan contains only a vault digest and count, never case ids or payloads. The vault cannot release from the plan alone. Release requires global paid approval, the campaign-specific phrase, exact plan hash, an explicit limit within the $1.30 frozen fleet ceiling, same-day pricing date/hash and API key.
+- Deterministic references passed all three sealed task worlds while do-nothing controls failed all three. The vault remained sealed and no authority, model call or spend occurred.
+- The full local suite passes 239/239. This closes the prospective experiment-design boundary, not the empirical result. A resumable runner and separately approved fresh model execution remain next.
+- See `reports/0085-prospective-level2-model-campaign-preflight.md` and `artifacts/fleet/prospective-model-campaign-v1/`.

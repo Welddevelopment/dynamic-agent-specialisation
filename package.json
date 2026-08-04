@@ -30,6 +30,7 @@
     "level2:admit-level1": "node src/experiments/level1-fleet-admission.js",
     "level2:import-level1-receipts": "node src/experiments/level1-fleet-receipt-import.js",
     "level2:intake": "node src/experiments/fleet-intake.js",
+    "level2:prospective:preflight": "node src/experiments/prospective-fleet-campaign-preflight.js",
     "commercial:procurement:model-plan": "node src/experiments/commercial-procurement-model-plan.js",
     "commercial:procurement:model-run": "node --env-file=.env src/experiments/commercial-procurement-model-campaign.js",
     "commercial:support:model-plan": "node src/experiments/commercial-support-model-plan.js",
