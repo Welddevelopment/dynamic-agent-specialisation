@@ -22,11 +22,13 @@ Every required system operation has an executable customer-local adapter, creden
 
 ## Initial supported role families
 
-1. SaaS support operations — first polished commercial path; strongest existing compiler-win evidence.
+1. SaaS support operations — first polished commercial path; strongest existing compiler-win evidence and now a complete executable disposable commercial comparison pack.
 2. Procurement coverage — supported technical template; prior evidence retained an existing specialist.
 3. CRM / revenue operations — supported technical template; prior evidence retained an existing specialist.
 
 The shared commercial engine must work across all three. Support receives the first complete onboarding and demonstration journey. Unsupported roles may receive a draft preview, but cannot be represented as comparison- or activation-ready without a new role adapter and verifier.
+
+Procurement and support now both have complete executable disposable commercial packs. CRM / revenue operations still has a proven technical role world but has not yet been joined into the current commercial comparison-pack and packaging boundary.
 
 ## Customer journey
 

@@ -1,0 +1,766 @@
+[
+  {
+    "id": "imported-current-support-agent",
+    "type": "current-agent",
+    "label": "Imported current support agent",
+    "version": "1.0.0",
+    "configurationHash": "6228e0b8fe8e10461e0ed8b4ab9ad5939f8b7812fd46d3753e7dc3b097c3c1b2",
+    "runnerId": "commercial-support-model-runtime-v1",
+    "candidate": {
+      "roleId": "commercial-support-v1:support-operations",
+      "context": {
+        "sources": [
+          "support-sandbox:assigned-ticket-queue",
+          "support-sandbox:ticket-thread",
+          "support-sandbox:customer-account",
+          "support-sandbox:billing-events",
+          "support-sandbox:active-incidents",
+          "support-sandbox:knowledge-base",
+          "support-sandbox:support-policy",
+          "knowledge:support-policy-v1"
+        ],
+        "selection": "Use the bounded assigned-queue context available through tools."
+      },
+      "tools": [
+        "support-sandbox:list-assigned-tickets",
+        "support-sandbox:read-ticket",
+        "support-sandbox:read-account",
+        "support-sandbox:list-billing-events",
+        "support-sandbox:list-active-incidents",
+        "support-sandbox:search-knowledge",
+        "support-sandbox:read-support-policy",
+        "support-sandbox:draft-response",
+        "support-sandbox:apply-service-credit",
+        "support-sandbox:create-support-escalation",
+        "support-sandbox:link-ticket-to-incident",
+        "support-sandbox:merge-duplicate-ticket",
+        "support-sandbox:close-ticket"
+      ],
+      "memory": {
+        "kind": "task-scoped",
+        "scope": "ticket findings, action keys, completed items and unresolved blockers"
+      },
+      "authority": {
+        "allowedActions": [
+          "draft-support-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-support-incident",
+          "merge-support-ticket",
+          "close-support-ticket"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0,
+        "mode": "precise blocker only"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-support-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.5,
+        "maxLatencyMs": 300000
+      },
+      "version": "1.0.0",
+      "id": "imported-current-support-agent",
+      "model": {
+        "family": "gpt-5.6-luna",
+        "tier": "economy"
+      },
+      "instructions": {
+        "style": "ordinary SaaS support assistant",
+        "emphasis": [
+          "work only the assigned queue",
+          "inspect ticket, account, billing, incident, knowledge and policy evidence as relevant",
+          "resolve ordinary issues with the smallest permitted action",
+          "escalate exact blockers and never guess financial or security facts",
+          "avoid duplicate adjustments and closures"
+        ]
+      },
+      "strategy": {
+        "qualityWeight": 0.8,
+        "costWeight": 0.15,
+        "speedWeight": 0.05,
+        "riskTolerance": 0.05,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "customer-import",
+        "sourceConfigurationHash": "imported-current-support-v1",
+        "description": "Fictional imported current support agent used to prove the commercial comparison boundary."
+      },
+      "fingerprint": "6228e0b8fe8e10461e0ed8b4ab9ad5939f8b7812fd46d3753e7dc3b097c3c1b2"
+    }
+  },
+  {
+    "id": "support-baseline-strong-general-terra",
+    "type": "strong-general",
+    "label": "Strong general baseline",
+    "version": "1.0.0",
+    "configurationHash": "189d53eab5a804263599ffdadad7edabd350d2947f6c0f53753c4ecc71ce37c2",
+    "runnerId": "commercial-support-model-runtime-v1",
+    "candidate": {
+      "roleId": "commercial-support-v1:support-operations",
+      "context": {
+        "sources": [
+          "support-sandbox:assigned-ticket-queue",
+          "support-sandbox:ticket-thread",
+          "support-sandbox:customer-account",
+          "support-sandbox:billing-events",
+          "support-sandbox:active-incidents",
+          "support-sandbox:knowledge-base",
+          "support-sandbox:support-policy",
+          "knowledge:support-policy-v1"
+        ],
+        "selection": "Use the bounded assigned-queue context available through tools."
+      },
+      "tools": [
+        "support-sandbox:list-assigned-tickets",
+        "support-sandbox:read-ticket",
+        "support-sandbox:read-account",
+        "support-sandbox:list-billing-events",
+        "support-sandbox:list-active-incidents",
+        "support-sandbox:search-knowledge",
+        "support-sandbox:read-support-policy",
+        "support-sandbox:draft-response",
+        "support-sandbox:apply-service-credit",
+        "support-sandbox:create-support-escalation",
+        "support-sandbox:link-ticket-to-incident",
+        "support-sandbox:merge-duplicate-ticket",
+        "support-sandbox:close-ticket"
+      ],
+      "memory": {
+        "kind": "task-scoped",
+        "scope": "current assigned support queue"
+      },
+      "authority": {
+        "allowedActions": [
+          "draft-support-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-support-incident",
+          "merge-support-ticket",
+          "close-support-ticket"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0,
+        "mode": "precise blocker only"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-support-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.5,
+        "maxLatencyMs": 300000
+      },
+      "version": "1.0.0",
+      "id": "support-baseline-strong-general-terra",
+      "model": {
+        "family": "gpt-5.6-terra",
+        "tier": "balanced"
+      },
+      "instructions": {
+        "style": "general-purpose operations agent",
+        "emphasis": [
+          "complete the assigned goal",
+          "use available external evidence",
+          "follow explicit policy and authority",
+          "avoid unsupported actions"
+        ]
+      },
+      "strategy": {
+        "qualityWeight": 0.8,
+        "costWeight": 0.1,
+        "speedWeight": 0.1,
+        "riskTolerance": 0.08,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "baseline",
+        "type": "strong-general",
+        "setupProtocolId": "piece3-support-strong-general-v1",
+        "description": "Strong general model with full tools and minimal support-specific configuration."
+      },
+      "fingerprint": "189d53eab5a804263599ffdadad7edabd350d2947f6c0f53753c4ecc71ce37c2"
+    }
+  },
+  {
+    "id": "support-baseline-ordinary-manual-luna",
+    "type": "ordinary-manual",
+    "label": "Ordinary manually configured baseline",
+    "version": "1.0.0",
+    "configurationHash": "849b13ab16c0c462a8f7aca5ad780ea1c61622347082ec0710dad7668c7fd798",
+    "runnerId": "commercial-support-model-runtime-v1",
+    "candidate": {
+      "roleId": "commercial-support-v1:support-operations",
+      "context": {
+        "sources": [
+          "support-sandbox:assigned-ticket-queue",
+          "support-sandbox:ticket-thread",
+          "support-sandbox:customer-account",
+          "support-sandbox:billing-events",
+          "support-sandbox:active-incidents",
+          "support-sandbox:knowledge-base",
+          "support-sandbox:support-policy",
+          "knowledge:support-policy-v1"
+        ],
+        "selection": "Use the bounded assigned-queue context available through tools."
+      },
+      "tools": [
+        "support-sandbox:list-assigned-tickets",
+        "support-sandbox:read-ticket",
+        "support-sandbox:read-account",
+        "support-sandbox:list-billing-events",
+        "support-sandbox:list-active-incidents",
+        "support-sandbox:search-knowledge",
+        "support-sandbox:read-support-policy",
+        "support-sandbox:draft-response",
+        "support-sandbox:apply-service-credit",
+        "support-sandbox:create-support-escalation",
+        "support-sandbox:link-ticket-to-incident",
+        "support-sandbox:merge-duplicate-ticket",
+        "support-sandbox:close-ticket"
+      ],
+      "memory": {
+        "kind": "task-scoped",
+        "scope": "ticket findings, action keys, completed items and unresolved blockers"
+      },
+      "authority": {
+        "allowedActions": [
+          "draft-support-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-support-incident",
+          "merge-support-ticket",
+          "close-support-ticket"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0,
+        "mode": "precise blocker only"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-support-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.5,
+        "maxLatencyMs": 300000
+      },
+      "version": "1.0.0",
+      "id": "support-baseline-ordinary-manual-luna",
+      "model": {
+        "family": "gpt-5.6-luna",
+        "tier": "economy"
+      },
+      "instructions": {
+        "style": "ordinary SaaS support assistant",
+        "emphasis": [
+          "work only the assigned queue",
+          "inspect ticket, account, billing, incident, knowledge and policy evidence as relevant",
+          "resolve ordinary issues with the smallest permitted action",
+          "escalate exact blockers and never guess financial or security facts",
+          "avoid duplicate adjustments and closures"
+        ]
+      },
+      "strategy": {
+        "qualityWeight": 0.8,
+        "costWeight": 0.15,
+        "speedWeight": 0.05,
+        "riskTolerance": 0.05,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "baseline",
+        "type": "ordinary-manual",
+        "setupProtocolId": "piece3-support-ordinary-manual-v1",
+        "description": "Plausible manually configured support specialist without compiler tournament or failure-driven refinement."
+      },
+      "fingerprint": "849b13ab16c0c462a8f7aca5ad780ea1c61622347082ec0710dad7668c7fd798"
+    }
+  },
+  {
+    "id": "support-baseline-expert-manual-sol",
+    "type": "expert-manual",
+    "label": "Expert manually configured baseline",
+    "version": "1.0.0",
+    "configurationHash": "2eff092737567ba6dd30fbe16870d7174c86d63748d38518d7fa413a8baec056",
+    "runnerId": "commercial-support-model-runtime-v1",
+    "candidate": {
+      "roleId": "commercial-support-v1:support-operations",
+      "context": {
+        "sources": [
+          "support-sandbox:assigned-ticket-queue",
+          "support-sandbox:ticket-thread",
+          "support-sandbox:customer-account",
+          "support-sandbox:billing-events",
+          "support-sandbox:active-incidents",
+          "support-sandbox:knowledge-base",
+          "support-sandbox:support-policy",
+          "knowledge:support-policy-v1"
+        ],
+        "selection": "Use the bounded assigned-queue context available through tools."
+      },
+      "tools": [
+        "support-sandbox:list-assigned-tickets",
+        "support-sandbox:read-ticket",
+        "support-sandbox:read-account",
+        "support-sandbox:list-billing-events",
+        "support-sandbox:list-active-incidents",
+        "support-sandbox:search-knowledge",
+        "support-sandbox:read-support-policy",
+        "support-sandbox:draft-response",
+        "support-sandbox:apply-service-credit",
+        "support-sandbox:create-support-escalation",
+        "support-sandbox:link-ticket-to-incident",
+        "support-sandbox:merge-duplicate-ticket",
+        "support-sandbox:close-ticket"
+      ],
+      "memory": {
+        "kind": "task-scoped-audit",
+        "scope": "per-ticket evidence, selected route, action keys, blocked approvals and reconciliation state"
+      },
+      "authority": {
+        "allowedActions": [
+          "draft-support-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-support-incident",
+          "merge-support-ticket",
+          "close-support-ticket"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0,
+        "mode": "precise blocker only"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-support-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.5,
+        "maxLatencyMs": 300000
+      },
+      "version": "1.0.0",
+      "id": "support-baseline-expert-manual-sol",
+      "model": {
+        "family": "gpt-5.6-sol",
+        "tier": "frontier"
+      },
+      "instructions": {
+        "style": "expert support operations control loop",
+        "emphasis": [
+          "enumerate and finish every assigned ticket before completing or handing off",
+          "distinguish active same-service incidents from unrelated noise",
+          "verify settled duplicate billing evidence before exactly one bounded credit",
+          "finish other safe tickets before a precise approval handoff",
+          "route security to security-response without account mutation",
+          "route reproducible bugs or unverified billing to the correct queue",
+          "merge exact duplicates, make no action for resolved tickets",
+          "use stable idempotency keys and reconcile uncertain writes before retry"
+        ]
+      },
+      "strategy": {
+        "qualityWeight": 1,
+        "costWeight": 0.02,
+        "speedWeight": 0.03,
+        "riskTolerance": 0.01,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "baseline",
+        "type": "expert-manual",
+        "setupProtocolId": "piece3-support-expert-manual-v1",
+        "description": "Carefully engineered specialist with explicit exposed-world controls and the strongest available model."
+      },
+      "fingerprint": "2eff092737567ba6dd30fbe16870d7174c86d63748d38518d7fa413a8baec056"
+    }
+  },
+  {
+    "id": "commercial-support-candidate-1",
+    "type": "compiler-candidate",
+    "label": "Compiler candidate 1",
+    "version": "1.0.0",
+    "configurationHash": "11b43f80913ed0d84b32a6db82108a338dea7a1f88bd73284c872025c457e10d",
+    "runnerId": "commercial-support-model-runtime-v1",
+    "candidate": {
+      "id": "commercial-support-candidate-1",
+      "roleId": "commercial-support-v1:support-operations",
+      "model": {
+        "family": "gpt-5.6-terra",
+        "tier": "balanced"
+      },
+      "instructions": {
+        "style": "structured",
+        "emphasis": [
+          "outcome",
+          "policy",
+          "safe-completion"
+        ]
+      },
+      "context": {
+        "sources": [
+          "support-sandbox:assigned-ticket-queue",
+          "support-sandbox:ticket-thread",
+          "support-sandbox:customer-account",
+          "support-sandbox:billing-events",
+          "support-sandbox:active-incidents",
+          "support-sandbox:knowledge-base",
+          "support-sandbox:support-policy",
+          "knowledge:support-policy-v1"
+        ],
+        "selection": "relevance-ranked"
+      },
+      "tools": [
+        "support-sandbox:list-assigned-tickets",
+        "support-sandbox:read-ticket",
+        "support-sandbox:read-account",
+        "support-sandbox:list-billing-events",
+        "support-sandbox:list-active-incidents",
+        "support-sandbox:search-knowledge",
+        "support-sandbox:read-support-policy",
+        "support-sandbox:draft-response",
+        "support-sandbox:apply-service-credit",
+        "support-sandbox:create-support-escalation",
+        "support-sandbox:link-ticket-to-incident",
+        "support-sandbox:merge-duplicate-ticket",
+        "support-sandbox:close-ticket"
+      ],
+      "memory": {
+        "kind": "structured-task-ledger",
+        "scope": "role-and-tenant"
+      },
+      "authority": {
+        "allowedActions": [
+          "draft-support-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-support-incident",
+          "merge-support-ticket",
+          "close-support-ticket"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0.25,
+        "mode": "precise-blocker"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-support-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.25,
+        "maxLatencyMs": 195000
+      },
+      "strategy": {
+        "qualityWeight": 0.65,
+        "costWeight": 0.2,
+        "speedWeight": 0.15,
+        "riskTolerance": 0.2,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "compiler-generated",
+        "parents": [],
+        "rationale": "Balanced quality, cost, speed, and safe completion.",
+        "knowledgeIds": [],
+        "candidateIndex": 1
+      },
+      "version": "1.0.0",
+      "fingerprint": "11b43f80913ed0d84b32a6db82108a338dea7a1f88bd73284c872025c457e10d"
+    }
+  },
+  {
+    "id": "commercial-support-candidate-2",
+    "type": "compiler-candidate",
+    "label": "Compiler candidate 2",
+    "version": "1.0.0",
+    "configurationHash": "c4a8c0eae5e0500b5b4d0b6c5b59f6cd104fc7884768b8f80001cd641c6d477d",
+    "runnerId": "commercial-support-model-runtime-v1",
+    "candidate": {
+      "id": "commercial-support-candidate-2",
+      "roleId": "commercial-support-v1:support-operations",
+      "model": {
+        "family": "gpt-5.6-sol",
+        "tier": "high-reasoning"
+      },
+      "instructions": {
+        "style": "deliberative",
+        "emphasis": [
+          "constraint-satisfaction",
+          "counterexample-check",
+          "outcome"
+        ]
+      },
+      "context": {
+        "sources": [
+          "support-sandbox:assigned-ticket-queue",
+          "support-sandbox:ticket-thread",
+          "support-sandbox:customer-account",
+          "support-sandbox:billing-events",
+          "support-sandbox:active-incidents",
+          "support-sandbox:knowledge-base",
+          "support-sandbox:support-policy",
+          "knowledge:support-policy-v1"
+        ],
+        "selection": "full-bounded"
+      },
+      "tools": [
+        "support-sandbox:list-assigned-tickets",
+        "support-sandbox:read-ticket",
+        "support-sandbox:read-account",
+        "support-sandbox:list-billing-events",
+        "support-sandbox:list-active-incidents",
+        "support-sandbox:search-knowledge",
+        "support-sandbox:read-support-policy",
+        "support-sandbox:draft-response",
+        "support-sandbox:apply-service-credit",
+        "support-sandbox:create-support-escalation",
+        "support-sandbox:link-ticket-to-incident",
+        "support-sandbox:merge-duplicate-ticket",
+        "support-sandbox:close-ticket"
+      ],
+      "memory": {
+        "kind": "decision-and-outcome-ledger",
+        "scope": "role-and-tenant"
+      },
+      "authority": {
+        "allowedActions": [
+          "draft-support-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-support-incident",
+          "merge-support-ticket",
+          "close-support-ticket"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0.18,
+        "mode": "precise-blocker"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-support-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.45,
+        "maxLatencyMs": 270000
+      },
+      "strategy": {
+        "qualityWeight": 0.82,
+        "costWeight": 0.08,
+        "speedWeight": 0.1,
+        "riskTolerance": 0.12,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "compiler-generated",
+        "parents": [],
+        "rationale": "Maximize externally verified quality within the declared operating ceiling.",
+        "knowledgeIds": [],
+        "candidateIndex": 2
+      },
+      "version": "1.0.0",
+      "fingerprint": "c4a8c0eae5e0500b5b4d0b6c5b59f6cd104fc7884768b8f80001cd641c6d477d"
+    }
+  },
+  {
+    "id": "commercial-support-candidate-3",
+    "type": "compiler-candidate",
+    "label": "Compiler candidate 3",
+    "version": "1.0.0",
+    "configurationHash": "68b4b06ce24626c5cc92561ca5d4a1983168931a91d87954942ae0f18e6fbc3c",
+    "runnerId": "commercial-support-model-runtime-v1",
+    "candidate": {
+      "id": "commercial-support-candidate-3",
+      "roleId": "commercial-support-v1:support-operations",
+      "model": {
+        "family": "gpt-5.6-luna",
+        "tier": "efficient"
+      },
+      "instructions": {
+        "style": "concise",
+        "emphasis": [
+          "policy",
+          "minimum-sufficient-action"
+        ]
+      },
+      "context": {
+        "sources": [
+          "support-sandbox:assigned-ticket-queue",
+          "support-sandbox:ticket-thread",
+          "support-sandbox:customer-account",
+          "support-sandbox:billing-events",
+          "support-sandbox:active-incidents",
+          "support-sandbox:knowledge-base",
+          "support-sandbox:support-policy",
+          "knowledge:support-policy-v1"
+        ],
+        "selection": "minimal-relevant"
+      },
+      "tools": [
+        "support-sandbox:list-assigned-tickets",
+        "support-sandbox:read-ticket",
+        "support-sandbox:read-account",
+        "support-sandbox:list-billing-events",
+        "support-sandbox:list-active-incidents",
+        "support-sandbox:search-knowledge",
+        "support-sandbox:read-support-policy",
+        "support-sandbox:draft-response",
+        "support-sandbox:apply-service-credit",
+        "support-sandbox:create-support-escalation",
+        "support-sandbox:link-ticket-to-incident",
+        "support-sandbox:merge-duplicate-ticket",
+        "support-sandbox:close-ticket"
+      ],
+      "memory": {
+        "kind": "compact-outcome-ledger",
+        "scope": "role-and-tenant"
+      },
+      "authority": {
+        "allowedActions": [
+          "draft-support-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-support-incident",
+          "merge-support-ticket",
+          "close-support-ticket"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0.32,
+        "mode": "precise-blocker"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-support-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.1,
+        "maxLatencyMs": 135000
+      },
+      "strategy": {
+        "qualityWeight": 0.52,
+        "costWeight": 0.35,
+        "speedWeight": 0.13,
+        "riskTolerance": 0.18,
+        "requireCompleteContext": false
+      },
+      "provenance": {
+        "kind": "compiler-generated",
+        "parents": [],
+        "rationale": "Seek the lowest sustainable cost without crossing hard safety boundaries.",
+        "knowledgeIds": [],
+        "candidateIndex": 3
+      },
+      "version": "1.0.0",
+      "fingerprint": "68b4b06ce24626c5cc92561ca5d4a1983168931a91d87954942ae0f18e6fbc3c"
+    }
+  },
+  {
+    "id": "commercial-support-candidate-4",
+    "type": "compiler-candidate",
+    "label": "Compiler candidate 4",
+    "version": "1.0.0",
+    "configurationHash": "93a4e11a584f20682dbd358111f77fa18271c11b7d095e0bcb9ccf9d3e72b352",
+    "runnerId": "commercial-support-model-runtime-v1",
+    "candidate": {
+      "id": "commercial-support-candidate-4",
+      "roleId": "commercial-support-v1:support-operations",
+      "model": {
+        "family": "gpt-5.6-terra",
+        "tier": "balanced"
+      },
+      "instructions": {
+        "style": "verification-first",
+        "emphasis": [
+          "authority",
+          "uncertainty",
+          "escalation"
+        ]
+      },
+      "context": {
+        "sources": [
+          "support-sandbox:assigned-ticket-queue",
+          "support-sandbox:ticket-thread",
+          "support-sandbox:customer-account",
+          "support-sandbox:billing-events",
+          "support-sandbox:active-incidents",
+          "support-sandbox:knowledge-base",
+          "support-sandbox:support-policy",
+          "knowledge:support-policy-v1"
+        ],
+        "selection": "full-bounded"
+      },
+      "tools": [
+        "support-sandbox:list-assigned-tickets",
+        "support-sandbox:read-ticket",
+        "support-sandbox:read-account",
+        "support-sandbox:list-billing-events",
+        "support-sandbox:list-active-incidents",
+        "support-sandbox:search-knowledge",
+        "support-sandbox:read-support-policy",
+        "support-sandbox:draft-response",
+        "support-sandbox:apply-service-credit",
+        "support-sandbox:create-support-escalation",
+        "support-sandbox:link-ticket-to-incident",
+        "support-sandbox:merge-duplicate-ticket",
+        "support-sandbox:close-ticket"
+      ],
+      "memory": {
+        "kind": "decision-and-outcome-ledger",
+        "scope": "role-and-tenant"
+      },
+      "authority": {
+        "allowedActions": [
+          "draft-support-response",
+          "apply-service-credit",
+          "create-support-escalation",
+          "link-support-incident",
+          "merge-support-ticket",
+          "close-support-ticket"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0.12,
+        "mode": "precise-blocker"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-support-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.325,
+        "maxLatencyMs": 240000
+      },
+      "strategy": {
+        "qualityWeight": 0.72,
+        "costWeight": 0.08,
+        "speedWeight": 0.05,
+        "riskTolerance": 0.05,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "compiler-generated",
+        "parents": [],
+        "rationale": "Prefer safe escalation over uncertain autonomous action.",
+        "knowledgeIds": [],
+        "candidateIndex": 4
+      },
+      "version": "1.0.0",
+      "fingerprint": "93a4e11a584f20682dbd358111f77fa18271c11b7d095e0bcb9ccf9d3e72b352"
+    }
+  }
+]

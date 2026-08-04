@@ -343,3 +343,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The real loopback procurement rehearsal now uses this same daemon assembly rather than bespoke host wiring and still passes with one intended write, zero incorrect effects, one observation, duplicate suppression, zero model calls and zero spend.
 - This is not an installer or a generic adapter generator. A customer-specific executable adapter and independent verifier remain activation inputs.
 - See `reports/0066-one-command-customer-local-daemon.md` and `docs/COMMERCIAL_LOCAL_SIDECAR.md`.
+
+## Commercial support executable pack — 2026-08-05
+
+- Support operations now has a complete commercial disposable comparison pack rather than only an onboarding template: verified namespaced driver, independent external-state verifier, imported current agent, three serious manual baselines, four compiler candidates and a 5 development / 2 validation / 3 adversarial / 2 sealed-unseen case split.
+- The deterministic reference passed 12/12. Do-nothing, close-everything and escalate-everything controls each passed 0/12. The unseen vault remained sealed; model calls and spend were zero.
+- The complete local suite passes 192/192. This is the second materially different role family on the executable commercial machinery.
+- No support model comparison or customer improvement is claimed. A fresh support campaign still needs a safe plan and explicit new spend approval. CRM/RevOps remains the commercial pack gap.
+- See `reports/0067-commercial-support-executable-pack.md` and `artifacts/commercial/support-v1/`.

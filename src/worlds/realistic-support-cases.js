@@ -125,3 +125,14 @@ const unseen = [
 
 export const realisticSupportCases = Object.freeze({ development: Object.freeze(development), validation: Object.freeze(validation), adversarial: Object.freeze(adversarial) });
 export function createRealisticSupportUnseenVault() { return createCaseVault("realistic-support-operations-specialist", unseen); }
+
+export const commercialSupportCases = Object.freeze({
+  development: Object.freeze(development.slice(0, 5)),
+  validation: Object.freeze(validation.slice(0, 2)),
+  adversarial: Object.freeze(adversarial.slice(0, 3)),
+  unseen: Object.freeze(unseen.slice(0, 2)),
+});
+
+export function allCommercialSupportCases() {
+  return Object.entries(commercialSupportCases).flatMap(([stage, cases]) => cases.map((payload) => ({ id: payload.id, stage, payload })));
+}

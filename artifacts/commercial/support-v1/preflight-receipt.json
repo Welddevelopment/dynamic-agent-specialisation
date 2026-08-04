@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "das.commercial-support-preflight.v1",
+  "contractFreezeHash": "916250b5c883f3a41de417be04db4f627da2c2e9ad011a968e754811f69a9da6",
+  "intakeHash": "efe848910b366e76bbac3101721dea7958492afbad3e77e5e0276c5401f5cfbc",
+  "driverHash": "2b21f54c2a78246a85192cffc8f20089f83cc98686c216d1bd2fe37380e996da",
+  "participantHashes": [
+    {
+      "id": "imported-current-support-agent",
+      "type": "current-agent",
+      "configurationHash": "6228e0b8fe8e10461e0ed8b4ab9ad5939f8b7812fd46d3753e7dc3b097c3c1b2"
+    },
+    {
+      "id": "support-baseline-strong-general-terra",
+      "type": "strong-general",
+      "configurationHash": "189d53eab5a804263599ffdadad7edabd350d2947f6c0f53753c4ecc71ce37c2"
+    },
+    {
+      "id": "support-baseline-ordinary-manual-luna",
+      "type": "ordinary-manual",
+      "configurationHash": "849b13ab16c0c462a8f7aca5ad780ea1c61622347082ec0710dad7668c7fd798"
+    },
+    {
+      "id": "support-baseline-expert-manual-sol",
+      "type": "expert-manual",
+      "configurationHash": "2eff092737567ba6dd30fbe16870d7174c86d63748d38518d7fa413a8baec056"
+    },
+    {
+      "id": "commercial-support-candidate-1",
+      "type": "compiler-candidate",
+      "configurationHash": "11b43f80913ed0d84b32a6db82108a338dea7a1f88bd73284c872025c457e10d"
+    },
+    {
+      "id": "commercial-support-candidate-2",
+      "type": "compiler-candidate",
+      "configurationHash": "c4a8c0eae5e0500b5b4d0b6c5b59f6cd104fc7884768b8f80001cd641c6d477d"
+    },
+    {
+      "id": "commercial-support-candidate-3",
+      "type": "compiler-candidate",
+      "configurationHash": "68b4b06ce24626c5cc92561ca5d4a1983168931a91d87954942ae0f18e6fbc3c"
+    },
+    {
+      "id": "commercial-support-candidate-4",
+      "type": "compiler-candidate",
+      "configurationHash": "93a4e11a584f20682dbd358111f77fa18271c11b7d095e0bcb9ccf9d3e72b352"
+    }
+  ],
+  "caseCounts": {
+    "development": 5,
+    "validation": 2,
+    "adversarial": 3,
+    "unseen": 2
+  },
+  "deterministicReference": {
+    "strategyId": "reference-support-outcome-aware",
+    "passed": 12,
+    "total": 12,
+    "successRate": 1,
+    "unsafeAttempts": 0,
+    "incorrectSideEffects": 0
+  },
+  "shortcutControls": [
+    {
+      "strategyId": "support-do-nothing",
+      "passed": 0,
+      "total": 12,
+      "successRate": 0,
+      "unsafeAttempts": 0,
+      "incorrectSideEffects": 0
+    },
+    {
+      "strategyId": "support-close-everything",
+      "passed": 0,
+      "total": 12,
+      "successRate": 0,
+      "unsafeAttempts": 0,
+      "incorrectSideEffects": 0
+    },
+    {
+      "strategyId": "support-escalate-everything",
+      "passed": 0,
+      "total": 12,
+      "successRate": 0,
+      "unsafeAttempts": 0,
+      "incorrectSideEffects": 0
+    }
+  ],
+  "unseenReleaseCount": 0,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Zero-cost disposable support-world preflight. It does not prove model candidate quality, customer value or production reliability.",
+  "receiptHash": "79bc83c1803013db82a09f4ebafc4068774d9bc4c9842f197cdd021f7b87ce11"
+}

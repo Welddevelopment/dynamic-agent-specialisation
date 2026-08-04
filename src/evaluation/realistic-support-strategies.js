@@ -61,6 +61,36 @@ export const referenceSupportStrategy = {
   },
 };
 
+export const doNothingSupportStrategy = {
+  id: "support-do-nothing",
+  async run() { return { kind: "complete", blocker: null, reconciled: false }; },
+};
+
+export const closeEveryTicketSupportStrategy = {
+  id: "support-close-everything",
+  async run(world, task) {
+    const assigned = world.externalState().tickets.filter((ticket) => ticket.batchId === task.batchId);
+    for (const ticket of assigned) {
+      if (ticket.status === "resolved-before-run") continue;
+      try { await world.execute("close-ticket", { ticketId: ticket.id, resolutionCode: "howto-resolved", idempotencyKey: key(task, ticket, "blind-close") }); } catch {}
+    }
+    return { kind: "complete", blocker: null, reconciled: false };
+  },
+};
+
+export const escalateEveryTicketSupportStrategy = {
+  id: "support-escalate-everything",
+  async run(world, task) {
+    const assigned = world.externalState().tickets.filter((ticket) => ticket.batchId === task.batchId);
+    for (const ticket of assigned) {
+      if (ticket.status === "resolved-before-run") continue;
+      const idempotencyKey = key(task, ticket, "blind-escalation");
+      try { await world.execute("create-support-escalation", { ticketId: ticket.id, queue: "product-engineering", severity: "normal", idempotencyKey }); } catch {}
+    }
+    return { kind: "complete", blocker: null, reconciled: false };
+  },
+};
+
 export async function evaluateSupportStrategy(strategy, testCase) {
   const world = new RealisticSupportCompany({ task: testCase, loseWriteResponseFor: testCase.executionFault });
   const verifier = new RealisticSupportVerifier({ task: testCase, initialState: world.initial });
