@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "das.commercial-model-campaign-plan.v1",
+  "campaignId": "commercial-support-model-campaign-v1",
+  "contractFreezeHash": "916250b5c883f3a41de417be04db4f627da2c2e9ad011a968e754811f69a9da6",
+  "participantCount": 8,
+  "participants": [
+    {
+      "id": "imported-current-support-agent",
+      "type": "current-agent",
+      "configurationHash": "6228e0b8fe8e10461e0ed8b4ab9ad5939f8b7812fd46d3753e7dc3b097c3c1b2",
+      "model": "gpt-5.6-luna",
+      "taskCostLimitUsd": 0.5
+    },
+    {
+      "id": "support-baseline-strong-general-terra",
+      "type": "strong-general",
+      "configurationHash": "189d53eab5a804263599ffdadad7edabd350d2947f6c0f53753c4ecc71ce37c2",
+      "model": "gpt-5.6-terra",
+      "taskCostLimitUsd": 0.5
+    },
+    {
+      "id": "support-baseline-ordinary-manual-luna",
+      "type": "ordinary-manual",
+      "configurationHash": "849b13ab16c0c462a8f7aca5ad780ea1c61622347082ec0710dad7668c7fd798",
+      "model": "gpt-5.6-luna",
+      "taskCostLimitUsd": 0.5
+    },
+    {
+      "id": "support-baseline-expert-manual-sol",
+      "type": "expert-manual",
+      "configurationHash": "2eff092737567ba6dd30fbe16870d7174c86d63748d38518d7fa413a8baec056",
+      "model": "gpt-5.6-sol",
+      "taskCostLimitUsd": 0.5
+    },
+    {
+      "id": "commercial-support-candidate-1",
+      "type": "compiler-candidate",
+      "configurationHash": "11b43f80913ed0d84b32a6db82108a338dea7a1f88bd73284c872025c457e10d",
+      "model": "gpt-5.6-terra",
+      "taskCostLimitUsd": 0.25
+    },
+    {
+      "id": "commercial-support-candidate-2",
+      "type": "compiler-candidate",
+      "configurationHash": "c4a8c0eae5e0500b5b4d0b6c5b59f6cd104fc7884768b8f80001cd641c6d477d",
+      "model": "gpt-5.6-sol",
+      "taskCostLimitUsd": 0.45
+    },
+    {
+      "id": "commercial-support-candidate-3",
+      "type": "compiler-candidate",
+      "configurationHash": "68b4b06ce24626c5cc92561ca5d4a1983168931a91d87954942ae0f18e6fbc3c",
+      "model": "gpt-5.6-luna",
+      "taskCostLimitUsd": 0.1
+    },
+    {
+      "id": "commercial-support-candidate-4",
+      "type": "compiler-candidate",
+      "configurationHash": "93a4e11a584f20682dbd358111f77fa18271c11b7d095e0bcb9ccf9d3e72b352",
+      "model": "gpt-5.6-terra",
+      "taskCostLimitUsd": 0.325
+    }
+  ],
+  "stages": {
+    "development": 5,
+    "validation": 2,
+    "adversarial": 3,
+    "unseen": 2,
+    "repeatRuns": 3
+  },
+  "maximumTaskEvaluations": 102,
+  "maximumModelTurns": 2448,
+  "maxTurnsPerTask": 24,
+  "contractHardSpendLimitUsd": 10,
+  "exactModels": [
+    "gpt-5.6-luna",
+    "gpt-5.6-terra",
+    "gpt-5.6-sol"
+  ],
+  "pricingTableHash": "c63d69dcbb81e27a0dfe228cf632bfb58dddc768dd319de1aec245c4e941b307",
+  "resumeSafety": {
+    "persistentResponseCache": true,
+    "durablePerCallBudget": true,
+    "interruptedReservationRemainsReserved": true,
+    "cachedOperationalCostSeparatedFromNewSpend": true
+  },
+  "gates": {
+    "paidCallsDefault": "disabled",
+    "requiredGlobalApproval": "DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED",
+    "requiredCampaignApproval": "DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL=JOEL_APPROVED_COMMERCIAL_SUPPORT_V1",
+    "requiredExplicitLimit": "DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD=<positive number no greater than frozen contract limit>",
+    "requiredPricingDate": "DAS_COMMERCIAL_PRICING_VERIFIED_ON=<current UTC date>",
+    "requiredPricingHash": "DAS_COMMERCIAL_PRICING_TABLE_HASH=c63d69dcbb81e27a0dfe228cf632bfb58dddc768dd319de1aec245c4e941b307"
+  },
+  "evidenceBoundary": "Zero-cost execution plan. Maximum task/turn counts are structural ceilings if every participant survives. No model call, candidate result or improvement is implied.",
+  "planHash": "214a97b73c4c42656b18e3a5768abfb3eee99a1edb287f0158693c2691226711"
+}

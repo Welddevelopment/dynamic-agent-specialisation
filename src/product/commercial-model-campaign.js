@@ -10,11 +10,31 @@ import { assertCommercialComparisonFreeze } from "./commercial-comparison.js";
 export const COMMERCIAL_CAMPAIGN_ID = "commercial-procurement-model-campaign-v1";
 export const COMMERCIAL_CAMPAIGN_APPROVAL = "JOEL_APPROVED_COMMERCIAL_PROCUREMENT_V1";
 
+export const COMMERCIAL_CAMPAIGNS = Object.freeze({
+  procurement: Object.freeze({
+    id: COMMERCIAL_CAMPAIGN_ID,
+    approval: COMMERCIAL_CAMPAIGN_APPROVAL,
+    stateDirectory: "artifacts/commercial/procurement-v1/model-campaign-v1",
+  }),
+  support: Object.freeze({
+    id: "commercial-support-model-campaign-v1",
+    approval: "JOEL_APPROVED_COMMERCIAL_SUPPORT_V1",
+    stateDirectory: "artifacts/commercial/support-v1/model-campaign-v1",
+  }),
+  revops: Object.freeze({
+    id: "commercial-revops-model-campaign-v1",
+    approval: "JOEL_APPROVED_COMMERCIAL_REVOPS_V1",
+    stateDirectory: "artifacts/commercial/revops-v1/model-campaign-v1",
+  }),
+});
+
 function requireCondition(condition, message) { if (!condition) throw new Error(message); }
 function utcDate() { return new Date().toISOString().slice(0, 10); }
 
-export function createCommercialModelCampaignPlan({ contract, participants, maxTurns = 24 }) {
+export function createCommercialModelCampaignPlan({ contract, participants, maxTurns = 24, campaignId = COMMERCIAL_CAMPAIGN_ID, campaignApproval = COMMERCIAL_CAMPAIGN_APPROVAL }) {
   assertCommercialComparisonFreeze(contract);
+  requireCondition(typeof campaignId === "string" && campaignId.length >= 8, "Campaign plan requires a stable campaign id");
+  requireCondition(typeof campaignApproval === "string" && campaignApproval.length >= 8, "Campaign plan requires a campaign-specific approval phrase");
   requireCondition(Array.isArray(participants) && participants.length === contract.participants.length, "Campaign plan requires every frozen participant");
   const baseCasesPerParticipant = contract.cases.development.length + contract.cases.validation.length + contract.cases.adversarial.length + contract.cases.unseen.count;
   const repeatCases = contract.thresholds.minimumRepeatRuns * contract.cases.unseen.count;
@@ -22,7 +42,7 @@ export function createCommercialModelCampaignPlan({ contract, participants, maxT
   const models = [...new Set(participants.map((item) => item.candidate?.model?.family).filter(Boolean))];
   const plan = {
     schemaVersion: "das.commercial-model-campaign-plan.v1",
-    campaignId: COMMERCIAL_CAMPAIGN_ID,
+    campaignId,
     contractFreezeHash: contract.freezeHash,
     participantCount: participants.length,
     participants: participants.map((item) => ({ id: item.id, type: item.type, configurationHash: item.configurationHash, model: item.candidate?.model?.family, taskCostLimitUsd: item.candidate?.limits?.maxCostPerTaskUsd })),
@@ -37,7 +57,7 @@ export function createCommercialModelCampaignPlan({ contract, participants, maxT
     gates: {
       paidCallsDefault: "disabled",
       requiredGlobalApproval: "DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED",
-      requiredCampaignApproval: `DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL=${COMMERCIAL_CAMPAIGN_APPROVAL}`,
+      requiredCampaignApproval: `DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL=${campaignApproval}`,
       requiredExplicitLimit: "DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD=<positive number no greater than frozen contract limit>",
       requiredPricingDate: "DAS_COMMERCIAL_PRICING_VERIFIED_ON=<current UTC date>",
       requiredPricingHash: `DAS_COMMERCIAL_PRICING_TABLE_HASH=${digest(CURRENT_MODEL_PRICING_USD)}`,
@@ -48,10 +68,10 @@ export function createCommercialModelCampaignPlan({ contract, participants, maxT
   return Object.freeze(plan);
 }
 
-export function assertCommercialModelCampaignAuthorization({ environment = process.env, contract, pricingVerifiedDate = utcDate() }) {
+export function assertCommercialModelCampaignAuthorization({ environment = process.env, contract, pricingVerifiedDate = utcDate(), campaignApproval = COMMERCIAL_CAMPAIGN_APPROVAL }) {
   assertCommercialComparisonFreeze(contract);
   requireCondition(environment.DAS_ENABLE_PAID_MODEL_CALLS === "JOEL_APPROVED", "Global paid model calls are not approved");
-  requireCondition(environment.DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL === COMMERCIAL_CAMPAIGN_APPROVAL, "Commercial procurement model campaign is not explicitly approved");
+  requireCondition(environment.DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL === campaignApproval, "This exact commercial model campaign is not explicitly approved");
   const limit = Number(environment.DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD);
   requireCondition(Number.isFinite(limit) && limit > 0 && limit <= contract.budget.maximumModelSpendUsd, "Commercial model campaign needs an explicit positive limit within the frozen contract ceiling");
   requireCondition(environment.DAS_COMMERCIAL_PRICING_VERIFIED_ON === pricingVerifiedDate, "Commercial model pricing was not freshly verified today");
@@ -60,13 +80,13 @@ export function assertCommercialModelCampaignAuthorization({ environment = proce
   return Object.freeze({ limitUsd: limit, pricingVerifiedDate, pricingTableHash: digest(CURRENT_MODEL_PRICING_USD) });
 }
 
-export function createCommercialModelCampaignRuntime({ environment = process.env, contract, stateDirectory = "artifacts/commercial/procurement-v1/model-campaign-v1", fetchImpl = fetch }) {
-  const authorization = assertCommercialModelCampaignAuthorization({ environment, contract });
+export function createCommercialModelCampaignRuntime({ environment = process.env, contract, stateDirectory = COMMERCIAL_CAMPAIGNS.procurement.stateDirectory, campaignId = COMMERCIAL_CAMPAIGN_ID, campaignApproval = COMMERCIAL_CAMPAIGN_APPROVAL, fetchImpl = fetch }) {
+  const authorization = assertCommercialModelCampaignAuthorization({ environment, contract, campaignApproval });
   const root = path.resolve(stateDirectory);
-  const budget = new DurableBudgetGuard({ filePath: path.join(root, "budget.json"), hardLimitUsd: authorization.limitUsd, campaignId: COMMERCIAL_CAMPAIGN_ID });
+  const budget = new DurableBudgetGuard({ filePath: path.join(root, "budget.json"), hardLimitUsd: authorization.limitUsd, campaignId });
   const cache = new PersistentModelResponseCache({ filePath: path.join(root, "response-cache.json") });
   const evidence = new EvidenceLedger(path.join(root, "evidence.jsonl"));
   const provider = new OpenAIResponsesProvider({ apiKey: environment.OPENAI_API_KEY, pricingByModel: CURRENT_MODEL_PRICING_USD, fetchImpl, allowPaidCalls: true, environment });
   const gateway = new MeteredModelGateway({ provider, budget, cache, evidence, secrets: [environment.OPENAI_API_KEY] });
-  return Object.freeze({ root, authorization, budget, cache, evidence, provider, gateway });
+  return Object.freeze({ campaignId, root, authorization, budget, cache, evidence, provider, gateway });
 }

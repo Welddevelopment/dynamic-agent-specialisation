@@ -359,3 +359,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The complete local suite passes 195/195. All three initial commercial role families now have executable packs on the shared machinery.
 - No RevOps model comparison or customer improvement is claimed. Support and RevOps still need separately planned campaigns and explicit new spend approval before any paid execution.
 - See `reports/0068-commercial-revops-executable-pack.md` and `artifacts/commercial/revops-v1/`.
+
+## Multi-role resumable campaign preparation — 2026-08-05
+
+- The resumable commercial model-campaign machinery now serves procurement, support and RevOps without merging their evidence. Each role retains its own pack/evaluator and now has a distinct campaign id, approval phrase, durable state directory and frozen zero-cost plan.
+- Every plan currently freezes eight participants, at most 102 task evaluations and at most 2,448 model turns under a `$10` contract ceiling. These are structural ceilings, not a spending forecast or authorization.
+- Campaign approval is role-specific: a procurement approval phrase cannot unlock support or RevOps. Global approval, a fresh exact role approval, an explicit bounded spend limit, same-day pricing confirmation, exact pricing-table hash and API key all remain mandatory.
+- Support and RevOps plan artifacts were generated with zero model calls and zero spend. The complete local suite passes 197/197.
+- No fresh model-backed commercial result exists for any of these newly prepared role campaigns. See `reports/0069-multi-role-resumable-campaign-preparation.md`.

@@ -30,6 +30,8 @@ The shared commercial engine works across all three. Support retains the first c
 
 Procurement, support and CRM / revenue operations now all have complete executable disposable commercial packs. This does not mean all three have fresh model-backed comparison results: support and RevOps still require independently approved paid campaigns, and historical procurement evidence retained the existing specialist rather than proving an upgrade.
 
+All three also have separate zero-cost frozen model-campaign plans on one resumable campaign runner. Each role has its own campaign identity, approval phrase and durable state. Approval for one role cannot authorize another; no paid campaign is enabled merely because its plan exists.
+
 ## Customer journey
 
 1. Describe the company and desired role in ordinary language.
