@@ -527,3 +527,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - A new machine-checked readiness audit verifies the Level 1 source-evidence/registry chain, three commercial packs and network rehearsals, deterministic Level 1.5 lifecycle/gates, deterministic Level 2/intake and prospective plan while preserving every empirical/customer/production/market gap.
 - The full local suite passes 247/247. No model call or spend occurred; historical cumulative paid-model spend remains `$23.10699808`.
 - See `reports/0087-persistence-integrity-and-readiness-audit.md` and `artifacts/readiness/technical-readiness-v1.json`.
+
+## Exact-winner post-comparison model gate — 2026-08-05
+
+- A proved compiler challenger can now enter its separately sealed Level 1.5 offline cases through a distinct durable model campaign rather than ad-hoc wiring or silently reusing the original comparison budget.
+- The zero-authority plan binds the exact lifecycle handoff, campaign result, bundle, candidate fingerprint, verifier, gate, model, pricing table, per-task limit and two-case spend ceiling.
+- Release requires global approval, a separate campaign phrase, exact plan hash, exact ceiling, same-day pricing/hash and API key. Results become integrity-checked disposable lifecycle observations.
+- One unverified, unsafe or incorrect result stops and preserves failure. A clean result stops at `offline-gates-passed-awaiting-shadow` with zero shadow, canary, promotion, activation or customer-write authority.
+- The full local suite passes 249/249. Structural tests made no network or model call and no spend. Historical cumulative paid-model spend remains `$23.10699808`.
+- This runner makes the future offline gate executable; the fresh comparison, model-backed offline result and subsequent shadow/canary evidence remain unrun.
+- See `reports/0088-postcomparison-model-offline-runner.md`.
