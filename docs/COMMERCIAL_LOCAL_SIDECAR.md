@@ -20,6 +20,23 @@ Before startup, the embedding application must supply:
 
 These are code-level activation requirements. A role description or saved onboarding session is not sufficient.
 
+## Package preparation and diagnostics
+
+`prepareCommercialLocalPackage` creates a new owner-only directory and refuses to overwrite an existing one. It writes the exact specialist bundle, activation receipt, local configuration, generated access token, state directory and redacted package receipt.
+
+`diagnoseCommercialLocalPackage` checks 17 local gates, including:
+
+- bundle, activation, configuration and package-receipt integrity;
+- exact role/bundle/activation binding;
+- loopback-only configuration;
+- owner-only directory, token and specialist file permissions;
+- receipt-to-file hashes;
+- token length and redaction from JSON package records;
+- readable/writable state; and
+- the supported Node runtime.
+
+`loadCommercialLocalPackage` refuses to return the token or runtime paths unless every gate passes.
+
 ## HTTP contract
 
 Every endpoint requires `Authorization: Bearer <customer-local-token>`.
@@ -68,4 +85,4 @@ This is intentionally conservative. A missed action is recoverable; an accidenta
 
 ## Evidence boundary
 
-The loopback transport, authentication dispatcher, integrity-checked ledger, duplicate suppression and restart rule are locally implemented and tested. This is not a packaged daemon, a production deployment, a remote service, an external security review or proof against process-kill timing on a customer system.
+The loopback transport, authentication dispatcher, integrity-checked ledger, duplicate suppression, restart rule, private package assembly and readiness diagnostics are locally implemented and tested. This is not a signed installer, managed daemon, production deployment, remote service, external security review or proof against process-kill timing on a customer system.

@@ -306,3 +306,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Full local suite passes 172/172. A real authenticated loopback HTTP smoke test also passed on a random port. No paid calls were made.
 - This is a local library/transport, not yet a packaged daemon, signed installer, customer deployment, production reliability claim or external security review.
 - See `docs/COMMERCIAL_LOCAL_SIDECAR.md` and `reports/0062-durable-commercial-sidecar.md`.
+
+## Packaged procurement network activation rehearsal — 2026-08-05
+
+- A customer-local package builder now writes a new owner-only directory containing the exact specialist bundle, activation, loopback config, generated token, state directory and redacted package receipt; it refuses to overwrite existing state.
+- Readiness diagnostics check 17 gates across integrity, exact receipt/file binding, file modes, token length/redaction, state access, loopback configuration and Node compatibility. Loading fails closed unless every gate passes.
+- A zero-cost disposable procurement rehearsal traversed package reload → authenticated loopback HTTP → activated specialist runtime → one intended draft purchase → independent external-state verification → durable status → identical duplicate suppression.
+- Exact result: package 17/17, HTTP 200/200/200, completed, verification passed, one intended write, zero incorrect effects, duplicate suppressed, zero model calls and zero spend.
+- Full local suite passes 174/174.
+- The rehearsal used a deterministic scripted decision path. It is not a fresh model comparison, customer improvement proof, signed daemon, customer deployment or production reliability claim.
+- See `reports/0063-packaged-network-activation-rehearsal.md` and `artifacts/commercial/procurement-v1/network-activation-rehearsal.json`.

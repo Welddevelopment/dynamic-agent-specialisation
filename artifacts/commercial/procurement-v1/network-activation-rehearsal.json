@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "das.commercial-procurement-network-rehearsal.v1",
+  "roleId": "commercial-procurement-v1:procurement-coverage",
+  "contractFreezeHash": "832a23f0abc9c530fc79d1414d3ad8a409868c7c3e75cd70bbd95765982a3b71",
+  "bundleHash": "67d01d61c9cb87530e57b78ff04513f5059b40e2d2d914a3d98ca72d297cbe54",
+  "activationHash": "512d87debb75a3af632033dceb9258bf1b34839ec56c9f5bec382c157822841d",
+  "packageReady": true,
+  "packageGateCount": 17,
+  "loopbackOnly": true,
+  "dynamicPort": true,
+  "httpStatuses": {
+    "submit": 200,
+    "status": 200,
+    "duplicate": 200
+  },
+  "run": {
+    "status": "completed",
+    "attempt": 1,
+    "verificationPassed": true,
+    "recoveryClass": "complete",
+    "modelCostUsd": 0,
+    "duplicateSuppressed": true
+  },
+  "intendedBusinessWrites": 1,
+  "incorrectSideEffects": 0,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Disposable fictional end-to-end network rehearsal using a deterministic scripted decision path. It validates packaging, activation, runtime, independent external-state verification, durable status and duplicate suppression; it is not a fresh model comparison or customer evidence.",
+  "receiptHash": "006568eae14692338bf6d976aa8ec26d884231d436644ae73e01221971b53002"
+}

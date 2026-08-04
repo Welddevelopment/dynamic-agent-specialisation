@@ -14,6 +14,7 @@
     "console": "node src/console/server.js",
     "commercial:procurement:preflight": "node src/experiments/commercial-procurement-preflight.js",
     "commercial:sidecar:smoke": "node src/experiments/commercial-sidecar-network-smoke.js",
+    "commercial:procurement:network-rehearsal": "node src/experiments/commercial-procurement-network-rehearsal.js",
     "model:smoke": "node --env-file=.env src/experiments/piece2-smoke.js",
     "model:viability": "node --env-file=.env src/experiments/piece2-viability.js",
     "model:development": "node --env-file=.env src/experiments/piece2-development.js",
