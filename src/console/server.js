@@ -8,6 +8,7 @@ import { listCommercialRoleTemplates } from "../product/commercial-role-template
 import { CommercialOnboardingStore } from "../product/onboarding-store.js";
 import { COMMERCIAL_PRODUCT_CONFIGS, loadCommercialProductState, loadCommercialProductStates, readOptionalJson } from "./commercial-product-state.js";
 import { ImprovementConsoleStore } from "./improvement-store.js";
+import { loadCommercialLifecycleConsoleState } from "./lifecycle-state.js";
 
 const port = Number(process.env.PORT ?? 4391);
 const directory = path.dirname(fileURLToPath(import.meta.url));
@@ -56,6 +57,7 @@ function productEvidenceState() {
   const closeout = readOptionalJson("artifacts/level1/technical-closeout-v1.json");
   const registry = readOptionalJson("artifacts/level1/registry-v1.json");
   const lifecycle = readOptionalJson("artifacts/level15/rehearsal-v1/summary.json");
+  const commercialLifecycle = loadCommercialLifecycleConsoleState();
   return {
     level1: closeout,
     registry: registry ? {
@@ -64,6 +66,7 @@ function productEvidenceState() {
       selections: registry.selections.map((record) => ({ roleId: record.roleId, selectionVersion: record.selectionVersion, decision: record.decision, candidateId: record.selected.candidate.id, candidateVersion: record.selected.candidate.version, alternativesPreserved: record.alternatives.length, recordHash: record.recordHash })),
     } : null,
     lifecycle,
+    commercialLifecycle,
   };
 }
 

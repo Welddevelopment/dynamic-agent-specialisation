@@ -78,6 +78,40 @@
   padding: 30px;
 }
 
+.joined-lifecycle {
+  border: 1px solid var(--line);
+  border-top: 0;
+  padding: 34px 30px 30px;
+  background: radial-gradient(circle at 84% 0, rgba(169, 245, 204, .075), transparent 30%), #0a0d10;
+}
+
+.joined-role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 1px;
+  margin-top: 28px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.joined-role { min-width: 0; padding: 24px; background: #0d1115; }
+.joined-role-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.joined-role h3 { margin: 0; font-size: 19px; letter-spacing: -.04em; }
+.joined-role-head span { color: var(--green); font: 9px/1.35 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .08em; }
+.joined-proof { display: grid; grid-template-columns: repeat(3, 1fr); margin: 28px 0 22px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.joined-proof div { padding: 14px 8px 14px 0; }
+.joined-proof div + div { border-left: 1px solid var(--line); padding-left: 12px; }
+.joined-proof small { display: block; color: #68727b; font: 9px/1.4 ui-monospace, monospace; text-transform: uppercase; }
+.joined-proof strong { display: block; margin-top: 7px; font-size: 20px; }
+.joined-role p { min-height: 78px; color: #929ba3; font-size: 11px; line-height: 1.65; }
+.joined-role code { display: block; color: #5e6871; font-size: 9px; overflow-wrap: anywhere; }
+.next-gate { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px 24px; align-items: start; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+.next-gate span { color: var(--amber); font: 9px/1.4 ui-monospace, monospace; text-transform: uppercase; letter-spacing: .1em; }
+.next-gate strong { font-size: 14px; }
+.next-gate p { grid-column: 2; margin: 0; color: #717b84; font-size: 11px; line-height: 1.6; }
+.joined-lifecycle.invalid { color: var(--red); }
+
 .path-rail {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -135,8 +169,11 @@
 
 @media (max-width: 1000px) {
   .lifecycle-grid,
-  .path-rail { grid-template-columns: 1fr; }
+  .path-rail,
+  .joined-role-grid { grid-template-columns: 1fr; }
   .path-step + .path-step { border-top: 1px solid var(--line); border-left: 0; padding-left: 0; }
   .lifecycle-card-head { flex-direction: column; }
   .lifecycle-meta { flex-direction: column; gap: 6px; }
+  .next-gate { grid-template-columns: 1fr; }
+  .next-gate p { grid-column: 1; }
 }

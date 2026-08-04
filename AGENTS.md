@@ -401,3 +401,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - This closes the previously missing verified commercial role-runner/dispatcher mechanic. It does not prove fresh model-backed self-improvement: the challengers and selection receipts were deterministic lifecycle fixtures, not newly generated after drift.
 - Full empirical bounded Level 1.5 still requires separate paid approval for a fresh drift-triggered model campaign whose exact resulting challenger passes the joined lifecycle. Customer and production evidence remain separate.
 - See `reports/0073-joined-commercial-level15-lifecycle.md` and `artifacts/commercial/level15-rehearsal-v1/`.
+
+## Commercial lifecycle console — 2026-08-05
+
+- The private Lifecycle page now loads an integrity-checked sanitized projection of the joined commercial rehearsal rather than displaying only the older constructed control fixture.
+- Procurement, support and CRM / RevOps separately show two offline passes, zero shadow customer writes, two of eight canary dispatches, promotion, verified regression and rollback.
+- The page keeps the decisive missing gate visible: the challenger was prepared deterministically, so a separately approved fresh model-backed drift campaign is still required before empirical Level 1.5 completion.
+- Mutated lifecycle summaries fail closed. Raw activation hashes are not exposed in browser state.
+- Desktop and 820px browser checks passed with no horizontal overflow or console warnings/errors. No paid calls were made.
+- See `reports/0074-commercial-lifecycle-console.md`.
