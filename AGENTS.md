@@ -420,3 +420,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The full local suite passes 214/214. Model calls and new paid spend were zero.
 - This closes the final structural evaluation-leakage/handoff gap, not the empirical Level 1.5 gate. A separately approved fresh model-backed campaign and the exact winner's offline/shadow/canary evidence are still required.
 - See `reports/0075-sealed-postcomparison-lifecycle-handoff.md` and `artifacts/commercial/postcomparison-gates-v1/`.
+
+## Bounded Level 2 planning foundation — 2026-08-05
+
+- A new fleet-planning layer accepts one broad goal plus trusted bounded workload inventory and routes only to integrity-checked proved specialists whose systems, tools, context, authority, policy, verifier, quality, cost and latency match.
+- It compares balanced, quality-first, cost-first and speed-first allocations, respects specialist capacity and a company hard-cost ceiling, and can split one workload across several compatible specialists.
+- Unsupported work is not sent to a plausible general agent. Identical unmet requirements become the smallest zero-authority role-gap proposal, which requires explicit human approval and a separate Level 1 comparison.
+- In the fictional rehearsal, four specialist records routed 105/115 workload units, split support across two specialists, stayed at $7.25 under a $10 ceiling and isolated the remaining finance work as one role proposal. The independent plan verifier passed.
+- Mutation, incompatible routing, widened automatic authority, impossible budget and unsafe/unproved specialist controls fail closed. The full local suite passes 218/218; model calls and new paid spend were zero.
+- This is a planning foundation only. No workload executed, no role was created and no customer evidence or full Level 2 result is claimed. Next: durable explicit execution with independent specialist receipts and honest parent-goal aggregation.
+- See `docs/BOUNDED_LEVEL_2_CONTRACT.md`, `reports/0076-bounded-level2-planning-foundation.md` and `artifacts/fleet/bounded-level2-planning-v1/`.

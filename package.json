@@ -23,6 +23,7 @@
     "commercial:multi-role:network-rehearsal": "node src/experiments/commercial-multi-role-network-rehearsal.js",
     "commercial:level15:rehearsal": "node src/experiments/commercial-level15-rehearsal.js",
     "commercial:postcomparison:preflight": "node src/experiments/commercial-postcomparison-gate-preflight.js",
+    "level2:planning:rehearsal": "node src/experiments/bounded-level2-planning-rehearsal.js",
     "commercial:procurement:model-plan": "node src/experiments/commercial-procurement-model-plan.js",
     "commercial:procurement:model-run": "node --env-file=.env src/experiments/commercial-procurement-model-campaign.js",
     "commercial:support:model-plan": "node src/experiments/commercial-support-model-plan.js",
