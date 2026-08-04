@@ -1,0 +1,13 @@
+# Bounded OpenAPI adapter kit
+
+This kit reduces the amount of handwritten integration work for customer systems that publish a usable OpenAPI 3.x JSON description. It does not make arbitrary APIs automatically safe.
+
+The importer accepts an exact allowlist of operations. Every operation is fixed to one method and path, receives a bounded input schema, and uses only customer-local environment-variable references for credentials. Write operations additionally require an explicit authority action, idempotency header, read-only reconciliation operation, input mapping, and external-state assertions. The runtime refuses operations outside the allowlist, insecure remote origins, missing authority, malformed input, oversized responses, external schema references, credential literals, and writes without a separate outcome check.
+
+The generated plan plus generic runtime replace much of the repeated transport work: URL construction, path/query/body validation, bounded authentication injection, timeouts, response limits, exact operation exposure, idempotency headers, and reconciliation after an uncertain write response. A customer-specific engineer still has to choose the right operations, confirm authority, supply customer-local secret references, and define what external state proves the business outcome. Those remaining decisions are the safety boundary, not unfinished boilerplate.
+
+Several compiled runtimes can now be composed into one specialist tool host. Tool names must remain globally unique. Each imported operation keeps its own context requirements and authority action, while each source system retains a direct external-state reader. This lets one specialist work across, for example, an inventory API and an ordering API without weakening either allowlist or merging their evidence.
+
+Current boundary: local code and synthetic tests only. Supported authentication is header API key, HTTP bearer, basic credentials held behind separate customer-local references, or a customer-managed OAuth access token resolved again on each request. The kit does not obtain or refresh OAuth tokens itself. Supported documents are OpenAPI 3.x JSON objects with local schema, parameter and request-body component references. Arbitrary external references, browser systems, streaming/binary payloads, webhooks, pagination orchestration, and automatic business-verifier inference are not claimed.
+
+The composition boundary is also shared with bounded MCP adapters. OpenAPI and MCP tools can appear in the same specialist only after each source is pinned, explicitly classified and independently bounded. This is high-leverage adapter plumbing, not a claim of universal integration coverage.

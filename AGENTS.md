@@ -537,3 +537,14 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The full local suite passes 249/249. Structural tests made no network or model call and no spend. Historical cumulative paid-model spend remains `$23.10699808`.
 - This runner makes the future offline gate executable; the fresh comparison, model-backed offline result and subsequent shadow/canary evidence remain unrun.
 - See `reports/0088-postcomparison-model-offline-runner.md`.
+
+## Adapter breadth and resumable model evidence — 2026-08-05
+
+- DAS now has two general, bounded customer-system adapter paths. OpenAPI 3.x imports explicitly selected operations with bounded schemas, customer-local auth references, authority, idempotency and independent read-back reconciliation. Pinned customer-local MCP `tools/list` responses can likewise expose only an explicitly reviewed subset, with structured input/output, explicit read/write classification and the same write-safety gates.
+- OpenAPI and MCP runtimes share one multi-system composition boundary. A joined synthetic test used separate inventory and ordering APIs in one specialist run and passed a combined independent external-state verifier. Duplicate tool names and missing external-state readers fail closed.
+- This reduces repeated adapter engineering and can reuse existing MCP tool surfaces; it does not equal a large incumbent connector ecosystem or infer customer-specific authority/business verification. No real customer adapter was used.
+- Prospective Fleet V1 is preserved as invalid-environment evidence after a wrong shared 24-turn cap stopped RevOps. Corrected V2 used three new fictional tasks and role-specific ceilings: 3/3 assignments passed independent external-state verification, zero unsafe attempts, zero role gaps, and the original broad goal completed. V2 spent `$0.2526419999999999` over 56 settled calls.
+- The fresh commercial support comparison safely paused when API credit ended. Its receipt preserves `$2.1822830000000013`, 270 settled cached calls, 23 independently verified case executions, zero unresolved reservations and a valid evidence ledger. It has no stage result, ranking, winner or improvement claim. Exact-plan resume will reuse the cache.
+- Model funding rejections confirmed uncharged now release their durable reservation and produce a resumable pause rather than poisoning the budget. A separate progress receipt binds budget, cache, evidence and pause files.
+- Full local suite: 266/266 passed. Exact cumulative paid-model spend is `$25.711985080000005`. Current readiness audit hash is `54ce24e4ab44ec13dc3078abfbfe0a237af581f1be83ccee44a4abe4db2011ec`.
+- See `reports/0089-adapter-breadth-and-resumable-model-evidence.md`, `docs/OPENAPI_ADAPTER_KIT.md`, `docs/MCP_ADAPTER_KIT.md`, `artifacts/fleet/prospective-model-campaign-v2/model-run/completion-receipt.json` and `artifacts/commercial/support-v1/model-campaign-v1/progress-receipt.json`.

@@ -43,7 +43,7 @@ test("commercial campaign plans contain no post-comparison case payload or ident
   const gates = createAllCommercialPostcomparisonGates();
   for (const [role, { pack, gate }] of Object.entries(gates)) {
     const campaign = COMMERCIAL_CAMPAIGNS[role];
-    const plan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, campaignId: campaign.id, campaignApproval: campaign.approval });
+    const plan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, maxTurns: campaign.maxTurnsPerTask, campaignId: campaign.id, campaignApproval: campaign.approval });
     const serialized = JSON.stringify(plan);
     assert.equal(serialized.includes("postcomparison-"), false);
     assert.equal(serialized.includes(gate.contract.cases.digest), false);
@@ -54,7 +54,7 @@ test("commercial campaign plans contain no post-comparison case payload or ident
 test("exact proved campaign winner is handed to the sealed offline gate without spend or activation authority", async () => {
   const { procurement: { pack, gate } } = createAllCommercialPostcomparisonGates();
   const campaign = COMMERCIAL_CAMPAIGNS.procurement;
-  const campaignPlan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, campaignId: campaign.id, campaignApproval: campaign.approval });
+  const campaignPlan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, maxTurns: campaign.maxTurnsPerTask, campaignId: campaign.id, campaignApproval: campaign.approval });
   const active = await selectedFixture(pack, "current-agent");
   const activeActivation = createCommercialActivationReceipt({ bundle: active.bundle, contract: pack.contract, environment: environment(pack) });
   const request = { id: "recomparison-exact-1", status: "awaiting-explicit-approval", activeBundleHash: active.bundle.bundleHash, activeActivationHash: activeActivation.activationHash, reasons: ["verified-drift"], spendAuthorized: false };
@@ -74,7 +74,7 @@ test("exact proved campaign winner is handed to the sealed offline gate without 
 test("current retention and tampering cannot release the post-comparison vault", async () => {
   const { support: { pack, gate } } = createAllCommercialPostcomparisonGates();
   const campaign = COMMERCIAL_CAMPAIGNS.support;
-  const campaignPlan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, campaignId: campaign.id, campaignApproval: campaign.approval });
+  const campaignPlan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, maxTurns: campaign.maxTurnsPerTask, campaignId: campaign.id, campaignApproval: campaign.approval });
   const active = await selectedFixture(pack, "current-agent", campaignPlan);
   const activeActivation = createCommercialActivationReceipt({ bundle: active.bundle, contract: pack.contract, environment: environment(pack) });
   const request = { id: "recomparison-retain-1", status: "awaiting-explicit-approval", activeBundleHash: active.bundle.bundleHash, activeActivationHash: activeActivation.activationHash, reasons: ["verified-drift"], spendAuthorized: false };

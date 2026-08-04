@@ -3,7 +3,9 @@ import { TenantRoleMemory } from "../runtime/memory.js";
 import { ModelDecisionEngine } from "../runtime/model-decision-engine.js";
 import { RealisticRevopsCompany, RealisticRevopsVerifier } from "../worlds/realistic-revops-company.js";
 
-export async function runModelRevopsCase({ candidate, testCase, gateway, evidence, executionModel, maxTurns = 56, tenantPrefix = "piece4" }) {
+export const REVOPS_MODEL_TURN_CEILING = 56;
+
+export async function runModelRevopsCase({ candidate, testCase, gateway, evidence, executionModel, maxTurns = REVOPS_MODEL_TURN_CEILING, tenantPrefix = "piece4" }) {
   const world = new RealisticRevopsCompany({ task: testCase, loseWriteResponseFor: testCase.executionFault });
   const verifier = new RealisticRevopsVerifier({ task: testCase, initialState: world.initial });
   const runtime = new SpecialistAgentRuntime({ decisionEngine: new ModelDecisionEngine({ gateway }), memory: new TenantRoleMemory(), evidence, maxTurns });

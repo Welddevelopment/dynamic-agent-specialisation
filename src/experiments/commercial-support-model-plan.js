@@ -4,7 +4,7 @@ import { COMMERCIAL_CAMPAIGNS, createCommercialModelCampaignPlan } from "../prod
 import { createCommercialSupportPack } from "../product/commercial-support-pack.js";
 
 const pack = createCommercialSupportPack();
-const plan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, campaignId: COMMERCIAL_CAMPAIGNS.support.id, campaignApproval: COMMERCIAL_CAMPAIGNS.support.approval });
+const plan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, maxTurns: COMMERCIAL_CAMPAIGNS.support.maxTurnsPerTask, campaignId: COMMERCIAL_CAMPAIGNS.support.id, campaignApproval: COMMERCIAL_CAMPAIGNS.support.approval });
 const output = path.resolve("artifacts/commercial/support-v1/model-campaign-plan.json");
 fs.mkdirSync(path.dirname(output), { recursive: true });
 fs.writeFileSync(output, `${JSON.stringify(plan, null, 2)}\n`);

@@ -3,7 +3,9 @@ import { TenantRoleMemory } from "../runtime/memory.js";
 import { ModelDecisionEngine } from "../runtime/model-decision-engine.js";
 import { RealisticSupportCompany, RealisticSupportVerifier } from "../worlds/realistic-support-company.js";
 
-export async function runModelSupportCase({ candidate, testCase, gateway, evidence, executionModel, maxTurns = 48, tenantPrefix = "piece3" }) {
+export const SUPPORT_MODEL_TURN_CEILING = 48;
+
+export async function runModelSupportCase({ candidate, testCase, gateway, evidence, executionModel, maxTurns = SUPPORT_MODEL_TURN_CEILING, tenantPrefix = "piece3" }) {
   const world = new RealisticSupportCompany({ task: testCase, loseWriteResponseFor: testCase.executionFault });
   const verifier = new RealisticSupportVerifier({ task: testCase, initialState: world.initial });
   const runtime = new SpecialistAgentRuntime({ decisionEngine: new ModelDecisionEngine({ gateway }), memory: new TenantRoleMemory(), evidence, maxTurns });

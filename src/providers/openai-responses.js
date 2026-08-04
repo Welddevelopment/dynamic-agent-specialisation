@@ -20,6 +20,26 @@ function textFormat(responseFormat) {
   throw new Error("Unsupported response format");
 }
 
+function providerFailure({ status, body }) {
+  const code = String(body?.error?.code ?? "").trim();
+  const type = String(body?.error?.type ?? "").trim();
+  const providerMessage = String(body?.error?.message ?? "").trim();
+  const combined = `${code} ${type} ${providerMessage}`.toLowerCase();
+  const fundingBlocked = status === 429 && /(insufficient_quota|billing|credit|quota)/.test(combined);
+  const retryClass = fundingBlocked ? "funding" : status === 429 ? "rate-limit" : [401, 403].includes(status) ? "authentication" : status >= 500 ? "provider" : "request";
+  const definitivelyNotCharged = [400, 401, 403, 404, 409, 422, 429].includes(status);
+  const suffix = providerMessage ? `: ${providerMessage.slice(0, 500)}` : "";
+  const error = new Error(`OpenAI Responses request failed with ${status}${suffix}`);
+  error.name = "ModelProviderRequestError";
+  error.status = status;
+  error.providerCode = code || null;
+  error.providerType = type || null;
+  error.retryClass = retryClass;
+  error.definitivelyNotCharged = definitivelyNotCharged;
+  error.resumable = ["funding", "rate-limit"].includes(retryClass);
+  return error;
+}
+
 export class OpenAIResponsesProvider {
   constructor({ apiKey, pricing = null, pricingByModel = {}, fetchImpl = fetch, allowPaidCalls = false, environment = process.env, modelMap = {} }) {
     if (!apiKey) throw new Error("OpenAI API key is required");
@@ -54,8 +74,7 @@ export class OpenAIResponsesProvider {
     });
     if (!response.ok) {
       const errorBody = await response.json().catch(() => ({}));
-      const message = errorBody?.error?.message ? `: ${errorBody.error.message}` : "";
-      throw new Error(`OpenAI Responses request failed with ${response.status}${message}`);
+      throw providerFailure({ status: response.status, body: errorBody });
     }
     const responseBody = await response.json();
     const usage = responseBody.usage ?? { input_tokens: 0, output_tokens: 0, input_tokens_details: { cached_tokens: 0 } };

@@ -69,15 +69,15 @@
     "repeatRuns": 3
   },
   "maximumTaskEvaluations": 102,
-  "maximumModelTurns": 2448,
-  "maxTurnsPerTask": 24,
+  "maximumModelTurns": 4896,
+  "maxTurnsPerTask": 48,
   "contractHardSpendLimitUsd": 10,
   "exactModels": [
     "gpt-5.6-luna",
     "gpt-5.6-terra",
     "gpt-5.6-sol"
   ],
-  "pricingTableHash": "c63d69dcbb81e27a0dfe228cf632bfb58dddc768dd319de1aec245c4e941b307",
+  "pricingTableHash": "2f3d8d4713253291a479d6335d703e9a6442d4e140d34048d16dd860e175c678",
   "resumeSafety": {
     "persistentResponseCache": true,
     "durablePerCallBudget": true,
@@ -88,10 +88,11 @@
     "paidCallsDefault": "disabled",
     "requiredGlobalApproval": "DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED",
     "requiredCampaignApproval": "DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL=JOEL_APPROVED_COMMERCIAL_SUPPORT_V1",
+    "requiredPlanHash": "DAS_COMMERCIAL_MODEL_CAMPAIGN_PLAN_HASH=<exact plan hash>",
     "requiredExplicitLimit": "DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD=<positive number no greater than frozen contract limit>",
     "requiredPricingDate": "DAS_COMMERCIAL_PRICING_VERIFIED_ON=<current UTC date>",
-    "requiredPricingHash": "DAS_COMMERCIAL_PRICING_TABLE_HASH=c63d69dcbb81e27a0dfe228cf632bfb58dddc768dd319de1aec245c4e941b307"
+    "requiredPricingHash": "DAS_COMMERCIAL_PRICING_TABLE_HASH=2f3d8d4713253291a479d6335d703e9a6442d4e140d34048d16dd860e175c678"
   },
   "evidenceBoundary": "Zero-cost execution plan. Maximum task/turn counts are structural ceilings if every participant survives. No model call, candidate result or improvement is implied.",
-  "planHash": "214a97b73c4c42656b18e3a5768abfb3eee99a1edb287f0158693c2691226711"
+  "planHash": "7376a98821111ac58b6355e970fbdb3f58741cd5b634b813dbc20ef233c065d0"
 }

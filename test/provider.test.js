@@ -62,3 +62,14 @@ test("provider fails closed when the REST payload has no model output", async ()
   });
   await assert.rejects(() => provider.generate({ model: "x", input: "x" }), /no extractable model output/);
 });
+
+test("provider classifies exhausted funding as a safe resumable rejection", async () => {
+  const provider = new OpenAIResponsesProvider({
+    apiKey: "test-key", pricing, allowPaidCalls: true, environment: { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED" },
+    fetchImpl: async () => ({ ok: false, status: 429, json: async () => ({ error: { code: "insufficient_quota", type: "insufficient_quota", message: "Please add credits" } }) }),
+  });
+  await assert.rejects(
+    () => provider.generate({ model: "x", input: "x" }),
+    (error) => error.retryClass === "funding" && error.resumable === true && error.definitivelyNotCharged === true,
+  );
+});

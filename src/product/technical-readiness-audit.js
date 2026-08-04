@@ -58,7 +58,19 @@ function verifyCommercial(root) {
   const multiRole = readJson(root, "artifacts/commercial/multi-role-network-activation-rehearsal.json");
   assertRecordHash(multiRole, "receiptHash", "multi-role network rehearsal");
   requireCondition(multiRole.roles?.length === 2 && multiRole.roles.every((item) => item.packageReady && item.loopbackOnly && item.run?.verificationPassed && item.run?.duplicateSuppressed && item.deniedAttempts === 0), "Support/RevOps network rehearsal is incomplete");
-  return { status: "three-fictional-role-packs-locally-runnable", roles, packagedNetworkRehearsals: 3, freshCommercialModelComparisonsCompleted: 0, customerActivations: 0 };
+  const supportProgressPath = path.join(root, "artifacts/commercial/support-v1/model-campaign-v1/progress-receipt.json");
+  let supportModelCampaign = { status: "not-started", completed: false };
+  if (fs.existsSync(supportProgressPath)) {
+    const progress = JSON.parse(fs.readFileSync(supportProgressPath, "utf8"));
+    assertRecordHash(progress, "receiptHash", "support commercial model campaign progress");
+    const stateRoot = path.join(root, "artifacts/commercial/support-v1/model-campaign-v1");
+    requireCondition(sha256File(path.join(stateRoot, "budget.json")) === progress.integrity.budgetFileSha256, "Support campaign budget changed after the progress receipt");
+    requireCondition(sha256File(path.join(stateRoot, "response-cache.json")) === progress.integrity.responseCacheFileSha256, "Support campaign cache changed after the progress receipt");
+    requireCondition(sha256File(path.join(stateRoot, "evidence.jsonl")) === progress.integrity.evidenceFileSha256, "Support campaign evidence changed after the progress receipt");
+    requireCondition(progress.status === "paused-awaiting-funds" && progress.resumable === true && progress.progress?.unresolvedReservations === 0, "Support campaign pause is not safely resumable");
+    supportModelCampaign = { status: progress.status, completed: false, resumable: true, spentUsd: progress.progress.spentUsd, settledCalls: progress.progress.settledCalls, independentlyVerifiedCases: progress.progress.independentlyVerifiedCases };
+  }
+  return { status: "three-fictional-role-packs-locally-runnable", roles, packagedNetworkRehearsals: 3, freshCommercialModelComparisonsCompleted: 0, supportModelCampaign, customerActivations: 0 };
 }
 
 function verifyLevel15(root) {
@@ -82,35 +94,53 @@ function verifyLevel2(root) {
   const intake = readJson(root, "artifacts/fleet/intake-v1/summary.json");
   assertRecordHash(intake, "summaryHash", "Fleet Intake");
   requireCondition(intake.status === "completed" && intake.modelCalls === 0, "Fleet Intake is incomplete");
-  const prospectivePlan = readJson(root, "artifacts/fleet/prospective-model-campaign-v1/plan.json");
+  const preservedV1Failure = readJson(root, "artifacts/fleet/prospective-model-campaign-v1/model-run/latest-failure.json");
+  const v1Diagnosis = readJson(root, "artifacts/fleet/prospective-model-campaign-v1/diagnosis.json");
+  assertRecordHash(v1Diagnosis, "receiptHash", "prospective Level 2 V1 diagnosis");
+  requireCondition(sha256File(path.join(root, v1Diagnosis.source.path)) === v1Diagnosis.source.fileSha256, "Prospective Level 2 V1 failure file changed");
+  requireCondition(v1Diagnosis.status === "preserved-invalid-environment-result" && v1Diagnosis.diagnosis?.class === "invalid-uniform-turn-ceiling", "Prospective Level 2 V1 diagnosis boundary changed");
+  requireCondition(preservedV1Failure.status === "failed" && preservedV1Failure.verifiedCompleteTasks === 2 && preservedV1Failure.fleetStatus?.parentGoalCompleted === false, "Prospective Level 2 V1 failure boundary changed");
+  const prospectivePlan = readJson(root, "artifacts/fleet/prospective-model-campaign-v2/plan.json");
   assertProspectiveFleetCampaignPlan(prospectivePlan);
-  const prospectivePreflight = readJson(root, "artifacts/fleet/prospective-model-campaign-v1/summary.json");
+  const prospectivePreflight = readJson(root, "artifacts/fleet/prospective-model-campaign-v2/summary.json");
   assertRecordHash(prospectivePreflight, "summaryHash", "prospective Level 2 preflight");
   requireCondition(prospectivePreflight.status === "ready-awaiting-explicit-paid-approval" && allTrue(prospectivePreflight.checks), "Prospective Level 2 preflight is incomplete");
-  const empiricalSummaryExists = fs.existsSync(path.join(root, "artifacts/fleet/prospective-model-campaign-v1/model-run/summary.json"));
-  requireCondition(empiricalSummaryExists === false, "An empirical Level 2 artifact exists and needs a separate evidence audit");
-  return { status: "bounded-deterministic-mechanism-complete", planningProfiles: 5, prospectiveRunnerReady: true, empiricalFreshModelFleetComplete: false, customerFleetComplete: false };
+  const empirical = readJson(root, "artifacts/fleet/prospective-model-campaign-v2/model-run/summary.json");
+  const completionReceipt = readJson(root, "artifacts/fleet/prospective-model-campaign-v2/model-run/completion-receipt.json");
+  assertRecordHash(completionReceipt, "receiptHash", "prospective Level 2 V2 completion");
+  requireCondition(sha256File(path.join(root, completionReceipt.source.summaryPath)) === completionReceipt.source.summaryFileSha256, "Prospective Level 2 V2 summary changed");
+  requireCondition(sha256File(path.join(root, completionReceipt.source.evidencePath)) === completionReceipt.source.evidenceFileSha256, "Prospective Level 2 V2 evidence ledger changed");
+  requireCondition(empirical.status === "completed" && empirical.planHash === prospectivePlan.planHash && empirical.fleetStatus?.parentGoalCompleted === true && empirical.fleetStatus?.assignments?.verifiedComplete === 3 && empirical.fleetStatus?.roleGaps === 0, "Prospective Level 2 V2 parent goal is incomplete");
+  requireCondition(empirical.results?.length === 3 && empirical.results.every((entry) => entry.result?.passed === true && entry.result?.verification?.passed === true && entry.result?.unsafeAttempts === 0 && entry.result?.verifierKind === "independent-external-state"), "Prospective Level 2 V2 role evidence is incomplete");
+  requireCondition(completionReceipt.status === "completed-and-independently-verified" && completionReceipt.evidenceLedgerValid === true && completionReceipt.budget.reservedUsd === 0, "Prospective Level 2 V2 completion receipt changed");
+  return { status: "bounded-prospective-model-mechanism-complete", planningProfiles: 5, preservedV1ProspectiveResult: { verifiedCompleteTasks: 2, totalTasks: 3, parentGoalCompleted: false, spendUsd: preservedV1Failure.budget.spentUsd, failureClass: "invalid-uniform-turn-ceiling" }, prospectiveV2RunnerReady: true, empiricalFreshModelFleetComplete: true, prospectiveV2: { verifiedCompleteTasks: 3, totalTasks: 3, parentGoalCompleted: true, unsafeAttempts: 0, spendUsd: completionReceipt.budget.spentUsd, settledCalls: completionReceipt.budget.settledCalls }, customerFleetComplete: false };
 }
 
 export function createTechnicalReadinessAudit({ repositoryRoot = "." } = {}) {
   const root = path.resolve(repositoryRoot);
+  const commercial = verifyCommercial(root);
+  const commercialGate = commercial.freshCommercialModelComparisonsCompleted > 0
+    ? "completed"
+    : commercial.supportModelCampaign?.status === "paused-awaiting-funds"
+      ? "paused-awaiting-funds-cached-and-resumable-no-result"
+      : "not-completed-separate-paid-approval-required";
   const audit = {
     schemaVersion: "das.technical-readiness-audit.v1",
     generatedAt: new Date().toISOString(),
     level1: verifyLevel1(root),
-    commercial: verifyCommercial(root),
+    commercial,
     level15: verifyLevel15(root),
     level2: verifyLevel2(root),
     externalGates: {
       prospectiveHumanSetupStudy: "not-completed",
-      freshCommercialModelComparison: "not-completed-separate-paid-approval-required",
+      freshCommercialModelComparison: commercialGate,
       empiricalLevel15Lifecycle: "not-completed-separate-paid-approval-required",
-      prospectiveModelBackedLevel2: "not-completed-separate-paid-approval-required",
+      prospectiveModelBackedLevel2: "completed-three-fresh-fictional-local-roles",
       customerDeployment: "not-completed",
       productionReliability: "not-established",
       marketDemand: "not-established",
     },
-    verdict: "All currently claimed zero-cost local mechanisms and their evidence chains pass integrity checks. The remaining technical evidence gates require separately approved model campaigns; customer, production and market claims require external evidence.",
+    verdict: "All currently claimed local mechanisms and evidence chains pass integrity checks, including one fresh model-backed three-role bounded Level 2 campaign. The fresh support commercial comparison is safely paused for account funding with cached work but no result; Level 1.5 lifecycle remains a separate paid gate. Customer, production and market claims require external evidence.",
   };
   audit.auditHash = digest(audit);
   return audit;

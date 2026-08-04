@@ -89,3 +89,18 @@ test("model gateway reserves cost once and reuses the cached response", async ()
   assert.equal(calls, 1);
   assert.equal(budget.snapshot().spentUsd, .1);
 });
+
+test("model gateway releases a definitively rejected call instead of poisoning resume budget", async () => {
+  const error = Object.assign(new Error("no credits"), { definitivelyNotCharged: true, retryClass: "funding", resumable: true });
+  const provider = { id: "fake", projectCost: () => .2, generate: async () => { throw error; } };
+  const calls = [];
+  const budget = {
+    reserve: () => ({ id: "r1", projectedUsd: .2 }),
+    settle: () => { throw new Error("must not settle"); },
+    cancel: () => { throw new Error("must not become unknown"); },
+    reject: (id, details) => calls.push({ id, details }),
+  };
+  const gateway = new MeteredModelGateway({ provider, budget, cache: new ModelResponseCache(), evidence: new EvidenceLedger() });
+  await assert.rejects(() => gateway.generate({ model: "fake-model", purpose: "test", input: "same" }), /no credits/);
+  assert.deepEqual(calls, [{ id: "r1", details: { reason: "no credits", retryClass: "funding" } }]);
+});

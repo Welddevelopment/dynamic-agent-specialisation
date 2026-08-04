@@ -1,6 +1,6 @@
 export const CURRENT_MODEL_PRICING_USD = Object.freeze({
-  "gpt-5.6-luna": Object.freeze({ inputPerMillionUsd: .2, cachedInputPerMillionUsd: .02, outputPerMillionUsd: 1.2 }),
-  "gpt-5.6-terra": Object.freeze({ inputPerMillionUsd: 2, cachedInputPerMillionUsd: .2, outputPerMillionUsd: 12 }),
+  "gpt-5.6-luna": Object.freeze({ inputPerMillionUsd: 1, cachedInputPerMillionUsd: .1, outputPerMillionUsd: 6 }),
+  "gpt-5.6-terra": Object.freeze({ inputPerMillionUsd: 2.5, cachedInputPerMillionUsd: .25, outputPerMillionUsd: 15 }),
   "gpt-5.6-sol": Object.freeze({ inputPerMillionUsd: 5, cachedInputPerMillionUsd: .5, outputPerMillionUsd: 30 }),
 });
 

@@ -26,7 +26,7 @@ async function selectedFixture(pack, preferredType, campaignPlan = null) {
 async function fixture() {
   const { procurement: { pack, gate } } = createAllCommercialPostcomparisonGates();
   const campaign = COMMERCIAL_CAMPAIGNS.procurement;
-  const campaignPlan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, campaignId: campaign.id, campaignApproval: campaign.approval });
+  const campaignPlan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, maxTurns: campaign.maxTurnsPerTask, campaignId: campaign.id, campaignApproval: campaign.approval });
   const active = await selectedFixture(pack, "current-agent");
   const activeActivation = createCommercialActivationReceipt({ bundle: active.bundle, contract: pack.contract, environment: environmentFor(pack) });
   const request = { id: "postcomparison-model-test", status: "awaiting-explicit-approval", activeBundleHash: active.bundle.bundleHash, activeActivationHash: activeActivation.activationHash, spendAuthorized: false };

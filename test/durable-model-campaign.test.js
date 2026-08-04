@@ -39,3 +39,18 @@ test("durable budget settles exact usage and rejects a changed hard limit", () =
   assert.equal(fs.statSync(filePath).mode & 0o777, 0o600);
   assert.throws(() => new DurableBudgetGuard({ filePath, hardLimitUsd: 2, campaignId: "campaign-2" }), /hard limit changed/);
 });
+
+test("durable budget releases a definitively rejected provider call for safe resume", () => {
+  const filePath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "das-model-budget-rejected-")), "budget.json");
+  const budget = new DurableBudgetGuard({ filePath, hardLimitUsd: 1, campaignId: "campaign-3" });
+  const reservation = budget.reserve({ provider: "test", model: "m", projectedUsd: .7, purpose: "case" });
+  budget.reject(reservation.id, { reason: "insufficient quota", retryClass: "funding" });
+  const snapshot = budget.snapshot();
+  assert.equal(snapshot.spentUsd, 0);
+  assert.equal(snapshot.reservedUsd, 0);
+  assert.equal(snapshot.calls[0].status, "cancelled");
+  assert.equal(snapshot.calls[0].retryClass, "funding");
+  const reloaded = new DurableBudgetGuard({ filePath, hardLimitUsd: 1, campaignId: "campaign-3" });
+  assert.equal(reloaded.snapshot().reservedUsd, 0);
+  assert.doesNotThrow(() => reloaded.reserve({ provider: "test", model: "m", projectedUsd: .7, purpose: "resume-case" }));
+});

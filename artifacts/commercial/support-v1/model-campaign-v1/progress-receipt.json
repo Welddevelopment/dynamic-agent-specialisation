@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "das.commercial-model-campaign-progress.v1",
+  "campaignId": "commercial-support-model-campaign-v1",
+  "planHash": "7376a98821111ac58b6355e970fbdb3f58741cd5b634b813dbc20ef233c065d0",
+  "status": "paused-awaiting-funds",
+  "resumable": true,
+  "progress": {
+    "spentUsd": 2.1822830000000013,
+    "settledCalls": 270,
+    "cachedResponses": 270,
+    "cancelledUnchargedCalls": 1,
+    "unresolvedReservations": 0,
+    "independentlyVerifiedCases": 23,
+    "finishedStages": []
+  },
+  "integrity": {
+    "evidenceLedgerValid": true,
+    "budgetFileSha256": "cd7ba906063240785bb9f9c261c407024053f0e45e284c9277a8c3866970c64e",
+    "responseCacheFileSha256": "a0c95f2a5db2c6335c5aa579462ba57299ecac019514b2dc4030b9df8d914861",
+    "evidenceFileSha256": "4629ea189f16d481452895abd8681768941319eac21e2debde33955e00ac037d",
+    "pauseFileSha256": "4f9857d35b41839b378adedd3916ea4dca023ee2b4fa18a98aad5f59cbc6b735",
+    "resultFileSha256": null
+  },
+  "resume": {
+    "reusesCachedResponses": true,
+    "chargedCallsReplayed": false,
+    "exactPlanRequired": true,
+    "note": "Rerun the exact frozen campaign after account funding is restored. Settled requests are served from the integrity-checked local cache."
+  },
+  "evidenceBoundary": "Preserved partial campaign progress only. No participant ranking, improvement, repeatability, or commercial result may be inferred before the frozen comparison completes.",
+  "receiptHash": "e477ec934b73c7df5153cd78e23e6c4c1d97c74d0cc67f536bf85582b52e7423"
+}

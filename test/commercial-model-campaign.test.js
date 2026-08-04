@@ -12,10 +12,10 @@ import { CURRENT_MODEL_PRICING_USD } from "../src/providers/model-pricing.js";
 
 test("commercial model plan freezes structural ceilings without authorizing spend", () => {
   const pack = createCommercialProcurementPack();
-  const plan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants });
+  const plan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, maxTurns: COMMERCIAL_CAMPAIGNS.procurement.maxTurnsPerTask });
   assert.equal(plan.participantCount, 8);
   assert.equal(plan.maximumTaskEvaluations, 102);
-  assert.equal(plan.maximumModelTurns, 2448);
+  assert.equal(plan.maximumModelTurns, 2040);
   assert.equal(plan.contractHardSpendLimitUsd, 10);
   assert.equal(plan.gates.paidCallsDefault, "disabled");
   assert.match(plan.planHash, /^[a-f0-9]{64}$/);
@@ -32,10 +32,12 @@ test("each commercial role has an independent zero-spend campaign identity and p
     participants: pack.participants,
     campaignId: COMMERCIAL_CAMPAIGNS[role].id,
     campaignApproval: COMMERCIAL_CAMPAIGNS[role].approval,
+    maxTurns: COMMERCIAL_CAMPAIGNS[role].maxTurnsPerTask,
   }));
   assert.equal(new Set(plans.map((plan) => plan.campaignId)).size, 3);
   assert.equal(new Set(plans.map((plan) => plan.planHash)).size, 3);
   assert.deepEqual(plans.map((plan) => plan.maximumTaskEvaluations), [102, 102, 102]);
+  assert.deepEqual(plans.map((plan) => plan.maxTurnsPerTask), [20, 48, 56]);
   assert.ok(plans.every((plan) => plan.gates.paidCallsDefault === "disabled"));
 });
 
@@ -43,10 +45,12 @@ test("one role's approval phrase cannot authorize another role's campaign", () =
   const pack = createCommercialSupportPack();
   const stateDirectory = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "das-commercial-support-model-")), "state");
   const date = new Date().toISOString().slice(0, 10);
-  const environment = { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED", DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL: COMMERCIAL_CAMPAIGN_APPROVAL, DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD: "2", DAS_COMMERCIAL_PRICING_VERIFIED_ON: date, DAS_COMMERCIAL_PRICING_TABLE_HASH: digest(CURRENT_MODEL_PRICING_USD), OPENAI_API_KEY: "test-key" };
+  const plan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, maxTurns: COMMERCIAL_CAMPAIGNS.support.maxTurnsPerTask, campaignId: COMMERCIAL_CAMPAIGNS.support.id, campaignApproval: COMMERCIAL_CAMPAIGNS.support.approval });
+  const environment = { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED", DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL: COMMERCIAL_CAMPAIGN_APPROVAL, DAS_COMMERCIAL_MODEL_CAMPAIGN_PLAN_HASH: plan.planHash, DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD: "2", DAS_COMMERCIAL_PRICING_VERIFIED_ON: date, DAS_COMMERCIAL_PRICING_TABLE_HASH: digest(CURRENT_MODEL_PRICING_USD), OPENAI_API_KEY: "test-key" };
   assert.throws(() => createCommercialModelCampaignRuntime({
     environment,
     contract: pack.contract,
+    plan,
     stateDirectory,
     campaignId: COMMERCIAL_CAMPAIGNS.support.id,
     campaignApproval: COMMERCIAL_CAMPAIGNS.support.approval,
@@ -58,14 +62,15 @@ test("commercial runtime requires all independent approval, limit, key and fresh
   const pack = createCommercialProcurementPack();
   const stateDirectory = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "das-commercial-model-")), "state");
   const date = new Date().toISOString().slice(0, 10);
-  const complete = { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED", DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL: COMMERCIAL_CAMPAIGN_APPROVAL, DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD: "2", DAS_COMMERCIAL_PRICING_VERIFIED_ON: date, DAS_COMMERCIAL_PRICING_TABLE_HASH: digest(CURRENT_MODEL_PRICING_USD), OPENAI_API_KEY: "test-key" };
+  const plan = createCommercialModelCampaignPlan({ contract: pack.contract, participants: pack.participants, maxTurns: COMMERCIAL_CAMPAIGNS.procurement.maxTurnsPerTask });
+  const complete = { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED", DAS_COMMERCIAL_MODEL_CAMPAIGN_APPROVAL: COMMERCIAL_CAMPAIGN_APPROVAL, DAS_COMMERCIAL_MODEL_CAMPAIGN_PLAN_HASH: plan.planHash, DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD: "2", DAS_COMMERCIAL_PRICING_VERIFIED_ON: date, DAS_COMMERCIAL_PRICING_TABLE_HASH: digest(CURRENT_MODEL_PRICING_USD), OPENAI_API_KEY: "test-key" };
   for (const key of Object.keys(complete)) {
     const environment = { ...complete };
     delete environment[key];
-    assert.throws(() => createCommercialModelCampaignRuntime({ environment, contract: pack.contract, stateDirectory, fetchImpl: async () => { throw new Error("must not call network"); } }));
+    assert.throws(() => createCommercialModelCampaignRuntime({ environment, contract: pack.contract, plan, stateDirectory, fetchImpl: async () => { throw new Error("must not call network"); } }));
   }
-  assert.throws(() => createCommercialModelCampaignRuntime({ environment: { ...complete, DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD: "11" }, contract: pack.contract, stateDirectory }), /within the frozen contract ceiling/);
-  const runtime = createCommercialModelCampaignRuntime({ environment: complete, contract: pack.contract, stateDirectory, fetchImpl: async () => { throw new Error("must not call network"); } });
+  assert.throws(() => createCommercialModelCampaignRuntime({ environment: { ...complete, DAS_COMMERCIAL_MODEL_CAMPAIGN_LIMIT_USD: "11" }, contract: pack.contract, plan, stateDirectory }), /within the frozen contract ceiling/);
+  const runtime = createCommercialModelCampaignRuntime({ environment: complete, contract: pack.contract, plan, stateDirectory, fetchImpl: async () => { throw new Error("must not call network"); } });
   assert.equal(runtime.budget.snapshot().hardLimitUsd, 2);
   assert.equal(runtime.cache.size(), 0);
   assert.equal(runtime.provider.enabled, true);

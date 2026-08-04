@@ -35,8 +35,14 @@ export class MeteredModelGateway {
       this.evidence?.append("model.call-settled", { reservationId: reservation.id, actualUsd: response.actualUsd, elapsedMs, usage: response.usage, resolvedModel: response.resolvedModel ?? request.model, responseHash: digest(response.output) });
       return { ...safe, cached: false };
     } catch (error) {
-      this.budget.cancel(reservation.id, error instanceof Error ? error.message : String(error));
-      this.evidence?.append("model.call-failed", { reservationId: reservation.id, error: error instanceof Error ? error.message : String(error) });
+      const reason = error instanceof Error ? error.message : String(error);
+      if (error?.definitivelyNotCharged === true && typeof this.budget.reject === "function") {
+        this.budget.reject(reservation.id, { reason, retryClass: error.retryClass ?? "request" });
+        this.evidence?.append("model.call-rejected", { reservationId: reservation.id, retryClass: error.retryClass ?? "request", definitivelyNotCharged: true, error: reason });
+      } else {
+        this.budget.cancel(reservation.id, reason);
+        this.evidence?.append("model.call-failed", { reservationId: reservation.id, error: reason });
+      }
       throw error;
     }
   }

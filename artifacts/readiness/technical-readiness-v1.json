@@ -1,6 +1,6 @@
 {
   "schemaVersion": "das.technical-readiness-audit.v1",
-  "generatedAt": "2026-08-04T17:46:08.877Z",
+  "generatedAt": "2026-08-04T18:54:08.246Z",
   "level1": {
     "status": "technical-mechanism-complete",
     "selectedRoles": 3,
@@ -18,6 +18,14 @@
     ],
     "packagedNetworkRehearsals": 3,
     "freshCommercialModelComparisonsCompleted": 0,
+    "supportModelCampaign": {
+      "status": "paused-awaiting-funds",
+      "completed": false,
+      "resumable": true,
+      "spentUsd": 2.1822830000000013,
+      "settledCalls": 270,
+      "independentlyVerifiedCases": 23
+    },
     "customerActivations": 0
   },
   "level15": {
@@ -27,21 +35,36 @@
     "customerLifecycleComplete": false
   },
   "level2": {
-    "status": "bounded-deterministic-mechanism-complete",
+    "status": "bounded-prospective-model-mechanism-complete",
     "planningProfiles": 5,
-    "prospectiveRunnerReady": true,
-    "empiricalFreshModelFleetComplete": false,
+    "preservedV1ProspectiveResult": {
+      "verifiedCompleteTasks": 2,
+      "totalTasks": 3,
+      "parentGoalCompleted": false,
+      "spendUsd": 0.17006200000000002,
+      "failureClass": "invalid-uniform-turn-ceiling"
+    },
+    "prospectiveV2RunnerReady": true,
+    "empiricalFreshModelFleetComplete": true,
+    "prospectiveV2": {
+      "verifiedCompleteTasks": 3,
+      "totalTasks": 3,
+      "parentGoalCompleted": true,
+      "unsafeAttempts": 0,
+      "spendUsd": 0.2526419999999999,
+      "settledCalls": 56
+    },
     "customerFleetComplete": false
   },
   "externalGates": {
     "prospectiveHumanSetupStudy": "not-completed",
-    "freshCommercialModelComparison": "not-completed-separate-paid-approval-required",
+    "freshCommercialModelComparison": "paused-awaiting-funds-cached-and-resumable-no-result",
     "empiricalLevel15Lifecycle": "not-completed-separate-paid-approval-required",
-    "prospectiveModelBackedLevel2": "not-completed-separate-paid-approval-required",
+    "prospectiveModelBackedLevel2": "completed-three-fresh-fictional-local-roles",
     "customerDeployment": "not-completed",
     "productionReliability": "not-established",
     "marketDemand": "not-established"
   },
-  "verdict": "All currently claimed zero-cost local mechanisms and their evidence chains pass integrity checks. The remaining technical evidence gates require separately approved model campaigns; customer, production and market claims require external evidence.",
-  "auditHash": "00bd1222f66cd2622b232a43bfa3c2a86e48d715d2c83351664b053015492ed9"
+  "verdict": "All currently claimed local mechanisms and evidence chains pass integrity checks, including one fresh model-backed three-role bounded Level 2 campaign. The fresh support commercial comparison is safely paused for account funding with cached work but no result; Level 1.5 lifecycle remains a separate paid gate. Customer, production and market claims require external evidence.",
+  "auditHash": "54ce24e4ab44ec13dc3078abfbfe0a237af581f1be83ccee44a4abe4db2011ec"
 }

@@ -97,6 +97,19 @@ export class DurableBudgetGuard {
     this.#recalculate();
     this.#save();
   }
+  reject(reservationId, { reason = "provider-rejected-before-execution", retryClass = "request" } = {}) {
+    const call = this.calls.find((entry) => entry.id === reservationId);
+    requireCondition(call?.status === "reserved", "Unknown or settled reservation");
+    Object.assign(call, {
+      status: "cancelled",
+      resolution: "verified-not-charged-provider-rejection",
+      interruption: String(reason),
+      retryClass: String(retryClass),
+    });
+    this.#recalculate();
+    this.#save();
+    return this.snapshot();
+  }
   resolveUnknown(reservationId, { actualUsd = 0, usage = {}, notCharged = false } = {}) {
     const call = this.calls.find((entry) => entry.id === reservationId);
     requireCondition(call?.status === "outcome-unknown", "Only an unknown reservation can be resolved");

@@ -3,7 +3,9 @@ import { TenantRoleMemory } from "../runtime/memory.js";
 import { ModelDecisionEngine } from "../runtime/model-decision-engine.js";
 import { RealisticProcurementCompany, RealisticProcurementVerifier } from "../worlds/realistic-procurement-company.js";
 
-export async function runModelProcurementCase({ candidate, testCase, gateway, evidence, executionModel, maxTurns = 20, tenantPrefix = "piece2" }) {
+export const PROCUREMENT_MODEL_TURN_CEILING = 20;
+
+export async function runModelProcurementCase({ candidate, testCase, gateway, evidence, executionModel, maxTurns = PROCUREMENT_MODEL_TURN_CEILING, tenantPrefix = "piece2" }) {
   const world = new RealisticProcurementCompany({ task: testCase, loseWriteResponseFor: testCase.executionFault });
   const verifier = new RealisticProcurementVerifier({ task: testCase, initialState: world.initial });
   const runtime = new SpecialistAgentRuntime({ decisionEngine: new ModelDecisionEngine({ gateway }), memory: new TenantRoleMemory(), evidence, maxTurns });
