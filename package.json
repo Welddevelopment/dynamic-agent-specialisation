@@ -26,6 +26,7 @@
     "level2:planning:rehearsal": "node src/experiments/bounded-level2-planning-rehearsal.js",
     "level2:execution:rehearsal": "node src/experiments/bounded-level2-execution-rehearsal.js",
     "level2:role-gap:return": "node src/experiments/bounded-level2-role-gap-return.js",
+    "level2:generality": "node src/experiments/bounded-level2-generality-matrix.js",
     "commercial:procurement:model-plan": "node src/experiments/commercial-procurement-model-plan.js",
     "commercial:procurement:model-run": "node --env-file=.env src/experiments/commercial-procurement-model-campaign.js",
     "commercial:support:model-plan": "node src/experiments/commercial-support-model-plan.js",

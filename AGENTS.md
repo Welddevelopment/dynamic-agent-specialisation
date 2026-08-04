@@ -459,3 +459,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Default 1280px and 820px browser checks had no horizontal overflow or console warnings/errors. The full local suite passes 225/225; model calls and new paid spend were zero.
 - This is an inspectable private local product surface for deterministic fictional evidence, not a live fleet, customer deployment or model-backed Level 2 claim.
 - See `reports/0079-bounded-fleet-console.md`.
+
+## Bounded Level 2 generality matrix — 2026-08-05
+
+- The same fleet planner and independent verifier now pass five distinct fictional profiles without role-specific planner rewrites: expanded standard work (115/115), a support surge (100/100), a compressed deadline (75/115 plus two honest gaps), a role-proposal-limit refusal and a zero-budget refusal.
+- Correctly blocked is now an independently verifiable outcome. It requires no selected plan, every alternative to violate a declared hard bound, exact blocker labels, intact specialist identities and zero widened authority. A false blocker label fails verification.
+- Full, partial and blocked branches plus hard budget and role-proposal limits are covered. No profile grants execution authority. The full local suite passes 227/227; model calls and new paid spend were zero.
+- These profiles strengthen deterministic structural planning generality. Only the original four-stream return scenario has joined disposable execution evidence; this is not model-agent, customer or production evidence.
+- See `reports/0080-bounded-level2-generality-matrix.md` and `artifacts/fleet/bounded-level2-generality-v1/`.
