@@ -248,3 +248,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The customer-facing console flow was exercised end to end in the local browser, including restart persistence and honest readiness rendering. The complete local suite passed 141/141 before checkpointing; focused commercial tests passed again after the final motion layer. No paid model call was made.
 - This checkpoint makes the role-intake product usable, but does not yet join an arbitrary saved customer role to an executable comparison campaign. That join is the next commercial Level 1 dependency.
 - See `docs/COMMERCIAL_LEVEL1_CONTRACT.md` and `reports/0056-commercial-level1-onboarding-foundation.md`.
+
+## Commercial comparison contract and runner — 2026-08-04
+
+- A comparison-ready intake can now be frozen with its exact role draft, verified system-driver bindings, independent verifier, participants, stage cases, priorities, improvement threshold, candidate ceiling, spend ceiling and wall-clock limit.
+- A supplied current agent must be included. Strong-general, ordinary-manual and expert-manual baselines are mandatory; the compiler cannot win by comparing only with weak or missing alternatives.
+- Development, validation, adversarial and unseen cases are separated before execution. Unseen payloads stay in a sealed vault and release only after a compiler candidate passes bound validation and adversarial gates with zero unsafe attempts and zero incorrect side effects.
+- The generic asynchronous runner verifies every observation came from the frozen independent verifier, stops before a projected call exceeds budget, eliminates unsafe candidates before unseen evaluation, runs fresh repeatability and retains the existing agent when the promised improvement is not proved.
+- This is a zero-cost orchestration foundation. It is not yet a model-backed customer comparison, an executable customer adapter, customer evidence or commercial proof.
+- Complete local suite: 150/150 passed. No paid model call was made.
+- See `reports/0057-commercial-comparison-contract-and-runner.md`.
