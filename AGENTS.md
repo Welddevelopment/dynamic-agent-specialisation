@@ -375,3 +375,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Support is the default because it remains the first polished commercial journey. Every role currently displays `preflight-ready`; the paid action stays disabled and the model-result boundary remains explicit.
 - The complete local suite passes 198/198. Live browser inspection confirmed all three controls, correct RevOps switching and no console warnings/errors. No model calls or spend occurred.
 - See `reports/0070-multi-role-commercial-comparison-workspace.md`.
+
+## Multi-role packaged network activation — 2026-08-05
+
+- Support and CRM / RevOps now both complete the same shared packaged customer-local activation route previously exercised only by procurement: role bundle + activation receipt → private package → 17 readiness gates → exact customer binding → authenticated loopback sidecar → bounded action → independent external-state verification → durable status → monitoring → duplicate suppression.
+- Support completed with four intended writes, zero denied attempts, one monitoring observation and 200 responses across submit/status/duplicate/operations. RevOps completed with two intended writes and the same clean transport/monitoring result.
+- Both duplicate submissions returned the original durable record. Both packages passed 17/17 gates. The complete local suite passes 199/199; model calls and spend were zero.
+- The selected bundles and decisions were deterministic rehearsal fixtures in fictional systems. No model improvement, customer compatibility, customer deployment or production reliability is claimed.
+- See `reports/0071-multi-role-packaged-network-activation.md` and `artifacts/commercial/multi-role-network-activation-rehearsal.json`.

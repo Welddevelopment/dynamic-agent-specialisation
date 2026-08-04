@@ -34,6 +34,8 @@ All three also have separate zero-cost frozen model-campaign plans on one resuma
 
 The private comparison workspace exposes the three executable packs separately. Each selection loads only that role's frozen contract, participants, deterministic controls and evidence boundary. Support is the default polished journey; changing roles never counts as choosing a candidate or proving an upgrade.
 
+All three initial roles have now crossed the shared packaged customer-local activation path in disposable local rehearsals. Support and RevOps each passed 17/17 package gates, authenticated loopback execution, independent outcome verification, durable status, monitoring and duplicate suppression. These used deterministic action paths and do not substitute for a fresh model comparison or customer deployment.
+
 ## Customer journey
 
 1. Describe the company and desired role in ordinary language.

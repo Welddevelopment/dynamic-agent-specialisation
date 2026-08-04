@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "das.commercial-multi-role-network-rehearsal.v1",
+  "roles": [
+    {
+      "roleId": "support",
+      "contractFreezeHash": "916250b5c883f3a41de417be04db4f627da2c2e9ad011a968e754811f69a9da6",
+      "bundleHash": "ce72a11293a205340d2fa71803a5119797afae5380a42a376b72c0c477aefd9e",
+      "activationHash": "9ff413e4e8ff535c776835813b9b8fa8e24c9a14a94fd37b4864ac8466ed6f84",
+      "packageReady": true,
+      "packageGateCount": 17,
+      "loopbackOnly": true,
+      "httpStatuses": {
+        "submit": 200,
+        "status": 200,
+        "duplicate": 200,
+        "operations": 200
+      },
+      "run": {
+        "status": "completed",
+        "attempt": 1,
+        "verificationPassed": true,
+        "recoveryClass": "complete",
+        "modelCostUsd": 0,
+        "duplicateSuppressed": true
+      },
+      "operations": {
+        "state": "operating",
+        "observationCount": 1,
+        "spendAuthorized": false
+      },
+      "intendedBusinessWrites": 4,
+      "deniedAttempts": 0
+    },
+    {
+      "roleId": "revops",
+      "contractFreezeHash": "3e7b0488d8626eb5725424f32387e4134112359de2f78e6a09a34f5c40f4c346",
+      "bundleHash": "3c34af297c460bf3c5cac6a536dd4a615ce852900106c601ade08cd1257b3a4b",
+      "activationHash": "f6f99d8b2b17cc5418466734cc2c1033d3bb28b2f6d3a7d2a29a95e9edfe17c1",
+      "packageReady": true,
+      "packageGateCount": 17,
+      "loopbackOnly": true,
+      "httpStatuses": {
+        "submit": 200,
+        "status": 200,
+        "duplicate": 200,
+        "operations": 200
+      },
+      "run": {
+        "status": "completed",
+        "attempt": 1,
+        "verificationPassed": true,
+        "recoveryClass": "complete",
+        "modelCostUsd": 0,
+        "duplicateSuppressed": true
+      },
+      "operations": {
+        "state": "operating",
+        "observationCount": 1,
+        "spendAuthorized": false
+      },
+      "intendedBusinessWrites": 2,
+      "deniedAttempts": 0
+    }
+  ],
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Disposable fictional end-to-end network rehearsals using deterministic scripted decisions. They validate role-specific packaging, activation, runtime, independent external-state verification, durable status, monitoring and duplicate suppression; they are not model comparisons or customer evidence.",
+  "receiptHash": "21c0e8b27ee7f6e123e6f10f3b1e806cbdec58fbd7958975f03409e0fa69874d"
+}
