@@ -383,3 +383,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Both duplicate submissions returned the original durable record. Both packages passed 17/17 gates. The complete local suite passes 199/199; model calls and spend were zero.
 - The selected bundles and decisions were deterministic rehearsal fixtures in fictional systems. No model improvement, customer compatibility, customer deployment or production reliability is claimed.
 - See `reports/0071-multi-role-packaged-network-activation.md` and `artifacts/commercial/multi-role-network-activation-rehearsal.json`.
+
+## Customer binding and adapter kit — 2026-08-05
+
+- A comparison-ready company intake can now produce a private fail-closed customer-binding scaffold. Generated adapters, verifier and reconciler begin explicitly `not-implemented`; the writer refuses overwrite and stores only environment-variable credential references.
+- Structural preflight requires exact system/operation coverage, stable adapter versions, bounded input hashes, explicit write-authority mapping, write idempotency and reconciliation, the exact independent verifier with direct external-state/input isolation, and a verifier-bound unknown-outcome reconciler.
+- Controlled-activation acceptance remains separate: ten mandatory cases must each be independently verified with an immutable artifact hash, zero unsafe attempts and zero incorrect side effects. One unsafe result blocks sealing.
+- The complete local suite passes 202/202; model calls and spend were zero. This does not generate arbitrary integrations or prove any customer adapter.
+- See `docs/COMMERCIAL_CUSTOMER_BINDING_KIT.md` and `reports/0072-customer-binding-adapter-kit.md`.

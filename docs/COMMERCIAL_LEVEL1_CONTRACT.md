@@ -36,6 +36,8 @@ The private comparison workspace exposes the three executable packs separately. 
 
 All three initial roles have now crossed the shared packaged customer-local activation path in disposable local rehearsals. Support and RevOps each passed 17/17 package gates, authenticated loopback execution, independent outcome verification, durable status, monitoring and duplicate suppression. These used deterministic action paths and do not substitute for a fresh model comparison or customer deployment.
 
+A customer binding kit now scaffolds the remaining company-specific system boundary without treating generated files as implementation. It requires exact operation coverage, authority mapping, write idempotency/reconciliation, secret references, an independent verifier and ten safe acceptance artifacts before controlled activation. See `docs/COMMERCIAL_CUSTOMER_BINDING_KIT.md`.
+
 ## Customer journey
 
 1. Describe the company and desired role in ordinary language.
