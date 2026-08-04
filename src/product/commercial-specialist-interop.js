@@ -46,10 +46,25 @@ export function createCommercialSpecialistInvoker({ bundle, activation, runtime,
   requireCondition(fixedTenantId, "The specialist host must bind one tenant before invocation");
   const requests = new Map();
 
+  function requestHash(input = {}) {
+    const requestId = clean(input.requestId, 160);
+    const goal = clean(input.goal, 4_000);
+    requireCondition(requestId && goal, "A bounded request id and ordinary goal are required");
+    return digest({ requestId, goal, roleId: bundle.role.id, tenantId: fixedTenantId });
+  }
+
   return Object.freeze({
     roleId: bundle.role.id,
     bundleHash: bundle.bundleHash,
     activationHash: activation.activationHash,
+    requestHash,
+    authorizeRetry({ requestId, requestHash: expectedHash, resolution }) {
+      requireCondition(resolution?.classification === "not-started" && resolution.independent === true && resolution.verifierId === bundle.verifier.binding, "Retry requires an independently verified not-started resolution");
+      const prior = requests.get(clean(requestId, 160));
+      requireCondition(!prior || prior.requestHash === expectedHash, "Retry authorization does not match the prior request");
+      requests.delete(clean(requestId, 160));
+      return true;
+    },
     async invoke(input = {}) {
       const requestId = clean(input.requestId, 160);
       const goal = clean(input.goal, 4_000);
@@ -67,8 +82,7 @@ export function createCommercialSpecialistInvoker({ bundle, activation, runtime,
         return publicRunResult({ result, requestId, requestHash, bundle, activation });
       })();
       requests.set(requestId, { requestHash, promise });
-      try { return await promise; }
-      catch (error) { requests.delete(requestId); throw error; }
+      return promise;
     },
   });
 }

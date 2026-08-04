@@ -50,6 +50,20 @@ test("activated specialist invokes through a fixed tenant without exposing raw r
   await assert.rejects(() => invoker.invoke({ requestId: "request-1", goal: "A conflicting goal" }), /different goal/);
 });
 
+test("failed direct invocation stays blocked until the activated verifier proves it never started", async () => {
+  const { bundle, activation } = await activatedFixture();
+  let shouldFail = true;
+  const runtime = { async run() { if (shouldFail) throw new Error("lost response"); return { status: "completed", verification: { passed: true, independent: true, verifierId: bundle.verifier.binding, recoveryClass: "complete", checks: {} }, session: {} }; } };
+  const invoker = createCommercialSpecialistInvoker({ bundle, activation, runtime, createRunBindings: () => ({ toolHost: {}, externalVerifier: { id: bundle.verifier.binding } }), tenantId: "tenant-a" });
+  const request = { requestId: "failed-1", goal: "Cover approved demand." };
+  await assert.rejects(() => invoker.invoke(request), /lost response/);
+  shouldFail = false;
+  await assert.rejects(() => invoker.invoke(request), /lost response/);
+  invoker.authorizeRetry({ requestId: request.requestId, requestHash: invoker.requestHash(request), resolution: { classification: "not-started", independent: true, verifierId: bundle.verifier.binding } });
+  const retried = await invoker.invoke(request);
+  assert.equal(retried.status, "completed");
+});
+
 test("LangGraph node delegates one ordinary goal without taking over authority or verification", async () => {
   const { bundle, activation } = await activatedFixture();
   const fixture = runtimeFixture(bundle.verifier.binding);

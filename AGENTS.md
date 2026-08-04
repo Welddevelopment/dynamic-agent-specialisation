@@ -296,3 +296,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Full local suite passes 166/166. No paid calls were made.
 - Post-restart idempotency and an authenticated customer-local network sidecar remain separate next steps.
 - See `reports/0061-commercial-specialist-interop.md`.
+
+## Durable customer-local commercial sidecar — 2026-08-05
+
+- Controlled-active specialists now have an authenticated loopback HTTP sidecar and an owner-only, integrity-checked durable request ledger.
+- Identical completed requests return their original receipt; conflicting request-id reuse fails closed. Runtime failures remain blocked instead of being silently retried.
+- Interrupted pending work becomes `outcome-unknown` after restart. Only the activated independent verifier can classify it as completed, not started, incorrect or still unknown; an exact retry is unlocked only by a verified `not-started` result.
+- The sidecar accepts a stable request id plus ordinary goal, caps JSON at 32 KiB and exposes only sanitized status. Credentials, raw tool observations and customer records are not persisted in its run receipts.
+- Full local suite passes 172/172. A real authenticated loopback HTTP smoke test also passed on a random port. No paid calls were made.
+- This is a local library/transport, not yet a packaged daemon, signed installer, customer deployment, production reliability claim or external security review.
+- See `docs/COMMERCIAL_LOCAL_SIDECAR.md` and `reports/0062-durable-commercial-sidecar.md`.
