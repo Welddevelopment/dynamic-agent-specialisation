@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "das.continuous-specialization.v1",
+  "configs": [
+    {
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "enabled": true,
+      "monitoringContract": {
+        "minimumObservations": 2,
+        "windowSize": 2,
+        "minimumPassRate": 1,
+        "minimumOutcomeScore": 1,
+        "maximumUnsafeAttempts": 0,
+        "maximumMeanModelCostUsd": null,
+        "maximumMedianElapsedMs": null
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "revops-zero-cost-recomparison",
+        "baselineId": "imported-current-revops-agent",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 1,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 0,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "configuredAt": "2026-08-05T01:01:00.000Z"
+    }
+  ],
+  "requests": [
+    {
+      "id": "optimization-728cb59d0b8f9418",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "activeRecordHash": "bf751684254237f64b573b981a42696cc05b34f59c12b37467b0723ce7bf37bd",
+      "baselineCandidateId": "imported-current-revops-agent",
+      "status": "awaiting-explicit-start",
+      "trigger": {
+        "action": "recommend-bounded-optimization",
+        "ready": true,
+        "reasons": [
+          "pass-rate-drift",
+          "outcome-quality-drift"
+        ],
+        "observationCount": 2,
+        "summary": {
+          "candidateId": "imported-current-revops-agent",
+          "observations": 2,
+          "distinctCases": 2,
+          "passed": 1,
+          "passRate": 0.5,
+          "unsafeAttempts": 0,
+          "outcomeScore": 0.875,
+          "modelCostUsd": 0,
+          "medianElapsedMs": 0.5,
+          "toolCalls": 3.5,
+          "humanInterventions": 0
+        }
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "revops-zero-cost-recomparison",
+        "baselineId": "imported-current-revops-agent",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 1,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 0,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "createdAt": "2026-08-05T01:01:00.000Z",
+      "result": null
+    }
+  ],
+  "halts": [],
+  "events": [
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "continuous-improvement.configured",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "enabled": true,
+      "improvementContractId": "revops-zero-cost-recomparison",
+      "hardBudgetUsd": 0
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "performance.observed",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "specialistId": "imported-current-revops-agent",
+      "evidenceHash": "a3b0402af8ac79b7ec72fd71cb355880e46febbac3b0ac60d4812803113bb218",
+      "action": "collect-more-evidence",
+      "reasons": [
+        "1-more-observations-required"
+      ]
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "performance.observed",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "specialistId": "imported-current-revops-agent",
+      "evidenceHash": "054af1210c452f995aa7eb87b3ff63059226f98d1635020183174c29c6e94602",
+      "action": "recommend-bounded-optimization",
+      "reasons": [
+        "pass-rate-drift",
+        "outcome-quality-drift"
+      ]
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "optimization.request-created",
+      "requestId": "optimization-728cb59d0b8f9418",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "hardBudgetUsd": 0,
+      "reasons": [
+        "pass-rate-drift",
+        "outcome-quality-drift"
+      ]
+    }
+  ],
+  "monitor": {
+    "schemaVersion": "das.verified-performance-monitor.v1",
+    "observations": [
+      {
+        "roleId": "commercial-revops-v1:revenue-operations",
+        "specialistId": "imported-current-revops-agent",
+        "specialistVersion": "1.0.0",
+        "caseId": "revops-dev-new-expansion",
+        "verifierKind": "independent-external-state",
+        "verifierBinding": "commercial-revops-v1:external-verifier",
+        "verificationReceiptHash": "d2e8d1c375ee8acbecbaf70648a74f80cdbe1620a24ceec9294a0d4c3db05da7",
+        "verificationPassed": true,
+        "outcomeScore": 1,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0,
+        "elapsedMs": 1,
+        "toolCalls": 7,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 7,
+        "sandboxWritesExecuted": 7,
+        "canaryFraction": null,
+        "deterministicStrategyId": "reference-revops-outcome-aware",
+        "evidenceBoundary": "The strategy ran against a fresh disposable synthetic business world and was checked by its independent external-state verifier.",
+        "evidenceHash": "a3b0402af8ac79b7ec72fd71cb355880e46febbac3b0ac60d4812803113bb218"
+      },
+      {
+        "roleId": "commercial-revops-v1:revenue-operations",
+        "specialistId": "imported-current-revops-agent",
+        "specialistVersion": "1.0.0",
+        "caseId": "revops-dev-duplicate-suppressed",
+        "verifierKind": "independent-external-state",
+        "verifierBinding": "commercial-revops-v1:external-verifier",
+        "verificationReceiptHash": "ed3b48d714671cf034791331942f297c2ec7c916f4daf0d126f741195cb3f267",
+        "verificationPassed": false,
+        "outcomeScore": 0.75,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0,
+        "elapsedMs": 0,
+        "toolCalls": 0,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "sandboxWritesExecuted": 0,
+        "canaryFraction": null,
+        "deterministicStrategyId": "revops-do-nothing",
+        "evidenceBoundary": "The strategy ran against a fresh disposable synthetic business world and was checked by its independent external-state verifier.",
+        "evidenceHash": "054af1210c452f995aa7eb87b3ff63059226f98d1635020183174c29c6e94602"
+      }
+    ],
+    "integrityHash": "3ed805152636c360fdd161b2c2b5dbed8b26262bbb2a7c7852ea9d8fbc32d38f"
+  },
+  "integrityHash": "988c3bc97b18a74ef2df10c253fe147db3f284e00c76b541414dc2933c8c8fe2"
+}

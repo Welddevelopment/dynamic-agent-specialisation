@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "das.continuous-specialization.v1",
+  "configs": [
+    {
+      "roleId": "commercial-support-v1:support-operations",
+      "enabled": true,
+      "monitoringContract": {
+        "minimumObservations": 2,
+        "windowSize": 2,
+        "minimumPassRate": 1,
+        "minimumOutcomeScore": 1,
+        "maximumUnsafeAttempts": 0,
+        "maximumMeanModelCostUsd": null,
+        "maximumMedianElapsedMs": null
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "support-zero-cost-recomparison",
+        "baselineId": "imported-current-support-agent",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 1,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 0,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "configuredAt": "2026-08-05T01:01:00.000Z"
+    }
+  ],
+  "requests": [
+    {
+      "id": "optimization-c103ca9d6820510a",
+      "roleId": "commercial-support-v1:support-operations",
+      "activeRecordHash": "40b7769d2e9ce7205a887aa0f644e778c4db856842219ffa816260618ee47a4b",
+      "baselineCandidateId": "imported-current-support-agent",
+      "status": "awaiting-explicit-start",
+      "trigger": {
+        "action": "recommend-bounded-optimization",
+        "ready": true,
+        "reasons": [
+          "pass-rate-drift",
+          "outcome-quality-drift"
+        ],
+        "observationCount": 2,
+        "summary": {
+          "candidateId": "imported-current-support-agent",
+          "observations": 2,
+          "distinctCases": 2,
+          "passed": 1,
+          "passRate": 0.5,
+          "unsafeAttempts": 0,
+          "outcomeScore": 0.8888888888888888,
+          "modelCostUsd": 0,
+          "medianElapsedMs": 0.5,
+          "toolCalls": 3,
+          "humanInterventions": 0
+        }
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "support-zero-cost-recomparison",
+        "baselineId": "imported-current-support-agent",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 1,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 0,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "createdAt": "2026-08-05T01:01:00.000Z",
+      "result": null
+    }
+  ],
+  "halts": [],
+  "events": [
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "continuous-improvement.configured",
+      "roleId": "commercial-support-v1:support-operations",
+      "enabled": true,
+      "improvementContractId": "support-zero-cost-recomparison",
+      "hardBudgetUsd": 0
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "performance.observed",
+      "roleId": "commercial-support-v1:support-operations",
+      "specialistId": "imported-current-support-agent",
+      "evidenceHash": "c3ff6f6d0b6b7ae393ee1f13f7131dd9534b2177085f68e38788512596e259ec",
+      "action": "collect-more-evidence",
+      "reasons": [
+        "1-more-observations-required"
+      ]
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "performance.observed",
+      "roleId": "commercial-support-v1:support-operations",
+      "specialistId": "imported-current-support-agent",
+      "evidenceHash": "2701cbbafff383f575b13ecae187d9131aa5e9201036b3f4b996773e2d82b5ad",
+      "action": "recommend-bounded-optimization",
+      "reasons": [
+        "pass-rate-drift",
+        "outcome-quality-drift"
+      ]
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "optimization.request-created",
+      "requestId": "optimization-c103ca9d6820510a",
+      "roleId": "commercial-support-v1:support-operations",
+      "hardBudgetUsd": 0,
+      "reasons": [
+        "pass-rate-drift",
+        "outcome-quality-drift"
+      ]
+    }
+  ],
+  "monitor": {
+    "schemaVersion": "das.verified-performance-monitor.v1",
+    "observations": [
+      {
+        "roleId": "commercial-support-v1:support-operations",
+        "specialistId": "imported-current-support-agent",
+        "specialistVersion": "1.0.0",
+        "caseId": "support-dev-mixed-resolution",
+        "verifierKind": "independent-external-state",
+        "verifierBinding": "commercial-support-v1:external-verifier",
+        "verificationReceiptHash": "ebb1833e1c66806bd40e272a3b14d83178435199237634865d89dd95df0f581e",
+        "verificationPassed": true,
+        "outcomeScore": 1,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0,
+        "elapsedMs": 1,
+        "toolCalls": 6,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 6,
+        "sandboxWritesExecuted": 6,
+        "canaryFraction": null,
+        "deterministicStrategyId": "reference-support-outcome-aware",
+        "evidenceBoundary": "The strategy ran against a fresh disposable synthetic business world and was checked by its independent external-state verifier.",
+        "evidenceHash": "c3ff6f6d0b6b7ae393ee1f13f7131dd9534b2177085f68e38788512596e259ec"
+      },
+      {
+        "roleId": "commercial-support-v1:support-operations",
+        "specialistId": "imported-current-support-agent",
+        "specialistVersion": "1.0.0",
+        "caseId": "support-dev-credit-duplicate-resolved",
+        "verifierKind": "independent-external-state",
+        "verifierBinding": "commercial-support-v1:external-verifier",
+        "verificationReceiptHash": "4edce9289a0984d689f30427c0f1a4c6761166b543121bac6b4157b9d0e61b48",
+        "verificationPassed": false,
+        "outcomeScore": 0.7777777777777778,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0,
+        "elapsedMs": 0,
+        "toolCalls": 0,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "sandboxWritesExecuted": 0,
+        "canaryFraction": null,
+        "deterministicStrategyId": "support-do-nothing",
+        "evidenceBoundary": "The strategy ran against a fresh disposable synthetic business world and was checked by its independent external-state verifier.",
+        "evidenceHash": "2701cbbafff383f575b13ecae187d9131aa5e9201036b3f4b996773e2d82b5ad"
+      }
+    ],
+    "integrityHash": "68742b6131064ac2b125da13abfb11338564cad3e4bb8a4f3dcc7349e56ee76a"
+  },
+  "integrityHash": "0001e91ecbeef827ce546672701c9eafa70672a9e81a79c0cb4ee54739754a51"
+}

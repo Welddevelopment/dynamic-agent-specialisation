@@ -1,0 +1,64 @@
+{
+  "activeActivation": {
+    "schemaVersion": "das.commercial-activation-receipt.v1",
+    "status": "controlled-active",
+    "bundleHash": "0d8017d64ddb9c54f958034e4d5177f5718873c9cc71dbb41be95c36a401e368",
+    "participantId": "imported-current-procurement-agent",
+    "roleId": "commercial-procurement-v1:procurement-coverage",
+    "environment": {
+      "kind": "disposable-sandbox",
+      "driverId": "commercial-procurement-driver",
+      "driverVersion": "1",
+      "verifierId": "commercial-procurement-v1:external-verifier",
+      "verifierStatus": "verified",
+      "systemBindings": [
+        {
+          "systemId": "procurement-sandbox",
+          "adapterId": "commercial-procurement-local-adapter",
+          "adapterVersion": "1",
+          "status": "verified"
+        }
+      ]
+    },
+    "previousActivationHash": null,
+    "rollbackTargetHash": null,
+    "evidenceBoundary": "Controlled activation record. Continued safety and performance require independently verified runtime observations.",
+    "activationHash": "efbaef04ae9e5a27968d115da8737a9b8ccaf47c3025fc8e4cdf4865692a7cc2"
+  },
+  "promotedActivation": {
+    "schemaVersion": "das.commercial-activation-receipt.v1",
+    "status": "controlled-active",
+    "bundleHash": "770b11c6e99a7d8513f6d8583e6e8fb0c994cdbcd07678282316cf36b7404cc9",
+    "participantId": "commercial-procurement-candidate-1",
+    "roleId": "commercial-procurement-v1:procurement-coverage",
+    "environment": {
+      "kind": "disposable-sandbox",
+      "driverId": "commercial-procurement-driver",
+      "driverVersion": "1",
+      "verifierId": "commercial-procurement-v1:external-verifier",
+      "verifierStatus": "verified",
+      "systemBindings": [
+        {
+          "systemId": "procurement-sandbox",
+          "adapterId": "commercial-procurement-local-adapter",
+          "adapterVersion": "1",
+          "status": "verified"
+        }
+      ]
+    },
+    "previousActivationHash": "efbaef04ae9e5a27968d115da8737a9b8ccaf47c3025fc8e4cdf4865692a7cc2",
+    "rollbackTargetHash": "0d8017d64ddb9c54f958034e4d5177f5718873c9cc71dbb41be95c36a401e368",
+    "evidenceBoundary": "Controlled activation record. Continued safety and performance require independently verified runtime observations.",
+    "activationHash": "5c38b92a3a0db90769ec2aa1aca47211bcb437f98f37d4eb60b3d71f500fa3c6"
+  },
+  "rollbackAuthorization": {
+    "schemaVersion": "das.commercial-rollback-receipt.v1",
+    "status": "rollback-authorized",
+    "fromActivationHash": "5c38b92a3a0db90769ec2aa1aca47211bcb437f98f37d4eb60b3d71f500fa3c6",
+    "fromBundleHash": "770b11c6e99a7d8513f6d8583e6e8fb0c994cdbcd07678282316cf36b7404cc9",
+    "toBundleHash": "0d8017d64ddb9c54f958034e4d5177f5718873c9cc71dbb41be95c36a401e368",
+    "roleId": "commercial-procurement-v1:procurement-coverage",
+    "reason": "Explicit rollback to an integrity-checked prior specialist bundle.",
+    "rollbackHash": "d2053c64c9b032c706233b77f619990f7e1f13c02255eecbf94e99b31033bd97"
+  }
+}

@@ -29,6 +29,10 @@ Level 1 builds and selects a specialist. Level 1.5 keeps that specialist useful 
 
 Those strategic role-creation and fleet-allocation decisions belong closer to Level 2.
 
-## Status — 2026-08-02
+## Status — 2026-08-05
 
-The monitoring, bounded request, offline/shadow/canary, promotion, quarantine, rollback, persistence, runtime-observation, audit and console foundations are implemented. A deterministic three-role rehearsal passes. Full bounded Level 1.5 remains open pending a fresh model-backed joined lifecycle and a verified live role-specific runner/dispatcher.
+The monitoring, bounded request, offline/shadow/canary, promotion, quarantine, rollback, persistence, runtime-observation, audit and console foundations are implemented.
+
+A role-specific commercial runner/dispatcher now executes the joined lifecycle against real disposable procurement, support and RevOps worlds with independent external-state verification. The three-role rehearsal covers verified drift, a zero-spend request, offline evaluation, zero-authority shadow, explicitly bounded canary, promotion, commercial activation, verified regression and rollback. All state is persisted with integrity checks.
+
+Full empirical bounded Level 1.5 remains open pending a fresh model-backed joined lifecycle in which the drift-triggered bounded optimizer produces the exact challenger subsequently evaluated through these gates. The current joined rehearsal uses prepared challengers and deterministic bundle-selection fixtures. Customer and production evidence remain separate gaps.

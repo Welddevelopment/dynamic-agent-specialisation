@@ -391,3 +391,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Controlled-activation acceptance remains separate: ten mandatory cases must each be independently verified with an immutable artifact hash, zero unsafe attempts and zero incorrect side effects. One unsafe result blocks sealing.
 - The complete local suite passes 202/202; model calls and spend were zero. This does not generate arbitrary integrations or prove any customer adapter.
 - See `docs/COMMERCIAL_CUSTOMER_BINDING_KIT.md` and `reports/0072-customer-binding-adapter-kit.md`.
+
+## Joined commercial Level 1.5 lifecycle — 2026-08-05
+
+- The commercial bundle/activation path is now joined to the durable Level 1.5 registry, verifier-bound observations, replacement gates and traffic dispatcher.
+- Procurement, support and RevOps each completed the same zero-cost local path: real disposable verifier drift → `$0` re-comparison request → two offline passes → two zero-authority shadow passes → explicitly authorized 25% canary → exactly 2/8 challenger dispatches → promotion and linked activation → independently verified regression → rollback to the prior bundle.
+- Shadow observations committed zero customer writes. Hypothetical writes in isolated worlds are recorded separately. Canary prefix share never exceeded authorization.
+- Monitoring, replacement, traffic, registry and activation-chain state were persisted with integrity checks. Model calls and paid spend were zero.
+- This closes the previously missing verified commercial role-runner/dispatcher mechanic. It does not prove fresh model-backed self-improvement: the challengers and selection receipts were deterministic lifecycle fixtures, not newly generated after drift.
+- Full empirical bounded Level 1.5 still requires separate paid approval for a fresh drift-triggered model campaign whose exact resulting challenger passes the joined lifecycle. Customer and production evidence remain separate.
+- See `reports/0073-joined-commercial-level15-lifecycle.md` and `artifacts/commercial/level15-rehearsal-v1/`.

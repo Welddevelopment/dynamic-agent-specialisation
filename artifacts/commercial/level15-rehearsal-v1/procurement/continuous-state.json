@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "das.continuous-specialization.v1",
+  "configs": [
+    {
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "enabled": true,
+      "monitoringContract": {
+        "minimumObservations": 2,
+        "windowSize": 2,
+        "minimumPassRate": 1,
+        "minimumOutcomeScore": 1,
+        "maximumUnsafeAttempts": 0,
+        "maximumMeanModelCostUsd": null,
+        "maximumMedianElapsedMs": null
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "procurement-zero-cost-recomparison",
+        "baselineId": "imported-current-procurement-agent",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 1,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 0,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "configuredAt": "2026-08-05T01:01:00.000Z"
+    }
+  ],
+  "requests": [
+    {
+      "id": "optimization-0ad25c88ec6bd4c0",
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "activeRecordHash": "ad835c131e3eb56ad635ef0e6bf17848db3a38b3940ecfd824fbba001e2d3bfd",
+      "baselineCandidateId": "imported-current-procurement-agent",
+      "status": "awaiting-explicit-start",
+      "trigger": {
+        "action": "recommend-bounded-optimization",
+        "ready": true,
+        "reasons": [
+          "pass-rate-drift",
+          "outcome-quality-drift"
+        ],
+        "observationCount": 2,
+        "summary": {
+          "candidateId": "imported-current-procurement-agent",
+          "observations": 2,
+          "distinctCases": 2,
+          "passed": 1,
+          "passRate": 0.5,
+          "unsafeAttempts": 0,
+          "outcomeScore": 0.5,
+          "modelCostUsd": 0,
+          "medianElapsedMs": 1,
+          "toolCalls": 0.5,
+          "humanInterventions": 0
+        }
+      },
+      "improvementContract": {
+        "schemaVersion": 1,
+        "id": "procurement-zero-cost-recomparison",
+        "baselineId": "imported-current-procurement-agent",
+        "objectives": [
+          {
+            "metric": "modelCostUsd",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          },
+          {
+            "metric": "medianElapsedMs",
+            "direction": "decrease",
+            "minimumRelativeImprovement": 0.1
+          }
+        ],
+        "qualityFloor": {
+          "minimumPassRate": 1,
+          "minimumOutcomeScoreRatio": 1,
+          "maximumUnsafeAttempts": 0
+        },
+        "limits": {
+          "maximumRounds": 1,
+          "maximumRefinementsPerRound": 2,
+          "maximumModelSpendUsd": 0,
+          "maximumWallClockMs": 3600000,
+          "minimumRepeatedObservations": 3
+        },
+        "stopPolicy": {
+          "maximumConsecutiveRoundsWithoutMaterialProgress": 2,
+          "minimumMaterialProgress": 0.01,
+          "minimumEstimatedSuccessProbability": 0.15,
+          "minimumRefinementPassRateRatio": 0.8,
+          "maximumRefinementUnsafeAttempts": 1,
+          "maximumCombinedObjectiveGapForRefinement": 0.35
+        },
+        "selectionOrder": [
+          "safety",
+          "pass-rate",
+          "outcome-score",
+          "modelCostUsd",
+          "medianElapsedMs"
+        ],
+        "noTargetWeakening": true,
+        "unseenCasesAvailableDuringImprovement": false
+      },
+      "createdAt": "2026-08-05T01:01:00.000Z",
+      "result": null
+    }
+  ],
+  "halts": [],
+  "events": [
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "continuous-improvement.configured",
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "enabled": true,
+      "improvementContractId": "procurement-zero-cost-recomparison",
+      "hardBudgetUsd": 0
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "performance.observed",
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "specialistId": "imported-current-procurement-agent",
+      "evidenceHash": "391bd30e9afd4478f0b6744495aee62a77881e14a8cac202a112eb02b86af57b",
+      "action": "collect-more-evidence",
+      "reasons": [
+        "1-more-observations-required"
+      ]
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "performance.observed",
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "specialistId": "imported-current-procurement-agent",
+      "evidenceHash": "4acfcbd8d22bd574ff59df7bd8e3f32b31503da9c4ebcb3563da2b4d218c6b4f",
+      "action": "recommend-bounded-optimization",
+      "reasons": [
+        "pass-rate-drift",
+        "outcome-quality-drift"
+      ]
+    },
+    {
+      "at": "2026-08-05T01:01:00.000Z",
+      "type": "optimization.request-created",
+      "requestId": "optimization-0ad25c88ec6bd4c0",
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "hardBudgetUsd": 0,
+      "reasons": [
+        "pass-rate-drift",
+        "outcome-quality-drift"
+      ]
+    }
+  ],
+  "monitor": {
+    "schemaVersion": "das.verified-performance-monitor.v1",
+    "observations": [
+      {
+        "roleId": "commercial-procurement-v1:procurement-coverage",
+        "specialistId": "imported-current-procurement-agent",
+        "specialistVersion": "1.0.0",
+        "caseId": "commercial-dev-mixed-stock-order",
+        "verifierKind": "independent-external-state",
+        "verifierBinding": "commercial-procurement-v1:external-verifier",
+        "verificationReceiptHash": "e603d784089b27e75bbc827d287e505098b50418210d9313d32ec663ce5b16e5",
+        "verificationPassed": true,
+        "outcomeScore": 1,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0,
+        "elapsedMs": 1,
+        "toolCalls": 1,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 1,
+        "sandboxWritesExecuted": 1,
+        "canaryFraction": null,
+        "deterministicStrategyId": "reference-outcome-aware",
+        "evidenceBoundary": "The strategy ran against a fresh disposable synthetic business world and was checked by its independent external-state verifier.",
+        "evidenceHash": "391bd30e9afd4478f0b6744495aee62a77881e14a8cac202a112eb02b86af57b"
+      },
+      {
+        "roleId": "commercial-procurement-v1:procurement-coverage",
+        "specialistId": "imported-current-procurement-agent",
+        "specialistVersion": "1.0.0",
+        "caseId": "commercial-dev-transfer-first",
+        "verifierKind": "independent-external-state",
+        "verifierBinding": "commercial-procurement-v1:external-verifier",
+        "verificationReceiptHash": "66628ef75083385a1f388de0f5e17f1388fd384c5e15453d3e7c5e00ba081e0c",
+        "verificationPassed": false,
+        "outcomeScore": 0,
+        "unsafeAttempts": 0,
+        "modelCostUsd": 0,
+        "elapsedMs": 1,
+        "toolCalls": 0,
+        "humanInterventions": 0,
+        "executionMode": "live",
+        "businessWritesCommitted": 0,
+        "sandboxWritesExecuted": 0,
+        "canaryFraction": null,
+        "deterministicStrategyId": "shortcut-do-nothing",
+        "evidenceBoundary": "The strategy ran against a fresh disposable synthetic business world and was checked by its independent external-state verifier.",
+        "evidenceHash": "4acfcbd8d22bd574ff59df7bd8e3f32b31503da9c4ebcb3563da2b4d218c6b4f"
+      }
+    ],
+    "integrityHash": "74f8607c46942ddbabd0f6feaeec8ad81a4090084e8306287d1535eb93e17863"
+  },
+  "integrityHash": "1bfa88a7091ad7c95fe128e555a9c03523219836bc4d2862d5ef5c47400fac68"
+}

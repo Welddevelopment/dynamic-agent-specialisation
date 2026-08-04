@@ -1,0 +1,64 @@
+{
+  "activeActivation": {
+    "schemaVersion": "das.commercial-activation-receipt.v1",
+    "status": "controlled-active",
+    "bundleHash": "e1ea89a6ea5bea23c51bf94ebae9190ed643653d7a6ee93ec7e870688089ef00",
+    "participantId": "imported-current-revops-agent",
+    "roleId": "commercial-revops-v1:revenue-operations",
+    "environment": {
+      "kind": "disposable-sandbox",
+      "driverId": "commercial-revops-driver",
+      "driverVersion": "1",
+      "verifierId": "commercial-revops-v1:external-verifier",
+      "verifierStatus": "verified",
+      "systemBindings": [
+        {
+          "systemId": "revops-sandbox",
+          "adapterId": "commercial-revops-local-adapter",
+          "adapterVersion": "1",
+          "status": "verified"
+        }
+      ]
+    },
+    "previousActivationHash": null,
+    "rollbackTargetHash": null,
+    "evidenceBoundary": "Controlled activation record. Continued safety and performance require independently verified runtime observations.",
+    "activationHash": "1457c7e6a7c3e8e42ac4d46c7ecbe132572ecb53f5c807f80a6079909c55bc0a"
+  },
+  "promotedActivation": {
+    "schemaVersion": "das.commercial-activation-receipt.v1",
+    "status": "controlled-active",
+    "bundleHash": "8fccab7a4aaa4c793438f695e0fce8b0590a6f907dab49d287da04f14c032a1d",
+    "participantId": "commercial-revops-candidate-1",
+    "roleId": "commercial-revops-v1:revenue-operations",
+    "environment": {
+      "kind": "disposable-sandbox",
+      "driverId": "commercial-revops-driver",
+      "driverVersion": "1",
+      "verifierId": "commercial-revops-v1:external-verifier",
+      "verifierStatus": "verified",
+      "systemBindings": [
+        {
+          "systemId": "revops-sandbox",
+          "adapterId": "commercial-revops-local-adapter",
+          "adapterVersion": "1",
+          "status": "verified"
+        }
+      ]
+    },
+    "previousActivationHash": "1457c7e6a7c3e8e42ac4d46c7ecbe132572ecb53f5c807f80a6079909c55bc0a",
+    "rollbackTargetHash": "e1ea89a6ea5bea23c51bf94ebae9190ed643653d7a6ee93ec7e870688089ef00",
+    "evidenceBoundary": "Controlled activation record. Continued safety and performance require independently verified runtime observations.",
+    "activationHash": "d8676049895453fcc42c725b9d77cb74f75fcac851173bcdff428cdc5564345b"
+  },
+  "rollbackAuthorization": {
+    "schemaVersion": "das.commercial-rollback-receipt.v1",
+    "status": "rollback-authorized",
+    "fromActivationHash": "d8676049895453fcc42c725b9d77cb74f75fcac851173bcdff428cdc5564345b",
+    "fromBundleHash": "8fccab7a4aaa4c793438f695e0fce8b0590a6f907dab49d287da04f14c032a1d",
+    "toBundleHash": "e1ea89a6ea5bea23c51bf94ebae9190ed643653d7a6ee93ec7e870688089ef00",
+    "roleId": "commercial-revops-v1:revenue-operations",
+    "reason": "Explicit rollback to an integrity-checked prior specialist bundle.",
+    "rollbackHash": "10c6198991b0c1a83ec9ae799a4701cc8ad25c9e917826b0a1b12bb248d45205"
+  }
+}

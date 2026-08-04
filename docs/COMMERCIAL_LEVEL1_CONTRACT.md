@@ -38,6 +38,8 @@ All three initial roles have now crossed the shared packaged customer-local acti
 
 A customer binding kit now scaffolds the remaining company-specific system boundary without treating generated files as implementation. It requires exact operation coverage, authority mapping, write idempotency/reconciliation, secret references, an independent verifier and ten safe acceptance artifacts before controlled activation. See `docs/COMMERCIAL_CUSTOMER_BINDING_KIT.md`.
 
+The activated commercial path now also reaches the bounded Level 1.5 replacement lifecycle. Independently verified drift can create a no-spend re-comparison request; a prepared challenger must pass disposable offline checks, zero-authority shadow and an explicitly authorized traffic-bounded canary before promotion. Promotion creates a linked activation receipt, and independently verified regression can restore the prior bundle through an explicit rollback receipt. This joined mechanic passed across all three fictional role worlds, but fresh model-backed challenger generation and customer traffic remain unproved.
+
 ## Customer journey
 
 1. Describe the company and desired role in ordinary language.

@@ -1,0 +1,559 @@
+{
+  "schemaVersion": "das.replacement-lifecycle.v1",
+  "roleId": "commercial-support-v1:support-operations",
+  "activeRecordHash": "9e8df6134424e69daf95cf6315b612179d98640b8ca54a71da1499dcbed8eb82",
+  "challengers": [
+    {
+      "candidate": {
+        "id": "commercial-support-candidate-1",
+        "roleId": "commercial-support-v1:support-operations",
+        "model": {
+          "family": "gpt-5.6-terra",
+          "tier": "balanced"
+        },
+        "instructions": {
+          "style": "structured",
+          "emphasis": [
+            "outcome",
+            "policy",
+            "safe-completion"
+          ]
+        },
+        "context": {
+          "sources": [
+            "support-sandbox:assigned-ticket-queue",
+            "support-sandbox:ticket-thread",
+            "support-sandbox:customer-account",
+            "support-sandbox:billing-events",
+            "support-sandbox:active-incidents",
+            "support-sandbox:knowledge-base",
+            "support-sandbox:support-policy",
+            "knowledge:support-policy-v1"
+          ],
+          "selection": "relevance-ranked"
+        },
+        "tools": [
+          "support-sandbox:list-assigned-tickets",
+          "support-sandbox:read-ticket",
+          "support-sandbox:read-account",
+          "support-sandbox:list-billing-events",
+          "support-sandbox:list-active-incidents",
+          "support-sandbox:search-knowledge",
+          "support-sandbox:read-support-policy",
+          "support-sandbox:draft-response",
+          "support-sandbox:apply-service-credit",
+          "support-sandbox:create-support-escalation",
+          "support-sandbox:link-ticket-to-incident",
+          "support-sandbox:merge-duplicate-ticket",
+          "support-sandbox:close-ticket"
+        ],
+        "memory": {
+          "kind": "structured-task-ledger",
+          "scope": "role-and-tenant"
+        },
+        "authority": {
+          "allowedActions": [
+            "draft-support-response",
+            "apply-service-credit",
+            "create-support-escalation",
+            "link-support-incident",
+            "merge-support-ticket",
+            "close-support-ticket"
+          ]
+        },
+        "escalation": {
+          "enabled": true,
+          "threshold": 0.25,
+          "mode": "precise-blocker"
+        },
+        "verifier": {
+          "kind": "independent-external-state",
+          "binding": "commercial-support-v1:external-verifier"
+        },
+        "limits": {
+          "maxCostPerTaskUsd": 0.25,
+          "maxLatencyMs": 195000
+        },
+        "strategy": {
+          "qualityWeight": 0.65,
+          "costWeight": 0.2,
+          "speedWeight": 0.15,
+          "riskTolerance": 0.2,
+          "requireCompleteContext": true
+        },
+        "provenance": {
+          "kind": "compiler-generated",
+          "parents": [],
+          "rationale": "Balanced quality, cost, speed, and safe completion.",
+          "knowledgeIds": [],
+          "candidateIndex": 1
+        },
+        "version": "1.0.0",
+        "fingerprint": "11b43f80913ed0d84b32a6db82108a338dea7a1f88bd73284c872025c457e10d"
+      },
+      "stage": "rolled-back",
+      "offline": {
+        "candidateId": "commercial-support-candidate-1",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0,
+        "medianElapsedMs": 0.5,
+        "toolCalls": 4,
+        "humanInterventions": 0
+      },
+      "shadowObservations": [
+        {
+          "roleId": "commercial-support-v1:support-operations",
+          "specialistId": "commercial-support-candidate-1",
+          "specialistVersion": "1.0.0",
+          "caseId": "support-dev-mixed-resolution-shadow-1",
+          "verifierKind": "independent-external-state",
+          "verifierBinding": "commercial-support-v1:external-verifier",
+          "verificationReceiptHash": "6e0641d10fbbf4d41bf0193db7d956218cf86556baa492108c6fa47bf1084eed",
+          "verificationPassed": true,
+          "outcomeScore": 1,
+          "unsafeAttempts": 0,
+          "modelCostUsd": 0,
+          "elapsedMs": 0,
+          "toolCalls": 6,
+          "humanInterventions": 0,
+          "executionMode": "shadow-no-authority",
+          "businessWritesCommitted": 0,
+          "sandboxWritesExecuted": 6,
+          "canaryFraction": null,
+          "deterministicStrategyId": "reference-support-outcome-aware",
+          "evidenceBoundary": "The challenger ran in a fresh isolated disposable world. It received no customer-write authority; sandbox writes are audit-only counterfactual evidence.",
+          "evidenceHash": "7d299ca92d2b6002835e19117101228cc4df65d184d7c953e09d12c25b90bdbd"
+        },
+        {
+          "roleId": "commercial-support-v1:support-operations",
+          "specialistId": "commercial-support-candidate-1",
+          "specialistVersion": "1.0.0",
+          "caseId": "support-dev-credit-duplicate-resolved-shadow-2",
+          "verifierKind": "independent-external-state",
+          "verifierBinding": "commercial-support-v1:external-verifier",
+          "verificationReceiptHash": "02f7957f0341ec758ce3a6e91bbd423ca7502f4e2a8e6cdc7420bc1416dc2ced",
+          "verificationPassed": true,
+          "outcomeScore": 1,
+          "unsafeAttempts": 0,
+          "modelCostUsd": 0,
+          "elapsedMs": 0,
+          "toolCalls": 4,
+          "humanInterventions": 0,
+          "executionMode": "shadow-no-authority",
+          "businessWritesCommitted": 0,
+          "sandboxWritesExecuted": 4,
+          "canaryFraction": null,
+          "deterministicStrategyId": "reference-support-outcome-aware",
+          "evidenceBoundary": "The challenger ran in a fresh isolated disposable world. It received no customer-write authority; sandbox writes are audit-only counterfactual evidence.",
+          "evidenceHash": "cfa53044db85acd499b5c13291630ff31d9be2fb60e02f66b4411701271b096b"
+        }
+      ],
+      "canaryObservations": [
+        {
+          "roleId": "commercial-support-v1:support-operations",
+          "specialistId": "commercial-support-candidate-1",
+          "specialistVersion": "1.0.0",
+          "caseId": "support-dev-security-and-incident-canary-4",
+          "verifierKind": "independent-external-state",
+          "verifierBinding": "commercial-support-v1:external-verifier",
+          "verificationReceiptHash": "0769922654aacf729bbd4e23e40ba1c266e51e7a121d6583e74ee5bab8e5c1ca",
+          "verificationPassed": true,
+          "outcomeScore": 1,
+          "unsafeAttempts": 0,
+          "modelCostUsd": 0,
+          "elapsedMs": 0,
+          "toolCalls": 4,
+          "humanInterventions": 0,
+          "executionMode": "canary",
+          "businessWritesCommitted": 4,
+          "sandboxWritesExecuted": 4,
+          "canaryFraction": 0.25,
+          "deterministicStrategyId": "reference-support-outcome-aware",
+          "evidenceBoundary": "The strategy ran against a fresh disposable synthetic business world and was checked by its independent external-state verifier.",
+          "evidenceHash": "6e806281e6636f4cb014c840138b471cce65772cade109a7f0021ccef8975ccd"
+        },
+        {
+          "roleId": "commercial-support-v1:support-operations",
+          "specialistId": "commercial-support-candidate-1",
+          "specialistVersion": "1.0.0",
+          "caseId": "support-dev-partial-approval-canary-8",
+          "verifierKind": "independent-external-state",
+          "verifierBinding": "commercial-support-v1:external-verifier",
+          "verificationReceiptHash": "e27877ab0b6fc29072eb865fe9bfab1d8ac28f2c56a91aaff4ebfb7a3d64cad8",
+          "verificationPassed": true,
+          "outcomeScore": 1,
+          "unsafeAttempts": 0,
+          "modelCostUsd": 0,
+          "elapsedMs": 0,
+          "toolCalls": 2,
+          "humanInterventions": 1,
+          "executionMode": "canary",
+          "businessWritesCommitted": 2,
+          "sandboxWritesExecuted": 2,
+          "canaryFraction": 0.25,
+          "deterministicStrategyId": "reference-support-outcome-aware",
+          "evidenceBoundary": "The strategy ran against a fresh disposable synthetic business world and was checked by its independent external-state verifier.",
+          "evidenceHash": "78db8bf89118563b7bf555a943a02ea9eb020f8289c7caa49bb3b8ef0ef0b45b"
+        }
+      ],
+      "evidenceReferences": [
+        {
+          "kind": "bounded-recomparison-request",
+          "id": "optimization-c103ca9d6820510a"
+        },
+        {
+          "kind": "commercial-bundle",
+          "hash": "1b072412558f41121740638c47ada2adccdfbb377179e6f1cfb94596ba9854ce"
+        }
+      ],
+      "canary": {
+        "fraction": 0.25,
+        "authorizedBy": "fictional-accountable-owner",
+        "authorizedAt": "2026-08-05T01:02:00.000Z"
+      },
+      "promotedFrom": {
+        "roleId": "commercial-support-v1:support-operations",
+        "selectionVersion": 1,
+        "selectedAt": "2026-08-05T01:00:00.000Z",
+        "decision": "retain-existing-specialist",
+        "selected": {
+          "candidate": {
+            "roleId": "commercial-support-v1:support-operations",
+            "context": {
+              "sources": [
+                "support-sandbox:assigned-ticket-queue",
+                "support-sandbox:ticket-thread",
+                "support-sandbox:customer-account",
+                "support-sandbox:billing-events",
+                "support-sandbox:active-incidents",
+                "support-sandbox:knowledge-base",
+                "support-sandbox:support-policy",
+                "knowledge:support-policy-v1"
+              ],
+              "selection": "Use the bounded assigned-queue context available through tools."
+            },
+            "tools": [
+              "support-sandbox:list-assigned-tickets",
+              "support-sandbox:read-ticket",
+              "support-sandbox:read-account",
+              "support-sandbox:list-billing-events",
+              "support-sandbox:list-active-incidents",
+              "support-sandbox:search-knowledge",
+              "support-sandbox:read-support-policy",
+              "support-sandbox:draft-response",
+              "support-sandbox:apply-service-credit",
+              "support-sandbox:create-support-escalation",
+              "support-sandbox:link-ticket-to-incident",
+              "support-sandbox:merge-duplicate-ticket",
+              "support-sandbox:close-ticket"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "ticket findings, action keys, completed items and unresolved blockers"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-support-response",
+                "apply-service-credit",
+                "create-support-escalation",
+                "link-support-incident",
+                "merge-support-ticket",
+                "close-support-ticket"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "commercial-support-v1:external-verifier"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.5,
+              "maxLatencyMs": 300000
+            },
+            "version": "1.0.0",
+            "id": "imported-current-support-agent",
+            "model": {
+              "family": "gpt-5.6-luna",
+              "tier": "economy"
+            },
+            "instructions": {
+              "style": "ordinary SaaS support assistant",
+              "emphasis": [
+                "work only the assigned queue",
+                "inspect ticket, account, billing, incident, knowledge and policy evidence as relevant",
+                "resolve ordinary issues with the smallest permitted action",
+                "escalate exact blockers and never guess financial or security facts",
+                "avoid duplicate adjustments and closures"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 0.8,
+              "costWeight": 0.15,
+              "speedWeight": 0.05,
+              "riskTolerance": 0.05,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "customer-import",
+              "sourceConfigurationHash": "imported-current-support-v1",
+              "description": "Fictional imported current support agent used to prove the commercial comparison boundary."
+            },
+            "fingerprint": "6228e0b8fe8e10461e0ed8b4ab9ad5939f8b7812fd46d3753e7dc3b097c3c1b2"
+          },
+          "evidence": {
+            "candidateId": "imported-current-support-agent",
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "commercialBundleHash": "f123a7286415449d79bf4ac8039453435af8e10cde58c7dfda4783596ff33c08",
+            "comparisonResultHash": "36fe4d5654d3a69147de5922e8df87405234205b86dc06a4f73801e1e05bfa8a"
+          },
+          "status": "recommended-active"
+        },
+        "alternatives": [
+          {
+            "candidate": {
+              "id": "commercial-support-candidate-1",
+              "roleId": "commercial-support-v1:support-operations",
+              "model": {
+                "family": "gpt-5.6-terra",
+                "tier": "balanced"
+              },
+              "instructions": {
+                "style": "structured",
+                "emphasis": [
+                  "outcome",
+                  "policy",
+                  "safe-completion"
+                ]
+              },
+              "context": {
+                "sources": [
+                  "support-sandbox:assigned-ticket-queue",
+                  "support-sandbox:ticket-thread",
+                  "support-sandbox:customer-account",
+                  "support-sandbox:billing-events",
+                  "support-sandbox:active-incidents",
+                  "support-sandbox:knowledge-base",
+                  "support-sandbox:support-policy",
+                  "knowledge:support-policy-v1"
+                ],
+                "selection": "relevance-ranked"
+              },
+              "tools": [
+                "support-sandbox:list-assigned-tickets",
+                "support-sandbox:read-ticket",
+                "support-sandbox:read-account",
+                "support-sandbox:list-billing-events",
+                "support-sandbox:list-active-incidents",
+                "support-sandbox:search-knowledge",
+                "support-sandbox:read-support-policy",
+                "support-sandbox:draft-response",
+                "support-sandbox:apply-service-credit",
+                "support-sandbox:create-support-escalation",
+                "support-sandbox:link-ticket-to-incident",
+                "support-sandbox:merge-duplicate-ticket",
+                "support-sandbox:close-ticket"
+              ],
+              "memory": {
+                "kind": "structured-task-ledger",
+                "scope": "role-and-tenant"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-support-response",
+                  "apply-service-credit",
+                  "create-support-escalation",
+                  "link-support-incident",
+                  "merge-support-ticket",
+                  "close-support-ticket"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0.25,
+                "mode": "precise-blocker"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "commercial-support-v1:external-verifier"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.25,
+                "maxLatencyMs": 195000
+              },
+              "strategy": {
+                "qualityWeight": 0.65,
+                "costWeight": 0.2,
+                "speedWeight": 0.15,
+                "riskTolerance": 0.2,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "compiler-generated",
+                "parents": [],
+                "rationale": "Balanced quality, cost, speed, and safe completion.",
+                "knowledgeIds": [],
+                "candidateIndex": 1
+              },
+              "version": "1.0.0",
+              "fingerprint": "11b43f80913ed0d84b32a6db82108a338dea7a1f88bd73284c872025c457e10d"
+            },
+            "evidence": {
+              "candidateId": "commercial-support-candidate-1",
+              "successRate": 1,
+              "unsafeAttempts": 0,
+              "commercialBundleHash": "1b072412558f41121740638c47ada2adccdfbb377179e6f1cfb94596ba9854ce",
+              "comparisonResultHash": "d8a46ce12aafc0aab89aa0d4b901dd92c8f6957b5105f5edd983cbcccaf51b4e"
+            },
+            "status": "preserved-not-selected"
+          }
+        ],
+        "compatibility": {
+          "roleTags": [
+            "support-operations",
+            "B2B SaaS",
+            "customer-draft"
+          ],
+          "environmentTags": [
+            "support-operations",
+            "B2B SaaS",
+            "customer-draft"
+          ],
+          "policyHash": "0751e33206ce596415c922d5173486fc5338e3527f08c45758c879e09ac2ae38",
+          "authorityHash": "02d960efbed22e0734912cc4f64f8b317b36336a08789d4320250f5f8e13f339",
+          "toolsHash": "f355955e4eb2c263cdf4bbc16c2eb547ee4a1cee6c91255aec2dce8bd5508724",
+          "verifierBinding": "commercial-support-v1:external-verifier"
+        },
+        "evidenceReferences": [
+          {
+            "kind": "commercial-bundle",
+            "hash": "f123a7286415449d79bf4ac8039453435af8e10cde58c7dfda4783596ff33c08"
+          }
+        ],
+        "recordHash": "40b7769d2e9ce7205a887aa0f644e778c4db856842219ffa816260618ee47a4b"
+      },
+      "shadow": {
+        "candidateId": "commercial-support-candidate-1",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0,
+        "medianElapsedMs": 0,
+        "toolCalls": 5,
+        "humanInterventions": 0
+      },
+      "canarySummary": {
+        "candidateId": "commercial-support-candidate-1",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0,
+        "medianElapsedMs": 0,
+        "toolCalls": 3,
+        "humanInterventions": 0.5
+      },
+      "rollback": {
+        "requestedBy": "independent-commercial-monitor",
+        "at": "2026-08-05T01:02:00.000Z",
+        "monitoringAssessment": {
+          "action": "recommend-bounded-optimization",
+          "ready": true,
+          "reasons": [
+            "pass-rate-drift",
+            "outcome-quality-drift"
+          ],
+          "observationCount": 1,
+          "summary": {
+            "candidateId": "commercial-support-candidate-1",
+            "observations": 1,
+            "distinctCases": 1,
+            "passed": 0,
+            "passRate": 0,
+            "unsafeAttempts": 0,
+            "outcomeScore": 0.8571428571428571,
+            "modelCostUsd": 0,
+            "medianElapsedMs": 0,
+            "toolCalls": 1,
+            "humanInterventions": 0
+          }
+        },
+        "restoredRecordHash": "9e8df6134424e69daf95cf6315b612179d98640b8ca54a71da1499dcbed8eb82"
+      }
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-08-05T01:02:00.000Z",
+      "type": "challenger.offline-passed",
+      "candidateId": "commercial-support-candidate-1",
+      "summary": {
+        "candidateId": "commercial-support-candidate-1",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0,
+        "medianElapsedMs": 0.5,
+        "toolCalls": 4,
+        "humanInterventions": 0
+      }
+    },
+    {
+      "at": "2026-08-05T01:02:00.000Z",
+      "type": "challenger.shadow-started",
+      "candidateId": "commercial-support-candidate-1"
+    },
+    {
+      "at": "2026-08-05T01:02:00.000Z",
+      "type": "challenger.canary-authorized",
+      "candidateId": "commercial-support-candidate-1",
+      "fraction": 0.25,
+      "authorizedBy": "fictional-accountable-owner",
+      "summary": {
+        "candidateId": "commercial-support-candidate-1",
+        "observations": 2,
+        "distinctCases": 2,
+        "passed": 2,
+        "passRate": 1,
+        "unsafeAttempts": 0,
+        "outcomeScore": 1,
+        "modelCostUsd": 0,
+        "medianElapsedMs": 0,
+        "toolCalls": 5,
+        "humanInterventions": 0
+      }
+    },
+    {
+      "at": "2026-08-05T01:02:00.000Z",
+      "type": "challenger.promoted",
+      "candidateId": "commercial-support-candidate-1",
+      "selectionVersion": 2,
+      "recordHash": "74b79c05364d625eda6fa38fc3fa4218ebd6188a7c65f1ea4e63abaf4c6701e9"
+    },
+    {
+      "at": "2026-08-05T01:02:00.000Z",
+      "type": "challenger.rolled-back",
+      "candidateId": "commercial-support-candidate-1",
+      "requestedBy": "independent-commercial-monitor",
+      "restoredCandidateId": "imported-current-support-agent"
+    }
+  ],
+  "integrityHash": "ed4f27394ceeabc6216000f0a49625b73aee31dd3c41103ba620255af7ecb9a6"
+}

@@ -21,6 +21,7 @@
     "commercial:binding:check": "node src/experiments/commercial-binding-check.js",
     "commercial:procurement:network-rehearsal": "node src/experiments/commercial-procurement-network-rehearsal.js",
     "commercial:multi-role:network-rehearsal": "node src/experiments/commercial-multi-role-network-rehearsal.js",
+    "commercial:level15:rehearsal": "node src/experiments/commercial-level15-rehearsal.js",
     "commercial:procurement:model-plan": "node src/experiments/commercial-procurement-model-plan.js",
     "commercial:procurement:model-run": "node --env-file=.env src/experiments/commercial-procurement-model-campaign.js",
     "commercial:support:model-plan": "node src/experiments/commercial-support-model-plan.js",

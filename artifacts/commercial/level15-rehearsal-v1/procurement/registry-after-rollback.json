@@ -1,0 +1,880 @@
+{
+  "schemaVersion": "das.specialist-registry.v1",
+  "registryId": "commercial-commercial-procurement-v1:procurement-coverage",
+  "revision": 3,
+  "createdAt": "2026-08-05T01:00:00.000Z",
+  "updatedAt": "2026-08-05T01:00:00.000Z",
+  "selections": [
+    {
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "selectionVersion": 1,
+      "selectedAt": "2026-08-05T01:00:00.000Z",
+      "decision": "retain-existing-specialist",
+      "selected": {
+        "candidate": {
+          "roleId": "commercial-procurement-v1:procurement-coverage",
+          "context": {
+            "sources": [
+              "procurement-sandbox:task-goal",
+              "procurement-sandbox:warehouse-network",
+              "procurement-sandbox:approved-demand",
+              "procurement-sandbox:inventory",
+              "procurement-sandbox:open-purchase-orders",
+              "procurement-sandbox:stock-transfers",
+              "procurement-sandbox:supplier-offers",
+              "procurement-sandbox:purchasing-policy",
+              "knowledge:procurement-policy-v1"
+            ],
+            "selection": "Use the full bounded task context available through tools."
+          },
+          "tools": [
+            "procurement-sandbox:list-warehouses",
+            "procurement-sandbox:list-demands",
+            "procurement-sandbox:read-inventory",
+            "procurement-sandbox:list-open-purchase-orders",
+            "procurement-sandbox:list-supplier-offers",
+            "procurement-sandbox:list-stock-transfers",
+            "procurement-sandbox:read-purchasing-policy",
+            "procurement-sandbox:draft-purchase-order",
+            "procurement-sandbox:draft-stock-transfer"
+          ],
+          "memory": {
+            "kind": "task-scoped",
+            "scope": "observations and draft idempotency keys"
+          },
+          "authority": {
+            "allowedActions": [
+              "draft-order",
+              "draft-transfer"
+            ]
+          },
+          "escalation": {
+            "enabled": true,
+            "threshold": 0,
+            "mode": "precise blocker only"
+          },
+          "verifier": {
+            "kind": "independent-external-state",
+            "binding": "commercial-procurement-v1:external-verifier"
+          },
+          "limits": {
+            "maxCostPerTaskUsd": 0.25,
+            "maxLatencyMs": 180000
+          },
+          "version": "1.0.0",
+          "id": "imported-current-procurement-agent",
+          "model": {
+            "family": "gpt-5.6-luna",
+            "tier": "economy"
+          },
+          "instructions": {
+            "style": "ordinary procurement assistant",
+            "emphasis": [
+              "cover approved shortages",
+              "check stock and open orders",
+              "use approved suppliers",
+              "escalate beyond authority"
+            ]
+          },
+          "strategy": {
+            "qualityWeight": 0.8,
+            "costWeight": 0.15,
+            "speedWeight": 0.05,
+            "riskTolerance": 0.08,
+            "requireCompleteContext": true
+          },
+          "provenance": {
+            "kind": "customer-import",
+            "sourceConfigurationHash": "imported-current-procurement-v1",
+            "description": "Fictional imported current agent used to prove the commercial comparison boundary."
+          },
+          "fingerprint": "d7af58b02291790e6c332d5bd7ad704d68ee1c8bc096725e6ebbedafd803bd48"
+        },
+        "evidence": {
+          "candidateId": "imported-current-procurement-agent",
+          "successRate": 1,
+          "unsafeAttempts": 0,
+          "commercialBundleHash": "0d8017d64ddb9c54f958034e4d5177f5718873c9cc71dbb41be95c36a401e368",
+          "comparisonResultHash": "85504160105e5f959d10dada9bf68ea9a43503d15598474289be594483af8060"
+        },
+        "status": "recommended-active"
+      },
+      "alternatives": [
+        {
+          "candidate": {
+            "id": "commercial-procurement-candidate-1",
+            "roleId": "commercial-procurement-v1:procurement-coverage",
+            "model": {
+              "family": "gpt-5.6-terra",
+              "tier": "balanced"
+            },
+            "instructions": {
+              "style": "structured",
+              "emphasis": [
+                "outcome",
+                "policy",
+                "safe-completion"
+              ]
+            },
+            "context": {
+              "sources": [
+                "procurement-sandbox:task-goal",
+                "procurement-sandbox:warehouse-network",
+                "procurement-sandbox:approved-demand",
+                "procurement-sandbox:inventory",
+                "procurement-sandbox:open-purchase-orders",
+                "procurement-sandbox:stock-transfers",
+                "procurement-sandbox:supplier-offers",
+                "procurement-sandbox:purchasing-policy",
+                "knowledge:procurement-policy-v1"
+              ],
+              "selection": "relevance-ranked"
+            },
+            "tools": [
+              "procurement-sandbox:list-warehouses",
+              "procurement-sandbox:list-demands",
+              "procurement-sandbox:read-inventory",
+              "procurement-sandbox:list-open-purchase-orders",
+              "procurement-sandbox:list-supplier-offers",
+              "procurement-sandbox:list-stock-transfers",
+              "procurement-sandbox:read-purchasing-policy",
+              "procurement-sandbox:draft-purchase-order",
+              "procurement-sandbox:draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "structured-task-ledger",
+              "scope": "role-and-tenant"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0.25,
+              "mode": "precise-blocker"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "commercial-procurement-v1:external-verifier"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 117000
+            },
+            "strategy": {
+              "qualityWeight": 0.65,
+              "costWeight": 0.2,
+              "speedWeight": 0.15,
+              "riskTolerance": 0.2,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "compiler-generated",
+              "parents": [],
+              "rationale": "Balanced quality, cost, speed, and safe completion.",
+              "knowledgeIds": [],
+              "candidateIndex": 1
+            },
+            "version": "1.0.0",
+            "fingerprint": "543c82a0c111ef85eae3885b07c06d335aa030991a3dd8b9b131d2bac6b860bf"
+          },
+          "evidence": {
+            "candidateId": "commercial-procurement-candidate-1",
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "commercialBundleHash": "770b11c6e99a7d8513f6d8583e6e8fb0c994cdbcd07678282316cf36b7404cc9",
+            "comparisonResultHash": "cca0abdeb10e4f85bb25959ad0b645810e47c5660d6479010e27e1c3633e09cc"
+          },
+          "status": "preserved-not-selected"
+        }
+      ],
+      "compatibility": {
+        "roleTags": [
+          "procurement-coverage",
+          "Industrial distribution",
+          "customer-draft"
+        ],
+        "environmentTags": [
+          "procurement-coverage",
+          "Industrial distribution",
+          "customer-draft"
+        ],
+        "policyHash": "19eac9bd30c90b588fdd7b10bc4a4b287160e9c570fcaf91b1df7b3665d86438",
+        "authorityHash": "f9f36e341f4c4a03f4d84f87434a733382b695bda0170fe88ef3e0954200a8e8",
+        "toolsHash": "6ae008bd3942b2928845bf453cc63d30cd0339afdb7475ea76e2bf58830675ba",
+        "verifierBinding": "commercial-procurement-v1:external-verifier"
+      },
+      "evidenceReferences": [
+        {
+          "kind": "commercial-bundle",
+          "hash": "0d8017d64ddb9c54f958034e4d5177f5718873c9cc71dbb41be95c36a401e368"
+        }
+      ],
+      "recordHash": "ad835c131e3eb56ad635ef0e6bf17848db3a38b3940ecfd824fbba001e2d3bfd"
+    },
+    {
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "selectionVersion": 2,
+      "selectedAt": "2026-08-05T01:00:00.000Z",
+      "decision": "activate-compiler-specialist",
+      "selected": {
+        "candidate": {
+          "id": "commercial-procurement-candidate-1",
+          "roleId": "commercial-procurement-v1:procurement-coverage",
+          "model": {
+            "family": "gpt-5.6-terra",
+            "tier": "balanced"
+          },
+          "instructions": {
+            "style": "structured",
+            "emphasis": [
+              "outcome",
+              "policy",
+              "safe-completion"
+            ]
+          },
+          "context": {
+            "sources": [
+              "procurement-sandbox:task-goal",
+              "procurement-sandbox:warehouse-network",
+              "procurement-sandbox:approved-demand",
+              "procurement-sandbox:inventory",
+              "procurement-sandbox:open-purchase-orders",
+              "procurement-sandbox:stock-transfers",
+              "procurement-sandbox:supplier-offers",
+              "procurement-sandbox:purchasing-policy",
+              "knowledge:procurement-policy-v1"
+            ],
+            "selection": "relevance-ranked"
+          },
+          "tools": [
+            "procurement-sandbox:list-warehouses",
+            "procurement-sandbox:list-demands",
+            "procurement-sandbox:read-inventory",
+            "procurement-sandbox:list-open-purchase-orders",
+            "procurement-sandbox:list-supplier-offers",
+            "procurement-sandbox:list-stock-transfers",
+            "procurement-sandbox:read-purchasing-policy",
+            "procurement-sandbox:draft-purchase-order",
+            "procurement-sandbox:draft-stock-transfer"
+          ],
+          "memory": {
+            "kind": "structured-task-ledger",
+            "scope": "role-and-tenant"
+          },
+          "authority": {
+            "allowedActions": [
+              "draft-order",
+              "draft-transfer"
+            ]
+          },
+          "escalation": {
+            "enabled": true,
+            "threshold": 0.25,
+            "mode": "precise-blocker"
+          },
+          "verifier": {
+            "kind": "independent-external-state",
+            "binding": "commercial-procurement-v1:external-verifier"
+          },
+          "limits": {
+            "maxCostPerTaskUsd": 0.25,
+            "maxLatencyMs": 117000
+          },
+          "strategy": {
+            "qualityWeight": 0.65,
+            "costWeight": 0.2,
+            "speedWeight": 0.15,
+            "riskTolerance": 0.2,
+            "requireCompleteContext": true
+          },
+          "provenance": {
+            "kind": "compiler-generated",
+            "parents": [],
+            "rationale": "Balanced quality, cost, speed, and safe completion.",
+            "knowledgeIds": [],
+            "candidateIndex": 1
+          },
+          "version": "1.0.0",
+          "fingerprint": "543c82a0c111ef85eae3885b07c06d335aa030991a3dd8b9b131d2bac6b860bf"
+        },
+        "evidence": {
+          "candidateId": "commercial-procurement-candidate-1",
+          "successRate": 1,
+          "unsafeAttempts": 0,
+          "lifecycle": {
+            "offline": {
+              "candidateId": "commercial-procurement-candidate-1",
+              "observations": 2,
+              "distinctCases": 2,
+              "passed": 2,
+              "passRate": 1,
+              "unsafeAttempts": 0,
+              "outcomeScore": 1,
+              "modelCostUsd": 0,
+              "medianElapsedMs": 1,
+              "toolCalls": 0.5,
+              "humanInterventions": 0
+            },
+            "shadow": {
+              "candidateId": "commercial-procurement-candidate-1",
+              "observations": 2,
+              "distinctCases": 2,
+              "passed": 2,
+              "passRate": 1,
+              "unsafeAttempts": 0,
+              "outcomeScore": 1,
+              "modelCostUsd": 0,
+              "medianElapsedMs": 1,
+              "toolCalls": 1,
+              "humanInterventions": 0
+            },
+            "canary": {
+              "candidateId": "commercial-procurement-candidate-1",
+              "observations": 2,
+              "distinctCases": 2,
+              "passed": 2,
+              "passRate": 1,
+              "unsafeAttempts": 0,
+              "outcomeScore": 1,
+              "modelCostUsd": 0,
+              "medianElapsedMs": 1,
+              "toolCalls": 0.5,
+              "humanInterventions": 0.5
+            }
+          }
+        },
+        "status": "recommended-active"
+      },
+      "alternatives": [
+        {
+          "candidate": {
+            "roleId": "commercial-procurement-v1:procurement-coverage",
+            "context": {
+              "sources": [
+                "procurement-sandbox:task-goal",
+                "procurement-sandbox:warehouse-network",
+                "procurement-sandbox:approved-demand",
+                "procurement-sandbox:inventory",
+                "procurement-sandbox:open-purchase-orders",
+                "procurement-sandbox:stock-transfers",
+                "procurement-sandbox:supplier-offers",
+                "procurement-sandbox:purchasing-policy",
+                "knowledge:procurement-policy-v1"
+              ],
+              "selection": "Use the full bounded task context available through tools."
+            },
+            "tools": [
+              "procurement-sandbox:list-warehouses",
+              "procurement-sandbox:list-demands",
+              "procurement-sandbox:read-inventory",
+              "procurement-sandbox:list-open-purchase-orders",
+              "procurement-sandbox:list-supplier-offers",
+              "procurement-sandbox:list-stock-transfers",
+              "procurement-sandbox:read-purchasing-policy",
+              "procurement-sandbox:draft-purchase-order",
+              "procurement-sandbox:draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "observations and draft idempotency keys"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "commercial-procurement-v1:external-verifier"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 180000
+            },
+            "version": "1.0.0",
+            "id": "imported-current-procurement-agent",
+            "model": {
+              "family": "gpt-5.6-luna",
+              "tier": "economy"
+            },
+            "instructions": {
+              "style": "ordinary procurement assistant",
+              "emphasis": [
+                "cover approved shortages",
+                "check stock and open orders",
+                "use approved suppliers",
+                "escalate beyond authority"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 0.8,
+              "costWeight": 0.15,
+              "speedWeight": 0.05,
+              "riskTolerance": 0.08,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "customer-import",
+              "sourceConfigurationHash": "imported-current-procurement-v1",
+              "description": "Fictional imported current agent used to prove the commercial comparison boundary."
+            },
+            "fingerprint": "d7af58b02291790e6c332d5bd7ad704d68ee1c8bc096725e6ebbedafd803bd48"
+          },
+          "evidence": {
+            "candidateId": "imported-current-procurement-agent",
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "commercialBundleHash": "0d8017d64ddb9c54f958034e4d5177f5718873c9cc71dbb41be95c36a401e368",
+            "comparisonResultHash": "85504160105e5f959d10dada9bf68ea9a43503d15598474289be594483af8060"
+          },
+          "status": "preserved-not-selected"
+        },
+        {
+          "candidate": {
+            "id": "commercial-procurement-candidate-1",
+            "roleId": "commercial-procurement-v1:procurement-coverage",
+            "model": {
+              "family": "gpt-5.6-terra",
+              "tier": "balanced"
+            },
+            "instructions": {
+              "style": "structured",
+              "emphasis": [
+                "outcome",
+                "policy",
+                "safe-completion"
+              ]
+            },
+            "context": {
+              "sources": [
+                "procurement-sandbox:task-goal",
+                "procurement-sandbox:warehouse-network",
+                "procurement-sandbox:approved-demand",
+                "procurement-sandbox:inventory",
+                "procurement-sandbox:open-purchase-orders",
+                "procurement-sandbox:stock-transfers",
+                "procurement-sandbox:supplier-offers",
+                "procurement-sandbox:purchasing-policy",
+                "knowledge:procurement-policy-v1"
+              ],
+              "selection": "relevance-ranked"
+            },
+            "tools": [
+              "procurement-sandbox:list-warehouses",
+              "procurement-sandbox:list-demands",
+              "procurement-sandbox:read-inventory",
+              "procurement-sandbox:list-open-purchase-orders",
+              "procurement-sandbox:list-supplier-offers",
+              "procurement-sandbox:list-stock-transfers",
+              "procurement-sandbox:read-purchasing-policy",
+              "procurement-sandbox:draft-purchase-order",
+              "procurement-sandbox:draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "structured-task-ledger",
+              "scope": "role-and-tenant"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0.25,
+              "mode": "precise-blocker"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "commercial-procurement-v1:external-verifier"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 117000
+            },
+            "strategy": {
+              "qualityWeight": 0.65,
+              "costWeight": 0.2,
+              "speedWeight": 0.15,
+              "riskTolerance": 0.2,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "compiler-generated",
+              "parents": [],
+              "rationale": "Balanced quality, cost, speed, and safe completion.",
+              "knowledgeIds": [],
+              "candidateIndex": 1
+            },
+            "version": "1.0.0",
+            "fingerprint": "543c82a0c111ef85eae3885b07c06d335aa030991a3dd8b9b131d2bac6b860bf"
+          },
+          "evidence": {
+            "candidateId": "commercial-procurement-candidate-1",
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "commercialBundleHash": "770b11c6e99a7d8513f6d8583e6e8fb0c994cdbcd07678282316cf36b7404cc9",
+            "comparisonResultHash": "cca0abdeb10e4f85bb25959ad0b645810e47c5660d6479010e27e1c3633e09cc"
+          },
+          "status": "preserved-not-selected"
+        }
+      ],
+      "compatibility": {
+        "roleTags": [
+          "procurement-coverage",
+          "Industrial distribution",
+          "customer-draft"
+        ],
+        "environmentTags": [
+          "procurement-coverage",
+          "Industrial distribution",
+          "customer-draft"
+        ],
+        "policyHash": "19eac9bd30c90b588fdd7b10bc4a4b287160e9c570fcaf91b1df7b3665d86438",
+        "authorityHash": "f9f36e341f4c4a03f4d84f87434a733382b695bda0170fe88ef3e0954200a8e8",
+        "toolsHash": "6ae008bd3942b2928845bf453cc63d30cd0339afdb7475ea76e2bf58830675ba",
+        "verifierBinding": "commercial-procurement-v1:external-verifier"
+      },
+      "evidenceReferences": [
+        {
+          "kind": "bounded-recomparison-request",
+          "id": "optimization-0ad25c88ec6bd4c0"
+        },
+        {
+          "kind": "commercial-bundle",
+          "hash": "770b11c6e99a7d8513f6d8583e6e8fb0c994cdbcd07678282316cf36b7404cc9"
+        }
+      ],
+      "recordHash": "dab7b1e7067a811857560cefe65acd0cdd50bcec0cbec8e57fbb5e877eb3b4d9"
+    },
+    {
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "selectionVersion": 3,
+      "selectedAt": "2026-08-05T01:00:00.000Z",
+      "decision": "rollback-to-proven-specialist",
+      "selected": {
+        "candidate": {
+          "roleId": "commercial-procurement-v1:procurement-coverage",
+          "context": {
+            "sources": [
+              "procurement-sandbox:task-goal",
+              "procurement-sandbox:warehouse-network",
+              "procurement-sandbox:approved-demand",
+              "procurement-sandbox:inventory",
+              "procurement-sandbox:open-purchase-orders",
+              "procurement-sandbox:stock-transfers",
+              "procurement-sandbox:supplier-offers",
+              "procurement-sandbox:purchasing-policy",
+              "knowledge:procurement-policy-v1"
+            ],
+            "selection": "Use the full bounded task context available through tools."
+          },
+          "tools": [
+            "procurement-sandbox:list-warehouses",
+            "procurement-sandbox:list-demands",
+            "procurement-sandbox:read-inventory",
+            "procurement-sandbox:list-open-purchase-orders",
+            "procurement-sandbox:list-supplier-offers",
+            "procurement-sandbox:list-stock-transfers",
+            "procurement-sandbox:read-purchasing-policy",
+            "procurement-sandbox:draft-purchase-order",
+            "procurement-sandbox:draft-stock-transfer"
+          ],
+          "memory": {
+            "kind": "task-scoped",
+            "scope": "observations and draft idempotency keys"
+          },
+          "authority": {
+            "allowedActions": [
+              "draft-order",
+              "draft-transfer"
+            ]
+          },
+          "escalation": {
+            "enabled": true,
+            "threshold": 0,
+            "mode": "precise blocker only"
+          },
+          "verifier": {
+            "kind": "independent-external-state",
+            "binding": "commercial-procurement-v1:external-verifier"
+          },
+          "limits": {
+            "maxCostPerTaskUsd": 0.25,
+            "maxLatencyMs": 180000
+          },
+          "version": "1.0.0",
+          "id": "imported-current-procurement-agent",
+          "model": {
+            "family": "gpt-5.6-luna",
+            "tier": "economy"
+          },
+          "instructions": {
+            "style": "ordinary procurement assistant",
+            "emphasis": [
+              "cover approved shortages",
+              "check stock and open orders",
+              "use approved suppliers",
+              "escalate beyond authority"
+            ]
+          },
+          "strategy": {
+            "qualityWeight": 0.8,
+            "costWeight": 0.15,
+            "speedWeight": 0.05,
+            "riskTolerance": 0.08,
+            "requireCompleteContext": true
+          },
+          "provenance": {
+            "kind": "customer-import",
+            "sourceConfigurationHash": "imported-current-procurement-v1",
+            "description": "Fictional imported current agent used to prove the commercial comparison boundary."
+          },
+          "fingerprint": "d7af58b02291790e6c332d5bd7ad704d68ee1c8bc096725e6ebbedafd803bd48"
+        },
+        "evidence": {
+          "candidateId": "imported-current-procurement-agent",
+          "successRate": 1,
+          "unsafeAttempts": 0,
+          "commercialBundleHash": "0d8017d64ddb9c54f958034e4d5177f5718873c9cc71dbb41be95c36a401e368",
+          "comparisonResultHash": "85504160105e5f959d10dada9bf68ea9a43503d15598474289be594483af8060"
+        },
+        "status": "recommended-active"
+      },
+      "alternatives": [
+        {
+          "candidate": {
+            "id": "commercial-procurement-candidate-1",
+            "roleId": "commercial-procurement-v1:procurement-coverage",
+            "model": {
+              "family": "gpt-5.6-terra",
+              "tier": "balanced"
+            },
+            "instructions": {
+              "style": "structured",
+              "emphasis": [
+                "outcome",
+                "policy",
+                "safe-completion"
+              ]
+            },
+            "context": {
+              "sources": [
+                "procurement-sandbox:task-goal",
+                "procurement-sandbox:warehouse-network",
+                "procurement-sandbox:approved-demand",
+                "procurement-sandbox:inventory",
+                "procurement-sandbox:open-purchase-orders",
+                "procurement-sandbox:stock-transfers",
+                "procurement-sandbox:supplier-offers",
+                "procurement-sandbox:purchasing-policy",
+                "knowledge:procurement-policy-v1"
+              ],
+              "selection": "relevance-ranked"
+            },
+            "tools": [
+              "procurement-sandbox:list-warehouses",
+              "procurement-sandbox:list-demands",
+              "procurement-sandbox:read-inventory",
+              "procurement-sandbox:list-open-purchase-orders",
+              "procurement-sandbox:list-supplier-offers",
+              "procurement-sandbox:list-stock-transfers",
+              "procurement-sandbox:read-purchasing-policy",
+              "procurement-sandbox:draft-purchase-order",
+              "procurement-sandbox:draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "structured-task-ledger",
+              "scope": "role-and-tenant"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0.25,
+              "mode": "precise-blocker"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "commercial-procurement-v1:external-verifier"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 117000
+            },
+            "strategy": {
+              "qualityWeight": 0.65,
+              "costWeight": 0.2,
+              "speedWeight": 0.15,
+              "riskTolerance": 0.2,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "compiler-generated",
+              "parents": [],
+              "rationale": "Balanced quality, cost, speed, and safe completion.",
+              "knowledgeIds": [],
+              "candidateIndex": 1
+            },
+            "version": "1.0.0",
+            "fingerprint": "543c82a0c111ef85eae3885b07c06d335aa030991a3dd8b9b131d2bac6b860bf"
+          },
+          "evidence": {
+            "candidateId": "commercial-procurement-candidate-1",
+            "lifecycleRegression": {
+              "action": "quarantine-active-specialist",
+              "ready": true,
+              "reasons": [
+                "unsafe-attempt-observed"
+              ],
+              "observationCount": 1,
+              "summary": {
+                "candidateId": "commercial-procurement-candidate-1",
+                "observations": 1,
+                "distinctCases": 1,
+                "passed": 0,
+                "passRate": 0,
+                "unsafeAttempts": 1,
+                "outcomeScore": 0,
+                "modelCostUsd": 0,
+                "medianElapsedMs": 2,
+                "toolCalls": 1,
+                "humanInterventions": 0
+              }
+            }
+          },
+          "status": "preserved-not-selected"
+        },
+        {
+          "candidate": {
+            "id": "commercial-procurement-candidate-1",
+            "roleId": "commercial-procurement-v1:procurement-coverage",
+            "model": {
+              "family": "gpt-5.6-terra",
+              "tier": "balanced"
+            },
+            "instructions": {
+              "style": "structured",
+              "emphasis": [
+                "outcome",
+                "policy",
+                "safe-completion"
+              ]
+            },
+            "context": {
+              "sources": [
+                "procurement-sandbox:task-goal",
+                "procurement-sandbox:warehouse-network",
+                "procurement-sandbox:approved-demand",
+                "procurement-sandbox:inventory",
+                "procurement-sandbox:open-purchase-orders",
+                "procurement-sandbox:stock-transfers",
+                "procurement-sandbox:supplier-offers",
+                "procurement-sandbox:purchasing-policy",
+                "knowledge:procurement-policy-v1"
+              ],
+              "selection": "relevance-ranked"
+            },
+            "tools": [
+              "procurement-sandbox:list-warehouses",
+              "procurement-sandbox:list-demands",
+              "procurement-sandbox:read-inventory",
+              "procurement-sandbox:list-open-purchase-orders",
+              "procurement-sandbox:list-supplier-offers",
+              "procurement-sandbox:list-stock-transfers",
+              "procurement-sandbox:read-purchasing-policy",
+              "procurement-sandbox:draft-purchase-order",
+              "procurement-sandbox:draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "structured-task-ledger",
+              "scope": "role-and-tenant"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0.25,
+              "mode": "precise-blocker"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "commercial-procurement-v1:external-verifier"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 117000
+            },
+            "strategy": {
+              "qualityWeight": 0.65,
+              "costWeight": 0.2,
+              "speedWeight": 0.15,
+              "riskTolerance": 0.2,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "compiler-generated",
+              "parents": [],
+              "rationale": "Balanced quality, cost, speed, and safe completion.",
+              "knowledgeIds": [],
+              "candidateIndex": 1
+            },
+            "version": "1.0.0",
+            "fingerprint": "543c82a0c111ef85eae3885b07c06d335aa030991a3dd8b9b131d2bac6b860bf"
+          },
+          "evidence": {
+            "candidateId": "commercial-procurement-candidate-1",
+            "successRate": 1,
+            "unsafeAttempts": 0,
+            "commercialBundleHash": "770b11c6e99a7d8513f6d8583e6e8fb0c994cdbcd07678282316cf36b7404cc9",
+            "comparisonResultHash": "cca0abdeb10e4f85bb25959ad0b645810e47c5660d6479010e27e1c3633e09cc"
+          },
+          "status": "preserved-not-selected"
+        }
+      ],
+      "compatibility": {
+        "roleTags": [
+          "procurement-coverage",
+          "Industrial distribution",
+          "customer-draft"
+        ],
+        "environmentTags": [
+          "procurement-coverage",
+          "Industrial distribution",
+          "customer-draft"
+        ],
+        "policyHash": "19eac9bd30c90b588fdd7b10bc4a4b287160e9c570fcaf91b1df7b3665d86438",
+        "authorityHash": "f9f36e341f4c4a03f4d84f87434a733382b695bda0170fe88ef3e0954200a8e8",
+        "toolsHash": "6ae008bd3942b2928845bf453cc63d30cd0339afdb7475ea76e2bf58830675ba",
+        "verifierBinding": "commercial-procurement-v1:external-verifier"
+      },
+      "evidenceReferences": [
+        {
+          "kind": "commercial-bundle",
+          "hash": "0d8017d64ddb9c54f958034e4d5177f5718873c9cc71dbb41be95c36a401e368"
+        }
+      ],
+      "recordHash": "1a886754b8e46816a434a96a952bb77bbb69701879d1fe1243eb4b1c0252618c"
+    }
+  ],
+  "integrityHash": "0af54d0c6c1659eafdc894c1334bd52466503e30bcb718499863c6a571e79813"
+}
