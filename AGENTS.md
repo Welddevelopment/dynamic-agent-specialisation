@@ -325,3 +325,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Mixed-model pricing is resolved per model. Operational evaluation cost and incremental campaign spend are now separate, so cached resumes neither erase real operating cost nor double-charge campaign spend. Model-reported latency remains distinct from replay wall time.
 - The full local suite passes 183/183. The paid campaign was not run, so there is no fresh model-backed commercial result or improvement claim.
 - See `reports/0064-resumable-commercial-model-campaign.md` and `artifacts/commercial/procurement-v1/model-campaign-plan.json`.
+
+## Commercial runtime monitoring — 2026-08-05
+
+- The customer-local commercial path now converts each completed sanitized run into persistent, version-specific independent outcome evidence bound to the exact specialist bundle, activation and verifier.
+- One verified unsafe attempt or incorrect side effect halts new work immediately. Ordinary outcome, cost or latency drift waits for the configured evidence minimum and may create only a no-spend `awaiting-explicit-approval` re-comparison request.
+- Duplicate run receipts do not inflate monitoring. Owner-only state survives restart, detects mutation and can backfill completed ledger receipts without rerunning their business actions.
+- The sidecar exposes authenticated `GET /v1/operations` status without exposing credentials or raw customer records. Its local package now reserves a separate operations-state path.
+- The updated disposable network rehearsal joined package → loopback submit → action → independent verification → durable run → monitoring → duplicate suppression with one intended write, zero incorrect effects, one observation, zero model calls and zero spend.
+- The full local suite passes 187/187. This is fictional deterministic local evidence, not a model-backed improvement result, customer deployment, real drift proof or complete Level 1.5 replacement cycle.
+- See `reports/0065-commercial-runtime-monitoring.md`.

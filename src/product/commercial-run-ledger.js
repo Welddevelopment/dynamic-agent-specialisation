@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { digest } from "../core/canonical.js";
+import { assertCommercialSpecialistRunReceipt } from "./commercial-specialist-interop.js";
 
 const STATUSES = new Set(["pending", "completed", "outcome-unknown", "retry-authorized", "incorrect-outcome"]);
 const RESOLUTIONS = new Set(["completed", "not-started", "incorrect", "unknown"]);
@@ -17,8 +18,7 @@ function assertRecord(record) {
 function sealRecord(record) { return { ...record, recordHash: digest(record) }; }
 
 function assertRunResult(result, { requestHash, bundleHash, activationHash }) {
-  requireCondition(result?.schemaVersion === "das.commercial-specialist-run.v1", "Unsupported sanitized commercial run receipt");
-  requireCondition(result.runReceiptHash && digest(withoutHash(result, "runReceiptHash")) === result.runReceiptHash, "Sanitized commercial run receipt integrity mismatch");
+  assertCommercialSpecialistRunReceipt(result);
   requireCondition(result.requestHash === requestHash && result.bundleHash === bundleHash && result.activationHash === activationHash, "Sanitized commercial run receipt does not belong to the reserved request and activation");
   return true;
 }

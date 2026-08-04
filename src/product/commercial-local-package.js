@@ -37,6 +37,7 @@ export function prepareCommercialLocalPackage({ directory, bundle, activation, a
     activationHash: activation.activationHash,
     stateDirectory: FILES.state,
     runLedgerFile: `${FILES.state}/runs.json`,
+    operationsStateFile: `${FILES.state}/operations.json`,
     accessTokenFile: FILES.token,
     credentialPolicy: "Secrets stay in owner-only customer-local files and are never copied into evidence exports.",
   };
@@ -115,6 +116,7 @@ export function loadCommercialLocalPackage({ directory }) {
     activation: readJson(path.join(root, FILES.activation)),
     accessToken: fs.readFileSync(path.join(root, FILES.token), "utf8").trim(),
     ledgerPath: path.join(root, FILES.state, "runs.json"),
+    operationsPath: path.join(root, FILES.state, "operations.json"),
     diagnostics,
   });
 }

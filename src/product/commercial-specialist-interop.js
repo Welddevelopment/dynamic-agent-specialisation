@@ -6,16 +6,27 @@ function clean(value, maximum) { return String(value ?? "").trim().slice(0, maxi
 
 function publicVerification(verification) {
   if (!verification) return null;
+  const unsafeAttempts = Array.isArray(verification.unsafeSideEffects)
+    ? verification.unsafeSideEffects.length
+    : verification.checks?.noDeniedAttempts === false ? 1 : Number(verification.unsafeAttempts ?? 0);
+  const incorrectSideEffects = Number(verification.incorrectSideEffects ?? (verification.recoveryClass === "incorrect-side-effect" ? 1 : 0));
   return {
     passed: verification.passed === true,
     verifierId: clean(verification.verifierId, 240) || null,
     independent: verification.independent === true,
     recoveryClass: clean(verification.recoveryClass, 120) || null,
+    outcomeScore: Number(verification.outcomeScore ?? (verification.passed ? 1 : 0)),
+    unsafeAttempts: Number.isFinite(unsafeAttempts) && unsafeAttempts >= 0 ? unsafeAttempts : 0,
+    incorrectSideEffects: Number.isFinite(incorrectSideEffects) && incorrectSideEffects >= 0 ? incorrectSideEffects : 0,
     checks: verification.checks && typeof verification.checks === "object" ? structuredClone(verification.checks) : null,
   };
 }
 
-function publicRunResult({ result, requestId, requestHash, bundle, activation }) {
+function publicRunResult({ result, requestId, requestHash, bundle, activation, toolHost }) {
+  const observations = Array.isArray(result?.session?.observations) ? result.session.observations : [];
+  const businessWritesCommitted = typeof toolHost?.requiredAction === "function"
+    ? observations.filter((item) => item?.tool && toolHost.requiredAction(item.tool)).length
+    : 0;
   const record = {
     schemaVersion: "das.commercial-specialist-run.v1",
     requestId,
@@ -27,9 +38,11 @@ function publicRunResult({ result, requestId, requestHash, bundle, activation })
     reason: clean(result?.reason, 400) || null,
     blocker: clean(result?.blocker, 400) || null,
     verification: publicVerification(result?.verification),
+    execution: { businessWritesCommitted },
     metering: {
       modelCostUsd: Number(result?.session?.modelCostUsd ?? 0),
       elapsedMs: Number(result?.session?.elapsedMs ?? 0),
+      modelElapsedMs: Number(result?.session?.modelElapsedMs ?? result?.session?.elapsedMs ?? 0),
     },
     evidenceBoundary: "Sanitized host result. Raw observations, tool payloads, credentials and customer records remain inside the customer-controlled runtime.",
   };
@@ -79,12 +92,39 @@ export function createCommercialSpecialistInvoker({ bundle, activation, runtime,
         requireCondition(bindings?.toolHost && bindings?.externalVerifier, "The customer-local binding factory did not supply the tool host and independent verifier");
         requireCondition(bindings.externalVerifier.id === bundle.verifier.binding, "The supplied verifier does not match the activated specialist");
         const result = await runtime.run({ tenantId: fixedTenantId, candidate: bundle.selected.candidate, goal, toolHost: bindings.toolHost, externalVerifier: bindings.externalVerifier });
-        return publicRunResult({ result, requestId, requestHash, bundle, activation });
+        return publicRunResult({ result, requestId, requestHash, bundle, activation, toolHost: bindings.toolHost });
       })();
       requests.set(requestId, { requestHash, promise });
       return promise;
     },
   });
+}
+
+export function assertCommercialSpecialistRunReceipt(receipt, { bundle = null, activation = null } = {}) {
+  requireCondition(receipt?.schemaVersion === "das.commercial-specialist-run.v1", "Unsupported commercial specialist run receipt");
+  const copy = structuredClone(receipt);
+  const expected = copy.runReceiptHash;
+  delete copy.runReceiptHash;
+  requireCondition(expected && digest(copy) === expected, "Commercial specialist run receipt integrity mismatch");
+  requireCondition(receipt.requestId && receipt.requestHash && receipt.roleId && receipt.bundleHash && receipt.activationHash, "Commercial specialist run receipt identity is incomplete");
+  requireCondition(Number.isFinite(receipt.metering?.modelCostUsd) && receipt.metering.modelCostUsd >= 0, "Commercial run cost is invalid");
+  requireCondition(Number.isFinite(receipt.metering?.modelElapsedMs) && receipt.metering.modelElapsedMs >= 0, "Commercial run model latency is invalid");
+  requireCondition(Number.isInteger(receipt.execution?.businessWritesCommitted) && receipt.execution.businessWritesCommitted >= 0, "Commercial run write count is invalid");
+  if (receipt.verification) {
+    requireCondition(receipt.verification.independent === true && receipt.verification.verifierId, "Commercial run verification is not independently bound");
+    for (const [label, value] of [["outcome score", receipt.verification.outcomeScore], ["unsafe attempts", receipt.verification.unsafeAttempts], ["incorrect side effects", receipt.verification.incorrectSideEffects]]) requireCondition(Number.isFinite(value) && value >= 0, `Commercial run ${label} is invalid`);
+    requireCondition(receipt.verification.outcomeScore <= 1, "Commercial run outcome score cannot exceed one");
+  }
+  if (bundle) {
+    assertCommercialSpecialistBundle(bundle);
+    requireCondition(receipt.roleId === bundle.role.id && receipt.bundleHash === bundle.bundleHash, "Commercial run receipt belongs to another specialist bundle");
+    if (receipt.verification) requireCondition(receipt.verification.verifierId === bundle.verifier.binding, "Commercial run receipt uses the wrong verifier");
+  }
+  if (activation) {
+    assertCommercialActivationReceipt(activation, bundle ? { bundle } : undefined);
+    requireCondition(receipt.activationHash === activation.activationHash, "Commercial run receipt belongs to another activation");
+  }
+  return true;
 }
 
 export function createLangGraphSpecialistNode({ invoker, goalField = "goal", requestIdField = "requestId", resultField = "specialistResult" }) {

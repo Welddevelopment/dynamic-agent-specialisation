@@ -63,6 +63,30 @@ test("dispatcher requires authentication and exposes durable status without cred
   assert.equal(JSON.stringify(status.body).includes(token), false);
 });
 
+test("durable host gates new runs through customer-local operations and exposes status", async () => {
+  const value = await fixture();
+  let halted = false;
+  const ingested = [];
+  const operations = {
+    assertMayRun() { if (halted) throw new Error("specialist halted"); },
+    ingestRun(result) { ingested.push(result.runReceiptHash); },
+    status() { return { state: halted ? "halted" : "operating", observationCount: ingested.length }; },
+  };
+  const host = createDurableCommercialSpecialistHost({ ...value, operations, reconcileUnknown: async () => { throw new Error("not needed"); } });
+  const token = "a-32-byte-minimum-local-access-token";
+  const dispatch = createCommercialSidecarDispatcher({ host, bundle: value.bundle, activation: value.activation, accessToken: token });
+  const authorization = `Bearer ${token}`;
+  const first = await dispatch({ method: "POST", pathname: "/v1/runs", authorization, body: { requestId: "observed-1", goal: "Cover demand." } });
+  assert.equal(first.status, 200);
+  assert.equal(ingested.length, 1);
+  const status = await dispatch({ method: "GET", pathname: "/v1/operations", authorization });
+  assert.deepEqual(status.body, { state: "operating", observationCount: 1 });
+  halted = true;
+  const blocked = await dispatch({ method: "POST", pathname: "/v1/runs", authorization, body: { requestId: "observed-2", goal: "Cover demand." } });
+  assert.equal(blocked.status, 409);
+  assert.match(blocked.body.error, /halted/);
+});
+
 test("ledger detects on-disk mutation before restart", async () => {
   const value = await fixture();
   value.ledger.reserve({ requestId: "tamper-1", requestHash: "hash-1" });

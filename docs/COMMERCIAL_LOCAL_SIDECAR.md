@@ -15,8 +15,9 @@ Before startup, the embedding application must supply:
 3. the DAS specialist runtime;
 4. a factory that creates the exact customer-local tool host and activated independent verifier for each run;
 5. a fixed tenant id;
-6. a private ledger path; and
-7. an independent unknown-outcome reconciliation callback.
+6. a private ledger path;
+7. an independent unknown-outcome reconciliation callback; and
+8. optionally, the bound customer-local lifecycle monitor used to halt unsafe work and request a new comparison after measured drift.
 
 These are code-level activation requirements. A role description or saved onboarding session is not sufficient.
 
@@ -46,6 +47,12 @@ Every endpoint requires `Authorization: Bearer <customer-local-token>`.
 `GET /v1/specialist`
 
 Returns role, bundle and activation identifiers. It does not return candidate prompts, credentials or customer data.
+
+### Inspect operations
+
+`GET /v1/operations`
+
+Returns the active specialist's customer-local monitoring state, observation count, latest independent assessment, any halt, and any bounded re-comparison request. It does not start a comparison, authorize model spend or promote a replacement.
 
 ### Submit a goal
 
@@ -83,6 +90,15 @@ A process crash may occur after an external write but before the result reaches 
 
 This is intentionally conservative. A missed action is recoverable; an accidental duplicate or compounding write may not be.
 
+## Runtime monitoring rule
+
+When lifecycle monitoring is attached, each completed run receipt preserves only aggregate outcome, safety, write-count, cost and model-latency measurements bound to the activated independent verifier. Duplicate receipts do not count twice.
+
+- A verified unsafe attempt or incorrect side effect halts new work immediately.
+- Ordinary quality, cost or latency drift is assessed only after the configured evidence minimum.
+- Measured drift may create one integrity-bound re-comparison request, but the request is `awaiting-explicit-approval`, carries no spend authorization and cannot promote anything.
+- The run ledger remains authoritative if monitoring persistence fails after execution. On restart, `reconcileLedger` can backfill any completed receipt missing from monitoring without re-running the business action.
+
 ## Evidence boundary
 
-The loopback transport, authentication dispatcher, integrity-checked ledger, duplicate suppression, restart rule, private package assembly and readiness diagnostics are locally implemented and tested. This is not a signed installer, managed daemon, production deployment, remote service, external security review or proof against process-kill timing on a customer system.
+The loopback transport, authentication dispatcher, integrity-checked ledger, duplicate suppression, restart rule, persistent independent-outcome monitoring, immediate safety halt, no-spend drift request, private package assembly and readiness diagnostics are locally implemented and tested. This is not a signed installer, managed daemon, production deployment, remote service, external security review, proof against process-kill timing on a customer system, or a complete model-backed Level 1.5 replacement cycle.

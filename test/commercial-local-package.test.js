@@ -27,6 +27,7 @@ test("commercial package is private, exact-bound, ready and credential-redacted"
   const diagnostics = diagnoseCommercialLocalPackage({ directory });
   const loaded = loadCommercialLocalPackage({ directory });
   assert.equal(diagnostics.ready, true);
+  assert.equal(loaded.operationsPath, path.join(directory, "state", "operations.json"));
   assert.equal(loaded.bundle.bundleHash, bundle.bundleHash);
   assert.equal(loaded.accessToken, token);
   assert.equal(JSON.stringify(prepared.receipt).includes(token), false);

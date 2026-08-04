@@ -9,6 +9,7 @@ import { CommercialComparisonRunner } from "../product/commercial-comparison-run
 import { createDurableCommercialSpecialistHost } from "../product/commercial-durable-host.js";
 import { createCommercialLocalSidecar, createCommercialSidecarDispatcher } from "../product/commercial-local-sidecar.js";
 import { loadCommercialLocalPackage, prepareCommercialLocalPackage } from "../product/commercial-local-package.js";
+import { CommercialSpecialistOperations } from "../product/commercial-operations.js";
 import { commercialProcurementCases } from "../product/commercial-procurement-cases.js";
 import { CommercialProcurementToolHost, CommercialProcurementVerifier, createCommercialProcurementPack } from "../product/commercial-procurement-pack.js";
 import { DurableCommercialRunLedger } from "../product/commercial-run-ledger.js";
@@ -69,7 +70,8 @@ const invoker = createCommercialSpecialistInvoker({
   },
 });
 const ledger = new DurableCommercialRunLedger({ filePath: localPackage.ledgerPath, roleId: bundle.role.id, bundleHash: bundle.bundleHash, activationHash: activation.activationHash, processEpoch: "network-rehearsal-v1" });
-const durableHost = createDurableCommercialSpecialistHost({ bundle, activation, invoker, ledger, reconcileUnknown: async () => ({ classification: "unknown", independent: true, verifierId: bundle.verifier.binding }) });
+const operations = new CommercialSpecialistOperations({ bundle, activation, filePath: localPackage.operationsPath });
+const durableHost = createDurableCommercialSpecialistHost({ bundle, activation, invoker, ledger, operations, reconcileUnknown: async () => ({ classification: "unknown", independent: true, verifierId: bundle.verifier.binding }) });
 const dispatch = createCommercialSidecarDispatcher({ host: durableHost, bundle, activation, accessToken: localPackage.accessToken });
 const sidecar = createCommercialLocalSidecar({ dispatch });
 const address = await sidecar.listen({ hostname: "127.0.0.1", port: 0 });
@@ -77,20 +79,26 @@ const address = await sidecar.listen({ hostname: "127.0.0.1", port: 0 });
 let firstResponse;
 let statusResponse;
 let duplicateResponse;
+let operationsResponse;
 try {
   const url = `http://127.0.0.1:${address.port}`;
   const headers = { authorization: `Bearer ${localPackage.accessToken}`, "content-type": "application/json" };
   firstResponse = await fetch(`${url}/v1/runs`, { method: "POST", headers, body: JSON.stringify({ requestId: "procurement-network-rehearsal-1", goal: task.goal }) });
   const first = await firstResponse.json();
-  assert.equal(firstResponse.status, 200);
+  assert.equal(firstResponse.status, 200, JSON.stringify(first));
   assert.equal(first.status, "completed");
   assert.equal(first.result.verification.passed, true);
   statusResponse = await fetch(`${url}/v1/runs/procurement-network-rehearsal-1`, { headers });
   const status = await statusResponse.json();
   duplicateResponse = await fetch(`${url}/v1/runs`, { method: "POST", headers, body: JSON.stringify({ requestId: "procurement-network-rehearsal-1", goal: task.goal }) });
   const duplicate = await duplicateResponse.json();
+  operationsResponse = await fetch(`${url}/v1/operations`, { headers });
+  const operationsStatus = await operationsResponse.json();
   assert.equal(statusResponse.status, 200);
   assert.equal(duplicateResponse.status, 200);
+  assert.equal(operationsResponse.status, 200);
+  assert.equal(operationsStatus.state, "operating");
+  assert.equal(operationsStatus.observationCount, 1);
   assert.equal(status.recordHash, first.recordHash);
   assert.equal(duplicate.recordHash, first.recordHash);
   assert.equal(first.attempt, 1);
@@ -105,8 +113,9 @@ try {
     packageGateCount: localPackage.diagnostics.gates.length,
     loopbackOnly: address.address === "127.0.0.1",
     dynamicPort: true,
-    httpStatuses: { submit: firstResponse.status, status: statusResponse.status, duplicate: duplicateResponse.status },
+    httpStatuses: { submit: firstResponse.status, status: statusResponse.status, duplicate: duplicateResponse.status, operations: operationsResponse.status },
     run: { status: first.status, attempt: first.attempt, verificationPassed: first.result.verification.passed, recoveryClass: first.result.verification.recoveryClass, modelCostUsd: first.result.metering.modelCostUsd, duplicateSuppressed: duplicate.recordHash === first.recordHash },
+    operations: { state: operationsStatus.state, observationCount: operationsStatus.observationCount, spendAuthorized: operationsStatus.optimizationRequest?.spendAuthorized ?? false },
     intendedBusinessWrites: activeHost.externalState().purchaseOrders.filter((item) => item.idempotencyKey === "network-rehearsal:sku-021").length,
     incorrectSideEffects: first.result.verification.recoveryClass === "incorrect-side-effect" ? 1 : 0,
     modelCalls: 0,

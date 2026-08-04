@@ -32,6 +32,10 @@ export function createCommercialSidecarDispatcher({ host, bundle, activation, ac
   return async function dispatch({ method, pathname, authorization, body = null }) {
     if (!safeEqual(authorization, `Bearer ${token}`)) return response(401, { error: "Unauthorized" });
     if (method === "GET" && pathname === "/v1/specialist") return response(200, { roleId: bundle.role.id, title: bundle.role.title, bundleHash: bundle.bundleHash, activationHash: activation.activationHash, status: activation.status, credentialPolicy: bundle.credentialPolicy });
+    if (method === "GET" && pathname === "/v1/operations") {
+      const status = typeof host.operationsStatus === "function" ? host.operationsStatus() : null;
+      return status ? response(200, status) : response(404, { error: "Lifecycle monitoring is not configured" });
+    }
     if (method === "POST" && pathname === "/v1/runs") {
       try { return response(200, await host.submit(body)); }
       catch (error) { return response(409, { error: error instanceof Error ? error.message : String(error) }); }
