@@ -335,3 +335,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The updated disposable network rehearsal joined package → loopback submit → action → independent verification → durable run → monitoring → duplicate suppression with one intended write, zero incorrect effects, one observation, zero model calls and zero spend.
 - The full local suite passes 187/187. This is fictional deterministic local evidence, not a model-backed improvement result, customer deployment, real drift proof or complete Level 1.5 replacement cycle.
 - See `reports/0065-commercial-runtime-monitoring.md`.
+
+## One-command customer-local daemon assembly — 2026-08-05
+
+- A prepared specialist package and customer-owned bindings module can now be assembled through one launcher into the runtime, exact tenant/tool/verifier bindings, durable request ledger, monitoring state, unknown-outcome reconciler and authenticated loopback sidecar.
+- Startup validates every required binding and the exact activated verifier before listening, backfills completed run receipts into monitoring after restart, and never prints the customer-local token.
+- The real loopback procurement rehearsal now uses this same daemon assembly rather than bespoke host wiring and still passes with one intended write, zero incorrect effects, one observation, duplicate suppression, zero model calls and zero spend.
+- This is not an installer or a generic adapter generator. A customer-specific executable adapter and independent verifier remain activation inputs.
+- See `reports/0066-one-command-customer-local-daemon.md` and `docs/COMMERCIAL_LOCAL_SIDECAR.md`.

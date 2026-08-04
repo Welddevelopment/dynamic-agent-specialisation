@@ -21,6 +21,25 @@ Before startup, the embedding application must supply:
 
 These are code-level activation requirements. A role description or saved onboarding session is not sufficient.
 
+## One-command start boundary
+
+After the package and a customer-owned bindings module exist, the sidecar can be assembled and started with:
+
+```bash
+npm run commercial:sidecar -- --package /absolute/path/to/customer-local-package --bindings /absolute/path/to/customer-bindings.mjs
+```
+
+An optional `--port` may choose a fixed loopback port; otherwise the package setting is used. The launcher never prints the access token.
+
+The bindings module must export `createCommercialCustomerBindings`. That factory receives sanitized bundle/activation metadata plus the package root and must return:
+
+- the DAS specialist runtime;
+- one fixed tenant id;
+- a per-run factory for the customer-local tool host and exact activated independent verifier; and
+- the independent unknown-outcome reconciliation function.
+
+The launcher validates these boundaries, reloads the package, durable run ledger and operations state, backfills any missing completed monitoring receipts, then starts the authenticated loopback server. It cannot invent a customer adapter or verifier from a role description.
+
 ## Package preparation and diagnostics
 
 `prepareCommercialLocalPackage` creates a new owner-only directory and refuses to overwrite an existing one. It writes the exact specialist bundle, activation receipt, local configuration, generated access token, state directory and redacted package receipt.

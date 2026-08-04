@@ -6,14 +6,10 @@ import { digest } from "../core/canonical.js";
 import { TenantRoleMemory } from "../runtime/memory.js";
 import { ScriptedDecisionEngine, SpecialistAgentRuntime } from "../runtime/agent-runtime.js";
 import { CommercialComparisonRunner } from "../product/commercial-comparison-runner.js";
-import { createDurableCommercialSpecialistHost } from "../product/commercial-durable-host.js";
-import { createCommercialLocalSidecar, createCommercialSidecarDispatcher } from "../product/commercial-local-sidecar.js";
-import { loadCommercialLocalPackage, prepareCommercialLocalPackage } from "../product/commercial-local-package.js";
-import { CommercialSpecialistOperations } from "../product/commercial-operations.js";
+import { prepareCommercialLocalPackage } from "../product/commercial-local-package.js";
+import { startCommercialSidecarDaemon } from "../product/commercial-sidecar-daemon.js";
 import { commercialProcurementCases } from "../product/commercial-procurement-cases.js";
 import { CommercialProcurementToolHost, CommercialProcurementVerifier, createCommercialProcurementPack } from "../product/commercial-procurement-pack.js";
-import { DurableCommercialRunLedger } from "../product/commercial-run-ledger.js";
-import { createCommercialSpecialistInvoker } from "../product/commercial-specialist-interop.js";
 import { createCommercialActivationReceipt, createCommercialSpecialistBundle } from "../product/commercial-specialist-lifecycle.js";
 
 const pack = createCommercialProcurementPack();
@@ -43,7 +39,6 @@ const activation = createCommercialActivationReceipt({ bundle, contract: pack.co
 
 const packageDirectory = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "das-network-rehearsal-")), "customer-local");
 prepareCommercialLocalPackage({ directory: packageDirectory, bundle, activation });
-const localPackage = loadCommercialLocalPackage({ directory: packageDirectory });
 const task = commercialProcurementCases.development[0];
 const decisions = [
   { kind: "tool", name: "procurement-sandbox:list-demands", input: { warehouseId: "wh-london", dueOnOrBefore: "2026-08-05" } },
@@ -57,24 +52,19 @@ const decisions = [
 ];
 const runtime = new SpecialistAgentRuntime({ decisionEngine: new ScriptedDecisionEngine(decisions), memory: new TenantRoleMemory() });
 let activeHost = null;
-let activeVerifier = null;
-const invoker = createCommercialSpecialistInvoker({
-  bundle: localPackage.bundle,
-  activation: localPackage.activation,
+const customerBindings = {
   runtime,
   tenantId: "fictional-distributor",
+  verifierId: bundle.verifier.binding,
   createRunBindings: () => {
     activeHost = new CommercialProcurementToolHost({ task });
-    activeVerifier = new CommercialProcurementVerifier({ task, initialState: activeHost.initialState() });
-    return { toolHost: activeHost, externalVerifier: activeVerifier };
+    const externalVerifier = new CommercialProcurementVerifier({ task, initialState: activeHost.initialState() });
+    return { toolHost: activeHost, externalVerifier };
   },
-});
-const ledger = new DurableCommercialRunLedger({ filePath: localPackage.ledgerPath, roleId: bundle.role.id, bundleHash: bundle.bundleHash, activationHash: activation.activationHash, processEpoch: "network-rehearsal-v1" });
-const operations = new CommercialSpecialistOperations({ bundle, activation, filePath: localPackage.operationsPath });
-const durableHost = createDurableCommercialSpecialistHost({ bundle, activation, invoker, ledger, operations, reconcileUnknown: async () => ({ classification: "unknown", independent: true, verifierId: bundle.verifier.binding }) });
-const dispatch = createCommercialSidecarDispatcher({ host: durableHost, bundle, activation, accessToken: localPackage.accessToken });
-const sidecar = createCommercialLocalSidecar({ dispatch });
-const address = await sidecar.listen({ hostname: "127.0.0.1", port: 0 });
+  reconcileUnknown: async () => ({ classification: "unknown", independent: true, verifierId: bundle.verifier.binding }),
+};
+const daemon = await startCommercialSidecarDaemon({ packageDirectory, customerBindings, processEpoch: "network-rehearsal-v1" });
+const { address, localPackage } = daemon;
 
 let firstResponse;
 let statusResponse;
@@ -128,5 +118,5 @@ try {
   fs.writeFileSync(output, `${JSON.stringify(receipt, null, 2)}\n`);
   process.stdout.write(`${JSON.stringify(receipt, null, 2)}\n`);
 } finally {
-  await sidecar.close();
+  await daemon.close();
 }
