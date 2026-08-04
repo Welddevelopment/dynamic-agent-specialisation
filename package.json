@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=24.0.0" },
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "scripts": {
     "test": "node --test",
     "evaluate": "node src/cli.js evaluate",
@@ -11,25 +13,28 @@
     "demo": "node src/cli.js demo",
     "console": "node src/console/server.js",
     "model:smoke": "node --env-file=.env src/experiments/piece2-smoke.js",
-    "model:viability": "node --env-file=.env src/experiments/piece2-viability.js"
-    ,"model:development": "node --env-file=.env src/experiments/piece2-development.js",
-    "model:development:resume": "node --env-file=.env src/experiments/piece2-development-resume.js"
-    ,"model:refinement": "node --env-file=.env src/experiments/piece2-refinement.js"
-    ,"model:validation": "node --env-file=.env src/experiments/piece2-stage.js validation",
-    "model:adversarial": "node --env-file=.env src/experiments/piece2-stage.js adversarial"
-    ,"model:cycle2:refinement": "node --env-file=.env src/experiments/piece2-cycle2-refinement.js"
-    ,"model:cycle2:validation": "node --env-file=.env src/experiments/piece2-cycle2-stage.js validation",
-    "model:cycle2:adversarial": "node --env-file=.env src/experiments/piece2-cycle2-stage.js adversarial"
-    ,"model:cycle3:search": "node --env-file=.env src/experiments/piece2-cycle3-search.js"
-    ,"model:cycle3:validation": "node --env-file=.env src/experiments/piece2-cycle3-stage.js validation",
-    "model:cycle3:adversarial": "node --env-file=.env src/experiments/piece2-cycle3-stage.js adversarial"
-    ,"model:baselines": "node --env-file=.env src/experiments/piece2-baseline-stage.js"
-    ,"piece2:freeze": "node src/experiments/piece2-freeze.js"
-    ,"model:unseen": "node --env-file=.env src/experiments/piece2-unseen.js"
-    ,"model:repeatability": "node --env-file=.env src/experiments/piece2-repeatability.js"
-    ,"piece2:select": "node src/experiments/piece2-select.js"
-    ,"model:piece3:support:viability": "node --env-file=.env src/experiments/piece3-support-viability.js"
-    ,"model:piece3:support:development": "node --env-file=.env src/experiments/piece3-support-development-target.js"
-    ,"model:piece3:support:development:resume": "node --env-file=.env src/experiments/piece3-support-development-resume.js"
+    "model:viability": "node --env-file=.env src/experiments/piece2-viability.js",
+    "model:development": "node --env-file=.env src/experiments/piece2-development.js",
+    "model:development:resume": "node --env-file=.env src/experiments/piece2-development-resume.js",
+    "model:refinement": "node --env-file=.env src/experiments/piece2-refinement.js",
+    "model:validation": "node --env-file=.env src/experiments/piece2-stage.js validation",
+    "model:adversarial": "node --env-file=.env src/experiments/piece2-stage.js adversarial",
+    "model:cycle2:refinement": "node --env-file=.env src/experiments/piece2-cycle2-refinement.js",
+    "model:cycle2:validation": "node --env-file=.env src/experiments/piece2-cycle2-stage.js validation",
+    "model:cycle2:adversarial": "node --env-file=.env src/experiments/piece2-cycle2-stage.js adversarial",
+    "model:cycle3:search": "node --env-file=.env src/experiments/piece2-cycle3-search.js",
+    "model:cycle3:validation": "node --env-file=.env src/experiments/piece2-cycle3-stage.js validation",
+    "model:cycle3:adversarial": "node --env-file=.env src/experiments/piece2-cycle3-stage.js adversarial",
+    "model:baselines": "node --env-file=.env src/experiments/piece2-baseline-stage.js",
+    "piece2:freeze": "node src/experiments/piece2-freeze.js",
+    "model:unseen": "node --env-file=.env src/experiments/piece2-unseen.js",
+    "model:repeatability": "node --env-file=.env src/experiments/piece2-repeatability.js",
+    "piece2:select": "node src/experiments/piece2-select.js",
+    "model:piece3:support:viability": "node --env-file=.env src/experiments/piece3-support-viability.js",
+    "model:piece3:support:development": "node --env-file=.env src/experiments/piece3-support-development-target.js",
+    "model:piece3:support:development:resume": "node --env-file=.env src/experiments/piece3-support-development-resume.js"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
   }
 }

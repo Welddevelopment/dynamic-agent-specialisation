@@ -1,6 +1,8 @@
 let state;
 let page = "overview";
 let selectedRoleId = null;
+let onboardingStep = 0;
+let commercialDraft = null;
 const main = document.querySelector("main");
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[character]);
 
@@ -21,6 +23,108 @@ function nav() {
 function overview() {
   const historical = state.historicalImprovementRuns[0];
   return `<p class="kicker">Autonomous recommendation · human control on demand</p><h1 class="page-title">Build the strongest specialist you can actually prove.</h1><p class="lede">The compiler designs candidates, tests them against external outcomes, recommends the strongest measured fit, and keeps every serious alternative inspectable. Further self-improvement is optional and budget-bound.</p><div class="metric-row"><div class="metric"><span>Reference roles</span><strong>${state.roles.length}</strong></div><div class="metric"><span>Evidence chain</span><strong>${state.evidenceValid ? "Valid" : "Invalid"}</strong></div><div class="metric"><span>Latest paid experiment</span><strong>${historical ? `$${historical.spendUsd.toFixed(2)}` : "None"}</strong></div></div>${historical ? `<div class="card"><p class="kicker">Latest honest decision</p><h2>${esc(historical.label)}</h2><p>${esc(historical.result)}. ${esc(historical.stopReason)}.</p><p class="explain">${esc(historical.boundary)}</p></div>` : ""}`;
+}
+
+const onboardingSteps = ["Start", "Role", "Systems", "Rules", "Examples", "Success", "Priorities", "Review"];
+const lines = (value) => String(value ?? "").split("\n").map((item) => item.trim()).filter(Boolean);
+const fieldValue = (value) => esc(value ?? "");
+
+function initialCommercialDraft() {
+  const restored = state.commercial?.selected?.intake;
+  if (restored) return structuredClone(restored);
+  const template = state.commercial?.templates?.[0];
+  return {
+    sessionId: `company-${Date.now()}`,
+    company: { name: "", website: "", industry: "", operatingContext: "" },
+    role: { templateId: template?.id ?? "support-operations", title: template?.defaultRoleTitle ?? "", outcome: "", completionRule: "", escalationOwner: "" },
+    systems: [], knowledgeSources: [], policies: [],
+    authority: { allowedActions: [], approvalActions: [], forbiddenActions: [] },
+    examples: [], success: { measures: [], verifierMode: "independent-external-state", verifierStatus: "declared", owner: "" },
+    priorities: { quality: 1, cost: .25, speed: .2, maximumCostPerTaskUsd: .5, maximumLatencyMs: 300000, goal: "Preserve independently verified quality, then reduce cost and speed." },
+    currentAgent: { mode: "none", model: "", configurationHash: "", historicalResultsHash: "" },
+    dataHandling: { localOnly: true, productionDataIncluded: false, redactionConfirmed: true },
+  };
+}
+
+function selectedTemplate() {
+  return state.commercial.templates.find((item) => item.id === commercialDraft.role.templateId) ?? state.commercial.templates[0];
+}
+
+function inputField(id, label, value, { detail = "", type = "text", placeholder = "" } = {}) {
+  return `<label class="onboarding-field" for="${id}"><span>${esc(label)}</span>${detail ? `<small>${esc(detail)}</small>` : ""}<input id="${id}" type="${type}" value="${fieldValue(value)}" placeholder="${esc(placeholder)}"></label>`;
+}
+
+function textArea(id, label, value, { detail = "", placeholder = "", rows = 5 } = {}) {
+  return `<label class="onboarding-field" for="${id}"><span>${esc(label)}</span>${detail ? `<small>${esc(detail)}</small>` : ""}<textarea id="${id}" rows="${rows}" placeholder="${esc(placeholder)}">${fieldValue(value)}</textarea></label>`;
+}
+
+function roleCards() {
+  return state.commercial.templates.map((template) => `<button type="button" class="role-choice ${template.id === commercialDraft.role.templateId ? "selected" : ""}" data-template="${esc(template.id)}"><span>${esc(template.name)}</span><small>${esc(template.description)}</small></button>`).join("");
+}
+
+function startStep() {
+  return `<div class="onboarding-welcome"><div><h1>Describe the job.<br>We prove the employee.</h1><p>A specialist is assembled, tested against real outcomes, and recommended without asking you to choose prompts, models, memory systems, or agent frameworks.</p><button class="button primary onboarding-start" type="button">Create a specialist</button></div><div class="promise-rail"><div><span>01</span><strong>Understand the role</strong><p>Turn ordinary company information into an exact operating contract.</p></div><div><span>02</span><strong>Build serious candidates</strong><p>Vary the model, instructions, context, tools, memory, authority, verifier, cost and speed.</p></div><div><span>03</span><strong>Test before recommending</strong><p>Independent external outcomes—not the candidate itself—decide which fit is strongest.</p></div><div><span>04</span><strong>Keep you in control</strong><p>Use the recommendation by default or inspect and switch among preserved alternatives.</p></div></div></div>`;
+}
+
+function roleStep() {
+  return `<div class="step-copy"><h1>What job should this AI employee own?</h1><p>Choose the closest supported role, then describe the actual result in your company’s language.</p></div><div class="role-choice-grid">${roleCards()}</div><div class="onboarding-grid two">${inputField("company-name", "Company name", commercialDraft.company.name, { placeholder: "Acme" })}${inputField("company-industry", "Industry", commercialDraft.company.industry, { placeholder: "B2B software" })}${inputField("role-title", "Role title", commercialDraft.role.title, { placeholder: "Customer support operations specialist" })}${inputField("escalation-owner", "Who owns exceptions?", commercialDraft.role.escalationOwner, { placeholder: "Head of Support" })}</div>${textArea("role-outcome", "Outcome this employee owns", commercialDraft.role.outcome, { detail: "Describe the finished business result, not a list of AI features.", placeholder: "Resolve every assigned support request correctly while protecting customer and billing data.", rows: 4 })}${textArea("operating-context", "How this work operates today", commercialDraft.company.operatingContext, { detail: "A short description is enough. The compiler will ask for missing consequential details.", placeholder: "Requests enter an assigned queue. Support can issue credits up to a delegated limit...", rows: 4 })}`;
+}
+
+function systemsStep() {
+  const template = selectedTemplate();
+  return `<div class="step-copy"><h1>Where does the job happen?</h1><p>Name the systems and information the specialist may need. Credentials are deliberately configured later, customer-side—they do not belong in this record.</p></div><div class="suggestion-row">${template.systemSuggestions.map((item) => `<button type="button" data-system-suggestion="${esc(item)}">+ ${esc(item)}</button>`).join("")}</div>${textArea("systems", "Systems", commercialDraft.systems.map((item) => item.name).join("\n"), { detail: "One per line. Examples: Zendesk, Stripe test account, internal policy wiki.", placeholder: template.systemSuggestions.join("\n"), rows: 7 })}${textArea("knowledge", "Knowledge and policies it reads", commercialDraft.knowledgeSources.map((item) => item.name).join("\n"), { detail: "One per line. These will be pinned and checked before a real comparison.", placeholder: "Support policy\nRefund policy\nCurrent product documentation", rows: 5 })}<div class="boundary-strip"><strong>No credentials here.</strong><span>System access remains missing until an executable customer-local adapter and separately configured secrets exist.</span></div>`;
+}
+
+function rulesStep() {
+  const byKind = (kind) => commercialDraft.policies.filter((item) => item.kind === kind).map((item) => item.rule).join("\n");
+  return `<div class="step-copy"><h1>What may it do—and where must it stop?</h1><p>These rules are hard boundaries. They are not soft preferences traded away for a better score.</p></div><div class="onboarding-grid three">${textArea("required-rules", "Checks it must perform", byKind("required-check"), { placeholder: "Confirm the request belongs to the assigned customer\nCheck the current incident status", rows: 7 })}${textArea("approval-rules", "Actions needing approval", byKind("approval"), { placeholder: "Credits above the delegated limit\nAny account closure", rows: 7 })}${textArea("forbidden-rules", "Actions it must never take", byKind("forbidden"), { placeholder: "Change unrelated records\nExpose protected customer data", rows: 7 })}</div><div class="onboarding-grid three">${textArea("allowed-actions", "Allowed actions", commercialDraft.authority.allowedActions.join("\n"), { placeholder: "reply-to-ticket\nissue-bounded-credit", rows: 5 })}${textArea("approval-actions", "Approval actions", commercialDraft.authority.approvalActions.join("\n"), { placeholder: "large-credit\nclose-account", rows: 5 })}${textArea("forbidden-actions", "Forbidden actions", commercialDraft.authority.forbiddenActions.join("\n"), { placeholder: "change-unrelated-record", rows: 5 })}</div>`;
+}
+
+function examplesStep() {
+  return `<div class="step-copy"><h1>Show it what representative work looks like.</h1><p>Use redacted historical examples or author realistic ones. Five varied cases are the minimum for a fair comparison draft; edge cases are more valuable than five easy duplicates.</p></div>${textArea("examples", "Representative cases", commercialDraft.examples.map((item) => `${item.situation} => ${item.expected}`).join("\n"), { detail: "One case per line: situation => externally observable correct result.", placeholder: "Known outage question => Link the incident, explain status, leave ticket open\nDuplicate charge inside limit => Verify ledger, issue one credit, record reference", rows: 12 })}<div class="boundary-strip"><strong>These are inputs, not proof.</strong><span>The product has not passed a case merely because the expected answer was written here.</span></div>`;
+}
+
+function successStep() {
+  return `<div class="step-copy"><h1>How will we know it genuinely succeeded?</h1><p>The AI employee cannot grade itself. Define results another checker can observe in the ticketing system, CRM, ledger, database, or approved human review.</p></div>${textArea("success-measures", "Independent success measures", commercialDraft.success.measures.join("\n"), { detail: "At least three. One per line.", placeholder: "Every assigned request has a correct terminal state\nNo unrelated record changed\nNo denied action was attempted", rows: 7 })}${inputField("verifier-owner", "Who or what checks the external result?", commercialDraft.success.owner, { placeholder: "Customer-local support test adapter" })}${textArea("completion-rule", "Completion rule", commercialDraft.role.completionRule, { placeholder: "Complete only when the independent checker confirms every assigned item; otherwise hand off precisely.", rows: 4 })}<div class="verification-diagram"><div><span>Candidate</span><strong>Acts</strong></div><i aria-hidden="true">→</i><div><span>Company system</span><strong>Changes</strong></div><i aria-hidden="true">→</i><div class="verified"><span>Independent checker</span><strong>Decides</strong></div></div>`;
+}
+
+function prioritiesStep() {
+  return `<div class="step-copy"><h1>What should “best fit” mean here?</h1><p>Safety remains non-negotiable. Inside the safe candidates, tell the compiler how aggressively to trade cost and speed against outcome quality.</p></div><div class="priority-board"><label><span>Outcome quality</span><input id="quality-weight" type="range" min="0" max="100" value="${Math.round(commercialDraft.priorities.quality * 100)}"><strong>${Math.round(commercialDraft.priorities.quality * 100)}</strong></label><label><span>Lower cost</span><input id="cost-weight" type="range" min="0" max="100" value="${Math.round(commercialDraft.priorities.cost * 100)}"><strong>${Math.round(commercialDraft.priorities.cost * 100)}</strong></label><label><span>Faster completion</span><input id="speed-weight" type="range" min="0" max="100" value="${Math.round(commercialDraft.priorities.speed * 100)}"><strong>${Math.round(commercialDraft.priorities.speed * 100)}</strong></label></div><div class="onboarding-grid two">${inputField("cost-limit", "Maximum model cost per task", commercialDraft.priorities.maximumCostPerTaskUsd, { type: "number", detail: "USD hard ceiling" })}${inputField("latency-limit", "Maximum task time", Math.round(commercialDraft.priorities.maximumLatencyMs / 1000), { type: "number", detail: "seconds" })}</div><fieldset class="agent-choice"><legend>Do you already have an AI agent for this role?</legend><label><input type="radio" name="current-agent" value="none" ${commercialDraft.currentAgent.mode === "none" ? "checked" : ""}> No—create the first serious specialist</label><label><input type="radio" name="current-agent" value="import-later" ${commercialDraft.currentAgent.mode === "import-later" ? "checked" : ""}> Yes—I’ll import it before comparison</label><label><input type="radio" name="current-agent" value="provided" ${commercialDraft.currentAgent.mode === "provided" ? "checked" : ""}> Yes—its configuration is already available</label></fieldset>${commercialDraft.currentAgent.mode === "provided" ? inputField("agent-hash", "Existing configuration receipt", commercialDraft.currentAgent.configurationHash, { detail: "A hash or versioned reference—not credentials.", placeholder: "sha256:..." }) : ""}`;
+}
+
+function readinessCard(stage, label, copy) {
+  if (!stage) return `<article class="readiness-card blocked"><span>Not checked</span><h3>${esc(label)}</h3><p>${esc(copy)}</p></article>`;
+  const ready = stage?.ready;
+  const missing = stage?.checks?.filter((item) => !item.passed).length ?? 0;
+  return `<article class="readiness-card ${ready ? "ready" : "blocked"}"><span>${ready ? "Ready" : `${missing} gate${missing === 1 ? "" : "s"} open`}</span><h3>${esc(label)}</h3><p>${esc(copy)}</p></article>`;
+}
+
+function reviewStep() {
+  const readiness = state.commercial?.selected?.intake?.sessionId === commercialDraft.sessionId ? state.commercial.selected.readiness : null;
+  const template = selectedTemplate();
+  const questions = readiness?.questions ?? [];
+  return `<div class="step-copy"><h1>Review the role before any comparison runs.</h1><p>The system can recommend autonomously, but it will not pretend that an incomplete role description is evidence.</p></div><div class="review-bento"><article class="review-role"><span>Role contract</span><h2>${esc(commercialDraft.role.title || template.name)}</h2><p>${esc(commercialDraft.role.outcome || "Outcome still missing")}</p><dl><div><dt>Company</dt><dd>${esc(commercialDraft.company.name || "Missing")}</dd></div><div><dt>Systems</dt><dd>${commercialDraft.systems.length}</dd></div><div><dt>Rules</dt><dd>${commercialDraft.policies.length}</dd></div><div><dt>Cases</dt><dd>${commercialDraft.examples.length}</dd></div></dl></article><div class="review-readiness">${readinessCard(readiness?.stages?.draft, "Design preview", "A precise role and candidate plan can be drafted.")}${readinessCard(readiness?.stages?.comparison, "Ready for comparison", "The role is defined well enough to test candidates fairly; no result is implied.")}${readinessCard(readiness?.stages?.activation, "Controlled activation", "Every system path and independent checker is executable.")}</div><article class="review-boundary"><strong>What saving does</strong><p>It versions this role contract and calculates readiness. It does not call a model, spend money, run a comparison, or activate an employee.</p></article><article class="review-authority"><strong>Hard authority boundary</strong><p>${commercialDraft.authority.allowedActions.length} allowed · ${commercialDraft.authority.approvalActions.length} approval-bound · ${commercialDraft.authority.forbiddenActions.length} forbidden action classes.</p></article></div>${questions.length ? `<div class="question-list"><h3>Still needed</h3>${questions.slice(0, 8).map((item) => `<button type="button" data-question-stage="${esc(item.stage)}"><span>${esc(item.question)}</span><small>${esc(item.stage)}</small></button>`).join("")}</div>` : ""}<div class="review-actions"><button class="button primary" type="button" id="save-commercial">Save and check readiness</button><span id="commercial-message"></span></div>`;
+}
+
+function createSpecialist() {
+  const content = [startStep, roleStep, systemsStep, rulesStep, examplesStep, successStep, prioritiesStep, reviewStep][onboardingStep]();
+  return `<section class="onboarding"><div class="onboarding-head"><div><p>Specialist creation</p><strong>${onboardingStep === 0 ? "Start with the job" : onboardingSteps[onboardingStep]}</strong></div><span>${Math.max(0, onboardingStep)} / 7</span></div><div class="step-track">${onboardingSteps.map((label, index) => `<button type="button" data-onboarding-step="${index}" class="${index === onboardingStep ? "active" : ""} ${index < onboardingStep ? "complete" : ""}"><i></i><span>${esc(label)}</span></button>`).join("")}</div><div class="onboarding-stage">${content}</div>${onboardingStep > 0 && onboardingStep < 7 ? `<div class="onboarding-actions"><button type="button" class="button" id="previous-step">Back</button><button type="button" class="button primary" id="next-step">Continue</button></div>` : ""}</section>`;
+}
+
+function animateCreatePage() {
+  if (page !== "create" || !globalThis.gsap) return;
+  if (globalThis.ScrollTrigger) {
+    globalThis.gsap.registerPlugin(globalThis.ScrollTrigger);
+    globalThis.ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  }
+  const title = document.querySelector(".onboarding-welcome h1, .step-copy h1");
+  if (title) globalThis.gsap.fromTo(title, { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: .72, ease: "power3.out" });
+  const welcomeCards = document.querySelectorAll(".promise-rail > div");
+  if (welcomeCards.length) globalThis.gsap.fromTo(welcomeCards, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .6, stagger: .08, ease: "power2.out" });
+  const reviewCards = document.querySelectorAll(".review-bento > *");
+  if (reviewCards.length) globalThis.gsap.fromTo(reviewCards, { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: .58, stagger: .09, ease: "power3.out" });
+  const explanatoryCopy = document.querySelector(".step-copy p");
+  if (explanatoryCopy && globalThis.ScrollTrigger) globalThis.gsap.fromTo(explanatoryCopy, { opacity: .28 }, { opacity: 1, scrollTrigger: { trigger: explanatoryCopy, start: "top 92%", end: "bottom 72%", scrub: .4 } });
 }
 
 function lifecycle() {
@@ -72,6 +176,88 @@ function rolePage() {
   return `<p class="kicker">Verified recommendation</p><h1 class="page-title">${esc(role.name)}</h1><p class="lede">Recommended automatically from safe finalists using the declared quality, cost, speed and escalation preferences.</p><div class="metric-row"><div class="metric"><span>Selected candidate</span><strong>${esc(winner.candidateId.split(":").at(-1))}</strong></div><div class="metric"><span>Synthetic unseen result</span><strong>${Math.round(winner.successRate*100)}%</strong></div><div class="metric"><span>Unsafe effects</span><strong>0</strong></div></div><div class="card-grid">${role.candidates.map((candidate)=>`<article class="card"><p class="kicker">${esc(candidate.id)}</p><pre>${esc(JSON.stringify(candidate,null,2))}</pre></article>`).join("")}</div>`;
 }
 
+function harvestCommercialStep() {
+  const value = (id) => document.querySelector(`#${id}`)?.value?.trim() ?? "";
+  if (onboardingStep === 1) {
+    commercialDraft.company.name = value("company-name");
+    commercialDraft.company.industry = value("company-industry");
+    commercialDraft.company.operatingContext = value("operating-context");
+    commercialDraft.role.title = value("role-title");
+    commercialDraft.role.outcome = value("role-outcome");
+    commercialDraft.role.escalationOwner = value("escalation-owner");
+  }
+  if (onboardingStep === 2) {
+    commercialDraft.systems = lines(value("systems")).map((name, index) => ({ id: `system-${index + 1}`, name, kind: "customer system", access: "none", adapterStatus: "missing", contextSources: [], tools: [] }));
+    commercialDraft.knowledgeSources = lines(value("knowledge")).map((name, index) => ({ id: `knowledge-${index + 1}`, name, kind: "customer knowledge", contentHash: "", current: true }));
+  }
+  if (onboardingStep === 3) {
+    commercialDraft.policies = [
+      ...lines(value("required-rules")).map((rule) => ({ rule, kind: "required-check", consequential: true, confirmed: true })),
+      ...lines(value("approval-rules")).map((rule) => ({ rule, kind: "approval", consequential: true, confirmed: true })),
+      ...lines(value("forbidden-rules")).map((rule) => ({ rule, kind: "forbidden", consequential: true, confirmed: true })),
+    ];
+    commercialDraft.authority.allowedActions = lines(value("allowed-actions"));
+    commercialDraft.authority.approvalActions = lines(value("approval-actions"));
+    commercialDraft.authority.forbiddenActions = lines(value("forbidden-actions"));
+  }
+  if (onboardingStep === 4) {
+    commercialDraft.examples = lines(value("examples")).map((line) => {
+      const divider = line.indexOf("=>");
+      return { situation: divider >= 0 ? line.slice(0, divider).trim() : line, expected: divider >= 0 ? line.slice(divider + 2).trim() : "", source: "customer-authored", redacted: true };
+    }).filter((item) => item.situation && item.expected);
+  }
+  if (onboardingStep === 5) {
+    commercialDraft.success.measures = lines(value("success-measures"));
+    commercialDraft.success.owner = value("verifier-owner");
+    commercialDraft.success.verifierMode = "independent-external-state";
+    commercialDraft.success.verifierStatus = "declared";
+    commercialDraft.role.completionRule = value("completion-rule");
+  }
+  if (onboardingStep === 6) {
+    commercialDraft.priorities.quality = Number(value("quality-weight")) / 100;
+    commercialDraft.priorities.cost = Number(value("cost-weight")) / 100;
+    commercialDraft.priorities.speed = Number(value("speed-weight")) / 100;
+    commercialDraft.priorities.maximumCostPerTaskUsd = Number(value("cost-limit"));
+    commercialDraft.priorities.maximumLatencyMs = Number(value("latency-limit")) * 1000;
+    commercialDraft.currentAgent.mode = document.querySelector('[name="current-agent"]:checked')?.value ?? "none";
+    commercialDraft.currentAgent.configurationHash = value("agent-hash");
+  }
+}
+
+function bindCommercial() {
+  if (page !== "create") return;
+  document.querySelector(".onboarding-start")?.addEventListener("click", () => { onboardingStep = 1; render(); });
+  document.querySelectorAll("[data-onboarding-step]").forEach((button) => button.addEventListener("click", () => { harvestCommercialStep(); onboardingStep = Number(button.dataset.onboardingStep); render(); }));
+  document.querySelectorAll("[data-template]").forEach((button) => button.addEventListener("click", () => {
+    commercialDraft.role.templateId = button.dataset.template;
+    const template = selectedTemplate();
+    commercialDraft.role.title = template.defaultRoleTitle;
+    if (!commercialDraft.role.outcome) commercialDraft.role.outcome = template.defaultOutcome;
+    render();
+  }));
+  document.querySelectorAll("[data-system-suggestion]").forEach((button) => button.addEventListener("click", () => {
+    const input = document.querySelector("#systems");
+    const existing = new Set(lines(input.value));
+    existing.add(button.dataset.systemSuggestion);
+    input.value = [...existing].join("\n");
+  }));
+  ["quality-weight", "cost-weight", "speed-weight"].forEach((id) => document.querySelector(`#${id}`)?.addEventListener("input", (event) => { event.target.nextElementSibling.textContent = event.target.value; }));
+  document.querySelectorAll('[name="current-agent"]').forEach((input) => input.addEventListener("change", () => { harvestCommercialStep(); render(); }));
+  document.querySelector("#previous-step")?.addEventListener("click", () => { harvestCommercialStep(); onboardingStep = Math.max(1, onboardingStep - 1); render(); });
+  document.querySelector("#next-step")?.addEventListener("click", () => { harvestCommercialStep(); onboardingStep = Math.min(7, onboardingStep + 1); render(); });
+  document.querySelector("#save-commercial")?.addEventListener("click", async () => {
+    const message = document.querySelector("#commercial-message");
+    message.textContent = "Saving role contract…";
+    try {
+      const result = await request("/api/commercial/intake", { method: "POST", body: JSON.stringify(commercialDraft) });
+      state.commercial = result.commercial;
+      commercialDraft = structuredClone(result.saved.intake);
+      render();
+      document.querySelector("#commercial-message").textContent = "Saved. No model calls or comparison were started.";
+    } catch (error) { message.textContent = error.message; message.classList.add("error"); }
+  });
+}
+
 async function saveImprovement() {
   const objectives = [...document.querySelectorAll("[data-objective]")].map((box) => ({ metric: box.dataset.objective, direction: box.dataset.direction, enabled: box.checked, minimumRelativeImprovement: Number(document.querySelector(`[data-target="${box.dataset.objective}"]`).value)/100 }));
   const payload = { enabled: document.querySelector("#enabled").checked, id: `console-${Date.now()}`, baselineId: "current-specialist", objectives, minimumPassRate: Number(document.querySelector("#pass-floor").value)/100, minimumOutcomeScoreRatio: Number(document.querySelector("#outcome-floor").value)/100, maximumModelSpendUsd: Number(document.querySelector("#budget").value), maximumWallClockMinutes: Number(document.querySelector("#minutes").value), maximumRounds: Number(document.querySelector("#rounds").value), maximumRefinementsPerRound: Number(document.querySelector("#refinements").value), minimumRepeatedObservations: Number(document.querySelector("#repeats").value), persistence: document.querySelector('[name="persistence"]:checked').value };
@@ -81,6 +267,7 @@ async function saveImprovement() {
 }
 
 function bind() {
+  bindCommercial();
   if (page !== "improve") return;
   document.querySelector("#save").onclick = saveImprovement;
   document.querySelector("#disable").onclick = async () => { state = await request("/api/improvement/disable", { method: "POST", body: "{}" }); render(); nav(); };
@@ -88,13 +275,15 @@ function bind() {
 }
 
 function render() {
-  main.innerHTML = page === "improve" ? improvement() : page === "lifecycle" ? lifecycle() : page === "role" ? rolePage() : overview();
+  main.innerHTML = page === "create" ? createSpecialist() : page === "improve" ? improvement() : page === "lifecycle" ? lifecycle() : page === "role" ? rolePage() : overview();
   main.classList.remove("flash");
   requestAnimationFrame(() => main.classList.add("flash"));
+  requestAnimationFrame(animateCreatePage);
   bind();
 }
 
 state = await request("/api/state");
+commercialDraft = initialCommercialDraft();
 selectedRoleId = state.roles[0]?.id;
 document.querySelector("#boundary").textContent = state.boundary;
 document.querySelector("#evidence-state").textContent = state.evidenceValid ? "Valid" : "Invalid";

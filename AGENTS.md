@@ -237,3 +237,14 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The private console has a read-only lifecycle page grounded in saved Level 1/1.5 artifacts. Its served data and syntax were verified; final in-app visual QA did not complete because the preview tab did not attach cleanly.
 - Remaining finish-line work: a fresh model-backed joined lifecycle from drift-triggered bounded search through prospective offline/shadow/canary evaluation, plus a verified live role-specific runner/dispatcher. Customer and production evidence remain separate gaps.
 - See `docs/LEVEL_1_5_CONTRACT.md`, `reports/0055-level1-5-lifecycle-foundation.md`, and `artifacts/level15/rehearsal-v1/`.
+
+## Commercial Level 1 onboarding foundation — 2026-08-04
+
+- A normal company can now enter a guided private-console journey from ordinary role language through systems, hard policies and authority, representative cases, independent success checks, operating priorities and an existing-agent decision.
+- The same intake and compiler-draft boundary works across support operations, procurement coverage and CRM/revenue operations. Support remains the first polished commercial path.
+- Readiness is deliberately split into design preview, ready for comparison and controlled activation. “Ready for comparison” means the contract can support a fair run; it never implies a comparison has run or an improvement has been proved.
+- Controlled activation remains blocked until every required system has a bounded approved environment and executable adapter, and an executable independent external-state verifier is connected.
+- Credentials are rejected from onboarding records. Saved sessions are versioned, integrity checked and reload after restart. Saving does not call a model, spend money, run a comparison or activate a specialist.
+- The customer-facing console flow was exercised end to end in the local browser, including restart persistence and honest readiness rendering. The complete local suite passed 141/141 before checkpointing; focused commercial tests passed again after the final motion layer. No paid model call was made.
+- This checkpoint makes the role-intake product usable, but does not yet join an arbitrary saved customer role to an executable comparison campaign. That join is the next commercial Level 1 dependency.
+- See `docs/COMMERCIAL_LEVEL1_CONTRACT.md` and `reports/0056-commercial-level1-onboarding-foundation.md`.

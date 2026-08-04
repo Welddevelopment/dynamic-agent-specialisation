@@ -3,6 +3,9 @@ import http from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { runDeterministicReference } from "../run.js";
+import { buildCommercialJobDraft } from "../product/commercial-intake.js";
+import { listCommercialRoleTemplates } from "../product/commercial-role-templates.js";
+import { CommercialOnboardingStore } from "../product/onboarding-store.js";
 import { ImprovementConsoleStore } from "./improvement-store.js";
 
 const port = Number(process.env.PORT ?? 4391);
@@ -10,6 +13,26 @@ const directory = path.dirname(fileURLToPath(import.meta.url));
 const run = runDeterministicReference();
 const statePath = path.resolve(process.env.DAS_CONSOLE_STATE_PATH ?? "artifacts/console/improvement-state.json");
 const improvementStore = new ImprovementConsoleStore({ filePath: statePath });
+const onboardingStatePath = path.resolve(process.env.DAS_ONBOARDING_STATE_PATH ?? "artifacts/console/commercial-onboarding-state.json");
+const onboardingStore = fs.existsSync(onboardingStatePath)
+  ? CommercialOnboardingStore.load(onboardingStatePath)
+  : new CommercialOnboardingStore({ filePath: onboardingStatePath });
+
+function commercialState(sessionId = null) {
+  const sessions = onboardingStore.list();
+  const selected = sessionId ? onboardingStore.latest(sessionId) : sessions.at(-1) ?? null;
+  let draft = null;
+  if (selected?.readiness?.stages?.draft?.ready) {
+    try { draft = buildCommercialJobDraft(selected.intake); } catch { draft = null; }
+  }
+  return {
+    boundary: "Generated role drafts are not performance evidence. Comparison and activation require separate gates.",
+    templates: listCommercialRoleTemplates(),
+    sessions,
+    selected,
+    draft,
+  };
+}
 
 function historicalPiece2() {
   const receiptPath = path.resolve("evidence/piece2-procurement-selection.json");
@@ -66,6 +89,7 @@ function consoleState() {
     evidenceValid: run.evidenceValid,
     improvementRunnerAvailable: false,
     improvement: improvementStore.snapshot(),
+    commercial: commercialState(),
     historicalImprovementRuns: [latestCloseout, historicalPiece2()].filter(Boolean),
     product,
     roles: run.results.map(({ role, result, comparison, baselineResults }) => ({
@@ -103,7 +127,10 @@ const assets = {
   "/app.css": ["app.css", "text/css; charset=utf-8"],
   "/improvement.css": ["improvement.css", "text/css; charset=utf-8"],
   "/lifecycle.css": ["lifecycle.css", "text/css; charset=utf-8"],
+  "/commercial.css": ["commercial.css", "text/css; charset=utf-8"],
   "/app.js": ["app.js", "text/javascript; charset=utf-8"],
+  "/vendor/gsap.js": [path.resolve("node_modules/gsap/dist/gsap.min.js"), "text/javascript; charset=utf-8"],
+  "/vendor/ScrollTrigger.js": [path.resolve("node_modules/gsap/dist/ScrollTrigger.min.js"), "text/javascript; charset=utf-8"],
 };
 
 const server = http.createServer(async (request, response) => {
@@ -122,10 +149,19 @@ const server = http.createServer(async (request, response) => {
       improvementStore.start(input).catch(() => {});
       return json(response, 200, consoleState());
     }
+    if (request.method === "GET" && request.url?.startsWith("/api/commercial")) {
+      const url = new URL(request.url, `http://${request.headers.host ?? "127.0.0.1"}`);
+      return json(response, 200, commercialState(url.searchParams.get("sessionId")));
+    }
+    if (request.method === "POST" && request.url === "/api/commercial/intake") {
+      const saved = onboardingStore.saveIntake(await readJson(request));
+      return json(response, 200, { saved, commercial: commercialState(saved.sessionId) });
+    }
     const asset = request.method === "GET" ? assets[request.url] : null;
     if (asset) {
       response.writeHead(200, { "content-type": asset[1], "cache-control": "no-store" });
-      response.end(fs.readFileSync(path.join(directory, asset[0])));
+      const assetPath = path.isAbsolute(asset[0]) ? asset[0] : path.join(directory, asset[0]);
+      response.end(fs.readFileSync(assetPath));
       return;
     }
     json(response, 404, { error: "Not found" });
