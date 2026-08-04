@@ -286,3 +286,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The full local suite passes 162/162. Desktop browser inspection covered the complete comparison journey. No paid calls were made.
 - This is a private local fictional-evidence surface, not customer improvement proof or production readiness. A fresh commercial model campaign still requires explicit spend approval.
 - See `reports/0060-commercial-comparison-console.md`.
+
+## Commercial specialist host interoperability — 2026-08-05
+
+- A controlled-active specialist can now be invoked through a direct JavaScript boundary, a LangGraph-compatible async state node, or a transport-neutral MCP `tools/list` / `tools/call` adapter.
+- The host submits only a stable request id and ordinary goal. The exact activated DAS bundle retains authority, memory, limits, customer-local tools and independent external verification.
+- Same-process duplicate request ids return the original result; a conflicting goal under the same id fails closed. Host receipts are sanitized and exclude raw observations, credentials and customer records.
+- CrewAI is described only as `requires-customer-wiring` through its documented MCP support. No native CrewAI package, remote MCP transport or external framework runtime was installed or claimed.
+- Full local suite passes 166/166. No paid calls were made.
+- Post-restart idempotency and an authenticated customer-local network sidecar remain separate next steps.
+- See `reports/0061-commercial-specialist-interop.md`.

@@ -116,6 +116,23 @@ export function createCommercialActivationReceipt({ bundle, contract, environmen
   return Object.freeze(receipt);
 }
 
+export function assertCommercialActivationReceipt(activation, { bundle = null, contract = null } = {}) {
+  requireCondition(activation?.schemaVersion === "das.commercial-activation-receipt.v1", "Unsupported commercial activation receipt");
+  requireCondition(activation.status === "controlled-active", "Commercial specialist is not controlled-active");
+  requireCondition(activation.activationHash && digest(withoutHash(activation, "activationHash")) === activation.activationHash, "Commercial activation receipt integrity mismatch");
+  if (bundle) {
+    assertCommercialSpecialistBundle(bundle);
+    requireCondition(activation.bundleHash === bundle.bundleHash && activation.participantId === bundle.selected.participantId && activation.roleId === bundle.role.id, "Commercial activation does not belong to the supplied specialist bundle");
+  }
+  if (contract) {
+    assertCommercialComparisonFreeze(contract);
+    requireCondition(bundle?.evidence?.contractFreezeHash === contract.freezeHash, "Commercial activation contract does not match the specialist evidence");
+    requireCondition(activation.environment?.driverId === contract.driver.id && activation.environment?.driverVersion === contract.driver.version, "Commercial activation driver changed after comparison");
+    requireCondition(activation.environment?.verifierId === contract.driver.verifier.id && activation.environment?.verifierStatus === "verified", "Commercial activation verifier changed after comparison");
+  }
+  return true;
+}
+
 export function createCommercialRollbackReceipt({ active, target }) {
   requireCondition(active?.status === "controlled-active" && active.activationHash === digest(withoutHash(active, "activationHash")), "Active deployment receipt is invalid");
   assertCommercialSpecialistBundle(target);
