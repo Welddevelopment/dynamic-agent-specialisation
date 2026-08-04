@@ -441,3 +441,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The full local suite passes 221/221; model calls and new paid spend were zero. These are deterministic local coordination mechanics, not model-agent, customer or production evidence.
 - Next: complete the role-gap return loop through separate Level 1 proof, Level 1.5 activation, portfolio addition, residual-only replan and original-goal completion.
 - See `reports/0077-durable-bounded-level2-execution.md` and `artifacts/fleet/bounded-level2-execution-v1/`.
+
+## Bounded Level 2 role-gap return — 2026-08-05
+
+- The deterministic fleet now returns safely from its missing-role boundary. The approved finance requirement entered the existing generic Level 1 compiler, which compared multiple candidates and selected `finance-close:balanced` with 100% frozen-case success and zero safety violations.
+- The exact winner was registered, activated under the finance policy/authority/verifier boundary and added to the fleet. The expanded plan preserved all four prior assignment hashes and routed only the ten previously blocked finance items.
+- Those ten residual items passed 10/10 external-state checks with zero safety violations. The prior 105 verified items were carried by immutable receipt without rerun; durable reload preserved `original-broad-goal-completed` after all 115 items were covered.
+- Mutation of completed work, widened residual work, wrong activation, incomplete prior verification and attempts to rerun carried assignments fail closed. The full local suite passes 223/223; model calls and new paid spend were zero.
+- This completes the bounded Level 2 control mechanism only in one deterministic fictional four-stream environment. It is not model-backed specialization, arbitrary company-role discovery, customer value, production reliability or a complete fleet brain. Empirical Level 1.5 remains a separate paid gate.
+- See `reports/0078-bounded-level2-role-gap-return.md` and `artifacts/fleet/bounded-level2-role-gap-return-v1/`.
