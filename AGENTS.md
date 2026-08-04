@@ -276,3 +276,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Focused lifecycle tests pass 4/4. No paid calls were made.
 - The lifecycle mechanics are complete, but the tests use a deterministic comparison receipt. A fresh model-backed commercial procurement run remains required for a new empirical result.
 - See `reports/0059-commercial-specialist-lifecycle.md`.
+
+## Commercial comparison console — 2026-08-05
+
+- The private console now has a customer-facing Comparison workspace backed by the executable commercial procurement pack rather than placeholder UI.
+- It exposes the frozen role, stage counts, 12/12 deterministic preflight, eight serious comparison participants, rejected shortcut controls, frozen cost/speed targets and exact paid-execution boundary.
+- Automatic recommendation remains the default; candidate expansion and frozen receipts provide optional technical transparency rather than requiring human selection.
+- Commercial state now has a separately tested builder that keeps `preflight-ready`, `comparison-complete`, `recommended` and `controlled-active` distinct. A preflight cannot masquerade as a model result.
+- The full local suite passes 162/162. Desktop browser inspection covered the complete comparison journey. No paid calls were made.
+- This is a private local fictional-evidence surface, not customer improvement proof or production readiness. A fresh commercial model campaign still requires explicit spend approval.
+- See `reports/0060-commercial-comparison-console.md`.

@@ -6,6 +6,7 @@ import { runDeterministicReference } from "../run.js";
 import { buildCommercialJobDraft } from "../product/commercial-intake.js";
 import { listCommercialRoleTemplates } from "../product/commercial-role-templates.js";
 import { CommercialOnboardingStore } from "../product/onboarding-store.js";
+import { loadCommercialProductState, readOptionalJson } from "./commercial-product-state.js";
 import { ImprovementConsoleStore } from "./improvement-store.js";
 
 const port = Number(process.env.PORT ?? 4391);
@@ -51,11 +52,6 @@ function historicalPiece2() {
   };
 }
 
-function readOptionalJson(file) {
-  const resolved = path.resolve(file);
-  return fs.existsSync(resolved) ? JSON.parse(fs.readFileSync(resolved, "utf8")) : null;
-}
-
 function productEvidenceState() {
   const closeout = readOptionalJson("artifacts/level1/technical-closeout-v1.json");
   const registry = readOptionalJson("artifacts/level1/registry-v1.json");
@@ -90,6 +86,7 @@ function consoleState() {
     improvementRunnerAvailable: false,
     improvement: improvementStore.snapshot(),
     commercial: commercialState(),
+    commercialProduct: loadCommercialProductState(),
     historicalImprovementRuns: [latestCloseout, historicalPiece2()].filter(Boolean),
     product,
     roles: run.results.map(({ role, result, comparison, baselineResults }) => ({
@@ -128,6 +125,7 @@ const assets = {
   "/improvement.css": ["improvement.css", "text/css; charset=utf-8"],
   "/lifecycle.css": ["lifecycle.css", "text/css; charset=utf-8"],
   "/commercial.css": ["commercial.css", "text/css; charset=utf-8"],
+  "/comparison.css": ["comparison.css", "text/css; charset=utf-8"],
   "/app.js": ["app.js", "text/javascript; charset=utf-8"],
   "/vendor/gsap.js": [path.resolve("node_modules/gsap/dist/gsap.min.js"), "text/javascript; charset=utf-8"],
   "/vendor/ScrollTrigger.js": [path.resolve("node_modules/gsap/dist/ScrollTrigger.min.js"), "text/javascript; charset=utf-8"],
@@ -136,6 +134,8 @@ const assets = {
 const server = http.createServer(async (request, response) => {
   try {
     if (request.method === "GET" && request.url === "/api/state") return json(response, 200, consoleState());
+    if (request.method === "GET" && request.url === "/api/commercial/procurement/contract") return json(response, 200, readOptionalJson("artifacts/commercial/procurement-v1/comparison-contract.json") ?? { error: "Commercial procurement contract is not prepared" });
+    if (request.method === "GET" && request.url === "/api/commercial/procurement/participants") return json(response, 200, readOptionalJson("artifacts/commercial/procurement-v1/participant-manifest.json") ?? { error: "Commercial procurement participants are not prepared" });
     if (request.method === "POST" && request.url === "/api/improvement/configure") {
       improvementStore.configure(await readJson(request));
       return json(response, 200, consoleState());

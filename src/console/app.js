@@ -25,6 +25,44 @@ function overview() {
   return `<p class="kicker">Autonomous recommendation · human control on demand</p><h1 class="page-title">Build the strongest specialist you can actually prove.</h1><p class="lede">The compiler designs candidates, tests them against external outcomes, recommends the strongest measured fit, and keeps every serious alternative inspectable. Further self-improvement is optional and budget-bound.</p><div class="metric-row"><div class="metric"><span>Reference roles</span><strong>${state.roles.length}</strong></div><div class="metric"><span>Evidence chain</span><strong>${state.evidenceValid ? "Valid" : "Invalid"}</strong></div><div class="metric"><span>Latest paid experiment</span><strong>${historical ? `$${historical.spendUsd.toFixed(2)}` : "None"}</strong></div></div>${historical ? `<div class="card"><p class="kicker">Latest honest decision</p><h2>${esc(historical.label)}</h2><p>${esc(historical.result)}. ${esc(historical.stopReason)}.</p><p class="explain">${esc(historical.boundary)}</p></div>` : ""}`;
 }
 
+function comparisonStage(label, count, copy, stateClass = "") {
+  return `<article class="comparison-stage ${stateClass}"><span>${count}</span><div><strong>${esc(label)}</strong><p>${esc(copy)}</p></div></article>`;
+}
+
+function comparisonPage() {
+  const product = state.commercialProduct;
+  if (!product?.contract || !product.receipt) return `<p class="kicker">Commercial comparison</p><h1 class="page-title">No executable role pack is prepared.</h1><p class="lede">Complete onboarding and connect a bounded test environment before a comparison can be frozen.</p>`;
+  const contract = product.contract;
+  const receipt = product.receipt;
+  const selected = product.bundle?.selected;
+  const statusTitle = product.status === "controlled-active" ? "Controlled activation recorded" : product.status === "recommended" ? "Recommendation ready" : product.status === "comparison-complete" ? "Comparison complete" : "Ready for a model campaign";
+  const candidates = product.participants.map((item) => `<article class="candidate-slice" tabindex="0"><div><span>${esc(item.type.replaceAll("-", " "))}</span><strong>${esc(item.label)}</strong></div><div class="candidate-detail"><p>${esc(item.model?.family ?? "Configuration frozen")}</p><code>${esc(item.configurationHash.slice(0, 16))}…</code></div></article>`).join("");
+  const controls = receipt.shortcutControls.map((item) => `<article><span>${Math.round(item.successRate * 100)}%</span><strong>${esc(item.strategyId.replaceAll("-", " "))}</strong><p>${item.passed}/${item.total} cases passed. The verifier rejected the shortcut.</p></article>`).join("");
+  return `<section class="comparison-workspace">
+    <header class="comparison-hero"><div><p class="kicker">Commercial comparison</p><h1>Proof before replacement.</h1></div><div><p>The current agent, serious manual baselines and compiler candidates face the same frozen job. The candidate cannot grade itself, and an upgrade is recommended only when the agreed improvement is proved.</p><strong>${esc(statusTitle)}</strong></div></header>
+    <div class="comparison-bento">
+      <article class="comparison-role"><span>Frozen role</span><h2>Procurement coverage specialist</h2><p>Cover approved in-scope demand by deadline through stock, confirmed inbound supply, bounded transfers or permitted draft purchasing—while leaving unrelated state untouched.</p><dl><div><dt>Driver</dt><dd>${esc(contract.driver.id)}</dd></div><div><dt>Verifier</dt><dd>Independent external state</dd></div></dl></article>
+      <article class="comparison-status"><span>${esc(product.status.replaceAll("-", " "))}</span><strong>${receipt.deterministicReference.passed}/${receipt.deterministicReference.total}</strong><p>Deterministic reference cases passed before model spend.</p><small>Unseen release count ${receipt.unseenReleaseCount}</small></article>
+      ${comparisonStage("Development", contract.cases.development, "Candidates may learn only from these released cases.", "released")}
+      ${comparisonStage("Validation", contract.cases.validation, "Safe complete performance is required to advance.")}
+      ${comparisonStage("Adversarial", contract.cases.adversarial, "Incorrect side effects eliminate a candidate immediately.")}
+    </div>
+    <section class="candidate-section"><div class="comparison-section-copy"><p class="kicker">Serious alternatives</p><h2>The system chooses.<br>You can inspect.</h2><p>Every candidate is preserved with its exact model and configuration receipt. Hover or focus to expand; no manual selection is required.</p></div><div class="candidate-accordion">${candidates}</div></section>
+    <section class="comparison-evidence"><div class="comparison-section-copy sticky-copy"><p class="kicker">Independent test-world check</p><h2>Easy-looking shortcuts fail.</h2><p>A realistic environment is useful only if it can reject plausible but wrong behavior.</p></div><div class="evidence-stack"><article class="evidence-lead"><span>Reference path</span><strong>${receipt.deterministicReference.passed}/${receipt.deterministicReference.total}</strong><p>All intended cases passed with no model call and no unseen release.</p></article>${controls}</div></section>
+    <section class="comparison-action"><div><span>Frozen improvement promise</span><h2>Match verified quality. Reduce cost and speed by 10%.</h2><p>Safety and incorrect-side-effect limits remain zero. Three fresh repeat runs are required before activation.</p></div><div class="comparison-actions"><button class="button primary" disabled>${selected ? "Recommendation prepared" : "Paid comparison not authorized"}</button><a class="button" href="/api/commercial/procurement/contract" target="_blank" rel="noreferrer">Open frozen contract</a><a class="button" href="/api/commercial/procurement/participants" target="_blank" rel="noreferrer">Inspect participants</a></div></section>
+    <p class="comparison-boundary">${esc(product.boundary)}</p>
+  </section>`;
+}
+
+function animateComparisonPage() {
+  if (page !== "comparison" || !globalThis.gsap) return;
+  gsap.from(".comparison-hero > *", { y: 24, opacity: 0, duration: .75, stagger: .1, ease: "power3.out" });
+  gsap.from(".comparison-bento > *", { y: 20, opacity: 0, duration: .65, stagger: .07, delay: .12, ease: "power3.out" });
+  if (globalThis.ScrollTrigger) {
+    gsap.utils.toArray(".evidence-stack > article").forEach((card, index) => gsap.from(card, { y: 34 + index * 8, scrollTrigger: { trigger: card, start: "top 88%", end: "top 58%", scrub: .45 } }));
+  }
+}
+
 const onboardingSteps = ["Start", "Role", "Systems", "Rules", "Examples", "Success", "Priorities", "Review"];
 const lines = (value) => String(value ?? "").split("\n").map((item) => item.trim()).filter(Boolean);
 const fieldValue = (value) => esc(value ?? "");
@@ -275,10 +313,11 @@ function bind() {
 }
 
 function render() {
-  main.innerHTML = page === "create" ? createSpecialist() : page === "improve" ? improvement() : page === "lifecycle" ? lifecycle() : page === "role" ? rolePage() : overview();
+  main.innerHTML = page === "create" ? createSpecialist() : page === "comparison" ? comparisonPage() : page === "improve" ? improvement() : page === "lifecycle" ? lifecycle() : page === "role" ? rolePage() : overview();
   main.classList.remove("flash");
   requestAnimationFrame(() => main.classList.add("flash"));
   requestAnimationFrame(animateCreatePage);
+  requestAnimationFrame(animateComparisonPage);
   bind();
 }
 
