@@ -24,7 +24,7 @@
     {
       "role": "revops",
       "roleId": "commercial-revops-v1:revenue-operations",
-      "gateHash": "23313bced1fc86895d43da796ecdd03e0d7e426d6f0ace10dcee0bb627a6dd7e",
+      "gateHash": "078ef5cf28642a97be73628e835866d9c71faf4b5269c422ae660bfd4edba0d2",
       "caseCount": 2,
       "referencePassed": 2,
       "weakPassed": 0,
@@ -41,5 +41,5 @@
   "modelCalls": 0,
   "paidModelSpendUsd": 0,
   "evidenceBoundary": "Fresh deterministic post-comparison gate preflight in disposable synthetic worlds. No model candidate ran these cases and no model-backed improvement is claimed.",
-  "receiptHash": "5294eccde026df41debff6298963274f6c71952ed013af24c9b7aad7ed2a74cd"
+  "receiptHash": "83aa24391ebd3ed67b2d00a749ea9390827e1fe58bfb74e96cc7bb5982b9579b"
 }

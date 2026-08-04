@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "das.technical-readiness-audit.v1",
+  "generatedAt": "2026-08-04T17:46:08.877Z",
+  "level1": {
+    "status": "technical-mechanism-complete",
+    "selectedRoles": 3,
+    "compilerCreatedWinners": 1,
+    "retainedExistingWinners": 2,
+    "historicalPaidModelSpendUsd": 23.10699808,
+    "externalEvidenceComplete": false
+  },
+  "commercial": {
+    "status": "three-fictional-role-packs-locally-runnable",
+    "roles": [
+      "procurement",
+      "support",
+      "revops"
+    ],
+    "packagedNetworkRehearsals": 3,
+    "freshCommercialModelComparisonsCompleted": 0,
+    "customerActivations": 0
+  },
+  "level15": {
+    "status": "deterministic-mechanism-complete",
+    "rolesExercised": 3,
+    "empiricalFreshModelLifecycleComplete": false,
+    "customerLifecycleComplete": false
+  },
+  "level2": {
+    "status": "bounded-deterministic-mechanism-complete",
+    "planningProfiles": 5,
+    "prospectiveRunnerReady": true,
+    "empiricalFreshModelFleetComplete": false,
+    "customerFleetComplete": false
+  },
+  "externalGates": {
+    "prospectiveHumanSetupStudy": "not-completed",
+    "freshCommercialModelComparison": "not-completed-separate-paid-approval-required",
+    "empiricalLevel15Lifecycle": "not-completed-separate-paid-approval-required",
+    "prospectiveModelBackedLevel2": "not-completed-separate-paid-approval-required",
+    "customerDeployment": "not-completed",
+    "productionReliability": "not-established",
+    "marketDemand": "not-established"
+  },
+  "verdict": "All currently claimed zero-cost local mechanisms and their evidence chains pass integrity checks. The remaining technical evidence gates require separately approved model campaigns; customer, production and market claims require external evidence.",
+  "auditHash": "00bd1222f66cd2622b232a43bfa3c2a86e48d715d2c83351664b053015492ed9"
+}

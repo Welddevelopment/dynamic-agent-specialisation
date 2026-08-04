@@ -72,3 +72,9 @@ test("comparison freeze detects mutation", () => {
   const changed = structuredClone(contract); changed.budget.maximumModelSpendUsd = 500;
   assert.throws(() => assertCommercialComparisonFreeze(changed), /changed after commitment/);
 });
+
+test("comparison freeze refuses values that cannot survive JSON persistence", () => {
+  const unsafeCases = cases();
+  unsafeCases[0].payload.optional = undefined;
+  assert.throws(() => createCommercialComparisonFreeze({ intake: intake(), driver: driver(), cases: unsafeCases, participants: participants(), thresholds: {}, budget: { maximumModelSpendUsd: 1, maximumWallClockMs: 1000, maximumCandidates: 3 } }), /cannot survive JSON persistence/);
+});

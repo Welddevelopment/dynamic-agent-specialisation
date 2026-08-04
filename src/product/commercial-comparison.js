@@ -88,7 +88,11 @@ function normalizedBudget(input) {
   return value;
 }
 
-function seal(record) { return { ...record, freezeHash: digest(record) }; }
+function seal(record) {
+  const serialized = JSON.parse(JSON.stringify(record));
+  requireCondition(digest(serialized) === digest(record), "Commercial comparison contains a value that cannot survive JSON persistence");
+  return { ...record, freezeHash: digest(record) };
+}
 
 export function createCommercialComparisonFreeze({ intake: input, driver, cases, participants, thresholds, budget }) {
   const intake = normalizeCommercialIntake(input);

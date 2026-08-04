@@ -1,7 +1,7 @@
 {
   "schemaVersion": "das.commercial-model-campaign-plan.v1",
   "campaignId": "commercial-revops-model-campaign-v1",
-  "contractFreezeHash": "3e7b0488d8626eb5725424f32387e4134112359de2f78e6a09a34f5c40f4c346",
+  "contractFreezeHash": "36568b71e0221eff7aecec0d7039bb280a92351ba729070803a48f9372476be4",
   "participantCount": 8,
   "participants": [
     {
@@ -93,5 +93,5 @@
     "requiredPricingHash": "DAS_COMMERCIAL_PRICING_TABLE_HASH=c63d69dcbb81e27a0dfe228cf632bfb58dddc768dd319de1aec245c4e941b307"
   },
   "evidenceBoundary": "Zero-cost execution plan. Maximum task/turn counts are structural ceilings if every participant survives. No model call, candidate result or improvement is implied.",
-  "planHash": "b6440a7da22238cb1a00df02dcc21be806a527e7ce670a3e1c45fc6075a5187f"
+  "planHash": "19076460604035f3f35d68d28fe3213575877f57adeb28d3c81d0678763c4ff0"
 }

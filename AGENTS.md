@@ -517,3 +517,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - A no-approval attempt failed before task release. The full local suite passes 244/244; no model call or spend occurred. Historical cumulative paid-model spend remains `$23.10699808`.
 - This makes the prospective experiment runnable and resumable. It does not supply the still-unrun empirical Level 2 result, arbitrary company decomposition, customer value or production evidence.
 - See `reports/0086-resumable-prospective-level2-model-runner.md`.
+
+## Persistence integrity repair and readiness audit — 2026-08-05
+
+- A full readiness audit found a real persisted-evidence defect: the commercial RevOps freeze hashed ten optional `territoryRules: undefined` fields that JSON later omitted, so the saved contract could not verify after reload even though in-memory tests passed.
+- RevOps cases now omit absent optional territory overrides, while explicit empty overrides remain preserved. Commercial comparison sealing rejects any record whose hash changes across a JSON serialize/parse round trip.
+- Only affected zero-spend commitments were regenerated: RevOps commercial contract/preflight/model plan, its post-comparison gate, the multi-role network receipt and the prospective Fleet sealed-task plan. Historical paid results, Level 1 selections and spend were not changed.
+- The current RevOps freeze is `36568b71e0221eff7aecec0d7039bb280a92351ba729070803a48f9372476be4`; the current prospective Fleet plan is `648a5ecd88d25e3fd046d5b53e4e60923a7a215f8ed66595f54eb73cd83fda28`.
+- A new machine-checked readiness audit verifies the Level 1 source-evidence/registry chain, three commercial packs and network rehearsals, deterministic Level 1.5 lifecycle/gates, deterministic Level 2/intake and prospective plan while preserving every empirical/customer/production/market gap.
+- The full local suite passes 247/247. No model call or spend occurred; historical cumulative paid-model spend remains `$23.10699808`.
+- See `reports/0087-persistence-integrity-and-readiness-audit.md` and `artifacts/readiness/technical-readiness-v1.json`.

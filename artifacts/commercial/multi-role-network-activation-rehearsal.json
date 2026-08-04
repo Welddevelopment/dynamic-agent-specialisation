@@ -33,9 +33,9 @@
     },
     {
       "roleId": "revops",
-      "contractFreezeHash": "3e7b0488d8626eb5725424f32387e4134112359de2f78e6a09a34f5c40f4c346",
-      "bundleHash": "3c34af297c460bf3c5cac6a536dd4a615ce852900106c601ade08cd1257b3a4b",
-      "activationHash": "f6f99d8b2b17cc5418466734cc2c1033d3bb28b2f6d3a7d2a29a95e9edfe17c1",
+      "contractFreezeHash": "36568b71e0221eff7aecec0d7039bb280a92351ba729070803a48f9372476be4",
+      "bundleHash": "383876b4dd8ca551c7c3492de05b0e77e6d4a33d319124741f31d2cc1909de91",
+      "activationHash": "1bede476f3f9c02fbbdf37f2406d97bce9bf69ffb6a64f50edaf3f6ee5a5db5d",
       "packageReady": true,
       "packageGateCount": 17,
       "loopbackOnly": true,
@@ -65,5 +65,5 @@
   "modelCalls": 0,
   "spendUsd": 0,
   "evidenceBoundary": "Disposable fictional end-to-end network rehearsals using deterministic scripted decisions. They validate role-specific packaging, activation, runtime, independent external-state verification, durable status, monitoring and duplicate suppression; they are not model comparisons or customer evidence.",
-  "receiptHash": "21c0e8b27ee7f6e123e6f10f3b1e806cbdec58fbd7958975f03409e0fa69874d"
+  "receiptHash": "b642eb1d4c2f0aea326eba9cd33f1d4d6891848bd05f105c2a4df913eedc2c91"
 }

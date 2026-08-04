@@ -31,4 +31,4 @@ Deterministic synthetic evaluation proves evaluation machinery, not model qualit
 
 ## Status — 2026-08-02
 
-The bounded three-role technical mechanism is complete. The durable registry preserves versioned winners and serious alternatives, and the full local suite passes 112/112. The external evidence contract remains open because no prospective human-engineer setup study or customer/production evaluation has occurred. See `reports/0054-bounded-level1-technical-closeout.md`.
+The bounded three-role Level 1 technical mechanism is complete. The durable registry preserves versioned winners and serious alternatives. Deterministic Level 1.5 and bounded Level 2 control mechanisms are also implemented, while their fresh empirical model gates remain explicitly open. The full local suite passes 247/247 and a machine-checked readiness audit verifies the current evidence chains. The external evidence contract remains open because no prospective human-engineer setup study or customer/production evaluation has occurred. See `reports/0054-bounded-level1-technical-closeout.md` and `reports/0087-persistence-integrity-and-readiness-audit.md`.

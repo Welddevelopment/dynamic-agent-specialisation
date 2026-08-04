@@ -1,7 +1,7 @@
 {
   "schemaVersion": "das.commercial-postcomparison-gate.v1",
   "roleId": "commercial-revops-v1:revenue-operations",
-  "comparisonContractFreezeHash": "3e7b0488d8626eb5725424f32387e4134112359de2f78e6a09a34f5c40f4c346",
+  "comparisonContractFreezeHash": "36568b71e0221eff7aecec0d7039bb280a92351ba729070803a48f9372476be4",
   "driver": {
     "id": "commercial-revops-driver",
     "version": "1",
@@ -9,15 +9,15 @@
   },
   "cases": {
     "count": 2,
-    "digest": "8ac12a4ca6f3a49d4f775431eb2bc5b4bfaccf881162fa0cf7f922106204d781",
+    "digest": "dfef568fb9f66dc470e3852fded7566a05481ab816c23439e14860479a51168a",
     "caseHashes": [
       {
         "id": "postcomparison-revops-consent-partner-new",
-        "caseHash": "52b48a142e20dead024763602ff08f0a0e23c84909d3b2b2ce585e5b9d5d22e3"
+        "caseHash": "9d3bf36083b906f2ae24920d7a45127b7f6f685bb32cc39fed135855cbaa0f3e"
       },
       {
         "id": "postcomparison-revops-duplicate-conflict-reconcile",
-        "caseHash": "685e00d2e6a4fc9a2e5d1c2b81788f06ff84f4b68724b8bbf2e16dd6e90761e9"
+        "caseHash": "965ddadadbd4b29d1839e0866a1dde78cc1b6725f47d4fa75739048c873bfff2"
       }
     ]
   },
@@ -29,5 +29,5 @@
     "releaseAfterComparisonOnly": true
   },
   "evidenceBoundary": "Sealed post-comparison lifecycle gate contract. Payloads are withheld from candidate construction and comparison; no candidate has run these cases.",
-  "gateHash": "23313bced1fc86895d43da796ecdd03e0d7e426d6f0ace10dcee0bb627a6dd7e"
+  "gateHash": "078ef5cf28642a97be73628e835866d9c71faf4b5269c422ae660bfd4edba0d2"
 }

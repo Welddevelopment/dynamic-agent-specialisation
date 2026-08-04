@@ -6,7 +6,9 @@ const consent = (email, status) => ({ email, status, recordedAt: "2026-08-01T10:
 const existingLead = (id, email, companyDomain = "prior.test") => ({ id, email, companyDomain, region: "EMEA", source: "web", status: "processed" });
 
 export function createRealisticRevopsTask({ id, goal, leads, existingLeads = [], contacts = [], accounts = [], consentRecords = [], territoryRules, executionFault = null }) {
-  return { id, batchId: id, goal, executionFault, scenario: { leads, existingLeads, contacts, accounts, consent: consentRecords, territoryRules } };
+  const scenario = { leads, existingLeads, contacts, accounts, consent: consentRecords };
+  if (territoryRules !== undefined) scenario.territoryRules = territoryRules;
+  return { id, batchId: id, goal, executionFault, scenario };
 }
 
 const development = [

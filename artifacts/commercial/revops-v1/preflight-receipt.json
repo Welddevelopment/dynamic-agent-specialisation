@@ -1,6 +1,6 @@
 {
   "schemaVersion": "das.commercial-revops-preflight.v1",
-  "contractFreezeHash": "3e7b0488d8626eb5725424f32387e4134112359de2f78e6a09a34f5c40f4c346",
+  "contractFreezeHash": "36568b71e0221eff7aecec0d7039bb280a92351ba729070803a48f9372476be4",
   "intakeHash": "3ea74277ce8e7be8917fda61d0ed46254c5bf0d82dab8dced05930c3663c2b4c",
   "driverHash": "181386d9120d8fe2f68ebfa4d6699e9f1cb8d530e0a85574440ad1d1418f087e",
   "participantHashes": [
@@ -89,5 +89,5 @@
   "modelCalls": 0,
   "spendUsd": 0,
   "evidenceBoundary": "Zero-cost disposable CRM preflight. It does not prove model candidate quality, customer value or production reliability.",
-  "receiptHash": "7b0baac069d563ada59826428dfb75365d80c7de5e18d901b073cee8175c7594"
+  "receiptHash": "a4121cbc323b541fde8a3e98319aae5a3f3233c3bdcbf37aa5613480babfe8d6"
 }
