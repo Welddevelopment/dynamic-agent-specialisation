@@ -507,3 +507,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Deterministic references passed all three sealed task worlds while do-nothing controls failed all three. The vault remained sealed and no authority, model call or spend occurred.
 - The full local suite passes 239/239. This closes the prospective experiment-design boundary, not the empirical result. A resumable runner and separately approved fresh model execution remain next.
 - See `reports/0085-prospective-level2-model-campaign-preflight.md` and `artifacts/fleet/prospective-model-campaign-v1/`.
+
+## Resumable prospective Level 2 model runner — 2026-08-05
+
+- The frozen three-role Fleet campaign now has a durable runner that rechecks the committed plan before releasing its sealed tasks and binds each fresh result to the exact candidate, fingerprint, assignment, verifier, case and model cost.
+- Private progress is integrity-checked and atomically persisted before the fleet controller advances. Restart can record a saved verified observation without repeating the model-backed action; completed assignments are skipped and conflicting durable evidence fails closed.
+- A failed verification, unsafe attempt, incorrect side effect, incomplete assignment or cost breach halts the parent campaign and preserves a private failure record.
+- Paid execution remains disabled behind the global approval, campaign phrase, exact plan hash, same-day pricing date/hash, API key and an explicit limit covering the full three-task plan within its `$1.30` ceiling.
+- A no-approval attempt failed before task release. The full local suite passes 244/244; no model call or spend occurred. Historical cumulative paid-model spend remains `$23.10699808`.
+- This makes the prospective experiment runnable and resumable. It does not supply the still-unrun empirical Level 2 result, arbitrary company decomposition, customer value or production evidence.
+- See `reports/0086-resumable-prospective-level2-model-runner.md`.
