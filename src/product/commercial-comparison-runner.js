@@ -15,13 +15,14 @@ function normalizeObservation(raw, participant, caseId, verifierId) {
     unsafeAttempts: Number(raw?.unsafeAttempts),
     incorrectSideEffects: Number(raw?.incorrectSideEffects),
     modelCostUsd: Number(raw?.modelCostUsd),
+    campaignSpendUsd: Number(raw?.campaignSpendUsd ?? raw?.modelCostUsd),
     elapsedMs: Number(raw?.elapsedMs),
     humanInterventions: Number(raw?.humanInterventions ?? 0),
     receiptHash: String(raw?.receiptHash ?? ""),
   };
   requireCondition(value.verifierId === verifierId && value.independentlyVerified, `Case ${caseId} was not judged by the bound independent verifier`);
   requireCondition(Number.isFinite(value.outcomeScore) && value.outcomeScore >= 0 && value.outcomeScore <= 1, `Case ${caseId} returned an invalid outcome score`);
-  for (const key of ["unsafeAttempts", "incorrectSideEffects", "modelCostUsd", "elapsedMs", "humanInterventions"]) requireCondition(Number.isFinite(value[key]) && value[key] >= 0, `Case ${caseId} returned invalid ${key}`);
+  for (const key of ["unsafeAttempts", "incorrectSideEffects", "modelCostUsd", "campaignSpendUsd", "elapsedMs", "humanInterventions"]) requireCondition(Number.isFinite(value[key]) && value[key] >= 0, `Case ${caseId} returned invalid ${key}`);
   requireCondition(value.receiptHash, `Case ${caseId} needs an external verification receipt`);
   return value;
 }
@@ -39,6 +40,7 @@ function summarize(participant, rows) {
     unsafeAttempts: rows.reduce((sum, row) => sum + row.unsafeAttempts, 0),
     incorrectSideEffects: rows.reduce((sum, row) => sum + row.incorrectSideEffects, 0),
     modelCostUsd: rows.reduce((sum, row) => sum + row.modelCostUsd, 0),
+    campaignSpendUsd: rows.reduce((sum, row) => sum + row.campaignSpendUsd, 0),
     meanElapsedMs: rows.reduce((sum, row) => sum + row.elapsedMs, 0) / count,
     humanInterventions: rows.reduce((sum, row) => sum + row.humanInterventions, 0),
     observationHashes: rows.map((row) => digest(row)),
@@ -117,7 +119,7 @@ export class CommercialComparisonRunner {
           requireCondition(spentUsd + projected <= contract.budget.maximumModelSpendUsd, "Commercial comparison reached its hard model-spend limit before the next call");
           const raw = await this.evaluate({ participant, testCase: testCase.payload, caseId: testCase.id, stage, verifierId: contract.driver.verifier.id });
           const row = normalizeObservation(raw, participant, testCase.id, contract.driver.verifier.id);
-          spentUsd += row.modelCostUsd;
+          spentUsd += row.campaignSpendUsd;
           requireCondition(spentUsd <= contract.budget.maximumModelSpendUsd, "Evaluator exceeded the frozen commercial comparison budget");
           rows.push(row);
           this.evidence?.append("commercial-comparison.case-verified", { stage, ...row });
@@ -181,6 +183,7 @@ export class CommercialComparisonRunner {
       stageHistory,
       repeatability: { runs: repeatRows.length, summaries: repeatRows },
       spendUsd: spentUsd,
+      operationalEvaluationCostUsd: stageHistory.flatMap((stage) => stage.summaries).reduce((sum, item) => sum + item.modelCostUsd, 0),
       evidenceBoundary: "Comparison-runner evidence only. Customer value and production reliability require a real controlled deployment.",
     };
     receipt.resultHash = digest(receipt);

@@ -72,3 +72,19 @@ test("joined runner can prove an equal-quality upgrade through frozen cost and s
   assert.ok(result.improvementAssessment.measured.costReduction >= .2);
   assert.ok(result.improvementAssessment.measured.speedReduction >= .2);
 });
+
+test("runner separates measured operating cost from incremental cached campaign spend", async () => {
+  const { contract: original, unseenVault, participants } = fixture();
+  const record = structuredClone(original);
+  delete record.freezeHash;
+  record.thresholds.minimumOutcomeImprovement = 0;
+  record.thresholds.minimumCostReduction = .2;
+  record.thresholds.minimumSpeedReduction = .2;
+  const contract = Object.freeze({ ...record, freezeHash: digest(record) });
+  const runner = new CommercialComparisonRunner({ evaluate: async ({ participant, caseId, verifierId }) => ({ verifierId, independentlyVerified: true, passed: true, outcomeScore: 1, unsafeAttempts: 0, incorrectSideEffects: 0, modelCostUsd: participant.id === "candidate" ? .001 : .003, campaignSpendUsd: 0, elapsedMs: participant.id === "candidate" ? 40 : 100, humanInterventions: 0, receiptHash: `cached-${participant.id}-${caseId}` }) });
+  const result = await runner.run({ contract, unseenVault, participants });
+  assert.equal(result.decision, "activate-compiler");
+  assert.equal(result.spendUsd, 0);
+  assert.ok(result.operationalEvaluationCostUsd > 0);
+  assert.ok(result.improvementAssessment.measured.costReduction >= .2);
+});

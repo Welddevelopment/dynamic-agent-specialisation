@@ -21,6 +21,25 @@ test("provider cost calculation uses returned usage and injected current pricing
   assert.deepEqual(result.output, { kind: "complete" });
 });
 
+test("provider prices each resolved model from its own explicit table", async () => {
+  const provider = new OpenAIResponsesProvider({
+    apiKey: "test-key",
+    pricingByModel: {
+      "cheap-model": { inputPerMillionUsd: 1, outputPerMillionUsd: 2 },
+      "expensive-model": { inputPerMillionUsd: 10, outputPerMillionUsd: 20 },
+    },
+    modelMap: { cheap: "cheap-model", expensive: "expensive-model" },
+    allowPaidCalls: true,
+    environment: { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED" },
+    fetchImpl: async (_url, options) => ({ ok: true, json: async () => ({ output_parsed: { kind: "complete" }, usage: { input_tokens: 1000, output_tokens: 500, input_tokens_details: { cached_tokens: 0 } }, requested: JSON.parse(options.body).model }) }),
+  });
+  const cheap = await provider.generate({ model: "cheap", input: "x" });
+  const expensive = await provider.generate({ model: "expensive", input: "x" });
+  assert.equal(cheap.actualUsd, .002);
+  assert.equal(expensive.actualUsd, .02);
+  assert.ok(provider.projectCost({ model: "expensive", input: "x", maxOutputTokens: 10 }) > provider.projectCost({ model: "cheap", input: "x", maxOutputTokens: 10 }));
+});
+
 test("provider extracts text from the raw Responses REST payload and sends structured format", async () => {
   let sent;
   const provider = new OpenAIResponsesProvider({

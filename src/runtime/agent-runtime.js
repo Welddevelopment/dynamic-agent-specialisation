@@ -5,7 +5,7 @@ export class SpecialistAgentRuntime {
   }
   async run({ tenantId, candidate, goal, toolHost, externalVerifier }) {
     const startedAtMs = this.now();
-    const session = { tenantId, roleId: candidate.roleId, specialistVersion: candidate.version, runId: `${candidate.id}:run-${++this.#runSequence}`, memoryPolicy: structuredClone(candidate.memory ?? { kind: "task-scoped", scope: "current run" }), goal, observations: [], toolReceipts: [], reconciled: false, verificationRepairRounds: 0, consecutiveReads: 0, repeatedReadSignatures: {}, modelCostUsd: 0, elapsedMs: 0 };
+    const session = { tenantId, roleId: candidate.roleId, specialistVersion: candidate.version, runId: `${candidate.id}:run-${++this.#runSequence}`, memoryPolicy: structuredClone(candidate.memory ?? { kind: "task-scoped", scope: "current run" }), goal, observations: [], toolReceipts: [], reconciled: false, verificationRepairRounds: 0, consecutiveReads: 0, repeatedReadSignatures: {}, modelCostUsd: 0, modelElapsedMs: 0, elapsedMs: 0 };
     if (candidate.verifier?.binding && externalVerifier?.id !== candidate.verifier.binding) {
       const reason = `verifier-binding-mismatch:${candidate.verifier.binding}`;
       this.evidence?.append("runtime.activation-blocked", { tenantId, candidateId: candidate.id, reason, suppliedVerifierId: externalVerifier?.id ?? null });
@@ -35,6 +35,7 @@ export class SpecialistAgentRuntime {
         throw error;
       }
       session.modelCostUsd += decision.metering?.actualUsd ?? 0;
+      session.modelElapsedMs += decision.metering?.elapsedMs ?? 0;
       session.elapsedMs = this.now() - startedAtMs;
       this.evidence?.append("runtime.decision", { tenantId, candidateId: candidate.id, turn, decision });
       if (session.modelCostUsd > maxCostUsd) return this.#limitOrVerifiedComplete({ tenantId, candidate, session, reason: "candidate-task-cost-limit-after-call", goal, toolHost, externalVerifier });

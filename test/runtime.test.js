@@ -24,6 +24,15 @@ test("generic runtime executes allowed tools then requires external verification
   assert.equal(result.verification.observed.value, 7);
 });
 
+test("runtime preserves model-reported latency separately from local replay wall time", async () => {
+  const decisionEngine = { next: async () => ({ kind: "complete", confidence: 1, metering: { actualUsd: .01, elapsedMs: 321 } }) };
+  const runtime = new SpecialistAgentRuntime({ decisionEngine, memory: new TenantRoleMemory() });
+  const result = await runtime.run({ tenantId: "a", candidate: candidate(), goal: "already complete", toolHost: host(), externalVerifier: { verify: async () => ({ passed: true }) } });
+  assert.equal(result.status, "completed");
+  assert.equal(result.session.modelCostUsd, .01);
+  assert.equal(result.session.modelElapsedMs, 321);
+});
+
 test("generic runtime blocks a tool absent from the candidate before host execution", async () => {
   let executed = false;
   const toolHost = host();

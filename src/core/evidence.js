@@ -7,7 +7,15 @@ export class EvidenceLedger {
   #records = [];
   constructor(filename = null) {
     this.filename = filename;
-    if (filename) fs.mkdirSync(path.dirname(filename), { recursive: true });
+    if (filename) {
+      fs.mkdirSync(path.dirname(filename), { recursive: true });
+      if (fs.existsSync(filename)) {
+        const lines = fs.readFileSync(filename, "utf8").split("\n").filter(Boolean);
+        this.#records = lines.map((line) => JSON.parse(line));
+        if (!this.verify()) throw new Error("Persisted evidence ledger integrity mismatch");
+        this.#previousHash = this.#records.at(-1)?.hash ?? "GENESIS";
+      }
+    }
   }
   append(type, payload) {
     const record = { sequence: this.#records.length + 1, type, payload, previousHash: this.#previousHash };
@@ -28,4 +36,3 @@ export class EvidenceLedger {
     return true;
   }
 }
-

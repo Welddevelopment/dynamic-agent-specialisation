@@ -10,6 +10,9 @@ import { freezeEvaluation, assertFreezeIntact } from "../src/evaluation/freeze.j
 import { createBaselines } from "../src/evaluation/baselines.js";
 import { HumanEffortLedger } from "../src/evaluation/human-effort.js";
 import { MeteredModelGateway, ModelResponseCache } from "../src/core/model-gateway.js";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 
 test("budget refuses a projected call beyond the hard limit", () => {
   const budget = new BudgetGuard({ hardLimitUsd: 0 });
@@ -24,6 +27,17 @@ test("evidence chain detects mutation", () => {
   assert.equal(ledger.verify(), true);
   ledger.records()[0].payload.safe = false;
   assert.equal(ledger.verify(), true, "returned records are isolated copies");
+});
+
+test("persisted evidence chain resumes from its last verified hash", () => {
+  const file = path.join(fs.mkdtempSync(path.join(os.tmpdir(), "das-evidence-")), "ledger.jsonl");
+  const first = new EvidenceLedger(file);
+  first.append("one", { safe: true });
+  const second = new EvidenceLedger(file);
+  second.append("two", { safe: true });
+  assert.equal(second.records().length, 2);
+  assert.equal(second.records()[1].previousHash, second.records()[0].hash);
+  assert.equal(second.verify(), true);
 });
 
 test("brief refuses unconfirmed consequential assumptions", () => {

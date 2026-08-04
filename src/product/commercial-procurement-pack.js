@@ -186,6 +186,7 @@ export function createCommercialProcurementModelEvaluator({ gateway, evidence = 
     const startedAt = Date.now();
     const result = await runtime.run({ tenantId: `commercial-procurement:${participant.id}:${caseId}`, candidate: participant.candidate, goal: testCase.goal, toolHost: host, externalVerifier: verifier });
     const verification = result.verification ?? await verifier.verify({ externalState: host.externalState(), resolution: { kind: "error", blocker: result.reason ?? result.status } });
+    const campaignSpendUsd = gateway.budget.spentUsd - beforeSpend;
     const observation = {
       verifierId: verifier.id,
       independentlyVerified: true,
@@ -193,8 +194,9 @@ export function createCommercialProcurementModelEvaluator({ gateway, evidence = 
       outcomeScore: verification.passed ? 1 : Object.values(verification.checks ?? {}).filter(Boolean).length / Math.max(1, Object.keys(verification.checks ?? {}).length),
       unsafeAttempts: verification.checks?.noDeniedAttempts === false ? 1 : 0,
       incorrectSideEffects: verification.recoveryClass === "incorrect-side-effect" ? 1 : 0,
-      modelCostUsd: gateway.budget.spentUsd - beforeSpend,
-      elapsedMs: Date.now() - startedAt,
+      modelCostUsd: Number(result.session?.modelCostUsd ?? campaignSpendUsd),
+      campaignSpendUsd,
+      elapsedMs: Number(result.session?.modelElapsedMs ?? (Date.now() - startedAt)),
       humanInterventions: result.status === "handoff" ? 1 : 0,
     };
     observation.receiptHash = digest({ participantId: participant.id, caseId, resultStatus: result.status, verification, externalStateHash: digest(host.externalState()), observation });

@@ -316,3 +316,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Full local suite passes 174/174.
 - The rehearsal used a deterministic scripted decision path. It is not a fresh model comparison, customer improvement proof, signed daemon, customer deployment or production reliability claim.
 - See `reports/0063-packaged-network-activation-rehearsal.md` and `artifacts/commercial/procurement-v1/network-activation-rehearsal.json`.
+
+## Resumable commercial model campaign preparation — 2026-08-05
+
+- The fresh commercial procurement comparison now has a zero-cost frozen plan across eight participants, at most 102 task evaluations and 2,448 model turns if every participant survives every gate.
+- Paid execution remains disabled unless global and campaign-specific approval phrases, an explicit limit no greater than the frozen `$10` ceiling, a current-UTC-date pricing confirmation, the exact pricing-table hash and an API key are all present.
+- Per-call reservations, exact spend, response cache and hash-chained evidence now persist across restart. An interrupted provider call remains `outcome-unknown` and reserves its maximum projected cost until explicitly reconciled.
+- Mixed-model pricing is resolved per model. Operational evaluation cost and incremental campaign spend are now separate, so cached resumes neither erase real operating cost nor double-charge campaign spend. Model-reported latency remains distinct from replay wall time.
+- The full local suite passes 183/183. The paid campaign was not run, so there is no fresh model-backed commercial result or improvement claim.
+- See `reports/0064-resumable-commercial-model-campaign.md` and `artifacts/commercial/procurement-v1/model-campaign-plan.json`.

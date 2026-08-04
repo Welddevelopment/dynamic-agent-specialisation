@@ -21,16 +21,24 @@ function textFormat(responseFormat) {
 }
 
 export class OpenAIResponsesProvider {
-  constructor({ apiKey, pricing, fetchImpl = fetch, allowPaidCalls = false, environment = process.env, modelMap = {} }) {
+  constructor({ apiKey, pricing = null, pricingByModel = {}, fetchImpl = fetch, allowPaidCalls = false, environment = process.env, modelMap = {} }) {
     if (!apiKey) throw new Error("OpenAI API key is required");
-    if (!pricing?.inputPerMillionUsd || !pricing?.outputPerMillionUsd) throw new Error("Explicit current pricing is required");
-    this.id = "openai-responses"; this.apiKey = apiKey; this.pricing = pricing; this.fetchImpl = fetchImpl; this.modelMap = structuredClone(modelMap);
+    if (!pricing?.inputPerMillionUsd && !Object.keys(pricingByModel).length) throw new Error("Explicit current pricing is required");
+    for (const [model, value] of Object.entries(pricingByModel)) if (!value?.inputPerMillionUsd || !value?.outputPerMillionUsd) throw new Error(`Explicit current pricing is incomplete for ${model}`);
+    this.id = "openai-responses"; this.apiKey = apiKey; this.pricing = pricing; this.pricingByModel = structuredClone(pricingByModel); this.fetchImpl = fetchImpl; this.modelMap = structuredClone(modelMap);
     this.enabled = allowPaidCalls && environment.DAS_ENABLE_PAID_MODEL_CALLS === "JOEL_APPROVED";
   }
+  pricingFor(request) {
+    const resolvedModel = this.modelMap[request.model] ?? request.model;
+    const value = this.pricingByModel[resolvedModel] ?? this.pricing;
+    if (!value?.inputPerMillionUsd || !value?.outputPerMillionUsd) throw new Error(`No explicit current pricing for resolved model: ${resolvedModel}`);
+    return value;
+  }
   projectCost(request) {
+    const pricing = this.pricingFor(request);
     const input = estimateTokens(request.input);
     const output = request.maxOutputTokens ?? 4_000;
-    return input / 1_000_000 * this.pricing.inputPerMillionUsd + output / 1_000_000 * this.pricing.outputPerMillionUsd;
+    return input / 1_000_000 * pricing.inputPerMillionUsd + output / 1_000_000 * pricing.outputPerMillionUsd;
   }
   async generate(request) {
     if (!this.enabled) throw new Error("Paid model calls require Joel approval and DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED");
@@ -53,7 +61,8 @@ export class OpenAIResponsesProvider {
     const usage = responseBody.usage ?? { input_tokens: 0, output_tokens: 0, input_tokens_details: { cached_tokens: 0 } };
     const cached = usage.input_tokens_details?.cached_tokens ?? 0;
     const uncached = Math.max(0, usage.input_tokens - cached);
-    const actualUsd = uncached / 1_000_000 * this.pricing.inputPerMillionUsd + cached / 1_000_000 * (this.pricing.cachedInputPerMillionUsd ?? this.pricing.inputPerMillionUsd) + usage.output_tokens / 1_000_000 * this.pricing.outputPerMillionUsd;
+    const pricing = this.pricingFor(request);
+    const actualUsd = uncached / 1_000_000 * pricing.inputPerMillionUsd + cached / 1_000_000 * (pricing.cachedInputPerMillionUsd ?? pricing.inputPerMillionUsd) + usage.output_tokens / 1_000_000 * pricing.outputPerMillionUsd;
     return { output: extractOutput(responseBody), usage, actualUsd, responseId: responseBody.id, resolvedModel: model };
   }
 }
