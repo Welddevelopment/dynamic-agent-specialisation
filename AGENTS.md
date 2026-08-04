@@ -430,3 +430,14 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Mutation, incompatible routing, widened automatic authority, impossible budget and unsafe/unproved specialist controls fail closed. The full local suite passes 218/218; model calls and new paid spend were zero.
 - This is a planning foundation only. No workload executed, no role was created and no customer evidence or full Level 2 result is claimed. Next: durable explicit execution with independent specialist receipts and honest parent-goal aggregation.
 - See `docs/BOUNDED_LEVEL_2_CONTRACT.md`, `reports/0076-bounded-level2-planning-foundation.md` and `artifacts/fleet/bounded-level2-planning-v1/`.
+
+## Durable bounded Level 2 execution — 2026-08-05
+
+- The fleet plan now has a durable execution controller. An accountable owner must approve the exact plan hash, exact assignment set and an actual-cost ceiling no broader than the frozen company contract.
+- Each outcome binds to the exact workload, specialist fingerprint and planned independent verifier. Exact duplicates are idempotent; conflicting duplicates and mutated durable state fail closed.
+- One failed/incomplete verification, unsafe attempt, incorrect side effect or cost-ceiling breach halts the fleet. The parent goal cannot complete while any assignment or role gap remains.
+- The joined fictional rehearsal processed all 105 routed items in four batches through the actual disposable support, procurement and RevOps worlds. Deterministic role references passed each role's existing external-state verifier; restart preserved `routable-work-completed-role-gap-blocked`.
+- The exact finance gap was approved only to prepare a separate Level 1 contract. It granted zero model-spend, creation or activation authority. No finance specialist was built.
+- The full local suite passes 221/221; model calls and new paid spend were zero. These are deterministic local coordination mechanics, not model-agent, customer or production evidence.
+- Next: complete the role-gap return loop through separate Level 1 proof, Level 1.5 activation, portfolio addition, residual-only replan and original-goal completion.
+- See `reports/0077-durable-bounded-level2-execution.md` and `artifacts/fleet/bounded-level2-execution-v1/`.
