@@ -450,3 +450,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Mutation of completed work, widened residual work, wrong activation, incomplete prior verification and attempts to rerun carried assignments fail closed. The full local suite passes 223/223; model calls and new paid spend were zero.
 - This completes the bounded Level 2 control mechanism only in one deterministic fictional four-stream environment. It is not model-backed specialization, arbitrary company-role discovery, customer value, production reliability or a complete fleet brain. Empirical Level 1.5 remains a separate paid gate.
 - See `reports/0078-bounded-level2-role-gap-return.md` and `artifacts/fleet/bounded-level2-role-gap-return-v1/`.
+
+## Bounded fleet console — 2026-08-05
+
+- The private console now has a Fleet page showing the complete bounded Level 2 causal chain: broad goal, 105/115 initial verified state, honest finance role gap, separate Level 1 selection/activation, residual-only execution and 115/115 original-goal completion.
+- It exposes five sanitized assignment records with quantities, expected outcomes, bounded estimates and independent-verifier labels. Raw summary, plan, activation, assignment and evidence hashes are not sent to the browser.
+- The server projection rechecks summary hashes and the expanded plan before rendering. Mutated source evidence fails closed.
+- Default 1280px and 820px browser checks had no horizontal overflow or console warnings/errors. The full local suite passes 225/225; model calls and new paid spend were zero.
+- This is an inspectable private local product surface for deterministic fictional evidence, not a live fleet, customer deployment or model-backed Level 2 claim.
+- See `reports/0079-bounded-fleet-console.md`.

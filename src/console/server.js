@@ -9,6 +9,7 @@ import { CommercialOnboardingStore } from "../product/onboarding-store.js";
 import { COMMERCIAL_PRODUCT_CONFIGS, loadCommercialProductState, loadCommercialProductStates, readOptionalJson } from "./commercial-product-state.js";
 import { ImprovementConsoleStore } from "./improvement-store.js";
 import { loadCommercialLifecycleConsoleState } from "./lifecycle-state.js";
+import { loadFleetConsoleState } from "./fleet-state.js";
 
 const port = Number(process.env.PORT ?? 4391);
 const directory = path.dirname(fileURLToPath(import.meta.url));
@@ -58,6 +59,7 @@ function productEvidenceState() {
   const registry = readOptionalJson("artifacts/level1/registry-v1.json");
   const lifecycle = readOptionalJson("artifacts/level15/rehearsal-v1/summary.json");
   const commercialLifecycle = loadCommercialLifecycleConsoleState();
+  const fleet = loadFleetConsoleState();
   return {
     level1: closeout,
     registry: registry ? {
@@ -67,6 +69,7 @@ function productEvidenceState() {
     } : null,
     lifecycle,
     commercialLifecycle,
+    fleet,
   };
 }
 
@@ -130,6 +133,7 @@ const assets = {
   "/lifecycle.css": ["lifecycle.css", "text/css; charset=utf-8"],
   "/commercial.css": ["commercial.css", "text/css; charset=utf-8"],
   "/comparison.css": ["comparison.css", "text/css; charset=utf-8"],
+  "/fleet.css": ["fleet.css", "text/css; charset=utf-8"],
   "/app.js": ["app.js", "text/javascript; charset=utf-8"],
   "/vendor/gsap.js": [path.resolve("node_modules/gsap/dist/gsap.min.js"), "text/javascript; charset=utf-8"],
   "/vendor/ScrollTrigger.js": [path.resolve("node_modules/gsap/dist/ScrollTrigger.min.js"), "text/javascript; charset=utf-8"],

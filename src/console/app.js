@@ -186,6 +186,29 @@ function lifecycle() {
   return `<p class="kicker">Continuous specialisation</p><h1 class="page-title">Improve the specialist without gambling live work.</h1><p class="lede">Independent outcomes decide whether the active package continues, asks for a bounded search, or halts. Development winners still pass offline, shadow and canary gates before promotion.</p><div class="lifecycle-grid">${selected}</div>${joinedSection}<section class="lifecycle-rail"><div class="panel-head"><div><h2>Earlier control-only rehearsal</h2><p class="explain">Constructed fixtures separately verify continue, request and immediate-halt branches. They remain control tests, not customer or model-performance evidence.</p></div><span class="evidence-chip">${rehearsal?.status === "completed" ? "All checks passed" : "Not run"}</span></div><div class="path-rail">${roleEvents.map(([signal,action,detail,copy])=>`<article class="path-step"><span>${esc(signal)}</span><strong>${esc(action)}</strong><p>${esc(copy)}</p><code>${esc(detail?.branch ?? "No fixture")}</code></article>`).join("")}</div></section><section class="boundary-note"><strong>The boundary is deliberate.</strong><p>Monitoring and lifecycle state are durable and tamper-evident. Further optimisation remains optional, model spend requires explicit start, canaries require accountable authorization, and no synthetic result is presented as production reliability.</p></section>`;
 }
 
+function fleet() {
+  const fleet = state.product?.fleet;
+  if (!fleet || fleet.integrity !== "valid") return `<p class="kicker">Bounded fleet coordination</p><h1 class="page-title">Fleet evidence is unavailable.</h1><p class="lede">The console refuses to summarize a missing or mutated coordination chain.</p><p class="notice error">${esc(fleet?.error ?? "No fleet checkpoint is loaded.")}</p>`;
+  const rows = fleet.plan.assignments.map((assignment) => `<article class="fleet-assignment ${assignment.phase}"><div class="fleet-assignment-main"><span>${esc(assignment.workload)}</span><strong>${esc(assignment.specialist)}</strong><small>${assignment.quantity} items · ${esc(assignment.phase === "residual" ? "new specialist" : "verified before gap")}</small></div><dl><div><dt>Outcome</dt><dd>${Math.round(assignment.expectedOutcomeScore * 100)}%</dd></div><div><dt>Estimate</dt><dd>$${Number(assignment.estimatedCostUsd).toFixed(2)}</dd></div><div><dt>Verifier</dt><dd>${esc(assignment.verifier)}</dd></div></dl></article>`).join("");
+  return `<section class="fleet-workspace">
+    <header class="fleet-hero"><div><p class="kicker">Bounded fleet coordination</p><h1>One goal.<br>Five specialists.</h1></div><div class="fleet-goal"><span>Trusted broad goal</span><p>${esc(fleet.broadGoal)}</p><strong>${esc(fleet.continuation.finalState.replaceAll("-", " "))}</strong></div></header>
+    <section class="fleet-summary" aria-label="Fleet completion summary"><article class="fleet-progress"><span>Verified outcome</span><strong>${fleet.continuation.totalVerified}<i> / ${fleet.continuation.total}</i></strong><div class="fleet-progress-track"><i style="width:${Math.round(fleet.continuation.totalVerified / fleet.continuation.total * 100)}%"></i></div><p>The parent goal completed only after every workload passed its bound external checker.</p></article><article><span>Carried</span><strong>${fleet.continuation.carriedWithoutRerun}</strong><p>Previously verified items preserved without rerun.</p></article><article><span>Residual</span><strong>${fleet.continuation.residualExecuted}</strong><p>Blocked finance items executed after activation.</p></article><article><span>Safety</span><strong>${fleet.continuation.residualSafetyViolations}</strong><p>Residual safety violations detected.</p></article></section>
+    <section class="fleet-turn"><div class="fleet-turn-copy"><p class="kicker">The decisive return</p><h2>It stopped honestly.<br>Then filled the missing role.</h2><p>The first plan completed every job it could safely route, but did not give finance work to a plausible general agent. A separate comparison produced a bounded finance specialist. Only the ten blocked items were replanned.</p></div><div class="fleet-turn-states"><article><span>Initial state</span><strong>${fleet.initial.assigned} / ${fleet.initial.total}</strong><p>${esc(fleet.initial.roleGap)} had no proved match. Parent goal remained incomplete.</p></article><i aria-hidden="true">→</i><article class="candidate"><span>Level 1 selection</span><strong>${esc(fleet.roleGap.selectedCandidate)}</strong><p>${Math.round(fleet.roleGap.frozenPassRate * 100)}% frozen-case pass · ${fleet.roleGap.safetyViolations} unsafe attempts · exact verifier bound.</p></article><i aria-hidden="true">→</i><article class="complete"><span>Continued state</span><strong>${fleet.continuation.totalVerified} / ${fleet.continuation.total}</strong><p>Prior work carried, residual verified, original broad goal completed.</p></article></div></section>
+    <section class="fleet-ledger"><div class="fleet-ledger-copy"><p class="kicker">Allocation ledger</p><h2>The recommendation is automatic.<br>The reasoning stays inspectable.</h2><p>${esc(fleet.plan.strategy)} was selected under the fictional $${fleet.plan.hardCostLimitUsd.toFixed(2)} ceiling. Each assignment remains bound to one workload, specialist and independent checker.</p><dl><div><dt>Estimated total</dt><dd>$${fleet.plan.estimatedCostUsd.toFixed(2)}</dd></div><div><dt>Expected outcome</dt><dd>${(fleet.plan.expectedOutcomeScore * 100).toFixed(1)}%</dd></div></dl></div><div class="fleet-assignment-stack">${rows}</div></section>
+    <footer class="fleet-boundary"><div><span>What exists</span><strong>A joined deterministic control mechanism in one fictional four-stream company.</strong></div><div><span>What remains unproved</span><strong>${esc(fleet.nextGate)}</strong></div><p>${esc(fleet.boundary)}</p></footer>
+  </section>`;
+}
+
+function animateFleetPage() {
+  if (page !== "fleet" || !globalThis.gsap) return;
+  gsap.fromTo(".fleet-hero > *", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: .75, stagger: .12, ease: "power3.out" });
+  gsap.fromTo(".fleet-summary > article", { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: .6, stagger: .07, delay: .12, ease: "power2.out" });
+  if (globalThis.ScrollTrigger) {
+    gsap.utils.toArray(".fleet-assignment").forEach((card, index) => gsap.fromTo(card, { y: 24 + index * 4, opacity: .35 }, { y: 0, opacity: 1, scrollTrigger: { trigger: card, start: "top 92%", end: "top 68%", scrub: .35 } }));
+    gsap.fromTo(".fleet-turn-states", { opacity: .35 }, { opacity: 1, scrollTrigger: { trigger: ".fleet-turn", start: "top 82%", end: "center 55%", scrub: .5 } });
+  }
+}
+
 function improvement() {
   const draft = state.improvement.draft;
   const contract = draft?.contract;
@@ -321,11 +344,12 @@ function bind() {
 }
 
 function render() {
-  main.innerHTML = page === "create" ? createSpecialist() : page === "comparison" ? comparisonPage() : page === "improve" ? improvement() : page === "lifecycle" ? lifecycle() : page === "role" ? rolePage() : overview();
+  main.innerHTML = page === "create" ? createSpecialist() : page === "comparison" ? comparisonPage() : page === "improve" ? improvement() : page === "lifecycle" ? lifecycle() : page === "fleet" ? fleet() : page === "role" ? rolePage() : overview();
   main.classList.remove("flash");
   requestAnimationFrame(() => main.classList.add("flash"));
   requestAnimationFrame(animateCreatePage);
   requestAnimationFrame(animateComparisonPage);
+  requestAnimationFrame(animateFleetPage);
   bind();
 }
 
