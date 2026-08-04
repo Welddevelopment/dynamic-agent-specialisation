@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "das.commercial-postcomparison-preflight.v1",
+  "roles": [
+    {
+      "role": "procurement",
+      "roleId": "commercial-procurement-v1:procurement-coverage",
+      "gateHash": "4c93f5f4487f4939dde30bf43ca5e7fdd4b1e67fac00a912ab5c8454a044089a",
+      "caseCount": 2,
+      "referencePassed": 2,
+      "weakPassed": 0,
+      "referenceReceiptHash": "64b81fb4f43b052605494e6c47f6854154c2bf900009d22e1b7af0212210b02d",
+      "weakReceiptHash": "93febfc278b317e4fb9fdd6e4fd4e70ed4c04561a670372939da5e18d1794064"
+    },
+    {
+      "role": "support",
+      "roleId": "commercial-support-v1:support-operations",
+      "gateHash": "061c72385adbd9870d40769743c8b93dd02ae8e66ae09453c99652c258e63a70",
+      "caseCount": 2,
+      "referencePassed": 2,
+      "weakPassed": 0,
+      "referenceReceiptHash": "ad44ed24c42b284159c4d5f38628da074b6766b12f16c1f0382a2ee42c8c6351",
+      "weakReceiptHash": "8bb9e9416fe9cf21fc5605efaad268de61ee0380659590ceb32158eb960fa8c3"
+    },
+    {
+      "role": "revops",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "gateHash": "23313bced1fc86895d43da796ecdd03e0d7e426d6f0ace10dcee0bb627a6dd7e",
+      "caseCount": 2,
+      "referencePassed": 2,
+      "weakPassed": 0,
+      "referenceReceiptHash": "a3853293cfa46dba61a841b18f6af6c73ae0bea30c389b4ff04a1333b9cedd28",
+      "weakReceiptHash": "5343977095de0a6696072e69c6fb94ddc35b938119cdd11821c9d820626a348d"
+    }
+  ],
+  "checks": {
+    "allRolesCommitted": true,
+    "everyReferencePassed": true,
+    "everyWeakControlFailedAtLeastOne": true,
+    "noGateReleased": true
+  },
+  "modelCalls": 0,
+  "paidModelSpendUsd": 0,
+  "evidenceBoundary": "Fresh deterministic post-comparison gate preflight in disposable synthetic worlds. No model candidate ran these cases and no model-backed improvement is claimed.",
+  "receiptHash": "5294eccde026df41debff6298963274f6c71952ed013af24c9b7aad7ed2a74cd"
+}

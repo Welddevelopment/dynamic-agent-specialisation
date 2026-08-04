@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "das.commercial-postcomparison-gate.v1",
+  "roleId": "commercial-procurement-v1:procurement-coverage",
+  "comparisonContractFreezeHash": "832a23f0abc9c530fc79d1414d3ad8a409868c7c3e75cd70bbd95765982a3b71",
+  "driver": {
+    "id": "commercial-procurement-driver",
+    "version": "1",
+    "verifierId": "commercial-procurement-v1:external-verifier"
+  },
+  "cases": {
+    "count": 2,
+    "digest": "f80d501f1063bc3fe651c289c989cf6149cd9888c473b853354f2c431bbede4e",
+    "caseHashes": [
+      {
+        "id": "postcomparison-procurement-transfer-and-order",
+        "caseHash": "bea703a3efed7427fbc071b28fbd5a498b72b3bb8eeb1f3633d8fd0e4ee9c7b1"
+      },
+      {
+        "id": "postcomparison-procurement-inbound-and-approval",
+        "caseHash": "1fa913024349e218d24c7d182129b39a02cb49d76c1943897c5e3cc6d8c9313d"
+      }
+    ]
+  },
+  "releasePolicy": {
+    "exactCampaignResultRequired": true,
+    "exactSelectedCandidateRequired": true,
+    "provedUpgradeRequired": true,
+    "modelCampaignCompletionRequired": true,
+    "releaseAfterComparisonOnly": true
+  },
+  "evidenceBoundary": "Sealed post-comparison lifecycle gate contract. Payloads are withheld from candidate construction and comparison; no candidate has run these cases.",
+  "gateHash": "4c93f5f4487f4939dde30bf43ca5e7fdd4b1e67fac00a912ab5c8454a044089a"
+}

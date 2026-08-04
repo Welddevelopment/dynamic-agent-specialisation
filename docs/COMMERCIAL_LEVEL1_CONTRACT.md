@@ -40,6 +40,8 @@ A customer binding kit now scaffolds the remaining company-specific system bound
 
 The activated commercial path now also reaches the bounded Level 1.5 replacement lifecycle. Independently verified drift can create a no-spend re-comparison request; a prepared challenger must pass disposable offline checks, zero-authority shadow and an explicitly authorized traffic-bounded canary before promotion. Promotion creates a linked activation receipt, and independently verified regression can restore the prior bundle through an explicit rollback receipt. This joined mechanic passed across all three fictional role worlds, but fresh model-backed challenger generation and customer traffic remain unproved.
 
+Candidate selection and replacement now use separate test boundaries. Two additional offline lifecycle cases per role remain outside candidate generation, comparison, unseen selection and repeatability. Only the exact integrity-checked campaign winner can release them, and a retained current agent cannot enter replacement. This prevents a selected specialist from qualifying for promotion merely by repeating the comparison exam it already passed.
+
 ## Customer journey
 
 1. Describe the company and desired role in ordinary language.

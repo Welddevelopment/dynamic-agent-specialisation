@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "das.commercial-postcomparison-gate.v1",
+  "roleId": "commercial-revops-v1:revenue-operations",
+  "comparisonContractFreezeHash": "3e7b0488d8626eb5725424f32387e4134112359de2f78e6a09a34f5c40f4c346",
+  "driver": {
+    "id": "commercial-revops-driver",
+    "version": "1",
+    "verifierId": "commercial-revops-v1:external-verifier"
+  },
+  "cases": {
+    "count": 2,
+    "digest": "8ac12a4ca6f3a49d4f775431eb2bc5b4bfaccf881162fa0cf7f922106204d781",
+    "caseHashes": [
+      {
+        "id": "postcomparison-revops-consent-partner-new",
+        "caseHash": "52b48a142e20dead024763602ff08f0a0e23c84909d3b2b2ce585e5b9d5d22e3"
+      },
+      {
+        "id": "postcomparison-revops-duplicate-conflict-reconcile",
+        "caseHash": "685e00d2e6a4fc9a2e5d1c2b81788f06ff84f4b68724b8bbf2e16dd6e90761e9"
+      }
+    ]
+  },
+  "releasePolicy": {
+    "exactCampaignResultRequired": true,
+    "exactSelectedCandidateRequired": true,
+    "provedUpgradeRequired": true,
+    "modelCampaignCompletionRequired": true,
+    "releaseAfterComparisonOnly": true
+  },
+  "evidenceBoundary": "Sealed post-comparison lifecycle gate contract. Payloads are withheld from candidate construction and comparison; no candidate has run these cases.",
+  "gateHash": "23313bced1fc86895d43da796ecdd03e0d7e426d6f0ace10dcee0bb627a6dd7e"
+}

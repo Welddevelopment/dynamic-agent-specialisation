@@ -410,3 +410,13 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Mutated lifecycle summaries fail closed. Raw activation hashes are not exposed in browser state.
 - Desktop and 820px browser checks passed with no horizontal overflow or console warnings/errors. No paid calls were made.
 - See `reports/0074-commercial-lifecycle-console.md`.
+
+## Sealed post-comparison lifecycle handoff — 2026-08-05
+
+- Procurement, support and CRM / RevOps now each have a second two-case offline gate that is separate from candidate construction, development, validation, adversarial, unseen and repeatability evaluation.
+- Role-specific paid campaign plans contain neither these payloads nor their identifiers. A gate releases only after rechecking the exact lifecycle plan, campaign result, selected specialist bundle and different proved compiler winner.
+- The lifecycle plan binds the active bundle/activation, no-spend re-comparison request, comparison freeze, exact campaign plan/pricing hash and gate hash. The resulting challenger record grants no spend, activation or customer-write authority.
+- Retaining the current agent, failing any improvement target, substituting a candidate or mutating the chain blocks release. Deterministic role references passed 6/6 fresh cases; do-nothing controls passed 0/6; all vaults stayed sealed during preflight.
+- The full local suite passes 214/214. Model calls and new paid spend were zero.
+- This closes the final structural evaluation-leakage/handoff gap, not the empirical Level 1.5 gate. A separately approved fresh model-backed campaign and the exact winner's offline/shadow/canary evidence are still required.
+- See `reports/0075-sealed-postcomparison-lifecycle-handoff.md` and `artifacts/commercial/postcomparison-gates-v1/`.

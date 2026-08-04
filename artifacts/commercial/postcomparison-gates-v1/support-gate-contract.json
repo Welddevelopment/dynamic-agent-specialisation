@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "das.commercial-postcomparison-gate.v1",
+  "roleId": "commercial-support-v1:support-operations",
+  "comparisonContractFreezeHash": "916250b5c883f3a41de417be04db4f627da2c2e9ad011a968e754811f69a9da6",
+  "driver": {
+    "id": "commercial-support-driver",
+    "version": "1",
+    "verifierId": "commercial-support-v1:external-verifier"
+  },
+  "cases": {
+    "count": 2,
+    "digest": "6a854146898bb91bba72a6909198e8933f104ba35c47a02ab563d67b7506d795",
+    "caseHashes": [
+      {
+        "id": "postcomparison-support-four-route",
+        "caseHash": "d8eb0f43d7cd6e8a8a1f099be35a88609765cafb0496e9006ecabe674a596e21"
+      },
+      {
+        "id": "postcomparison-support-safe-work-before-approval",
+        "caseHash": "5610b6546d6b519be4017d2a00641a2fed3ad89e7e3876e7965f5ddfc40976b2"
+      }
+    ]
+  },
+  "releasePolicy": {
+    "exactCampaignResultRequired": true,
+    "exactSelectedCandidateRequired": true,
+    "provedUpgradeRequired": true,
+    "modelCampaignCompletionRequired": true,
+    "releaseAfterComparisonOnly": true
+  },
+  "evidenceBoundary": "Sealed post-comparison lifecycle gate contract. Payloads are withheld from candidate construction and comparison; no candidate has run these cases.",
+  "gateHash": "061c72385adbd9870d40769743c8b93dd02ae8e66ae09453c99652c258e63a70"
+}
