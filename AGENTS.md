@@ -467,3 +467,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Full, partial and blocked branches plus hard budget and role-proposal limits are covered. No profile grants execution authority. The full local suite passes 227/227; model calls and new paid spend were zero.
 - These profiles strengthen deterministic structural planning generality. Only the original four-stream return scenario has joined disposable execution evidence; this is not model-agent, customer or production evidence.
 - See `reports/0080-bounded-level2-generality-matrix.md` and `artifacts/fleet/bounded-level2-generality-v1/`.
+
+## Level 1 to fleet admission bridge — 2026-08-05
+
+- Existing durable Level 1 selections can now enter bounded fleet planning only through an integrity-checked admission gate. It verifies registry/selection/candidate identity, frozen and repeatability success, current-runtime confirmation, all referenced artifact SHA-256 values, exact policy/verifier binding and capability subsets.
+- The fleet record derives mean cost from preserved repeatability evidence, uses the activated task-latency ceiling as a conservative planning value and labels owner-configured capacity explicitly as not throughput proof. Admission grants no execution, spend or activation authority.
+- The actual local procurement, support and RevOps Level 1 selections were admitted and formed a 3/3 independently verified fleet plan with zero role gaps and zero authority. A descriptor that widens tools fails before admission.
+- The full local suite passes 229/229; no new model call or paid spend occurred. This joins historical Level 1 selection evidence to Level 2 planning, not execution, customer traffic or production throughput.
+- See `reports/0081-level1-fleet-admission-bridge.md` and `artifacts/fleet/level1-admission-v1/`.
