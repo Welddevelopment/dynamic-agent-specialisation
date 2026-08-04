@@ -14,6 +14,7 @@
     "console": "node src/console/server.js",
     "commercial:procurement:preflight": "node src/experiments/commercial-procurement-preflight.js",
     "commercial:support:preflight": "node src/experiments/commercial-support-preflight.js",
+    "commercial:revops:preflight": "node src/experiments/commercial-revops-preflight.js",
     "commercial:sidecar:smoke": "node src/experiments/commercial-sidecar-network-smoke.js",
     "commercial:sidecar": "node src/experiments/commercial-sidecar-daemon.js",
     "commercial:procurement:network-rehearsal": "node src/experiments/commercial-procurement-network-rehearsal.js",

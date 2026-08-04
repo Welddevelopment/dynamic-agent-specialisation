@@ -38,3 +38,14 @@ const unseen = [
 
 export const realisticRevopsCases = Object.freeze({ development: Object.freeze(development), validation: Object.freeze(validation), adversarial: Object.freeze(adversarial) });
 export function createRealisticRevopsUnseenVault() { return createCaseVault("realistic-revenue-operations-specialist", unseen); }
+
+export const commercialRevopsCases = Object.freeze({
+  development: Object.freeze(development.slice(0, 5)),
+  validation: Object.freeze(validation.slice(0, 2)),
+  adversarial: Object.freeze(adversarial.slice(0, 3)),
+  unseen: Object.freeze(unseen.slice(0, 2)),
+});
+
+export function allCommercialRevopsCases() {
+  return Object.entries(commercialRevopsCases).flatMap(([stage, cases]) => cases.map((payload) => ({ id: payload.id, stage, payload })));
+}

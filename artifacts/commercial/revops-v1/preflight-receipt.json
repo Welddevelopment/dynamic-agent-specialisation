@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "das.commercial-revops-preflight.v1",
+  "contractFreezeHash": "3e7b0488d8626eb5725424f32387e4134112359de2f78e6a09a34f5c40f4c346",
+  "intakeHash": "3ea74277ce8e7be8917fda61d0ed46254c5bf0d82dab8dced05930c3663c2b4c",
+  "driverHash": "181386d9120d8fe2f68ebfa4d6699e9f1cb8d530e0a85574440ad1d1418f087e",
+  "participantHashes": [
+    {
+      "id": "imported-current-revops-agent",
+      "type": "current-agent",
+      "configurationHash": "5e473f8dc09ff2180d27e28ad34f38729da0eb7bd0a71fadfdeb43a9260e8a2b"
+    },
+    {
+      "id": "revops-baseline-strong-general-terra",
+      "type": "strong-general",
+      "configurationHash": "e5956a8693510d6df98232bef4361bb91c0d5e74db1fd8143c30975d91743bce"
+    },
+    {
+      "id": "revops-baseline-ordinary-manual-luna",
+      "type": "ordinary-manual",
+      "configurationHash": "0f7d4466929fe50a6583e7023fb6ae6247cd89a0777a72771f0a992b0c689be7"
+    },
+    {
+      "id": "revops-baseline-expert-manual-sol",
+      "type": "expert-manual",
+      "configurationHash": "70f1264352434a48123d8462cb2f8e6d3fcb0a4fae8f2d08bb060bfed0ef5bac"
+    },
+    {
+      "id": "commercial-revops-candidate-1",
+      "type": "compiler-candidate",
+      "configurationHash": "10edbe1cc6be193bf60db78f7a283405e42b443869404d9978dfe90b0950ff72"
+    },
+    {
+      "id": "commercial-revops-candidate-2",
+      "type": "compiler-candidate",
+      "configurationHash": "c152b97bb09c0ab4d24d12e26899a62335bf4ea305ecce893815733f258ec249"
+    },
+    {
+      "id": "commercial-revops-candidate-3",
+      "type": "compiler-candidate",
+      "configurationHash": "c4f0f5fc4b0f45a5d82ab8e9b923909f6c981330954f0c258404277c4988a414"
+    },
+    {
+      "id": "commercial-revops-candidate-4",
+      "type": "compiler-candidate",
+      "configurationHash": "f0974e53a61a9f0600e653405de3c8388240f85041ad1395fedd44583e71159e"
+    }
+  ],
+  "caseCounts": {
+    "development": 5,
+    "validation": 2,
+    "adversarial": 3,
+    "unseen": 2
+  },
+  "deterministicReference": {
+    "strategyId": "reference-revops-outcome-aware",
+    "passed": 12,
+    "total": 12,
+    "successRate": 1,
+    "unsafeAttempts": 0,
+    "incorrectSideEffects": 0
+  },
+  "shortcutControls": [
+    {
+      "strategyId": "revops-do-nothing",
+      "passed": 0,
+      "total": 12,
+      "successRate": 0,
+      "unsafeAttempts": 0,
+      "incorrectSideEffects": 0
+    },
+    {
+      "strategyId": "revops-assign-everything",
+      "passed": 0,
+      "total": 12,
+      "successRate": 0,
+      "unsafeAttempts": 0,
+      "incorrectSideEffects": 12
+    },
+    {
+      "strategyId": "revops-escalate-everything",
+      "passed": 1,
+      "total": 12,
+      "successRate": 0.08333333333333333,
+      "unsafeAttempts": 0,
+      "incorrectSideEffects": 11
+    }
+  ],
+  "unseenReleaseCount": 0,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Zero-cost disposable CRM preflight. It does not prove model candidate quality, customer value or production reliability.",
+  "receiptHash": "7b0baac069d563ada59826428dfb75365d80c7de5e18d901b073cee8175c7594"
+}

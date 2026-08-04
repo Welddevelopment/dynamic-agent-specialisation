@@ -1,0 +1,784 @@
+[
+  {
+    "id": "imported-current-revops-agent",
+    "type": "current-agent",
+    "label": "Imported current CRM agent",
+    "version": "1.0.0",
+    "configurationHash": "5e473f8dc09ff2180d27e28ad34f38729da0eb7bd0a71fadfdeb43a9260e8a2b",
+    "runnerId": "commercial-revops-model-runtime-v1",
+    "candidate": {
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "context": {
+        "sources": [
+          "revops-sandbox:assigned-lead-queue",
+          "revops-sandbox:lead-record",
+          "revops-sandbox:lead-index",
+          "revops-sandbox:contact-index",
+          "revops-sandbox:account-index",
+          "revops-sandbox:consent-ledger",
+          "revops-sandbox:territory-rules",
+          "revops-sandbox:routing-policy",
+          "knowledge:routing-policy-v1"
+        ],
+        "selection": "Use only the assigned CRM batch and bounded evidence exposed by tools."
+      },
+      "tools": [
+        "revops-sandbox:list-assigned-leads",
+        "revops-sandbox:read-lead",
+        "revops-sandbox:search-leads",
+        "revops-sandbox:search-contacts",
+        "revops-sandbox:search-accounts",
+        "revops-sandbox:read-consent-record",
+        "revops-sandbox:read-territory-rules",
+        "revops-sandbox:read-routing-policy",
+        "revops-sandbox:assign-lead-owner",
+        "revops-sandbox:link-lead-to-account",
+        "revops-sandbox:merge-duplicate-lead",
+        "revops-sandbox:create-follow-up-task",
+        "revops-sandbox:set-lead-disposition",
+        "revops-sandbox:create-revops-escalation"
+      ],
+      "memory": {
+        "kind": "task-scoped",
+        "scope": "lead evidence, chosen route, actions and unresolved review items"
+      },
+      "authority": {
+        "allowedActions": [
+          "assign-lead-owner",
+          "link-lead-account",
+          "merge-lead",
+          "create-follow-up",
+          "set-lead-disposition",
+          "create-revops-escalation"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0,
+        "mode": "precise review queue only"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-revops-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.55,
+        "maxLatencyMs": 300000
+      },
+      "version": "1.0.0",
+      "id": "imported-current-revops-agent",
+      "model": {
+        "family": "gpt-5.6-luna",
+        "tier": "economy"
+      },
+      "instructions": {
+        "style": "ordinary CRM lead-routing assistant",
+        "emphasis": [
+          "work only the assigned lead queue",
+          "check exact contact, account, consent and territory evidence",
+          "merge exact duplicates and preserve existing account ownership",
+          "create one appropriate next task for routable leads",
+          "suppress revoked consent and escalate ambiguous identity or territory",
+          "use idempotency keys and avoid duplicate writes"
+        ]
+      },
+      "strategy": {
+        "qualityWeight": 0.8,
+        "costWeight": 0.15,
+        "speedWeight": 0.05,
+        "riskTolerance": 0.05,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "customer-import",
+        "sourceConfigurationHash": "imported-current-revops-v1",
+        "description": "Fictional imported current CRM agent used to prove the commercial comparison boundary."
+      },
+      "fingerprint": "5e473f8dc09ff2180d27e28ad34f38729da0eb7bd0a71fadfdeb43a9260e8a2b"
+    }
+  },
+  {
+    "id": "revops-baseline-strong-general-terra",
+    "type": "strong-general",
+    "label": "Strong general baseline",
+    "version": "1.0.0",
+    "configurationHash": "e5956a8693510d6df98232bef4361bb91c0d5e74db1fd8143c30975d91743bce",
+    "runnerId": "commercial-revops-model-runtime-v1",
+    "candidate": {
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "context": {
+        "sources": [
+          "revops-sandbox:assigned-lead-queue",
+          "revops-sandbox:lead-record",
+          "revops-sandbox:lead-index",
+          "revops-sandbox:contact-index",
+          "revops-sandbox:account-index",
+          "revops-sandbox:consent-ledger",
+          "revops-sandbox:territory-rules",
+          "revops-sandbox:routing-policy",
+          "knowledge:routing-policy-v1"
+        ],
+        "selection": "Use only the assigned CRM batch and bounded evidence exposed by tools."
+      },
+      "tools": [
+        "revops-sandbox:list-assigned-leads",
+        "revops-sandbox:read-lead",
+        "revops-sandbox:search-leads",
+        "revops-sandbox:search-contacts",
+        "revops-sandbox:search-accounts",
+        "revops-sandbox:read-consent-record",
+        "revops-sandbox:read-territory-rules",
+        "revops-sandbox:read-routing-policy",
+        "revops-sandbox:assign-lead-owner",
+        "revops-sandbox:link-lead-to-account",
+        "revops-sandbox:merge-duplicate-lead",
+        "revops-sandbox:create-follow-up-task",
+        "revops-sandbox:set-lead-disposition",
+        "revops-sandbox:create-revops-escalation"
+      ],
+      "memory": {
+        "kind": "task-scoped",
+        "scope": "current assigned lead batch"
+      },
+      "authority": {
+        "allowedActions": [
+          "assign-lead-owner",
+          "link-lead-account",
+          "merge-lead",
+          "create-follow-up",
+          "set-lead-disposition",
+          "create-revops-escalation"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0,
+        "mode": "precise review queue only"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-revops-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.55,
+        "maxLatencyMs": 300000
+      },
+      "version": "1.0.0",
+      "id": "revops-baseline-strong-general-terra",
+      "model": {
+        "family": "gpt-5.6-terra",
+        "tier": "balanced"
+      },
+      "instructions": {
+        "style": "general-purpose CRM operations agent",
+        "emphasis": [
+          "complete the assigned goal",
+          "use available CRM evidence",
+          "follow consent and authority",
+          "avoid unsupported writes"
+        ]
+      },
+      "strategy": {
+        "qualityWeight": 0.8,
+        "costWeight": 0.1,
+        "speedWeight": 0.1,
+        "riskTolerance": 0.08,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "baseline",
+        "type": "strong-general",
+        "setupProtocolId": "piece4-revops-strong-general-v1",
+        "description": "Strong general model with the full bounded tool surface and minimal RevOps configuration."
+      },
+      "fingerprint": "e5956a8693510d6df98232bef4361bb91c0d5e74db1fd8143c30975d91743bce"
+    }
+  },
+  {
+    "id": "revops-baseline-ordinary-manual-luna",
+    "type": "ordinary-manual",
+    "label": "Ordinary manually configured baseline",
+    "version": "1.0.0",
+    "configurationHash": "0f7d4466929fe50a6583e7023fb6ae6247cd89a0777a72771f0a992b0c689be7",
+    "runnerId": "commercial-revops-model-runtime-v1",
+    "candidate": {
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "context": {
+        "sources": [
+          "revops-sandbox:assigned-lead-queue",
+          "revops-sandbox:lead-record",
+          "revops-sandbox:lead-index",
+          "revops-sandbox:contact-index",
+          "revops-sandbox:account-index",
+          "revops-sandbox:consent-ledger",
+          "revops-sandbox:territory-rules",
+          "revops-sandbox:routing-policy",
+          "knowledge:routing-policy-v1"
+        ],
+        "selection": "Use only the assigned CRM batch and bounded evidence exposed by tools."
+      },
+      "tools": [
+        "revops-sandbox:list-assigned-leads",
+        "revops-sandbox:read-lead",
+        "revops-sandbox:search-leads",
+        "revops-sandbox:search-contacts",
+        "revops-sandbox:search-accounts",
+        "revops-sandbox:read-consent-record",
+        "revops-sandbox:read-territory-rules",
+        "revops-sandbox:read-routing-policy",
+        "revops-sandbox:assign-lead-owner",
+        "revops-sandbox:link-lead-to-account",
+        "revops-sandbox:merge-duplicate-lead",
+        "revops-sandbox:create-follow-up-task",
+        "revops-sandbox:set-lead-disposition",
+        "revops-sandbox:create-revops-escalation"
+      ],
+      "memory": {
+        "kind": "task-scoped",
+        "scope": "lead evidence, chosen route, actions and unresolved review items"
+      },
+      "authority": {
+        "allowedActions": [
+          "assign-lead-owner",
+          "link-lead-account",
+          "merge-lead",
+          "create-follow-up",
+          "set-lead-disposition",
+          "create-revops-escalation"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0,
+        "mode": "precise review queue only"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-revops-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.55,
+        "maxLatencyMs": 300000
+      },
+      "version": "1.0.0",
+      "id": "revops-baseline-ordinary-manual-luna",
+      "model": {
+        "family": "gpt-5.6-luna",
+        "tier": "economy"
+      },
+      "instructions": {
+        "style": "ordinary CRM lead-routing assistant",
+        "emphasis": [
+          "work only the assigned lead queue",
+          "check exact contact, account, consent and territory evidence",
+          "merge exact duplicates and preserve existing account ownership",
+          "create one appropriate next task for routable leads",
+          "suppress revoked consent and escalate ambiguous identity or territory",
+          "use idempotency keys and avoid duplicate writes"
+        ]
+      },
+      "strategy": {
+        "qualityWeight": 0.8,
+        "costWeight": 0.15,
+        "speedWeight": 0.05,
+        "riskTolerance": 0.05,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "baseline",
+        "type": "ordinary-manual",
+        "setupProtocolId": "piece4-revops-ordinary-manual-v1",
+        "description": "Plausible manually configured CRM specialist without compiler search or failure-driven refinement."
+      },
+      "fingerprint": "0f7d4466929fe50a6583e7023fb6ae6247cd89a0777a72771f0a992b0c689be7"
+    }
+  },
+  {
+    "id": "revops-baseline-expert-manual-sol",
+    "type": "expert-manual",
+    "label": "Expert manually configured baseline",
+    "version": "1.0.0",
+    "configurationHash": "70f1264352434a48123d8462cb2f8e6d3fcb0a4fae8f2d08bb060bfed0ef5bac",
+    "runnerId": "commercial-revops-model-runtime-v1",
+    "candidate": {
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "context": {
+        "sources": [
+          "revops-sandbox:assigned-lead-queue",
+          "revops-sandbox:lead-record",
+          "revops-sandbox:lead-index",
+          "revops-sandbox:contact-index",
+          "revops-sandbox:account-index",
+          "revops-sandbox:consent-ledger",
+          "revops-sandbox:territory-rules",
+          "revops-sandbox:routing-policy",
+          "knowledge:routing-policy-v1"
+        ],
+        "selection": "Use only the assigned CRM batch and bounded evidence exposed by tools."
+      },
+      "tools": [
+        "revops-sandbox:list-assigned-leads",
+        "revops-sandbox:read-lead",
+        "revops-sandbox:search-leads",
+        "revops-sandbox:search-contacts",
+        "revops-sandbox:search-accounts",
+        "revops-sandbox:read-consent-record",
+        "revops-sandbox:read-territory-rules",
+        "revops-sandbox:read-routing-policy",
+        "revops-sandbox:assign-lead-owner",
+        "revops-sandbox:link-lead-to-account",
+        "revops-sandbox:merge-duplicate-lead",
+        "revops-sandbox:create-follow-up-task",
+        "revops-sandbox:set-lead-disposition",
+        "revops-sandbox:create-revops-escalation"
+      ],
+      "memory": {
+        "kind": "task-scoped-audit",
+        "scope": "per-lead identity, consent, account, territory, chosen route, keys and reconciliation state"
+      },
+      "authority": {
+        "allowedActions": [
+          "assign-lead-owner",
+          "link-lead-account",
+          "merge-lead",
+          "create-follow-up",
+          "set-lead-disposition",
+          "create-revops-escalation"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0,
+        "mode": "precise review queue only"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-revops-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.55,
+        "maxLatencyMs": 300000
+      },
+      "version": "1.0.0",
+      "id": "revops-baseline-expert-manual-sol",
+      "model": {
+        "family": "gpt-5.6-sol",
+        "tier": "frontier"
+      },
+      "instructions": {
+        "style": "expert revenue-operations control loop",
+        "emphasis": [
+          "enumerate every assigned lead and lock one evidence-selected route per lead",
+          "consent is checked before routing and revoked consent forbids outreach",
+          "conflicting identity evidence requires identity-review before account or territory routing",
+          "merge only an exact canonical lead match",
+          "existing account domain retains its current owner and gets one expansion-review task",
+          "partner referral uses partner routing; otherwise use current territory rules",
+          "unknown territory enters territory-review without assignment",
+          "complete every required route outcome, use stable keys and reconcile uncertain writes before retry"
+        ]
+      },
+      "strategy": {
+        "qualityWeight": 1,
+        "costWeight": 0.02,
+        "speedWeight": 0.03,
+        "riskTolerance": 0.01,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "baseline",
+        "type": "expert-manual",
+        "setupProtocolId": "piece4-revops-expert-manual-v1",
+        "description": "Carefully engineered specialist with explicit exposed-world controls and the strongest available model."
+      },
+      "fingerprint": "70f1264352434a48123d8462cb2f8e6d3fcb0a4fae8f2d08bb060bfed0ef5bac"
+    }
+  },
+  {
+    "id": "commercial-revops-candidate-1",
+    "type": "compiler-candidate",
+    "label": "Compiler candidate 1",
+    "version": "1.0.0",
+    "configurationHash": "10edbe1cc6be193bf60db78f7a283405e42b443869404d9978dfe90b0950ff72",
+    "runnerId": "commercial-revops-model-runtime-v1",
+    "candidate": {
+      "id": "commercial-revops-candidate-1",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "model": {
+        "family": "gpt-5.6-terra",
+        "tier": "balanced"
+      },
+      "instructions": {
+        "style": "structured",
+        "emphasis": [
+          "outcome",
+          "policy",
+          "safe-completion"
+        ]
+      },
+      "context": {
+        "sources": [
+          "revops-sandbox:assigned-lead-queue",
+          "revops-sandbox:lead-record",
+          "revops-sandbox:lead-index",
+          "revops-sandbox:contact-index",
+          "revops-sandbox:account-index",
+          "revops-sandbox:consent-ledger",
+          "revops-sandbox:territory-rules",
+          "revops-sandbox:routing-policy",
+          "knowledge:routing-policy-v1"
+        ],
+        "selection": "relevance-ranked"
+      },
+      "tools": [
+        "revops-sandbox:list-assigned-leads",
+        "revops-sandbox:read-lead",
+        "revops-sandbox:search-leads",
+        "revops-sandbox:search-contacts",
+        "revops-sandbox:search-accounts",
+        "revops-sandbox:read-consent-record",
+        "revops-sandbox:read-territory-rules",
+        "revops-sandbox:read-routing-policy",
+        "revops-sandbox:assign-lead-owner",
+        "revops-sandbox:link-lead-to-account",
+        "revops-sandbox:merge-duplicate-lead",
+        "revops-sandbox:create-follow-up-task",
+        "revops-sandbox:set-lead-disposition",
+        "revops-sandbox:create-revops-escalation"
+      ],
+      "memory": {
+        "kind": "structured-task-ledger",
+        "scope": "role-and-tenant"
+      },
+      "authority": {
+        "allowedActions": [
+          "assign-lead-owner",
+          "link-lead-account",
+          "merge-lead",
+          "create-follow-up",
+          "set-lead-disposition",
+          "create-revops-escalation"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0.25,
+        "mode": "precise-blocker"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-revops-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.275,
+        "maxLatencyMs": 195000
+      },
+      "strategy": {
+        "qualityWeight": 0.65,
+        "costWeight": 0.2,
+        "speedWeight": 0.15,
+        "riskTolerance": 0.2,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "compiler-generated",
+        "parents": [],
+        "rationale": "Balanced quality, cost, speed, and safe completion.",
+        "knowledgeIds": [],
+        "candidateIndex": 1
+      },
+      "version": "1.0.0",
+      "fingerprint": "10edbe1cc6be193bf60db78f7a283405e42b443869404d9978dfe90b0950ff72"
+    }
+  },
+  {
+    "id": "commercial-revops-candidate-2",
+    "type": "compiler-candidate",
+    "label": "Compiler candidate 2",
+    "version": "1.0.0",
+    "configurationHash": "c152b97bb09c0ab4d24d12e26899a62335bf4ea305ecce893815733f258ec249",
+    "runnerId": "commercial-revops-model-runtime-v1",
+    "candidate": {
+      "id": "commercial-revops-candidate-2",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "model": {
+        "family": "gpt-5.6-sol",
+        "tier": "high-reasoning"
+      },
+      "instructions": {
+        "style": "deliberative",
+        "emphasis": [
+          "constraint-satisfaction",
+          "counterexample-check",
+          "outcome"
+        ]
+      },
+      "context": {
+        "sources": [
+          "revops-sandbox:assigned-lead-queue",
+          "revops-sandbox:lead-record",
+          "revops-sandbox:lead-index",
+          "revops-sandbox:contact-index",
+          "revops-sandbox:account-index",
+          "revops-sandbox:consent-ledger",
+          "revops-sandbox:territory-rules",
+          "revops-sandbox:routing-policy",
+          "knowledge:routing-policy-v1"
+        ],
+        "selection": "full-bounded"
+      },
+      "tools": [
+        "revops-sandbox:list-assigned-leads",
+        "revops-sandbox:read-lead",
+        "revops-sandbox:search-leads",
+        "revops-sandbox:search-contacts",
+        "revops-sandbox:search-accounts",
+        "revops-sandbox:read-consent-record",
+        "revops-sandbox:read-territory-rules",
+        "revops-sandbox:read-routing-policy",
+        "revops-sandbox:assign-lead-owner",
+        "revops-sandbox:link-lead-to-account",
+        "revops-sandbox:merge-duplicate-lead",
+        "revops-sandbox:create-follow-up-task",
+        "revops-sandbox:set-lead-disposition",
+        "revops-sandbox:create-revops-escalation"
+      ],
+      "memory": {
+        "kind": "decision-and-outcome-ledger",
+        "scope": "role-and-tenant"
+      },
+      "authority": {
+        "allowedActions": [
+          "assign-lead-owner",
+          "link-lead-account",
+          "merge-lead",
+          "create-follow-up",
+          "set-lead-disposition",
+          "create-revops-escalation"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0.18,
+        "mode": "precise-blocker"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-revops-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.49500000000000005,
+        "maxLatencyMs": 270000
+      },
+      "strategy": {
+        "qualityWeight": 0.82,
+        "costWeight": 0.08,
+        "speedWeight": 0.1,
+        "riskTolerance": 0.12,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "compiler-generated",
+        "parents": [],
+        "rationale": "Maximize externally verified quality within the declared operating ceiling.",
+        "knowledgeIds": [],
+        "candidateIndex": 2
+      },
+      "version": "1.0.0",
+      "fingerprint": "c152b97bb09c0ab4d24d12e26899a62335bf4ea305ecce893815733f258ec249"
+    }
+  },
+  {
+    "id": "commercial-revops-candidate-3",
+    "type": "compiler-candidate",
+    "label": "Compiler candidate 3",
+    "version": "1.0.0",
+    "configurationHash": "c4f0f5fc4b0f45a5d82ab8e9b923909f6c981330954f0c258404277c4988a414",
+    "runnerId": "commercial-revops-model-runtime-v1",
+    "candidate": {
+      "id": "commercial-revops-candidate-3",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "model": {
+        "family": "gpt-5.6-luna",
+        "tier": "efficient"
+      },
+      "instructions": {
+        "style": "concise",
+        "emphasis": [
+          "policy",
+          "minimum-sufficient-action"
+        ]
+      },
+      "context": {
+        "sources": [
+          "revops-sandbox:assigned-lead-queue",
+          "revops-sandbox:lead-record",
+          "revops-sandbox:lead-index",
+          "revops-sandbox:contact-index",
+          "revops-sandbox:account-index",
+          "revops-sandbox:consent-ledger",
+          "revops-sandbox:territory-rules",
+          "revops-sandbox:routing-policy",
+          "knowledge:routing-policy-v1"
+        ],
+        "selection": "minimal-relevant"
+      },
+      "tools": [
+        "revops-sandbox:list-assigned-leads",
+        "revops-sandbox:read-lead",
+        "revops-sandbox:search-leads",
+        "revops-sandbox:search-contacts",
+        "revops-sandbox:search-accounts",
+        "revops-sandbox:read-consent-record",
+        "revops-sandbox:read-territory-rules",
+        "revops-sandbox:read-routing-policy",
+        "revops-sandbox:assign-lead-owner",
+        "revops-sandbox:link-lead-to-account",
+        "revops-sandbox:merge-duplicate-lead",
+        "revops-sandbox:create-follow-up-task",
+        "revops-sandbox:set-lead-disposition",
+        "revops-sandbox:create-revops-escalation"
+      ],
+      "memory": {
+        "kind": "compact-outcome-ledger",
+        "scope": "role-and-tenant"
+      },
+      "authority": {
+        "allowedActions": [
+          "assign-lead-owner",
+          "link-lead-account",
+          "merge-lead",
+          "create-follow-up",
+          "set-lead-disposition",
+          "create-revops-escalation"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0.32,
+        "mode": "precise-blocker"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-revops-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.11000000000000001,
+        "maxLatencyMs": 135000
+      },
+      "strategy": {
+        "qualityWeight": 0.52,
+        "costWeight": 0.35,
+        "speedWeight": 0.13,
+        "riskTolerance": 0.18,
+        "requireCompleteContext": false
+      },
+      "provenance": {
+        "kind": "compiler-generated",
+        "parents": [],
+        "rationale": "Seek the lowest sustainable cost without crossing hard safety boundaries.",
+        "knowledgeIds": [],
+        "candidateIndex": 3
+      },
+      "version": "1.0.0",
+      "fingerprint": "c4f0f5fc4b0f45a5d82ab8e9b923909f6c981330954f0c258404277c4988a414"
+    }
+  },
+  {
+    "id": "commercial-revops-candidate-4",
+    "type": "compiler-candidate",
+    "label": "Compiler candidate 4",
+    "version": "1.0.0",
+    "configurationHash": "f0974e53a61a9f0600e653405de3c8388240f85041ad1395fedd44583e71159e",
+    "runnerId": "commercial-revops-model-runtime-v1",
+    "candidate": {
+      "id": "commercial-revops-candidate-4",
+      "roleId": "commercial-revops-v1:revenue-operations",
+      "model": {
+        "family": "gpt-5.6-terra",
+        "tier": "balanced"
+      },
+      "instructions": {
+        "style": "verification-first",
+        "emphasis": [
+          "authority",
+          "uncertainty",
+          "escalation"
+        ]
+      },
+      "context": {
+        "sources": [
+          "revops-sandbox:assigned-lead-queue",
+          "revops-sandbox:lead-record",
+          "revops-sandbox:lead-index",
+          "revops-sandbox:contact-index",
+          "revops-sandbox:account-index",
+          "revops-sandbox:consent-ledger",
+          "revops-sandbox:territory-rules",
+          "revops-sandbox:routing-policy",
+          "knowledge:routing-policy-v1"
+        ],
+        "selection": "full-bounded"
+      },
+      "tools": [
+        "revops-sandbox:list-assigned-leads",
+        "revops-sandbox:read-lead",
+        "revops-sandbox:search-leads",
+        "revops-sandbox:search-contacts",
+        "revops-sandbox:search-accounts",
+        "revops-sandbox:read-consent-record",
+        "revops-sandbox:read-territory-rules",
+        "revops-sandbox:read-routing-policy",
+        "revops-sandbox:assign-lead-owner",
+        "revops-sandbox:link-lead-to-account",
+        "revops-sandbox:merge-duplicate-lead",
+        "revops-sandbox:create-follow-up-task",
+        "revops-sandbox:set-lead-disposition",
+        "revops-sandbox:create-revops-escalation"
+      ],
+      "memory": {
+        "kind": "decision-and-outcome-ledger",
+        "scope": "role-and-tenant"
+      },
+      "authority": {
+        "allowedActions": [
+          "assign-lead-owner",
+          "link-lead-account",
+          "merge-lead",
+          "create-follow-up",
+          "set-lead-disposition",
+          "create-revops-escalation"
+        ]
+      },
+      "escalation": {
+        "enabled": true,
+        "threshold": 0.12,
+        "mode": "precise-blocker"
+      },
+      "verifier": {
+        "kind": "independent-external-state",
+        "binding": "commercial-revops-v1:external-verifier"
+      },
+      "limits": {
+        "maxCostPerTaskUsd": 0.35750000000000004,
+        "maxLatencyMs": 240000
+      },
+      "strategy": {
+        "qualityWeight": 0.72,
+        "costWeight": 0.08,
+        "speedWeight": 0.05,
+        "riskTolerance": 0.05,
+        "requireCompleteContext": true
+      },
+      "provenance": {
+        "kind": "compiler-generated",
+        "parents": [],
+        "rationale": "Prefer safe escalation over uncertain autonomous action.",
+        "knowledgeIds": [],
+        "candidateIndex": 4
+      },
+      "version": "1.0.0",
+      "fingerprint": "f0974e53a61a9f0600e653405de3c8388240f85041ad1395fedd44583e71159e"
+    }
+  }
+]

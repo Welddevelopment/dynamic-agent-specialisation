@@ -35,4 +35,24 @@ export const referenceRevopsStrategy = {
     return resolution;
   },
 };
+export const doNothingRevopsStrategy = { id: "revops-do-nothing", async run() { return { kind: "complete", blocker: null, reconciled: false }; } };
+export const assignEveryLeadRevopsStrategy = {
+  id: "revops-assign-everything",
+  async run(world, task) {
+    const leads = world.externalState().leads.filter((lead) => lead.batchId === task.batchId && lead.status !== "already-complete");
+    for (const lead of leads) {
+      try { await world.execute("assign-lead-owner", { leadId: lead.id, ownerId: "owner-em-1", idempotencyKey: key(task, lead, "blind-owner") }); } catch {}
+      try { await world.execute("set-lead-disposition", { leadId: lead.id, disposition: "qualified", idempotencyKey: key(task, lead, "blind-disposition") }); } catch {}
+    }
+    return { kind: "complete", blocker: null, reconciled: false };
+  },
+};
+export const escalateEveryLeadRevopsStrategy = {
+  id: "revops-escalate-everything",
+  async run(world, task) {
+    const leads = world.externalState().leads.filter((lead) => lead.batchId === task.batchId && lead.status !== "already-complete");
+    for (const lead of leads) try { await world.execute("create-revops-escalation", { leadId: lead.id, queue: "identity-review", idempotencyKey: key(task, lead, "blind-review") }); } catch {}
+    return { kind: "complete", blocker: null, reconciled: false };
+  },
+};
 export async function evaluateRevopsStrategy(strategy, testCase) { const world = new RealisticRevopsCompany({ task: testCase, loseWriteResponseFor: testCase.executionFault }); const verifier = new RealisticRevopsVerifier({ task: testCase, initialState: world.initial }); let resolution; try { resolution = await strategy.run(world, testCase); } catch (error) { resolution = { kind: "error", blocker: error.message, reconciled: false }; } const verification = await verifier.verify({ externalState: world.externalState(), resolution }); return { caseId: testCase.id, resolution, verification, externalState: world.externalState() }; }

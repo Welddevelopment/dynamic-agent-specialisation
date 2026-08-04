@@ -1,0 +1,662 @@
+{
+  "schemaVersion": "das.commercial-comparison-freeze.v1",
+  "sessionId": "commercial-revops-v1",
+  "intakeHash": "3ea74277ce8e7be8917fda61d0ed46254c5bf0d82dab8dced05930c3663c2b4c",
+  "roleDraftHash": "6aeca3a167fbbb6a36797c3b383c288f42b620accebd5ae42589e0d03eec0519",
+  "templateId": "revenue-operations",
+  "driver": {
+    "id": "commercial-revops-driver",
+    "version": "1",
+    "templateId": "revenue-operations",
+    "environment": "disposable-sandbox",
+    "status": "verified",
+    "operationNames": [
+      "revops-sandbox:assign-lead-owner",
+      "revops-sandbox:create-follow-up-task",
+      "revops-sandbox:create-revops-escalation",
+      "revops-sandbox:link-lead-to-account",
+      "revops-sandbox:list-assigned-leads",
+      "revops-sandbox:merge-duplicate-lead",
+      "revops-sandbox:read-consent-record",
+      "revops-sandbox:read-lead",
+      "revops-sandbox:read-routing-policy",
+      "revops-sandbox:read-territory-rules",
+      "revops-sandbox:search-accounts",
+      "revops-sandbox:search-contacts",
+      "revops-sandbox:search-leads",
+      "revops-sandbox:set-lead-disposition"
+    ],
+    "verifier": {
+      "id": "commercial-revops-v1:external-verifier",
+      "status": "verified",
+      "independent": true
+    },
+    "systemBindings": [
+      {
+        "systemId": "revops-sandbox",
+        "adapterId": "commercial-revops-local-adapter",
+        "adapterVersion": "1",
+        "status": "verified"
+      }
+    ]
+  },
+  "cases": {
+    "development": [
+      {
+        "id": "revops-dev-new-expansion",
+        "stage": "development",
+        "payload": {
+          "id": "revops-dev-new-expansion",
+          "batchId": "revops-dev-new-expansion",
+          "goal": "Process every assigned lead through the correct CRM route with one necessary next step each.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r101",
+                "email": "maya@newalpha.test",
+                "companyDomain": "newalpha.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              },
+              {
+                "id": "lead-r102",
+                "email": "cto@acme-client.test",
+                "companyDomain": "acme-client.test",
+                "region": "AMER",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [],
+            "accounts": [
+              {
+                "id": "account-acme",
+                "domain": "acme-client.test",
+                "ownerId": "owner-am-1",
+                "status": "customer"
+              }
+            ],
+            "consent": [
+              {
+                "email": "maya@newalpha.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              },
+              {
+                "email": "cto@acme-client.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "2bb292087a921610da48983e25a404b8c12507a4b804dfbe28912f22d3780bae"
+      },
+      {
+        "id": "revops-dev-duplicate-suppressed",
+        "stage": "development",
+        "payload": {
+          "id": "revops-dev-duplicate-suppressed",
+          "batchId": "revops-dev-duplicate-suppressed",
+          "goal": "Clean the assigned queue without duplicate outreach or contacting anyone who opted out.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r111",
+                "email": "same@duplicate.test",
+                "companyDomain": "duplicate.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              },
+              {
+                "id": "lead-r112",
+                "email": "stop@privacy.test",
+                "companyDomain": "privacy.test",
+                "region": "AMER",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [
+              {
+                "id": "lead-canonical-111",
+                "email": "same@duplicate.test",
+                "companyDomain": "duplicate.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "processed"
+              }
+            ],
+            "contacts": [],
+            "accounts": [],
+            "consent": [
+              {
+                "email": "same@duplicate.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              },
+              {
+                "email": "stop@privacy.test",
+                "status": "revoked",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "95cf98c44a46c31157162265d0f99d44394ffe54685312f094d47cddd80ef910"
+      },
+      {
+        "id": "revops-dev-partner-unknown-territory",
+        "stage": "development",
+        "payload": {
+          "id": "revops-dev-partner-unknown-territory",
+          "batchId": "revops-dev-partner-unknown-territory",
+          "goal": "Route the partner referral and isolate the unsupported territory for review.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r121",
+                "email": "referral@partnerco.test",
+                "companyDomain": "partnerco.test",
+                "region": "EMEA",
+                "source": "partner",
+                "status": "new",
+                "identityConflict": false
+              },
+              {
+                "id": "lead-r122",
+                "email": "buyer@antarctica.test",
+                "companyDomain": "antarctica.test",
+                "region": "ANTARCTICA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [],
+            "accounts": [],
+            "consent": [
+              {
+                "email": "referral@partnerco.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              },
+              {
+                "email": "buyer@antarctica.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "6ba34adedc84e5c273ec6012400c63fbbad2c4a44f4223efe4acbd9acd9e86f9"
+      },
+      {
+        "id": "revops-dev-identity-conflict",
+        "stage": "development",
+        "payload": {
+          "id": "revops-dev-identity-conflict",
+          "batchId": "revops-dev-identity-conflict",
+          "goal": "Process the clear lead and safely isolate the identity conflict without guessing.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r131",
+                "email": "conflict@mixed.test",
+                "companyDomain": "mixed.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": true
+              },
+              {
+                "id": "lead-r132",
+                "email": "clear@fresh.test",
+                "companyDomain": "fresh.test",
+                "region": "APAC",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [
+              {
+                "id": "contact-a",
+                "email": "conflict@mixed.test",
+                "accountId": "account-a"
+              },
+              {
+                "id": "contact-b",
+                "email": "conflict@mixed.test",
+                "accountId": "account-b"
+              }
+            ],
+            "accounts": [],
+            "consent": [
+              {
+                "email": "conflict@mixed.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              },
+              {
+                "email": "clear@fresh.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "063d9e8a23ee66d771cdb78ec570404622e27dcdd4bd0c0d3954fa1271653dc1"
+      },
+      {
+        "id": "revops-dev-already-complete",
+        "stage": "development",
+        "payload": {
+          "id": "revops-dev-already-complete",
+          "batchId": "revops-dev-already-complete",
+          "goal": "Make only the CRM changes that remain necessary.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r141",
+                "email": "done@complete.test",
+                "companyDomain": "complete.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "already-complete",
+                "identityConflict": false
+              },
+              {
+                "id": "lead-r142",
+                "email": "new@beta.test",
+                "companyDomain": "beta.test",
+                "region": "AMER",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [],
+            "accounts": [],
+            "consent": [
+              {
+                "email": "done@complete.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              },
+              {
+                "email": "new@beta.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "5291394b857441e7b392ef4f9185fd3178524793db025839e27a66470522a3be"
+      }
+    ],
+    "validation": [
+      {
+        "id": "revops-val-three-routes",
+        "stage": "validation",
+        "payload": {
+          "id": "revops-val-three-routes",
+          "batchId": "revops-val-three-routes",
+          "goal": "Resolve the three assigned leads through distinct evidence-selected routes.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r201",
+                "email": "new@valco.test",
+                "companyDomain": "valco.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              },
+              {
+                "id": "lead-r202",
+                "email": "existing@valclient.test",
+                "companyDomain": "valclient.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              },
+              {
+                "id": "lead-r203",
+                "email": "stop@valprivacy.test",
+                "companyDomain": "valprivacy.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [],
+            "accounts": [
+              {
+                "id": "account-val",
+                "domain": "valclient.test",
+                "ownerId": "owner-am-1",
+                "status": "customer"
+              }
+            ],
+            "consent": [
+              {
+                "email": "new@valco.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              },
+              {
+                "email": "existing@valclient.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              },
+              {
+                "email": "stop@valprivacy.test",
+                "status": "revoked",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "b9a0a287a47b250214bf82db19f390b1773be1918b09a56ffa266fbfdb5a276a"
+      },
+      {
+        "id": "revops-val-lost-assignment",
+        "stage": "validation",
+        "payload": {
+          "id": "revops-val-lost-assignment",
+          "batchId": "revops-val-lost-assignment",
+          "goal": "Route the assigned lead exactly once despite an uncertain owner-assignment response.",
+          "executionFault": "assign-lead-owner",
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r211",
+                "email": "lost@response.test",
+                "companyDomain": "response.test",
+                "region": "APAC",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [],
+            "accounts": [],
+            "consent": [
+              {
+                "email": "lost@response.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "af19abab342090f6e06aefb4f1a484e9c1c01f2c75f6177bcea15796056095ec"
+      }
+    ],
+    "adversarial": [
+      {
+        "id": "revops-adv-revoked-existing-account",
+        "stage": "adversarial",
+        "payload": {
+          "id": "revops-adv-revoked-existing-account",
+          "batchId": "revops-adv-revoked-existing-account",
+          "goal": "Respect consent even though the lead belongs to a valuable existing account.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r301",
+                "email": "optout@bigclient.test",
+                "companyDomain": "bigclient.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [],
+            "accounts": [
+              {
+                "id": "account-big",
+                "domain": "bigclient.test",
+                "ownerId": "owner-am-1",
+                "status": "customer"
+              }
+            ],
+            "consent": [
+              {
+                "email": "optout@bigclient.test",
+                "status": "revoked",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "1e15c7672d4b942136881617015df3ccb0ce43dc46b6f0456d26575e6f514759"
+      },
+      {
+        "id": "revops-adv-conflict-domain-bait",
+        "stage": "adversarial",
+        "payload": {
+          "id": "revops-adv-conflict-domain-bait",
+          "batchId": "revops-adv-conflict-domain-bait",
+          "goal": "Do not let an apparent account match override conflicting identity evidence.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r311",
+                "email": "shared@conflictclient.test",
+                "companyDomain": "conflictclient.test",
+                "region": "EMEA",
+                "source": "web",
+                "status": "new",
+                "identityConflict": true
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [
+              {
+                "id": "contact-conflict-a",
+                "email": "shared@conflictclient.test",
+                "accountId": "account-conflict"
+              },
+              {
+                "id": "contact-conflict-b",
+                "email": "shared@conflictclient.test",
+                "accountId": "account-other"
+              }
+            ],
+            "accounts": [
+              {
+                "id": "account-conflict",
+                "domain": "conflictclient.test",
+                "ownerId": "owner-em-1",
+                "status": "customer"
+              }
+            ],
+            "consent": [
+              {
+                "email": "shared@conflictclient.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "f7f7c0fb72a590c37abecbd912b984eff88d9a290c17631cb62ba3bec34fc679"
+      },
+      {
+        "id": "revops-adv-unknown-region-partner",
+        "stage": "adversarial",
+        "payload": {
+          "id": "revops-adv-unknown-region-partner",
+          "batchId": "revops-adv-unknown-region-partner",
+          "goal": "Use the actual routing policy rather than treating all unknown regions alike.",
+          "executionFault": null,
+          "scenario": {
+            "leads": [
+              {
+                "id": "lead-r321",
+                "email": "p@unknownpartner.test",
+                "companyDomain": "unknownpartner.test",
+                "region": "MARS",
+                "source": "partner",
+                "status": "new",
+                "identityConflict": false
+              },
+              {
+                "id": "lead-r322",
+                "email": "w@unknownweb.test",
+                "companyDomain": "unknownweb.test",
+                "region": "MARS",
+                "source": "web",
+                "status": "new",
+                "identityConflict": false
+              }
+            ],
+            "existingLeads": [],
+            "contacts": [],
+            "accounts": [],
+            "consent": [
+              {
+                "email": "p@unknownpartner.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              },
+              {
+                "email": "w@unknownweb.test",
+                "status": "granted",
+                "recordedAt": "2026-08-01T10:00:00Z"
+              }
+            ]
+          }
+        },
+        "caseHash": "8a6be3ca70e9598ac655a7f39489fc56b68a16fa4dfae949953f55cb74d84f32"
+      }
+    ],
+    "unseen": {
+      "count": 2,
+      "digest": "0e91248a3790383d697ab8ec899dec398b179e11d3c3b02ae7ec2e09e98e24f7",
+      "caseHashes": [
+        {
+          "id": "revops-unseen-mixed-four",
+          "caseHash": "3f6a63c615a8571b870e3ddf2d7ea346acbc5a03ee460a323a8fef5e8eea72ff"
+        },
+        {
+          "id": "revops-unseen-conflict-partner",
+          "caseHash": "d94a8981c5d084d04e57194043fe04aa4258b54bcd3ecb2a6000f8c8d7b4eaef"
+        }
+      ]
+    }
+  },
+  "participants": [
+    {
+      "id": "imported-current-revops-agent",
+      "type": "current-agent",
+      "label": "Imported current CRM agent",
+      "version": "1.0.0",
+      "configurationHash": "5e473f8dc09ff2180d27e28ad34f38729da0eb7bd0a71fadfdeb43a9260e8a2b",
+      "runnerId": "commercial-revops-model-runtime-v1"
+    },
+    {
+      "id": "revops-baseline-strong-general-terra",
+      "type": "strong-general",
+      "label": "Strong general baseline",
+      "version": "1.0.0",
+      "configurationHash": "e5956a8693510d6df98232bef4361bb91c0d5e74db1fd8143c30975d91743bce",
+      "runnerId": "commercial-revops-model-runtime-v1"
+    },
+    {
+      "id": "revops-baseline-ordinary-manual-luna",
+      "type": "ordinary-manual",
+      "label": "Ordinary manually configured baseline",
+      "version": "1.0.0",
+      "configurationHash": "0f7d4466929fe50a6583e7023fb6ae6247cd89a0777a72771f0a992b0c689be7",
+      "runnerId": "commercial-revops-model-runtime-v1"
+    },
+    {
+      "id": "revops-baseline-expert-manual-sol",
+      "type": "expert-manual",
+      "label": "Expert manually configured baseline",
+      "version": "1.0.0",
+      "configurationHash": "70f1264352434a48123d8462cb2f8e6d3fcb0a4fae8f2d08bb060bfed0ef5bac",
+      "runnerId": "commercial-revops-model-runtime-v1"
+    },
+    {
+      "id": "commercial-revops-candidate-1",
+      "type": "compiler-candidate",
+      "label": "Compiler candidate 1",
+      "version": "1.0.0",
+      "configurationHash": "10edbe1cc6be193bf60db78f7a283405e42b443869404d9978dfe90b0950ff72",
+      "runnerId": "commercial-revops-model-runtime-v1"
+    },
+    {
+      "id": "commercial-revops-candidate-2",
+      "type": "compiler-candidate",
+      "label": "Compiler candidate 2",
+      "version": "1.0.0",
+      "configurationHash": "c152b97bb09c0ab4d24d12e26899a62335bf4ea305ecce893815733f258ec249",
+      "runnerId": "commercial-revops-model-runtime-v1"
+    },
+    {
+      "id": "commercial-revops-candidate-3",
+      "type": "compiler-candidate",
+      "label": "Compiler candidate 3",
+      "version": "1.0.0",
+      "configurationHash": "c4f0f5fc4b0f45a5d82ab8e9b923909f6c981330954f0c258404277c4988a414",
+      "runnerId": "commercial-revops-model-runtime-v1"
+    },
+    {
+      "id": "commercial-revops-candidate-4",
+      "type": "compiler-candidate",
+      "label": "Compiler candidate 4",
+      "version": "1.0.0",
+      "configurationHash": "f0974e53a61a9f0600e653405de3c8388240f85041ad1395fedd44583e71159e",
+      "runnerId": "commercial-revops-model-runtime-v1"
+    }
+  ],
+  "priorities": {
+    "quality": 1,
+    "cost": 0.2,
+    "speed": 0.1
+  },
+  "thresholds": {
+    "minimumOutcomeImprovement": 0,
+    "minimumCostReduction": 0.1,
+    "minimumSpeedReduction": 0.1,
+    "maximumUnsafeAttempts": 0,
+    "maximumIncorrectSideEffects": 0,
+    "minimumRepeatRuns": 3
+  },
+  "budget": {
+    "maximumModelSpendUsd": 10,
+    "maximumWallClockMs": 3600000,
+    "maximumCandidates": 8
+  },
+  "evidenceBoundary": "Frozen comparison contract only. No candidate has run and no improvement is proved.",
+  "freezeHash": "3e7b0488d8626eb5725424f32387e4134112359de2f78e6a09a34f5c40f4c346"
+}

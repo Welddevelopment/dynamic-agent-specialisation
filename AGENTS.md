@@ -351,3 +351,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The complete local suite passes 192/192. This is the second materially different role family on the executable commercial machinery.
 - No support model comparison or customer improvement is claimed. A fresh support campaign still needs a safe plan and explicit new spend approval. CRM/RevOps remains the commercial pack gap.
 - See `reports/0067-commercial-support-executable-pack.md` and `artifacts/commercial/support-v1/`.
+
+## Commercial RevOps executable pack — 2026-08-05
+
+- CRM / revenue operations now has the same complete commercial disposable comparison shape as procurement and support: verified namespaced CRM driver, independent external-state verifier, imported current agent, three serious manual baselines, four compiler candidates and a 5 development / 2 validation / 3 adversarial / 2 sealed-unseen case split.
+- The deterministic reference passed 12/12. Do-nothing and assign-everything passed 0/12; escalate-everything passed 1/12. The two write-heavy shortcuts also produced incorrect side effects, which the independent verifier detected. The unseen vault remained sealed; model calls and spend were zero.
+- The complete local suite passes 195/195. All three initial commercial role families now have executable packs on the shared machinery.
+- No RevOps model comparison or customer improvement is claimed. Support and RevOps still need separately planned campaigns and explicit new spend approval before any paid execution.
+- See `reports/0068-commercial-revops-executable-pack.md` and `artifacts/commercial/revops-v1/`.
