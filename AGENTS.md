@@ -483,3 +483,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Three imported receipts produced 3/3 verified assignments and `broad-goal-completed`. The full local suite passes 231/231; no new call or spend occurred.
 - The source runs predate the fleet plan. This proves historical receipt compatibility and durable aggregation, not a prospective Level 2 model campaign, live scheduling, customer value or production reliability.
 - See `reports/0082-historical-level1-fleet-receipt-import.md` and `artifacts/fleet/level1-receipt-import-v1/`.
+
+## Trusted customer-local Fleet Intake — 2026-08-05
+
+- Customer-local workload adapters can now declare exact tenant-bound systems and bounded operations, with each operation pinned to an outcome and the complete specialist requirement already understood by the fleet planner.
+- Fresh integrity-checked snapshots may reference only those verified operations. They cannot invent capabilities or grant execution, model-spend, role-creation or activation authority. Stale, future-dated, mutated, cross-tenant and unsupported-operation inputs fail closed.
+- The joined fictional fixture compiled procurement, support and RevOps snapshots into an exact three-item fleet contract. The actual admitted Level 1 selections then formed a 3/3 independently verified plan.
+- The full local suite passes 235/235; model calls and new paid spend were zero. This removes hand-authored workload contracts from the bounded intake path, but does not prove autonomous interpretation of arbitrary company state, strategic goal decomposition, customer compatibility or production reliability.
+- See `reports/0083-trusted-customer-local-fleet-intake.md` and `artifacts/fleet/intake-v1/`.
