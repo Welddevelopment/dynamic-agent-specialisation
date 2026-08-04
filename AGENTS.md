@@ -475,3 +475,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The actual local procurement, support and RevOps Level 1 selections were admitted and formed a 3/3 independently verified fleet plan with zero role gaps and zero authority. A descriptor that widens tools fails before admission.
 - The full local suite passes 229/229; no new model call or paid spend occurred. This joins historical Level 1 selection evidence to Level 2 planning, not execution, customer traffic or production throughput.
 - See `reports/0081-level1-fleet-admission-bridge.md` and `artifacts/fleet/level1-admission-v1/`.
+
+## Historical Level 1 fleet receipt import — 2026-08-05
+
+- The three admitted procurement, support and RevOps selections can now import their preserved `piece5-cross-role-current-runtime-v1` model-backed outcomes through the durable fleet controller.
+- Import binds exact candidate ids/fingerprints, assignments and independent verifiers; requires complete passing checks and zero unsafe attempts; preserves the historical $0.028445 model cost; survives reload; and treats identical duplicate receipts idempotently. A changed candidate fingerprint fails.
+- Three imported receipts produced 3/3 verified assignments and `broad-goal-completed`. The full local suite passes 231/231; no new call or spend occurred.
+- The source runs predate the fleet plan. This proves historical receipt compatibility and durable aggregation, not a prospective Level 2 model campaign, live scheduling, customer value or production reliability.
+- See `reports/0082-historical-level1-fleet-receipt-import.md` and `artifacts/fleet/level1-receipt-import-v1/`.
