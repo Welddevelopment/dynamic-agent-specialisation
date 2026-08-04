@@ -3,6 +3,7 @@ let page = "overview";
 let selectedRoleId = null;
 let onboardingStep = 0;
 let commercialDraft = null;
+let selectedCommercialRoleId = "support";
 const main = document.querySelector("main");
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[character]);
 
@@ -30,18 +31,21 @@ function comparisonStage(label, count, copy, stateClass = "") {
 }
 
 function comparisonPage() {
-  const product = state.commercialProduct;
+  const products = state.commercialProducts?.length ? state.commercialProducts : [state.commercialProduct].filter(Boolean);
+  const product = products.find((item) => item.id === selectedCommercialRoleId) ?? products[0];
   if (!product?.contract || !product.receipt) return `<p class="kicker">Commercial comparison</p><h1 class="page-title">No executable role pack is prepared.</h1><p class="lede">Complete onboarding and connect a bounded test environment before a comparison can be frozen.</p>`;
   const contract = product.contract;
   const receipt = product.receipt;
   const selected = product.bundle?.selected;
   const statusTitle = product.status === "controlled-active" ? "Controlled activation recorded" : product.status === "recommended" ? "Recommendation ready" : product.status === "comparison-complete" ? "Comparison complete" : "Ready for a model campaign";
+  const roleTabs = products.map((item) => `<button type="button" class="comparison-role-tab ${item.id === product.id ? "active" : ""}" data-commercial-role="${esc(item.id)}"><span>${esc(item.name)}</span><small>${esc(item.status.replaceAll("-", " "))}</small></button>`).join("");
   const candidates = product.participants.map((item) => `<article class="candidate-slice" tabindex="0"><div><span>${esc(item.type.replaceAll("-", " "))}</span><strong>${esc(item.label)}</strong></div><div class="candidate-detail"><p>${esc(item.model?.family ?? "Configuration frozen")}</p><code>${esc(item.configurationHash.slice(0, 16))}…</code></div></article>`).join("");
   const controls = receipt.shortcutControls.map((item) => `<article><span>${Math.round(item.successRate * 100)}%</span><strong>${esc(item.strategyId.replaceAll("-", " "))}</strong><p>${item.passed}/${item.total} cases passed. The verifier rejected the shortcut.</p></article>`).join("");
   return `<section class="comparison-workspace">
     <header class="comparison-hero"><div><p class="kicker">Commercial comparison</p><h1>Proof before replacement.</h1></div><div><p>The current agent, serious manual baselines and compiler candidates face the same frozen job. The candidate cannot grade itself, and an upgrade is recommended only when the agreed improvement is proved.</p><strong>${esc(statusTitle)}</strong></div></header>
+    <nav class="comparison-role-tabs" aria-label="Executable commercial role packs">${roleTabs}</nav>
     <div class="comparison-bento">
-      <article class="comparison-role"><span>Frozen role</span><h2>Procurement coverage specialist</h2><p>Cover approved in-scope demand by deadline through stock, confirmed inbound supply, bounded transfers or permitted draft purchasing—while leaving unrelated state untouched.</p><dl><div><dt>Driver</dt><dd>${esc(contract.driver.id)}</dd></div><div><dt>Verifier</dt><dd>Independent external state</dd></div></dl></article>
+      <article class="comparison-role"><span>Frozen role</span><h2>${esc(product.title)}</h2><p>${esc(product.outcome)}</p><dl><div><dt>Driver</dt><dd>${esc(contract.driver.id)}</dd></div><div><dt>Verifier</dt><dd>Independent external state</dd></div></dl></article>
       <article class="comparison-status"><span>${esc(product.status.replaceAll("-", " "))}</span><strong>${receipt.deterministicReference.passed}/${receipt.deterministicReference.total}</strong><p>Deterministic reference cases passed before model spend.</p><small>Unseen release count ${receipt.unseenReleaseCount}</small></article>
       ${comparisonStage("Development", contract.cases.development, "Candidates may learn only from these released cases.", "released")}
       ${comparisonStage("Validation", contract.cases.validation, "Safe complete performance is required to advance.")}
@@ -49,7 +53,7 @@ function comparisonPage() {
     </div>
     <section class="candidate-section"><div class="comparison-section-copy"><p class="kicker">Serious alternatives</p><h2>The system chooses.<br>You can inspect.</h2><p>Every candidate is preserved with its exact model and configuration receipt. Hover or focus to expand; no manual selection is required.</p></div><div class="candidate-accordion">${candidates}</div></section>
     <section class="comparison-evidence"><div class="comparison-section-copy sticky-copy"><p class="kicker">Independent test-world check</p><h2>Easy-looking shortcuts fail.</h2><p>A realistic environment is useful only if it can reject plausible but wrong behavior.</p></div><div class="evidence-stack"><article class="evidence-lead"><span>Reference path</span><strong>${receipt.deterministicReference.passed}/${receipt.deterministicReference.total}</strong><p>All intended cases passed with no model call and no unseen release.</p></article>${controls}</div></section>
-    <section class="comparison-action"><div><span>Frozen improvement promise</span><h2>Match verified quality. Reduce cost and speed by 10%.</h2><p>Safety and incorrect-side-effect limits remain zero. Three fresh repeat runs are required before activation.</p></div><div class="comparison-actions"><button class="button primary" disabled>${selected ? "Recommendation prepared" : "Paid comparison not authorized"}</button><a class="button" href="/api/commercial/procurement/contract" target="_blank" rel="noreferrer">Open frozen contract</a><a class="button" href="/api/commercial/procurement/participants" target="_blank" rel="noreferrer">Inspect participants</a></div></section>
+    <section class="comparison-action"><div><span>Frozen improvement promise</span><h2>Match verified quality. Reduce cost and speed by 10%.</h2><p>Safety and incorrect-side-effect limits remain zero. Three fresh repeat runs are required before activation.</p></div><div class="comparison-actions"><button class="button primary" disabled>${selected ? "Recommendation prepared" : "Paid comparison not authorized"}</button><a class="button" href="/api/commercial/${esc(product.id)}/contract" target="_blank" rel="noreferrer">Open frozen contract</a><a class="button" href="/api/commercial/${esc(product.id)}/participants" target="_blank" rel="noreferrer">Inspect participants</a></div></section>
     <p class="comparison-boundary">${esc(product.boundary)}</p>
   </section>`;
 }
@@ -306,6 +310,7 @@ async function saveImprovement() {
 
 function bind() {
   bindCommercial();
+  document.querySelectorAll("[data-commercial-role]").forEach((button) => button.addEventListener("click", () => { selectedCommercialRoleId = button.dataset.commercialRole; render(); }));
   if (page !== "improve") return;
   document.querySelector("#save").onclick = saveImprovement;
   document.querySelector("#disable").onclick = async () => { state = await request("/api/improvement/disable", { method: "POST", body: "{}" }); render(); nav(); };

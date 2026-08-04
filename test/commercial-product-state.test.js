@@ -6,6 +6,7 @@ import test from "node:test";
 import {
   buildCommercialProductState,
   loadCommercialProductState,
+  loadCommercialProductStates,
 } from "../src/console/commercial-product-state.js";
 
 const contract = {
@@ -62,4 +63,23 @@ test("commercial product artifacts load from a separately supplied root", () => 
   assert.equal(state.status, "preflight-ready");
   assert.equal(state.contract.freezeHash, "freeze-1");
   assert.equal(state.participants.length, 1);
+});
+
+test("commercial product states preserve separate role evidence", () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "das-commercial-role-console-"));
+  for (const role of ["one", "two"]) {
+    const directory = path.join(root, role);
+    fs.mkdirSync(directory, { recursive: true });
+    fs.writeFileSync(path.join(directory, "receipt.json"), JSON.stringify({ deterministicReference: { passed: role === "one" ? 12 : 9, total: 12 } }));
+    fs.writeFileSync(path.join(directory, "contract.json"), JSON.stringify({ ...contract, freezeHash: `${role}-freeze` }));
+    fs.writeFileSync(path.join(directory, "manifest.json"), JSON.stringify(manifest));
+  }
+  const configs = Object.freeze({
+    one: { id: "one", name: "One", title: "First role", outcome: "First outcome", artifacts: { receipt: "one/receipt.json", contract: "one/contract.json", manifest: "one/manifest.json" } },
+    two: { id: "two", name: "Two", title: "Second role", outcome: "Second outcome", artifacts: { receipt: "two/receipt.json", contract: "two/contract.json", manifest: "two/manifest.json" } },
+  });
+  const states = loadCommercialProductStates({ root, configs });
+  assert.deepEqual(states.map((item) => item.id), ["one", "two"]);
+  assert.deepEqual(states.map((item) => item.contract.freezeHash), ["one-freeze", "two-freeze"]);
+  assert.deepEqual(states.map((item) => item.receipt.deterministicReference.passed), [12, 9]);
 });

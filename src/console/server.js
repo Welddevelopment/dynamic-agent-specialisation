@@ -6,7 +6,7 @@ import { runDeterministicReference } from "../run.js";
 import { buildCommercialJobDraft } from "../product/commercial-intake.js";
 import { listCommercialRoleTemplates } from "../product/commercial-role-templates.js";
 import { CommercialOnboardingStore } from "../product/onboarding-store.js";
-import { loadCommercialProductState, readOptionalJson } from "./commercial-product-state.js";
+import { COMMERCIAL_PRODUCT_CONFIGS, loadCommercialProductState, loadCommercialProductStates, readOptionalJson } from "./commercial-product-state.js";
 import { ImprovementConsoleStore } from "./improvement-store.js";
 
 const port = Number(process.env.PORT ?? 4391);
@@ -87,6 +87,7 @@ function consoleState() {
     improvement: improvementStore.snapshot(),
     commercial: commercialState(),
     commercialProduct: loadCommercialProductState(),
+    commercialProducts: loadCommercialProductStates(),
     historicalImprovementRuns: [latestCloseout, historicalPiece2()].filter(Boolean),
     product,
     roles: run.results.map(({ role, result, comparison, baselineResults }) => ({
@@ -136,6 +137,11 @@ const server = http.createServer(async (request, response) => {
     if (request.method === "GET" && request.url === "/api/state") return json(response, 200, consoleState());
     if (request.method === "GET" && request.url === "/api/commercial/procurement/contract") return json(response, 200, readOptionalJson("artifacts/commercial/procurement-v1/comparison-contract.json") ?? { error: "Commercial procurement contract is not prepared" });
     if (request.method === "GET" && request.url === "/api/commercial/procurement/participants") return json(response, 200, readOptionalJson("artifacts/commercial/procurement-v1/participant-manifest.json") ?? { error: "Commercial procurement participants are not prepared" });
+    if (request.method === "GET" && /^\/api\/commercial\/(support|revops)\/(contract|participants)$/.test(request.url)) {
+      const [, , , role, kind] = request.url.split("/");
+      const file = kind === "contract" ? COMMERCIAL_PRODUCT_CONFIGS[role].artifacts.contract : COMMERCIAL_PRODUCT_CONFIGS[role].artifacts.manifest;
+      return json(response, 200, readOptionalJson(file) ?? { error: `Commercial ${role} ${kind} is not prepared` });
+    }
     if (request.method === "POST" && request.url === "/api/improvement/configure") {
       improvementStore.configure(await readJson(request));
       return json(response, 200, consoleState());

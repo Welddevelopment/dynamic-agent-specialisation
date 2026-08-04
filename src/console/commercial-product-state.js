@@ -11,6 +11,46 @@ export const COMMERCIAL_PROCUREMENT_ARTIFACTS = Object.freeze({
   activation: "artifacts/commercial/procurement-v1/activation-receipt.json",
 });
 
+export const COMMERCIAL_PRODUCT_CONFIGS = Object.freeze({
+  procurement: Object.freeze({
+    id: "procurement",
+    name: "Procurement",
+    title: "Procurement coverage specialist",
+    outcome: "Cover approved in-scope demand by deadline through stock, confirmed inbound supply, bounded transfers or permitted draft purchasing—while leaving unrelated state untouched.",
+    artifacts: COMMERCIAL_PROCUREMENT_ARTIFACTS,
+  }),
+  support: Object.freeze({
+    id: "support",
+    name: "SaaS support",
+    title: "Customer support operations specialist",
+    outcome: "Resolve every assigned support case through the smallest correct response, bounded action or precise escalation—while protecting customer, billing and incident state.",
+    artifacts: Object.freeze({
+      receipt: "artifacts/commercial/support-v1/preflight-receipt.json",
+      contract: "artifacts/commercial/support-v1/comparison-contract.json",
+      manifest: "artifacts/commercial/support-v1/participant-manifest.json",
+      result: "artifacts/commercial/support-v1/model-result.json",
+      bundle: "artifacts/commercial/support-v1/specialist-bundle.json",
+      evidenceViews: "artifacts/commercial/support-v1/evidence-views.json",
+      activation: "artifacts/commercial/support-v1/activation-receipt.json",
+    }),
+  }),
+  revops: Object.freeze({
+    id: "revops",
+    name: "CRM / RevOps",
+    title: "CRM and revenue-operations specialist",
+    outcome: "Process every assigned lead through the smallest correct CRM route while preserving consent, identity, territory, ownership and account boundaries.",
+    artifacts: Object.freeze({
+      receipt: "artifacts/commercial/revops-v1/preflight-receipt.json",
+      contract: "artifacts/commercial/revops-v1/comparison-contract.json",
+      manifest: "artifacts/commercial/revops-v1/participant-manifest.json",
+      result: "artifacts/commercial/revops-v1/model-result.json",
+      bundle: "artifacts/commercial/revops-v1/specialist-bundle.json",
+      evidenceViews: "artifacts/commercial/revops-v1/evidence-views.json",
+      activation: "artifacts/commercial/revops-v1/activation-receipt.json",
+    }),
+  }),
+});
+
 export function readOptionalJson(file, { root = process.cwd() } = {}) {
   const resolved = path.resolve(root, file);
   return fs.existsSync(resolved) ? JSON.parse(fs.readFileSync(resolved, "utf8")) : null;
@@ -83,4 +123,14 @@ export function loadCommercialProductState({ root = process.cwd(), artifacts = C
   return buildCommercialProductState(Object.fromEntries(
     Object.entries(artifacts).map(([key, file]) => [key, readOptionalJson(file, { root })]),
   ));
+}
+
+export function loadCommercialProductStates({ root = process.cwd(), configs = COMMERCIAL_PRODUCT_CONFIGS } = {}) {
+  return Object.values(configs).map((config) => ({
+    id: config.id,
+    name: config.name,
+    title: config.title,
+    outcome: config.outcome,
+    ...loadCommercialProductState({ root, artifacts: config.artifacts }),
+  }));
 }

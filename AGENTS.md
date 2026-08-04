@@ -367,3 +367,11 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - Campaign approval is role-specific: a procurement approval phrase cannot unlock support or RevOps. Global approval, a fresh exact role approval, an explicit bounded spend limit, same-day pricing confirmation, exact pricing-table hash and API key all remain mandatory.
 - Support and RevOps plan artifacts were generated with zero model calls and zero spend. The complete local suite passes 197/197.
 - No fresh model-backed commercial result exists for any of these newly prepared role campaigns. See `reports/0069-multi-role-resumable-campaign-preparation.md`.
+
+## Multi-role commercial comparison workspace — 2026-08-05
+
+- The private comparison workspace now presents support, procurement and CRM / RevOps as separate selectable executable role packs instead of hard-coding procurement.
+- Switching roles changes the frozen role/outcome, driver, participant configurations, shortcut controls and exact contract/participant links. Evidence remains separate; role selection is not candidate selection.
+- Support is the default because it remains the first polished commercial journey. Every role currently displays `preflight-ready`; the paid action stays disabled and the model-result boundary remains explicit.
+- The complete local suite passes 198/198. Live browser inspection confirmed all three controls, correct RevOps switching and no console warnings/errors. No model calls or spend occurred.
+- See `reports/0070-multi-role-commercial-comparison-workspace.md`.

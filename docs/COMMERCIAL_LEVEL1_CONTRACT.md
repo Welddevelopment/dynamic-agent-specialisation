@@ -32,6 +32,8 @@ Procurement, support and CRM / revenue operations now all have complete executab
 
 All three also have separate zero-cost frozen model-campaign plans on one resumable campaign runner. Each role has its own campaign identity, approval phrase and durable state. Approval for one role cannot authorize another; no paid campaign is enabled merely because its plan exists.
 
+The private comparison workspace exposes the three executable packs separately. Each selection loads only that role's frozen contract, participants, deterministic controls and evidence boundary. Support is the default polished journey; changing roles never counts as choosing a candidate or proving an upgrade.
+
 ## Customer journey
 
 1. Describe the company and desired role in ordinary language.
