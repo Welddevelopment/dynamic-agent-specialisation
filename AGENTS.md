@@ -267,3 +267,12 @@ Autonomous recommendation and activation by default; optional executive, enginee
 - The complete local suite passes 155/155. Preflight used zero model calls, zero spend and did not release the unseen vault.
 - This is executable disposable-world readiness, not a model-backed commercial result, arbitrary agent import, customer evidence or production readiness. A fresh model campaign still requires separate explicit spend approval.
 - See `reports/0058-commercial-procurement-executable-pack.md` and `artifacts/commercial/procurement-v1/`.
+
+## Commercial specialist lifecycle — 2026-08-05
+
+- The generic product path now supports credential-rejecting current-agent import, exact role compatibility validation, integrity-checked comparison results, a neutral complete specialist bundle, controlled activation bound to the frozen driver/adapter/verifier environment, rollback authorization and JSON export.
+- Executive, engineering and forensic evidence views explain the default recommendation and why alternatives lost. Humans receive full optional transparency without becoming required selectors.
+- A selection cannot become a bundle unless it has at least three safe perfect repeat runs. Mutated results, candidates or bundles fail closed; credentials are rejected recursively.
+- Focused lifecycle tests pass 4/4. No paid calls were made.
+- The lifecycle mechanics are complete, but the tests use a deterministic comparison receipt. A fresh model-backed commercial procurement run remains required for a new empirical result.
+- See `reports/0059-commercial-specialist-lifecycle.md`.
