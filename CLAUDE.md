@@ -27,7 +27,7 @@ repo of its own by design — that is correct, not an oversight.
   win."* Cross-role replication remains open.
   There is no work item **DAS-013** — that ID was invented in an earlier draft of
   this file and does not exist anywhere in the repo.
-- **Lifetime paid-model spend: $25.711985** (report 0089), against a $25 ceiling.
+- **Lifetime paid-model spend: $25.711985** (report 0089). The $25 figure is a scoped Level 1 ceiling, not a lifetime cap - see below.
   Do not confuse it with the DAS-004/B2 campaign figure of $0.36181282.
 - The real evidence is `docs/LIVING_TECHNICAL_BACKLOG.md` and `reports/`. Two
   objections have survived all fourteen self-audits: **unclear recurring value**
@@ -40,12 +40,13 @@ Max **$1 per gate**, **$3 cumulative** before a new checkpoint. One paid campaig
 at a time. Never auto-retry an ambiguous outcome. The remaining six discovery
 benchmark cases are **not authorized** — they need a new seal.
 
-The real evidence is `docs/LIVING_TECHNICAL_BACKLOG.md` and `reports/`, not any
-summary of them. Two objections have survived all fourteen self-audits: unclear
-recurring value, and weak differentiation. Gate A6 (fresh non-author user study)
-has never run.
-
 Any spend needs explicit approval.
+
+The **$25 figure is a scoped ceiling**, not a lifetime cap: `docs/PAID_MODEL_GATE.md`
+defines it as step 4 of the Level 1 spend ladder ("frozen comparison"). Level 1
+spend was $23.107, under it. Lifetime $25.71 exceeds $25 only because it adds
+prospective V1/V2 and the support comparison, which ran under separate campaign
+ceilings. **This is not a breach.**
 
 ## Never do
 
