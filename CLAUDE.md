@@ -32,6 +32,11 @@ Max **$1 per gate**, **$3 cumulative** before a new checkpoint. One paid campaig
 at a time. Never auto-retry an ambiguous outcome. The remaining six discovery
 benchmark cases are **not authorized** — they need a new seal.
 
+The real evidence is `docs/LIVING_TECHNICAL_BACKLOG.md` and `reports/`, not any
+summary of them. Two objections have survived all fourteen self-audits: unclear
+recurring value, and weak differentiation. Gate A6 (fresh non-author user study)
+has never run.
+
 Any spend needs explicit approval.
 
 ## Never do
