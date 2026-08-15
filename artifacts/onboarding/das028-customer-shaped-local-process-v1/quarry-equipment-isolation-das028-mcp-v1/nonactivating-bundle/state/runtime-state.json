@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-runtime-state.v1",
+  "events": [
+    {
+      "schemaVersion": "das.nonactivating-deployment-state-event.v1",
+      "revision": 0,
+      "type": "deployment.packaged-nonactivating",
+      "status": "packaged-nonactivating",
+      "previousEventHash": null,
+      "bundleHash": "0da74c313c9232204c356f6afc323f0eed18506788e698e84ce055cdb22210e3",
+      "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+      "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+      "roleRevision": 1,
+      "specialistHash": "f183043ffdd96f2a03b800ea1e64a9a4a2eee40427baecdbd8b0e54f4d62ecbe",
+      "blockerLedgerHash": "8aaa4c7c5430258ab188c24b32d688edd60e2be6ef488ef9684dfc24e3411f27",
+      "rollbackPlanHash": "d485f770fed744d4a5a3dbab0891684d248360021f9445de041e9382c146c7c6",
+      "restoredBundleHash": null,
+      "executableCustomerOperations": 0,
+      "customerExecutionAuthorized": false,
+      "activationAuthorized": false,
+      "eventHash": "b115d9e3fe4027ae8970af7518438c6f8f0fa6c40abe4ab38586d4da409aa92e",
+      "signature": "g6FymS7igGXGBdX3TMlYvam6zefLRkpE6eNpgymKhOZRFPBLSwBEEj9WavDP+XlmSVLqp6h9gL2VbDPGe6WqAQ=="
+    }
+  ],
+  "stateHash": "a03c50fb5100c7bf05369239d862b5c574465cb75b10d3c898a6576e13042380"
+}

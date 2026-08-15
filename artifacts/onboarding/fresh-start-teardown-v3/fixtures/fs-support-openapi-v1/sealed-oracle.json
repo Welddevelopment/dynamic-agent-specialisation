@@ -1,0 +1,9 @@
+{
+  "expectedBoundary": "full-lifecycle-role-but-unbound",
+  "expectedRole": "support-operations",
+  "expectedRejectedOperations": [
+    "changeSubscription"
+  ],
+  "activationReady": false,
+  "executableEnvironmentReady": false
+}

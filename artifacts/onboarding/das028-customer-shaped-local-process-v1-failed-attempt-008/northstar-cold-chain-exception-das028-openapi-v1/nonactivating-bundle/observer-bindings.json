@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "das.nonactivating-observer-bindings.v1",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f",
+  "packageReceiptHash": "72377a627e8bfa8c32bfdcefae2aeb73f81f6c87e56ccd70b4e53341289abc8e",
+  "action": {
+    "sourceIdentity": "5cfa958d9af9c8ffc623bd0a81cb158a82e6e4a3f8f068136f00c8335b9fc04d",
+    "authenticationIdentity": "a7f0b3502633374818f06b76aa13929962d7985fc410c6aedd7cca216af55e8d",
+    "credentialAlias": "NORTHSTAR_COLD_CHAIN_ACTION",
+    "implementationContentHash": "d642aa4de1864e0015b0e9b70d40fed7a85d2ce5f18ba2323d004a43bfb373d5"
+  },
+  "observer": {
+    "sourceIdentity": "3a3434da14ae191a5892b1670fa6a7a64709c84333a08fb563be80633295cd70",
+    "authenticationIdentity": "1648c293ba40d512943cee24e0ea6a06b93ffc7046a4775ea63221eec0664e37",
+    "credentialAlias": "NORTHSTAR_SENSOR_AUDIT_READ",
+    "implementationContentHash": "1195d5699ca497728fd4d3d37a496625dd9d4f344d797390e3243c0c4fdba587",
+    "independent": true,
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "actionResponseAcceptedAsIndependentProof": false,
+  "customerBound": false,
+  "customerProbed": false,
+  "customerQualified": false,
+  "activationReady": false,
+  "bindingsHash": "e3695d01741552ad1087088d0c051ac12324d183da035f10076d89941fe85a95"
+}

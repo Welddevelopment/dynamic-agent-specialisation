@@ -1,0 +1,9 @@
+{
+  "expectedBoundary": "full-lifecycle-role-but-unbound",
+  "expectedRole": "revenue-operations",
+  "expectedRejectedOperations": [
+    "sendEmail"
+  ],
+  "activationReady": false,
+  "executableEnvironmentReady": false
+}

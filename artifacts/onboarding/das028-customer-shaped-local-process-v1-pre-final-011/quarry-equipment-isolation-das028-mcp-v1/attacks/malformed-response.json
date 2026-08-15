@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "das.das028-disposable-business-state.v1",
+  "records": [],
+  "businessWrites": 0,
+  "observerWrites": 0,
+  "unrelatedStateDigest": "protected-quarry-equipment-state:v1",
+  "additionalChanges": [],
+  "requests": [],
+  "revision": 0
+}

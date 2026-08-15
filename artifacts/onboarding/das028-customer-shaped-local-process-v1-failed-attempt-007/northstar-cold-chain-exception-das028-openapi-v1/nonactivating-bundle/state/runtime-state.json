@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-runtime-state.v1",
+  "events": [
+    {
+      "schemaVersion": "das.nonactivating-deployment-state-event.v1",
+      "revision": 0,
+      "type": "deployment.packaged-nonactivating",
+      "status": "packaged-nonactivating",
+      "previousEventHash": null,
+      "bundleHash": "791d7bcc83eb11440116fc88823914ac7064bf7e953197bdd74106f897ae2c34",
+      "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+      "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+      "roleRevision": 1,
+      "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f",
+      "blockerLedgerHash": "c1ef9e5dd0c14b5641432d2166d53c4f653aecfc46b85e0d61a9eaea871a3303",
+      "rollbackPlanHash": "d7a9d6cd961d08bbf6663de16c41f9ef8cab6e75371fe881df004dbefd882a73",
+      "restoredBundleHash": null,
+      "executableCustomerOperations": 0,
+      "customerExecutionAuthorized": false,
+      "activationAuthorized": false,
+      "eventHash": "c9fd95a17b789a7c89e681e7bc77f3cc556ce2246bcfcec798ee4de97696ead9",
+      "signature": "l2OIi1lNsBmqam+A453qxQXnuvPI6zwKzkR45EQ0ARUOk38EJH8fPTWSmS3ZwZj24V2//pLcl3a+8AbL7al2Cg=="
+    }
+  ],
+  "stateHash": "3125080e5e2c674da5bddb13c88c16cc2787e119e8376708b1c2919cdffb6dc4"
+}

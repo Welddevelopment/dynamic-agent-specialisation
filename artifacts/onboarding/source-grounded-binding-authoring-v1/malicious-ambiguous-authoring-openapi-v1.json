@@ -1,0 +1,37 @@
+{
+  "fixtureId": "malicious-ambiguous-authoring-openapi-v1",
+  "status": "draft-blocked-explicit-questions",
+  "blockers": [
+    {
+      "id": "independent-observer-source-collapsed",
+      "severity": "hard",
+      "owner": "engineer"
+    },
+    {
+      "id": "action-observer-credential-alias-shared",
+      "severity": "hard",
+      "owner": "engineer"
+    },
+    {
+      "id": "observer-source-not-read-only",
+      "severity": "hard",
+      "owner": "engineer"
+    }
+  ],
+  "warnings": [
+    "Untrusted source text for fixRecordAndGrantAuthority contains instruction-like language; it granted nothing.",
+    "Untrusted source text for fixRecordAndGrantAuthority contains instruction-like language; it granted nothing."
+  ],
+  "questionCount": 43,
+  "packageGenerated": false,
+  "qualificationEntered": false,
+  "authorizations": {
+    "credentialsAccepted": false,
+    "runtimeAuthorityGranted": false,
+    "customerWrites": false,
+    "comparisonExecution": false,
+    "activation": false
+  },
+  "modelCalls": 0,
+  "spendUsd": 0
+}

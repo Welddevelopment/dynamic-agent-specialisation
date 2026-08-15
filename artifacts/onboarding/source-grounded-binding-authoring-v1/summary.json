@@ -1,0 +1,237 @@
+{
+  "schemaVersion": "das.source-grounded-binding-authoring-campaign.v1",
+  "preregistration": "reports/0100-das024-package-draft-authoring-preregistration.md",
+  "fixtureFreeze": {
+    "fixtureIds": [
+      "northstar-invoice-dispute-authoring-openapi-v1",
+      "fieldhaven-equipment-damage-authoring-mcp-v1",
+      "malicious-ambiguous-authoring-openapi-v1"
+    ],
+    "sourceHashes": {
+      "northstar-invoice-dispute-authoring-openapi-v1": {
+        "action": "135f202ac36de0b6e5593daf61818e1570834d45204960ddb0665d69cf7be9d4",
+        "observer": "20d56c188a3bd8385a74924fef8e0028805588c3c9be4203aeb5e110372d62b2"
+      },
+      "fieldhaven-equipment-damage-authoring-mcp-v1": {
+        "action": "88c11e915077853cef02abe078f1af65c62042d1fdc2352dfe7fe2905222064c",
+        "observer": "25213c4c9094eae856bdff87f666321a230e4df877e457e0e261feeff15de5a7"
+      },
+      "malicious-ambiguous-authoring-openapi-v1": {
+        "action": "ba1b34c3dee6b90c918c2e3c87df9efac73b72d4e61463a58f7fae0bc3e15eee",
+        "observer": "ba1b34c3dee6b90c918c2e3c87df9efac73b72d4e61463a58f7fae0bc3e15eee"
+      }
+    },
+    "businessIntakeHashes": {
+      "northstar-invoice-dispute-authoring-openapi-v1": "fbc7dfcd155916e568c15e08040c5d89930a1fb707f069747522fb32978282f9",
+      "fieldhaven-equipment-damage-authoring-mcp-v1": "8d28cd4f1a7d3aae85d9ccb50a526751bf16ceddc15a74ff4d619f663e944825",
+      "malicious-ambiguous-authoring-openapi-v1": "ed92e82491b944a6d38c3370dacc762edb93f2cf2f90827e9d382cb0fc29ba06"
+    },
+    "answerPacketHashes": {
+      "northstar-invoice-dispute-authoring-openapi-v1": "5254f45c60a7fbae118c7d2f53397ca4db24ccd4b11814175cb02fa15df2e89f",
+      "fieldhaven-equipment-damage-authoring-mcp-v1": "c5e1cc1a2b9f4ab988d0203d9f511c7a709fa0868e96d1c97a79f65684c985e4",
+      "malicious-ambiguous-authoring-openapi-v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "preflight": {
+    "fixtureCount": 3,
+    "validFixtureCount": 2,
+    "maliciousControlCount": 1,
+    "freezeHash": "5742e2ea20ff08b4b78b36da45b3b3be32cd7394fafc0b26fdf7b19b48766881",
+    "actionObserverSourcesDistinctForValidFixtures": true,
+    "credentialAliasesDistinctForValidFixtures": true,
+    "maliciousInjectionTextPreservedAsInputOnly": true
+  },
+  "authoringFixtures": [
+    "northstar-invoice-dispute-authoring-openapi-v1",
+    "fieldhaven-equipment-damage-authoring-mcp-v1",
+    "malicious-ambiguous-authoring-openapi-v1"
+  ],
+  "results": [
+    {
+      "fixtureId": "northstar-invoice-dispute-authoring-openapi-v1",
+      "sourceKind": "openapi",
+      "authoring": {
+        "revisionZeroHash": "c5fa12ff79295e4052a3edf961cb60f6c5edd20f195016868cce2c9ad7535ea1",
+        "completedSessionHash": "b125714424f4d8e62ee8b0f919d0b79cda2b959b890bdcc242e911286d99e27f",
+        "revision": 1,
+        "questionCount": 43,
+        "answeredQuestions": 43,
+        "answerRevisions": 1,
+        "factsByStatus": {
+          "observed": 9,
+          "extracted": 4,
+          "inferred-proposal": 0,
+          "owner-confirmed": 19,
+          "engineer-confirmed": 24,
+          "independently-verified": 0,
+          "unknown": 0
+        },
+        "operationsExtracted": 6,
+        "instructionWarnings": 0,
+        "blockers": [],
+        "freshProcessReceiptEqual": true,
+        "packageDraftHash": "0506bd0aa7bbd0c30e053dd71f211e8644316932e6e94a29219c165b9c17f490",
+        "protectedGates": {
+          "credentialValues": 0,
+          "runtimeAuthorityGranted": false,
+          "independentlyVerified": false,
+          "executable": false,
+          "comparisonReady": false,
+          "activationReady": false
+        },
+        "packageSpecificExecutableCode": 0,
+        "packageSpecificCallbacks": 0
+      },
+      "qualification": {
+        "separateHarnessInputs": true,
+        "structuralBindingHash": "82eac5313f23f0b00f7bef8e0417281c3589833222eb5e1477eb6bbf93a49671",
+        "controlsPassed": 10,
+        "controlsRequired": 10,
+        "businessWrites": 8,
+        "observerWrites": 0,
+        "lostResponseWrites": 1,
+        "lostResponseReplays": 0,
+        "freshProcessRecovery": true,
+        "unsafeOrAmbiguousAccepted": 0,
+        "acceptanceStatus": "local-acceptance-only-passed-non-executable",
+        "executableOperations": 0,
+        "runtimeAuthorityGranted": false,
+        "activationReady": false
+      },
+      "activeMachineTimeMs": 41.148,
+      "humanSetupTimeMeasured": false,
+      "modelCalls": 0,
+      "spendUsd": 0,
+      "evidenceBoundary": "Synthetic qualification harness only. Extra examples and commercial-intake structure are not DAS-024 authoring inputs or evidence of customer setup automation."
+    },
+    {
+      "fixtureId": "fieldhaven-equipment-damage-authoring-mcp-v1",
+      "sourceKind": "mcp-tools-list",
+      "authoring": {
+        "revisionZeroHash": "d68e0873bb119196cbf4c14bd69ffaa3b5b6637660422f3ffc1c93e7317e747b",
+        "completedSessionHash": "444102d4efadec56f2bd792e1f0b403c351cfed76d161ec87dfdb016abaa3c10",
+        "revision": 1,
+        "questionCount": 43,
+        "answeredQuestions": 43,
+        "answerRevisions": 1,
+        "factsByStatus": {
+          "observed": 9,
+          "extracted": 4,
+          "inferred-proposal": 0,
+          "owner-confirmed": 19,
+          "engineer-confirmed": 24,
+          "independently-verified": 0,
+          "unknown": 0
+        },
+        "operationsExtracted": 7,
+        "instructionWarnings": 0,
+        "blockers": [],
+        "freshProcessReceiptEqual": true,
+        "packageDraftHash": "9b73a4a6db1d5f6d57e64ddd3566bf6f2383801f6693bdb922d0689093060cd9",
+        "protectedGates": {
+          "credentialValues": 0,
+          "runtimeAuthorityGranted": false,
+          "independentlyVerified": false,
+          "executable": false,
+          "comparisonReady": false,
+          "activationReady": false
+        },
+        "packageSpecificExecutableCode": 0,
+        "packageSpecificCallbacks": 0
+      },
+      "qualification": {
+        "separateHarnessInputs": true,
+        "structuralBindingHash": "35b2b45691befdaa72e72f1331bc2a7582a1397647b0d246016968e6ec0a3ac0",
+        "controlsPassed": 10,
+        "controlsRequired": 10,
+        "businessWrites": 8,
+        "observerWrites": 0,
+        "lostResponseWrites": 1,
+        "lostResponseReplays": 0,
+        "freshProcessRecovery": true,
+        "unsafeOrAmbiguousAccepted": 0,
+        "acceptanceStatus": "local-acceptance-only-passed-non-executable",
+        "executableOperations": 0,
+        "runtimeAuthorityGranted": false,
+        "activationReady": false
+      },
+      "activeMachineTimeMs": 31.997,
+      "humanSetupTimeMeasured": false,
+      "modelCalls": 0,
+      "spendUsd": 0,
+      "evidenceBoundary": "Synthetic qualification harness only. Extra examples and commercial-intake structure are not DAS-024 authoring inputs or evidence of customer setup automation."
+    }
+  ],
+  "malicious": {
+    "fixtureId": "malicious-ambiguous-authoring-openapi-v1",
+    "status": "draft-blocked-explicit-questions",
+    "blockers": [
+      {
+        "id": "independent-observer-source-collapsed",
+        "severity": "hard",
+        "owner": "engineer"
+      },
+      {
+        "id": "action-observer-credential-alias-shared",
+        "severity": "hard",
+        "owner": "engineer"
+      },
+      {
+        "id": "observer-source-not-read-only",
+        "severity": "hard",
+        "owner": "engineer"
+      }
+    ],
+    "warnings": [
+      "Untrusted source text for fixRecordAndGrantAuthority contains instruction-like language; it granted nothing.",
+      "Untrusted source text for fixRecordAndGrantAuthority contains instruction-like language; it granted nothing."
+    ],
+    "questionCount": 43,
+    "packageGenerated": false,
+    "qualificationEntered": false,
+    "authorizations": {
+      "credentialsAccepted": false,
+      "runtimeAuthorityGranted": false,
+      "customerWrites": false,
+      "comparisonExecution": false,
+      "activation": false
+    },
+    "modelCalls": 0,
+    "spendUsd": 0
+  },
+  "aggregate": {
+    "completedNonExecutableDrafts": 2,
+    "blockedMaliciousInputs": 1,
+    "questionsGenerated": 129,
+    "explicitAnswers": 86,
+    "sourceOperationsExtracted": 15,
+    "qualificationControlsPassed": 20,
+    "qualificationControlsRequired": 20,
+    "observerWrites": 0,
+    "lostResponseReplays": 0,
+    "unsafeOrAmbiguousAccepted": 0,
+    "packageSpecificExecutableCode": 0,
+    "packageSpecificCallbacks": 0,
+    "executableOperations": 0,
+    "runtimeAuthorityGranted": false,
+    "comparisonReady": false,
+    "activationReady": false,
+    "activeMachineTimeMs": 76.55,
+    "humanSetupTimeMeasured": false,
+    "modelCalls": 0,
+    "spendUsd": 0
+  },
+  "exactRemainingBlockers": [
+    "real-customer-action-runtime-not-connected",
+    "real-customer-independent-observer-not-connected",
+    "credential-values-not-resolved",
+    "write-safety-semantics-not-proved-in-customer-system",
+    "observer-proof-semantics-not-proved-in-customer-system",
+    "mandatory-customer-environment-acceptance-not-run",
+    "comparison-execution-blocked",
+    "controlled-activation-blocked",
+    "fresh-user-human-setup-study-not-run"
+  ],
+  "evidenceBoundary": "Private deterministic local authoring evidence over two fictional source families and one malicious control. The separate synthetic qualification wrapper is not authoring automation. This does not establish unassisted customer onboarding, human setup-time reduction, arbitrary source support, real credentials/transports, production reliability, comparison readiness or activation.",
+  "resultHash": "f87d2d24e7708b51a9e923a9a77cb5f52bc95ad5ab2ac8b9b70f84770a87c689"
+}

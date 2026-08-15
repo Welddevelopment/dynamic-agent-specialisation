@@ -38,6 +38,8 @@ test("a complete supported intake produces a compiler-ready draft without claimi
   assert.equal(draft.readiness.highestReadyStage, "controlled-activation");
   assert.equal(draft.compiled.readiness, "ready");
   assert.equal(draft.generatedEvidenceClaim, false);
+  assert.equal(draft.comparisonDesignComplete, true);
+  assert.equal(draft.executableComparisonAuthorized, false);
   assert.equal(draft.compiled.brief.examples.length, 5);
   assert.equal(draft.compiled.brief.successCriteria.independent, true);
 });
@@ -58,10 +60,23 @@ test("onboarding records reject credentials at any nesting depth", () => {
   assert.throws(() => normalizeCommercialIntake(input), /Credentials must not be stored/);
 });
 
-test("the same commercial engine drafts all three supported role families", () => {
+test("the same commercial engine drafts every supported role family", () => {
   const templateIds = listCommercialRoleTemplates().map((item) => item.id);
-  assert.deepEqual(templateIds, ["support-operations", "procurement-coverage", "revenue-operations"]);
+  assert.deepEqual(templateIds, ["support-operations", "procurement-coverage", "revenue-operations", "frontend-implementation"]);
   for (const templateId of templateIds) assert.equal(buildCommercialJobDraft(normalizeCommercialIntake(completeInput(templateId))).compiled.readiness, "ready");
+});
+
+test("frontend reference evidence does not imply customer binding or executable lifecycle support", () => {
+  const frontend = listCommercialRoleTemplates().find((item) => item.id === "frontend-implementation");
+  assert.equal(frontend.referenceEvidence.scope, "local-fictional-role-pack");
+  assert.equal(frontend.referenceEvidence.customerBindingEvidence, false);
+  assert.equal(frontend.lifecycle.discovery, true);
+  assert.equal(frontend.lifecycle.businessIntake, true);
+  assert.equal(frontend.lifecycle.bindingScaffold, true);
+  assert.equal(frontend.lifecycle.bindingDescriptorReview, false);
+  assert.equal(frontend.lifecycle.bindingAcceptance, false);
+  assert.equal(frontend.lifecycle.comparisonPlanning, false);
+  assert.equal(frontend.lifecycle.controlledActivation, false);
 });
 
 test("versioned onboarding state survives restart and rejects mutation", () => {

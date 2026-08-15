@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "das.onboarding-system-import-confirmation.v1",
+  "proposalHash": "b5ae64c0cb8d8f67d6d2d6c16c7875fe4a6f22331376dceab72145fb1765ed1c",
+  "sessionId": "commercial-support-v1",
+  "intakeHash": "efe848910b366e76bbac3101721dea7958492afbad3e77e5e0276c5401f5cfbc",
+  "systemId": "support-sandbox",
+  "source": {
+    "kind": "mcp-tools-list",
+    "sourceHash": "4909054f4ecfe5607b458935bbb72b39dab2ee3675cbac44af699fef93c2d10f"
+  },
+  "status": "customer-confirmed-engineering-required",
+  "confirmedBy": "fictional-rehearsal-owner",
+  "operationChoices": [
+    {
+      "sourceName": "get_ticket",
+      "proposedExposedName": "support-sandbox:get_ticket",
+      "approved": true,
+      "rejectionReason": null,
+      "targetExposedName": "support-sandbox:read-ticket",
+      "confirmedMode": "read",
+      "authority": {
+        "action": null,
+        "classification": "not-applicable",
+        "runtimeGrant": false
+      },
+      "requiredContextSources": [
+        "ticket-thread"
+      ],
+      "sourceInputSchemaHash": "8d604cb90c66816380ec87c79576a985c7ab817c6a5c13a39289b37ab6b2aa4e",
+      "runtimeInputSchemaHash": null,
+      "executable": false
+    },
+    {
+      "sourceName": "draft_reply",
+      "proposedExposedName": "support-sandbox:draft_reply",
+      "approved": true,
+      "rejectionReason": null,
+      "targetExposedName": "support-sandbox:draft-response",
+      "confirmedMode": "write",
+      "authority": {
+        "action": "draft-support-response",
+        "classification": "already-declared-allowed-action",
+        "runtimeGrant": false
+      },
+      "requiredContextSources": [
+        "support-policy",
+        "ticket-thread"
+      ],
+      "sourceInputSchemaHash": "274d150693a02327a93aaff4107e9f5f04e38a2702eb901cbc4440508bfa8c3a",
+      "runtimeInputSchemaHash": null,
+      "executable": false
+    }
+  ],
+  "approvedContextSources": [
+    "active-incidents",
+    "assigned-ticket-queue",
+    "billing-events",
+    "customer-account",
+    "knowledge-base",
+    "mcp-tools-list:4909054f4ecfe560:draft_reply",
+    "mcp-tools-list:4909054f4ecfe560:get_ticket",
+    "support-policy",
+    "ticket-thread"
+  ],
+  "gates": {
+    "authority": "mapped-to-existing-intake-only-not-runtime-granted",
+    "credentials": "not-collected",
+    "executableAdapter": "not-implemented",
+    "independentVerifier": "not-implemented",
+    "acceptance": "not-run",
+    "comparisonExecution": "blocked",
+    "controlledActivation": "blocked"
+  },
+  "authorizations": {
+    "modelSpend": false,
+    "execution": false,
+    "customerWrites": false,
+    "activation": false
+  },
+  "evidenceBoundary": "Digest-bound customer review of one pinned schema proposal. It maps approved source operations to an existing saved role and existing declared authority only. It does not implement an adapter or verifier, collect credentials, grant runtime authority, execute, spend or activate.",
+  "confirmationHash": "3157383fdde083d82c462c25a0c1aec3e1fd6864dab76e07618b7dc714bdb217"
+}

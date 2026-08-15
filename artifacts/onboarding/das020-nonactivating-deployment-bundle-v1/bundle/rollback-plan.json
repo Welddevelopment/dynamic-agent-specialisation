@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-rollback-plan.v1",
+  "tenantId": "fictional-northstar-tenant",
+  "roleId": "invoice-dispute-specialist",
+  "roleRevision": 4,
+  "specialistHash": "ccdd2a96b6d56f742de291c8667a397e9d65f30e2bd95e977acd96005bcfcb4c",
+  "previousBundleHash": null,
+  "fallback": "leave-current-specialist-unchanged",
+  "allowedFromStatuses": [
+    "packaged-nonactivating",
+    "preview-loaded-nonactivating"
+  ],
+  "targetStatus": "rolled-back-nonactivating",
+  "activationAuthorized": false,
+  "executionAuthorized": false,
+  "rollbackPlanHash": "ecbaf48bb1a231352f7e50feab86c447da16918cdeffc46705cfb6b1e83aace8"
+}

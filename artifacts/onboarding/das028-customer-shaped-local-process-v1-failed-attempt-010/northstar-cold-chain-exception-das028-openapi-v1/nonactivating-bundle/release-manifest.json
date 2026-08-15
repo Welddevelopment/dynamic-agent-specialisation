@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-release-manifest.v1",
+  "bundleHash": "ba6327b72cb258cb45e4ca0f650866c2ba7ef94ba599e41aec3cf5fb8f4d3c8e",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f",
+  "blockerLedgerHash": "c1ef9e5dd0c14b5641432d2166d53c4f653aecfc46b85e0d61a9eaea871a3303",
+  "rollbackPlanHash": "d7a9d6cd961d08bbf6663de16c41f9ef8cab6e75371fe881df004dbefd882a73",
+  "genesisEventHash": "1a92a8a96c3beca7596c2483c50baac1ea7c93a7edaf9db6e67d746d4da54582",
+  "mutableStatePath": "state/runtime-state.json",
+  "files": [
+    {
+      "path": "blockers.json",
+      "sha256": "257dbef5a170ac2a088a35b82ab52c3279c8c743ad8eba6633cb2e37ad2db9d1",
+      "bytes": 1626,
+      "mode": "0600"
+    },
+    {
+      "path": "conformance-evidence.json",
+      "sha256": "02879eca37c0b0e2894758f724a3edd54947e70d9c1fbcb8ac6b217d448eaf53",
+      "bytes": 1292,
+      "mode": "0600"
+    },
+    {
+      "path": "deployment-bundle.json",
+      "sha256": "6d126f804c6058728a180ea7494b12d896c39f69254609216466fc2bc01f2093",
+      "bytes": 1635,
+      "mode": "0600"
+    },
+    {
+      "path": "implementation-identities.json",
+      "sha256": "8e7cba948fe8eb3fb391736f06038efec924b9736bc712c17d4d2fd586b887a4",
+      "bytes": 1250,
+      "mode": "0600"
+    },
+    {
+      "path": "observer-bindings.json",
+      "sha256": "7604865ae5efe9e08c6cb84a026124b1206f39bf9fdc02b5de198027496926ae",
+      "bytes": 1471,
+      "mode": "0600"
+    },
+    {
+      "path": "plugin-project-identities.json",
+      "sha256": "dc0afa6cec38f5d3204d851f4868e1b59f067b1badc64b0d4b5edfa238524d7f",
+      "bytes": 1531,
+      "mode": "0600"
+    },
+    {
+      "path": "readiness-receipt.json",
+      "sha256": "9d6f95861fc487e60bf8c0483838e74b5e93858f9c48b52b9c169045512402fc",
+      "bytes": 1623,
+      "mode": "0600"
+    },
+    {
+      "path": "role-contract.json",
+      "sha256": "d68302a48ff23e5397169af144498b7f3dc7618191a693820e9f98c9b1d186b9",
+      "bytes": 933,
+      "mode": "0600"
+    },
+    {
+      "path": "rollback-plan.json",
+      "sha256": "dd7c87931a7405c9615c2abb1654fb0cd8612bb1d587173a72506ea10e978644",
+      "bytes": 719,
+      "mode": "0600"
+    },
+    {
+      "path": "specialist.json",
+      "sha256": "c9fe0d0d72aa5c81dee318b724e1aca9f635aed88d47c27801819abdd2012f8b",
+      "bytes": 767,
+      "mode": "0600"
+    },
+    {
+      "path": "state-genesis.json",
+      "sha256": "fc42cc50aa3d1176e4a92bbb8dd46747d403988be28ee09ee4f6ebf7e3902730",
+      "bytes": 511,
+      "mode": "0600"
+    }
+  ],
+  "manifestHash": "626cb7de2478c18b44c082af9ee0c8dbe19af1179668aa91d61ef0482bf41d9d"
+}

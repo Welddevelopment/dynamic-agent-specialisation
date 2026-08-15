@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "das.candidate-scale-v7-prefix-40-preregistration.v1",
+  "extensionId": "candidate-scale-v7-exact-prefix-40-extension-v1",
+  "baseV7PlanHash": "be1e5db937be4252883cb1506675e43885166789ce6821e024d0e03f555c1875",
+  "baseV7ProtocolCoreHash": "250103e2b780be0965954a2d076f22ac06e2c966c16af0e1002b4b750c9559fd",
+  "baseV7CasePackHash": "5654dd8099e5531fa1a1ad367f0dbebd3046196a6541d900265f2af88147f0a3",
+  "baseV7CasePackReceiptHash": "8a67da310d06649e5b05d2b752894a9b69162a9371a8237f0554f1b361489389",
+  "baseV7PricingHash": "7c2ba51feaa8ad023ec6ffd272e3bc1d88d52a9981d0d11a06e554667bbafd84",
+  "hypothesis": "Within the same frozen V7 support-role comparison, does the exact accepted 1-40 prefix recover more confirmed safe specialist quality than positions 1-5 without requiring the full 150-candidate search?",
+  "arm": {
+    "requestedCount": 40,
+    "candidateRule": "Exact accepted positions 1 through 40 from the fresh sealed V7 portfolio in original response order. No regeneration, replacement, repair, V5/V6 import or separate architect call is permitted.",
+    "nestedIn": [
+      "exact-first-five-prefix",
+      "adaptive-150-search"
+    ],
+    "finalistCount": 7,
+    "finalistRule": "Use the same static structural prior, tie-breaks and meaningful-distance threshold as V7. K(40)=7 is fixed prospectively."
+  },
+  "frozenRules": {
+    "candidateContract": "7873ed98d656b00b04870ae7a9eb86cc17cce8c3820f341b04ce9489f432b813",
+    "roleHash": "1928ac2707918e08b6de1c4904c2107ff1c19bd9600c89ebdca111639bed9940",
+    "verifierId": "commercial-support-v1:external-verifier",
+    "baselineHashesHash": "5a66de151c458e0d8463f5b04a6cd82e5bf12f32fd21afb42ea9fa611b43b28a",
+    "selectionCaseCounts": {
+      "development": 2,
+      "validation": 2,
+      "adversarial": 2
+    },
+    "confirmationCaseCounts": {
+      "holdout": 2,
+      "repeat": 3
+    },
+    "confirmationRule": "Freeze each arm winner before releasing holdout/repeat. Run each distinct winner and all four baselines on the same untouched confirmation cases. No fallback winner is selected after confirmation.",
+    "meaningfulDistanceThreshold": 0.12
+  },
+  "observationRule": "Reuse a V7 observation only when plan, participant/configuration, case, phase, model, verifier and receipt bindings match exactly. Evaluate only missing 40-arm finalist/case pairs. Shared observations may not be rerun or altered.",
+  "confirmationRule": "Select the 40-arm winner only from frozen development/validation/adversarial observations. Release the existing V7 holdout/repeat cases only after the winner and observation corpus are sealed.",
+  "budget": {
+    "durableCampaignId": "candidate-scale-paired-5-vs-150-v7-single-writer-recovery",
+    "v7HardCampaignCeilingUsd": 20.41,
+    "maximumCombinedPriorAndV7SpendUsd": 22.9946465,
+    "sharedUserCeilingUsd": 24,
+    "reservedBufferUsd": 1,
+    "rule": "Use the same V7 durable budget and evidence ledger. The 40 arm has no independent allowance and may not exceed any V7 or shared ceiling."
+  },
+  "finalizationGate": "After the complete V7 portfolio/checkpoint/single-writer receipt are sealed, bind exact positions 1-40 and their hashes before any V7 performance observation, pre-final freeze or combined result exists.",
+  "launchGate": "No launch is authorized by this preregistration. A later exact extension plan, explicit approval, valid single-writer lock and remaining durable budget are all required.",
+  "stops": [
+    "Stop if V7 generation is incomplete, rejected any candidate or lacks a clean exclusive-writer receipt.",
+    "Stop if any V7 performance observation or combined result exists before the exact 1-40 plan is sealed.",
+    "Stop if candidate order, portfolio, cases, models, role, authority, baselines, verifier, ranking or safety rule differs from V7.",
+    "Stop on unresolved provider outcome, insufficient verified budget, evidence-ledger failure or writer-lock failure."
+  ],
+  "claimBoundary": "One preregistered nested 40-prefix arm inside one adaptive fictional support-role search. It cannot isolate candidate count from adaptive prior-memory effects or establish a universal optimal portfolio size, customer value, cross-role generality or production reliability.",
+  "preregistrationHash": "c9bccc5e039d8e4cfca87f9edeefa69b213dc993924394a4254aadf08312ed81"
+}

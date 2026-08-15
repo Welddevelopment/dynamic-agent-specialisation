@@ -4,6 +4,7 @@ import { commercialRoleTemplate } from "./commercial-role-templates.js";
 
 const SECRET_KEYS = /(^|[-_])(api[-_]?key|password|secret|token|credential|private[-_]?key)($|[-_])/i;
 
+function requireCondition(condition, message) { if (!condition) throw new Error(message); }
 function cleanText(value, maximum = 2_000) { return String(value ?? "").trim().slice(0, maximum); }
 function cleanList(value, maximum = 100) { return Array.isArray(value) ? value.slice(0, maximum) : []; }
 function stableId(prefix, value, index) { return cleanText(value?.id, 120) || `${prefix}-${digest({ prefix, index, value }).slice(0, 12)}`; }
@@ -56,6 +57,77 @@ export function normalizeCommercialIntake(input) {
     dataHandling: { localOnly: input?.dataHandling?.localOnly !== false, productionDataIncluded: input?.dataHandling?.productionDataIncluded === true, redactionConfirmed: input?.dataHandling?.redactionConfirmed === true },
   };
   return Object.freeze(normalized);
+}
+
+function explicitlySupplied(input, path) {
+  let current = input;
+  for (const segment of path.split(".")) {
+    if (!current || typeof current !== "object" || !Object.hasOwn(current, segment)) return false;
+    current = current[segment];
+  }
+  if (typeof current === "string") return Boolean(current.trim());
+  if (Array.isArray(current)) return current.length > 0;
+  return current !== undefined && current !== null;
+}
+
+export function createCommercialIntakeProvenance({ input, intake }) {
+  const normalized = intake ?? normalizeCommercialIntake(input);
+  requireCondition(normalized?.schemaVersion === "das.commercial-intake.v1", "Commercial intake provenance needs a normalized intake");
+  const template = commercialRoleTemplate(normalized.role.templateId);
+  const facts = [
+    ["company.name", "required-customer-fact"],
+    ["company.website", "optional-customer-fact"],
+    ["company.industry", "optional-customer-fact"],
+    ["company.operatingContext", "required-customer-fact"],
+    ["role.templateId", "customer-role-family-selection"],
+    ["role.title", template ? "role-template-default" : "required-customer-fact"],
+    ["role.outcome", template ? "role-template-default" : "required-customer-fact"],
+    ["role.completionRule", template ? "role-template-default" : "required-customer-fact"],
+    ["role.escalationOwner", "required-customer-fact"],
+    ["systems", "required-customer-facts"],
+    ["knowledgeSources", "optional-customer-facts"],
+    ["policies", "required-customer-facts"],
+    ["authority.allowedActions", "required-customer-authority"],
+    ["authority.approvalActions", "optional-customer-authority"],
+    ["authority.forbiddenActions", "required-customer-authority"],
+    ["examples", "required-customer-facts"],
+    ["success.measures", "required-customer-facts"],
+    ["success.verifierMode", "required-customer-fact"],
+    ["success.verifierStatus", "customer-declaration-not-proof"],
+    ["success.owner", "required-customer-fact"],
+    ["priorities.quality", "das-safe-default"],
+    ["priorities.cost", "das-safe-default"],
+    ["priorities.speed", "das-safe-default"],
+    ["priorities.maximumCostPerTaskUsd", "das-safe-default"],
+    ["priorities.maximumLatencyMs", "das-safe-default"],
+    ["priorities.goal", "das-safe-default"],
+    ["currentAgent.mode", "das-safe-default"],
+    ["currentAgent.model", "optional-customer-fact"],
+    ["currentAgent.configurationHash", "optional-customer-fact"],
+    ["currentAgent.historicalResultsHash", "optional-customer-fact"],
+    ["dataHandling.localOnly", "das-safe-default"],
+    ["dataHandling.productionDataIncluded", "das-safe-default"],
+    ["dataHandling.redactionConfirmed", "das-safe-default"],
+  ].map(([path, fallback]) => ({
+    path,
+    status: explicitlySupplied(input, path) ? "customer-supplied" : fallback,
+    valuePresent: (() => {
+      const value = path.split(".").reduce((current, segment) => current?.[segment], normalized);
+      return Array.isArray(value) ? value.length > 0 : value !== undefined && value !== null && value !== "";
+    })(),
+  }));
+  const receipt = {
+    schemaVersion: "das.commercial-intake-provenance.v1",
+    sessionId: normalized.sessionId,
+    intakeHash: digest(normalized),
+    facts,
+    customerSuppliedCount: facts.filter((item) => item.status === "customer-supplied").length,
+    templateDefaultCount: facts.filter((item) => item.status === "role-template-default").length,
+    dasSafeDefaultCount: facts.filter((item) => item.status === "das-safe-default").length,
+    boundary: "Provenance of normalized onboarding fields. Defaults are proposals or safe software defaults, not customer-supplied business truth or executable evidence.",
+  };
+  receipt.provenanceHash = digest(receipt);
+  return Object.freeze(receipt);
 }
 
 function gate(id, label, checks) { return { id, label, ready: checks.every((check) => check.passed), checks }; }
@@ -113,5 +185,5 @@ export function buildCommercialJobDraft(intake) {
     assumptions: intake.policies.filter((policy) => policy.consequential && !policy.confirmed).map((policy) => ({ description: policy.rule, consequential: true, status: "unconfirmed" })),
   };
   const compiled = compileJobBrief(briefInput);
-  return { schemaVersion: "das.commercial-job-draft.v1", intakeHash: digest(intake), templateId: intake.role.templateId, readiness, compiled, executableComparisonAuthorized: readiness.stages.comparison.ready && intake.success.verifierStatus === "verified", generatedEvidenceClaim: false };
+  return { schemaVersion: "das.commercial-job-draft.v1", intakeHash: digest(intake), templateId: intake.role.templateId, readiness, compiled, comparisonDesignComplete: readiness.stages.comparison.ready, executableComparisonAuthorized: false, generatedEvidenceClaim: false };
 }

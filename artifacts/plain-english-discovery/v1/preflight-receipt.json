@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "das.plain-english-discovery-preflight-receipt.v1",
+  "benchmarkId": "plain-english-normal-worker-onboarding-v1",
+  "benchmarkHash": "61f041b7cbeb32708faf130e5c3db9a0a683187f445d3082579827183e31a51e",
+  "caseCount": 7,
+  "smokeCaseId": "frontend-canonical",
+  "planHash": "1e679e4ba5e48b84cf8ced94a49146b3ba9ef409b20f50464a1691db57bcc3b3",
+  "projectedMaximumSpendUsd": 0.0041655,
+  "hardLimitUsd": 0.5,
+  "modelCallsMade": 0,
+  "externalRequestsMade": 0,
+  "newSpendUsd": 0,
+  "paidExecutionStatus": "disabled-pending-safety-core-and-exact-approval",
+  "scaleStatus": "not-authorized-before-smoke-review"
+}

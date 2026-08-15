@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "das.nonactivating-observer-bindings.v1",
+  "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+  "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "f183043ffdd96f2a03b800ea1e64a9a4a2eee40427baecdbd8b0e54f4d62ecbe",
+  "packageReceiptHash": "ea97aa58c7cc87fc76ec7ff24d441012c62ab6a11051abf3cfd893fe31a3b0e3",
+  "action": {
+    "sourceIdentity": "889a6dec01171dc7a9b5ab0822022d79c3cbd2ad59a4c8a8a291d4c678160ce1",
+    "authenticationIdentity": "442d43262b1914f55f3624892598789a1ac9a0aba3f2876d8d083f57d196ebca",
+    "credentialAlias": "QUARRY_EQUIPMENT_ACTION",
+    "implementationContentHash": "379ce928d6abd8c7088510327362647c6b37cd04d14d31015d2c34737e1f7e7e"
+  },
+  "observer": {
+    "sourceIdentity": "e94c8df31099cc9a9d65ad4ab8f6b17d0afa6aa0a055440d8e2405f6f0b7c1a9",
+    "authenticationIdentity": "2460859a97c849fb6535ff6dcc0dcfbe8a4ce70e233ce063a0060ee6f6d36e38",
+    "credentialAlias": "QUARRY_SAFETY_AUDIT_READ",
+    "implementationContentHash": "6f139d8c48f33227965e1b68caf4c0aa8e1706541d6d5aea0f6038fc529cb82d",
+    "independent": true,
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "actionResponseAcceptedAsIndependentProof": false,
+  "customerBound": false,
+  "customerProbed": false,
+  "customerQualified": false,
+  "activationReady": false,
+  "bindingsHash": "88b7ed8bb353264731146423d4a06d27e59af634f4c54a23fc752cc410d33a49"
+}

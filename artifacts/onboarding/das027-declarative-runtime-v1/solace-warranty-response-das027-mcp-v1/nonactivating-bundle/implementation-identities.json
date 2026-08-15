@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "das.nonactivating-implementation-identities.v1",
+  "tenantId": "fictional-solace-warranty-response-das027-mcp-v1-tenant",
+  "roleId": "solace-warranty-response-das027-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "beafa8e4b26acc207eb1bace513e38d7f92aa337fdf25c3d4eb40e4ed7855ab8",
+  "packageReceiptHash": "6064b953cd134d6dc44a34eb98f93bfbb631f06a45f5864ba425ac4133ea5564",
+  "generatedProjectHash": "5b89e3ea23f647e02c8783aff211a8426a5444ef59ff19b34c267efacf63f693",
+  "actionImplementationIntentHash": "eb3c04ba0c6f440eb3d34025e85afc600fc6a93f646a0e081d73609e0fd5ee39",
+  "actionImplementationContentHash": "b6c7036e0e6231dc6f93915d729bacda131154f2d71713f424c388962288b333",
+  "observerImplementationIntentHash": "7095f3089a5731968cd987c7bdbfd56b7950d1aab061ad632be2c54ad3abe38b",
+  "observerImplementationContentHash": "bc1ed91f94393c624f9e2ba89ddb83e1b333818a5286bdc7bb429460f098bb8d",
+  "conformanceReceiptHash": "ef0065834f5a6bc799729fa7d75e2996367c3beeef202d1c17b16c6107dac34a",
+  "scope": "fictional-disposable-local",
+  "customerEnvironmentImplemented": false,
+  "customerExecutableOperations": 0,
+  "identityHash": "7bc6aa80bd6b510e8f7228afcba1ebbbfaa1a204e2e2bac979e2c7a74474bf3d"
+}

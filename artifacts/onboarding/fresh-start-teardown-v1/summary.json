@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "das.fresh-start-onboarding-teardown-summary.v1",
+  "protocolHash": "a39b6afa4a620d508de481e88d218c9956aaba55146800cd8c68667f50cdd57a",
+  "results": [
+    {
+      "fixtureId": "fs-support-openapi-v1",
+      "expectedBoundary": "full-lifecycle-role-but-unbound",
+      "highestHonestStage": "comparison-design-complete-binding-required",
+      "sourceKinds": [
+        "openapi"
+      ],
+      "generatedMappingAccuracy": 0.6667,
+      "generatedAuthorityAccuracy": 1,
+      "meaningfulSetupUnits": 81,
+      "generatedUnits": 21,
+      "customerDecisionUnits": 39,
+      "engineerUnits": 8,
+      "proofUnits": 7,
+      "unsupportedUnits": 0,
+      "silentAuthorOnlyInjections": 0,
+      "freshProcessReloadPassed": true,
+      "exactFreshReplayPassed": true,
+      "executionReady": false,
+      "activationReady": false
+    },
+    {
+      "fixtureId": "fs-procurement-mcp-v1",
+      "expectedBoundary": "full-lifecycle-role-but-unbound",
+      "highestHonestStage": "comparison-design-complete-binding-required",
+      "sourceKinds": [
+        "mcp-tools-list"
+      ],
+      "generatedMappingAccuracy": 0.75,
+      "generatedAuthorityAccuracy": 0.75,
+      "meaningfulSetupUnits": 89,
+      "generatedUnits": 27,
+      "customerDecisionUnits": 40,
+      "engineerUnits": 10,
+      "proofUnits": 7,
+      "unsupportedUnits": 0,
+      "silentAuthorOnlyInjections": 0,
+      "freshProcessReloadPassed": true,
+      "exactFreshReplayPassed": true,
+      "executionReady": false,
+      "activationReady": false
+    },
+    {
+      "fixtureId": "fs-revops-mixed-v1",
+      "expectedBoundary": "full-lifecycle-role-but-unbound",
+      "highestHonestStage": "comparison-design-complete-binding-required",
+      "sourceKinds": [
+        "openapi",
+        "mcp-tools-list"
+      ],
+      "generatedMappingAccuracy": 1,
+      "generatedAuthorityAccuracy": 1,
+      "meaningfulSetupUnits": 140,
+      "generatedUnits": 50,
+      "customerDecisionUnits": 51,
+      "engineerUnits": 20,
+      "proofUnits": 15,
+      "unsupportedUnits": 0,
+      "silentAuthorOnlyInjections": 0,
+      "freshProcessReloadPassed": true,
+      "exactFreshReplayPassed": true,
+      "executionReady": false,
+      "activationReady": false
+    },
+    {
+      "fixtureId": "fs-frontend-partial-v1",
+      "expectedBoundary": "design-and-scaffold-only",
+      "highestHonestStage": "comparison-design-complete-binding-required",
+      "sourceKinds": [
+        "openapi"
+      ],
+      "generatedMappingAccuracy": 1,
+      "generatedAuthorityAccuracy": 1,
+      "meaningfulSetupUnits": 76,
+      "generatedUnits": 15,
+      "customerDecisionUnits": 40,
+      "engineerUnits": 6,
+      "proofUnits": 7,
+      "unsupportedUnits": 0,
+      "silentAuthorOnlyInjections": 0,
+      "freshProcessReloadPassed": true,
+      "exactFreshReplayPassed": true,
+      "executionReady": false,
+      "activationReady": false
+    }
+  ],
+  "aggregate": {
+    "fixtures": 4,
+    "positiveFullLifecycleRoleHypotheses": 3,
+    "deliberateLifecycleStopControls": 1,
+    "approvedOperations": 16,
+    "exactTargetProposals": 14,
+    "roleOwnerConfirmationsPreserved": 16,
+    "rejectedDangerousOperations": 5,
+    "falseReadyFixtures": 0,
+    "silentAuthorOnlyInjections": 0,
+    "modelCalls": 0,
+    "spendUsd": 0
+  },
+  "evidenceBoundary": "Fresh fictional deterministic onboarding teardowns. Machine runtime is not human setup time. The experiment does not prove independent-user usability, executable unfamiliar-system bindings, customer value, setup-time reduction, activation or production reliability.",
+  "summaryHash": "bbadfa2dacab015b787128250d68efa063bbd4dfa869ade209e5c67df90c5a27"
+}

@@ -1,9 +1,17 @@
+import { buildAssistedOnboardingProjection } from "./assisted-onboarding-projection.js";
+
 let state;
 let page = "overview";
 let selectedRoleId = null;
 let onboardingStep = 0;
 let commercialDraft = null;
 let selectedCommercialRoleId = "support";
+let systemImportResult = null;
+let systemImportReviewResult = null;
+let systemImportDraft = null;
+let roleDiscoveryDraft = { description: "", companyName: "", industry: "", operatingContext: "", includeRecordedSystemProposals: true };
+let roleDiscoveryResult = null;
+let roleDiscoveryHandoffNotice = null;
 const main = document.querySelector("main");
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[character]);
 
@@ -104,12 +112,34 @@ function roleCards() {
   return state.commercial.templates.map((template) => `<button type="button" class="role-choice ${template.id === commercialDraft.role.templateId ? "selected" : ""}" data-template="${esc(template.id)}"><span>${esc(template.name)}</span><small>${esc(template.description)}</small></button>`).join("");
 }
 
+function discoveryValue(value) {
+  if (value === null || value === undefined || value === "") return "Unknown — not invented";
+  if (Array.isArray(value)) return value.join(" · ");
+  if (typeof value === "object") return Object.entries(value).map(([key, child]) => `${key}: ${Array.isArray(child) ? child.join(", ") : child}`).join(" · ");
+  return String(value);
+}
+
+function discoveryFactGroup(title, tone, facts) {
+  return `<article class="discovery-fact-group ${tone}"><header><span>${esc(title)}</span><strong>${facts.length}</strong></header><div>${facts.map((fact) => `<section><div><strong>${esc(fact.label)}</strong><small>${esc(fact.status.replaceAll("-", " "))}</small></div><p>${esc(discoveryValue(fact.value))}</p><footer><span>${fact.provenance.map((item) => `${item.sourceKind} · ${item.label}`).map(esc).join(" / ")}</span>${fact.customerConfirmationRequired ? "<b>Customer confirmation required</b>" : fact.independentVerificationRequired ? "<b>Independent evidence required</b>" : fact.reviewRequired ? "<b>Review required</b>" : ""}</footer></section>`).join("")}</div></article>`;
+}
+
+function roleDiscoveryResultSurface(result) {
+  if (!result) return "";
+  const confidence = result.roleFamily.confidence == null ? "Unscored" : `${Math.round(result.roleFamily.confidence * 100)}% structural match`;
+  const recorded = result.recordedSystemProposals.included ? `${result.recordedSystemProposals.count} recorded schema proposal${result.recordedSystemProposals.count === 1 ? "" : "s"} included server-side` : "No recorded schema proposals included";
+  const additionalWarnings = result.warnings.filter((warning) => warning !== result.previewWarning);
+  const handoffLabel = result.safeHandoff.permitted ? "Continue to structured setup" : result.roleFamily.supported ? "Clarification required before handoff" : "Unsupported preview · structured choice required";
+  return `<section class="discovery-result" aria-live="polite"><header class="discovery-result-head"><div><p>Provisional role family</p><h3>${esc(result.roleFamily.label)}</h3><span>${esc(result.status.replaceAll("-", " "))} · ${esc(confidence)}</span></div><div class="discovery-usage"><strong>0</strong><span>model calls<br>external requests<br>dollars spent</span></div></header><div class="discovery-preview-warning"><strong>Deterministic preview</strong><span>${esc(result.previewWarning)}</span></div>${additionalWarnings.length ? `<div class="discovery-warning-list">${additionalWarnings.map((warning) => `<p>${esc(warning)}</p>`).join("")}</div>` : ""}<div class="discovery-fact-grid">${discoveryFactGroup("Safely proposable", "proposable", result.factGroups.safelyProposable)}${discoveryFactGroup("Needs your confirmation", "consequential", result.factGroups.consequentialConfirmation)}${discoveryFactGroup("Needs executable evidence", "evidence", result.factGroups.executableEvidence)}</div><div class="discovery-next-grid"><article><header><span>Prioritized clarification queue</span><strong>${result.clarificationQueue.length}</strong></header><ol>${result.clarificationQueue.map((item) => `<li><span>${String(item.rank).padStart(2, "0")}</span><div><strong>${esc(item.question)}</strong><small>Blocks ${item.blocks.map((block) => esc(block.replaceAll("-", " "))).join(" · ")}</small></div></li>`).join("")}</ol></article><article><header><span>Engineering blockers</span><strong>${result.engineeringBlockers.length}</strong></header><ul>${result.engineeringBlockers.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></article></div><div class="discovery-boundary"><div><strong>Zero authority · non-executable</strong><p>${esc(result.evidenceBoundary)}</p><small>${esc(recorded)}. ${esc(result.recordedSystemProposals.boundary)}</small></div><button class="button primary" id="continue-discovery" type="button" ${result.safeHandoff.permitted ? "" : "disabled"}>${esc(handoffLabel)}</button></div></section>`;
+}
+
 function startStep() {
-  return `<div class="onboarding-welcome"><div><h1>Describe the job.<br>We prove the employee.</h1><p>A specialist is assembled, tested against real outcomes, and recommended without asking you to choose prompts, models, memory systems, or agent frameworks.</p><button class="button primary onboarding-start" type="button">Create a specialist</button></div><div class="promise-rail"><div><span>01</span><strong>Understand the role</strong><p>Turn ordinary company information into an exact operating contract.</p></div><div><span>02</span><strong>Build serious candidates</strong><p>Vary the model, instructions, context, tools, memory, authority, verifier, cost and speed.</p></div><div><span>03</span><strong>Test before recommending</strong><p>Independent external outcomes—not the candidate itself—decide which fit is strongest.</p></div><div><span>04</span><strong>Keep you in control</strong><p>Use the recommendation by default or inspect and switch among preserved alternatives.</p></div></div></div>`;
+  const recordedProposalCount = state.commercial?.assistedOnboarding?.generated?.systemImportProposals ?? 0;
+  return `<div class="onboarding-welcome"><div><h1>Describe the job.<br>We prove the employee.</h1><p>A specialist is assembled, tested against real outcomes, and recommended without asking you to choose prompts, models, memory systems, or agent frameworks.</p><div class="assisted-mode-note"><strong>Assisted pilot</strong><span>You supply business truth and sandbox or schema material. DAS prepares the bounded setup and makes the remaining engineering work explicit. This is not self-serve activation.</span></div><button class="button onboarding-start" type="button">Use the structured 8-step setup</button></div><div class="promise-rail"><div><span>01</span><strong>Understand the role</strong><p>Turn ordinary company information into an exact operating contract.</p></div><div><span>02</span><strong>Build serious candidates</strong><p>Vary the model, instructions, context, tools, memory, authority, verifier, cost and speed.</p></div><div><span>03</span><strong>Test before recommending</strong><p>Independent external outcomes—not the candidate itself—decide which fit is strongest.</p></div><div><span>04</span><strong>Keep you in control</strong><p>Use the recommendation by default or inspect and switch among preserved alternatives.</p></div></div></div><section class="plain-discovery"><header><div><p>Local role discovery preview</p><h2>Start in ordinary language.</h2><span>Describe the work as you would to a new colleague. This zero-cost preview proposes structure and asks what matters next; it does not understand arbitrary roles or skip the trusted setup gates.</span></div><strong>Preview<br>not proof</strong></header><div class="plain-discovery-form"><label class="onboarding-field discovery-description"><span>What should this AI employee own?</span><textarea id="discovery-description" rows="7" placeholder="Handle assigned customer support tickets, resolve routine billing and incident questions, and escalate anything outside its authority.">${fieldValue(roleDiscoveryDraft.description)}</textarea><small>Ordinary language only. Do not paste credentials, secrets, or unapproved customer data.</small></label><div class="discovery-context-grid">${inputField("discovery-company", "Company name (optional)", roleDiscoveryDraft.companyName, { placeholder: "Acme" })}${inputField("discovery-industry", "Industry (optional)", roleDiscoveryDraft.industry, { placeholder: "B2B software" })}${textArea("discovery-context", "How this work operates today (optional)", roleDiscoveryDraft.operatingContext, { placeholder: "Requests arrive in an assigned queue and routine cases follow an approved policy…", rows: 4 })}</div></div>${recordedProposalCount ? `<label class="discovery-recorded-proposals"><input id="discovery-use-recorded" type="checkbox" ${roleDiscoveryDraft.includeRecordedSystemProposals ? "checked" : ""}><span>Include ${recordedProposalCount} integrity-checked OpenAPI/MCP proposal${recordedProposalCount === 1 ? "" : "s"} already recorded in the selected local session.</span></label>` : ""}<div class="plain-discovery-actions"><button class="button primary" id="preview-discovery" type="button">Generate zero-cost preview</button><span id="discovery-message">No model call, network request, authority, save, comparison, or activation.</span></div>${roleDiscoveryResultSurface(roleDiscoveryResult)}</section>`;
 }
 
 function roleStep() {
-  return `<div class="step-copy"><h1>What job should this AI employee own?</h1><p>Choose the closest supported role, then describe the actual result in your company’s language.</p></div><div class="role-choice-grid">${roleCards()}</div><div class="onboarding-grid two">${inputField("company-name", "Company name", commercialDraft.company.name, { placeholder: "Acme" })}${inputField("company-industry", "Industry", commercialDraft.company.industry, { placeholder: "B2B software" })}${inputField("role-title", "Role title", commercialDraft.role.title, { placeholder: "Customer support operations specialist" })}${inputField("escalation-owner", "Who owns exceptions?", commercialDraft.role.escalationOwner, { placeholder: "Head of Support" })}</div>${textArea("role-outcome", "Outcome this employee owns", commercialDraft.role.outcome, { detail: "Describe the finished business result, not a list of AI features.", placeholder: "Resolve every assigned support request correctly while protecting customer and billing data.", rows: 4 })}${textArea("operating-context", "How this work operates today", commercialDraft.company.operatingContext, { detail: "A short description is enough. The compiler will ask for missing consequential details.", placeholder: "Requests enter an assigned queue. Support can issue credits up to a delegated limit...", rows: 4 })}`;
+  const discoveryNotice = roleDiscoveryHandoffNotice ? `<div class="discovery-handoff-notice"><strong>Editable preview draft</strong><span>${esc(roleDiscoveryHandoffNotice)} Review every populated field below. Continuing does not confirm the proposal, grant authority, save a role, or make any system executable.</span></div>` : "";
+  return `<div class="step-copy"><h1>What job should this AI employee own?</h1><p>Choose the closest supported role, then describe the actual result in your company’s language.</p></div>${discoveryNotice}<div class="role-choice-grid">${roleCards()}</div><div class="onboarding-grid two">${inputField("company-name", "Company name", commercialDraft.company.name, { placeholder: "Acme" })}${inputField("company-industry", "Industry", commercialDraft.company.industry, { placeholder: "B2B software" })}${inputField("role-title", "Role title", commercialDraft.role.title, { placeholder: "Customer support operations specialist" })}${inputField("escalation-owner", "Who owns exceptions?", commercialDraft.role.escalationOwner, { placeholder: "Head of Support" })}</div>${textArea("role-outcome", "Outcome this employee owns", commercialDraft.role.outcome, { detail: "Describe the finished business result, not a list of AI features.", placeholder: "Resolve every assigned support request correctly while protecting customer and billing data.", rows: 4 })}${textArea("operating-context", "How this work operates today", commercialDraft.company.operatingContext, { detail: "A short description is enough. The compiler will ask for missing consequential details.", placeholder: "Requests enter an assigned queue. Support can issue credits up to a delegated limit...", rows: 4 })}`;
 }
 
 function systemsStep() {
@@ -138,14 +168,67 @@ function readinessCard(stage, label, copy) {
   if (!stage) return `<article class="readiness-card blocked"><span>Not checked</span><h3>${esc(label)}</h3><p>${esc(copy)}</p></article>`;
   const ready = stage?.ready;
   const missing = stage?.checks?.filter((item) => !item.passed).length ?? 0;
-  return `<article class="readiness-card ${ready ? "ready" : "blocked"}"><span>${ready ? "Ready" : `${missing} gate${missing === 1 ? "" : "s"} open`}</span><h3>${esc(label)}</h3><p>${esc(copy)}</p></article>`;
+  return `<article class="readiness-card ${ready ? "ready" : "blocked"}"><span>${ready ? "Complete" : `${missing} gate${missing === 1 ? "" : "s"} open`}</span><h3>${esc(label)}</h3><p>${esc(copy)}</p></article>`;
+}
+
+function setupStage(stage, index) {
+  const evidence = stage.evidence.length ? `<ul>${stage.evidence.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>` : "";
+  const blockers = stage.blockers.length ? `<div class="setup-stage-blockers">${stage.blockers.map((item) => `<span>${esc(item)}</span>`).join("")}</div>` : "";
+  return `<article class="setup-stage setup-stage-${esc(stage.status)}" data-setup-stage="${esc(stage.id)}"><div class="setup-stage-index"><span>${String(index + 1).padStart(2, "0")}</span><i aria-hidden="true"></i></div><div class="setup-stage-copy"><div><strong>${esc(stage.label)}</strong><small>${esc(stage.owner)}</small></div><p>${esc(stage.summary)}</p>${evidence}${blockers}${stage.nextAction ? `<footer><b>Next</b><span>${esc(stage.nextAction)}</span></footer>` : ""}</div></article>`;
+}
+
+function responsibilityLane(title, ownerClass, rows) {
+  return `<article class="setup-lane ${ownerClass}"><header><span>${esc(title)}</span><strong>${rows.length}</strong></header><div>${rows.map((item) => `<p><span>${esc(item.label)}</span><small>${esc(item.status)}</small></p>`).join("")}</div></article>`;
+}
+
+function systemImportPanel(selected, projection) {
+  const systems = selected?.intake?.systems ?? [];
+  const selectedSessionMatches = selected?.sessionId === commercialDraft.sessionId;
+  const unavailable = !selectedSessionMatches || systems.length === 0;
+  const matchingResult = systemImportResult?.sessionId === projection.session.id ? systemImportResult : null;
+  const matchingReview = systemImportReviewResult?.sessionId === projection.session.id ? systemImportReviewResult : null;
+  const targetOptions = (operation) => matchingResult.review.targetOperations.filter((target) => operation.proposedMode === "review-required" || target.mode === operation.proposedMode).map((target) => `<option value="${esc(target.exposedName)}" ${operation.suggestion.targetExposedName === target.exposedName ? "selected" : ""}>${esc(target.exposedName)} · ${esc(target.mode)}</option>`).join("");
+  const authorityOptions = (operation) => `<option value="">No write authority mapping</option>${(matchingResult?.review.authorityActions ?? []).map((item) => `<option value="${esc(item.action)}" ${operation.suggestion.authorityAction === item.action ? "selected" : ""}>${esc(item.action)} · ${esc(item.classification.replaceAll("-", " "))}</option>`).join("")}`;
+  const operationReview = (operation) => `<article class="system-import-review-operation" data-import-operation="${esc(operation.sourceName)}"><header><label><input type="checkbox" data-import-approve checked><span>Approve for engineering</span></label><strong>${esc(operation.sourceName)}</strong></header><p class="system-import-assistance">DAS proposal · ${esc(operation.suggestion.targetStatus.replaceAll("-", " "))} · customer confirmation required</p><div class="system-import-review-fields"><label><span>Map to saved role operation</span><select data-import-target>${targetOptions(operation)}</select></label><label><span>Confirm read/write meaning</span><select data-import-mode><option value="read" ${operation.suggestion.confirmedMode === "read" ? "selected" : ""}>read</option><option value="write" ${operation.suggestion.confirmedMode === "write" ? "selected" : ""}>write</option></select></label><label><span>Existing authority boundary</span><select data-import-authority>${authorityOptions(operation)}</select></label><label><span>Required approved context</span><textarea data-import-context rows="3">${esc(operation.suggestion.requiredContextSources.join("\n"))}</textarea></label></div><div class="system-import-safety-proposals"><span>Idempotency: ${esc(operation.suggestion.idempotencyStatus.replaceAll("-", " "))}</span><span>Read-back: ${esc(operation.suggestion.reconciliationStatus.replaceAll("-", " "))}</span></div><label class="system-import-rejection"><span>If rejected, why?</span><input data-import-rejection placeholder="Not needed for this bounded role"></label></article>`;
+  const reviewMarkup = matchingResult && !matchingReview ? `<section class="system-import-review" aria-label="Review imported operations"><header><div><span>Consequential review</span><h4>Map source operations to the saved role.</h4><p>Every approval is bound to this schema and this intake. A write can map only to authority already declared in the saved role; this never grants runtime authority.</p></div><strong>Still non-executable</strong></header><div class="system-import-context-review"><strong>Approved context inventory</strong>${matchingResult.review.contextSources.map((sourceId) => `<label><input type="checkbox" data-import-context-approval value="${esc(sourceId)}" checked><span>${esc(sourceId)}</span></label>`).join("")}</div><div class="system-import-review-list">${matchingResult.operations.map(operationReview).join("")}</div><div class="system-import-review-actions"><label><span>Reviewer</span><input id="system-import-reviewer" placeholder="Role owner or accountable reviewer"></label><button class="button primary" id="confirm-system-import" type="button">Confirm review + create work plan</button><span id="system-import-review-message">No credentials, execution, model call, or activation.</span></div></section>` : "";
+  const reviewResultMarkup = matchingReview ? `<section class="system-import-work-plan" aria-live="polite"><header><div><span>Reviewed work plan</span><h4>${esc(matchingReview.system.name)}</h4></div><strong>${Math.round(matchingReview.setupCoverage.completionRatio * 100)}% of explicit setup fields generated or confirmed</strong></header><div class="system-import-work-plan-metrics"><article><span>Generated / confirmed</span><strong>${matchingReview.setupCoverage.generatedOrCustomerConfirmed}</strong></article><article><span>Engineering / proof remaining</span><strong>${matchingReview.setupCoverage.remainingEngineerOrIndependentProof}</strong></article><article><span>Executable operations</span><strong>0</strong></article></div><details><summary>Inspect exact remaining work</summary><ol>${matchingReview.exactRemainingWork.map((item) => `<li><span>${esc(item.owner)}</span><p>${esc(item.detail)}</p></li>`).join("")}</ol></details><footer><strong>Execution remains blocked</strong><p>${esc(matchingReview.evidenceBoundary)}</p></footer></section>` : "";
+  const resultMarkup = matchingResult ? `<section class="system-import-result" aria-live="polite"><header><div><span>${matchingReview ? "Review confirmed" : "Review required"}</span><h4>${esc(matchingResult.system.name)}</h4></div><strong>${matchingResult.operationCount} operation${matchingResult.operationCount === 1 ? "" : "s"} proposed</strong></header><div class="system-import-operation-list">${matchingResult.operations.map((operation) => `<article><div><strong>${esc(operation.proposedExposedName)}</strong><small>${esc(operation.sourceName)}</small></div><span class="operation-mode">${esc(operation.proposedMode)}</span><dl><div><dt>Authority</dt><dd>${esc(operation.authority)}</dd></div><div><dt>Adapter</dt><dd>${esc(operation.adapter)}</dd></div><div><dt>Verifier</dt><dd>${esc(operation.independentVerification)}</dd></div><div><dt>Executable</dt><dd>${operation.executable ? "yes" : "no"}</dd></div></dl></article>`).join("")}</div><footer><strong>Still blocked</strong><p>${esc(matchingResult.evidenceBoundary)}</p></footer></section>` : "";
+  const draft = systemImportDraft ?? {};
+  const draftJson = draft.document ? JSON.stringify(draft.document, null, 2) : "";
+  return `<section class="system-import" aria-label="Local system schema import"><header class="system-import-head"><div><p>System material</p><h3>Turn a local schema into a bounded engineering work plan.</h3><span>DAS proposes operations, records the customer’s exact review, and generates adapter and independent-verifier scaffolds. It cannot grant authority, collect credentials, fabricate implementation, or make the environment executable.</span></div><div class="zero-authority-seal"><strong>0</strong><span>authority granted</span></div></header>${unavailable ? `<div class="system-import-unavailable"><strong>Save this role first.</strong><span>A schema proposal must bind to one exact saved session and one system already named in that session.</span></div>` : `<div class="system-import-grid"><label class="onboarding-field"><span>Saved customer system</span><select id="system-import-system">${systems.map((system) => `<option value="${esc(system.id)}" ${draft.systemId === system.id ? "selected" : ""}>${esc(system.name)}</option>`).join("")}</select><small>Only this declared system receives the proposal.</small></label><label class="onboarding-field"><span>Local material kind</span><select id="system-import-kind"><option value="openapi" ${draft.sourceKind === "openapi" ? "selected" : ""}>OpenAPI 3.x JSON</option><option value="mcp-tools-list" ${draft.sourceKind === "mcp-tools-list" ? "selected" : ""}>Pinned MCP tools/list JSON</option></select><small>No URL is fetched. Paste or select a local JSON file.</small></label><label class="onboarding-field"><span>Source label</span><input id="system-import-label" value="${fieldValue(draft.sourceLabel)}" placeholder="Customer-local support API schema"><small>A human-readable label only; no filesystem path is retained.</small></label><label class="onboarding-field mcp-import-only" hidden><span>Customer-local MCP server id</span><input id="system-import-server-id" value="${fieldValue(draft.serverId)}" placeholder="support-tools"><small>An identifier, not an endpoint or credential.</small></label><label class="onboarding-field mcp-import-only" hidden><span>Pinned server version</span><input id="system-import-server-version" value="${fieldValue(draft.serverVersion)}" placeholder="1.4.0"><small>Optional version stated by the customer.</small></label><label class="onboarding-field system-import-selection"><span id="system-import-selection-label">Operation IDs to include</span><textarea id="system-import-selection" rows="3" placeholder="Leave blank to review every declared operation">${fieldValue((draft.selectedNames ?? []).join("\n"))}</textarea><small>Optional. One exact operation or tool name per line.</small></label><label class="system-import-file"><input id="system-import-file" type="file" accept=".json,application/json"><span>Choose local JSON</span><small id="system-import-file-name">${draft.document ? "Source retained in this local browser session" : "Nothing selected"}</small></label><label class="onboarding-field system-import-json"><span>Local JSON material</span><textarea id="system-import-json" rows="13" spellcheck="false" placeholder='{ "openapi": "3.1.0", "info": { "title": "…", "version": "1.0.0" }, "paths": { … } }'>${fieldValue(draftJson)}</textarea><small>Parsed locally, then sent only to this customer-local console. Credential material and external schema references fail closed.</small></label></div><div class="system-import-actions"><button class="button primary" id="propose-system-import" type="button">Generate review proposal</button><span id="system-import-message">No model, network request, execution, or spend.</span></div>`}${resultMarkup}${reviewMarkup}${reviewResultMarkup}</section>`;
+}
+
+function assistedSetupSurface(projection, selected) {
+  const spendLabel = projection.spend.projectedMaximumUsd == null ? "Not calculated" : `$${projection.spend.projectedMaximumUsd.toFixed(2)} maximum`;
+  const currentStageIndex = Math.max(0, projection.stages.findIndex((stage) => stage.id === projection.summary.currentStageId));
+  const directBlockers = [...new Map(projection.blockers.filter((item) => projection.stages.findIndex((stage) => stage.id === item.stageId) <= currentStageIndex).map((item) => [item.text, item])).values()];
+  const blockerRows = directBlockers.length
+    ? directBlockers.map((item) => `<li><span>${esc(item.text)}</span><small>${esc(projection.stages.find((stage) => stage.id === item.stageId)?.label ?? item.stageId)}</small></li>`).join("")
+    : `<li class="clear"><span>No setup blockers remain.</span><small>Activation still requires a separate authorization.</small></li>`;
+  const currentHeadline = {
+    "business-draft": "Complete the business role draft",
+    "comparison-design": "Complete the comparison design",
+    "executable-environment": "Make the comparison environment executable",
+    "spend-approval": "Awaiting explicit model-spend approval",
+    recommendation: "Complete the frozen comparison",
+    "controlled-activation": "Prepare controlled activation",
+  }[projection.summary.currentStageId] ?? projection.summary.currentStageLabel;
+  const supportLabel = projection.session.roleSupportLevel === "design-and-scaffold-only"
+    ? "Design + scaffold supported · execution blocked"
+    : projection.session.roleMode === "supported"
+      ? "Full assisted lifecycle supported"
+      : "Unsupported role preview";
+  return `<section class="assisted-setup" aria-label="Authoritative assisted onboarding status"><header class="assisted-setup-head"><div><p>Authoritative setup status</p><h2>${esc(currentHeadline)}</h2><span>${esc(projection.boundary)}</span></div><div class="setup-progress"><strong>${projection.summary.completeStages}<i> / ${projection.summary.totalStages}</i></strong><span>gates complete</span><div><i style="width:${Math.round(projection.summary.completeStages / projection.summary.totalStages * 100)}%"></i></div></div></header><div class="setup-mode-strip"><span>${esc(supportLabel)}</span><span>${projection.summary.systemsDeclared} named system${projection.summary.systemsDeclared === 1 ? "" : "s"}</span><strong>Named does not mean connected</strong></div><div class="setup-timeline">${projection.stages.map(setupStage).join("")}</div>${systemImportPanel(selected, projection)}<section class="setup-responsibilities"><div><p>Who owns what</p><h3>Autonomous where proved.<br>Explicit where human work remains.</h3></div><div class="setup-lane-grid">${responsibilityLane("Customer answers", "customer", projection.responsibilities.customer)}${responsibilityLane("DAS generated", "das", projection.responsibilities.das)}${responsibilityLane("Engineer work", "engineer", projection.responsibilities.engineer)}${responsibilityLane("Independent checks", "verifier", projection.responsibilities.independentlyVerified)}</div></section><div class="setup-footer-grid"><article class="setup-blocker-ledger"><header><span>Current blockers</span><strong>${directBlockers.length}</strong></header><ul>${blockerRows}</ul></article><article class="setup-spend-gate"><span>Separate spend gate</span><strong>${esc(spendLabel)}</strong><p>${esc(projection.spend.boundary)}</p><button class="button primary" type="button" disabled>${projection.spend.status === "awaiting-explicit-approval" ? "Explicit approval required" : projection.spend.approved ? "Approved · comparison not started here" : "Approval unavailable until plan is frozen"}</button></article></div></section>`;
 }
 
 function reviewStep() {
   const readiness = state.commercial?.selected?.intake?.sessionId === commercialDraft.sessionId ? state.commercial.selected.readiness : null;
   const template = selectedTemplate();
-  const questions = readiness?.questions ?? [];
-  return `<div class="step-copy"><h1>Review the role before any comparison runs.</h1><p>The system can recommend autonomously, but it will not pretend that an incomplete role description is evidence.</p></div><div class="review-bento"><article class="review-role"><span>Role contract</span><h2>${esc(commercialDraft.role.title || template.name)}</h2><p>${esc(commercialDraft.role.outcome || "Outcome still missing")}</p><dl><div><dt>Company</dt><dd>${esc(commercialDraft.company.name || "Missing")}</dd></div><div><dt>Systems</dt><dd>${commercialDraft.systems.length}</dd></div><div><dt>Rules</dt><dd>${commercialDraft.policies.length}</dd></div><div><dt>Cases</dt><dd>${commercialDraft.examples.length}</dd></div></dl></article><div class="review-readiness">${readinessCard(readiness?.stages?.draft, "Design preview", "A precise role and candidate plan can be drafted.")}${readinessCard(readiness?.stages?.comparison, "Ready for comparison", "The role is defined well enough to test candidates fairly; no result is implied.")}${readinessCard(readiness?.stages?.activation, "Controlled activation", "Every system path and independent checker is executable.")}</div><article class="review-boundary"><strong>What saving does</strong><p>It versions this role contract and calculates readiness. It does not call a model, spend money, run a comparison, or activate an employee.</p></article><article class="review-authority"><strong>Hard authority boundary</strong><p>${commercialDraft.authority.allowedActions.length} allowed · ${commercialDraft.authority.approvalActions.length} approval-bound · ${commercialDraft.authority.forbiddenActions.length} forbidden action classes.</p></article></div>${questions.length ? `<div class="question-list"><h3>Still needed</h3>${questions.slice(0, 8).map((item) => `<button type="button" data-question-stage="${esc(item.stage)}"><span>${esc(item.question)}</span><small>${esc(item.stage)}</small></button>`).join("")}</div>` : ""}<div class="review-actions"><button class="button primary" type="button" id="save-commercial">Save and check readiness</button><span id="commercial-message"></span></div>`;
+  const selected = state.commercial?.selected?.intake?.sessionId === commercialDraft.sessionId ? state.commercial.selected : null;
+  const setup = state.commercial?.assistedOnboarding?.sessionId === commercialDraft.sessionId ? state.commercial.assistedOnboarding : null;
+  const questions = setup?.questions?.filter((item) => item.stage !== "controlled-activation") ?? readiness?.questions?.filter((item) => item.stage !== "controlled-activation") ?? [];
+  const setupProjection = buildAssistedOnboardingProjection({ selected, draft: commercialDraft, setup, supportedRoleTemplateIds: state.commercial.templates.map((template) => template.id) });
+  return `<div class="step-copy"><h1>Review the role before any comparison runs.</h1><p>The system can recommend autonomously, but it will not pretend that a complete form is an executable environment or performance evidence.</p></div><div class="review-bento"><article class="review-role"><span>Role contract</span><h2>${esc(commercialDraft.role.title || template.name)}</h2><p>${esc(commercialDraft.role.outcome || "Outcome still missing")}</p><dl><div><dt>Company</dt><dd>${esc(commercialDraft.company.name || "Missing")}</dd></div><div><dt>Systems</dt><dd>${commercialDraft.systems.length}</dd></div><div><dt>Rules</dt><dd>${commercialDraft.policies.length}</dd></div><div><dt>Cases</dt><dd>${commercialDraft.examples.length}</dd></div></dl></article><div class="review-readiness">${readinessCard(readiness?.stages?.draft, "Business role draft", "The core role description is complete.")}${readinessCard(readiness?.stages?.comparison, "Comparison design", "Contract information is complete. System bindings and verification remain separate.")}</div><article class="review-boundary"><strong>What saving does</strong><p>It versions this role contract and calculates design readiness. It does not connect systems, call a model, spend money, run a comparison, or activate an employee.</p></article><article class="review-authority"><strong>Hard authority boundary</strong><p>${commercialDraft.authority.allowedActions.length} allowed · ${commercialDraft.authority.approvalActions.length} approval-bound · ${commercialDraft.authority.forbiddenActions.length} forbidden action classes. Schema imports may propose operations but never widen this boundary.</p></article></div>${assistedSetupSurface(setupProjection, selected)}${questions.length ? `<div class="question-list"><h3>Still needed from the role owner</h3>${questions.slice(0, 8).map((item) => `<button type="button" data-question-stage="${esc(item.stage)}"><span>${esc(item.question)}</span><small>${esc(item.stage)}</small></button>`).join("")}</div>` : ""}<div class="review-actions"><button class="button primary" type="button" id="save-commercial">Save and refresh setup status</button><span id="commercial-message"></span></div>`;
 }
 
 function createSpecialist() {
@@ -165,6 +248,8 @@ function animateCreatePage() {
   if (welcomeCards.length) globalThis.gsap.fromTo(welcomeCards, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .6, stagger: .08, ease: "power2.out" });
   const reviewCards = document.querySelectorAll(".review-bento > *");
   if (reviewCards.length) globalThis.gsap.fromTo(reviewCards, { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: .58, stagger: .09, ease: "power3.out" });
+  const setupStages = document.querySelectorAll(".setup-stage");
+  if (setupStages.length) globalThis.gsap.fromTo(setupStages, { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: .52, stagger: .055, ease: "power2.out" });
   const explanatoryCopy = document.querySelector(".step-copy p");
   if (explanatoryCopy && globalThis.ScrollTrigger) globalThis.gsap.fromTo(explanatoryCopy, { opacity: .28 }, { opacity: 1, scrollTrigger: { trigger: explanatoryCopy, start: "top 92%", end: "bottom 72%", scrub: .4 } });
 }
@@ -294,8 +379,177 @@ function harvestCommercialStep() {
   }
 }
 
+function bindSystemImport() {
+  const kind = document.querySelector("#system-import-kind");
+  const material = document.querySelector("#system-import-json");
+  const selectionLabel = document.querySelector("#system-import-selection-label");
+  const updateKind = () => {
+    const isMcp = kind?.value === "mcp-tools-list";
+    document.querySelectorAll(".mcp-import-only").forEach((field) => { field.hidden = !isMcp; });
+    if (selectionLabel) selectionLabel.textContent = isMcp ? "Tool names to include" : "Operation IDs to include";
+    if (material) material.placeholder = isMcp
+      ? '{ "tools": [{ "name": "ticket_read", "inputSchema": { "type": "object" } }] }'
+      : '{ "openapi": "3.1.0", "info": { "title": "…", "version": "1.0.0" }, "paths": { … } }';
+  };
+  kind?.addEventListener("change", updateKind);
+  updateKind();
+  document.querySelector("#system-import-file")?.addEventListener("change", async (event) => {
+    const file = event.target.files?.[0];
+    const fileName = document.querySelector("#system-import-file-name");
+    if (!file) return;
+    try {
+      material.value = await file.text();
+      fileName.textContent = file.name;
+    } catch {
+      fileName.textContent = "Could not read this local file";
+    }
+  });
+  document.querySelector("#propose-system-import")?.addEventListener("click", async () => {
+    const message = document.querySelector("#system-import-message");
+    message.classList.remove("error");
+    let documentMaterial;
+    try {
+      documentMaterial = JSON.parse(material?.value || "");
+    } catch {
+      message.textContent = "Enter valid JSON. Nothing was saved.";
+      message.classList.add("error");
+      return;
+    }
+    message.textContent = "Checking local material and generating a review proposal…";
+    try {
+      const sourceKind = kind.value;
+      systemImportDraft = {
+        sessionId: commercialDraft.sessionId,
+        systemId: document.querySelector("#system-import-system")?.value,
+        sourceKind,
+        sourceLabel: document.querySelector("#system-import-label")?.value,
+        serverId: sourceKind === "mcp-tools-list" ? document.querySelector("#system-import-server-id")?.value : undefined,
+        serverVersion: sourceKind === "mcp-tools-list" ? document.querySelector("#system-import-server-version")?.value : undefined,
+        selectedNames: lines(document.querySelector("#system-import-selection")?.value),
+        document: documentMaterial,
+      };
+      const result = await request("/api/commercial/system-import", {
+        method: "POST",
+        body: JSON.stringify(systemImportDraft),
+      });
+      state.commercial = result.commercial;
+      systemImportResult = result.proposal;
+      systemImportReviewResult = null;
+      render();
+    } catch (error) {
+      message.textContent = error.message;
+      message.classList.add("error");
+    }
+  });
+  document.querySelector("#confirm-system-import")?.addEventListener("click", async () => {
+    const message = document.querySelector("#system-import-review-message");
+    message.classList.remove("error");
+    if (!systemImportDraft || !systemImportResult) {
+      message.textContent = "Generate the exact review proposal again. Nothing was confirmed.";
+      message.classList.add("error");
+      return;
+    }
+    const operationChoices = [...document.querySelectorAll("[data-import-operation]")].map((element) => {
+      const approved = element.querySelector("[data-import-approve]").checked;
+      const sourceName = element.dataset.importOperation;
+      if (!approved) return { sourceName, approved: false, rejectionReason: element.querySelector("[data-import-rejection]").value.trim() };
+      return {
+        sourceName,
+        approved: true,
+        targetExposedName: element.querySelector("[data-import-target]").value,
+        confirmedMode: element.querySelector("[data-import-mode]").value,
+        authorityAction: element.querySelector("[data-import-authority]").value || null,
+        requiredContextSources: lines(element.querySelector("[data-import-context]").value),
+      };
+    });
+    const contextChoices = [...document.querySelectorAll("[data-import-context-approval]")].map((element) => ({ sourceId: element.value, approved: element.checked }));
+    message.textContent = "Sealing review and generating the non-executable work plan…";
+    try {
+      const result = await request("/api/commercial/system-import/review", {
+        method: "POST",
+        body: JSON.stringify({
+          ...systemImportDraft,
+          confirmedBy: document.querySelector("#system-import-reviewer")?.value,
+          decisions: { operationChoices, contextChoices },
+        }),
+      });
+      state.commercial = result.commercial;
+      systemImportReviewResult = result.review;
+      render();
+    } catch (error) {
+      message.textContent = error.message;
+      message.classList.add("error");
+    }
+  });
+}
+
+function bindRoleDiscovery() {
+  const preview = document.querySelector("#preview-discovery");
+  if (!preview) return;
+  preview.addEventListener("click", async () => {
+    roleDiscoveryDraft = {
+      description: document.querySelector("#discovery-description")?.value ?? "",
+      companyName: document.querySelector("#discovery-company")?.value ?? "",
+      industry: document.querySelector("#discovery-industry")?.value ?? "",
+      operatingContext: document.querySelector("#discovery-context")?.value ?? "",
+      includeRecordedSystemProposals: document.querySelector("#discovery-use-recorded")?.checked ?? false,
+    };
+    const message = document.querySelector("#discovery-message");
+    message.classList.remove("error");
+    message.textContent = "Building a deterministic structural preview…";
+    try {
+      const hasRecordedProposals = (state.commercial?.assistedOnboarding?.generated?.systemImportProposals ?? 0) > 0;
+      const result = await request("/api/commercial/discover-role", {
+        method: "POST",
+        body: JSON.stringify({
+          description: roleDiscoveryDraft.description,
+          companyName: roleDiscoveryDraft.companyName,
+          industry: roleDiscoveryDraft.industry,
+          operatingContext: roleDiscoveryDraft.operatingContext,
+          sessionId: roleDiscoveryDraft.includeRecordedSystemProposals && hasRecordedProposals ? state.commercial.selected?.sessionId : undefined,
+        }),
+      });
+      roleDiscoveryResult = result.preview;
+      render();
+    } catch (error) {
+      roleDiscoveryResult = null;
+      message.textContent = error.message;
+      message.classList.add("error");
+    }
+  });
+  document.querySelector("#continue-discovery")?.addEventListener("click", () => {
+    const handoff = roleDiscoveryResult?.safeHandoff;
+    if (!handoff?.permitted) return;
+    if (handoff.company.name) commercialDraft.company.name = handoff.company.name;
+    if (handoff.company.industry) commercialDraft.company.industry = handoff.company.industry;
+    if (handoff.company.operatingContext) commercialDraft.company.operatingContext = handoff.company.operatingContext;
+    if (handoff.role.templateId) commercialDraft.role.templateId = handoff.role.templateId;
+    if (handoff.role.title) commercialDraft.role.title = handoff.role.title;
+    if (handoff.role.outcome) commercialDraft.role.outcome = handoff.role.outcome;
+    const existingSystemNames = new Set(commercialDraft.systems.map((system) => system.name.trim().toLowerCase()));
+    for (const system of handoff.systems) {
+      if (existingSystemNames.has(system.name.trim().toLowerCase())) continue;
+      commercialDraft.systems.push({
+        id: `discovery-system-${commercialDraft.systems.length + 1}`,
+        name: system.name,
+        kind: "customer system",
+        access: "none",
+        adapterStatus: "missing",
+        contextSources: [],
+        tools: [],
+      });
+      existingSystemNames.add(system.name.trim().toLowerCase());
+    }
+    roleDiscoveryHandoffNotice = `${roleDiscoveryResult.roleFamily.label} came from a ${roleDiscoveryResult.provider.kind.replaceAll("-", " ")}.`;
+    onboardingStep = 1;
+    render();
+  });
+}
+
 function bindCommercial() {
   if (page !== "create") return;
+  bindRoleDiscovery();
+  bindSystemImport();
   document.querySelector(".onboarding-start")?.addEventListener("click", () => { onboardingStep = 1; render(); });
   document.querySelectorAll("[data-onboarding-step]").forEach((button) => button.addEventListener("click", () => { harvestCommercialStep(); onboardingStep = Number(button.dataset.onboardingStep); render(); }));
   document.querySelectorAll("[data-template]").forEach((button) => button.addEventListener("click", () => {
@@ -322,6 +576,7 @@ function bindCommercial() {
       const result = await request("/api/commercial/intake", { method: "POST", body: JSON.stringify(commercialDraft) });
       state.commercial = result.commercial;
       commercialDraft = structuredClone(result.saved.intake);
+      systemImportResult = null;
       render();
       document.querySelector("#commercial-message").textContent = "Saved. No model calls or comparison were started.";
     } catch (error) { message.textContent = error.message; message.classList.add("error"); }

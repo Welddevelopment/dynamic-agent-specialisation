@@ -78,8 +78,9 @@ function resultObject(result, toolName) {
   return stable(result.structuredContent);
 }
 
-export function compileMcpAdapterPlan({ serverId, serverVersion = "unknown", toolsList, operationBindings }) {
+export function compileMcpAdapterPlan({ serverId, serverVersion = "unknown", adapterVersion = "1.0.0", toolsList, operationBindings }) {
   requireCondition(clean(serverId) && Array.isArray(toolsList?.tools), "MCP adapter needs an identified tools/list response");
+  requireCondition(/^\d+\.\d+\.\d+$/.test(adapterVersion), "MCP adapter needs a semantic adapter version independent of the server version");
   requireCondition(Array.isArray(operationBindings) && operationBindings.length > 0, "Select at least one exact MCP tool");
   const listed = new Map();
   for (const tool of toolsList.tools) {
@@ -138,6 +139,7 @@ export function compileMcpAdapterPlan({ serverId, serverVersion = "unknown", too
   const plan = {
     schemaVersion: "das.mcp-adapter-plan.v1",
     adapterId: `mcp:${clean(serverId, 160)}`,
+    adapterVersion,
     server: { id: clean(serverId, 160), version: clean(serverVersion, 120), toolsListHash: digest(toolsList) },
     status: "executable-bounded-contract",
     operations,
@@ -149,8 +151,39 @@ export function compileMcpAdapterPlan({ serverId, serverVersion = "unknown", too
 
 export function assertMcpAdapterPlan(plan) {
   requireCondition(plan?.schemaVersion === "das.mcp-adapter-plan.v1" && plan.planHash === digest(withoutHash(plan, "planHash")), "MCP adapter plan integrity mismatch");
-  requireCondition(plan.status === "executable-bounded-contract" && plan.operations?.length > 0 && plan.operations.every((item) => item.boundedInputSchemaHash === digest(item.inputSchema)), "MCP adapter operation contract changed");
+  requireCondition(/^\d+\.\d+\.\d+$/.test(plan.adapterVersion ?? "") && plan.status === "executable-bounded-contract" && plan.operations?.length > 0 && plan.operations.every((item) => item.boundedInputSchemaHash === digest(item.inputSchema)), "MCP adapter operation contract changed");
   return true;
+}
+
+export function bindMcpPlanToCommercialDescriptor({ descriptor, systemId, plan }) {
+  assertMcpAdapterPlan(plan);
+  requireCondition(descriptor?.schemaVersion === "das.commercial-customer-binding.v1" && descriptor.descriptorHash === digest(withoutHash(descriptor, "descriptorHash")), "Commercial binding descriptor integrity mismatch");
+  const updated = structuredClone(descriptor);
+  const system = updated.systems.find((item) => item.systemId === systemId);
+  requireCondition(system, `Commercial binding system is missing: ${systemId}`);
+  const imported = new Map(plan.operations.map((operation) => [operation.exposedName, operation]));
+  requireCondition(imported.size === system.operations.length && system.operations.every((operation) => imported.has(operation.exposedName)), "MCP plan must exactly cover the commercial system operation set");
+  system.adapterId = plan.adapterId;
+  system.adapterVersion = plan.adapterVersion;
+  system.status = "executable";
+  system.credentialRefs = [];
+  system.operations = system.operations.map((operation) => {
+    const importedOperation = imported.get(operation.exposedName);
+    requireCondition(importedOperation.mode === operation.mode, `MCP mode differs from commercial intake: ${operation.exposedName}`);
+    return {
+      ...operation,
+      customerOperation: importedOperation.toolName,
+      status: "executable",
+      authorityAction: importedOperation.authorityAction ?? "",
+      boundedInputSchemaHash: importedOperation.boundedInputSchemaHash,
+      idempotency: importedOperation.mode === "write" ? "implemented" : "not-applicable",
+      reconcileUnknown: importedOperation.mode === "write" ? "implemented" : "not-applicable",
+    };
+  });
+  updated.evidenceBoundary = "The exact commercial system operation set is now bound to an executable bounded customer-local MCP transport and reconciliation plan. MCP transport access remains customer-local; the role-level independent verifier and mandatory acceptance campaign remain separate and unproved.";
+  delete updated.descriptorHash;
+  updated.descriptorHash = digest(updated);
+  return Object.freeze(updated);
 }
 
 export function createMcpAdapterRuntime({ plan, callTool, allowedAuthorityActions = [], externalStateReader }) {
@@ -186,9 +219,26 @@ export function createMcpAdapterRuntime({ plan, callTool, allowedAuthorityAction
           const expected = Object.hasOwn(assertion, "equals") ? assertion.equals : jsonPointer(writeInput, assertion.equalsWriteInputPointer);
           return { actualPointer: assertion.actualPointer, passed: JSON.stringify(jsonPointer(external, assertion.actualPointer)) === JSON.stringify(expected) };
         });
-        return Object.freeze({ classification: checks.every((item) => item.passed) ? "completed" : "incorrect", independent: true, verifierKind: "direct-external-read-through-mcp", operationId: read.toolName, checks });
+        return Object.freeze({
+          classification: checks.every((item) => item.passed) ? "completed" : "incorrect",
+          independent: true,
+          independentBusinessOutcomeProof: false,
+          verifierKind: "action-plane-readback-through-mcp",
+          operationId: read.toolName,
+          checks,
+          evidenceBoundary: "This readback uses the action adapter's MCP plan, transport and credential boundary. It may prevent a blind duplicate retry, but it is not separate business-outcome proof.",
+        });
       } catch (error) {
-        return Object.freeze({ classification: "unknown", independent: true, verifierKind: "direct-external-read-through-mcp", operationId: read.toolName, checks: [], error: clean(error?.message) });
+        return Object.freeze({
+          classification: "unknown",
+          independent: true,
+          independentBusinessOutcomeProof: false,
+          verifierKind: "action-plane-readback-through-mcp",
+          operationId: read.toolName,
+          checks: [],
+          error: clean(error?.message),
+          evidenceBoundary: "This readback uses the action adapter's MCP plan, transport and credential boundary. It may prevent a blind duplicate retry, but it is not separate business-outcome proof.",
+        });
       }
     },
     externalState() {

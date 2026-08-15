@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "das.openapi-adapter-config-draft.v1",
+  "sourceHash": "ac31d032ad60004e8c30ded23734f34f6b906dd6b7978e4e0051bb2644e2a9bb",
+  "adapterId": "fictional-saas-company-disposable-saas-support-sandbox-adapter",
+  "adapterVersion": "0.1.0",
+  "baseUrl": "https://support.example.test",
+  "credentialRefs": {},
+  "operationBindings": [
+    {
+      "operationId": "getTicket",
+      "exposedName": "support-sandbox:read-ticket",
+      "mode": "read",
+      "requiredContextSources": [
+        "ticket-thread"
+      ]
+    },
+    {
+      "operationId": "draftReply",
+      "exposedName": "support-sandbox:draft-response",
+      "mode": "write",
+      "requiredContextSources": [
+        "support-policy",
+        "ticket-thread"
+      ],
+      "authorityAction": "draft-support-response",
+      "idempotencyHeader": null,
+      "verification": null
+    }
+  ],
+  "compilable": false
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "das.mcp-adapter-config-draft.v1",
+  "sourceHash": "4909054f4ecfe5607b458935bbb72b39dab2ee3675cbac44af699fef93c2d10f",
+  "serverId": "fictional-customer-support",
+  "serverVersion": "1.0.0",
+  "adapterVersion": "0.1.0",
+  "operationBindings": [
+    {
+      "toolName": "get_ticket",
+      "exposedName": "support-sandbox:read-ticket",
+      "mode": "read",
+      "requiredContextSources": [
+        "ticket-thread"
+      ]
+    },
+    {
+      "toolName": "draft_reply",
+      "exposedName": "support-sandbox:draft-response",
+      "mode": "write",
+      "requiredContextSources": [
+        "support-policy",
+        "ticket-thread"
+      ],
+      "authorityAction": "draft-support-response",
+      "idempotencyField": null,
+      "verification": null
+    }
+  ],
+  "compilable": false
+}

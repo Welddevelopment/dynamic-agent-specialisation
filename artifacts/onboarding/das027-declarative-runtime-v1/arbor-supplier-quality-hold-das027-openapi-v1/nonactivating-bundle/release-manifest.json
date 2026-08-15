@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-release-manifest.v1",
+  "bundleHash": "c1c8740ebb71e12b3fdb862ded50ff68da616e04655ee16094adc44a37ed638f",
+  "tenantId": "fictional-arbor-supplier-quality-hold-das027-openapi-v1-tenant",
+  "roleId": "arbor-supplier-quality-hold-das027-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "db901a9370d432563c74bc26d481c9e8e275e028e7f643a5556205d9fc0efa9f",
+  "blockerLedgerHash": "442df0282998bdb864c7916b3293b9edded186fda1fc9d61918344ae4cd0e767",
+  "rollbackPlanHash": "40dc690636364465313a0382b7f490cbdbe62582c33f816353886d63831ba55a",
+  "genesisEventHash": "134865c78423ab34aba1d98574fa582dadaa9c382772026e66acec2de3964de4",
+  "mutableStatePath": "state/runtime-state.json",
+  "files": [
+    {
+      "path": "blockers.json",
+      "sha256": "2c5c577eb2365c05d24edc2b0b8c1cc839784109ce1813cce6715b90ae5dfb2b",
+      "bytes": 1408,
+      "mode": "0600"
+    },
+    {
+      "path": "conformance-evidence.json",
+      "sha256": "e5b98c6813d8f599100800c810cbdb28fb6d8a0f3b6f05e95c04264306ee450f",
+      "bytes": 1283,
+      "mode": "0600"
+    },
+    {
+      "path": "deployment-bundle.json",
+      "sha256": "ce9d94833216f33a63c5dd2003366913dc89898f9d1bc0f79bd7fb1fe8ed8f0c",
+      "bytes": 1629,
+      "mode": "0600"
+    },
+    {
+      "path": "implementation-identities.json",
+      "sha256": "5cd4bcf1cdb25ede20dae7ea0e9c569b4edc02f533ac976f52abd64a107e0a2e",
+      "bytes": 1244,
+      "mode": "0600"
+    },
+    {
+      "path": "observer-bindings.json",
+      "sha256": "d1cb0ddabae621fd6742a10643ffeb64cd67ea6fab155a976fcfb28ef5583f52",
+      "bytes": 1464,
+      "mode": "0600"
+    },
+    {
+      "path": "plugin-project-identities.json",
+      "sha256": "7c1aae8972871b9cffe7451e76bf7fb57eefd744b89d4e03f1182ea879c5569b",
+      "bytes": 1525,
+      "mode": "0600"
+    },
+    {
+      "path": "readiness-receipt.json",
+      "sha256": "1f5feb4127bbdaea938c38d9a21d540e37c9f613f23c2f92a46923c91ffda998",
+      "bytes": 1617,
+      "mode": "0600"
+    },
+    {
+      "path": "role-contract.json",
+      "sha256": "7f4dbd011503af309efc6d3e3b61e408eec1c6e706aefffdb6ad3b232621ac10",
+      "bytes": 944,
+      "mode": "0600"
+    },
+    {
+      "path": "rollback-plan.json",
+      "sha256": "c637edafd0256e0fdf513dec14d6dc1c9659d4ff616bb8c45866f51289d60584",
+      "bytes": 713,
+      "mode": "0600"
+    },
+    {
+      "path": "specialist.json",
+      "sha256": "1e51741c856a809cba9272f09fec28d093fc8d6ac4c48b3d915718cc77d6cb03",
+      "bytes": 758,
+      "mode": "0600"
+    },
+    {
+      "path": "state-genesis.json",
+      "sha256": "65a46fda5f0bdd8b36c0929d4198b1d0f0f0ab930624460c057e011bf54394ea",
+      "bytes": 511,
+      "mode": "0600"
+    }
+  ],
+  "manifestHash": "eb5e49fa3afc5812c9f957c71668211afc5e782a1141181aa29fccf51d6d9bf6"
+}

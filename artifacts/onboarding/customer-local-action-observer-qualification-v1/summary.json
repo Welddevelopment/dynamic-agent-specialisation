@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "das.customer-local-action-observer-qualification-rehearsal.v1",
+  "experimentId": "das-022-northbridge-facilities-v1",
+  "startedAt": "2026-08-13T17:22:28.142Z",
+  "completedAt": "2026-08-13T17:22:28.189Z",
+  "source": {
+    "kind": "openapi",
+    "sourceHash": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca",
+    "reviewedProposalHash": "d2ca3458e2e56f8139d9cf52116334925f4806d4a0e24f4a82848a912419653c",
+    "workPlanHash": "479873f5604ecb63b49c6a6b8cd49c2a47271031fb46d4472944751c3013079e",
+    "das012StructuralBindingHash": "e7575ed10c65870b4d16c5066b3432d738542b5c96b1517e95585b3d54ef3c71"
+  },
+  "boundary": {
+    "fictionalLocalWorld": true,
+    "actionSurfaceId": "northbridge-facilities-action-api",
+    "observerSurfaceId": "northbridge-facilities-read-only-audit",
+    "actionObserverSurfacesDistinct": true,
+    "actionObserverImplementationsDistinct": true,
+    "actionObserverCredentialsDisjoint": true,
+    "credentialValuesPresent": false
+  },
+  "measurements": {
+    "genericCompilerFieldsTargeted": 6,
+    "genericCompilerFieldsRetiredByDas012": 6,
+    "genericCompilerFieldsRemainingAfterDas012": 0,
+    "structurallyCompiledOperations": 3,
+    "customerSpecificWriteSafetyRuleInputs": {
+      "idempotencyRules": 1,
+      "reconciliationRules": 1,
+      "stableIdentityRules": 1,
+      "total": 3
+    },
+    "observerRuleInputs": {
+      "stableIdentityFields": 2,
+      "freshnessRules": 3,
+      "exactOutcomeFields": 8,
+      "completionStatuses": 1,
+      "duplicateRules": 2,
+      "collateralRules": 3,
+      "proofRuleReviewBindings": 3,
+      "total": 22
+    },
+    "distinctActionCredentialAliases": 1,
+    "distinctObserverCredentialAliases": 1,
+    "actionObserverSharedCredentialAliases": 0,
+    "implementationLaborBoundary": {
+      "dasGeneratedStructuralReceipts": 1,
+      "dasGeneratedCustomerSpecificExecutableSourceFiles": 0,
+      "engineerAuthoredActionRuntimeFactories": 1,
+      "engineerAuthoredObserverRuntimeFactories": 1,
+      "engineerAuthoredDisposableWorldClasses": 1,
+      "evidence": "Counts software boundaries in this one-file fictional rehearsal; they are not elapsed human setup time or a customer onboarding measurement."
+    },
+    "controlsRequired": 10,
+    "controlsPassed": 10,
+    "totalBusinessWritesAcrossDisposableControls": 8,
+    "totalObserverWritesAcrossDisposableControls": 0,
+    "actionResponseIgnoredInEveryControl": true,
+    "problemControlsCaughtWithoutRetryEligibility": 7,
+    "lostResponseBusinessWrites": 1,
+    "lostResponseReconciledByObserver": true,
+    "lostResponseRecoveredAcrossFreshProcess": true,
+    "survivingIncorrectEffectsAfterWorldDisposal": 0,
+    "freshProcessJourneyReloadPassed": true,
+    "allRequiredSystemsLocallyQualified": true,
+    "allRequiredSystemsLocalAcceptanceOnlyComplete": true,
+    "executableOperations": 0,
+    "mandatoryCommercialAcceptanceComplete": false,
+    "customerEnvironmentAccepted": false,
+    "executionReady": false,
+    "activationReady": false,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "activeMachineTimeMs": 47.012,
+    "humanSetupTimeMeasured": false
+  },
+  "controls": [
+    {
+      "id": "completed",
+      "expectedClassification": "completed",
+      "observedClassification": "completed",
+      "expectedDisposition": "accept",
+      "observedDisposition": "accept",
+      "businessWrites": 1,
+      "maximumBusinessWrites": 1,
+      "passed": true
+    },
+    {
+      "id": "not-started",
+      "expectedClassification": "not-started",
+      "observedClassification": "not-started",
+      "expectedDisposition": "retry-eligible-after-explicit-gate",
+      "observedDisposition": "retry-eligible-after-explicit-gate",
+      "businessWrites": 0,
+      "maximumBusinessWrites": 0,
+      "passed": true
+    },
+    {
+      "id": "partial",
+      "expectedClassification": "partial",
+      "observedClassification": "partial",
+      "expectedDisposition": "halt-quarantine",
+      "observedDisposition": "halt-quarantine",
+      "businessWrites": 1,
+      "maximumBusinessWrites": 1,
+      "passed": true
+    },
+    {
+      "id": "incorrect",
+      "expectedClassification": "incorrect",
+      "observedClassification": "incorrect",
+      "expectedDisposition": "halt-quarantine",
+      "observedDisposition": "halt-quarantine",
+      "businessWrites": 1,
+      "maximumBusinessWrites": 1,
+      "passed": true
+    },
+    {
+      "id": "duplicate",
+      "expectedClassification": "duplicate",
+      "observedClassification": "duplicate",
+      "expectedDisposition": "halt-quarantine",
+      "observedDisposition": "halt-quarantine",
+      "businessWrites": 2,
+      "maximumBusinessWrites": 2,
+      "passed": true
+    },
+    {
+      "id": "stale",
+      "expectedClassification": "stale",
+      "observedClassification": "stale",
+      "expectedDisposition": "halt-handoff",
+      "observedDisposition": "halt-handoff",
+      "businessWrites": 1,
+      "maximumBusinessWrites": 1,
+      "passed": true
+    },
+    {
+      "id": "collateral",
+      "expectedClassification": "collateral",
+      "observedClassification": "collateral",
+      "expectedDisposition": "halt-quarantine",
+      "observedDisposition": "halt-quarantine",
+      "businessWrites": 1,
+      "maximumBusinessWrites": 1,
+      "passed": true
+    },
+    {
+      "id": "unknown",
+      "expectedClassification": "unknown",
+      "observedClassification": "unknown",
+      "expectedDisposition": "halt-handoff",
+      "observedDisposition": "halt-handoff",
+      "businessWrites": 0,
+      "maximumBusinessWrites": 0,
+      "passed": true
+    },
+    {
+      "id": "unavailable",
+      "expectedClassification": "unavailable",
+      "observedClassification": "unavailable",
+      "expectedDisposition": "halt-handoff",
+      "observedDisposition": "halt-handoff",
+      "businessWrites": 0,
+      "maximumBusinessWrites": 0,
+      "passed": true
+    },
+    {
+      "id": "lost-response",
+      "expectedClassification": "completed",
+      "observedClassification": "completed",
+      "expectedDisposition": "accept",
+      "observedDisposition": "accept",
+      "businessWrites": 1,
+      "maximumBusinessWrites": 1,
+      "passed": true
+    }
+  ],
+  "integrity": {
+    "observerContractHash": "0283805dcdfdcf84b90b97f9008cf00dc2d61f0f2a7d9330d89f660bcbf6c4ba",
+    "observerProofRuleReviewHash": "eb7905767a09750cc7c762696d1d62aa3ea409aaa2684d6ff6476176162c9661",
+    "bindingCandidateHash": "2ce1277e40f880140765608bea6c3ffd1ceb9fabda65657fde69b6cf7b365e66",
+    "harnessContractHash": "2f854834dbae10f3cf04f7d6fe4207a9a34d6e2caa81a2218c4335212b6c4dbb",
+    "caseContractHash": "f0c0cf34083e988c274a3b5c3ee16365375b368b25209bab25c36645d880c609",
+    "qualificationReceiptHash": "5db373afea91b88c5f1a22eff754653e29b2d386bad01cb7bc4da3fad058fda5",
+    "localAcceptanceReceiptHash": "24c0b51be51cee30c0633c9e0225aa1e79e7b0334eb7ae9b0a774dfa02313ba6",
+    "freshProcessReadinessReceiptHash": "3f56d4222a0445639297bb7f064bdfd2edafc0b85744b7428faa65ebabfe03a8"
+  },
+  "exactRemainingBlockers": [
+    "customer-local-credentials-not-resolved",
+    "runtime-authority-not-granted",
+    "customer-environment-action-binding-not-probed",
+    "customer-environment-independent-observer-not-qualified",
+    "mandatory-commercial-acceptance-not-run",
+    "executable-comparison-environment-not-ready",
+    "controlled-activation-blocked"
+  ],
+  "evidenceBoundary": "Private fictional deterministic local DAS-022 evidence. It demonstrates one fresh OpenAPI-reviewed structural binding entering separate disposable action/observer qualification, ten canonical controls, fresh-process lost-response observation, local acceptance-only sealing and restart-safe blocker persistence. It does not establish customer-environment acceptance, credentials, runtime authority, executable operations, comparison readiness, activation, customer use, production reliability or human setup time.",
+  "summaryHash": "5ae50f20d2d44d600619cd777c2bd3fc04381470832e0baae188cdf229998662"
+}

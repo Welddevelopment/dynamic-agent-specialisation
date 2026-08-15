@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "das.candidate-scale-paired-single-writer-generation-receipt.v7-single-writer-recovery",
+  "planHash": "be1e5db937be4252883cb1506675e43885166789ce6821e024d0e03f555c1875",
+  "campaignId": "candidate-scale-paired-5-vs-150-v7-single-writer-recovery",
+  "writerLockHash": "d0ae985a6372d47092b7ada669dc05f18eadd277c2fceca007cf0f74bb289ebb",
+  "writerOwnerIdHash": "f6e1892fbe25aa7b7808fe9e41acce15e4d40d5644b78c23aa537a53dd7bdcc0",
+  "writerPid": 44292,
+  "acquiredAt": "2026-08-12T00:20:30.888Z",
+  "runnerVersion": "paired-v7-generation.v1",
+  "checkpointIntegrityHash": "fa071b0660c29980e00f1d28ac0d4a9d1d21ebe44f7dc02eb63b49f49c03fa9a",
+  "evidenceLedgerValid": true,
+  "unresolvedReservations": 0,
+  "rule": "The exclusive lock was acquired before campaign-state construction and remained owned through the final portfolio/checkpoint writes. Normal wrapper exit releases it after this receipt is sealed.",
+  "receiptHash": "18d0b5d568c00c65f3ff3bda1c8bb979fb4dd9accd1ec53e9b65413d56cb5182"
+}

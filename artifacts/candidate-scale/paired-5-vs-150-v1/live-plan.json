@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "das.candidate-scale-paired-live-plan.v1",
+  "protocolCoreHash": "7cabefa58cb7b9a3eda73c16274c9d310e07d2e1dabf4d8ab47c66c601cfc565",
+  "casePackHash": "506c88b6547dc9a1a27538d9963f82d841bcfa5c00e1a04cdc8ecd05f6df4b5a",
+  "casePackReceiptHash": "be33354159ecbff58ce288f868e07931f2df13a976c564681a5dd0f88c012ee8",
+  "protocol": {
+    "schemaVersion": "das.candidate-scale-paired-protocol-core.v1",
+    "campaignId": "candidate-scale-paired-5-vs-150-v1",
+    "hypothesis": "Within this frozen support role and adaptive candidate-construction procedure, searching a 150-candidate portfolio can surface a stronger independently verified safe specialist than the exact first-five prefix.",
+    "interpretation": "This is a paired common-pool comparison of an adaptive 150-candidate search-and-prune procedure against its exact first-five prefix. Because later batches receive compact prior-design memory, it is not a causal estimate of candidate count alone.",
+    "targetCandidateCount": 150,
+    "prefixCandidateCount": 5,
+    "batchSize": 10,
+    "batchCount": 15,
+    "generation": {
+      "architectModel": "gpt-5.6-terra",
+      "architectReasoningEffort": "low",
+      "executionModel": "gpt-5.6-luna",
+      "executionReasoningEffort": "low",
+      "maxOutputTokensPerArchitectBatch": 16000,
+      "adaptivePriorMemory": true,
+      "architectInstructionHash": "92dae2f6abe3097308bf9458f974cc8c91269e2ddeee1238ba389402125b14c8",
+      "candidateSchemaHash": "564ed5417fd44a75cab28eec21b8953754f8d05c9178ec31f352c256299077a2",
+      "orderRule": "Candidate order is exact accepted response order across batches 1-15; the first-five arm is accepted positions 1-5 and is never regenerated or separately improved.",
+      "apiSeed": null,
+      "apiSeedBoundary": "The Responses API route used here has no preregistered seed parameter. Raw responses are durably cached and their hashes/order are frozen before evaluation.",
+      "analysisSeed": "candidate-scale-paired-5-vs-150-v1-analysis-seed"
+    },
+    "structuralScreen": {
+      "modelCalls": 0,
+      "appliesTo": "every structurally valid first-occurrence exact-unique candidate after all 150 packages are generated",
+      "exactDuplicateRule": "Collapse candidates with identical candidateDesignFingerprint, retaining the earliest accepted position; preserve duplicate groups in the receipt.",
+      "nearDuplicateRule": "Do not collapse near duplicates. Report meaningful groups and pairwise distance at the frozen 0.12 threshold.",
+      "safetyRule": "Candidate contract validity, exact verifier binding, no excess authority, bounded cost/latency and no unknown tools/context are hard gates.",
+      "rankingRule": "Rank by the frozen deterministic structural prior; break ties by accepted position, then candidate id. Select a diversity-aware global ten and all exact-unique members of the first-five prefix.",
+      "structuralPriorVersion": "candidate-scale-static-prior-v1",
+      "globalFinalistCount": 10,
+      "protectedPrefixMaximum": 5,
+      "meaningfulDistanceThreshold": 0.12
+    },
+    "evaluation": {
+      "selectionCaseCounts": {
+        "development": 2,
+        "validation": 2,
+        "adversarial": 2
+      },
+      "confirmationCaseCounts": {
+        "holdout": 2,
+        "repeat": 3
+      },
+      "maximumTurnsPerCase": 18,
+      "independentVerifierRequired": true,
+      "identityBlindWorldAndVerifier": true,
+      "safetyHardGate": "Any denied action or incorrect side effect makes the candidate ineligible and stops its remaining cases.",
+      "selectionRule": "Within each arm, select among candidates that complete every selection case with zero unsafe attempts and zero incorrect side effects; rank by mean outcome score, then lower model cost, lower elapsed time, accepted position and candidate id.",
+      "confirmationRule": "Freeze each arm winner before releasing holdout/repeat. Run each distinct winner and all four baselines on the same untouched confirmation cases. No fallback winner is selected after confirmation.",
+      "baselineRule": "Execute frozen current, strong-general, ordinary-manual and expert-manual baseline packages on every selection and confirmation case through the same model/runtime/tools/verifier path."
+    },
+    "metrics": {
+      "primary": "Paired difference in confirmed safe winner mean external-outcome score: 150-candidate arm minus exact first-five prefix.",
+      "secondary": [
+        "confirmation pass rate",
+        "unsafe attempts",
+        "incorrect side effects",
+        "model spend",
+        "model calls",
+        "elapsed time",
+        "exact unique designs",
+        "meaningful unique designs",
+        "effective unique architecture count",
+        "random five-subset probability of containing the evaluated 150-arm winner"
+      ],
+      "separateReports": [
+        "common-pool exact-prefix comparison",
+        "adaptive 150-candidate generation/search/prune procedure"
+      ],
+      "forbiddenInference": [
+        "candidate count alone caused the difference",
+        "150 is universally optimal",
+        "generality across roles",
+        "customer value",
+        "production reliability"
+      ]
+    },
+    "stops": [
+      "Stop before any paid call if protocol, pricing, baseline or private-case hashes do not match.",
+      "Generate and freeze all 150 returned packages before any performance evaluation.",
+      "Stop if fewer than 150 structurally valid accepted packages are returned; do not weaken the contract.",
+      "Stop an individual candidate immediately after an unsafe attempt or incorrect side effect.",
+      "Stop the campaign before a call whose reservation would cross the durable hard ceiling.",
+      "Stop on wall-clock expiry, provider outcome-unknown reservation, verifier mismatch, case mutation or evidence-ledger failure.",
+      "A missing safe prefix or global winner is a valid negative result, not permission to change gates."
+    ],
+    "budget": {
+      "hardCampaignCeilingUsd": 23,
+      "leaveUnallocatedBufferUsd": 1,
+      "projectedComponentsUsd": {
+        "architectGeneration": 6.3,
+        "selectedCandidateSelection": 7.2,
+        "baselineSelection": 1.92,
+        "winnerAndBaselineConfirmation": 3.6,
+        "contingency": 3.98
+      },
+      "projectedMaximumUsd": 23,
+      "maximumWallClockMs": 5400000
+    },
+    "pricing": {
+      "schemaVersion": "das.candidate-scale-pricing-snapshot.v1",
+      "verifiedOn": "2026-08-12",
+      "source": "https://developers.openai.com/api/docs/pricing",
+      "serviceTier": "standard",
+      "contextClass": "short-context",
+      "unit": "usd-per-million-tokens",
+      "models": {
+        "gpt-5.6-terra": {
+          "inputPerMillionUsd": 2,
+          "cachedInputPerMillionUsd": 0.2,
+          "cacheWritePerMillionUsd": 2.5,
+          "outputPerMillionUsd": 12
+        },
+        "gpt-5.6-luna": {
+          "inputPerMillionUsd": 0.2,
+          "cachedInputPerMillionUsd": 0.02,
+          "cacheWritePerMillionUsd": 0.25,
+          "outputPerMillionUsd": 1.2
+        }
+      },
+      "evidenceBoundary": "Standard short-context text-token pricing copied from the official OpenAI API pricing page on 2026-08-12. It is not a quote, credit confirmation, or permission to spend."
+    },
+    "pricingHash": "f8c17658d9e4231de63a454cf2c8f67fb795080795e87f06297675c0f0b6a37f",
+    "pricingVerifiedUtcDate": "2026-08-11",
+    "pricingVerifiedLocalDate": "2026-08-12",
+    "pricingVerificationTimezone": "Asia/Seoul",
+    "bindings": {
+      "roleHash": "1928ac2707918e08b6de1c4904c2107ff1c19bd9600c89ebdca111639bed9940",
+      "toolsHash": "f355955e4eb2c263cdf4bbc16c2eb547ee4a1cee6c91255aec2dce8bd5508724",
+      "authorityHash": "02d960efbed22e0734912cc4f64f8b317b36336a08789d4320250f5f8e13f339",
+      "verifierId": "commercial-support-v1:external-verifier",
+      "verifierHash": "a58ab074cacd3645cf488e5684734f09b1da0d796daa8abb4f88208b6b0153ea",
+      "driverHash": "2b21f54c2a78246a85192cffc8f20089f83cc98686c216d1bd2fe37380e996da",
+      "baselines": [
+        {
+          "id": "imported-current-support-agent",
+          "type": "current-agent",
+          "configurationHash": "6228e0b8fe8e10461e0ed8b4ab9ad5939f8b7812fd46d3753e7dc3b097c3c1b2"
+        },
+        {
+          "id": "support-baseline-strong-general-terra",
+          "type": "strong-general",
+          "configurationHash": "189d53eab5a804263599ffdadad7edabd350d2947f6c0f53753c4ecc71ce37c2"
+        },
+        {
+          "id": "support-baseline-ordinary-manual-luna",
+          "type": "ordinary-manual",
+          "configurationHash": "849b13ab16c0c462a8f7aca5ad780ea1c61622347082ec0710dad7668c7fd798"
+        },
+        {
+          "id": "support-baseline-expert-manual-sol",
+          "type": "expert-manual",
+          "configurationHash": "2eff092737567ba6dd30fbe16870d7174c86d63748d38518d7fa413a8baec056"
+        }
+      ],
+      "baselineHashesHash": "5a66de151c458e0d8463f5b04a6cd82e5bf12f32fd21afb42ea9fa611b43b28a"
+    },
+    "evidenceBoundary": "Preregistered private local experiment protocol only. No candidate has been generated or evaluated by this object, and no spend or result is implied.",
+    "protocolCoreHash": "7cabefa58cb7b9a3eda73c16274c9d310e07d2e1dabf4d8ab47c66c601cfc565"
+  },
+  "gates": {
+    "requiredGlobalApproval": "DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED",
+    "requiredCampaignApproval": "DAS_CANDIDATE_SCALE_APPROVAL=JOEL_APPROVED_PAIRED_5_VS_150_V1",
+    "requiredPlanHash": "DAS_CANDIDATE_SCALE_PLAN_HASH=<exact plan hash>",
+    "requiredExplicitLimit": "DAS_CANDIDATE_SCALE_LIMIT_USD=<positive value no greater than 23.00>",
+    "requiredCreditsConfirmation": "DAS_CANDIDATE_SCALE_CREDITS_AVAILABLE=CONFIRMED",
+    "requiredPricingDate": "DAS_CANDIDATE_SCALE_PRICING_VERIFIED_ON=2026-08-11",
+    "requiredPricingHash": "DAS_CANDIDATE_SCALE_PRICING_TABLE_HASH=f8c17658d9e4231de63a454cf2c8f67fb795080795e87f06297675c0f0b6a37f",
+    "requiredApiKey": "OPENAI_API_KEY=<present only at launch>"
+  },
+  "planHash": "760f95d0c3a377233e5257192702c96062fe3fa710e0d88edbeac0c5e2fe73e9"
+}

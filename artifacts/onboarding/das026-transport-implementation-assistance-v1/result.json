@@ -1,0 +1,1903 @@
+{
+  "schemaVersion": "das.das026-transport-implementation-assistance-report.v1",
+  "preregistration": "reports/0103-das026-transport-implementation-assistance-preregistration.md",
+  "sourceManifest": [
+    {
+      "relative": "reports/0103-das026-transport-implementation-assistance-preregistration.md",
+      "sha256": "63aa79bb05bf24cb74eb0f20eec7827286a20102fa7f205d33227344b35a9ec9"
+    },
+    {
+      "relative": "src/product/customer-local-transport-implementation-assistance.js",
+      "sha256": "ac3626da88f6cf8ac55ac07a49826d7a3186cca22d8d979932850f2a7c9f2238"
+    },
+    {
+      "relative": "src/product/customer-local-binding-plugin-scaffold.js",
+      "sha256": "d306e05fc2d57f2cb2742cbca4ce828b9533f8b648e67af41f339558d0011269"
+    },
+    {
+      "relative": "src/product/source-grounded-binding-package-draft.js",
+      "sha256": "4c305b4a54f4ea7353633060d0acd47c2f4f48a22e1c64940dc1127f39813a40"
+    },
+    {
+      "relative": "src/product/customer-local-binding-package-factory.js",
+      "sha256": "bffe68132cde6d1c9d7624eab92df21f859c0f581dceeb235737a01f9b9dc515"
+    },
+    {
+      "relative": "src/product/customer-local-binding-qualification.js",
+      "sha256": "f35a9afd1af3bfc2b38bfa06fc3a61e820ed59193ca72ac20a5308c6b9e48b99"
+    },
+    {
+      "relative": "src/product/customer-local-qualification-runtime-bridge.js",
+      "sha256": "1d12e29c22046c3f6c498eea808d63fbf96f7c82d56d9f3af65989722d83f48b"
+    },
+    {
+      "relative": "src/product/declarative-customer-local-qualification-world.js",
+      "sha256": "eaa8bbd73e94135561c9b6e12a11fee4ee93c91c466a61a6354384a14d2d6c46"
+    },
+    {
+      "relative": "src/experiments/das024-authoring/qualification-harness.js",
+      "sha256": "b811c4182e5391719642e259818a5ba3d0e938d5be6cf53153e3f29accbae4df"
+    },
+    {
+      "relative": "src/experiments/das026-transport-assistance/fixtures.js",
+      "sha256": "9883b613e9808ed056f33583abebcaf43eebe59b65142f7732dda684f892655f"
+    },
+    {
+      "relative": "src/experiments/das026-transport-assistance/rehearsal.js",
+      "sha256": "1b35cf32952c2279b383aab3b5d8a55ec9a9894847fe68d32ad088f5faaef4b3"
+    }
+  ],
+  "freshFixtureIds": [
+    "cedar-return-authorization-das026-openapi-v1",
+    "northlight-catalog-correction-das026-mcp-v1"
+  ],
+  "sourceFamilies": [
+    "openapi",
+    "mcp-tools-list"
+  ],
+  "runs": [
+    {
+      "fixtureId": "cedar-return-authorization-das026-openapi-v1",
+      "sourceKind": "openapi",
+      "workPack": {
+        "schemaVersion": "das.customer-local-transport-implementation-work-pack.v1",
+        "chainIdentity": {
+          "draftSessionHash": "7903e2ebf3d773ebd4cdaca975f12abd5faba85650692ad1c9f27e988afd8e9c",
+          "das024DraftHash": "92836b714112da35993b20613696451364af290788a86f0eb28b1d75c7f7b080",
+          "das023PackageReceiptHash": "044a2c8da4d47598acb75280c899e864a3ee07daa4f49698b97011ec61621332",
+          "das025ScaffoldPlanHash": "e300d31fd1b147f54abbcd9276112473641b3170659e3de43222794787f8aaad",
+          "das025ScaffoldReceiptHash": "49e48d9cc0ca6fa962e36d203e63b58c40590e1e5e4b71f591451e4a8b4bdeea",
+          "das025GeneratedProjectHash": "0edd5205b4eb100c01f1d7fd3f91526e21a09b9da5eefdc3e2ad325edab3ef40",
+          "actionSourceHash": "bdcc0384ff5d8307f9b123f799f19ebede5c3da77931748d3897edc1bd4f4373",
+          "observerSourceHash": "58b2de5f81c900c9ea1c2c48ca13f1c33be9c3ed242ef800d00938a7cea86569",
+          "confirmationHash": "194a4ff5a7c50478ebd85b9390bebbc291e87ebef9736844dfcc9841eb68b709",
+          "successCriteriaHash": "5de724a71c11330930ba236acbd89669bdc2f316236d317f95c94585d2b4a3d4"
+        },
+        "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e",
+        "actionTransport": {
+          "schemaVersion": "das.customer-local-action-transport-skeleton.v1",
+          "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e",
+          "bindingId": "cedar-return-authorization-action-v1",
+          "surfaceId": "cedar-returns-action-api",
+          "sourceKind": "openapi",
+          "credentialResolution": {
+            "interface": "resolveOpaqueLease(alias, exactUseContext)",
+            "aliases": [
+              "CEDAR_RETURNS_ACTION_TOKEN"
+            ],
+            "valuesIncluded": false,
+            "persistenceAllowed": false,
+            "loggingAllowed": false,
+            "implementation": "customer-local-hook-required"
+          },
+          "preWriteAuthorityHook": {
+            "interface": "assertExactAuthority({roleId, operation, target, scope, limits, approval, expiresAt, stateVersion})",
+            "requiredAuthorityAction": "create-draft-return-authorization",
+            "mustRunImmediatelyBeforeTransport": true,
+            "mayGrantBroaderAuthority": false,
+            "implementation": "customer-local-hook-required",
+            "provenance": {
+              "path": "candidate.action.authorityAction",
+              "sourceHash": "194a4ff5a7c50478ebd85b9390bebbc291e87ebef9736844dfcc9841eb68b709",
+              "status": "owner-confirmed"
+            }
+          },
+          "write": {
+            "family": "openapi",
+            "plane": "action",
+            "operationName": "createDraftReturnAuthorization",
+            "sourceHash": "bdcc0384ff5d8307f9b123f799f19ebede5c3da77931748d3897edc1bd4f4373",
+            "transportIdentity": {
+              "baseUrl": "https://cedar-returns-action.example.test/v4",
+              "method": "POST",
+              "routeTemplate": "/return-authorizations",
+              "inputSchemaHash": "979ac45acd31bf14d5ea8b07b2120e4866dd9f591bb2a9caefcfa3e1e67d6c3b",
+              "responseShapeHashes": [
+                {
+                  "status": "201",
+                  "contentSchemaHashes": []
+                },
+                {
+                  "status": "409",
+                  "contentSchemaHashes": []
+                }
+              ]
+            },
+            "inputMapping": {
+              "path": [],
+              "query": [],
+              "header": [
+                {
+                  "field": "Idempotency-Key",
+                  "required": true,
+                  "schemaHash": "a32c4fe86ccb42c0ee3be628028086aef6b16df852202d815b09b7202724280a"
+                }
+              ],
+              "body": [
+                {
+                  "field": "customerId",
+                  "required": true
+                },
+                {
+                  "field": "evidenceDigest",
+                  "required": true
+                },
+                {
+                  "field": "idempotencyKey",
+                  "required": true
+                },
+                {
+                  "field": "orderId",
+                  "required": true
+                },
+                {
+                  "field": "quantity",
+                  "required": true
+                },
+                {
+                  "field": "reasonCode",
+                  "required": true
+                },
+                {
+                  "field": "sku",
+                  "required": true
+                }
+              ]
+            },
+            "execution": "not-implemented"
+          },
+          "reconciliationRead": {
+            "family": "openapi",
+            "plane": "action-readback",
+            "operationName": "listDraftReturnAuthorizations",
+            "sourceHash": "bdcc0384ff5d8307f9b123f799f19ebede5c3da77931748d3897edc1bd4f4373",
+            "transportIdentity": {
+              "baseUrl": "https://cedar-returns-action.example.test/v4",
+              "method": "GET",
+              "routeTemplate": "/return-authorizations",
+              "inputSchemaHash": "ee19196ce1a83bbe6de91db3f36663d6bd4dbd2e7a4cb820ba914243b554591f",
+              "responseShapeHashes": [
+                {
+                  "status": "200",
+                  "contentSchemaHashes": []
+                }
+              ]
+            },
+            "inputMapping": {
+              "path": [],
+              "query": [
+                {
+                  "field": "orderId",
+                  "required": true,
+                  "schemaHash": "00404e686415370f1711c4d7acfa2905444d3cf23cef2e10c47d445ebe690f96"
+                },
+                {
+                  "field": "cursor",
+                  "required": false,
+                  "schemaHash": "00404e686415370f1711c4d7acfa2905444d3cf23cef2e10c47d445ebe690f96"
+                }
+              ],
+              "header": [],
+              "body": []
+            },
+            "execution": "not-implemented"
+          },
+          "stableIdentity": {
+            "fields": [
+              "orderId",
+              "idempotencyKey"
+            ],
+            "provenance": {
+              "status": "customer-confirmed",
+              "suppliedBy": "Fictional Cedar returns controls owner",
+              "sourceHash": "194a4ff5a7c50478ebd85b9390bebbc291e87ebef9736844dfcc9841eb68b709"
+            }
+          },
+          "idempotency": {
+            "conflictKeyFields": [
+              "idempotencyKey"
+            ],
+            "conflictKeySource": "http-idempotency-header",
+            "conflictBehavior": "halt-handoff-no-overwrite",
+            "automaticRetries": 0,
+            "onlyEligibleClassification": "not-started",
+            "explicitGateRequired": true,
+            "maximumGatedRetries": 1,
+            "reconcileBeforeAnyRetry": true,
+            "provenance": {
+              "status": "engineer-supplied-unproved",
+              "suppliedBy": "Fictional Cedar customer-local engineer",
+              "sourceHash": "533d386ec8f2eabee275c7410df0cb0f37fa4565409f79ffa3e4d205a403006d"
+            }
+          },
+          "allowedMutation": {
+            "entityKinds": [
+              "draft-return-authorization"
+            ],
+            "scopeFields": [
+              "orderId",
+              "idempotencyKey"
+            ],
+            "maximumWritesPerAssignedItem": 1,
+            "provenance": {
+              "status": "customer-confirmed",
+              "suppliedBy": "Fictional Cedar returns controls owner",
+              "sourceHash": "194a4ff5a7c50478ebd85b9390bebbc291e87ebef9736844dfcc9841eb68b709"
+            }
+          },
+          "reconciliation": {
+            "readOperation": "listDraftReturnAuthorizations",
+            "inputBindings": [
+              "orderId->orderId"
+            ],
+            "requiredPredicates": [
+              "one exact result for the stable identity",
+              "no protected or unrelated state changed"
+            ],
+            "proofSource": "separate-independent-observer",
+            "provenance": {
+              "status": "engineer-supplied-unproved",
+              "suppliedBy": "Fictional Cedar customer-local engineer",
+              "sourceHash": "4aa74a3dbcbb11c152d68b2cf8af11e3d494c38f61242c8f0be69499871997a9"
+            }
+          },
+          "status": "generated-source-grounded-non-executable",
+          "executable": false,
+          "transportSkeletonHash": "23c68abc9ca2c99b1c674bda651ed45de622911615d8184e1199a48e24f85654"
+        },
+        "observerTransport": {
+          "schemaVersion": "das.customer-local-observer-transport-skeleton.v1",
+          "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e",
+          "observerId": "cedar-commerce-audit-v1",
+          "surfaceId": "cedar-read-only-commerce-audit",
+          "sourceKind": "openapi",
+          "sourceHash": "58b2de5f81c900c9ea1c2c48ca13f1c33be9c3ed242ef800d00938a7cea86569",
+          "transportIdentityHash": "5462d1005d522df99857a123fc18ee7f41d5b744fbafc54650c696c40d6cc838",
+          "authenticationIdentityHash": "a923b489976b18eea1316e42adaa0669a037d46176985b9da742937c60f10078",
+          "credentialResolution": {
+            "interface": "resolveOpaqueReadOnlyLease(alias, exactUseContext)",
+            "aliases": [
+              "CEDAR_COMMERCE_AUDIT_TOKEN"
+            ],
+            "valuesIncluded": false,
+            "persistenceAllowed": false,
+            "loggingAllowed": false,
+            "implementation": "customer-local-hook-required"
+          },
+          "operations": [
+            {
+              "family": "openapi",
+              "plane": "independent-observer",
+              "operationName": "observeReturnAuthorizationOutcome",
+              "sourceHash": "58b2de5f81c900c9ea1c2c48ca13f1c33be9c3ed242ef800d00938a7cea86569",
+              "transportIdentity": {
+                "baseUrl": "https://cedar-commerce-audit.example.test/read/v2",
+                "method": "GET",
+                "routeTemplate": "/observations/return-authorizations/{orderId}",
+                "inputSchemaHash": "4647784ecf62064606d0a8de3ab0fd11b67f30a62b4f59adb08147d7bf8d1030",
+                "responseShapeHashes": [
+                  {
+                    "status": "200",
+                    "contentSchemaHashes": []
+                  }
+                ]
+              },
+              "inputMapping": {
+                "path": [
+                  {
+                    "field": "orderId",
+                    "required": true,
+                    "schemaHash": "00404e686415370f1711c4d7acfa2905444d3cf23cef2e10c47d445ebe690f96"
+                  }
+                ],
+                "query": [
+                  {
+                    "field": "cursor",
+                    "required": false,
+                    "schemaHash": "00404e686415370f1711c4d7acfa2905444d3cf23cef2e10c47d445ebe690f96"
+                  }
+                ],
+                "header": [],
+                "body": []
+              },
+              "execution": "not-implemented"
+            },
+            {
+              "family": "openapi",
+              "plane": "independent-observer",
+              "operationName": "observeProtectedCommerceScope",
+              "sourceHash": "58b2de5f81c900c9ea1c2c48ca13f1c33be9c3ed242ef800d00938a7cea86569",
+              "transportIdentity": {
+                "baseUrl": "https://cedar-commerce-audit.example.test/read/v2",
+                "method": "GET",
+                "routeTemplate": "/observations/protected-commerce/{orderId}",
+                "inputSchemaHash": "7cebd2bd0aebb50f70496ccee4bf5785ec44204a3ab1b39c7ce24da6a2d95ea5",
+                "responseShapeHashes": [
+                  {
+                    "status": "200",
+                    "contentSchemaHashes": []
+                  }
+                ]
+              },
+              "inputMapping": {
+                "path": [
+                  {
+                    "field": "orderId",
+                    "required": true,
+                    "schemaHash": "00404e686415370f1711c4d7acfa2905444d3cf23cef2e10c47d445ebe690f96"
+                  }
+                ],
+                "query": [],
+                "header": [],
+                "body": []
+              },
+              "execution": "not-implemented"
+            }
+          ],
+          "readOnly": true,
+          "writeOperations": [],
+          "stableIdentity": {
+            "fields": [
+              "orderId",
+              "idempotencyKey"
+            ],
+            "provenance": {
+              "status": "customer-confirmed",
+              "suppliedBy": "Fictional Cedar returns controls owner",
+              "sourceHash": "194a4ff5a7c50478ebd85b9390bebbc291e87ebef9736844dfcc9841eb68b709"
+            }
+          },
+          "freshness": {
+            "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+            "caughtUpThroughField": "caughtUpThroughMs",
+            "maximumAgeMs": 50,
+            "provenance": {
+              "status": "engineer-supplied-unproved",
+              "suppliedBy": "Fictional Cedar customer-local engineer",
+              "sourceHash": "d4c5d3d399ef055bb3d585cee06587632b9d8851677cb60cb2497f66d518745a"
+            }
+          },
+          "status": "generated-source-grounded-non-executable",
+          "executable": false,
+          "transportSkeletonHash": "de2a6672ed78de0daebc563c46f886da2da9b4372af2abfa2f968c4f6ab6d035"
+        },
+        "evidenceMappings": {
+          "schemaVersion": "das.customer-local-action-observer-evidence-mappings.v1",
+          "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e",
+          "actionEvidence": {
+            "source": "action-transport-only",
+            "permittedFields": [
+              "requestIdentityHash",
+              "operationIdentityHash",
+              "transportAttemptId",
+              "responseStatus",
+              "responseShapeHash",
+              "responseLost"
+            ],
+            "mayProveBusinessOutcome": false,
+            "mappingImplementation": "customer-local-hook-required"
+          },
+          "observerEvidence": {
+            "sourceHash": "58b2de5f81c900c9ea1c2c48ca13f1c33be9c3ed242ef800d00938a7cea86569",
+            "authenticationIdentityHash": "a923b489976b18eea1316e42adaa0669a037d46176985b9da742937c60f10078",
+            "requiredExactFields": [
+              "orderId",
+              "idempotencyKey",
+              "customerId",
+              "sku",
+              "quantity",
+              "reasonCode",
+              "evidenceDigest"
+            ],
+            "statusField": "status",
+            "completionStatuses": [
+              "draft"
+            ],
+            "resultIdentityField": "returnAuthorizationId",
+            "changedEntitiesField": "changedEntities",
+            "unrelatedStateDigestField": "unrelatedStateDigest",
+            "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+            "caughtUpThroughField": "caughtUpThroughMs",
+            "predicates": [
+              "observed draft matches every exact assigned-work field",
+              "observed status is draft"
+            ],
+            "invariants": [
+              "no refund, payment, shipment or unrelated state changes",
+              "no second return authorization exists for the stable identity"
+            ],
+            "mappingImplementation": "customer-local-hook-required"
+          },
+          "actionObserverEvidencePathsSeparate": true,
+          "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd",
+          "mappingTableHash": "3646a4486bd57564599a21563d201cd5c93e89712cc17c3b4f956edc8d994268"
+        },
+        "classificationHooks": [
+          {
+            "id": "completed",
+            "expectedClassification": "completed",
+            "expectedDisposition": "accept",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "accept-after-independent-proof",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "not-started",
+            "expectedClassification": "not-started",
+            "expectedDisposition": "retry-eligible-after-explicit-gate",
+            "maximumBusinessWrites": 0,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "zero-matching-results"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": true,
+              "maximum": 1
+            },
+            "terminalRule": "retry-eligible-after-explicit-gate",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "partial",
+            "expectedClassification": "partial",
+            "expectedDisposition": "halt-quarantine",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-quarantine-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "incorrect",
+            "expectedClassification": "incorrect",
+            "expectedDisposition": "halt-quarantine",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-quarantine-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "duplicate",
+            "expectedClassification": "duplicate",
+            "expectedDisposition": "halt-quarantine",
+            "maximumBusinessWrites": 2,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-quarantine-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "stale",
+            "expectedClassification": "stale",
+            "expectedDisposition": "halt-handoff",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-handoff-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "collateral",
+            "expectedClassification": "collateral",
+            "expectedDisposition": "halt-quarantine",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-quarantine-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "unknown",
+            "expectedClassification": "unknown",
+            "expectedDisposition": "halt-handoff",
+            "maximumBusinessWrites": 0,
+            "requiredEvidence": [
+              "independent-observer-status"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-handoff-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "unavailable",
+            "expectedClassification": "unavailable",
+            "expectedDisposition": "halt-handoff",
+            "maximumBusinessWrites": 0,
+            "requiredEvidence": [
+              "independent-observer-status"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-handoff-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          },
+          {
+            "id": "lost-response",
+            "expectedClassification": "completed",
+            "expectedDisposition": "accept",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "reconcile-before-any-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "3e64f07864e3c4e8dc0e7c5c328a99a4bfcd0b3c55970e85d1a99885e2c73dfd"
+          }
+        ],
+        "generatedTests": [
+          {
+            "id": "canonical:completed",
+            "kind": "canonical-outcome",
+            "controlId": "completed",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:not-started",
+            "kind": "canonical-outcome",
+            "controlId": "not-started",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:partial",
+            "kind": "canonical-outcome",
+            "controlId": "partial",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:incorrect",
+            "kind": "canonical-outcome",
+            "controlId": "incorrect",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:duplicate",
+            "kind": "canonical-outcome",
+            "controlId": "duplicate",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:stale",
+            "kind": "canonical-outcome",
+            "controlId": "stale",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:collateral",
+            "kind": "canonical-outcome",
+            "controlId": "collateral",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:unknown",
+            "kind": "canonical-outcome",
+            "controlId": "unknown",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:unavailable",
+            "kind": "canonical-outcome",
+            "controlId": "unavailable",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "canonical:lost-response",
+            "kind": "canonical-outcome",
+            "controlId": "lost-response",
+            "status": "generated-not-run",
+            "packageIdentityHash": "46b56e40a60c79d56908bf34a72997f3f1f4ecdf6d6c21db3fda6aa78b7cc15e"
+          },
+          {
+            "id": "negative:credential-value",
+            "kind": "secret-boundary",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:authority-bypass",
+            "kind": "pre-write-authority",
+            "operation": "createDraftReturnAuthorization",
+            "expected": "reject-before-transport",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:operation-substitution",
+            "kind": "source-identity",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:action-response-proof",
+            "kind": "evidence-separation",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:observer-write",
+            "kind": "observer-read-only",
+            "operations": [
+              "observeReturnAuthorizationOutcome",
+              "observeProtectedCommerceScope"
+            ],
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:shared-auth-or-alias",
+            "kind": "trust-plane-separation",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:blind-retry",
+            "kind": "reconciliation",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:stale-or-cross-package",
+            "kind": "integrity",
+            "expected": "reject",
+            "status": "generated-not-run"
+          }
+        ],
+        "dependencyOrderedTasks": [
+          {
+            "id": "T01",
+            "dependsOn": [],
+            "owner": "customer-local-engineer",
+            "work": "implement openapi client boundary with exact pinned source identity and no dynamic operation selection",
+            "acceptance": "client refuses source, operation, method/tool, and schema substitutions"
+          },
+          {
+            "id": "T02",
+            "dependsOn": [
+              "T01"
+            ],
+            "owner": "workspace-administrator",
+            "work": "bind opaque credential leases to approved aliases only: CEDAR_RETURNS_ACTION_TOKEN, CEDAR_COMMERCE_AUDIT_TOKEN",
+            "acceptance": "no credential value enters generated source, receipts, logs, or evidence"
+          },
+          {
+            "id": "T03",
+            "dependsOn": [
+              "T01"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement exact pre-write authority hook for createDraftReturnAuthorization",
+            "acceptance": "write transport cannot be reached until exact role, operation, target, scope, limit, expiry, and approval checks pass"
+          },
+          {
+            "id": "T04",
+            "dependsOn": [
+              "T02",
+              "T03"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement exact createDraftReturnAuthorization serializer and authenticated action transport",
+            "acceptance": "one source-grounded operation only; unapproved fields and operations fail closed"
+          },
+          {
+            "id": "T05",
+            "dependsOn": [
+              "T01",
+              "T02"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement read-only reconciliation operation listDraftReturnAuthorizations",
+            "acceptance": "reconciliation has no write surface and uses reviewed stable identity mapping"
+          },
+          {
+            "id": "T06",
+            "dependsOn": [
+              "T01",
+              "T02"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement separately authenticated read-only observer operations observeReturnAuthorizationOutcome, observeProtectedCommerceScope",
+            "acceptance": "observer has distinct source/auth/alias/implementation identity and zero writes"
+          },
+          {
+            "id": "T07",
+            "dependsOn": [
+              "T04"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement action-evidence mapping as acknowledgement and transport diagnostics only",
+            "acceptance": "action evidence cannot satisfy outcome proof"
+          },
+          {
+            "id": "T08",
+            "dependsOn": [
+              "T06"
+            ],
+            "owner": "customer-local-engineer-and-role-owner",
+            "work": "implement observer-evidence mapping, freshness fences, exact outcome predicates, duplicate and collateral rules",
+            "acceptance": "every mapped proof field is separately observed and review-bound"
+          },
+          {
+            "id": "T09",
+            "dependsOn": [
+              "T05",
+              "T08"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement all ten outcome classifiers and reconcile-before-retry state machine",
+            "acceptance": "zero blind retries; unknown/unavailable halt; unsafe outcomes quarantine"
+          },
+          {
+            "id": "T10",
+            "dependsOn": [
+              "T03",
+              "T04",
+              "T05",
+              "T06",
+              "T07",
+              "T08",
+              "T09"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "run generated integrity, authority, transport, proof, retry, mutation, and canonical-control tests",
+            "acceptance": "every frozen negative control fails closed"
+          },
+          {
+            "id": "T11",
+            "dependsOn": [
+              "T10"
+            ],
+            "owner": "independent-qualification-runner",
+            "work": "run unchanged DAS-023 disposable qualification and preserve exact receipts",
+            "acceptance": "10/10 exact controls, restart reconciliation, zero surviving incorrect effects"
+          },
+          {
+            "id": "T12",
+            "dependsOn": [
+              "T11"
+            ],
+            "owner": "customer-and-operator",
+            "work": "perform separate customer-environment acceptance and activation decision",
+            "acceptance": "outside DAS-026; no automatic readiness promotion"
+          }
+        ],
+        "manualBlockers": [
+          "customer-local-credential-alias-resolver-not-implemented",
+          "openapi-action-client-and-authentication-not-implemented",
+          "exact-pre-write-authority-hook-not-implemented",
+          "action-serialization-and-response-mapping-not-tested",
+          "reconciliation-readback-not-implemented",
+          "openapi-independent-observer-client-and-authentication-not-implemented",
+          "observer-evidence-mapping-and-proof-classification-not-tested",
+          "ten-control-conformance-not-run",
+          "customer-environment-acceptance-not-run",
+          "customer-execution-and-activation-not-authorized"
+        ],
+        "provenanceSummary": {
+          "sourceGroundedOperationFacts": 4,
+          "ownerConfirmedBusinessSections": 4,
+          "engineerConfirmedSafetyAndProofSections": 7,
+          "independentlyVerifiedSections": 0,
+          "inferredAuthorityFields": 0,
+          "inferredCredentialValues": 0,
+          "inferredProofFields": 0
+        },
+        "measurements": {
+          "sourceFamily": "openapi",
+          "sourceGroundedTransportOperations": 4,
+          "generatedTransportSkeletons": 2,
+          "generatedCredentialResolverInterfaces": 2,
+          "generatedAuthorityHooks": 1,
+          "generatedEvidenceMappingTables": 2,
+          "generatedClassificationHooks": 10,
+          "generatedConformanceAndNegativeTests": 18,
+          "generatedDependencyOrderedTasks": 12,
+          "packageSpecificExecutableFilesGenerated": 0,
+          "packageSpecificExecutableLinesGenerated": 0,
+          "remainingManualImplementationTasks": 10,
+          "remainingExternalQualificationOrActivationTasks": 2,
+          "credentialValues": 0,
+          "modelCalls": 0,
+          "spendUsd": 0
+        },
+        "gates": {
+          "exactReviewedChainBound": true,
+          "sourcePinned": true,
+          "actionObserverSeparated": true,
+          "credentialValuesPresent": false,
+          "runtimeAuthorityGranted": false,
+          "transportImplemented": false,
+          "evidenceMappingsImplemented": false,
+          "conformanceRun": false,
+          "customerExecutable": false,
+          "comparisonReady": false,
+          "activationReady": false
+        },
+        "status": "complete-non-executable-implementation-work-pack",
+        "evidenceBoundary": "Source-grounded implementation assistance only. Transport identities, interfaces, mappings, hooks, tests, tasks and blockers are generated, but no credential, authority, live transport, proof, qualification, customer execution or activation is established.",
+        "workPackHash": "83bae77ad711bb5893a86aed5d41614930d4e28aff6af117bce1d58f72d3ae11"
+      },
+      "qualification": {
+        "fictionalImplementationReceiptHash": "d51497ead74b934c071dce007576859d0efba2927f43ad32316626040b45c55d",
+        "qualificationPackageReceiptHash": "eac400560365dd525336d3ed4ea62d4806f468df5d5c343b5d91d2f724c9e8a7",
+        "qualificationReceiptHash": "32bff86d53521711aed5482985ee87cc6c88eebff36c8e1d295a8c53080ab15e",
+        "acceptanceOnlyReceiptHash": "29ee9cd3477a4a95ac8baaa53fa69172045c4dfaf45d050fff6174f8b125b418",
+        "controlsPassed": 10,
+        "controlsRequired": 10,
+        "aggregate": {
+          "businessWrites": 8,
+          "observerWrites": 0,
+          "blindRetries": 0,
+          "freshRuntimeReattachments": 1,
+          "failedControls": 0,
+          "unexpectedIncorrectEffects": 0
+        },
+        "generatedWorkPackCustomerExecutable": false
+      },
+      "attacks": [
+        {
+          "id": "action-response-as-proof",
+          "passed": true,
+          "reason": "DAS-026 work pack weakened independent observation"
+        },
+        {
+          "id": "blind-retry",
+          "passed": true,
+          "reason": "DAS-026 work pack weakened authority or retry controls"
+        },
+        {
+          "id": "observer-write",
+          "passed": true,
+          "reason": "DAS-026 work pack weakened independent observation"
+        },
+        {
+          "id": "classification-omission",
+          "passed": true,
+          "reason": "DAS-026 work pack omits a canonical classification hook"
+        },
+        {
+          "id": "cross-package-replay",
+          "passed": true,
+          "reason": "DAS-026 work pack is stale or belongs to another source, role, package, scaffold, or reviewed decision chain"
+        },
+        {
+          "id": "generated-project-substitution",
+          "passed": true,
+          "reason": "DAS-025 scaffold receipt integrity mismatch"
+        },
+        {
+          "id": "credential-value-insertion",
+          "passed": true,
+          "reason": "DAS-025 project does not belong to the exact DAS-024/DAS-023 chain"
+        },
+        {
+          "id": "source-instruction-injection",
+          "passed": true,
+          "reason": "DAS-024 package-input draft belongs to another reviewed session revision"
+        }
+      ]
+    },
+    {
+      "fixtureId": "northlight-catalog-correction-das026-mcp-v1",
+      "sourceKind": "mcp-tools-list",
+      "workPack": {
+        "schemaVersion": "das.customer-local-transport-implementation-work-pack.v1",
+        "chainIdentity": {
+          "draftSessionHash": "e0213cb807d3348a39e880be1f6d92e16c0902abafcd2a13ecececb7ed1f9337",
+          "das024DraftHash": "88050913725743d88e7f16bbd76cd7ea023ec52bd4174916444b28e5dbd7e034",
+          "das023PackageReceiptHash": "585096a694d5dea76391060aaf62ca50f6f2332b4502e16ac9ca0e8c2ba445a1",
+          "das025ScaffoldPlanHash": "d6bcc6cdd181c24211a9b1ed04e0e55fd4ae9fd989bb943864c0606a74e7129f",
+          "das025ScaffoldReceiptHash": "5f4ae89b38bb0e4722d8fa2b8c4b89931982540119d2d5f7162cbae6ff52f1e7",
+          "das025GeneratedProjectHash": "f1362029926af2840d84849670421e3a7d78668070da67115cdebcff24d4558d",
+          "actionSourceHash": "e5b98dcae834d0efd777a86cb42429532a4e1086e77fa6198650a1ab83c65092",
+          "observerSourceHash": "240fb4ac9943d1ebf6bba1d72d1d37ca64aae08fbcc0c492c3e7d304730afca9",
+          "confirmationHash": "8b756e348d509507abf2cb8fce7154de00290064d3e6c4fef0b98d9211f165fc",
+          "successCriteriaHash": "e07d29886b80cbb1062aab56a5e6f1ead474abec01e69a791649660c586cd7a0"
+        },
+        "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678",
+        "actionTransport": {
+          "schemaVersion": "das.customer-local-action-transport-skeleton.v1",
+          "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678",
+          "bindingId": "northlight-catalog-correction-action-v1",
+          "surfaceId": "northlight-catalog-action-mcp",
+          "sourceKind": "mcp-tools-list",
+          "credentialResolution": {
+            "interface": "resolveOpaqueLease(alias, exactUseContext)",
+            "aliases": [
+              "NORTHLIGHT_CATALOG_ACTION_TOKEN"
+            ],
+            "valuesIncluded": false,
+            "persistenceAllowed": false,
+            "loggingAllowed": false,
+            "implementation": "customer-local-hook-required"
+          },
+          "preWriteAuthorityHook": {
+            "interface": "assertExactAuthority({roleId, operation, target, scope, limits, approval, expiresAt, stateVersion})",
+            "requiredAuthorityAction": "create-unpublished-catalog-correction-draft",
+            "mustRunImmediatelyBeforeTransport": true,
+            "mayGrantBroaderAuthority": false,
+            "implementation": "customer-local-hook-required",
+            "provenance": {
+              "path": "candidate.action.authorityAction",
+              "sourceHash": "8b756e348d509507abf2cb8fce7154de00290064d3e6c4fef0b98d9211f165fc",
+              "status": "owner-confirmed"
+            }
+          },
+          "write": {
+            "family": "mcp-tools-list",
+            "plane": "action",
+            "operationName": "draftCatalogCorrection",
+            "sourceHash": "e5b98dcae834d0efd777a86cb42429532a4e1086e77fa6198650a1ab83c65092",
+            "transportIdentity": {
+              "serverId": "northlight-catalog-actions",
+              "serverVersion": "5.0.0",
+              "toolsListHash": "e5b98dcae834d0efd777a86cb42429532a4e1086e77fa6198650a1ab83c65092",
+              "inputSchemaHash": "5c150ad49b1407bf45ecaff1cad0b8e934a2e83f46f72e849ce331091965b15e"
+            },
+            "inputMapping": {
+              "fields": [
+                {
+                  "field": "catalogItemId",
+                  "required": true
+                },
+                {
+                  "field": "correctionDigest",
+                  "required": true
+                },
+                {
+                  "field": "currentDigest",
+                  "required": true
+                },
+                {
+                  "field": "deduplicationKey",
+                  "required": true
+                },
+                {
+                  "field": "locale",
+                  "required": true
+                },
+                {
+                  "field": "reasonCode",
+                  "required": true
+                }
+              ]
+            },
+            "execution": "not-implemented"
+          },
+          "reconciliationRead": {
+            "family": "mcp-tools-list",
+            "plane": "action-readback",
+            "operationName": "lookupDraftCatalogCorrection",
+            "sourceHash": "e5b98dcae834d0efd777a86cb42429532a4e1086e77fa6198650a1ab83c65092",
+            "transportIdentity": {
+              "serverId": "northlight-catalog-actions",
+              "serverVersion": "5.0.0",
+              "toolsListHash": "e5b98dcae834d0efd777a86cb42429532a4e1086e77fa6198650a1ab83c65092",
+              "inputSchemaHash": "f6de5c3c91276d1241be564e262c0462bb9692e24bfce72a7acfbea886ee19dd"
+            },
+            "inputMapping": {
+              "fields": [
+                {
+                  "field": "catalogItemId",
+                  "required": true
+                }
+              ]
+            },
+            "execution": "not-implemented"
+          },
+          "stableIdentity": {
+            "fields": [
+              "catalogItemId",
+              "deduplicationKey"
+            ],
+            "provenance": {
+              "status": "customer-confirmed",
+              "suppliedBy": "Fictional Northlight catalog quality owner",
+              "sourceHash": "8b756e348d509507abf2cb8fce7154de00290064d3e6c4fef0b98d9211f165fc"
+            }
+          },
+          "idempotency": {
+            "conflictKeyFields": [
+              "deduplicationKey"
+            ],
+            "conflictKeySource": "mcp-required-input-field",
+            "conflictBehavior": "halt-handoff-no-overwrite",
+            "automaticRetries": 0,
+            "onlyEligibleClassification": "not-started",
+            "explicitGateRequired": true,
+            "maximumGatedRetries": 1,
+            "reconcileBeforeAnyRetry": true,
+            "provenance": {
+              "status": "engineer-supplied-unproved",
+              "suppliedBy": "Fictional Northlight customer-local engineer",
+              "sourceHash": "4399b0f275a9db8dbddef811a6d23caae48f22ef8537bbe616ca2287992fb53f"
+            }
+          },
+          "allowedMutation": {
+            "entityKinds": [
+              "draft-catalog-correction"
+            ],
+            "scopeFields": [
+              "catalogItemId",
+              "deduplicationKey"
+            ],
+            "maximumWritesPerAssignedItem": 1,
+            "provenance": {
+              "status": "customer-confirmed",
+              "suppliedBy": "Fictional Northlight catalog quality owner",
+              "sourceHash": "8b756e348d509507abf2cb8fce7154de00290064d3e6c4fef0b98d9211f165fc"
+            }
+          },
+          "reconciliation": {
+            "readOperation": "lookupDraftCatalogCorrection",
+            "inputBindings": [
+              "catalogItemId->catalogItemId"
+            ],
+            "requiredPredicates": [
+              "one exact result for the stable identity",
+              "no protected or unrelated state changed"
+            ],
+            "proofSource": "separate-independent-observer",
+            "provenance": {
+              "status": "engineer-supplied-unproved",
+              "suppliedBy": "Fictional Northlight customer-local engineer",
+              "sourceHash": "ec14bdfcde734eea270ac784db8072b353d0d2aa7192ee7ff95cef88df56c8bf"
+            }
+          },
+          "status": "generated-source-grounded-non-executable",
+          "executable": false,
+          "transportSkeletonHash": "9bd5a282fccd7abb8352f4267869144a95b2e38c97a24fed38e21b8fdef26b01"
+        },
+        "observerTransport": {
+          "schemaVersion": "das.customer-local-observer-transport-skeleton.v1",
+          "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678",
+          "observerId": "northlight-catalog-audit-v1",
+          "surfaceId": "northlight-read-only-catalog-audit-mcp",
+          "sourceKind": "mcp-tools-list",
+          "sourceHash": "240fb4ac9943d1ebf6bba1d72d1d37ca64aae08fbcc0c492c3e7d304730afca9",
+          "transportIdentityHash": "efaca18772cec42a67e57408f032b6f6cd47051d14b7348451aec4229d682794",
+          "authenticationIdentityHash": "3525f7dbd79b180a1fbe61a71527496789e0f05509fb4f0cfc81de4912a90ef7",
+          "credentialResolution": {
+            "interface": "resolveOpaqueReadOnlyLease(alias, exactUseContext)",
+            "aliases": [
+              "NORTHLIGHT_CATALOG_AUDIT_TOKEN"
+            ],
+            "valuesIncluded": false,
+            "persistenceAllowed": false,
+            "loggingAllowed": false,
+            "implementation": "customer-local-hook-required"
+          },
+          "operations": [
+            {
+              "family": "mcp-tools-list",
+              "plane": "independent-observer",
+              "operationName": "observeCatalogCorrectionOutcome",
+              "sourceHash": "240fb4ac9943d1ebf6bba1d72d1d37ca64aae08fbcc0c492c3e7d304730afca9",
+              "transportIdentity": {
+                "serverId": "northlight-catalog-audit",
+                "serverVersion": "2.4.1",
+                "toolsListHash": "240fb4ac9943d1ebf6bba1d72d1d37ca64aae08fbcc0c492c3e7d304730afca9",
+                "inputSchemaHash": "4916a5598ca411916ec3f0e9cfab8b68eac37fc2d2cff50e81309cc5f4011900"
+              },
+              "inputMapping": {
+                "fields": [
+                  {
+                    "field": "catalogItemId",
+                    "required": true
+                  },
+                  {
+                    "field": "deduplicationKey",
+                    "required": true
+                  }
+                ]
+              },
+              "execution": "not-implemented"
+            },
+            {
+              "family": "mcp-tools-list",
+              "plane": "independent-observer",
+              "operationName": "observeProtectedPublishedCatalog",
+              "sourceHash": "240fb4ac9943d1ebf6bba1d72d1d37ca64aae08fbcc0c492c3e7d304730afca9",
+              "transportIdentity": {
+                "serverId": "northlight-catalog-audit",
+                "serverVersion": "2.4.1",
+                "toolsListHash": "240fb4ac9943d1ebf6bba1d72d1d37ca64aae08fbcc0c492c3e7d304730afca9",
+                "inputSchemaHash": "f6de5c3c91276d1241be564e262c0462bb9692e24bfce72a7acfbea886ee19dd"
+              },
+              "inputMapping": {
+                "fields": [
+                  {
+                    "field": "catalogItemId",
+                    "required": true
+                  }
+                ]
+              },
+              "execution": "not-implemented"
+            }
+          ],
+          "readOnly": true,
+          "writeOperations": [],
+          "stableIdentity": {
+            "fields": [
+              "catalogItemId",
+              "deduplicationKey"
+            ],
+            "provenance": {
+              "status": "customer-confirmed",
+              "suppliedBy": "Fictional Northlight catalog quality owner",
+              "sourceHash": "8b756e348d509507abf2cb8fce7154de00290064d3e6c4fef0b98d9211f165fc"
+            }
+          },
+          "freshness": {
+            "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+            "caughtUpThroughField": "caughtUpThroughMs",
+            "maximumAgeMs": 50,
+            "provenance": {
+              "status": "engineer-supplied-unproved",
+              "suppliedBy": "Fictional Northlight customer-local engineer",
+              "sourceHash": "284efa7261f5e50f085c738a2cec369ad9f34c9caffe9497ee897c451c24d628"
+            }
+          },
+          "status": "generated-source-grounded-non-executable",
+          "executable": false,
+          "transportSkeletonHash": "b59b4652fff73f7cbb5e33599900172135bd260877851841be38a25ac27a6979"
+        },
+        "evidenceMappings": {
+          "schemaVersion": "das.customer-local-action-observer-evidence-mappings.v1",
+          "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678",
+          "actionEvidence": {
+            "source": "action-transport-only",
+            "permittedFields": [
+              "requestIdentityHash",
+              "operationIdentityHash",
+              "transportAttemptId",
+              "responseStatus",
+              "responseShapeHash",
+              "responseLost"
+            ],
+            "mayProveBusinessOutcome": false,
+            "mappingImplementation": "customer-local-hook-required"
+          },
+          "observerEvidence": {
+            "sourceHash": "240fb4ac9943d1ebf6bba1d72d1d37ca64aae08fbcc0c492c3e7d304730afca9",
+            "authenticationIdentityHash": "3525f7dbd79b180a1fbe61a71527496789e0f05509fb4f0cfc81de4912a90ef7",
+            "requiredExactFields": [
+              "catalogItemId",
+              "deduplicationKey",
+              "locale",
+              "currentDigest",
+              "correctionDigest",
+              "reasonCode"
+            ],
+            "statusField": "status",
+            "completionStatuses": [
+              "unpublished-draft"
+            ],
+            "resultIdentityField": "catalogCorrectionId",
+            "changedEntitiesField": "changedEntities",
+            "unrelatedStateDigestField": "unrelatedStateDigest",
+            "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+            "caughtUpThroughField": "caughtUpThroughMs",
+            "predicates": [
+              "observed draft matches every exact assigned-work field",
+              "observed status is unpublished-draft"
+            ],
+            "invariants": [
+              "published catalog digest remains unchanged",
+              "no second correction exists for the stable identity"
+            ],
+            "mappingImplementation": "customer-local-hook-required"
+          },
+          "actionObserverEvidencePathsSeparate": true,
+          "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52",
+          "mappingTableHash": "97785f6b9af1da67a408d6e8c3d8b54b3c45260f594caf9fbb0ce3a2ec1364bb"
+        },
+        "classificationHooks": [
+          {
+            "id": "completed",
+            "expectedClassification": "completed",
+            "expectedDisposition": "accept",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "accept-after-independent-proof",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "not-started",
+            "expectedClassification": "not-started",
+            "expectedDisposition": "retry-eligible-after-explicit-gate",
+            "maximumBusinessWrites": 0,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "zero-matching-results"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": true,
+              "maximum": 1
+            },
+            "terminalRule": "retry-eligible-after-explicit-gate",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "partial",
+            "expectedClassification": "partial",
+            "expectedDisposition": "halt-quarantine",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-quarantine-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "incorrect",
+            "expectedClassification": "incorrect",
+            "expectedDisposition": "halt-quarantine",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-quarantine-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "duplicate",
+            "expectedClassification": "duplicate",
+            "expectedDisposition": "halt-quarantine",
+            "maximumBusinessWrites": 2,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-quarantine-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "stale",
+            "expectedClassification": "stale",
+            "expectedDisposition": "halt-handoff",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-handoff-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "collateral",
+            "expectedClassification": "collateral",
+            "expectedDisposition": "halt-quarantine",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-quarantine-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "unknown",
+            "expectedClassification": "unknown",
+            "expectedDisposition": "halt-handoff",
+            "maximumBusinessWrites": 0,
+            "requiredEvidence": [
+              "independent-observer-status"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-handoff-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "unavailable",
+            "expectedClassification": "unavailable",
+            "expectedDisposition": "halt-handoff",
+            "maximumBusinessWrites": 0,
+            "requiredEvidence": [
+              "independent-observer-status"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "halt-handoff-no-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          },
+          {
+            "id": "lost-response",
+            "expectedClassification": "completed",
+            "expectedDisposition": "accept",
+            "maximumBusinessWrites": 1,
+            "requiredEvidence": [
+              "before-action-baseline",
+              "after-action-independent-observation",
+              "freshness-fence",
+              "duplicate-and-collateral-check"
+            ],
+            "actionResponseMayProveOutcome": false,
+            "retry": {
+              "automatic": false,
+              "explicitGateRequired": false,
+              "maximum": 0
+            },
+            "terminalRule": "reconcile-before-any-retry",
+            "implementation": "hook-required-not-implemented",
+            "proofContractHash": "f7b266343b4f62c252b33143ea49b51e245e6ed6d2965bae0e14f73f34294f52"
+          }
+        ],
+        "generatedTests": [
+          {
+            "id": "canonical:completed",
+            "kind": "canonical-outcome",
+            "controlId": "completed",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:not-started",
+            "kind": "canonical-outcome",
+            "controlId": "not-started",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:partial",
+            "kind": "canonical-outcome",
+            "controlId": "partial",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:incorrect",
+            "kind": "canonical-outcome",
+            "controlId": "incorrect",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:duplicate",
+            "kind": "canonical-outcome",
+            "controlId": "duplicate",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:stale",
+            "kind": "canonical-outcome",
+            "controlId": "stale",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:collateral",
+            "kind": "canonical-outcome",
+            "controlId": "collateral",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:unknown",
+            "kind": "canonical-outcome",
+            "controlId": "unknown",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:unavailable",
+            "kind": "canonical-outcome",
+            "controlId": "unavailable",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "canonical:lost-response",
+            "kind": "canonical-outcome",
+            "controlId": "lost-response",
+            "status": "generated-not-run",
+            "packageIdentityHash": "0c7546b005ac11f36e61c84b30cdd55749fbf0780827cdafcfa471db0ee67678"
+          },
+          {
+            "id": "negative:credential-value",
+            "kind": "secret-boundary",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:authority-bypass",
+            "kind": "pre-write-authority",
+            "operation": "draftCatalogCorrection",
+            "expected": "reject-before-transport",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:operation-substitution",
+            "kind": "source-identity",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:action-response-proof",
+            "kind": "evidence-separation",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:observer-write",
+            "kind": "observer-read-only",
+            "operations": [
+              "observeCatalogCorrectionOutcome",
+              "observeProtectedPublishedCatalog"
+            ],
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:shared-auth-or-alias",
+            "kind": "trust-plane-separation",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:blind-retry",
+            "kind": "reconciliation",
+            "expected": "reject",
+            "status": "generated-not-run"
+          },
+          {
+            "id": "negative:stale-or-cross-package",
+            "kind": "integrity",
+            "expected": "reject",
+            "status": "generated-not-run"
+          }
+        ],
+        "dependencyOrderedTasks": [
+          {
+            "id": "T01",
+            "dependsOn": [],
+            "owner": "customer-local-engineer",
+            "work": "implement mcp-tools-list client boundary with exact pinned source identity and no dynamic operation selection",
+            "acceptance": "client refuses source, operation, method/tool, and schema substitutions"
+          },
+          {
+            "id": "T02",
+            "dependsOn": [
+              "T01"
+            ],
+            "owner": "workspace-administrator",
+            "work": "bind opaque credential leases to approved aliases only: NORTHLIGHT_CATALOG_ACTION_TOKEN, NORTHLIGHT_CATALOG_AUDIT_TOKEN",
+            "acceptance": "no credential value enters generated source, receipts, logs, or evidence"
+          },
+          {
+            "id": "T03",
+            "dependsOn": [
+              "T01"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement exact pre-write authority hook for draftCatalogCorrection",
+            "acceptance": "write transport cannot be reached until exact role, operation, target, scope, limit, expiry, and approval checks pass"
+          },
+          {
+            "id": "T04",
+            "dependsOn": [
+              "T02",
+              "T03"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement exact draftCatalogCorrection serializer and authenticated action transport",
+            "acceptance": "one source-grounded operation only; unapproved fields and operations fail closed"
+          },
+          {
+            "id": "T05",
+            "dependsOn": [
+              "T01",
+              "T02"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement read-only reconciliation operation lookupDraftCatalogCorrection",
+            "acceptance": "reconciliation has no write surface and uses reviewed stable identity mapping"
+          },
+          {
+            "id": "T06",
+            "dependsOn": [
+              "T01",
+              "T02"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement separately authenticated read-only observer operations observeCatalogCorrectionOutcome, observeProtectedPublishedCatalog",
+            "acceptance": "observer has distinct source/auth/alias/implementation identity and zero writes"
+          },
+          {
+            "id": "T07",
+            "dependsOn": [
+              "T04"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement action-evidence mapping as acknowledgement and transport diagnostics only",
+            "acceptance": "action evidence cannot satisfy outcome proof"
+          },
+          {
+            "id": "T08",
+            "dependsOn": [
+              "T06"
+            ],
+            "owner": "customer-local-engineer-and-role-owner",
+            "work": "implement observer-evidence mapping, freshness fences, exact outcome predicates, duplicate and collateral rules",
+            "acceptance": "every mapped proof field is separately observed and review-bound"
+          },
+          {
+            "id": "T09",
+            "dependsOn": [
+              "T05",
+              "T08"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "implement all ten outcome classifiers and reconcile-before-retry state machine",
+            "acceptance": "zero blind retries; unknown/unavailable halt; unsafe outcomes quarantine"
+          },
+          {
+            "id": "T10",
+            "dependsOn": [
+              "T03",
+              "T04",
+              "T05",
+              "T06",
+              "T07",
+              "T08",
+              "T09"
+            ],
+            "owner": "customer-local-engineer",
+            "work": "run generated integrity, authority, transport, proof, retry, mutation, and canonical-control tests",
+            "acceptance": "every frozen negative control fails closed"
+          },
+          {
+            "id": "T11",
+            "dependsOn": [
+              "T10"
+            ],
+            "owner": "independent-qualification-runner",
+            "work": "run unchanged DAS-023 disposable qualification and preserve exact receipts",
+            "acceptance": "10/10 exact controls, restart reconciliation, zero surviving incorrect effects"
+          },
+          {
+            "id": "T12",
+            "dependsOn": [
+              "T11"
+            ],
+            "owner": "customer-and-operator",
+            "work": "perform separate customer-environment acceptance and activation decision",
+            "acceptance": "outside DAS-026; no automatic readiness promotion"
+          }
+        ],
+        "manualBlockers": [
+          "customer-local-credential-alias-resolver-not-implemented",
+          "mcp-tools-list-action-client-and-authentication-not-implemented",
+          "exact-pre-write-authority-hook-not-implemented",
+          "action-serialization-and-response-mapping-not-tested",
+          "reconciliation-readback-not-implemented",
+          "mcp-tools-list-independent-observer-client-and-authentication-not-implemented",
+          "observer-evidence-mapping-and-proof-classification-not-tested",
+          "ten-control-conformance-not-run",
+          "customer-environment-acceptance-not-run",
+          "customer-execution-and-activation-not-authorized"
+        ],
+        "provenanceSummary": {
+          "sourceGroundedOperationFacts": 4,
+          "ownerConfirmedBusinessSections": 4,
+          "engineerConfirmedSafetyAndProofSections": 7,
+          "independentlyVerifiedSections": 0,
+          "inferredAuthorityFields": 0,
+          "inferredCredentialValues": 0,
+          "inferredProofFields": 0
+        },
+        "measurements": {
+          "sourceFamily": "mcp-tools-list",
+          "sourceGroundedTransportOperations": 4,
+          "generatedTransportSkeletons": 2,
+          "generatedCredentialResolverInterfaces": 2,
+          "generatedAuthorityHooks": 1,
+          "generatedEvidenceMappingTables": 2,
+          "generatedClassificationHooks": 10,
+          "generatedConformanceAndNegativeTests": 18,
+          "generatedDependencyOrderedTasks": 12,
+          "packageSpecificExecutableFilesGenerated": 0,
+          "packageSpecificExecutableLinesGenerated": 0,
+          "remainingManualImplementationTasks": 10,
+          "remainingExternalQualificationOrActivationTasks": 2,
+          "credentialValues": 0,
+          "modelCalls": 0,
+          "spendUsd": 0
+        },
+        "gates": {
+          "exactReviewedChainBound": true,
+          "sourcePinned": true,
+          "actionObserverSeparated": true,
+          "credentialValuesPresent": false,
+          "runtimeAuthorityGranted": false,
+          "transportImplemented": false,
+          "evidenceMappingsImplemented": false,
+          "conformanceRun": false,
+          "customerExecutable": false,
+          "comparisonReady": false,
+          "activationReady": false
+        },
+        "status": "complete-non-executable-implementation-work-pack",
+        "evidenceBoundary": "Source-grounded implementation assistance only. Transport identities, interfaces, mappings, hooks, tests, tasks and blockers are generated, but no credential, authority, live transport, proof, qualification, customer execution or activation is established.",
+        "workPackHash": "44de0f07c8b96fa1dce6af7051c73cbd6c92dee3359258d60aa122697c42908b"
+      },
+      "qualification": {
+        "fictionalImplementationReceiptHash": "94683dd9fc60979f8683c5dbb6b0efc771d69c625b1643a18a4216e52fc6d186",
+        "qualificationPackageReceiptHash": "62650e27ec0feb86766619225614e700e1fd76fdf66a9b4a59023e8cf1ea06f1",
+        "qualificationReceiptHash": "f49104491b46ba683a47ed053a47e4bbf89dd397f7c3de770149720e79808754",
+        "acceptanceOnlyReceiptHash": "71d3e2c92e339fbe3b7940dcffe25d9ef98b0e00837f176468f8daf8fc800b54",
+        "controlsPassed": 10,
+        "controlsRequired": 10,
+        "aggregate": {
+          "businessWrites": 8,
+          "observerWrites": 0,
+          "blindRetries": 0,
+          "freshRuntimeReattachments": 1,
+          "failedControls": 0,
+          "unexpectedIncorrectEffects": 0
+        },
+        "generatedWorkPackCustomerExecutable": false
+      },
+      "attacks": [
+        {
+          "id": "action-response-as-proof",
+          "passed": true,
+          "reason": "DAS-026 work pack weakened independent observation"
+        },
+        {
+          "id": "blind-retry",
+          "passed": true,
+          "reason": "DAS-026 work pack weakened authority or retry controls"
+        },
+        {
+          "id": "observer-write",
+          "passed": true,
+          "reason": "DAS-026 work pack weakened independent observation"
+        },
+        {
+          "id": "classification-omission",
+          "passed": true,
+          "reason": "DAS-026 work pack omits a canonical classification hook"
+        },
+        {
+          "id": "cross-package-replay",
+          "passed": true,
+          "reason": "DAS-026 work pack is stale or belongs to another source, role, package, scaffold, or reviewed decision chain"
+        },
+        {
+          "id": "generated-project-substitution",
+          "passed": true,
+          "reason": "DAS-025 scaffold receipt integrity mismatch"
+        },
+        {
+          "id": "credential-value-insertion",
+          "passed": true,
+          "reason": "DAS-025 project does not belong to the exact DAS-024/DAS-023 chain"
+        },
+        {
+          "id": "source-instruction-injection",
+          "passed": true,
+          "reason": "DAS-024 package-input draft belongs to another reviewed session revision"
+        }
+      ]
+    }
+  ],
+  "aggregate": {
+    "packages": 2,
+    "workPacksGenerated": 2,
+    "transportSkeletonsGenerated": 4,
+    "classificationHooksGenerated": 20,
+    "testsGenerated": 36,
+    "dependencyTasksGenerated": 24,
+    "packageSpecificExecutableFilesGenerated": 0,
+    "packageSpecificExecutableLinesGenerated": 0,
+    "fictionalQualificationControlsPassed": 20,
+    "fictionalQualificationControlsRequired": 20,
+    "integrityAttacksPassed": 16,
+    "integrityAttacksRequired": 16,
+    "customerExecutableOperations": 0,
+    "credentialValues": 0,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "activeMachineMs": 127.392
+  },
+  "verdict": "passed-non-executable-assistance-and-fictional-qualification",
+  "strongestAccurateFinding": "Across one fresh fictional OpenAPI package and one fresh fictional pinned-MCP package, the same deterministic DAS-026 compiler produced integrity-bound action/observer transport work packs, evidence mappings, authority/retry hooks, ten classification hooks, tests and dependency-ordered tasks. Separately bound fictional implementation candidates passed the unchanged DAS-023 disposable ten-control qualification. No real transport, credential, customer authority or activation was established.",
+  "remainingBlocker": "A customer-local engineer must still implement and authenticate the exact provider clients, authority enforcement, action/reconciliation serialization, independent observer and proof mappings, then run customer-environment acceptance. A fresh non-author user study also remains an external human evidence gate.",
+  "evidenceBoundary": "Private fictional deterministic local evidence only. It is not self-serve onboarding, customer execution, arbitrary OpenAPI/MCP support, production reliability, customer validation, deployment or activation.",
+  "resultHash": "be5c2cb5d75fee35ed847edeb4a8921155f76e5d78ba01fe85ac6376e644a9cf"
+}

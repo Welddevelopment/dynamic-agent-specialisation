@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "das.durable-model-budget.v1",
+  "campaignId": "plain-english-discovery-smoke-v1",
+  "hardLimitUsd": 0.5,
+  "warningUsd": 0.4,
+  "calls": [
+    {
+      "id": "reservation-1",
+      "provider": "openai-responses-plain-english-discovery",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0041655,
+      "purpose": "plain-English role discovery",
+      "status": "settled",
+      "actualUsd": 0.0028177499999999995,
+      "usage": {
+        "input_tokens": 1398,
+        "input_tokens_details": {
+          "cache_write_tokens": 1395,
+          "cached_tokens": 0
+        },
+        "output_tokens": 2057,
+        "output_tokens_details": {
+          "reasoning_tokens": 426
+        },
+        "total_tokens": 3455
+      }
+    }
+  ],
+  "integrityHash": "2b0d8dabd925a894885269c299e1970e1cf20b0b5aa5995db50a303008e30e9d"
+}

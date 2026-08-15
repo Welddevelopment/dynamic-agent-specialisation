@@ -1,0 +1,338 @@
+{
+  "intake": {
+    "sessionId": "northbridge-facilities-maintenance-draft-v1",
+    "company": {
+      "name": "Fictional Northbridge Facilities",
+      "industry": "Facilities operations",
+      "operatingContext": "Approved preventive-maintenance requests are converted into draft work orders in a disposable local test world."
+    },
+    "role": {
+      "templateId": "support-operations",
+      "title": "Approved maintenance draft coordinator",
+      "outcome": "Create exactly one draft work order for each assigned approved maintenance request.",
+      "completionRule": "Complete only after a separate read-only audit surface confirms the exact draft and unchanged unrelated state.",
+      "escalationOwner": "Facilities operations lead"
+    },
+    "systems": [
+      {
+        "id": "maintenance",
+        "name": "Northbridge maintenance service",
+        "kind": "customer-local facilities API",
+        "access": "customer-local-test",
+        "adapterStatus": "missing",
+        "contextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy"
+        ],
+        "tools": [
+          {
+            "name": "read-approved-request",
+            "mode": "read"
+          },
+          {
+            "name": "read-draft-observation",
+            "mode": "read"
+          },
+          {
+            "name": "create-draft-work-order",
+            "mode": "write"
+          }
+        ]
+      }
+    ],
+    "knowledgeSources": [
+      {
+        "name": "Maintenance drafting policy",
+        "kind": "policy",
+        "contentHash": "ca579317d523ddf821b7ae275dde8323a44e434d507faee837a5206a863ce585",
+        "current": true
+      }
+    ],
+    "policies": [
+      {
+        "rule": "Read the assigned approved request before preparing its draft.",
+        "kind": "required-check",
+        "confirmed": true
+      },
+      {
+        "rule": "Any dispatch, purchase, asset shutdown or schedule change requires separate approval.",
+        "kind": "approval",
+        "confirmed": true
+      },
+      {
+        "rule": "Never change asset state, unrelated requests, schedules or live work orders.",
+        "kind": "forbidden",
+        "confirmed": true
+      }
+    ],
+    "authority": {
+      "allowedActions": [
+        "create-draft-maintenance-work-order"
+      ],
+      "approvalActions": [
+        "dispatch-technician",
+        "purchase-part",
+        "change-maintenance-window"
+      ],
+      "forbiddenActions": [
+        "change-asset-state",
+        "edit-unrelated-record",
+        "activate-work-order"
+      ]
+    },
+    "examples": [
+      {
+        "situation": "Approved maintenance request 1",
+        "expected": "One exact independently observed draft work order 1",
+        "source": "fictional-customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "Approved maintenance request 2",
+        "expected": "One exact independently observed draft work order 2",
+        "source": "fictional-customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "Approved maintenance request 3",
+        "expected": "One exact independently observed draft work order 3",
+        "source": "fictional-customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "Approved maintenance request 4",
+        "expected": "One exact independently observed draft work order 4",
+        "source": "fictional-customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "Approved maintenance request 5",
+        "expected": "One exact independently observed draft work order 5",
+        "source": "fictional-customer-authored",
+        "redacted": true
+      }
+    ],
+    "success": {
+      "measures": [
+        "Every assigned approved request has exactly one matching draft work order.",
+        "Every draft matches the request, idempotency key, asset, site, job, window and priority.",
+        "No unrelated or protected state changes."
+      ],
+      "verifierMode": "independent-external-state",
+      "verifierStatus": "declared",
+      "owner": "Customer-local facilities audit owner"
+    },
+    "priorities": {
+      "quality": 1,
+      "cost": 0.2,
+      "speed": 0.2,
+      "maximumCostPerTaskUsd": 0.5,
+      "maximumLatencyMs": 300000,
+      "goal": "Preserve exact, duplicate-free drafts and protected state before optimizing cost or speed."
+    },
+    "currentAgent": {
+      "mode": "none"
+    },
+    "dataHandling": {
+      "localOnly": true,
+      "productionDataIncluded": false,
+      "redactionConfirmed": true
+    }
+  },
+  "source": {
+    "kind": "openapi",
+    "document": {
+      "openapi": "3.1.0",
+      "info": {
+        "title": "Fictional Northbridge Maintenance Actions",
+        "version": "1.0.0"
+      },
+      "servers": [
+        {
+          "url": "https://maintenance-actions.example.test/v1"
+        }
+      ],
+      "paths": {
+        "/maintenance/requests/{requestId}": {
+          "get": {
+            "operationId": "readApprovedMaintenanceRequest",
+            "summary": "Read one assigned approved maintenance request",
+            "parameters": [
+              {
+                "name": "requestId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Approved request"
+              }
+            }
+          }
+        },
+        "/maintenance/work-orders": {
+          "post": {
+            "operationId": "createDraftWorkOrder",
+            "summary": "Create one bounded draft maintenance work order",
+            "parameters": [
+              {
+                "name": "Idempotency-Key",
+                "in": "header",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "requestBody": {
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "required": [
+                      "sourceRequestId",
+                      "idempotencyKey",
+                      "assetId",
+                      "siteId",
+                      "jobCode",
+                      "windowStart",
+                      "windowEnd",
+                      "priority"
+                    ],
+                    "properties": {
+                      "sourceRequestId": {
+                        "type": "string"
+                      },
+                      "idempotencyKey": {
+                        "type": "string"
+                      },
+                      "assetId": {
+                        "type": "string"
+                      },
+                      "siteId": {
+                        "type": "string"
+                      },
+                      "jobCode": {
+                        "type": "string"
+                      },
+                      "windowStart": {
+                        "type": "string"
+                      },
+                      "windowEnd": {
+                        "type": "string"
+                      },
+                      "priority": {
+                        "type": "string",
+                        "enum": [
+                          "routine",
+                          "urgent"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              }
+            },
+            "responses": {
+              "201": {
+                "description": "Draft created"
+              }
+            }
+          }
+        },
+        "/maintenance/work-orders/by-request/{requestId}": {
+          "get": {
+            "operationId": "readDraftWorkOrderObservation",
+            "summary": "Read draft work-order state by source request",
+            "parameters": [
+              {
+                "name": "requestId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "Draft observation"
+              },
+              "404": {
+                "description": "Not found"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "reviewedDecisions": {
+    "operationChoices": [
+      {
+        "sourceName": "readApprovedMaintenanceRequest",
+        "approved": true,
+        "targetExposedName": "maintenance:read-approved-request",
+        "confirmedMode": "read",
+        "authorityAction": null,
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:readApprovedMaintenanceRequest"
+        ]
+      },
+      {
+        "sourceName": "createDraftWorkOrder",
+        "approved": true,
+        "targetExposedName": "maintenance:create-draft-work-order",
+        "confirmedMode": "write",
+        "authorityAction": "create-draft-maintenance-work-order",
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:createDraftWorkOrder"
+        ]
+      },
+      {
+        "sourceName": "readDraftWorkOrderObservation",
+        "approved": true,
+        "targetExposedName": "maintenance:read-draft-observation",
+        "confirmedMode": "read",
+        "authorityAction": null,
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:readDraftWorkOrderObservation"
+        ]
+      }
+    ],
+    "contextChoices": [
+      {
+        "sourceId": "approved-maintenance-request",
+        "approved": true
+      },
+      {
+        "sourceId": "maintenance-policy",
+        "approved": true
+      },
+      {
+        "sourceId": "openapi:a880aec647c53039:createDraftWorkOrder",
+        "approved": true
+      },
+      {
+        "sourceId": "openapi:a880aec647c53039:readApprovedMaintenanceRequest",
+        "approved": true
+      },
+      {
+        "sourceId": "openapi:a880aec647c53039:readDraftWorkOrderObservation",
+        "approved": true
+      }
+    ]
+  }
+}

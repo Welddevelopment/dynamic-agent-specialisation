@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "das.reviewed-binding-compiler-rehearsal.v1",
+  "sourceTeardownSummaryHash": "e526ff220f59eb53e825272a59ba01ac6ec0ef633c423e3d61ea90a525d55c29",
+  "frozenFamily": {
+    "fixtures": 4,
+    "imports": 5,
+    "targetedGenericCompilerFields": 32,
+    "retiredGenericCompilerFields": 20,
+    "remainingGenericCompilerFields": 12,
+    "structurallyCompiledOperations": 10,
+    "executionReady": false,
+    "activationReady": false
+  },
+  "heldOut": {
+    "sessionId": "heldout-warranty-dispatch-v1",
+    "imports": 1,
+    "status": "structurally-compiled-runtime-unprobed",
+    "targetedGenericCompilerFields": 8,
+    "retiredGenericCompilerFields": 8,
+    "remainingGenericCompilerFields": 0,
+    "structurallyCompiledOperations": 4,
+    "writeSafetyFieldsStillUnproved": 2,
+    "executionReady": false,
+    "activationReady": false
+  },
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Private fictional deterministic structural compilation only. Frozen teardowns intentionally omit customer-specific write-safety inputs; the held-out package supplies them but still remains unprobed, non-executable and unaccepted.",
+  "results": {
+    "frozen": [
+      {
+        "sessionId": "fresh-frontend-control-v1",
+        "imports": [
+          {
+            "sourceKind": "openapi",
+            "artifactHash": "a259fc550042ea6abf564c80a3713c2c93edafc7ee75e732b82cf7366853ba1c",
+            "status": "partially-compiled-runtime-unprobed",
+            "measurements": {
+              "approvedOperations": 2,
+              "structurallyCompiledOperations": 1,
+              "targetedGenericCompilerFields": 4,
+              "retiredGenericCompilerFields": 2,
+              "remainingGenericCompilerFields": 2,
+              "engineerSuppliedWriteSafetyFields": 0,
+              "writeSafetyFieldsStillUnproved": 2,
+              "independentProofFieldsStillRequired": 7,
+              "credentialValues": 0,
+              "runtimeAuthorityGrants": 0,
+              "modelCalls": 0,
+              "spendUsd": 0
+            },
+            "exactBlockers": [
+              "write-safety-input-missing:openDraftPullRequest",
+              "write-safety-unproved:openDraftPullRequest",
+              "independent-proof:verifier:business-outcome-1",
+              "independent-proof:verifier:business-outcome-2",
+              "independent-proof:verifier:business-outcome-3",
+              "independent-proof:verifier:protected-state",
+              "independent-proof:verifier:authority-trace",
+              "independent-proof:verifier:read-back:repository:open-draft-pr",
+              "independent-proof:acceptance-campaign",
+              "customer-local-runtime-not-wired",
+              "credentials-not-resolved",
+              "compiler-output-not-probed",
+              "mandatory-acceptance-not-run",
+              "controlled-activation-blocked"
+            ]
+          }
+        ],
+        "projectionStatus": "comparison-design-complete-binding-required",
+        "readinessReceiptHash": "bfaf535480891d22f35758c414f39a0b880035f622ee5596b8ad0ee43ec73519",
+        "executionReady": false,
+        "activationReady": false
+      },
+      {
+        "sessionId": "fresh-procurement-mcp-v1",
+        "imports": [
+          {
+            "sourceKind": "mcp-tools-list",
+            "artifactHash": "e7edb41f1ec7281a8748f6346f8b862d79de6f85ffd9532c568a4f173d6f0b78",
+            "status": "partially-compiled-runtime-unprobed",
+            "measurements": {
+              "approvedOperations": 4,
+              "structurallyCompiledOperations": 3,
+              "targetedGenericCompilerFields": 8,
+              "retiredGenericCompilerFields": 6,
+              "remainingGenericCompilerFields": 2,
+              "engineerSuppliedWriteSafetyFields": 0,
+              "writeSafetyFieldsStillUnproved": 2,
+              "independentProofFieldsStillRequired": 7,
+              "credentialValues": 0,
+              "runtimeAuthorityGrants": 0,
+              "modelCalls": 0,
+              "spendUsd": 0
+            },
+            "exactBlockers": [
+              "write-safety-input-missing:stagePurchase",
+              "write-safety-unproved:stagePurchase",
+              "independent-proof:verifier:business-outcome-1",
+              "independent-proof:verifier:business-outcome-2",
+              "independent-proof:verifier:business-outcome-3",
+              "independent-proof:verifier:protected-state",
+              "independent-proof:verifier:authority-trace",
+              "independent-proof:verifier:read-back:erp:draft-purchase-order",
+              "independent-proof:acceptance-campaign",
+              "customer-local-runtime-not-wired",
+              "credentials-not-resolved",
+              "compiler-output-not-probed",
+              "mandatory-acceptance-not-run",
+              "controlled-activation-blocked"
+            ]
+          }
+        ],
+        "projectionStatus": "comparison-design-complete-binding-required",
+        "readinessReceiptHash": "9defc814604210e351d1685b7c84c8c5f982435a729b7a09fbaae1557f74bcd6",
+        "executionReady": false,
+        "activationReady": false
+      },
+      {
+        "sessionId": "fresh-revops-mixed-v1",
+        "imports": [
+          {
+            "sourceKind": "openapi",
+            "artifactHash": "7aa4507d7394c9cc449a7204ba8754defed7a4869699f216797b73dab3e6a264",
+            "status": "structurally-compiled-runtime-unprobed",
+            "measurements": {
+              "approvedOperations": 3,
+              "structurallyCompiledOperations": 3,
+              "targetedGenericCompilerFields": 6,
+              "retiredGenericCompilerFields": 6,
+              "remainingGenericCompilerFields": 0,
+              "engineerSuppliedWriteSafetyFields": 0,
+              "writeSafetyFieldsStillUnproved": 0,
+              "independentProofFieldsStillRequired": 6,
+              "credentialValues": 0,
+              "runtimeAuthorityGrants": 0,
+              "modelCalls": 0,
+              "spendUsd": 0
+            },
+            "exactBlockers": [
+              "independent-proof:verifier:business-outcome-1",
+              "independent-proof:verifier:business-outcome-2",
+              "independent-proof:verifier:business-outcome-3",
+              "independent-proof:verifier:protected-state",
+              "independent-proof:verifier:authority-trace",
+              "independent-proof:acceptance-campaign",
+              "customer-local-runtime-not-wired",
+              "credentials-not-resolved",
+              "compiler-output-not-probed",
+              "mandatory-acceptance-not-run",
+              "controlled-activation-blocked"
+            ]
+          },
+          {
+            "sourceKind": "mcp-tools-list",
+            "artifactHash": "a5f4a4d59dcb354d1321753501acfc80d52c840949955e7987ed7055d54eedd8",
+            "status": "partially-compiled-runtime-unprobed",
+            "measurements": {
+              "approvedOperations": 4,
+              "structurallyCompiledOperations": 1,
+              "targetedGenericCompilerFields": 8,
+              "retiredGenericCompilerFields": 2,
+              "remainingGenericCompilerFields": 6,
+              "engineerSuppliedWriteSafetyFields": 0,
+              "writeSafetyFieldsStillUnproved": 6,
+              "independentProofFieldsStillRequired": 9,
+              "credentialValues": 0,
+              "runtimeAuthorityGrants": 0,
+              "modelCalls": 0,
+              "spendUsd": 0
+            },
+            "exactBlockers": [
+              "write-safety-input-missing:assignOwner",
+              "write-safety-input-missing:createFollowup",
+              "write-safety-input-missing:setDisposition",
+              "write-safety-unproved:assignOwner",
+              "write-safety-unproved:createFollowup",
+              "write-safety-unproved:setDisposition",
+              "independent-proof:verifier:business-outcome-1",
+              "independent-proof:verifier:business-outcome-2",
+              "independent-proof:verifier:business-outcome-3",
+              "independent-proof:verifier:protected-state",
+              "independent-proof:verifier:authority-trace",
+              "independent-proof:verifier:read-back:crm:assign-lead-owner",
+              "independent-proof:verifier:read-back:crm:create-follow-up-task",
+              "independent-proof:verifier:read-back:crm:set-lead-disposition",
+              "independent-proof:acceptance-campaign",
+              "customer-local-runtime-not-wired",
+              "credentials-not-resolved",
+              "compiler-output-not-probed",
+              "mandatory-acceptance-not-run",
+              "controlled-activation-blocked"
+            ]
+          }
+        ],
+        "projectionStatus": "comparison-design-complete-binding-required",
+        "readinessReceiptHash": "ae741331763dcae21294405d1c070bf49646565c52f5ea501d7a2253dc402417",
+        "executionReady": false,
+        "activationReady": false
+      },
+      {
+        "sessionId": "fresh-support-openapi-v1",
+        "imports": [
+          {
+            "sourceKind": "openapi",
+            "artifactHash": "c4e22a030c49c9d6035dcba2ea741b0c45b985a7602b126392170d9afbb2adc5",
+            "status": "partially-compiled-runtime-unprobed",
+            "measurements": {
+              "approvedOperations": 3,
+              "structurallyCompiledOperations": 2,
+              "targetedGenericCompilerFields": 6,
+              "retiredGenericCompilerFields": 4,
+              "remainingGenericCompilerFields": 2,
+              "engineerSuppliedWriteSafetyFields": 0,
+              "writeSafetyFieldsStillUnproved": 2,
+              "independentProofFieldsStillRequired": 7,
+              "credentialValues": 0,
+              "runtimeAuthorityGrants": 0,
+              "modelCalls": 0,
+              "spendUsd": 0
+            },
+            "exactBlockers": [
+              "write-safety-input-missing:composeReply",
+              "write-safety-unproved:composeReply",
+              "independent-proof:verifier:business-outcome-1",
+              "independent-proof:verifier:business-outcome-2",
+              "independent-proof:verifier:business-outcome-3",
+              "independent-proof:verifier:protected-state",
+              "independent-proof:verifier:authority-trace",
+              "independent-proof:verifier:read-back:helpdesk:draft-response",
+              "independent-proof:acceptance-campaign",
+              "customer-local-runtime-not-wired",
+              "credentials-not-resolved",
+              "compiler-output-not-probed",
+              "mandatory-acceptance-not-run",
+              "controlled-activation-blocked"
+            ]
+          }
+        ],
+        "projectionStatus": "comparison-design-complete-binding-required",
+        "readinessReceiptHash": "2cbc7738b8c609f0f1287b597b44f28f9b6105995f4a8623385abaa0d9521d97",
+        "executionReady": false,
+        "activationReady": false
+      }
+    ],
+    "heldOut": {
+      "sessionId": "heldout-warranty-dispatch-v1",
+      "imports": [
+        {
+          "sourceKind": "openapi",
+          "artifactHash": "907be616c0e4d58b869504554d86d1123bac2e637c60024c01e806eca981b084",
+          "status": "structurally-compiled-runtime-unprobed",
+          "measurements": {
+            "approvedOperations": 4,
+            "structurallyCompiledOperations": 4,
+            "targetedGenericCompilerFields": 8,
+            "retiredGenericCompilerFields": 8,
+            "remainingGenericCompilerFields": 0,
+            "engineerSuppliedWriteSafetyFields": 2,
+            "writeSafetyFieldsStillUnproved": 2,
+            "independentProofFieldsStillRequired": 7,
+            "credentialValues": 0,
+            "runtimeAuthorityGrants": 0,
+            "modelCalls": 0,
+            "spendUsd": 0
+          },
+          "exactBlockers": [
+            "write-safety-unproved:createReplacementDispatch",
+            "independent-proof:verifier:business-outcome-1",
+            "independent-proof:verifier:business-outcome-2",
+            "independent-proof:verifier:business-outcome-3",
+            "independent-proof:verifier:protected-state",
+            "independent-proof:verifier:authority-trace",
+            "independent-proof:verifier:read-back:warranty-ops:create-replacement-dispatch",
+            "independent-proof:acceptance-campaign",
+            "customer-local-runtime-not-wired",
+            "credentials-not-resolved",
+            "compiler-output-not-probed",
+            "mandatory-acceptance-not-run",
+            "controlled-activation-blocked"
+          ]
+        }
+      ],
+      "projectionStatus": "comparison-design-complete-binding-required",
+      "readinessReceiptHash": "934590560c2804c13540616cc6d4a19988213e99ef8f10010b909e88f2c75e5a",
+      "executionReady": false,
+      "activationReady": false
+    }
+  },
+  "summaryHash": "f9a08eb56306c46663093e0f6d3b7ee1afa242138c1f03ad938972e5006d9ac0"
+}

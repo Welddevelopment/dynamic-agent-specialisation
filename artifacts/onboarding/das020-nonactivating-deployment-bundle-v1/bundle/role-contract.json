@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "das.customer-local-role-contract.v1",
+  "tenantId": "fictional-northstar-tenant",
+  "roleId": "invoice-dispute-specialist",
+  "revision": 4,
+  "sourceIdentity": {
+    "kind": "openapi",
+    "sourceHash": "240f2669116d8e85a5580707d44b5f58b6e97dc06a82714f946e00add04adbbf"
+  },
+  "outcome": "Create one bounded invoice-dispute draft and prove its externally visible read-only case state without approving payment or refund.",
+  "authority": {
+    "allowed": [
+      "create-dispute-draft"
+    ],
+    "approvalRequired": [
+      "submit-dispute"
+    ],
+    "forbidden": [
+      "approve-refund",
+      "release-payment",
+      "modify-unrelated-invoice"
+    ]
+  },
+  "authorizations": {
+    "customerExecution": false,
+    "modelSpend": false,
+    "activation": false
+  },
+  "contractHash": "cfb90b4ec2503c3c688577d5c1411d10a81c77cf0b881c36fa7830b0cea9356f"
+}

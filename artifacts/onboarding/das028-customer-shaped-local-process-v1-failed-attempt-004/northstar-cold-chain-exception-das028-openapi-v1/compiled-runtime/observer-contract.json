@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "das.generated-declarative-observer-runtime-contract.v1",
+  "packageIdentityHash": "89befb767ad6a1c915ee216b97754122c5cea9e299ce1e0b2da9676c429b59ff",
+  "workPackHash": "417d752ec23ce031c1cbf22348ae436f6b6e881ed39e6d0704e2c682cc1d62ad",
+  "executionProfileHash": "3478165d3dd47755cfb0996a1be8ddfb8b0d8c7cbf0aeb4f7bf46b599013c2d7",
+  "sourceKind": "openapi",
+  "sourceHash": "3a3434da14ae191a5892b1670fa6a7a64709c84333a08fb563be80633295cd70",
+  "credentialAlias": "NORTHSTAR_SENSOR_AUDIT_READ",
+  "operations": [
+    {
+      "family": "openapi",
+      "operationName": "observeTemperatureExceptionOutcome",
+      "method": "GET",
+      "route": "/observations/temperature-exceptions/{shipmentId}",
+      "parameters": [
+        {
+          "name": "shipmentId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodySchema": null,
+      "responseShapes": [
+        {
+          "status": "200",
+          "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+        }
+      ],
+      "operationIdentityHash": "8141650fa1466b2cc73c3fca3aa9f514117782b95d3cb0fbb8729b25daf0fb35"
+    },
+    {
+      "family": "openapi",
+      "operationName": "observeProtectedShipmentState",
+      "method": "GET",
+      "route": "/observations/protected-shipment/{shipmentId}",
+      "parameters": [
+        {
+          "name": "shipmentId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "bodySchema": null,
+      "responseShapes": [
+        {
+          "status": "200",
+          "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+        }
+      ],
+      "operationIdentityHash": "9fde7653a9a0d6cca7daddce8ed0fa64db6fac8daf6a1f54ad362ef9e5867e62"
+    }
+  ],
+  "stableIdentityFields": [
+    "shipmentId",
+    "exceptionKey"
+  ],
+  "observerContractHash": "bdd3f3c4397673f1af553462834cb32f7758fa76923dfe5e6fe221237a98c1c0",
+  "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+  "caughtUpThroughField": "caughtUpThroughMs",
+  "changedEntitiesField": "changedEntities",
+  "unrelatedStateDigestField": "unrelatedStateDigest",
+  "requiredExactFields": [
+    "shipmentId",
+    "exceptionKey",
+    "facilityCode",
+    "sensorState",
+    "sensorDigest",
+    "temperatureCelsius"
+  ],
+  "statusField": "status",
+  "completionStatuses": [
+    "draft"
+  ],
+  "resultIdentityField": "exceptionId",
+  "maximumRequestsPerMinute": 60,
+  "timeoutMs": 350,
+  "readOnly": true,
+  "writeOperations": [],
+  "actionResponseMayProveOutcome": false,
+  "customerExecutionAuthorized": false,
+  "activationAuthorized": false,
+  "contractHash": "aa82b58f9afa3c41256530a6e487f4956e0b32a3290210d1f6cbee60b14d06a2"
+}

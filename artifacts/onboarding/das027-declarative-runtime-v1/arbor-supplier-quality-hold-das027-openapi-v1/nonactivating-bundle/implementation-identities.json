@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "das.nonactivating-implementation-identities.v1",
+  "tenantId": "fictional-arbor-supplier-quality-hold-das027-openapi-v1-tenant",
+  "roleId": "arbor-supplier-quality-hold-das027-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "db901a9370d432563c74bc26d481c9e8e275e028e7f643a5556205d9fc0efa9f",
+  "packageReceiptHash": "d7852922493523f5b204eed8c3a06e73877dc6e8ee0fd5958244c68c17fd51ea",
+  "generatedProjectHash": "07bd0e00d904002fc8fed352ad548747510c3239d20a77de862cc3d17f524f0b",
+  "actionImplementationIntentHash": "2f8c0750ccb0befa6520573537a53c071bbb913bcea707580a2ce3135c3b7efb",
+  "actionImplementationContentHash": "79df54c1930a9201b0ef9fdc19d50088d858a93dd0aece72dbeda5ac5123791b",
+  "observerImplementationIntentHash": "f207bba1f7062a6a1aebd2863096c64112899e0d6d0cea9075565d097f95f998",
+  "observerImplementationContentHash": "01431206060b9c686b90b4e3ee8fd97e560259ee34fc47558bae4c7118739b41",
+  "conformanceReceiptHash": "7d99081e0924de6fc6077cab5a208ca16f5a8b1a8fe40316a41f4007c55971f1",
+  "scope": "fictional-disposable-local",
+  "customerEnvironmentImplemented": false,
+  "customerExecutableOperations": 0,
+  "identityHash": "cb89ccc7cc389f4ef525fc12d4de1a96d910c1c51584a3ca3a36efaff562c3aa"
+}

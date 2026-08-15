@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "das.das020-nonactivating-deployment-bundle-rehearsal.v1",
+  "status": "passed-private-fictional-local",
+  "sourceEvidence": {
+    "artifactPath": "artifacts/onboarding/das025-plugin-project-rehearsal-v2/result.json",
+    "artifactSha256": "d35edc4e7bc56ba90864db1cd6315f65ad5ed30c62b7b8227a211cc43c050654",
+    "summaryHash": "3f6b9517c489faa32bd96b587778209041b738456d44a4cc56cb00030b87c1e7"
+  },
+  "bundle": {
+    "bundleHash": "2d2a37779aef14311ff1926d53520eb0c98e1b425e77e332960f546c84f2d795",
+    "specialistStatus": "synthetic-provisional",
+    "specialistHash": "ccdd2a96b6d56f742de291c8667a397e9d65f30e2bd95e977acd96005bcfcb4c",
+    "roleContractHash": "cfb90b4ec2503c3c688577d5c1411d10a81c77cf0b881c36fa7830b0cea9356f",
+    "pluginProjectIdentityHash": "ec963bd802b110bfe60a14485a8cde1b863f84a8a288c72bcf13aa661163c9f6",
+    "implementationIdentityHash": "827eceb5284cb9d9c9477381f3897bd363619f93bc955d60c8eb2c59b768d6d8",
+    "conformanceEvidenceHash": "ed5d0594a0bb83d684f373a028926b40f8796f3d51be78c55c6e5692a0530735",
+    "observerBindingsHash": "b9e27443caec75a11771e722b1d00c6f18f10c91ec8f35ff2652b267ff149c9f",
+    "readinessReceiptHash": "cb545c3e410a6e8735f776d3d6333009b551b33973af7bfb7e37cfb6b5238416",
+    "blockerLedgerHash": "6b4a96ba1d1ada12cf70df04eda80686beb737ca2341a74de85a2da30c746c34",
+    "rollbackPlanHash": "ecbaf48bb1a231352f7e50feab86c447da16918cdeffc46705cfb6b1e83aace8"
+  },
+  "packaging": {
+    "immutableFiles": 11,
+    "signedManifestFiles": 11,
+    "signatureAlgorithm": "Ed25519",
+    "externallyPinnedPublicKeyRequired": true,
+    "overwriteRefused": true,
+    "privateRootMode": "0700",
+    "privateFileMode": "0600"
+  },
+  "blockers": {
+    "total": 11,
+    "exact": [
+      "activation-not-authorized",
+      "comparison-readiness-unproved",
+      "customer-action-transport-not-bound",
+      "customer-credentials-not-resolved",
+      "customer-environment-conformance-not-run",
+      "customer-execution-not-authorized",
+      "customer-observer-transport-not-bound",
+      "customer-role-owner-review-not-recorded",
+      "customer-workspace-administrator-not-assigned",
+      "mandatory-customer-acceptance-not-run",
+      "selected-specialist-not-proved"
+    ],
+    "allResolved": false
+  },
+  "runtime": {
+    "freshProcessReload": true,
+    "previewStatus": "preview-loaded-nonactivating",
+    "rollbackStatus": "rolled-back-nonactivating",
+    "revisions": 3,
+    "packageIntegrityAfterRollback": true,
+    "readyForNonactivatingHandoffAfterRollback": false,
+    "executableCustomerOperations": 0,
+    "customerExecutionAuthorized": false,
+    "activationAuthorized": false
+  },
+  "attacks": {
+    "passed": 15,
+    "required": 15,
+    "results": [
+      {
+        "id": "cross-specialist-evidence",
+        "passed": true,
+        "reason": "Plugin-project identities belong to another specialist"
+      },
+      {
+        "id": "role-revision-mutation",
+        "passed": true,
+        "reason": "Specialist belongs to another tenant, role, or revision"
+      },
+      {
+        "id": "source-mutation",
+        "passed": true,
+        "reason": "Plugin-project identities belong to another source revision"
+      },
+      {
+        "id": "stale-evidence",
+        "passed": true,
+        "reason": "Conformance evidence is stale"
+      },
+      {
+        "id": "action-observer-collapse",
+        "passed": true,
+        "reason": "Action and independent observer identities were collapsed"
+      },
+      {
+        "id": "readiness-widening",
+        "passed": true,
+        "reason": "Readiness input widened a protected gate"
+      },
+      {
+        "id": "secret-leakage",
+        "passed": true,
+        "reason": "DAS-020 input contains credential or secret material at DAS-020 input.roleContract.apiKey"
+      },
+      {
+        "id": "unsigned-release",
+        "passed": true,
+        "reason": "release signature removal invalidated package"
+      },
+      {
+        "id": "wrong-pinned-key",
+        "passed": true,
+        "reason": "externally pinned key rejected another release key"
+      },
+      {
+        "id": "post-signature-file-mutation",
+        "passed": true,
+        "reason": "signed file hash changed"
+      },
+      {
+        "id": "unexpected-file",
+        "passed": true,
+        "reason": "exact allowlist rejected extra file"
+      },
+      {
+        "id": "runtime-state-mutation",
+        "passed": true,
+        "reason": "signed event chain rejected active-state substitution"
+      },
+      {
+        "id": "cross-bundle-rollback",
+        "passed": true,
+        "reason": "Rollback request belongs to another plan or bundle"
+      },
+      {
+        "id": "stale-revision",
+        "passed": true,
+        "reason": "Deployment runtime-state revision changed; refusing stale transition"
+      },
+      {
+        "id": "omitted-blocker",
+        "passed": true,
+        "reason": "mandatory blockers were derived even from an empty caller list"
+      }
+    ]
+  },
+  "humanSetupTimeMeasured": false,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "activeMachineTimeMs": 30.927459,
+  "evidenceBoundary": "Private deterministic fictional local packaging evidence. The specialist is synthetic/provisional; generated projects remain non-executable; implementation/conformance is fictional disposable evidence; customer bindings, comparison, acceptance, activation, deployment, value and production reliability remain unproved.",
+  "resultHash": "5a7f6b6db194bba89716045af16b742347bdf12601d55e4317136fe47cb61a4a"
+}

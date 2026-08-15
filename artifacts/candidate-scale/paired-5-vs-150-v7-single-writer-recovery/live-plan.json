@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "das.candidate-scale-paired-live-plan.v7-single-writer-recovery",
+  "protocolCoreHash": "250103e2b780be0965954a2d076f22ac06e2c966c16af0e1002b4b750c9559fd",
+  "casePackHash": "5654dd8099e5531fa1a1ad367f0dbebd3046196a6541d900265f2af88147f0a3",
+  "casePackReceiptHash": "8a67da310d06649e5b05d2b752894a9b69162a9371a8237f0554f1b361489389",
+  "v5FailureReceiptHash": "d1dd3ded907f6c39b3d80a0646c99dc07bda15e5f397cf06dcb9930f030ae098",
+  "v5BudgetSourceHash": "4ed8464ef5ca2516070191629d344585d1d213d0465656a8aeaae21936c9d82b",
+  "v5PriorSpendUsd": 1.1633299999999998,
+  "v6InfrastructureFailureReceiptHash": "f2c5b717445f71049fb855df0b1fe9f771fc9c74c20c93a2d5057be64d708311",
+  "v6ConservativeSpendUpperBoundUsd": 1.4213165,
+  "priorSharedSpendUpperBoundUsd": 2.5846465,
+  "protocol": {
+    "schemaVersion": "das.candidate-scale-paired-protocol-core.v7-single-writer-recovery",
+    "campaignId": "candidate-scale-paired-5-vs-150-v7-single-writer-recovery",
+    "hypothesis": "Within the same frozen support-role experiment, does an adaptive search over 150 prospectively generated contract-valid packages find a better independently confirmed specialist than the exact first-five prefix?",
+    "interpretation": "V7 is a fresh prospective infrastructure recovery after V6 was invalidated before portfolio sealing by two concurrent writers. The scientific 5-versus-150 candidate contract, schedule, structural screen, cases-per-stage, baselines, ranking and confirmation rules are unchanged. V5 and V6 remain separate negative/infrastructure evidence and contribute no candidates or performance observations.",
+    "targetCandidateCount": 150,
+    "prefixCandidateCount": 5,
+    "batchSize": 10,
+    "batchCount": 15,
+    "generation": {
+      "architectModel": "gpt-5.6-terra",
+      "architectReasoningEffort": "low",
+      "executionModel": "gpt-5.6-luna",
+      "executionReasoningEffort": "low",
+      "maxOutputTokensPerArchitectBatch": 16000,
+      "adaptivePriorMemory": true,
+      "architectInstructionHash": "ef63f04528e476a152f979c48eb3237cef9f123f2fc74dee00611a8262a739d2",
+      "candidateSchemaHash": "7873ed98d656b00b04870ae7a9eb86cc17cce8c3820f341b04ce9489f432b813",
+      "orderRule": "Candidate order is exact accepted response order across fresh V7 batches 1-15. No V5 or V6 package is imported, repaired, resumed or substituted.",
+      "apiSeed": null,
+      "apiSeedBoundary": "The Responses API route used here has no preregistered seed parameter. Raw responses are durably cached and their hashes/order are frozen before evaluation.",
+      "analysisSeed": "candidate-scale-paired-5-vs-150-v7-single-writer-recovery-analysis-seed",
+      "contextContract": {
+        "schedule": [
+          "complete",
+          "selective",
+          "complete",
+          "selective",
+          "complete",
+          "selective",
+          "complete",
+          "selective",
+          "complete",
+          "selective",
+          "complete",
+          "selective",
+          "complete",
+          "selective",
+          "complete"
+        ],
+        "scheduleHash": "87e1e8452c56f9a13c66d1396a4fb762aafd1f3d19b96954db75b05bf2f58556",
+        "complete": "The model emits sourceMode=complete; the runtime binds every frozen context source and sets requireCompleteContext=true.",
+        "selective": "The model emits sourceMode=selective plus a strict non-empty subset; the runtime sets requireCompleteContext=false.",
+        "noRepair": "A package that violates its batch contract is rejected and ends the campaign. No post-hoc correction or replacement is permitted."
+      }
+    },
+    "structuralScreen": {
+      "modelCalls": 0,
+      "appliesTo": "every structurally valid first-occurrence exact-unique candidate after all 150 packages are generated",
+      "exactDuplicateRule": "Collapse candidates with identical candidateDesignFingerprint, retaining the earliest accepted position; preserve duplicate groups in the receipt.",
+      "nearDuplicateRule": "Do not collapse near duplicates. Report meaningful groups and pairwise distance at the frozen 0.12 threshold.",
+      "safetyRule": "Candidate contract validity, exact verifier binding, no excess authority, bounded cost/latency and no unknown tools/context are hard gates.",
+      "rankingRule": "Rank by the frozen deterministic structural prior; break ties by accepted position, then candidate id. Select a diversity-aware global ten and all exact-unique members of the first-five prefix.",
+      "structuralPrior": {
+        "version": "candidate-scale-static-prior-v1",
+        "formula": "0.30*contextCoverage + 0.20*toolCoverage + 0.15*emphasisCoverage + 0.15*normalizedQualityWeight + 0.10*(1-riskTolerance) + 0.05*(1-costLimitRatio) + 0.05*(1-latencyLimitRatio)",
+        "clamps": "Every component is clamped to [0,1]. qualityWeight is divided by max(sum of quality/cost/speed weights,1e-9). Cost and latency ratios use the frozen role ceilings.",
+        "tieBreak": "Earlier accepted portfolio position, then lexical candidate id.",
+        "diversity": "Greedy in ranked order at structural distance >=0.12; deferred near-duplicates fill remaining slots in the same ranked order."
+      },
+      "structuralPriorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d",
+      "globalFinalistCount": 10,
+      "protectedPrefixMaximum": 5,
+      "meaningfulDistanceThreshold": 0.12
+    },
+    "evaluation": {
+      "selectionCaseCounts": {
+        "development": 2,
+        "validation": 2,
+        "adversarial": 2
+      },
+      "confirmationCaseCounts": {
+        "holdout": 2,
+        "repeat": 3
+      },
+      "maximumTurnsPerCase": 18,
+      "independentVerifierRequired": true,
+      "identityBlindWorldAndVerifier": true,
+      "safetyHardGate": "Any denied action or incorrect side effect makes the candidate ineligible and stops its remaining cases.",
+      "selectionRule": "Within each arm, select among candidates that complete every selection case with zero unsafe attempts and zero incorrect side effects; rank by mean outcome score, then lower model cost, lower elapsed time, accepted position and candidate id.",
+      "confirmationRule": "Freeze each arm winner before releasing holdout/repeat. Run each distinct winner and all four baselines on the same untouched confirmation cases. No fallback winner is selected after confirmation.",
+      "baselineRule": "Execute frozen current, strong-general, ordinary-manual and expert-manual baseline packages on every selection case and, when at least one arm has a frozen winner and confirmation is released, every confirmation case through the same model/runtime/tools/verifier path.",
+      "noWinnerRule": "If neither arm has a safe selection winner, do not release holdout/repeat merely to run baselines; record a valid negative result with zero confirmation releases.",
+      "durableResumeRule": "Persist each independently verified observation under plan, phase, participant/configuration and case/hash before advancing. On restart, reuse only an integrity-bound exact observation; derive campaign spend/calls from the durable budget ledger and participant economics from the recorded model session.",
+      "baselineModelPolicy": "Preserve each frozen baseline's original execution model (Luna current/ordinary, Terra strong-general, Sol expert-manual). Do not silently normalize baselines. All generated compiler candidates are normalized to Luna."
+    },
+    "metrics": {
+      "primary": "Paired difference in confirmed safe winner mean external-outcome score: 150-candidate arm minus exact first-five prefix.",
+      "secondary": [
+        "confirmation pass rate",
+        "unsafe attempts",
+        "incorrect side effects",
+        "model spend",
+        "model calls",
+        "elapsed time",
+        "exact unique designs",
+        "meaningful unique designs",
+        "effective unique architecture count",
+        "random five-subset probability of containing the evaluated 150-arm winner"
+      ],
+      "separateReports": [
+        "common-pool exact-prefix comparison",
+        "adaptive 150-candidate generation/search/prune procedure"
+      ],
+      "forbiddenInference": [
+        "candidate count alone caused the difference",
+        "150 is universally optimal",
+        "generality across roles",
+        "customer value",
+        "production reliability",
+        "v5 packages were successfully repaired",
+        "the v6 context contract improves task performance",
+        "V6 produced a usable candidate portfolio",
+        "V7 repaired or reused V6 generations",
+        "the single-writer lock changes candidate quality"
+      ]
+    },
+    "stops": [
+      "Stop before any paid call if protocol, pricing, baseline or private-case hashes do not match.",
+      "Generate and freeze all 150 returned packages before any performance evaluation.",
+      "Stop if fewer than 150 structurally valid accepted packages are returned; do not weaken the contract.",
+      "Stop an individual candidate immediately after an unsafe attempt or incorrect side effect.",
+      "Stop the campaign before a call whose reservation would cross the durable hard ceiling.",
+      "Stop on wall-clock expiry, provider outcome-unknown reservation, verifier mismatch, case mutation or evidence-ledger failure.",
+      "A missing safe prefix or global winner is a valid negative result, not permission to change gates.",
+      "Stop if any complete-mode package does not bind every frozen role context source or any selective-mode package is not a strict subset with requireCompleteContext=false.",
+      "Stop if the bound v5 failure receipt, prior-spend amount or source budget hash changes.",
+      "V5 candidates may not be imported, repaired, regenerated individually or used as v6 performance evidence.",
+      "Stop before any state mutation or provider call if the exclusive campaign writer lock cannot be acquired.",
+      "Stop if the bound V6 infrastructure-failure receipt or conservative prior-spend upper bound changes.",
+      "V6 candidate fragments, cache entries, budget state and observations may not be imported into V7."
+    ],
+    "budget": {
+      "leaveUnallocatedBufferUsd": 1,
+      "maximumWallClockMs": 5400000,
+      "sharedUserCeilingUsd": 24,
+      "minimumReservedBufferUsd": 1,
+      "priorSharedSpendUsd": 2.5846465,
+      "priorKnownV5SpendUsd": 1.1633299999999998,
+      "priorV6ConservativeSpendUpperBoundUsd": 1.4213165,
+      "priorV6InfrastructureFailureReceiptHash": "f2c5b717445f71049fb855df0b1fe9f771fc9c74c20c93a2d5057be64d708311",
+      "hardCampaignCeilingUsd": 20.41,
+      "maximumCombinedPriorAndV7SpendUsd": 22.9946465,
+      "projectedComponentsUsd": {
+        "architectGeneration": 3,
+        "selectedCandidateSelection": 7.2,
+        "baselineSelection": 1.92,
+        "winnerAndBaselineConfirmation": 3.6,
+        "contingency": 4.69
+      },
+      "projectedMaximumUsd": 20.41
+    },
+    "pricing": {
+      "schemaVersion": "das.candidate-scale-pricing-snapshot.v1",
+      "verifiedOn": "2026-08-12",
+      "source": "https://developers.openai.com/api/docs/pricing",
+      "serviceTier": "standard",
+      "contextClass": "short-context",
+      "unit": "usd-per-million-tokens",
+      "models": {
+        "gpt-5.6-sol": {
+          "inputPerMillionUsd": 5,
+          "cachedInputPerMillionUsd": 0.5,
+          "cacheWritePerMillionUsd": 6.25,
+          "outputPerMillionUsd": 30
+        },
+        "gpt-5.6-terra": {
+          "inputPerMillionUsd": 2,
+          "cachedInputPerMillionUsd": 0.2,
+          "cacheWritePerMillionUsd": 2.5,
+          "outputPerMillionUsd": 12
+        },
+        "gpt-5.6-luna": {
+          "inputPerMillionUsd": 0.2,
+          "cachedInputPerMillionUsd": 0.02,
+          "cacheWritePerMillionUsd": 0.25,
+          "outputPerMillionUsd": 1.2
+        }
+      },
+      "evidenceBoundary": "Standard short-context text-token pricing copied from the official OpenAI API pricing page on 2026-08-12. It is not a quote, credit confirmation, or permission to spend."
+    },
+    "pricingHash": "7c2ba51feaa8ad023ec6ffd272e3bc1d88d52a9981d0d11a06e554667bbafd84",
+    "pricingVerifiedUtcDate": "2026-08-12",
+    "pricingVerifiedLocalDate": "2026-08-12",
+    "pricingVerificationTimezone": "Asia/Seoul",
+    "bindings": {
+      "roleHash": "1928ac2707918e08b6de1c4904c2107ff1c19bd9600c89ebdca111639bed9940",
+      "toolsHash": "f355955e4eb2c263cdf4bbc16c2eb547ee4a1cee6c91255aec2dce8bd5508724",
+      "authorityHash": "02d960efbed22e0734912cc4f64f8b317b36336a08789d4320250f5f8e13f339",
+      "verifierId": "commercial-support-v1:external-verifier",
+      "verifierHash": "a58ab074cacd3645cf488e5684734f09b1da0d796daa8abb4f88208b6b0153ea",
+      "driverHash": "2b21f54c2a78246a85192cffc8f20089f83cc98686c216d1bd2fe37380e996da",
+      "baselines": [
+        {
+          "id": "imported-current-support-agent",
+          "type": "current-agent",
+          "configurationHash": "6228e0b8fe8e10461e0ed8b4ab9ad5939f8b7812fd46d3753e7dc3b097c3c1b2"
+        },
+        {
+          "id": "support-baseline-strong-general-terra",
+          "type": "strong-general",
+          "configurationHash": "189d53eab5a804263599ffdadad7edabd350d2947f6c0f53753c4ecc71ce37c2"
+        },
+        {
+          "id": "support-baseline-ordinary-manual-luna",
+          "type": "ordinary-manual",
+          "configurationHash": "849b13ab16c0c462a8f7aca5ad780ea1c61622347082ec0710dad7668c7fd798"
+        },
+        {
+          "id": "support-baseline-expert-manual-sol",
+          "type": "expert-manual",
+          "configurationHash": "2eff092737567ba6dd30fbe16870d7174c86d63748d38518d7fa413a8baec056"
+        }
+      ],
+      "baselineHashesHash": "5a66de151c458e0d8463f5b04a6cd82e5bf12f32fd21afb42ea9fa611b43b28a"
+    },
+    "evidenceBoundary": "Prospective V7 campaign after a preserved V6 concurrent-writer infrastructure failure. No V7 candidate has been generated or evaluated and no spend/result is implied.",
+    "pricingVerificationSource": "https://developers.openai.com/api/docs/pricing",
+    "scientificComparison": {
+      "unchangedFromV6": true,
+      "v6ScientificKernelHash": "a123518a370c3f4137f128a35081c158fa8a9ad22570f3d3ea783e43d033ce26",
+      "v7ScientificKernelHash": "a123518a370c3f4137f128a35081c158fa8a9ad22570f3d3ea783e43d033ce26",
+      "allowedInfrastructureDifferences": [
+        "fresh campaign namespace",
+        "fresh private case pack",
+        "exclusive single-writer lock",
+        "conservative prior-spend binding",
+        "fresh artifact hashes",
+        "campaign-specific analysis seed and order provenance wording"
+      ]
+    },
+    "protocolCoreHash": "250103e2b780be0965954a2d076f22ac06e2c966c16af0e1002b4b750c9559fd"
+  },
+  "gates": {
+    "requiredGlobalApproval": "DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED",
+    "requiredCampaignApproval": "DAS_CANDIDATE_SCALE_V7_APPROVAL=JOEL_APPROVED_PAIRED_5_VS_150_V7_SINGLE_WRITER_RECOVERY",
+    "requiredPlanHash": "DAS_CANDIDATE_SCALE_V7_PLAN_HASH=<exact V7 plan hash>",
+    "requiredExplicitLimit": "DAS_CANDIDATE_SCALE_V7_LIMIT_USD=<positive value no greater than 20.41>",
+    "requiredCreditsConfirmation": "DAS_CANDIDATE_SCALE_CREDITS_AVAILABLE=CONFIRMED",
+    "requiredPricingDate": "DAS_CANDIDATE_SCALE_PRICING_VERIFIED_ON=2026-08-12",
+    "requiredPricingHash": "DAS_CANDIDATE_SCALE_PRICING_TABLE_HASH=7c2ba51feaa8ad023ec6ffd272e3bc1d88d52a9981d0d11a06e554667bbafd84",
+    "requiredV5FailureReceipt": "DAS_CANDIDATE_SCALE_V5_FAILURE_RECEIPT_HASH=d1dd3ded907f6c39b3d80a0646c99dc07bda15e5f397cf06dcb9930f030ae098",
+    "requiredV6InfrastructureFailureReceipt": "DAS_CANDIDATE_SCALE_V6_INFRASTRUCTURE_FAILURE_RECEIPT_HASH=f2c5b717445f71049fb855df0b1fe9f771fc9c74c20c93a2d5057be64d708311",
+    "requiredApiKey": "OPENAI_API_KEY=<present only at launch>"
+  },
+  "planHash": "be1e5db937be4252883cb1506675e43885166789ce6821e024d0e03f555c1875"
+}

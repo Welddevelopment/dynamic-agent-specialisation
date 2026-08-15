@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "das.nonactivating-specialist.v1",
+  "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+  "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistId": "synthetic-provisional-quarry-equipment-isolation-das028-mcp-v1",
+  "status": "synthetic-provisional",
+  "candidateFingerprint": "73d7693872837ac054b547b44b2b2a1a641bed3b46c65220f7357bb81885d734",
+  "selectionEvidence": null,
+  "bindingPackageReceiptHash": "ea97aa58c7cc87fc76ec7ff24d441012c62ab6a11051abf3cfd893fe31a3b0e3",
+  "active": false,
+  "activationAuthorized": false,
+  "customerExecutionAuthorized": false,
+  "specialistHash": "f183043ffdd96f2a03b800ea1e64a9a4a2eee40427baecdbd8b0e54f4d62ecbe"
+}

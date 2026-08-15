@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-blocker-ledger.v1",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f",
+  "blockers": [
+    "HTTP-local-only transport has no TLS claim",
+    "activation-not-authorized",
+    "comparison-readiness-unproved",
+    "customer credentials, runtime authority and activation remain absent",
+    "customer-action-transport-not-bound",
+    "customer-credentials-not-resolved",
+    "customer-environment-conformance-not-run",
+    "customer-execution-not-authorized",
+    "customer-observer-transport-not-bound",
+    "fictional localhost process conformance is not customer environment acceptance",
+    "mandatory-customer-acceptance-not-run",
+    "real-customer-authority-source-not-supplied",
+    "real-customer-local-credential-resolver-not-supplied",
+    "real-customer-local-provider-transport-not-supplied",
+    "selected-specialist-not-proved"
+  ],
+  "requiredBlockers": [
+    "activation-not-authorized",
+    "comparison-readiness-unproved",
+    "customer-action-transport-not-bound",
+    "customer-credentials-not-resolved",
+    "customer-environment-conformance-not-run",
+    "customer-execution-not-authorized",
+    "customer-observer-transport-not-bound",
+    "mandatory-customer-acceptance-not-run",
+    "selected-specialist-not-proved"
+  ],
+  "allResolved": false,
+  "blockerLedgerHash": "c1ef9e5dd0c14b5641432d2166d53c4f653aecfc46b85e0d61a9eaea871a3303"
+}

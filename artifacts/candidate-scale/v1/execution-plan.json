@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "das.candidate-scale-execution-plan.v1",
+  "campaignId": "candidate-scale-v1",
+  "casePackHash": "pending-fresh-private-case-pack",
+  "targetCount": 150,
+  "batchSize": 10,
+  "portfolioSizes": [
+    5,
+    10,
+    20,
+    40,
+    75,
+    150
+  ],
+  "architectureCalls": 15,
+  "stageCases": {
+    "viability": 2,
+    "development": 5,
+    "validation": 2,
+    "adversarial": 3,
+    "holdout": 2,
+    "repeat": 6
+  },
+  "stageSurvivors": {
+    "viability": 40,
+    "development": 20,
+    "validation": 8,
+    "adversarial": 4
+  },
+  "stageCandidateCounts": {
+    "viability": 150,
+    "development": 40,
+    "validation": 20,
+    "adversarial": 8,
+    "holdout": 4,
+    "repeat": 4
+  },
+  "stageTaskEvaluations": {
+    "viability": 300,
+    "development": 200,
+    "validation": 40,
+    "adversarial": 24,
+    "holdout": 8,
+    "repeat": 24
+  },
+  "maximumTaskEvaluations": 596,
+  "maximumTurns": {
+    "viability": 8,
+    "development": 24,
+    "validation": 32,
+    "adversarial": 40,
+    "holdout": 48,
+    "repeat": 48
+  },
+  "projectedArchitectBatchSpendUsd": 0.35,
+  "projectedTaskSpendUsd": {
+    "viability": 0.03,
+    "development": 0.12,
+    "validation": 0.18,
+    "adversarial": 0.25,
+    "holdout": 0.3,
+    "repeat": 0.3
+  },
+  "projectedMaximumSpendUsd": 61.05,
+  "absoluteMaximumTaskSpendUsd": 0.5,
+  "absoluteTheoreticalCeilingUsd": 303.25,
+  "maximumEvaluationModelCalls": 10976,
+  "maximumTotalModelCalls": 10991,
+  "maximumWallClockMs": 28800000,
+  "pricingTableHash": "2f3d8d4713253291a479d6335d703e9a6442d4e140d34048d16dd860e175c678",
+  "gates": {
+    "paidCallsDefault": "disabled",
+    "currentAuthorization": "zero-cost-local-only",
+    "requiredGlobalApproval": "DAS_ENABLE_PAID_MODEL_CALLS=JOEL_APPROVED",
+    "requiredCampaignApproval": "DAS_CANDIDATE_SCALE_APPROVAL=JOEL_APPROVED_CANDIDATE_SCALE_V1",
+    "requiredPlanHash": "DAS_CANDIDATE_SCALE_PLAN_HASH=<exact plan hash>",
+    "requiredExplicitLimit": "DAS_CANDIDATE_SCALE_LIMIT_USD=<positive value no greater than projected maximum>",
+    "requiredCreditsConfirmation": "DAS_CANDIDATE_SCALE_CREDITS_AVAILABLE=CONFIRMED",
+    "requiredPricingDate": "DAS_CANDIDATE_SCALE_PRICING_VERIFIED_ON=<current UTC date>",
+    "requiredPricingHash": "DAS_CANDIDATE_SCALE_PRICING_TABLE_HASH=2f3d8d4713253291a479d6335d703e9a6442d4e140d34048d16dd860e175c678",
+    "requiredApiKey": "OPENAI_API_KEY=<present only at launch>"
+  },
+  "evidenceBoundary": "Zero-cost planning projection. The projected maximum uses stage-specific observed-cost allowances and a lower explicit campaign limit may stop safely; the separate absolute theoretical ceiling assumes every task reaches the role's full per-task limit. Neither is approval, a charge, or a performance result.",
+  "planHash": "8da2348e724ecd0bbb54740d45a3df94b789af0e8468c1b9a0e89303d0fe4f29"
+}

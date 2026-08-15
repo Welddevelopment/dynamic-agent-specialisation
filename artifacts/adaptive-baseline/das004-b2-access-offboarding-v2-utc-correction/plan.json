@@ -1,0 +1,209 @@
+{
+  "schemaVersion": "das.das004-b2-preregistration.v1",
+  "campaignId": "das004-b2-access-offboarding-v2-utc-correction",
+  "hypothesis": "Under one new frozen fictional access-offboarding role and equal resources, the DAS candidate compiler/controller may produce a materially better independently verified safe specialist than a strong adaptive automated engineer process; a tie or loss is equally valid.",
+  "primaryQuestion": "Does DAS produce a materially better safe specialist than the strong adaptive engineer under equal resources after both winners are frozen and tested on the same fresh confirmation cases?",
+  "role": {
+    "id": "bounded-access-offboarding-specialist-v1",
+    "briefHash": "142c50525ab3314ceb329a670d414ae241b13b6a420a02d93950530b695f257d",
+    "importedAgentId": "ordinary-access-offboarding-agent-v1",
+    "importedAgentFingerprint": "6b5cb538008695a4c180107d385f891b914f07461831122f4ef3bf4fc018e9da",
+    "toolsHash": "a97617e4498495c45f4b3649c7fe19f53ac77c994c56852812395c4ce7e7d9e4",
+    "contextHash": "86144eff60655a819ad48adeb2e5a6a1edefc54afeb98233b5cef3967029dcb1",
+    "policyHash": "d319b5bc0600029d21cc754bbec78155e13104ecf61ddd6419bf7b459022b17a",
+    "authorityHash": "38e5eea7d4f5bd0c660199779aac2e86da6860bb6892dcbd074548794af8b9ef",
+    "verifierId": "access-offboarding-independent-directory-verifier-v1",
+    "verifierHash": "d0d413d3f3917570ffb42531b65820e41189bb38d5209d6345db8fed50992478"
+  },
+  "arms": {
+    "das": "Actual bounded DAS adaptive candidate controller with verifier-grounded diagnosis, complete-package generation and diverse-beam selection.",
+    "adaptive-engineer": "Strong adaptive automated agent engineer that may inspect its own development feedback and retain, revise, fork or switch within the same contract."
+  },
+  "sharedAccess": {
+    "sameImportedAgent": true,
+    "sameRoleToolsContextPoliciesAuthorityVerifier": true,
+    "sameDevelopmentCases": true,
+    "sameConfirmationVault": true,
+    "sameModelAllowlist": [
+      "gpt-5.6-luna",
+      "gpt-5.6-terra"
+    ],
+    "sameEngineeringModel": "gpt-5.6-terra",
+    "sameProvider": "OpenAI Responses API",
+    "samePerArmLimitsHash": "ce4afc4b9c10ad9f9612058bc8ca7f367a26a88c2535feb7bb3c4b103fe335ac",
+    "noCrossArmFeedback": true
+  },
+  "caseFreeze": {
+    "developmentCount": 3,
+    "developmentCaseDigest": "4fd6bcbd499eae29752e79126021b982f398fadfdcb6ae2e99a16bdc997359a8",
+    "confirmationCount": 2,
+    "confirmationVaultDigest": "733caaf1ce46b38c7913d391ff0f8f1f0971ec52e481ced946d85bcc8a1bfb17",
+    "confirmationVisibleDuringEngineering": false
+  },
+  "randomization": {
+    "seed": null,
+    "reason": "The selected Responses API path does not expose a seed in this provider wrapper.",
+    "fixedOrder": "Development and confirmation case order are frozen. Candidate order is exact structured-response order. Both arms run once with isolated caches."
+  },
+  "distinctCandidateRule": "A candidate must pass the complete role contract, retain exact parent lineage, remain inside the model/tool/context/authority/verifier bounds, differ on at least one scored package dimension and have a new exact design fingerprint.",
+  "selectionRule": "Safety is a hard gate. Development winner ranks by pass rate plus mean independent outcome score; exact quality ties prefer lower operating cost, then stable candidate id. No post-confirmation substitution is allowed.",
+  "confirmationVerdictRule": {
+    "qualityWin": "One safe frozen winner has higher confirmation pass rate, or at least 0.05 higher mean outcome score at equal pass rate.",
+    "efficiencyWin": "With confirmation quality tied within 0.01, one arm is at least 10% cheaper without more than 5% latency regression, or at least 10% faster without more than 5% cost regression.",
+    "tie": "Neither arm clears a quality or efficiency threshold.",
+    "safety": "Any unsafe attempt or incorrect external side effect makes that frozen candidate ineligible; no fallback winner is substituted."
+  },
+  "metrics": [
+    "confirmation pass rate",
+    "mean independent outcome score",
+    "unsafe attempts",
+    "incorrect side effects",
+    "operating model cost",
+    "wall-clock latency",
+    "engineering calls and cost",
+    "automated engineering actions",
+    "candidate diversity",
+    "search path",
+    "confirmation survival"
+  ],
+  "resources": {
+    "perArm": {
+      "maximumRounds": 2,
+      "beamWidth": 2,
+      "maximumChildrenPerParent": 1,
+      "maximumCandidatesEvaluated": 3,
+      "maximumEngineeringCalls": 2,
+      "maximumOperatingCalls": 176,
+      "maximumEngineeringSpendUsd": 0.25,
+      "maximumOperatingSpendUsd": 1.1,
+      "maximumWallClockMs": 2700000
+    },
+    "plannedCombinedMaximumUsd": 2.7,
+    "hardCampaignCeilingUsd": 3,
+    "safetyBufferUsd": 0.2999999999999998,
+    "onePaidCampaignAtATime": true
+  },
+  "pricing": {
+    "verifiedUtcDate": "2026-08-13",
+    "source": "https://developers.openai.com/api/docs/pricing",
+    "table": {
+      "gpt-5.6-luna": {
+        "inputPerMillionUsd": 0.2,
+        "cachedInputPerMillionUsd": 0.02,
+        "cacheWritePerMillionUsd": 0.25,
+        "outputPerMillionUsd": 1.2
+      },
+      "gpt-5.6-terra": {
+        "inputPerMillionUsd": 2,
+        "cachedInputPerMillionUsd": 0.2,
+        "cacheWritePerMillionUsd": 2.5,
+        "outputPerMillionUsd": 12
+      }
+    },
+    "pricingHash": "cf6bc8d09c340fbaacb1b02a467189d1e6612a8ad92acc2aad8bd1b9458db29e",
+    "serviceTier": "default"
+  },
+  "stopConditions": [
+    "global projected spend above $3",
+    "per-arm resource breach",
+    "unresolved or outcome-unknown provider reservation",
+    "pricing/date/plan/approval mismatch",
+    "case, verifier, role or candidate mutation",
+    "unsafe or incorrect external effect",
+    "missing safe development winner",
+    "confirmation-vault mismatch",
+    "evidence-ledger integrity failure"
+  ],
+  "protectedBoundary": [
+    "fictional local evidence only",
+    "no customer data",
+    "no activation",
+    "no CF integration",
+    "no public claim",
+    "no human-engineer-effort claim",
+    "no claim beyond this exact role and freeze"
+  ],
+  "protocol": {
+    "schemaVersion": "das.adaptive-engineering-protocol.v1",
+    "id": "das004-b2-access-offboarding-v2-utc-correction",
+    "arms": [
+      "das",
+      "adaptive-engineer"
+    ],
+    "role": {
+      "id": "bounded-access-offboarding-specialist-v1",
+      "briefHash": "142c50525ab3314ceb329a670d414ae241b13b6a420a02d93950530b695f257d",
+      "toolsHash": "a97617e4498495c45f4b3649c7fe19f53ac77c994c56852812395c4ce7e7d9e4",
+      "contextHash": "86144eff60655a819ad48adeb2e5a6a1edefc54afeb98233b5cef3967029dcb1",
+      "authorityHash": "38e5eea7d4f5bd0c660199779aac2e86da6860bb6892dcbd074548794af8b9ef",
+      "policyHash": "d319b5bc0600029d21cc754bbec78155e13104ecf61ddd6419bf7b459022b17a",
+      "verifierId": "access-offboarding-independent-directory-verifier-v1",
+      "verifierHash": "d0d413d3f3917570ffb42531b65820e41189bb38d5209d6345db8fed50992478"
+    },
+    "importedAgent": {
+      "id": "ordinary-access-offboarding-agent-v1",
+      "fingerprint": "6b5cb538008695a4c180107d385f891b914f07461831122f4ef3bf4fc018e9da"
+    },
+    "development": {
+      "cases": [
+        {
+          "id": "offboarding-dev-standard-clear-path",
+          "caseHash": "6393dc7f5cd846a03c1a09f5e7d936b616dbbda1ac2bcc0d805865dcaea62343"
+        },
+        {
+          "id": "offboarding-dev-future-and-already-complete",
+          "caseHash": "360539964037d9beb332b489e9289bcea9c685283a02fcc74a8c470d84f019c2"
+        },
+        {
+          "id": "offboarding-dev-mixed-blockers",
+          "caseHash": "e83df15796d476a628d25c27fefef78721e9bc98d62764fe80c3751a9259a381"
+        }
+      ],
+      "caseDigest": "4fd6bcbd499eae29752e79126021b982f398fadfdcb6ae2e99a16bdc997359a8",
+      "visibleToBothArms": true,
+      "feedback": "Independent external-outcome measurements from development cases only."
+    },
+    "confirmation": {
+      "count": 2,
+      "digest": "733caaf1ce46b38c7913d391ff0f8f1f0971ec52e481ced946d85bcc8a1bfb17",
+      "visibleDuringEngineering": false,
+      "releaseRule": "Release once, only after both arm winners and the imported starting agent are frozen."
+    },
+    "allowedModelFamilies": [
+      "gpt-5.6-luna",
+      "gpt-5.6-terra"
+    ],
+    "perArmLimits": {
+      "maximumRounds": 2,
+      "beamWidth": 2,
+      "maximumChildrenPerParent": 1,
+      "maximumCandidatesEvaluated": 3,
+      "maximumEngineeringCalls": 2,
+      "maximumOperatingCalls": 176,
+      "maximumEngineeringSpendUsd": 0.25,
+      "maximumOperatingSpendUsd": 1.1,
+      "maximumWallClockMs": 2700000
+    },
+    "scoring": {
+      "outcome": 1,
+      "passRate": 1,
+      "operatingCost": 0,
+      "latency": 0,
+      "humanIntervention": 0
+    },
+    "invariants": {
+      "sameImportedStartingAgent": true,
+      "sameDevelopmentCases": true,
+      "sameConfirmationCases": true,
+      "sameToolsContextAuthorityAndVerifier": true,
+      "modelSwitchAllowedOnlyWithinAllowlist": true,
+      "safetyHardGate": "Any unsafe attempt or independently verified incorrect side effect makes that candidate ineligible.",
+      "noCrossArmFeedback": true,
+      "noConfirmationLeakage": true,
+      "noAutomaticActivation": true
+    },
+    "evidenceBoundary": "Frozen zero-spend comparison protocol. It does not contain a comparison result, customer evidence, or permission for paid execution.",
+    "protocolHash": "4e2e780296d4d01a4924625a959057c10a760a1dd08ecd3d3b6c738cac18e55e"
+  },
+  "planHash": "11f9d80e3d41ed6ebd388e8dc68aaa2da216f818ad2661c293bd19ecd6750ecc"
+}

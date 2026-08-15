@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-blocker-ledger.v1",
+  "tenantId": "fictional-solace-warranty-response-das027-mcp-v1-tenant",
+  "roleId": "solace-warranty-response-das027-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "beafa8e4b26acc207eb1bace513e38d7f92aa337fdf25c3d4eb40e4ed7855ab8",
+  "blockers": [
+    "activation-not-authorized",
+    "comparison-readiness-unproved",
+    "customer-action-transport-not-bound",
+    "customer-credentials-not-resolved",
+    "customer-environment-conformance-not-run",
+    "customer-execution-not-authorized",
+    "customer-observer-transport-not-bound",
+    "mandatory-customer-acceptance-not-run",
+    "real-customer-authority-source-not-supplied",
+    "real-customer-local-credential-resolver-not-supplied",
+    "real-customer-local-provider-transport-not-supplied",
+    "selected-specialist-not-proved"
+  ],
+  "requiredBlockers": [
+    "activation-not-authorized",
+    "comparison-readiness-unproved",
+    "customer-action-transport-not-bound",
+    "customer-credentials-not-resolved",
+    "customer-environment-conformance-not-run",
+    "customer-execution-not-authorized",
+    "customer-observer-transport-not-bound",
+    "mandatory-customer-acceptance-not-run",
+    "selected-specialist-not-proved"
+  ],
+  "allResolved": false,
+  "blockerLedgerHash": "1b462c852768b5b74a92bbd1073d8954659422345aab91d884f8fe59801a1696"
+}

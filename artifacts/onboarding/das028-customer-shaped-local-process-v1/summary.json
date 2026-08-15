@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "das.das028-summary.v1",
+  "resultHash": "c52b6b8d251b9e819a7986c6149f16b22624a5aa3643a092a49de09ee07a54e6",
+  "verdict": "passed-bounded-customer-shaped-local-process-transport",
+  "aggregate": {
+    "packages": 2,
+    "sourceFamilies": [
+      "openapi",
+      "mcp-tools-list"
+    ],
+    "customerShapedProcessesPerPackage": 3,
+    "generatedExecutableFiles": 4,
+    "generatedExecutableLines": 322,
+    "controlsPassed": 20,
+    "controlsRequired": 20,
+    "processRestarts": 2,
+    "freshProcessLostResponseRecoveries": 2,
+    "lostResponseReplays": 0,
+    "observerWrites": 0,
+    "incorrectEffects": 0,
+    "attacksPassed": 34,
+    "attacksRequired": 34,
+    "signedNonactivatingBundles": 2,
+    "customerExecutableOperations": 0,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "activeMachineMs": 6182.515
+  },
+  "evidenceBoundary": "Private fictional local zero-spend evidence only. It does not establish customer execution, self-serve onboarding, arbitrary provider support, production security/reliability, demand, deployment or activation.",
+  "summaryHash": "68d30f8632d0713cbb4eb029998594bb664205284351bea5900f65d752ef1466"
+}

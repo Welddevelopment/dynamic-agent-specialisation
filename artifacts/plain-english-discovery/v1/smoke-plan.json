@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "das.plain-english-discovery-smoke-plan.v1",
+  "campaignId": "plain-english-discovery-smoke-v1",
+  "benchmarkHash": "61f041b7cbeb32708faf130e5c3db9a0a683187f445d3082579827183e31a51e",
+  "caseId": "frontend-canonical",
+  "expectedContractHash": "724f79e1bf6b4d4ee270f1b9ba6f42f243b8ead5d0959d14a0e197dba7a114a6",
+  "discoveryRequestHash": "25ce9eaf79011779ce43d59545717ec1524a71e86de53e6e5264a694e38733c5",
+  "modelRequestHash": "b6c52e6500f0d2dcff50048bfd2d046baa0009fce5b20033ccea7f52efd16203",
+  "model": "gpt-5.6-luna",
+  "reasoningEffort": "low",
+  "maxOutputTokens": 3200,
+  "pricingTableHash": "33959599450a30d3d908ba8e24c12724c1b017b6a29c77e08047a401e7bee476",
+  "pricingVerifiedOn": "2026-08-13",
+  "maximumCalls": 1,
+  "projectedMaximumSpendUsd": 0.0041655,
+  "hardExperimentLimitUsd": 0.5,
+  "widerWorkstreamAllocationUsd": 8,
+  "sharedNewSpendCeilingUsd": 24,
+  "gates": {
+    "exactJoelApproval": "JOEL_APPROVED_FRONTEND_DISCOVERY_SMOKE_V1",
+    "exactPlanHashRequired": true,
+    "freshPricingRequired": true,
+    "creditsConfirmationRequired": true,
+    "safetyCoreMustPass": true,
+    "scaleAfterSmokeReview": false,
+    "specialistCompetitionAuthorized": false
+  },
+  "evidenceBoundary": "One model-backed contract-discovery smoke case only. It cannot prove universal self-serve onboarding, executable customer bindings, comparison readiness, specialist quality, or customer value.",
+  "planHash": "1e679e4ba5e48b84cf8ced94a49146b3ba9ef409b20f50464a1691db57bcc3b3"
+}

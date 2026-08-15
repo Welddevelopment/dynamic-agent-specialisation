@@ -97,6 +97,8 @@ test("lost write response reconciles through a separate direct external read", a
   const reconciliation = await runtime.reconcile("orders:create-draft", input);
   assert.equal(reconciliation.classification, "completed");
   assert.equal(reconciliation.independent, true);
+  assert.equal(reconciliation.independentBusinessOutcomeProof, false);
+  assert.equal(reconciliation.verifierKind, "action-plane-readback-through-openapi");
   assert.equal(server.orders.size, 1);
 });
 

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "das.nonactivating-conformance-evidence.v1",
+  "tenantId": "fictional-arbor-supplier-quality-hold-das027-openapi-v1-tenant",
+  "roleId": "arbor-supplier-quality-hold-das027-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "db901a9370d432563c74bc26d481c9e8e275e028e7f643a5556205d9fc0efa9f",
+  "packageReceiptHash": "d7852922493523f5b204eed8c3a06e73877dc6e8ee0fd5958244c68c17fd51ea",
+  "conformanceReceiptHash": "7d99081e0924de6fc6077cab5a208ca16f5a8b1a8fe40316a41f4007c55971f1",
+  "sourceArtifact": {
+    "path": "das027:arbor-supplier-quality-hold-das027-openapi-v1",
+    "sha256": "0300c1c0ce2b6d5705d8f3828090d1b3b71e2d7086a5a09ab763675d77446181",
+    "summaryHash": "1937fdfa510ebdff81be10e42e06219d97d30272640bda989b841dc8680fd9c4",
+    "resultHash": "558e14b3a21b8ebad26036612342e65cfc5da3c56132c5cda0e5da57503a37ef"
+  },
+  "scope": "fictional-disposable-local",
+  "observedAt": "2026-08-14T18:00:00.000Z",
+  "validUntil": "2026-08-15T18:00:00.000Z",
+  "controlsPassed": 10,
+  "controlsRequired": 10,
+  "observerWrites": 0,
+  "lostResponseReplays": 0,
+  "customerEnvironmentConformance": false,
+  "customerAcceptance": false,
+  "activationReady": false,
+  "evidenceHash": "c673b211f1ff5d1dd0968adc1f1f72379f218365aefa9185c20eb0d6c1aaf020"
+}

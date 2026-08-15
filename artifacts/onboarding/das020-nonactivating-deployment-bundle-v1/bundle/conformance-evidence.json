@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "das.nonactivating-conformance-evidence.v1",
+  "tenantId": "fictional-northstar-tenant",
+  "roleId": "invoice-dispute-specialist",
+  "roleRevision": 4,
+  "specialistHash": "ccdd2a96b6d56f742de291c8667a397e9d65f30e2bd95e977acd96005bcfcb4c",
+  "packageReceiptHash": "54eca9552e65ee4965ecfa1fd240a7b775c6e40cd38f4535cf977deba0ca203d",
+  "conformanceReceiptHash": "22d018d436baaeafaa702d7f9316c4ab143438569234eb03e1fb38092d83099b",
+  "sourceArtifact": {
+    "path": "artifacts/onboarding/das025-plugin-project-rehearsal-v2/result.json",
+    "sha256": "d35edc4e7bc56ba90864db1cd6315f65ad5ed30c62b7b8227a211cc43c050654",
+    "summaryHash": "3f6b9517c489faa32bd96b587778209041b738456d44a4cc56cb00030b87c1e7",
+    "resultHash": "35f4dd20bb0eb1b66be69953cd6956cf30a71521b9fc05f3e8bc7f34c1d20e77"
+  },
+  "scope": "fictional-disposable-local",
+  "observedAt": "2026-08-14T13:00:00.000Z",
+  "validUntil": "2026-08-15T13:00:00.000Z",
+  "controlsPassed": 10,
+  "controlsRequired": 10,
+  "observerWrites": 0,
+  "lostResponseReplays": 0,
+  "customerEnvironmentConformance": false,
+  "customerAcceptance": false,
+  "activationReady": false,
+  "evidenceHash": "ed5d0594a0bb83d684f373a028926b40f8796f3d51be78c55c6e5692a0530735"
+}

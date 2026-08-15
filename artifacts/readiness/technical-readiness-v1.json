@@ -1,6 +1,6 @@
 {
   "schemaVersion": "das.technical-readiness-audit.v1",
-  "generatedAt": "2026-08-04T18:54:08.246Z",
+  "generatedAt": "2026-08-13T16:47:48.076Z",
   "level1": {
     "status": "technical-mechanism-complete",
     "selectedRoles": 3,
@@ -66,5 +66,5 @@
     "marketDemand": "not-established"
   },
   "verdict": "All currently claimed local mechanisms and evidence chains pass integrity checks, including one fresh model-backed three-role bounded Level 2 campaign. The fresh support commercial comparison is safely paused for account funding with cached work but no result; Level 1.5 lifecycle remains a separate paid gate. Customer, production and market claims require external evidence.",
-  "auditHash": "54ce24e4ab44ec13dc3078abfbfe0a237af581f1be83ccee44a4abe4db2011ec"
+  "auditHash": "1c8793dcaba977a80f618cda03e5efbf48ab088057497ce36cc43b47277a6720"
 }

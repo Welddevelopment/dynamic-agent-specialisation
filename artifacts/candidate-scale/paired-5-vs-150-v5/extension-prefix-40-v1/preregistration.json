@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "das.candidate-scale-prefix-40-preregistration.v1",
+  "extensionId": "candidate-scale-exact-prefix-40-extension-v1",
+  "baseV5PlanHash": "81183ed3aac70938c57b40f28e8d00fe9c6457dc0bd22655ecb7bb73fc180dda",
+  "baseV5ProtocolCoreHash": "b0cea7e15b92330077c32f41add1d0fcc0d84d1b1d63ce643d1ff26854f2f6bf",
+  "baseV5CasePackHash": "be7881856f966610e512ea4c5018d12d3e51870ec461589496ea93d2209ee941",
+  "baseV5CasePackReceiptHash": "155ab531600a9500f1c2961d89f52f1393e9b382e87d07b55d9e31ef499afb7d",
+  "baseV5PricingHash": "7c2ba51feaa8ad023ec6ffd272e3bc1d88d52a9981d0d11a06e554667bbafd84",
+  "hypothesis": "Inside the same frozen adaptive 150-candidate search, the exact accepted positions 1-40 may recover materially more of the confirmed safe specialist quality than positions 1-5 without requiring the full 150 search.",
+  "arm": {
+    "requestedCount": 40,
+    "candidateRule": "Exact accepted positions 1-40 from the already-generated v5 portfolio in frozen response order. No regeneration, replacement, repair or separate architect call is permitted.",
+    "nestedIn": [
+      "exact-first-five-prefix",
+      "adaptive-full-150-pool"
+    ],
+    "finalistCount": 7,
+    "finalistCountRule": "K(n)=round(5 + 5*(sqrt(n)-sqrt(5))/(sqrt(150)-sqrt(5))); K(40)=7. The same v5 structural prior, tie-break and 0.12 diversity rule apply.",
+    "structuralScreen": "Zero-call candidate contract validation, earliest-first exact deduplication, near-duplicate disclosure and the frozen v5 static structural prior."
+  },
+  "invariants": {
+    "schemaModelsRoleToolsAuthorityBaselinesCasesVerifier": "Identical hashes and executable objects to v5; generated candidates remain Luna, original baseline models remain Luna/Terra/Sol.",
+    "selectionCases": "The exact v5 development, validation and adversarial private cases.",
+    "confirmationCases": "The exact v5 holdout and repeat cases, never used to select the 40-arm winner.",
+    "selectionRule": "Same complete-safe-pass rule and ranking: outcome score, lower model cost, lower elapsed time, accepted position, candidate id.",
+    "metric": "Same independently verified confirmation mean outcome score and safety/cost/latency receipts as v5."
+  },
+  "reuseRule": "Reuse an existing v5 candidate or baseline observation only when plan, participant/configuration, case, model, verifier and receipt hashes all match. Evaluate only missing 40-arm finalist/case pairs. Never rerun or alter a shared observation to favor an arm.",
+  "budget": {
+    "sharedTotalCeilingUsd": 24,
+    "executableCeilingUsd": 23,
+    "reservedBufferUsd": 1,
+    "rule": "Use the same v5 durable $23 budget ledger. Additional calls may reserve only verified remaining capacity below $23 after v5. The reserved final $1 is unavailable unless Joel explicitly expands the ceiling."
+  },
+  "conditionalLaunch": {
+    "requiresV5Success": true,
+    "requiresNoNewDirectUserMessage": true,
+    "requiresRootConfirmation": true,
+    "silenceBoundary": "User silence authorizes launch only after v5 completes successfully and root confirms no newer direct instruction. It does not authorize launch before v5, public claims, or budget expansion."
+  },
+  "stops": [
+    "Do not seal against a portfolio until all 150 v5 candidates are generated, validated and frozen, and before any v5 performance observation exists.",
+    "Stop if accepted positions 1-40, portfolio hash, base structural freeze, cases, models, role, tools, authority, baselines or verifier do not exactly match v5.",
+    "Stop if the verified v5 durable budget has insufficient capacity for the next missing observation.",
+    "Stop on any safety/authority/incorrect-side-effect event under the same v5 rule.",
+    "Stop without launch if v5 does not complete successfully or root cannot confirm no newer user instruction."
+  ],
+  "claimBoundary": "A preregistered nested 40-prefix arm inside one adaptive support-role search. It cannot establish a universal optimal candidate count or isolate candidate count from adaptive prior-memory effects.",
+  "preregistrationHash": "549c9d61d0343ebb5d34134386cd34de7897a7d36f6d1e5debbd196ba10e8c8a"
+}

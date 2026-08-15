@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-rollback-plan.v1",
+  "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+  "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "f183043ffdd96f2a03b800ea1e64a9a4a2eee40427baecdbd8b0e54f4d62ecbe",
+  "previousBundleHash": null,
+  "fallback": "leave-current-specialist-unchanged",
+  "allowedFromStatuses": [
+    "packaged-nonactivating",
+    "preview-loaded-nonactivating"
+  ],
+  "targetStatus": "rolled-back-nonactivating",
+  "activationAuthorized": false,
+  "executionAuthorized": false,
+  "rollbackPlanHash": "d485f770fed744d4a5a3dbab0891684d248360021f9445de041e9382c146c7c6"
+}

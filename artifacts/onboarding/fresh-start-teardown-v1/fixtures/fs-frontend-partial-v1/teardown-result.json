@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "das.fresh-start-onboarding-teardown-result.v1",
+  "fixtureId": "fs-frontend-partial-v1",
+  "expectedBoundary": "design-and-scaffold-only",
+  "highestHonestStage": "comparison-design-complete-binding-required",
+  "roleAvailability": {
+    "discovery": true,
+    "businessIntake": true,
+    "bindingScaffold": true,
+    "systemImportReview": true,
+    "bindingDescriptorReview": false,
+    "bindingAcceptance": false,
+    "comparisonPlanning": false,
+    "comparisonResult": false,
+    "controlledActivation": false,
+    "blockers": [
+      "Customer-local Figma or approved-design-source adapter is not registered.",
+      "Customer-local repository and draft-pull-request adapter is not registered.",
+      "Independent customer-repository, build and responsive-result verifier is not registered or accepted."
+    ]
+  },
+  "executionReady": false,
+  "activationReady": false,
+  "readinessBlockers": [
+    "Customer-local Figma or approved-design-source adapter is not registered.",
+    "Customer-local repository and draft-pull-request adapter is not registered.",
+    "Independent customer-repository, build and responsive-result verifier is not registered or accepted.",
+    "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs.",
+    "Compile and locally test through the generic OpenAPI runtime.",
+    "Bind the exact idempotency header or required input field.",
+    "Bind an approved read operation plus mappings and assertions for unknown outcomes.",
+    "The assigned page matches approved responsive requirements.",
+    "Only assigned source files change.",
+    "A draft PR exists without merge or deployment.",
+    "Directly compare protected and unrelated external state before and after execution.",
+    "Reject any executed or attempted action outside the saved authority and approval boundary.",
+    "Independently read external state for repository:open-draft-pr; do not accept the candidate or adapter response as proof.",
+    "Run every mandatory binding acceptance case after implementation."
+  ],
+  "ledgerMeasurements": {
+    "activeMachineMs": 10.048,
+    "productApiActions": 4,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "authorInterventions": 0,
+    "exactMappingProposalHits": 2,
+    "exactAuthorityProposalHits": 2,
+    "approvedOperations": 2,
+    "rejectedOperations": 2,
+    "silentAuthorOnlyInjections": 0,
+    "meaningfulSetupUnits": 76,
+    "traceableSetupUnits": 61,
+    "provenanceCoverage": 0.8026,
+    "automationStatusCounts": {
+      "blocked-unknown": 8,
+      "generated": 15,
+      "requires-engineering": 6,
+      "requires-independent-proof": 7,
+      "requires-ordinary-language-decision": 40
+    },
+    "executableEvidenceRows": 0,
+    "authorityGrantedRows": 0,
+    "credentialValueRows": 0
+  },
+  "generatedMappingAccuracy": 1,
+  "generatedAuthorityAccuracy": 1,
+  "manualBaselineTargetChoices": 2,
+  "generatedExactTargetProposals": 2,
+  "roleOwnerConfirmationsStillRequired": 2,
+  "rejectedSourceOperations": 2,
+  "restart": {
+    "freshProcessReloadPassed": true,
+    "recordHash": "0311fe997579dbe408a9d8ad4fd6d522ec210e3ef62c8a0bb2464c6d4a49ba7a",
+    "receiptHash": "71967291dc4e03c59700bbfb37d88351ce20850ed68b994a9c976832b7b10d8f"
+  },
+  "repeatability": {
+    "exactFreshReplayPassed": true,
+    "semanticHash": "d58fc6cad50d6d1c6721f5b5a857d4a583f1ab94e5c1a713837b5cdef4f3b420"
+  },
+  "sourceKinds": [
+    "openapi"
+  ],
+  "importResults": [
+    {
+      "sourceKind": "openapi",
+      "confirmationHash": "735b84c4ce162b8d5b6e2d35c9943a42e307eaacbaf4f54671482e9695a72666",
+      "workPlanHash": "d5f6925fabe8660761320125511e1ab6efd90cd335d275e6d941e33df356685b",
+      "assistanceHash": "c6da0dc1f05d84fd5f5dfa149459ce06ee47da6172e80c377b3f53c5a40b9154",
+      "residualTotals": {
+        "automatable-generic-compiler-or-source-schema-work": 4,
+        "complete": 12,
+        "customer-specific-write-safety-implementation": 2,
+        "independent-verifier-or-proof-work": 7
+      }
+    }
+  ],
+  "ledgerHash": "fcdb84f43a0eab54fbe12602f0fdbdee818c8f94c6dadcc5c2643eb33d023672",
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "boundary": "Machine-observed onboarding provenance and residual-work ledger. Active machine time is not human setup time. Customer confirmations are not DAS automation, and generated scaffolds are not executable evidence.",
+  "resultHash": "128f412068269cf5849bcebf56d8b9b35fa0d69f10e3000f2a1c9453c3ff89e9"
+}

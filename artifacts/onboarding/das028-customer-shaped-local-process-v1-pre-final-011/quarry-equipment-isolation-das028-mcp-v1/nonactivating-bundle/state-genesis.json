@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-state-genesis.v1",
+  "bundleHash": "de04f51fd9fb8071ca184202a1a27df707fef7674141d85f4ef50cd82b462a0f",
+  "genesisEventHash": "c6a38869fad29fa7f3e7cfc49f6cbae92dccb6f47c01b452adf6d86b55c0ae68",
+  "blockerLedgerHash": "8aaa4c7c5430258ab188c24b32d688edd60e2be6ef488ef9684dfc24e3411f27",
+  "rollbackPlanHash": "d485f770fed744d4a5a3dbab0891684d248360021f9445de041e9382c146c7c6",
+  "genesisHash": "755f8a8f9d0fb07ce1d0c4342205032eba4dede9b81d89c193c5bd51677052b3"
+}

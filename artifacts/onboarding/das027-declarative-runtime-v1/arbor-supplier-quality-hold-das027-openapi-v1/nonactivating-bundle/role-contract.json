@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "das.customer-local-role-contract.v1",
+  "tenantId": "fictional-arbor-supplier-quality-hold-das027-openapi-v1-tenant",
+  "roleId": "arbor-supplier-quality-hold-das027-openapi-v1-specialist",
+  "revision": 1,
+  "sourceIdentity": {
+    "kind": "openapi",
+    "sourceHash": "6f6ebeaf52cbc9552c0adcc91ce411babacb6fa06f35c06b2d75f7b1a53ff01f"
+  },
+  "outcome": "Turn each assigned approved supplier quality case into exactly one draft hold.",
+  "authority": {
+    "allowed": [
+      "create-draft-supplier-quality-hold"
+    ],
+    "approvalRequired": [
+      "suspend-supplier",
+      "release-quality-hold"
+    ],
+    "forbidden": [
+      "suspend-supplier",
+      "change-payment",
+      "edit-unrelated-supplier-state"
+    ]
+  },
+  "authorizations": {
+    "customerExecution": false,
+    "modelSpend": false,
+    "activation": false
+  },
+  "contractHash": "785d08361f9b43d7a9851e3990688c2e60479de1ea75e07294544efe32117a26"
+}

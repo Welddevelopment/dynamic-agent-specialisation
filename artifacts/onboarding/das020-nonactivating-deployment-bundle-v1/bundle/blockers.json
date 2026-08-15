@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-blocker-ledger.v1",
+  "tenantId": "fictional-northstar-tenant",
+  "roleId": "invoice-dispute-specialist",
+  "roleRevision": 4,
+  "specialistHash": "ccdd2a96b6d56f742de291c8667a397e9d65f30e2bd95e977acd96005bcfcb4c",
+  "blockers": [
+    "activation-not-authorized",
+    "comparison-readiness-unproved",
+    "customer-action-transport-not-bound",
+    "customer-credentials-not-resolved",
+    "customer-environment-conformance-not-run",
+    "customer-execution-not-authorized",
+    "customer-observer-transport-not-bound",
+    "customer-role-owner-review-not-recorded",
+    "customer-workspace-administrator-not-assigned",
+    "mandatory-customer-acceptance-not-run",
+    "selected-specialist-not-proved"
+  ],
+  "requiredBlockers": [
+    "activation-not-authorized",
+    "comparison-readiness-unproved",
+    "customer-action-transport-not-bound",
+    "customer-credentials-not-resolved",
+    "customer-environment-conformance-not-run",
+    "customer-execution-not-authorized",
+    "customer-observer-transport-not-bound",
+    "mandatory-customer-acceptance-not-run",
+    "selected-specialist-not-proved"
+  ],
+  "allResolved": false,
+  "blockerLedgerHash": "6b4a96ba1d1ada12cf70df04eda80686beb737ca2341a74de85a2da30c746c34"
+}

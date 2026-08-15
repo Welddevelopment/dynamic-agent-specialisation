@@ -1,0 +1,113 @@
+{
+  "fixtureId": "arbor-supplier-quality-hold-das027-openapi-v1",
+  "sourceKind": "openapi",
+  "identities": {
+    "das024DraftHash": "3f30da08e478e6dd9934330bfb8a5c8613ee3dadb7df621f1d7a416a107d978b",
+    "das023PackageReceiptHash": "eb9a2e896bd5df6778446027b69c7785a898f216d819e8f5850d723890e8516b",
+    "das026WorkPackHash": "a657ef78edec4746f24b33c9bc64d4f348fc02cea1ab778c3fae4854b1c61da5",
+    "das027PlanHash": "1937fdfa510ebdff81be10e42e06219d97d30272640bda989b841dc8680fd9c4",
+    "das027RuntimeReceiptHash": "45ce1b1b502d10285a6df72fb963e0594cbffb56706ab8da5dbaa85d034157e2",
+    "actionImplementationContentHash": "79df54c1930a9201b0ef9fdc19d50088d858a93dd0aece72dbeda5ac5123791b",
+    "observerImplementationContentHash": "01431206060b9c686b90b4e3ee8fd97e560259ee34fc47558bae4c7118739b41",
+    "qualificationPackageReceiptHash": "d7852922493523f5b204eed8c3a06e73877dc6e8ee0fd5958244c68c17fd51ea",
+    "qualificationReceiptHash": "7d99081e0924de6fc6077cab5a208ca16f5a8b1a8fe40316a41f4007c55971f1",
+    "acceptanceOnlyReceiptHash": "8239265512867b8536ef7b461f93d1592061b66c995a206f317b4547c66ef912",
+    "nonactivatingBundleHash": "c1c8740ebb71e12b3fdb862ded50ff68da616e04655ee16094adc44a37ed638f"
+  },
+  "implementation": {
+    "generatedFiles": 6,
+    "generatedExecutableFiles": 2,
+    "generatedExecutableLines": 161,
+    "generatedExecutableOperations": 5,
+    "manualPackageSpecificExecutableFiles": 0,
+    "manualPackageSpecificExecutableLines": 0,
+    "explicitOwnerEngineerConfirmedSectionsReused": 12,
+    "credentialValues": 0,
+    "modelCalls": 0,
+    "spendUsd": 0
+  },
+  "qualification": {
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "businessWrites": 8,
+    "observerWrites": 0,
+    "blindRetries": 0,
+    "lostResponseFreshRuntimeReattachments": 1,
+    "lostResponseReplays": 0,
+    "unexpectedIncorrectEffects": 0
+  },
+  "packaging": {
+    "packageIntegrityValid": true,
+    "readyForNonactivatingHandoff": true,
+    "customerExecutionReady": false,
+    "activationReady": false,
+    "blockers": [
+      "activation-not-authorized",
+      "comparison-readiness-unproved",
+      "customer-action-transport-not-bound",
+      "customer-credentials-not-resolved",
+      "customer-environment-conformance-not-run",
+      "customer-execution-not-authorized",
+      "customer-observer-transport-not-bound",
+      "mandatory-customer-acceptance-not-run",
+      "real-customer-authority-source-not-supplied",
+      "real-customer-local-credential-resolver-not-supplied",
+      "real-customer-local-provider-transport-not-supplied",
+      "selected-specialist-not-proved"
+    ]
+  },
+  "unsupported": {
+    "id": "nested-schema",
+    "blocked": true,
+    "exactWork": "Action source.createDraftSupplierQualityHold.body.unsupportedNested uses unsupported type object"
+  },
+  "attacks": [
+    {
+      "id": "authority-bypass",
+      "passed": true,
+      "reason": "transport remained untouched after authority denial"
+    },
+    {
+      "id": "observer-write-surface",
+      "passed": true,
+      "reason": "observer adapter requires one read-only transport"
+    },
+    {
+      "id": "implementation-byte-mutation",
+      "passed": true,
+      "reason": "DAS-027 generated implementation changed: action-plugin/index.js"
+    },
+    {
+      "id": "endpoint-tool-schema-widening",
+      "passed": true,
+      "reason": "DAS-027 source bytes differ from the reviewed DAS-024 source identities"
+    },
+    {
+      "id": "cross-package-implementation-evidence",
+      "passed": true,
+      "reason": "DAS-027 runtime receipt belongs to another implementation"
+    },
+    {
+      "id": "action-response-as-proof",
+      "passed": true,
+      "reason": "DAS-026 work pack weakened independent observation"
+    },
+    {
+      "id": "alias-value-leak",
+      "passed": true,
+      "reason": "customer-local test lease values absent from implementation and qualification receipts"
+    },
+    {
+      "id": "lost-response-retry-replay",
+      "passed": true,
+      "reason": "one write, fresh observer reattachment, no replay"
+    }
+  ],
+  "manualPackageSpecificExecutableFiles": 0,
+  "manualPackageSpecificExecutableLines": 0,
+  "customerExecutableOperations": 0,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Compiled executable disposable local candidate plus nonactivating package only. No real customer provider, credential, authority, environment acceptance, execution or activation.",
+  "resultHash": "3a53e01dba56fe6e35c69c4d86bc4825f1fd4ce3ec18a0a1b91f0305d7fad577"
+}

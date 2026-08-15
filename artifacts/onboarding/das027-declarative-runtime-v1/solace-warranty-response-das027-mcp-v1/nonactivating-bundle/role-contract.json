@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "das.customer-local-role-contract.v1",
+  "tenantId": "fictional-solace-warranty-response-das027-mcp-v1-tenant",
+  "roleId": "solace-warranty-response-das027-mcp-v1-specialist",
+  "revision": 1,
+  "sourceIdentity": {
+    "kind": "mcp-tools-list",
+    "sourceHash": "dd4f7305988b4a66263e5231a583593bee1dff3cc7608ad9a2af3a951d2aec7f"
+  },
+  "outcome": "Turn each assigned approved warranty claim into exactly one unsubmitted draft response.",
+  "authority": {
+    "allowed": [
+      "create-unsubmitted-warranty-response-draft"
+    ],
+    "approvalRequired": [
+      "issue-warranty-payment",
+      "submit-warranty-response"
+    ],
+    "forbidden": [
+      "issue-warranty-payment",
+      "change-protected-claim",
+      "edit-unrelated-product-state"
+    ]
+  },
+  "authorizations": {
+    "customerExecution": false,
+    "modelSpend": false,
+    "activation": false
+  },
+  "contractHash": "8453515c667996b35079b318a495bbf5c63ec75b4a1670d48c8d4b223792d2a9"
+}

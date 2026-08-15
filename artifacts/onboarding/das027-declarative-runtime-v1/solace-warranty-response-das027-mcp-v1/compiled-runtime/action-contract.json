@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "das.generated-declarative-action-runtime-contract.v1",
+  "packageIdentityHash": "cd30d0ef05927915342d446ab0ea50865a730820e415fec011c41594d1442a9c",
+  "workPackHash": "999ad2dd032770837574abf6131690c2ff7c55a1021804dcda31d4874ba3f694",
+  "executionProfileHash": "44711fab9533d3c0af5e17330030d44ddb0ea073722ddbb11931f493253a4b8d",
+  "sourceKind": "mcp-tools-list",
+  "sourceHash": "00071396eca2e1076630960cb45f21b64e82d5d104df2e82735876358211acc7",
+  "baseUrl": null,
+  "credentialAlias": "SOLACE_WARRANTY_ACTION_LEASE",
+  "requiredAuthorityAction": "create-unsubmitted-warranty-response-draft",
+  "stableIdentityFields": [
+    "claimId",
+    "deduplicationKey"
+  ],
+  "conflictKeyFields": [
+    "deduplicationKey"
+  ],
+  "writeOperation": {
+    "family": "mcp-tools-list",
+    "operationName": "draftWarrantyClaimResponse",
+    "serverId": "solace-warranty-actions",
+    "serverVersion": "8.2.0",
+    "toolsListHash": "00071396eca2e1076630960cb45f21b64e82d5d104df2e82735876358211acc7",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "claimId": {
+          "type": "string",
+          "minLength": 3
+        },
+        "deduplicationKey": {
+          "type": "string",
+          "minLength": 12
+        },
+        "productSerial": {
+          "type": "string",
+          "minLength": 4
+        },
+        "decisionCode": {
+          "type": "string",
+          "enum": [
+            "REQUEST_MORE_EVIDENCE",
+            "ELIGIBLE_DRAFT",
+            "INELIGIBLE_DRAFT"
+          ]
+        },
+        "evidenceDigest": {
+          "type": "string",
+          "minLength": 12
+        },
+        "approvedAmountMinor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 500000
+        }
+      },
+      "required": [
+        "claimId",
+        "deduplicationKey",
+        "productSerial",
+        "decisionCode",
+        "evidenceDigest",
+        "approvedAmountMinor"
+      ],
+      "additionalProperties": false
+    },
+    "operationIdentityHash": "1ba37e4e14b9da7a07991ae6880646741d2b115e4fb29bd063570e3c24ea8b28"
+  },
+  "reconciliationOperation": {
+    "family": "mcp-tools-list",
+    "operationName": "lookupDraftWarrantyClaimResponse",
+    "serverId": "solace-warranty-actions",
+    "serverVersion": "8.2.0",
+    "toolsListHash": "00071396eca2e1076630960cb45f21b64e82d5d104df2e82735876358211acc7",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "claimId": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      "required": [
+        "claimId"
+      ],
+      "additionalProperties": false
+    },
+    "operationIdentityHash": "c08ce1e5ab2a093063ff05c4aa3dfc5b99ffb0bcd184ea41a8949393cf945046"
+  },
+  "reconciliationBindings": [
+    {
+      "from": "claimId",
+      "to": "claimId"
+    }
+  ],
+  "maximumRequestsPerMinute": 60,
+  "timeoutMs": 2000,
+  "automaticRetries": 0,
+  "actionResponseMayProveOutcome": false,
+  "customerExecutionAuthorized": false,
+  "activationAuthorized": false,
+  "contractHash": "39bf461d4be201e52450de64afce25a198f5aa96d4bda22582ef1ec1c76054ba"
+}

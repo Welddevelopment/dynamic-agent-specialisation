@@ -1,0 +1,1242 @@
+{
+  "schemaVersion": "das.candidate-scale-v7-prefix-40-live-plan.v1",
+  "extensionId": "candidate-scale-v7-exact-prefix-40-extension-v1",
+  "preregistrationHash": "c9bccc5e039d8e4cfca87f9edeefa69b213dc993924394a4254aadf08312ed81",
+  "baseV7PlanHash": "be1e5db937be4252883cb1506675e43885166789ce6821e024d0e03f555c1875",
+  "baseV7ProtocolCoreHash": "250103e2b780be0965954a2d076f22ac06e2c966c16af0e1002b4b750c9559fd",
+  "casePackHash": "5654dd8099e5531fa1a1ad367f0dbebd3046196a6541d900265f2af88147f0a3",
+  "casePackReceiptHash": "8a67da310d06649e5b05d2b752894a9b69162a9371a8237f0554f1b361489389",
+  "pricingHash": "7c2ba51feaa8ad023ec6ffd272e3bc1d88d52a9981d0d11a06e554667bbafd84",
+  "portfolioIntegrityHash": "2f5d61392cf9f49779b25a6403a9cc987d8921fdc3525c2bda388eef819e08a2",
+  "generationCheckpointHash": "fa071b0660c29980e00f1d28ac0d4a9d1d21ebe44f7dc02eb63b49f49c03fa9a",
+  "singleWriterGenerationReceiptHash": "18d0b5d568c00c65f3ff3bda1c8bb979fb4dd9accd1ec53e9b65413d56cb5182",
+  "baseStructuralFreezeHash": "4b588c786562530a89cf21e485822fe3944a331a15f74eda207247b3986bcc75",
+  "first40CandidateIds": [
+    "csops-b1-triage-ledger",
+    "csops-b1-sla-risk-router",
+    "csops-b1-billing-proof-gate",
+    "csops-b1-incident-correlator",
+    "csops-b1-duplicate-graph",
+    "csops-b1-policy-decision-tree",
+    "csops-b1-two-pass-closer",
+    "csops-b1-conservative-handoff",
+    "csops-b1-customer-journey",
+    "csops-b1-verification-backward",
+    "selective-sla-intake-cell",
+    "selective-billing-audit-cell",
+    "selective-incident-liaison",
+    "selective-duplicate-canonizer",
+    "selective-self-service-publisher",
+    "selective-security-handoff-cell",
+    "selective-closeout-auditor",
+    "selective-account-history-cell",
+    "selective-exception-router",
+    "selective-product-symptom-cell",
+    "commercial-support-v1:support-operations:batch3-candidate-01",
+    "commercial-support-v1:support-operations:batch3-candidate-02",
+    "commercial-support-v1:support-operations:batch3-candidate-03",
+    "commercial-support-v1:support-operations:batch3-candidate-04",
+    "commercial-support-v1:support-operations:batch3-candidate-05",
+    "commercial-support-v1:support-operations:batch3-candidate-06",
+    "commercial-support-v1:support-operations:batch3-candidate-07",
+    "commercial-support-v1:support-operations:batch3-candidate-08",
+    "commercial-support-v1:support-operations:batch3-candidate-09",
+    "commercial-support-v1:support-operations:batch3-candidate-10",
+    "batch4-candidate-01",
+    "batch4-candidate-02",
+    "batch4-candidate-03",
+    "batch4-candidate-04",
+    "batch4-candidate-05",
+    "batch4-candidate-06",
+    "batch4-candidate-07",
+    "batch4-candidate-08",
+    "batch4-candidate-09",
+    "batch4-candidate-10"
+  ],
+  "first40CandidateHashes": [
+    {
+      "id": "csops-b1-triage-ledger",
+      "configurationHash": "0b2ed1798c9707fad9c41224ab5857baaa57880793cd35e311b0003ec31bb140"
+    },
+    {
+      "id": "csops-b1-sla-risk-router",
+      "configurationHash": "e2580ecdc4cdc4bf84f7dc4e990a0615bf47f8395c340645870c714de7f89754"
+    },
+    {
+      "id": "csops-b1-billing-proof-gate",
+      "configurationHash": "57e88a70270783d2901f88670c11451a4f4afa8439b11420a16f1e3dc30c5a31"
+    },
+    {
+      "id": "csops-b1-incident-correlator",
+      "configurationHash": "7be6e46a14caacf0ca5d5d697592fc843867bcaac82a3ace3be1539180317c99"
+    },
+    {
+      "id": "csops-b1-duplicate-graph",
+      "configurationHash": "d97671d92532a30dfa9ee8c5bf6cff7c1d8dc958adb6370d4268e7f4087e5f76"
+    },
+    {
+      "id": "csops-b1-policy-decision-tree",
+      "configurationHash": "e5650ca1f3337553751ae595419fb27b1b2a0c41cb9513c5b0b7ac837cd48e83"
+    },
+    {
+      "id": "csops-b1-two-pass-closer",
+      "configurationHash": "f79d59d857f1df2b131c04c36f37ff11d854cda19a1483aee971fc9c7ffc6eea"
+    },
+    {
+      "id": "csops-b1-conservative-handoff",
+      "configurationHash": "73bdf0f543dfd9ef939a71e92c006d59060953070c6997aaa1f578b521a54503"
+    },
+    {
+      "id": "csops-b1-customer-journey",
+      "configurationHash": "f7a4b5b841207265b9d39ab9291a3e63ae4bfea333cba7380467380c7987d78e"
+    },
+    {
+      "id": "csops-b1-verification-backward",
+      "configurationHash": "78504a878c994a3e5645552e00f9b79d9e8abd92b5fd782a43aebf29d85fbd27"
+    },
+    {
+      "id": "selective-sla-intake-cell",
+      "configurationHash": "ec1a52e12210842f510ad00dd2aa50b4caa09af3976c9ced38b85b58c8d262b7"
+    },
+    {
+      "id": "selective-billing-audit-cell",
+      "configurationHash": "28c1c918582d3bcf89686b4f12e911d949aa465895f4fb39e404c7251c1de32e"
+    },
+    {
+      "id": "selective-incident-liaison",
+      "configurationHash": "b3daae0067f41d06bb654ed293ed1de5b90fcc5e300451cdd22fcce4a26d2803"
+    },
+    {
+      "id": "selective-duplicate-canonizer",
+      "configurationHash": "05b7d0939cb855a6478eff84b8ae0480b464ce9a4aec14baec1300a28469e5c9"
+    },
+    {
+      "id": "selective-self-service-publisher",
+      "configurationHash": "d5fd59eea298cd9393d4119e848924c75566914e83df1630878cac00dbd478be"
+    },
+    {
+      "id": "selective-security-handoff-cell",
+      "configurationHash": "6955ed1ccc2ab97acae5c304a09fbe6da7e41478cc8104a980b7a658171ba55a"
+    },
+    {
+      "id": "selective-closeout-auditor",
+      "configurationHash": "745c4e8fb4999d6534e8baabb6cb376f4b5486bb6ae053bda66dfb4f81bdcd07"
+    },
+    {
+      "id": "selective-account-history-cell",
+      "configurationHash": "4b6f2f3508154fd118f15d871703e102cb4d884f90b2e448915cd24254330fc2"
+    },
+    {
+      "id": "selective-exception-router",
+      "configurationHash": "ad04a0819269db75de40affd8528ef6e6aab85f56564703957e5031696f493e3"
+    },
+    {
+      "id": "selective-product-symptom-cell",
+      "configurationHash": "20c0a1e9d0d79442fae85bd61b438589742e815c90b7c9cdf6e6cd5837aadb96"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-01",
+      "configurationHash": "26cc2ed190bc2a48d84437c34b8575ecbe80a9465b55dbdb1e2874d11ad460aa"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-02",
+      "configurationHash": "9c8a5b1f0e979add5ed5a7325d431b56917b0977a6549862f584baaa801d6905"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-03",
+      "configurationHash": "a19b379e55ce9016ee107681f24876eae685dfab82996ce746dbcd4d5f1761da"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-04",
+      "configurationHash": "a5ee6562b8362f19f13b6909d530b68bb9fe5a753c08b29f030686fd22f21164"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-05",
+      "configurationHash": "6b09bfac3b55381c0fa2a2e25207be961b766b22ba0f9cff1b35e61dd575373f"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-06",
+      "configurationHash": "6e3052a05a49660fce7add62b033371265688d69c7b4e4c52401bf744b914f76"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-07",
+      "configurationHash": "33543e1342008233ec2001a02410429e923f37ab1a27a105ff481a649b1d1fc8"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-08",
+      "configurationHash": "f754b34d035c1b6ec654c456347c156dffe3d26ad351f38cad14a2855fa26e6e"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-09",
+      "configurationHash": "c46f990da379c512e22ed4325ae60c748941f1e85364962a057dce042435fae3"
+    },
+    {
+      "id": "commercial-support-v1:support-operations:batch3-candidate-10",
+      "configurationHash": "de1771e06bf61c74a0256be9ca2e9982c88fe4ce3a4a264b7d9e985bdb3d7954"
+    },
+    {
+      "id": "batch4-candidate-01",
+      "configurationHash": "12e98f43fcb0b23291457450e752a5738daea3580e6ad3ccedc73a71ee334254"
+    },
+    {
+      "id": "batch4-candidate-02",
+      "configurationHash": "d65f498d627a7df884ef72c6739a3d70f3c8771949ae1c089d24bc5d165880cb"
+    },
+    {
+      "id": "batch4-candidate-03",
+      "configurationHash": "9205ecf65c13e9ca0c0aeeb6a76a98f62591325a98142a3be0726a32bb14759e"
+    },
+    {
+      "id": "batch4-candidate-04",
+      "configurationHash": "c984473e7c01483bb2f7765783f8451f2ae76bc6c6f9e1f37a587cee43544e3d"
+    },
+    {
+      "id": "batch4-candidate-05",
+      "configurationHash": "20f83fa6df458dad843cf293125e8da02987defd6bcfdc2acc881762c52934d5"
+    },
+    {
+      "id": "batch4-candidate-06",
+      "configurationHash": "5039939f006e165a6e510c316f25642cc340327828a5d71879dc66b54a46888c"
+    },
+    {
+      "id": "batch4-candidate-07",
+      "configurationHash": "a806e61c276f52040caca8926fe9216da7066d44edc5e4b6a243fcc6faccab40"
+    },
+    {
+      "id": "batch4-candidate-08",
+      "configurationHash": "d090ca909a6159e185a245a5bfa7cd94aa30ef5e7c2fac1af8d95b5d2dacce62"
+    },
+    {
+      "id": "batch4-candidate-09",
+      "configurationHash": "15807a90a1aa68f1738f8fc4aee3a3f92f58d66002826c90bf043bf00d4c66f9"
+    },
+    {
+      "id": "batch4-candidate-10",
+      "configurationHash": "f47a206b0215364debc4fea19704db79326b831df02a11317213a7ced2ad8d87"
+    }
+  ],
+  "first40StructuralFreeze": {
+    "schemaVersion": "das.candidate-scale-paired-structural-selection.v1",
+    "portfolioCount": 40,
+    "firstFiveCandidateIds": [
+      "csops-b1-triage-ledger",
+      "csops-b1-sla-risk-router",
+      "csops-b1-billing-proof-gate",
+      "csops-b1-incident-correlator",
+      "csops-b1-duplicate-graph"
+    ],
+    "exactUniqueCount": 40,
+    "exactDuplicates": [],
+    "diversity": {
+      "candidateCount": 40,
+      "exactUniqueDesigns": 40,
+      "exactDuplicatePackages": 0,
+      "exactDuplicateGroups": [],
+      "architectureSignatureCount": 40,
+      "effectiveUniqueArchitectureCount": 39.99999999999997,
+      "meaningfulDistanceThreshold": 0.12,
+      "meaningfulUniqueDesignCount": 40,
+      "meaningfulRepresentatives": [
+        "selective-exception-router",
+        "batch4-candidate-06",
+        "csops-b1-billing-proof-gate",
+        "batch4-candidate-05",
+        "csops-b1-sla-risk-router",
+        "batch4-candidate-04",
+        "commercial-support-v1:support-operations:batch3-candidate-04",
+        "csops-b1-policy-decision-tree",
+        "commercial-support-v1:support-operations:batch3-candidate-01",
+        "batch4-candidate-08",
+        "commercial-support-v1:support-operations:batch3-candidate-07",
+        "selective-sla-intake-cell",
+        "selective-self-service-publisher",
+        "batch4-candidate-03",
+        "csops-b1-two-pass-closer",
+        "csops-b1-duplicate-graph",
+        "csops-b1-verification-backward",
+        "commercial-support-v1:support-operations:batch3-candidate-08",
+        "csops-b1-triage-ledger",
+        "commercial-support-v1:support-operations:batch3-candidate-06",
+        "csops-b1-customer-journey",
+        "commercial-support-v1:support-operations:batch3-candidate-10",
+        "csops-b1-conservative-handoff",
+        "batch4-candidate-01",
+        "commercial-support-v1:support-operations:batch3-candidate-02",
+        "csops-b1-incident-correlator",
+        "batch4-candidate-10",
+        "selective-incident-liaison",
+        "selective-billing-audit-cell",
+        "selective-account-history-cell",
+        "batch4-candidate-02",
+        "selective-product-symptom-cell",
+        "commercial-support-v1:support-operations:batch3-candidate-05",
+        "selective-duplicate-canonizer",
+        "commercial-support-v1:support-operations:batch3-candidate-03",
+        "batch4-candidate-09",
+        "selective-closeout-auditor",
+        "selective-security-handoff-cell",
+        "batch4-candidate-07",
+        "commercial-support-v1:support-operations:batch3-candidate-09"
+      ],
+      "meaningfulAssignments": [
+        {
+          "candidateId": "selective-exception-router",
+          "representativeId": "selective-exception-router",
+          "nearestDistance": null
+        },
+        {
+          "candidateId": "batch4-candidate-06",
+          "representativeId": "batch4-candidate-06",
+          "nearestDistance": 0.5880896487673084
+        },
+        {
+          "candidateId": "csops-b1-billing-proof-gate",
+          "representativeId": "csops-b1-billing-proof-gate",
+          "nearestDistance": 0.5910135024549918
+        },
+        {
+          "candidateId": "batch4-candidate-05",
+          "representativeId": "batch4-candidate-05",
+          "nearestDistance": 0.5403604515050168
+        },
+        {
+          "candidateId": "csops-b1-sla-risk-router",
+          "representativeId": "csops-b1-sla-risk-router",
+          "nearestDistance": 0.36587500000000006
+        },
+        {
+          "candidateId": "batch4-candidate-04",
+          "representativeId": "batch4-candidate-04",
+          "nearestDistance": 0.48301669693824606
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-04",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-04",
+          "nearestDistance": 0.35751169980812847
+        },
+        {
+          "candidateId": "csops-b1-policy-decision-tree",
+          "representativeId": "csops-b1-policy-decision-tree",
+          "nearestDistance": 0.34665000000000007
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-01",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-01",
+          "nearestDistance": 0.3496885964912281
+        },
+        {
+          "candidateId": "batch4-candidate-08",
+          "representativeId": "batch4-candidate-08",
+          "nearestDistance": 0.45990486246965384
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-07",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-07",
+          "nearestDistance": 0.3498038447181785
+        },
+        {
+          "candidateId": "selective-sla-intake-cell",
+          "representativeId": "selective-sla-intake-cell",
+          "nearestDistance": 0.4485138859141858
+        },
+        {
+          "candidateId": "selective-self-service-publisher",
+          "representativeId": "selective-self-service-publisher",
+          "nearestDistance": 0.45244794584500464
+        },
+        {
+          "candidateId": "batch4-candidate-03",
+          "representativeId": "batch4-candidate-03",
+          "nearestDistance": 0.41129141185611773
+        },
+        {
+          "candidateId": "csops-b1-two-pass-closer",
+          "representativeId": "csops-b1-two-pass-closer",
+          "nearestDistance": 0.36013831138516017
+        },
+        {
+          "candidateId": "csops-b1-duplicate-graph",
+          "representativeId": "csops-b1-duplicate-graph",
+          "nearestDistance": 0.34927940630797777
+        },
+        {
+          "candidateId": "csops-b1-verification-backward",
+          "representativeId": "csops-b1-verification-backward",
+          "nearestDistance": 0.34642241379310346
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-08",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-08",
+          "nearestDistance": 0.34810209366232375
+        },
+        {
+          "candidateId": "csops-b1-triage-ledger",
+          "representativeId": "csops-b1-triage-ledger",
+          "nearestDistance": 0.3546250000000001
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-06",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-06",
+          "nearestDistance": 0.3504864829652791
+        },
+        {
+          "candidateId": "csops-b1-customer-journey",
+          "representativeId": "csops-b1-customer-journey",
+          "nearestDistance": 0.35138897385984436
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-10",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-10",
+          "nearestDistance": 0.3485190702739883
+        },
+        {
+          "candidateId": "csops-b1-conservative-handoff",
+          "representativeId": "csops-b1-conservative-handoff",
+          "nearestDistance": 0.3551078947368421
+        },
+        {
+          "candidateId": "batch4-candidate-01",
+          "representativeId": "batch4-candidate-01",
+          "nearestDistance": 0.40720213626952756
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-02",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-02",
+          "nearestDistance": 0.3450099068322982
+        },
+        {
+          "candidateId": "csops-b1-incident-correlator",
+          "representativeId": "csops-b1-incident-correlator",
+          "nearestDistance": 0.34724048408488073
+        },
+        {
+          "candidateId": "batch4-candidate-10",
+          "representativeId": "batch4-candidate-10",
+          "nearestDistance": 0.44003846153846154
+        },
+        {
+          "candidateId": "selective-incident-liaison",
+          "representativeId": "selective-incident-liaison",
+          "nearestDistance": 0.4459104417088289
+        },
+        {
+          "candidateId": "selective-billing-audit-cell",
+          "representativeId": "selective-billing-audit-cell",
+          "nearestDistance": 0.5166538461538461
+        },
+        {
+          "candidateId": "selective-account-history-cell",
+          "representativeId": "selective-account-history-cell",
+          "nearestDistance": 0.42896929824561403
+        },
+        {
+          "candidateId": "batch4-candidate-02",
+          "representativeId": "batch4-candidate-02",
+          "nearestDistance": 0.40508363933088537
+        },
+        {
+          "candidateId": "selective-product-symptom-cell",
+          "representativeId": "selective-product-symptom-cell",
+          "nearestDistance": 0.4382357105260331
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-05",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-05",
+          "nearestDistance": 0.3452333333333334
+        },
+        {
+          "candidateId": "selective-duplicate-canonizer",
+          "representativeId": "selective-duplicate-canonizer",
+          "nearestDistance": 0.4172256844604671
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-03",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-03",
+          "nearestDistance": 0.3436454248366014
+        },
+        {
+          "candidateId": "batch4-candidate-09",
+          "representativeId": "batch4-candidate-09",
+          "nearestDistance": 0.41401906158357776
+        },
+        {
+          "candidateId": "selective-closeout-auditor",
+          "representativeId": "selective-closeout-auditor",
+          "nearestDistance": 0.46035515627670165
+        },
+        {
+          "candidateId": "selective-security-handoff-cell",
+          "representativeId": "selective-security-handoff-cell",
+          "nearestDistance": 0.5285436507936507
+        },
+        {
+          "candidateId": "batch4-candidate-07",
+          "representativeId": "batch4-candidate-07",
+          "nearestDistance": 0.40577192982456145
+        },
+        {
+          "candidateId": "commercial-support-v1:support-operations:batch3-candidate-09",
+          "representativeId": "commercial-support-v1:support-operations:batch3-candidate-09",
+          "nearestDistance": 0.3423900000000001
+        }
+      ],
+      "pairwiseDistance": {
+        "comparisons": 780,
+        "mean": 0.5141779157459286,
+        "p10": 0.3587729813664597,
+        "p50": 0.5441538461538462,
+        "p90": 0.6175993966817497
+      }
+    },
+    "structuralRows": [
+      {
+        "candidateId": "csops-b1-triage-ledger",
+        "acceptedPosition": 1,
+        "candidateFingerprint": "0b2ed1798c9707fad9c41224ab5857baaa57880793cd35e311b0003ec31bb140",
+        "designFingerprint": "65756904e1c7c7bcdd60ea3c89182ca2dd4d5d88fdd126e4e0b093a00ec06ffc",
+        "score": 0.7783846153846153,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7692307692307692,
+          "inverseRiskTolerance": 0.88,
+          "inverseCostLimit": 0,
+          "inverseLatencyLimit": 0
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-sla-risk-router",
+        "acceptedPosition": 2,
+        "candidateFingerprint": "e2580ecdc4cdc4bf84f7dc4e990a0615bf47f8395c340645870c714de7f89754",
+        "designFingerprint": "0ed353beb3d142cd8e48715e7671d73085356a0cb3f7c9d22a5d9cfb01f348b1",
+        "score": 0.7973846153846154,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7692307692307692,
+          "inverseRiskTolerance": 0.92,
+          "inverseCostLimit": 0.09999999999999998,
+          "inverseLatencyLimit": 0.19999999999999996
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-billing-proof-gate",
+        "acceptedPosition": 3,
+        "candidateFingerprint": "57e88a70270783d2901f88670c11451a4f4afa8439b11420a16f1e3dc30c5a31",
+        "designFingerprint": "0772b5cc0989be71fa200df281b044496313356c32bb63311fcb717703325555",
+        "score": 0.7881874999999999,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.78125,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0,
+          "inverseLatencyLimit": 0
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-incident-correlator",
+        "acceptedPosition": 4,
+        "candidateFingerprint": "7be6e46a14caacf0ca5d5d697592fc843867bcaac82a3ace3be1539180317c99",
+        "designFingerprint": "9a423e76fc214d6497c170370e6ca7db3027e6355b6423a1ec793d583c5fc105",
+        "score": 0.7921874999999999,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.78125,
+          "inverseRiskTolerance": 0.9,
+          "inverseCostLimit": 0.09999999999999998,
+          "inverseLatencyLimit": 0.09999999999999998
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-duplicate-graph",
+        "acceptedPosition": 5,
+        "candidateFingerprint": "d97671d92532a30dfa9ee8c5bf6cff7c1d8dc958adb6370d4268e7f4087e5f76",
+        "designFingerprint": "36d4e5fb15bfe7462e01a905f724e800fa3e35ff9a69b6c9cbebb1290e500b6e",
+        "score": 0.7963636363636363,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7424242424242425,
+          "inverseRiskTolerance": 0.9,
+          "inverseCostLimit": 0.19999999999999996,
+          "inverseLatencyLimit": 0.19999999999999996
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-policy-decision-tree",
+        "acceptedPosition": 6,
+        "candidateFingerprint": "e5650ca1f3337553751ae595419fb27b1b2a0c41cb9513c5b0b7ac837cd48e83",
+        "designFingerprint": "1b20cce535edda601a0e883c53036a9c61cf0e2d071a72066f0ef2d3e7680df9",
+        "score": 0.7899999999999999,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.8,
+          "inverseRiskTolerance": 0.95,
+          "inverseCostLimit": 0,
+          "inverseLatencyLimit": 0
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-two-pass-closer",
+        "acceptedPosition": 7,
+        "candidateFingerprint": "f79d59d857f1df2b131c04c36f37ff11d854cda19a1483aee971fc9c7ffc6eea",
+        "designFingerprint": "360c5b25843c64a57c9c3dd5d62a51161f20751219e8ade789bc772842349a79",
+        "score": 0.797111111111111,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7185185185185184,
+          "inverseRiskTolerance": 0.89,
+          "inverseCostLimit": 0.24,
+          "inverseLatencyLimit": 0.2666666666666667
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-conservative-handoff",
+        "acceptedPosition": 8,
+        "candidateFingerprint": "73bdf0f543dfd9ef939a71e92c006d59060953070c6997aaa1f578b521a54503",
+        "designFingerprint": "790f18ad128f8c94fbffb0b78d2481a1780c7d525c3064575f6917f86c5d9be0",
+        "score": 0.8022845528455284,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.8130081300813008,
+          "inverseRiskTolerance": 0.98,
+          "inverseCostLimit": 0.07999999999999996,
+          "inverseLatencyLimit": 0.06666666666666665
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-customer-journey",
+        "acceptedPosition": 9,
+        "candidateFingerprint": "f7a4b5b841207265b9d39ab9291a3e63ae4bfea333cba7380467380c7987d78e",
+        "designFingerprint": "7726977628de0d13d70ebaceb3e6dc990c4e3f6a3fdcc731b842342742b8cb75",
+        "score": 0.7877769028871391,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7874015748031495,
+          "inverseRiskTolerance": 0.91,
+          "inverseCostLimit": 0.040000000000000036,
+          "inverseLatencyLimit": 0.033333333333333326
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "csops-b1-verification-backward",
+        "acceptedPosition": 10,
+        "candidateFingerprint": "78504a878c994a3e5645552e00f9b79d9e8abd92b5fd782a43aebf29d85fbd27",
+        "designFingerprint": "56c10cc3e37e69ce36d61a666cf4d271aa69de974040f7bef9a20acf278b2dfa",
+        "score": 0.7843846153846153,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7692307692307692,
+          "inverseRiskTolerance": 0.94,
+          "inverseCostLimit": 0,
+          "inverseLatencyLimit": 0
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-sla-intake-cell",
+        "acceptedPosition": 11,
+        "candidateFingerprint": "ec1a52e12210842f510ad00dd2aa50b4caa09af3976c9ced38b85b58c8d262b7",
+        "designFingerprint": "2bbb524be7485fe941b4e074a8dd14794c7f316c554ec7b24f75bb22cbe288e2",
+        "score": 0.5540546265328874,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.5384615384615384,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7246376811594204,
+          "inverseRiskTolerance": 0.9299999999999999,
+          "inverseCostLimit": 0.16000000000000003,
+          "inverseLatencyLimit": 0.23333333333333328
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-billing-audit-cell",
+        "acceptedPosition": 12,
+        "candidateFingerprint": "28c1c918582d3bcf89686b4f12e911d949aa465895f4fb39e404c7251c1de32e",
+        "designFingerprint": "a2b9e7a3eed2fc77ef9d57456787472dd5cbe553ea6c35ab62f0de4e9fa6a6e7",
+        "score": 0.6554615384615384,
+        "components": {
+          "contextCoverage": 0.75,
+          "toolCoverage": 0.6923076923076923,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.8,
+          "inverseRiskTolerance": 0.97,
+          "inverseCostLimit": 0,
+          "inverseLatencyLimit": 0
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-incident-liaison",
+        "acceptedPosition": 13,
+        "candidateFingerprint": "b3daae0067f41d06bb654ed293ed1de5b90fcc5e300451cdd22fcce4a26d2803",
+        "designFingerprint": "9f1f787e63ab9c3c6bebd77b2f73f5f4cf35e9784f7bd14ca0fd5c7ce0219839",
+        "score": 0.6209312354312354,
+        "components": {
+          "contextCoverage": 0.625,
+          "toolCoverage": 0.6923076923076923,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7575757575757577,
+          "inverseRiskTolerance": 0.92,
+          "inverseCostLimit": 0.12,
+          "inverseLatencyLimit": 0.16666666666666663
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-duplicate-canonizer",
+        "acceptedPosition": 14,
+        "candidateFingerprint": "05b7d0939cb855a6478eff84b8ae0480b464ce9a4aec14baec1300a28469e5c9",
+        "designFingerprint": "b8cb0d5a9c66d5f52c08e5217616876db9e0a8336a0e180adf2ba7698ddef32c",
+        "score": 0.5722447887843571,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.6153846153846154,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.712230215827338,
+          "inverseRiskTolerance": 0.92,
+          "inverseCostLimit": 0.24,
+          "inverseLatencyLimit": 0.2666666666666667
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-self-service-publisher",
+        "acceptedPosition": 15,
+        "candidateFingerprint": "d5fd59eea298cd9393d4119e848924c75566914e83df1630878cac00dbd478be",
+        "designFingerprint": "309218e26d336e19afd78cd8138b9d6adfb3e7a425bf5d113c74b1e90c9bfb7b",
+        "score": 0.5614049513704685,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.5384615384615384,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.6758620689655173,
+          "inverseRiskTolerance": 0.91,
+          "inverseCostLimit": 0.36,
+          "inverseLatencyLimit": 0.3666666666666667
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-security-handoff-cell",
+        "acceptedPosition": 16,
+        "candidateFingerprint": "6955ed1ccc2ab97acae5c304a09fbe6da7e41478cc8104a980b7a658171ba55a",
+        "designFingerprint": "f96343aa577e264f27786721aae5b8d56a0ff4d91bcbe20ba1955a3dcfea92c2",
+        "score": 0.552110576923077,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.38461538461538464,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7812500000000001,
+          "inverseRiskTolerance": 0.99,
+          "inverseCostLimit": 0.28,
+          "inverseLatencyLimit": 0.4
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-closeout-auditor",
+        "acceptedPosition": 17,
+        "candidateFingerprint": "745c4e8fb4999d6534e8baabb6cb376f4b5486bb6ae053bda66dfb4f81bdcd07",
+        "designFingerprint": "f379164e02eabf7b41b5f88c3107514eb640258ebe8aaf7556b32a733d65129a",
+        "score": 0.5202140850017563,
+        "components": {
+          "contextCoverage": 0.375,
+          "toolCoverage": 0.46153846153846156,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.684931506849315,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0.4,
+          "inverseLatencyLimit": 0.43333333333333335
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-account-history-cell",
+        "acceptedPosition": 18,
+        "candidateFingerprint": "4b6f2f3508154fd118f15d871703e102cb4d884f90b2e448915cd24254330fc2",
+        "designFingerprint": "a2f62ab011dd51259aeffcf65ee1d6fad9dd6dfec37372cf1726f0ce4368d848",
+        "score": 0.6204051080153442,
+        "components": {
+          "contextCoverage": 0.625,
+          "toolCoverage": 0.6923076923076923,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7874015748031495,
+          "inverseRiskTolerance": 0.95,
+          "inverseCostLimit": 0.06000000000000005,
+          "inverseLatencyLimit": 0.06666666666666665
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-exception-router",
+        "acceptedPosition": 19,
+        "candidateFingerprint": "ad04a0819269db75de40affd8528ef6e6aab85f56564703957e5031696f493e3",
+        "designFingerprint": "056c359a8468208357b8782896dd43d825213de7815804a83d59d8a2c69805eb",
+        "score": 0.568430402930403,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.5384615384615384,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7071428571428572,
+          "inverseRiskTolerance": 0.97,
+          "inverseCostLimit": 0.31999999999999995,
+          "inverseLatencyLimit": 0.33333333333333337
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "selective-product-symptom-cell",
+        "acceptedPosition": 20,
+        "candidateFingerprint": "20c0a1e9d0d79442fae85bd61b438589742e815c90b7c9cdf6e6cd5837aadb96",
+        "designFingerprint": "aea074bd301889aee0667a328728a86b308a70ed070934e110d8720502bea54d",
+        "score": 0.6249018369690011,
+        "components": {
+          "contextCoverage": 0.625,
+          "toolCoverage": 0.6923076923076923,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.746268656716418,
+          "inverseRiskTolerance": 0.9299999999999999,
+          "inverseCostLimit": 0.18000000000000005,
+          "inverseLatencyLimit": 0.19999999999999996
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-01",
+        "acceptedPosition": 21,
+        "candidateFingerprint": "26cc2ed190bc2a48d84437c34b8575ecbe80a9465b55dbdb1e2874d11ad460aa",
+        "designFingerprint": "1cef0a664d322c4eb0f72beb6e6494fb907b33fafeafe246334728dd31ccdd8a",
+        "score": 0.7917790697674418,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7751937984496123,
+          "inverseRiskTolerance": 0.95,
+          "inverseCostLimit": 0.06000000000000005,
+          "inverseLatencyLimit": 0.050000000000000044
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-02",
+        "acceptedPosition": 22,
+        "candidateFingerprint": "9c8a5b1f0e979add5ed5a7325d431b56917b0977a6549862f584baaa801d6905",
+        "designFingerprint": "88ddba022f6b629e1a8b55cf3c061cb8dd220eb1b04f7e4542835100bbbba2ad",
+        "score": 0.7974457364341084,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7751937984496123,
+          "inverseRiskTolerance": 0.97,
+          "inverseCostLimit": 0.09999999999999998,
+          "inverseLatencyLimit": 0.08333333333333337
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-03",
+        "acceptedPosition": 23,
+        "candidateFingerprint": "a19b379e55ce9016ee107681f24876eae685dfab82996ce746dbcd4d5f1761da",
+        "designFingerprint": "ddfb2f1d1044d117448be30eb863b1e5ad47ce41619263887aef78c7d42793d4",
+        "score": 0.7928809523809524,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7936507936507936,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0.040000000000000036,
+          "inverseLatencyLimit": 0.01666666666666672
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-04",
+        "acceptedPosition": 24,
+        "candidateFingerprint": "a5ee6562b8362f19f13b6909d530b68bb9fe5a753c08b29f030686fd22f21164",
+        "designFingerprint": "161add816180d8bbfa92127ae032581a0ba8e23d7c395ba2758e2d9b05497828",
+        "score": 0.7983578431372549,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7279411764705883,
+          "inverseRiskTolerance": 0.95,
+          "inverseCostLimit": 0.19999999999999996,
+          "inverseLatencyLimit": 0.18333333333333335
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-05",
+        "acceptedPosition": 25,
+        "candidateFingerprint": "6b09bfac3b55381c0fa2a2e25207be961b766b22ba0f9cff1b35e61dd575373f",
+        "designFingerprint": "b56e2d514a80e64d7714e13fe374e23bc9493930e41caa7c277ea0c5ae0abb81",
+        "score": 0.7937142857142857,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7936507936507936,
+          "inverseRiskTolerance": 0.97,
+          "inverseCostLimit": 0.020000000000000018,
+          "inverseLatencyLimit": 0.033333333333333326
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-06",
+        "acceptedPosition": 26,
+        "candidateFingerprint": "6e3052a05a49660fce7add62b033371265688d69c7b4e4c52401bf744b914f76",
+        "designFingerprint": "6e5de3e22063e65d3ec7523dffa682425aa4d0f67a928b64b710a46d4bd98327",
+        "score": 0.7916911764705882,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7279411764705883,
+          "inverseRiskTolerance": 0.9299999999999999,
+          "inverseCostLimit": 0.14,
+          "inverseLatencyLimit": 0.15000000000000002
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-07",
+        "acceptedPosition": 27,
+        "candidateFingerprint": "33543e1342008233ec2001a02410429e923f37ab1a27a105ff481a649b1d1fc8",
+        "designFingerprint": "2b16e6b5bc6f361a67d1c31c9c46b12165dd39ca993bae43197633bd8bdf76a4",
+        "score": 0.7975208333333332,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.78125,
+          "inverseRiskTolerance": 0.98,
+          "inverseCostLimit": 0.07999999999999996,
+          "inverseLatencyLimit": 0.06666666666666665
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-08",
+        "acceptedPosition": 28,
+        "candidateFingerprint": "f754b34d035c1b6ec654c456347c156dffe3d26ad351f38cad14a2855fa26e6e",
+        "designFingerprint": "589d1d3adf88cce0d87385e27e6ab2d88548063bf3375f8ed32435094da1b116",
+        "score": 0.7961524822695035,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7021276595744681,
+          "inverseRiskTolerance": 0.94,
+          "inverseCostLimit": 0.21999999999999997,
+          "inverseLatencyLimit": 0.21666666666666667
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-09",
+        "acceptedPosition": 29,
+        "candidateFingerprint": "c46f990da379c512e22ed4325ae60c748941f1e85364962a057dce042435fae3",
+        "designFingerprint": "fd24ba1f3e138ed721840b6da5a0e5b1a14db7464ffa2c29a6f35e64c4bb20d6",
+        "score": 0.7909999999999999,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.8,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0,
+          "inverseLatencyLimit": 0
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-10",
+        "acceptedPosition": 30,
+        "candidateFingerprint": "de1771e06bf61c74a0256be9ca2e9982c88fe4ce3a4a264b7d9e985bdb3d7954",
+        "designFingerprint": "7774644fd45ec8ce36ffe40dc426d9061ecd89170d5dffd94c3bc14a98278ec8",
+        "score": 0.7954486215538846,
+        "components": {
+          "contextCoverage": 1,
+          "toolCoverage": 1,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7518796992481203,
+          "inverseRiskTolerance": 0.95,
+          "inverseCostLimit": 0.12,
+          "inverseLatencyLimit": 0.1333333333333333
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-01",
+        "acceptedPosition": 31,
+        "candidateFingerprint": "12e98f43fcb0b23291457450e752a5738daea3580e6ad3ccedc73a71ee334254",
+        "designFingerprint": "838adfc077a759d27ddf29dfb75a51f95956bc4acc4ddf8f23eb69be05e1481c",
+        "score": 0.5581059767570559,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.5384615384615384,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7194244604316548,
+          "inverseRiskTolerance": 0.95,
+          "inverseCostLimit": 0.19999999999999996,
+          "inverseLatencyLimit": 0.25
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-02",
+        "acceptedPosition": 32,
+        "candidateFingerprint": "d65f498d627a7df884ef72c6739a3d70f3c8771949ae1c089d24bc5d165880cb",
+        "designFingerprint": "a3a516a472141c5aba84f312c20bbd0dae45ef346ba5e7dc9efbf854342f6215",
+        "score": 0.6562384413486776,
+        "components": {
+          "contextCoverage": 0.75,
+          "toolCoverage": 0.6923076923076923,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7874015748031495,
+          "inverseRiskTolerance": 0.97,
+          "inverseCostLimit": 0.020000000000000018,
+          "inverseLatencyLimit": 0.033333333333333326
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-03",
+        "acceptedPosition": 33,
+        "candidateFingerprint": "9205ecf65c13e9ca0c0aeeb6a76a98f62591325a98142a3be0726a32bb14759e",
+        "designFingerprint": "35b0ef9f14363806690627e0a8ab56fec9b9fffdcb2f94422567612ead2979e4",
+        "score": 0.5619046364594309,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.5384615384615384,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.678082191780822,
+          "inverseRiskTolerance": 0.94,
+          "inverseCostLimit": 0.31999999999999995,
+          "inverseLatencyLimit": 0.35
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-04",
+        "acceptedPosition": 34,
+        "candidateFingerprint": "c984473e7c01483bb2f7765783f8451f2ae76bc6c6f9e1f37a587cee43544e3d",
+        "designFingerprint": "1427f33301855ebf818b3e1370d90926851dc7876b2f24f747c369b499e35b99",
+        "score": 0.5738505549177192,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.6153846153846154,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.746268656716418,
+          "inverseRiskTolerance": 0.94,
+          "inverseCostLimit": 0.18000000000000005,
+          "inverseLatencyLimit": 0.21666666666666667
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-05",
+        "acceptedPosition": 35,
+        "candidateFingerprint": "20f83fa6df458dad843cf293125e8da02987defd6bcfdc2acc881762c52934d5",
+        "designFingerprint": "0d99ec61d3f36a3027455d5031592ed1a3dd5ac05574728aa80c2c7cc9a51e8e",
+        "score": 0.5786838882510525,
+        "components": {
+          "contextCoverage": 0.5,
+          "toolCoverage": 0.6153846153846154,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.746268656716418,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0.21999999999999997,
+          "inverseLatencyLimit": 0.23333333333333328
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-06",
+        "acceptedPosition": 36,
+        "candidateFingerprint": "5039939f006e165a6e510c316f25642cc340327828a5d71879dc66b54a46888c",
+        "designFingerprint": "06ad300996c0efc12aa9a174ae06002a828b654719142238de128039920494c5",
+        "score": 0.6048879598662208,
+        "components": {
+          "contextCoverage": 0.625,
+          "toolCoverage": 0.5384615384615384,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7246376811594204,
+          "inverseRiskTolerance": 0.97,
+          "inverseCostLimit": 0.28,
+          "inverseLatencyLimit": 0.30000000000000004
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-07",
+        "acceptedPosition": 37,
+        "candidateFingerprint": "a806e61c276f52040caca8926fe9216da7066d44edc5e4b6a243fcc6faccab40",
+        "designFingerprint": "fbad90c1370a234bb2665d41f976e605688849a71d14554e6be21583de97b7d8",
+        "score": 0.6177406082289802,
+        "components": {
+          "contextCoverage": 0.625,
+          "toolCoverage": 0.6923076923076923,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7751937984496123,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0.040000000000000036,
+          "inverseLatencyLimit": 0.050000000000000044
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-08",
+        "acceptedPosition": 38,
+        "candidateFingerprint": "d090ca909a6159e185a245a5bfa7cd94aa30ef5e7c2fac1af8d95b5d2dacce62",
+        "designFingerprint": "28fa11376dbb0f6874129362833fa33b95bc22f274cb4cfc6648355bd5e63b30",
+        "score": 0.6156059085841694,
+        "components": {
+          "contextCoverage": 0.625,
+          "toolCoverage": 0.6153846153846154,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7246376811594204,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0.24,
+          "inverseLatencyLimit": 0.2666666666666667
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-09",
+        "acceptedPosition": 39,
+        "candidateFingerprint": "15807a90a1aa68f1738f8fc4aee3a3f92f58d66002826c90bf043bf00d4c66f9",
+        "designFingerprint": "df8e15997acc6bc32aa14462665055f64aa5392bffaca8485d9c9243919369e5",
+        "score": 0.6260685036356678,
+        "components": {
+          "contextCoverage": 0.625,
+          "toolCoverage": 0.6923076923076923,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.746268656716418,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0.16000000000000003,
+          "inverseLatencyLimit": 0.18333333333333335
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      },
+      {
+        "candidateId": "batch4-candidate-10",
+        "acceptedPosition": 40,
+        "candidateFingerprint": "f47a206b0215364debc4fea19704db79326b831df02a11317213a7ced2ad8d87",
+        "designFingerprint": "9bcc2e3db6e03a76a107c03f023922fc6055e29f76fc44c7bf205791ac69d55e",
+        "score": 0.696,
+        "components": {
+          "contextCoverage": 0.75,
+          "toolCoverage": 0.9230769230769231,
+          "emphasisCoverage": 0.5,
+          "normalizedQualityWeight": 0.7692307692307692,
+          "inverseRiskTolerance": 0.96,
+          "inverseCostLimit": 0,
+          "inverseLatencyLimit": 0
+        },
+        "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+      }
+    ],
+    "globalFinalistIds": [
+      "csops-b1-conservative-handoff",
+      "commercial-support-v1:support-operations:batch3-candidate-04",
+      "commercial-support-v1:support-operations:batch3-candidate-07",
+      "commercial-support-v1:support-operations:batch3-candidate-02",
+      "csops-b1-sla-risk-router",
+      "csops-b1-two-pass-closer",
+      "csops-b1-duplicate-graph"
+    ],
+    "protectedFirstFiveFinalistIds": [
+      "csops-b1-sla-risk-router",
+      "csops-b1-duplicate-graph",
+      "csops-b1-incident-correlator",
+      "csops-b1-billing-proof-gate",
+      "csops-b1-triage-ledger"
+    ],
+    "evaluationUnionIds": [
+      "csops-b1-triage-ledger",
+      "csops-b1-sla-risk-router",
+      "csops-b1-billing-proof-gate",
+      "csops-b1-incident-correlator",
+      "csops-b1-duplicate-graph",
+      "csops-b1-two-pass-closer",
+      "csops-b1-conservative-handoff",
+      "commercial-support-v1:support-operations:batch3-candidate-02",
+      "commercial-support-v1:support-operations:batch3-candidate-04",
+      "commercial-support-v1:support-operations:batch3-candidate-07"
+    ],
+    "selectionRulesHash": "478e3a20adf61dd2e36bfc3bb114ce51b1a9c9fa8d8cd33c1a4875c9595aa177",
+    "evidenceBoundary": "Zero-call structural validation, exact deduplication, diversity analysis and preregistered prior selection only. It contains no task-performance evidence.",
+    "freezeHash": "724da058836f816f6836d370b073bfc1780ff830d3f9ea32b0f675702b99e901"
+  },
+  "finalistIds": [
+    "csops-b1-conservative-handoff",
+    "commercial-support-v1:support-operations:batch3-candidate-04",
+    "commercial-support-v1:support-operations:batch3-candidate-07",
+    "commercial-support-v1:support-operations:batch3-candidate-02",
+    "csops-b1-sla-risk-router",
+    "csops-b1-two-pass-closer",
+    "csops-b1-duplicate-graph"
+  ],
+  "observationContract": {
+    "sourcePlanHash": "be1e5db937be4252883cb1506675e43885166789ce6821e024d0e03f555c1875",
+    "phases": [
+      "selection",
+      "confirmation"
+    ],
+    "exactReuseRule": "Reuse a V7 observation only when plan, participant/configuration, case, phase, model, verifier and receipt bindings match exactly. Evaluate only missing 40-arm finalist/case pairs. Shared observations may not be rerun or altered.",
+    "selectionRule": "Within each arm, select among candidates that complete every selection case with zero unsafe attempts and zero incorrect side effects; rank by mean outcome score, then lower model cost, lower elapsed time, accepted position and candidate id.",
+    "confirmationRule": "Freeze each arm winner before releasing holdout/repeat. Run each distinct winner and all four baselines on the same untouched confirmation cases. No fallback winner is selected after confirmation."
+  },
+  "budget": {
+    "durableCampaignId": "candidate-scale-paired-5-vs-150-v7-single-writer-recovery",
+    "v7HardCampaignCeilingUsd": 20.41,
+    "maximumCombinedPriorAndV7SpendUsd": 22.9946465,
+    "sharedUserCeilingUsd": 24,
+    "reservedBufferUsd": 1,
+    "rule": "Use the same V7 durable budget and evidence ledger. The 40 arm has no independent allowance and may not exceed any V7 or shared ceiling."
+  },
+  "launchStatus": "not-authorized",
+  "requiredLaterGates": [
+    "exact extension-plan hash approval",
+    "valid exclusive writer lock",
+    "no unresolved provider outcomes",
+    "verified remaining V7 durable budget",
+    "no conflicting completed extension result"
+  ],
+  "claimBoundary": "One preregistered nested 40-prefix arm inside one adaptive fictional support-role search. It cannot isolate candidate count from adaptive prior-memory effects or establish a universal optimal portfolio size, customer value, cross-role generality or production reliability.",
+  "extensionPlanHash": "791538b06146afb3b50f4bbf2aa52a6271890b569650abcd8d47e9c1e426382d"
+}

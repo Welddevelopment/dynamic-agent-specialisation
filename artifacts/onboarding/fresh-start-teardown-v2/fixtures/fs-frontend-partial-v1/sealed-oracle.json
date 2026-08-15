@@ -1,0 +1,10 @@
+{
+  "expectedBoundary": "design-and-scaffold-only",
+  "expectedRole": "frontend-implementation",
+  "expectedRejectedOperations": [
+    "mergePullRequest",
+    "triggerDeployment"
+  ],
+  "activationReady": false,
+  "executableEnvironmentReady": false
+}

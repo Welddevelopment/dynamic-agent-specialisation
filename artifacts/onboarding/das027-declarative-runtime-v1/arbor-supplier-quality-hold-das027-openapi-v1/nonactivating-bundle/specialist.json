@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "das.nonactivating-specialist.v1",
+  "tenantId": "fictional-arbor-supplier-quality-hold-das027-openapi-v1-tenant",
+  "roleId": "arbor-supplier-quality-hold-das027-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistId": "synthetic-provisional-arbor-supplier-quality-hold-das027-openapi-v1",
+  "status": "synthetic-provisional",
+  "candidateFingerprint": "ec9130e0561de4051d72c5897c497a55d1f77601223832aef8fe9e50498e3852",
+  "selectionEvidence": null,
+  "bindingPackageReceiptHash": "d7852922493523f5b204eed8c3a06e73877dc6e8ee0fd5958244c68c17fd51ea",
+  "active": false,
+  "activationAuthorized": false,
+  "customerExecutionAuthorized": false,
+  "specialistHash": "db901a9370d432563c74bc26d481c9e8e275e028e7f643a5556205d9fc0efa9f"
+}

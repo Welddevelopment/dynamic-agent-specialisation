@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "das.fresh-start-onboarding-teardown-result.v1",
+  "fixtureId": "fs-revops-mixed-v1",
+  "expectedBoundary": "full-lifecycle-role-but-unbound",
+  "highestHonestStage": "comparison-design-complete-binding-required",
+  "roleAvailability": {
+    "discovery": true,
+    "businessIntake": true,
+    "bindingScaffold": true,
+    "systemImportReview": true,
+    "bindingDescriptorReview": true,
+    "bindingAcceptance": true,
+    "comparisonPlanning": true,
+    "comparisonResult": true,
+    "controlledActivation": true,
+    "blockers": []
+  },
+  "executionReady": false,
+  "activationReady": false,
+  "readinessBlockers": [
+    "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs.",
+    "Compile and locally test through the generic OpenAPI runtime.",
+    "Every assigned lead reaches the correct routing state.",
+    "Consent and existing ownership remain authoritative.",
+    "No email or unrelated write occurs.",
+    "Directly compare protected and unrelated external state before and after execution.",
+    "Reject any executed or attempted action outside the saved authority and approval boundary.",
+    "Run every mandatory binding acceptance case after implementation.",
+    "Compile and locally test through the generic MCP runtime.",
+    "Bind the exact idempotency header or required input field.",
+    "Bind an approved read operation plus mappings and assertions for unknown outcomes.",
+    "Independently read external state for crm:assign-lead-owner; do not accept the candidate or adapter response as proof.",
+    "Independently read external state for crm:create-follow-up-task; do not accept the candidate or adapter response as proof.",
+    "Independently read external state for crm:set-lead-disposition; do not accept the candidate or adapter response as proof."
+  ],
+  "ledgerMeasurements": {
+    "activeMachineMs": 19.135,
+    "productApiActions": 6,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "authorInterventions": 0,
+    "exactMappingProposalHits": 7,
+    "exactAuthorityProposalHits": 7,
+    "approvedOperations": 7,
+    "rejectedOperations": 1,
+    "silentAuthorOnlyInjections": 0,
+    "meaningfulSetupUnits": 140,
+    "usedToAdvanceUnits": 91,
+    "traceableUsedToAdvanceUnits": 91,
+    "provenanceCoverage": 1,
+    "preciseUnknownOrBlockedUnits": 19,
+    "automationStatusCounts": {
+      "blocked-unknown": 4,
+      "generated": 50,
+      "requires-engineering": 20,
+      "requires-independent-proof": 15,
+      "requires-ordinary-language-decision": 51
+    },
+    "executableEvidenceRows": 0,
+    "authorityGrantedRows": 0,
+    "credentialValueRows": 0
+  },
+  "generatedMappingAccuracy": 1,
+  "generatedAuthorityAccuracy": 1,
+  "manualBaselineTargetChoices": 7,
+  "generatedExactTargetProposals": 7,
+  "roleOwnerConfirmationsStillRequired": 7,
+  "rejectedSourceOperations": 1,
+  "restart": {
+    "freshProcessReloadPassed": true,
+    "recordHash": "ed8f15ccec2eb1f78849f21b86b9dc91007354e36c06e704898b1e634945c1a4",
+    "receiptHash": "8a0f0f223cd83ebf5e8009cbb22d32589b05ff8443eef02ac590077dcf76d0b0"
+  },
+  "repeatability": {
+    "exactFreshReplayPassed": true,
+    "semanticHash": "482e13d3f3f12339950e2fdced0361b21fd7b152cf102e711eeabb4f3b149591"
+  },
+  "sourceKinds": [
+    "openapi",
+    "mcp-tools-list"
+  ],
+  "importResults": [
+    {
+      "sourceKind": "openapi",
+      "confirmationHash": "2471ba8e55d76559ffa14cfe44676fa8ed5a760551e1e036af37498590298a1d",
+      "workPlanHash": "f5fb852eaa091173bc7756dc1fd0a1b535c0e867193cb79dfa54ab58a3113d96",
+      "assistanceHash": "31ca2401cf006fdebafcf29d88721658fd1dd28378638664cc8d18ab0c782fb8",
+      "residualTotals": {
+        "automatable-generic-compiler-or-source-schema-work": 6,
+        "complete": 16,
+        "independent-verifier-or-proof-work": 6
+      }
+    },
+    {
+      "sourceKind": "mcp-tools-list",
+      "confirmationHash": "52d67498e6534a60a14d3ff68032b17c2b0d3e291685cd759f956cff6d141912",
+      "workPlanHash": "e67a5f3c8a11ab94c651d04fe5e9ae077be1451de6151cdfa6e9999c67412452",
+      "assistanceHash": "e7d015b8c86a5000e29481215a78243b01ffebe66c87510636d2e33f8ac5e9c7",
+      "residualTotals": {
+        "automatable-generic-compiler-or-source-schema-work": 8,
+        "complete": 24,
+        "customer-specific-write-safety-implementation": 6,
+        "independent-verifier-or-proof-work": 9
+      }
+    }
+  ],
+  "ledgerHash": "5fcbe992084b376740a3b41228237e9e8a6725f65bf74639c3a293423db8da1b",
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "boundary": "Machine-observed onboarding provenance and residual-work ledger. Active machine time is not human setup time. Customer confirmations are not DAS automation, and generated scaffolds are not executable evidence.",
+  "resultHash": "f96a40d9ab5b67061419d991208fe98b1964502e0376f2dae0d2564e82b11e98"
+}

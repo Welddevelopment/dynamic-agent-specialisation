@@ -1,0 +1,9 @@
+{
+  "expectedBoundary": "full-lifecycle-role-but-unbound",
+  "expectedRole": "procurement-coverage",
+  "expectedRejectedOperations": [
+    "submitPurchase"
+  ],
+  "activationReady": false,
+  "executableEnvironmentReady": false
+}

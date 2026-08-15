@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "das.das028-disposable-business-state.v1",
+  "records": [
+    {
+      "shipmentId": "shipment-841",
+      "exceptionKey": "temp-exception:shipment-841:v1",
+      "facilityCode": "ICN-4",
+      "sensorState": "EXCURSION_CONFIRMED",
+      "sensorDigest": "sha256:sensor-841",
+      "temperatureCelsius": 11.6,
+      "exceptionId": "89befb767ad6-result-1",
+      "status": "draft"
+    }
+  ],
+  "businessWrites": 1,
+  "observerWrites": 0,
+  "unrelatedStateDigest": "protected-northstar-shipment-state:v1:mutated",
+  "additionalChanges": [
+    {
+      "kind": "protected-unrelated-state",
+      "id": "protected-89befb767ad6"
+    }
+  ],
+  "requests": [
+    {
+      "role": "action",
+      "operationIdentityHash": "4ff878844f49ffab244e5963b59d9ccad46264173f42e7a0d2956a1beb3d6d56",
+      "requestBodyHash": "98a1ea3b2895c5fecd303a7fb51d6987c93c20da9854ea0b16e260272593a7f4",
+      "recordedAtRevision": 1
+    }
+  ],
+  "revision": 1
+}

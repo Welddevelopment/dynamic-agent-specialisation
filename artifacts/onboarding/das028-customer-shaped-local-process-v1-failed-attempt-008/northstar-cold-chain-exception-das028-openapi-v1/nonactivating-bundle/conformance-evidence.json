@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "das.nonactivating-conformance-evidence.v1",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f",
+  "packageReceiptHash": "72377a627e8bfa8c32bfdcefae2aeb73f81f6c87e56ccd70b4e53341289abc8e",
+  "conformanceReceiptHash": "5158899c1b6f39b9701aafbc3e47014c6fe65166d17e997a18e32f23d7728ec8",
+  "sourceArtifact": {
+    "path": "das028:northstar-cold-chain-exception-das028-openapi-v1",
+    "sha256": "34cd7b1f94d17df94c5e9f60ae7cf8e04d98fbdae9594441e5b60d0885851a3f",
+    "summaryHash": "b15c3bc1145c4c8b14405ad01f35654fd15e10ad2d606a0f9c4788e10814e530",
+    "resultHash": "fc4cc90bc46a8ef2092c92f893c5bd3322007ac4ebe59ccf1e4e521cca347699"
+  },
+  "scope": "fictional-disposable-local",
+  "observedAt": "2026-08-14T22:00:00.000Z",
+  "validUntil": "2026-08-15T22:00:00.000Z",
+  "controlsPassed": 10,
+  "controlsRequired": 10,
+  "observerWrites": 0,
+  "lostResponseReplays": 0,
+  "customerEnvironmentConformance": false,
+  "customerAcceptance": false,
+  "activationReady": false,
+  "evidenceHash": "35bb29292584df5c48bf8db59d786c40a606e73a9c427c487c66e27bd1ee900d"
+}

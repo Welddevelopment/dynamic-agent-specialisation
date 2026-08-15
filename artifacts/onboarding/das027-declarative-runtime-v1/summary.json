@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "das.das027-summary.v1",
+  "resultHash": "c7cef310ee620b812d6bc95f464d2bc1d53e6bd3ae6a27ca87150a6686c3c453",
+  "verdict": "passed-bounded-declarative-disposable-runtime-compilation",
+  "aggregate": {
+    "packages": 2,
+    "sourceFamilies": [
+      "openapi",
+      "mcp-tools-list"
+    ],
+    "generatedExecutableFiles": 4,
+    "generatedExecutableLines": 322,
+    "generatedExecutableOperations": 10,
+    "manualPackageSpecificExecutableFiles": 0,
+    "manualPackageSpecificExecutableLines": 0,
+    "controlsPassed": 20,
+    "controlsRequired": 20,
+    "freshProcessLostResponseRecoveries": 2,
+    "lostResponseReplays": 0,
+    "observerWrites": 0,
+    "unexpectedIncorrectEffects": 0,
+    "attacksPassed": 16,
+    "attacksRequired": 16,
+    "nonactivatingBundles": 2,
+    "customerExecutableOperations": 0,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "activeMachineMs": 164.28
+  },
+  "evidenceBoundary": "Private fictional deterministic local evidence only. This does not establish arbitrary source support, self-serve onboarding, customer execution, production reliability, deployment, demand or human setup time.",
+  "summaryHash": "80ecd5c116a0179081705864a7c3245cf4a097bff4425ec45f2eec480848fabc"
+}

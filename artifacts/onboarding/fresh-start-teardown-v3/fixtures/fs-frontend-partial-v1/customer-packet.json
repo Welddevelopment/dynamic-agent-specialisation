@@ -1,0 +1,296 @@
+{
+  "description": "Turn approved Figma designs into responsive React using existing components; open a draft PR; never merge or deploy.",
+  "intake": {
+    "sessionId": "fresh-frontend-control-v1",
+    "company": {
+      "name": "Fictional Pixel Studio",
+      "industry": "Software",
+      "operatingContext": "Approved design work occurs in a disposable repository fixture."
+    },
+    "role": {
+      "templateId": "frontend-implementation",
+      "title": "Frontend implementation specialist",
+      "outcome": "Turn approved designs into responsive React source and open a draft pull request.",
+      "completionRule": "Complete only after independent repository and responsive checks pass, without merge or deploy.",
+      "escalationOwner": "Frontend lead"
+    },
+    "systems": [
+      {
+        "id": "repository",
+        "name": "React repository",
+        "kind": "customer-local repository API",
+        "access": "customer-local-test",
+        "adapterStatus": "missing",
+        "contextSources": [
+          "approved-design",
+          "repository-policy",
+          "component-library"
+        ],
+        "tools": [
+          {
+            "name": "read-repository",
+            "mode": "read"
+          },
+          {
+            "name": "open-draft-pr",
+            "mode": "write"
+          }
+        ]
+      }
+    ],
+    "knowledgeSources": [
+      {
+        "name": "Repository policy",
+        "kind": "policy",
+        "contentHash": "10563e8c1c289b6c13e55fab1e29f778ae3e03f1d22c8c32126c8f8c27c5cf94",
+        "current": true
+      }
+    ],
+    "policies": [
+      {
+        "rule": "Use approved designs and existing components.",
+        "kind": "required-check",
+        "confirmed": true
+      },
+      {
+        "rule": "A missing approved component requires review.",
+        "kind": "approval",
+        "confirmed": true
+      },
+      {
+        "rule": "Never merge, deploy or edit protected files.",
+        "kind": "forbidden",
+        "confirmed": true
+      }
+    ],
+    "authority": {
+      "allowedActions": [
+        "open-draft-pr"
+      ],
+      "approvalActions": [
+        "propose-component"
+      ],
+      "forbiddenActions": [
+        "merge",
+        "deploy",
+        "write-protected-file"
+      ]
+    },
+    "examples": [
+      {
+        "situation": "frontend representative situation 1",
+        "expected": "frontend externally observable bounded result 1",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "frontend representative situation 2",
+        "expected": "frontend externally observable bounded result 2",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "frontend representative situation 3",
+        "expected": "frontend externally observable bounded result 3",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "frontend representative situation 4",
+        "expected": "frontend externally observable bounded result 4",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "frontend representative situation 5",
+        "expected": "frontend externally observable bounded result 5",
+        "source": "customer-authored",
+        "redacted": true
+      }
+    ],
+    "success": {
+      "measures": [
+        "The assigned page matches approved responsive requirements.",
+        "Only assigned source files change.",
+        "A draft PR exists without merge or deployment."
+      ],
+      "verifierMode": "independent-external-state",
+      "verifierStatus": "declared",
+      "owner": "Customer-local repository observer"
+    },
+    "priorities": {
+      "quality": 1,
+      "cost": 0.2,
+      "speed": 0.2,
+      "maximumCostPerTaskUsd": 0.5,
+      "maximumLatencyMs": 300000,
+      "goal": "Preserve visual and repository correctness."
+    },
+    "currentAgent": {
+      "mode": "none"
+    },
+    "dataHandling": {
+      "localOnly": true,
+      "productionDataIncluded": false,
+      "redactionConfirmed": true
+    }
+  },
+  "imports": [
+    {
+      "id": "repo-openapi",
+      "systemId": "repository",
+      "source": {
+        "kind": "openapi",
+        "document": {
+          "openapi": "3.1.0",
+          "info": {
+            "title": "Fictional Repository",
+            "version": "1.0.0"
+          },
+          "servers": [
+            {
+              "url": "https://fictional-repository.example.test"
+            }
+          ],
+          "paths": {
+            "/files": {
+              "get": {
+                "operationId": "readRepository",
+                "summary": "Read repository source files",
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/draft-pr": {
+              "post": {
+                "operationId": "openDraftPullRequest",
+                "summary": "Open a draft pull request",
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "requestId"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "requestId": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/merge": {
+              "post": {
+                "operationId": "mergePullRequest",
+                "summary": "Merge a pull request",
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "requestId"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "requestId": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/deploy": {
+              "post": {
+                "operationId": "triggerDeployment",
+                "summary": "Deploy the repository",
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "requestId"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "requestId": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "provenance": {
+        "acquisition": "customer-upload",
+        "label": "Approved fictional repository schema"
+      },
+      "mappings": [
+        [
+          "readRepository",
+          "read-repository",
+          "read",
+          null
+        ],
+        [
+          "openDraftPullRequest",
+          "open-draft-pr",
+          "write",
+          "open-draft-pr"
+        ]
+      ],
+      "rejected": [
+        "mergePullRequest",
+        "triggerDeployment"
+      ]
+    }
+  ]
+}

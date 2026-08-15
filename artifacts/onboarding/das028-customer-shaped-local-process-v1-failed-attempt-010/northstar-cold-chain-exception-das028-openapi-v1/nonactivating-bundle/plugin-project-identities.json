@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "das.nonactivating-plugin-project-identities.v1",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f",
+  "sourceHash": "b2ade987dba58e69869e7ae7f3c034ffe865beae7bc91b0a8f89fdf948681c7e",
+  "draftHash": "61d8796c75b369a897302687ea04d25d92f11a4446bf2461f6b82d490cd65c78",
+  "packageReceiptHash": "72377a627e8bfa8c32bfdcefae2aeb73f81f6c87e56ccd70b4e53341289abc8e",
+  "planHash": "9ec00542fe4456972c14f3a414ff877a45c588e4108309fc3a97d1521a6071d5",
+  "scaffoldReceiptHash": "942d541a9c443e5685c17ae660b7f1c17dfd2981072ed274b7812047f51b519d",
+  "generatedProjectHash": "fd0804c4edabe779250c920096d16004fc7a6138351c7a1c2a8ad817b6cd3b58",
+  "action": {
+    "projectIdentity": "d642aa4de1864e0015b0e9b70d40fed7a85d2ce5f18ba2323d004a43bfb373d5",
+    "authenticationIdentity": "a7f0b3502633374818f06b76aa13929962d7985fc410c6aedd7cca216af55e8d"
+  },
+  "observer": {
+    "projectIdentity": "1195d5699ca497728fd4d3d37a496625dd9d4f344d797390e3243c0c4fdba587",
+    "authenticationIdentity": "1648c293ba40d512943cee24e0ea6a06b93ffc7046a4775ea63221eec0664e37",
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "executable": false,
+  "qualified": false,
+  "customerEnvironmentAccepted": false,
+  "activationReady": false,
+  "identityHash": "a8a67f67378376ff29927c32fc20792ebdda1250ba55c7a732712ce143565ac1"
+}

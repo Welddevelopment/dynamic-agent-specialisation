@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-rollback-plan.v1",
+  "tenantId": "fictional-arbor-supplier-quality-hold-das027-openapi-v1-tenant",
+  "roleId": "arbor-supplier-quality-hold-das027-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "db901a9370d432563c74bc26d481c9e8e275e028e7f643a5556205d9fc0efa9f",
+  "previousBundleHash": null,
+  "fallback": "leave-current-specialist-unchanged",
+  "allowedFromStatuses": [
+    "packaged-nonactivating",
+    "preview-loaded-nonactivating"
+  ],
+  "targetStatus": "rolled-back-nonactivating",
+  "activationAuthorized": false,
+  "executionAuthorized": false,
+  "rollbackPlanHash": "40dc690636364465313a0382b7f490cbdbe62582c33f816353886d63831ba55a"
+}

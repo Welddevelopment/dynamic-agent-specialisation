@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "das.candidate-scale-paired-case-preflight-receipt.v1",
+  "protocolCoreHash": "093e5572255d8f98e251ae37abf07fe26fbdf61ae0015eeb3ac3a4bca7c4aa37",
+  "casePackHash": "a22ec3f2f0ee0494e00a81c1668c92679b39ef58d820ff519bec74183a959e20",
+  "caseCounts": {
+    "development": 2,
+    "validation": 2,
+    "adversarial": 2,
+    "holdout": 2,
+    "repeat": 3
+  },
+  "caseHashes": {
+    "development": [
+      {
+        "id": "private-dev-incident-howto-5674b7babf",
+        "hash": "d0ef1aca6d60bcad96324804f295874b28007420ebafc6b1e88cba449ae6240a"
+      },
+      {
+        "id": "private-dev-credit-merge-99b782616a",
+        "hash": "80dd9c2ee3f96980bcb857e98a0039761ab53f6ce331de0f7174ddde688f3e62"
+      }
+    ],
+    "validation": [
+      {
+        "id": "private-val-approval-8923b9a9a2",
+        "hash": "a492b8254f6ddf940f04baed6b05e4a42aa7f67394fdfc4e5878e43b96d0e0fb"
+      },
+      {
+        "id": "private-val-missing-incident-c459aff7a2",
+        "hash": "1346dde95740e0412081ac8e31364f3b91a9e1ae7fde1a26038227d836b06d97"
+      }
+    ],
+    "adversarial": [
+      {
+        "id": "private-adv-unverified-credit-2970554499",
+        "hash": "0e0b326987cd8a9d80cf6e5d711e592633fb7af54eee5d3c13e1f41c611c63f5"
+      },
+      {
+        "id": "private-adv-lost-response-d326ae8a9e",
+        "hash": "2dcfd084f2aaffd2a95d685cfe47775fabb1db9ed6818eed1591c07be4099071"
+      }
+    ],
+    "holdout": [
+      {
+        "id": "private-holdout-security-howto-6564d1a78b",
+        "hash": "3bbea307dfb13cf50c0bdd073c9198f22e90469133c9b67085533d819b80ef35"
+      },
+      {
+        "id": "private-holdout-incident-credit-19aa55b419",
+        "hash": "a2cdf9bd59106383c09fef2a14e02acaf2a8242cc4f3ea7c56d2a5e1383ad35e"
+      }
+    ],
+    "repeat": [
+      {
+        "id": "private-repeat-bug-merge-943c28a85e",
+        "hash": "df583124be922d7b7370d2c5f90afb5220d533b6758a31fcba36cb63b23f8f16"
+      },
+      {
+        "id": "private-repeat-noop-f3b761c3ae",
+        "hash": "762dfebdd6268bb49cf4dbdcf7259f0c4984e160422cd48841eacb22d94753d2"
+      },
+      {
+        "id": "private-repeat-evidence-mix-5afcad729f",
+        "hash": "0420c74a0041ffb2ae97454406cdaa8b87b4a0d9904569648ce05b8a1be60a9b"
+      }
+    ]
+  },
+  "roleHash": "1928ac2707918e08b6de1c4904c2107ff1c19bd9600c89ebdca111639bed9940",
+  "verifierHash": "a58ab074cacd3645cf488e5684734f09b1da0d796daa8abb4f88208b6b0153ea",
+  "baselineHashesHash": "5a66de151c458e0d8463f5b04a6cd82e5bf12f32fd21afb42ea9fa611b43b28a",
+  "independentReferenceReceipt": {
+    "passed": true,
+    "unsafeAttempts": 0,
+    "incorrectSideEffects": 0,
+    "summary": {
+      "strategyId": "reference-support-outcome-aware",
+      "passed": 11,
+      "total": 11,
+      "successRate": 1,
+      "unsafeAttempts": 0,
+      "incorrectSideEffects": 0,
+      "observationHashes": [
+        "3929ead37945758d92d476de873ece4e102f47f77bf776cebfd4bf6dfb5b7185",
+        "b920d318b0821bd5ca17d8956d90afc24b48bcc2f4d6faf2b2deacd3d6bf918a",
+        "ea494ff0a1df2f21a04b6408465240b0be85d6d6aa4496273ae3ea44ccf5e401",
+        "6440ab0dbab2866efd28185b05a7de1d89d7f455cbd07e900985b060f37e81eb",
+        "dd08b3e9dce98aa280effb9660bd936c5cce093edf6bb378470d93b00f8c8462",
+        "f327970a11ceb02bb949ff2f158e2a5979bc7b675dd4b4a66e78ac1faecbf23d",
+        "5a078eaa25712b54a182d18da4d6792eaac933f7ca4b07eae0030a5d98631885",
+        "676f8e5970d9651ec7281a709fc1d3b69f6e9d5886babf25897e8343775f8684",
+        "55b19efa27ec379320b2b7a01e5d4372a6918be79fd88a99c58d3a1b2f7620ef",
+        "e6bef8e60c6f30c74e5ddf9dad4a5d8a86b9e24626af90696eabbedc06afe06d",
+        "3cb3272233c4b08e80bf7022ec0c5102c7e9a96710fc18d010ef66215a38075c"
+      ]
+    }
+  },
+  "shortcutControlReceipt": {
+    "allShortcutsRejected": true,
+    "summaries": [
+      {
+        "strategyId": "support-do-nothing",
+        "passed": 1,
+        "total": 11,
+        "successRate": 0.09090909090909091,
+        "unsafeAttempts": 0,
+        "incorrectSideEffects": 0,
+        "observationHashes": [
+          "49d2c064dbdaf33585f9004633d0b5427422c3a320b79990d01cf614d65452e4",
+          "36536cb901e608aa71da91aff640e66bc0a7fb61dcef881ba993a17c67d47a3d",
+          "26855da61c5150427bd6478b341f8f7c21b60e1efce179783a98d8187598050a",
+          "30595fbb0a9ccab9a67491912c64eb1ab19f35157f4f5215aa4d77f196926ebc",
+          "71719e1e07e845253b266d45a3065792c98d5d280ac69f4266f7a7a8ea0627fc",
+          "468683a785ccbf6824965d66c2979d065768fcc2f98926ecd2d012c201a30836",
+          "3a69f96d559df54c310c6f9b04ced1a9643a1c1647af6138ffc7fa1c745b6838",
+          "2377be2d39e4b6c8777bd43947d90f6a6c3b373383d15ef4af78822dee7cc811",
+          "e29ccc84e1185da5c74a5fecc5441a18dc464b52465da969afb5823351760d40",
+          "e6bef8e60c6f30c74e5ddf9dad4a5d8a86b9e24626af90696eabbedc06afe06d",
+          "068ec8f58f6a9927f6e9426daf134f834637a9c5829141d5a05b28cd78585240"
+        ]
+      },
+      {
+        "strategyId": "support-close-everything",
+        "passed": 1,
+        "total": 11,
+        "successRate": 0.09090909090909091,
+        "unsafeAttempts": 0,
+        "incorrectSideEffects": 0,
+        "observationHashes": [
+          "2d33b10c0ffb964c3c53631a976673771cff52519eec0ae0465f51c6eda2e5dd",
+          "b8792b59aa09ff80fb6332f02a01eb3d9af0acf7b4f1f201a6300e56af2a5ac9",
+          "6f0d5fbe91f36ce3bd28a99dedfd15feb6bf22e3f7375c2ab6a4fc4d708111a6",
+          "f780475e9526276647b81932fccf81fce9d9fb085ff453988fbc94cf0a8ee7c6",
+          "dda541dfdbc9398497e211db7fea6cd71917dc66e62d25031f53853dc4d7818f",
+          "6a5c2709d8b5543e559cd2b1957608a4bc9667b009c8e95c8f1797dde8b5bb72",
+          "c23c779c19c9a86256ca81f05906232f4c03a927fd3ebfe0f29e445fe41850cb",
+          "8e0f0e616c802707c3f96cadab30125d357dd54966106c558cc1bbd39ff6b63b",
+          "1fea1b4d7d70aeed12691ad9fe7e2df0aebda0e1b2adeff354d165a415423d68",
+          "e6bef8e60c6f30c74e5ddf9dad4a5d8a86b9e24626af90696eabbedc06afe06d",
+          "69d479b1d673f854d99a67bc1f180f7db2abe154d7c404361ff334ce2563eb16"
+        ]
+      },
+      {
+        "strategyId": "support-escalate-everything",
+        "passed": 1,
+        "total": 11,
+        "successRate": 0.09090909090909091,
+        "unsafeAttempts": 0,
+        "incorrectSideEffects": 0,
+        "observationHashes": [
+          "6238126388f74a410a03cededbcd048a3cd00779ce46493aadd74ac1b1433b6a",
+          "9df3f32fa07e07908e09e29a0c9474bedabc074052621562b06309013eca3b96",
+          "ecd30d8ba52d5eeccf78613ad81ddd596d55debbcdcc3b09b328cc18cdd93734",
+          "89e1808580e1d3567a627a3a1b064eb2425feeafb7a9b91114817fb9ced24a3a",
+          "4be52152cdccfa4e413cde767da6820504251aee4e26c11998639ca06c3907ad",
+          "a6caf0bae543e7475cd3ee53d84bfce8e8af4390d5b6a6f20114b1104ff792fb",
+          "0e13c4b529fa623b949818152496552eedcef9208f7b706d7bbfab4dc2f6492d",
+          "db22d8a56708ad89be802eb0d242c78798e053f8cb8d7c4d7dc84762b9bd07e0",
+          "dd2e038929ed4d1a284afe18905d88885e6e7e769782256f3ee4d50da84a5270",
+          "e6bef8e60c6f30c74e5ddf9dad4a5d8a86b9e24626af90696eabbedc06afe06d",
+          "923f17e9d4f29e3b053e438bad05afc9afb12f4383b8991d6a4587edbbd9f704"
+        ]
+      }
+    ]
+  },
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Fresh private fictional support cases generated after the protocol/baseline freeze and preflighted only with deterministic reference and shortcut controls. No model candidate saw these cases during architecture generation or structural selection.",
+  "receiptHash": "1471f305a3d54d3bc3ce5f28c504fa1bd78979a07135168134a80ec1ac738c32"
+}

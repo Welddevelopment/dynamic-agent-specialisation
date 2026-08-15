@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "das.das004-b2-completion-receipt.v1",
+  "campaignId": "das004-b2-access-offboarding-v2-utc-correction",
+  "planHash": "11f9d80e3d41ed6ebd388e8dc68aaa2da216f818ad2661c293bd19ecd6750ecc",
+  "pairResultHash": "2b69e9b4f70073fdbe83e7b8597cd00d71b9d57cdf625415f991d55e681a9be1",
+  "analysisHash": "5c7d36c3cfec841bd62d7a1b3788dedd8590f12e72e5c0505efdb75ceb03d572",
+  "evidenceRecords": 1369,
+  "evidenceTailHash": "136a0467bdf1b088f2dfcddede2a1a0abe3b56ec474665f8d899f4f6581aefd9",
+  "spendUsd": 0.3618128199999999,
+  "reservedUsd": 0,
+  "settledCalls": 335,
+  "cancelledCalls": 1,
+  "verdict": "das-materially-better-safety",
+  "automaticActivation": false
+}

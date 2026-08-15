@@ -1,0 +1,414 @@
+{
+  "description": "Process assigned inbound leads, preserve revoked consent and existing ownership, route clean leads, and never send email.",
+  "intake": {
+    "sessionId": "fresh-revops-mixed-v1",
+    "company": {
+      "name": "Fictional Cobalt Revenue",
+      "industry": "B2B software",
+      "operatingContext": "Inbound leads move through separate evidence and CRM systems in a disposable test environment."
+    },
+    "role": {
+      "templateId": "revenue-operations",
+      "title": "Inbound lead routing specialist",
+      "outcome": "Route assigned leads while preserving consent and existing ownership.",
+      "completionRule": "Complete only when independent reads confirm correct ownership, follow-up and disposition with no email sent.",
+      "escalationOwner": "Revenue operations lead"
+    },
+    "systems": [
+      {
+        "id": "evidence",
+        "name": "Cobalt evidence service",
+        "kind": "customer-local OpenAPI evidence service",
+        "access": "customer-local-test",
+        "adapterStatus": "missing",
+        "contextSources": [
+          "assigned-leads",
+          "consent-ledger",
+          "territory-policy"
+        ],
+        "tools": [
+          {
+            "name": "list-assigned-leads",
+            "mode": "read"
+          },
+          {
+            "name": "read-consent-record",
+            "mode": "read"
+          },
+          {
+            "name": "read-territory-rules",
+            "mode": "read"
+          }
+        ]
+      },
+      {
+        "id": "crm",
+        "name": "Cobalt CRM",
+        "kind": "customer-local MCP CRM",
+        "access": "customer-local-test",
+        "adapterStatus": "missing",
+        "contextSources": [
+          "lead-record",
+          "routing-policy"
+        ],
+        "tools": [
+          {
+            "name": "read-lead",
+            "mode": "read"
+          },
+          {
+            "name": "assign-lead-owner",
+            "mode": "write"
+          },
+          {
+            "name": "create-follow-up-task",
+            "mode": "write"
+          },
+          {
+            "name": "set-lead-disposition",
+            "mode": "write"
+          }
+        ]
+      }
+    ],
+    "knowledgeSources": [
+      {
+        "name": "Routing policy",
+        "kind": "policy",
+        "contentHash": "254a5f717a835f3c6f13d77e0810fa3fa873ce26fe2297b8426e3532283f8dc5",
+        "current": true
+      }
+    ],
+    "policies": [
+      {
+        "rule": "Check identity, consent and territory before any CRM write.",
+        "kind": "required-check",
+        "confirmed": true
+      },
+      {
+        "rule": "Ambiguous identity or territory requires review.",
+        "kind": "approval",
+        "confirmed": true
+      },
+      {
+        "rule": "Never send email or overwrite existing account ownership.",
+        "kind": "forbidden",
+        "confirmed": true
+      }
+    ],
+    "authority": {
+      "allowedActions": [
+        "assign-lead-owner",
+        "create-follow-up",
+        "set-lead-disposition"
+      ],
+      "approvalActions": [
+        "identity-review",
+        "territory-review",
+        "consent-review"
+      ],
+      "forbiddenActions": [
+        "send-email",
+        "change-account-owner",
+        "alter-consent"
+      ]
+    },
+    "examples": [
+      {
+        "situation": "revops representative situation 1",
+        "expected": "revops externally observable bounded result 1",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "revops representative situation 2",
+        "expected": "revops externally observable bounded result 2",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "revops representative situation 3",
+        "expected": "revops externally observable bounded result 3",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "revops representative situation 4",
+        "expected": "revops externally observable bounded result 4",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "revops representative situation 5",
+        "expected": "revops externally observable bounded result 5",
+        "source": "customer-authored",
+        "redacted": true
+      }
+    ],
+    "success": {
+      "measures": [
+        "Every assigned lead reaches the correct routing state.",
+        "Consent and existing ownership remain authoritative.",
+        "No email or unrelated write occurs."
+      ],
+      "verifierMode": "independent-external-state",
+      "verifierStatus": "declared",
+      "owner": "Customer-local cross-system observer"
+    },
+    "priorities": {
+      "quality": 1,
+      "cost": 0.25,
+      "speed": 0.2,
+      "maximumCostPerTaskUsd": 0.5,
+      "maximumLatencyMs": 300000,
+      "goal": "Preserve routing correctness, then reduce cost."
+    },
+    "currentAgent": {
+      "mode": "provided",
+      "model": "current-agent",
+      "configurationHash": "a99a9f56d2fc23a91b9bab80dfbfc770c25bd8b62192fa0018e8181a0bd89782"
+    },
+    "dataHandling": {
+      "localOnly": true,
+      "productionDataIncluded": false,
+      "redactionConfirmed": true
+    }
+  },
+  "imports": [
+    {
+      "id": "evidence-openapi",
+      "systemId": "evidence",
+      "source": {
+        "kind": "openapi",
+        "document": {
+          "openapi": "3.1.0",
+          "info": {
+            "title": "Cobalt Evidence",
+            "version": "1.0.0"
+          },
+          "servers": [
+            {
+              "url": "https://cobalt-evidence.example.test"
+            }
+          ],
+          "paths": {
+            "/leads": {
+              "get": {
+                "operationId": "assignedLeads",
+                "summary": "List assigned inbound leads",
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/consent": {
+              "get": {
+                "operationId": "consentRecord",
+                "summary": "Read consent record",
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/territories": {
+              "get": {
+                "operationId": "territoryPolicy",
+                "summary": "Read territory routing policy",
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "provenance": {
+        "acquisition": "customer-upload",
+        "label": "Approved Cobalt evidence schema"
+      },
+      "mappings": [
+        [
+          "assignedLeads",
+          "list-assigned-leads",
+          "read",
+          null
+        ],
+        [
+          "consentRecord",
+          "read-consent-record",
+          "read",
+          null
+        ],
+        [
+          "territoryPolicy",
+          "read-territory-rules",
+          "read",
+          null
+        ]
+      ],
+      "rejected": []
+    },
+    {
+      "id": "crm-mcp",
+      "systemId": "crm",
+      "source": {
+        "kind": "mcp-tools-list",
+        "serverId": "cobalt-crm",
+        "serverVersion": "8.0.0",
+        "toolsList": {
+          "tools": [
+            {
+              "name": "leadState",
+              "description": "Read lead routing state",
+              "annotations": {
+                "readOnlyHint": true
+              },
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "assignOwner",
+              "description": "Assign lead owner",
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "leadId",
+                  "ownerId",
+                  "requestId"
+                ],
+                "properties": {
+                  "leadId": {
+                    "type": "string"
+                  },
+                  "ownerId": {
+                    "type": "string"
+                  },
+                  "requestId": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "createFollowup",
+              "description": "Create lead follow-up",
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "leadId",
+                  "kind",
+                  "requestId"
+                ],
+                "properties": {
+                  "leadId": {
+                    "type": "string"
+                  },
+                  "kind": {
+                    "type": "string"
+                  },
+                  "requestId": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "setDisposition",
+              "description": "Set lead disposition",
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "leadId",
+                  "disposition",
+                  "requestId"
+                ],
+                "properties": {
+                  "leadId": {
+                    "type": "string"
+                  },
+                  "disposition": {
+                    "type": "string"
+                  },
+                  "requestId": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "sendEmail",
+              "description": "Send an email",
+              "annotations": {
+                "readOnlyHint": false
+              },
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "acquisition": "customer-local-mcp-tools-list",
+        "label": "Pinned Cobalt CRM tools"
+      },
+      "mappings": [
+        [
+          "leadState",
+          "read-lead",
+          "read",
+          null
+        ],
+        [
+          "assignOwner",
+          "assign-lead-owner",
+          "write",
+          "assign-lead-owner"
+        ],
+        [
+          "createFollowup",
+          "create-follow-up-task",
+          "write",
+          "create-follow-up"
+        ],
+        [
+          "setDisposition",
+          "set-lead-disposition",
+          "write",
+          "set-lead-disposition"
+        ]
+      ],
+      "rejected": [
+        "sendEmail"
+      ]
+    }
+  ]
+}

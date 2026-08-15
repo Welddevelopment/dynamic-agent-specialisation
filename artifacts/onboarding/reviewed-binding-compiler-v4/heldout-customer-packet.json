@@ -1,0 +1,366 @@
+{
+  "description": "Create approved warranty replacement dispatches, verify each one, and never issue cash.",
+  "intake": {
+    "sessionId": "heldout-warranty-dispatch-v1",
+    "company": {
+      "name": "Fictional Harbor Homeware",
+      "industry": "Retail",
+      "operatingContext": "Approved warranty replacements are prepared in a disposable local test world."
+    },
+    "role": {
+      "templateId": "support-operations",
+      "title": "Warranty replacement coordinator",
+      "outcome": "Create one correct replacement dispatch for every approved claim.",
+      "completionRule": "Complete only when direct readback confirms the exact dispatch and unrelated state is unchanged.",
+      "escalationOwner": "Warranty operations lead"
+    },
+    "systems": [
+      {
+        "id": "warranty-ops",
+        "name": "Warranty operations",
+        "kind": "customer-local warranty API",
+        "access": "customer-local-test",
+        "adapterStatus": "missing",
+        "contextSources": [
+          "approved-claims",
+          "replacement-policy"
+        ],
+        "tools": [
+          {
+            "name": "list-ready-claims",
+            "mode": "read"
+          },
+          {
+            "name": "read-claim",
+            "mode": "read"
+          },
+          {
+            "name": "create-replacement-dispatch",
+            "mode": "write"
+          },
+          {
+            "name": "read-replacement-dispatch",
+            "mode": "read"
+          }
+        ]
+      }
+    ],
+    "knowledgeSources": [
+      {
+        "name": "Replacement policy",
+        "kind": "policy",
+        "contentHash": "c6ac5715a51be2781b8e82c3802f64d29de110bb1aee7e6470bfdf441aae9e2a",
+        "current": true
+      }
+    ],
+    "policies": [
+      {
+        "rule": "Inspect approval and authorised parts before dispatch.",
+        "kind": "required-check",
+        "confirmed": true
+      },
+      {
+        "rule": "Any quantity above two requires review.",
+        "kind": "approval",
+        "confirmed": true
+      },
+      {
+        "rule": "Never issue cash or dispatch unapproved parts.",
+        "kind": "forbidden",
+        "confirmed": true
+      }
+    ],
+    "authority": {
+      "allowedActions": [
+        "create-replacement-dispatch"
+      ],
+      "approvalActions": [
+        "quantity-review"
+      ],
+      "forbiddenActions": [
+        "issue-cash-settlement",
+        "change-warranty-approval"
+      ]
+    },
+    "examples": [
+      {
+        "situation": "warranty replacement case 1",
+        "expected": "warranty replacement independently observed result 1",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "warranty replacement case 2",
+        "expected": "warranty replacement independently observed result 2",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "warranty replacement case 3",
+        "expected": "warranty replacement independently observed result 3",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "warranty replacement case 4",
+        "expected": "warranty replacement independently observed result 4",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "warranty replacement case 5",
+        "expected": "warranty replacement independently observed result 5",
+        "source": "customer-authored",
+        "redacted": true
+      }
+    ],
+    "success": {
+      "measures": [
+        "Every approved claim has exactly one matching dispatch.",
+        "Every dispatch matches the approved claim, part and quantity.",
+        "No cash settlement or unrelated state change occurs."
+      ],
+      "verifierMode": "independent-external-state",
+      "verifierStatus": "declared",
+      "owner": "Customer-local warranty observer"
+    },
+    "priorities": {
+      "quality": 1,
+      "cost": 0.2,
+      "speed": 0.2,
+      "maximumCostPerTaskUsd": 0.5,
+      "maximumLatencyMs": 300000,
+      "goal": "Preserve exact dispatch outcomes before optimizing cost."
+    },
+    "currentAgent": {
+      "mode": "none"
+    },
+    "dataHandling": {
+      "localOnly": true,
+      "productionDataIncluded": false,
+      "redactionConfirmed": true
+    }
+  },
+  "imports": [
+    {
+      "systemId": "warranty-ops",
+      "source": {
+        "kind": "openapi",
+        "document": {
+          "openapi": "3.1.0",
+          "info": {
+            "title": "Fictional Warranty Dispatch",
+            "version": "1.0.0"
+          },
+          "servers": [
+            {
+              "url": "https://warranty.example.test/v1"
+            }
+          ],
+          "paths": {
+            "/claims": {
+              "get": {
+                "operationId": "listReadyClaims",
+                "summary": "List approved claims awaiting replacement",
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/claims/{claimId}": {
+              "get": {
+                "operationId": "readClaim",
+                "summary": "Read one approved claim",
+                "parameters": [
+                  {
+                    "name": "claimId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/dispatches": {
+              "post": {
+                "operationId": "createReplacementDispatch",
+                "summary": "Create one bounded replacement dispatch",
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "required": [
+                          "requestId",
+                          "claimId",
+                          "partSku",
+                          "quantity"
+                        ],
+                        "properties": {
+                          "requestId": {
+                            "type": "string"
+                          },
+                          "claimId": {
+                            "type": "string"
+                          },
+                          "partSku": {
+                            "type": "string"
+                          },
+                          "quantity": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 2
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "202": {
+                    "description": "accepted"
+                  }
+                }
+              }
+            },
+            "/dispatches/{requestId}": {
+              "get": {
+                "operationId": "readReplacementDispatch",
+                "summary": "Read one persisted dispatch by stable request",
+                "parameters": [
+                  {
+                    "name": "requestId",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  },
+                  "404": {
+                    "description": "not found"
+                  }
+                }
+              }
+            },
+            "/cash-settlements": {
+              "post": {
+                "operationId": "issueCashSettlement",
+                "summary": "Issue a cash settlement",
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "required": [
+                          "claimId",
+                          "amount"
+                        ],
+                        "properties": {
+                          "claimId": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "201": {
+                    "description": "created"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "provenance": {
+        "acquisition": "customer-upload",
+        "label": "Held-out fictional warranty OpenAPI"
+      },
+      "mappings": [
+        [
+          "listReadyClaims",
+          "list-ready-claims",
+          "read",
+          null
+        ],
+        [
+          "readClaim",
+          "read-claim",
+          "read",
+          null
+        ],
+        [
+          "createReplacementDispatch",
+          "create-replacement-dispatch",
+          "write",
+          "create-replacement-dispatch"
+        ],
+        [
+          "readReplacementDispatch",
+          "read-replacement-dispatch",
+          "read",
+          null
+        ]
+      ],
+      "rejected": [
+        "issueCashSettlement"
+      ],
+      "writeSafety": [
+        {
+          "sourceName": "createReplacementDispatch",
+          "idempotencyHeader": "Idempotency-Key",
+          "verification": {
+            "readOperationId": "readReplacementDispatch",
+            "inputMap": [
+              {
+                "targetSection": "path",
+                "targetName": "requestId",
+                "writeInputPointer": "/body/requestId"
+              }
+            ],
+            "assertions": [
+              {
+                "actualPointer": "/requestId",
+                "equalsWriteInputPointer": "/body/requestId"
+              },
+              {
+                "actualPointer": "/claimId",
+                "equalsWriteInputPointer": "/body/claimId"
+              },
+              {
+                "actualPointer": "/partSku",
+                "equalsWriteInputPointer": "/body/partSku"
+              },
+              {
+                "actualPointer": "/quantity",
+                "equalsWriteInputPointer": "/body/quantity"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

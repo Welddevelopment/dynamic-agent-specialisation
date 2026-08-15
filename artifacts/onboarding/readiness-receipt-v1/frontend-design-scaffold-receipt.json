@@ -1,0 +1,220 @@
+{
+  "schemaVersion": "das.assisted-onboarding-readiness-receipt.v1",
+  "session": {
+    "id": "fictional-frontend-readiness-v1",
+    "revision": 1,
+    "recordHash": "8a3ac1a748560caeab6bf68c09e1120e3dc3b32cbfca06d742a85bcd9ea9b055",
+    "intakeHash": "b77265e63c65b1be8026aa67ba5439d04a939d9322812b243bb91a9342c81a54",
+    "roleTemplateId": "frontend-implementation",
+    "roleLifecycleHash": "5eacb7999b4fe69ada91acf62c2fc1db9f615334717b96e4adf2a3b731e46dde"
+  },
+  "provenance": {
+    "customerSuppliedFacts": [
+      {
+        "id": "company",
+        "status": "customer-supplied",
+        "value": {
+          "name": "Fictional Design Co",
+          "industry": "Software",
+          "operatingContextSupplied": true
+        }
+      },
+      {
+        "id": "role",
+        "status": "customer-supplied",
+        "value": {
+          "templateId": "frontend-implementation",
+          "title": "Frontend implementation specialist",
+          "outcomeSupplied": true,
+          "completionRuleSupplied": true,
+          "escalationOwnerSupplied": true
+        }
+      },
+      {
+        "id": "systems",
+        "status": "customer-supplied",
+        "value": [
+          {
+            "id": "approved-design-source",
+            "name": "Approved Figma handoff",
+            "kind": "customer system",
+            "declaredAccess": "none",
+            "declaredAdapterStatus": "missing",
+            "declaredOperations": [
+              {
+                "name": "read-approved-design",
+                "mode": "read"
+              }
+            ]
+          },
+          {
+            "id": "react-repository",
+            "name": "React repository",
+            "kind": "customer system",
+            "declaredAccess": "none",
+            "declaredAdapterStatus": "missing",
+            "declaredOperations": [
+              {
+                "name": "read-repository",
+                "mode": "read"
+              },
+              {
+                "name": "write-assigned-source",
+                "mode": "write"
+              },
+              {
+                "name": "open-draft-pr",
+                "mode": "write"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "policies",
+        "status": "customer-supplied",
+        "value": {
+          "supplied": 3,
+          "explicitlyConfirmed": 3
+        }
+      },
+      {
+        "id": "authority",
+        "status": "customer-supplied",
+        "value": {
+          "allowedActions": [
+            "write-assigned-source",
+            "open-draft-pr"
+          ],
+          "approvalActions": [
+            "propose-component"
+          ],
+          "forbiddenActions": [
+            "merge",
+            "deploy",
+            "write-protected-files"
+          ]
+        }
+      },
+      {
+        "id": "representative-cases",
+        "status": "customer-supplied",
+        "value": {
+          "count": 5,
+          "sources": [
+            "synthetic"
+          ],
+          "redactionConfirmed": true
+        }
+      },
+      {
+        "id": "success",
+        "status": "customer-supplied",
+        "value": {
+          "measures": [
+            "approved source outcome",
+            "only assigned files changed",
+            "draft PR exists without merge or deployment"
+          ],
+          "verifierModeDeclared": "independent-external-state",
+          "verifierStatusDeclared": "declared",
+          "owner": "Fictional test owner"
+        }
+      },
+      {
+        "id": "priorities",
+        "status": "customer-supplied",
+        "value": {
+          "quality": 1,
+          "cost": 0.25,
+          "speed": 0.2,
+          "maximumCostPerTaskUsd": 0.5,
+          "maximumLatencyMs": 300000,
+          "goal": "Preserve verified quality first."
+        }
+      },
+      {
+        "id": "data-handling",
+        "status": "customer-supplied",
+        "value": {
+          "localOnly": true,
+          "productionDataIncluded": false,
+          "redactionConfirmed": true
+        }
+      }
+    ],
+    "dasProposalsAndInferences": [
+      {
+        "id": "normalized-role-draft",
+        "status": "generated-proposal-not-execution-evidence",
+        "artifactHash": "1b4e1cff02a2bd55718def7bba205f633fdf19baa4c03ab78152f2deb792fd58"
+      },
+      {
+        "id": "comparison-design-plan",
+        "status": "generated-proposal-not-execution-evidence",
+        "artifactHash": "c10e59a140748fc33e87a8ab5d9bcbf2432d98e8d7dcbc7605b56d04fb6c3d4d"
+      },
+      {
+        "id": "customer-binding-scaffold",
+        "status": "generated-non-executable",
+        "artifactHash": "dc72c4bd85c0c8990dd9f236854c5bd212f6d1416dfc5e869f5c0a8a67e76e97"
+      }
+    ],
+    "engineerOwnedBindings": {
+      "status": "engineering-required",
+      "reviewedDescriptorPresent": false,
+      "structuralAssessmentPresent": false,
+      "structuralAssessmentReady": false,
+      "failedStructuralGates": [],
+      "roleSpecificMissingBindings": [
+        "Customer-local Figma or approved-design-source adapter is not registered.",
+        "Customer-local repository and draft-pull-request adapter is not registered.",
+        "Independent customer-repository, build and responsive-result verifier is not registered or accepted."
+      ],
+      "customerDeclarationsAreProof": false,
+      "boundary": "Customer-declared adapter or verifier status is business input, not engineer implementation evidence. Only a reviewed exact descriptor and independent acceptance can advance execution readiness."
+    },
+    "independentProof": {
+      "bindingAcceptance": {
+        "status": "not-run",
+        "receiptHash": null
+      },
+      "comparisonResult": {
+        "status": "not-run",
+        "resultHash": null
+      },
+      "controlledActivation": {
+        "status": "not-ready",
+        "activationHash": null
+      },
+      "candidateSelfReportsAcceptedAsProof": false
+    }
+  },
+  "readiness": {
+    "comparisonDesign": {
+      "complete": true,
+      "evidence": [
+        "exact normalized role draft",
+        "zero-cost setup plan",
+        "private non-executable binding scaffold"
+      ]
+    },
+    "execution": {
+      "ready": false,
+      "structuralBindingReady": false,
+      "mandatoryAcceptanceComplete": false
+    },
+    "activation": {
+      "ready": false,
+      "comparisonComplete": false,
+      "authorizationGranted": false
+    }
+  },
+  "exactBlockers": [
+    "Customer-local Figma or approved-design-source adapter is not registered.",
+    "Customer-local repository and draft-pull-request adapter is not registered.",
+    "Independent customer-repository, build and responsive-result verifier is not registered or accepted."
+  ],
+  "boundary": "Integrity-bound assisted-onboarding readiness only. It separates declarations and proposals from engineer implementation and independent proof; it grants no authority, spend, execution or activation.",
+  "receiptHash": "8b587e7f6d223bb8d169d3964ae362067dd389f21e00badb7972b8602737032b"
+}

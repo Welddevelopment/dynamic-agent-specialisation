@@ -1,0 +1,141 @@
+{
+  "fixtureId": "northstar-cold-chain-exception-das028-openapi-v1",
+  "sourceKind": "openapi",
+  "identities": {
+    "das024DraftHash": "61d8796c75b369a897302687ea04d25d92f11a4446bf2461f6b82d490cd65c78",
+    "das023PackageReceiptHash": "20d9fa8d46a365e47ab35cfa738e4158ded8421bf050637b136c357ebaeb9f7f",
+    "das026WorkPackHash": "417d752ec23ce031c1cbf22348ae436f6b6e881ed39e6d0704e2c682cc1d62ad",
+    "das027RuntimeReceiptHash": "942d541a9c443e5685c17ae660b7f1c17dfd2981072ed274b7812047f51b519d",
+    "actionImplementationContentHash": "d642aa4de1864e0015b0e9b70d40fed7a85d2ce5f18ba2323d004a43bfb373d5",
+    "observerImplementationContentHash": "1195d5699ca497728fd4d3d37a496625dd9d4f344d797390e3243c0c4fdba587",
+    "das028InitialProcessReceiptHash": "192e13f2f5e9ad6b59699c08b9105da91e78f55b797f0f66e8778f76ac871208",
+    "das028PostRestartProcessReceiptHash": "286b03c50c5b1a3a1e0e30f071932db8ff93fb28523673d8ff3395180f31843b",
+    "qualificationReceiptHash": "27d967eb7111a3a1a2222407a9b7e6ede86ac881884f029395f91b238fbe55c2",
+    "acceptanceOnlyReceiptHash": "716a2f5229436f79c33b1c69ae1f331b47428f5d0913b64ffc3cfa901449fcb9",
+    "nonactivatingBundleHash": "eea2e5535be7911b08e462a956bb8f13429fe7625671fa29be6a1d306995dbf6"
+  },
+  "processBoundary": {
+    "processCount": 3,
+    "actionObserverSecretDistinct": true,
+    "actionObserverCredentialsDistinct": true,
+    "processRestarts": 1,
+    "initialPortsDistinct": 3,
+    "protocol": "http-local-only",
+    "tls": false,
+    "redirectsAllowed": false,
+    "credentialValuesPresent": false,
+    "opaqueHandlesPersisted": false
+  },
+  "implementation": {
+    "generatedFiles": 6,
+    "generatedExecutableFiles": 2,
+    "generatedExecutableLines": 161,
+    "generatedExecutableOperations": 5,
+    "manualPackageSpecificExecutableFiles": 0,
+    "manualPackageSpecificExecutableLines": 0,
+    "explicitOwnerEngineerConfirmedSectionsReused": 12,
+    "credentialValues": 0,
+    "modelCalls": 0,
+    "spendUsd": 0
+  },
+  "qualification": {
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "businessWrites": 8,
+    "observerWrites": 0,
+    "freshProcessLostResponseRecoveries": 1,
+    "lostResponseReplays": 0,
+    "incorrectEffects": 0
+  },
+  "packaging": {
+    "packageIntegrityValid": true,
+    "readyForNonactivatingHandoff": true,
+    "customerExecutionReady": false,
+    "activationReady": false
+  },
+  "attacks": [
+    {
+      "id": "hostname-substitution",
+      "passed": true,
+      "reason": "Local-process transport permits only exact 127.0.0.1; DNS and host substitution are blocked"
+    },
+    {
+      "id": "tls-downgrade-claim",
+      "passed": true,
+      "reason": "Local-process endpoint integrity mismatch"
+    },
+    {
+      "id": "same-process-observer-shortcut",
+      "passed": true,
+      "reason": "Local-process endpoint integrity mismatch"
+    },
+    {
+      "id": "cross-package-runtime-evidence",
+      "passed": true,
+      "reason": "DAS-027 runtime receipt belongs to another implementation"
+    },
+    {
+      "id": "port-and-server-identity-substitution",
+      "passed": true,
+      "reason": "Local-process stable server identity drifted"
+    },
+    {
+      "id": "pre-write-authority-revocation",
+      "passed": true,
+      "reason": "exact authority revoked before network send"
+    },
+    {
+      "id": "path-tool-redirect",
+      "passed": true,
+      "reason": "local-process action response unavailable: Local-process action server returned HTTP 400"
+    },
+    {
+      "id": "credential-alias-swap-403",
+      "passed": true,
+      "reason": "observer-scoped handle rejected by action process"
+    },
+    {
+      "id": "malformed-response",
+      "passed": true,
+      "reason": "local-process action response unavailable: Local-process response contains malformed JSON"
+    },
+    {
+      "id": "oversize-response",
+      "passed": true,
+      "reason": "local-process action response unavailable: Local-process response exceeds the exact size ceiling"
+    },
+    {
+      "id": "conflicting-framing",
+      "passed": true,
+      "reason": "local-process action response unavailable: fetch failed"
+    },
+    {
+      "id": "timeout-race-before-commit",
+      "passed": true,
+      "reason": "local-process transport timeout before a trusted response"
+    },
+    {
+      "id": "observer-malformed-response",
+      "passed": true,
+      "reason": "Local-process response contains malformed JSON"
+    },
+    {
+      "id": "implementation-mutation",
+      "passed": true,
+      "reason": "DAS-027 generated implementation changed: action-plugin/index.js"
+    },
+    {
+      "id": "credential-value-and-handle-leak",
+      "passed": true,
+      "reason": "durable evidence contains aliases and hashes only"
+    }
+  ],
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "customerDataUsed": false,
+  "externalNetworkUsed": false,
+  "customerExecutionReady": false,
+  "activationReady": false,
+  "evidenceBoundary": "Fresh fictional customer-shaped localhost processes only. This is HTTP-local transport evidence, not TLS, OS isolation, a real provider, customer acceptance, deployment, production reliability or activation.",
+  "resultHash": "2de896a840a61426b47ac12e4c552ad27611de24b141dc73a34de2b05365164e"
+}

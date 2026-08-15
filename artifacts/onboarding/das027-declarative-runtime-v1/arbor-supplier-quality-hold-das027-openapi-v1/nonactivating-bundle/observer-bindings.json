@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "das.nonactivating-observer-bindings.v1",
+  "tenantId": "fictional-arbor-supplier-quality-hold-das027-openapi-v1-tenant",
+  "roleId": "arbor-supplier-quality-hold-das027-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "db901a9370d432563c74bc26d481c9e8e275e028e7f643a5556205d9fc0efa9f",
+  "packageReceiptHash": "d7852922493523f5b204eed8c3a06e73877dc6e8ee0fd5958244c68c17fd51ea",
+  "action": {
+    "sourceIdentity": "4c99e4355c6920a8fd51d7cad1af83ae97aa9233597c54b33f2081311ed3ca71",
+    "authenticationIdentity": "3747dac53fa793176fc8c4b00227e92da97c457e306fab8b4f81a9866c62c728",
+    "credentialAlias": "ARBOR_SUPPLIER_ACTION_LEASE",
+    "implementationContentHash": "79df54c1930a9201b0ef9fdc19d50088d858a93dd0aece72dbeda5ac5123791b"
+  },
+  "observer": {
+    "sourceIdentity": "e7e34d4270f4b9477c5d3755d9f287677de91775c1c2fc94c946f6a3d11a83f1",
+    "authenticationIdentity": "04f5f94251007eaf7cf57050f85c66ef1076d02547a1611e159e18a7a46eeb31",
+    "credentialAlias": "ARBOR_SUPPLIER_AUDIT_LEASE",
+    "implementationContentHash": "01431206060b9c686b90b4e3ee8fd97e560259ee34fc47558bae4c7118739b41",
+    "independent": true,
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "actionResponseAcceptedAsIndependentProof": false,
+  "customerBound": false,
+  "customerProbed": false,
+  "customerQualified": false,
+  "activationReady": false,
+  "bindingsHash": "0c02615bf95c0a0ff7091bc6b7541d80b4f475799bc520af46cea557bf07cadf"
+}

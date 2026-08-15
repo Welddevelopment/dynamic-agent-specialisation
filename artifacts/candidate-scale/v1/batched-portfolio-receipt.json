@@ -1,0 +1,1367 @@
+{
+  "schemaVersion": "das.candidate-scale-batched-portfolio.v1",
+  "roleId": "realistic-support-operations-specialist",
+  "targetCount": 150,
+  "returnedCount": 150,
+  "acceptedCount": 150,
+  "rejectedCount": 0,
+  "batchSize": 10,
+  "batchCount": 15,
+  "executionModel": {
+    "family": "gpt-5.6-luna",
+    "tier": "normalized-scale-fixture"
+  },
+  "elapsedMs": 2520,
+  "architectSpendUsd": 0,
+  "batches": [
+    {
+      "batchIndex": 1,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "72ecc5ce2e03ef163812f4c03a78a45ef70cb35a1b1ff507216741b0af84b972",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-001",
+        "realistic-support-operations-specialist:scale-002",
+        "realistic-support-operations-specialist:scale-003",
+        "realistic-support-operations-specialist:scale-004",
+        "realistic-support-operations-specialist:scale-005",
+        "realistic-support-operations-specialist:scale-006",
+        "realistic-support-operations-specialist:scale-007",
+        "realistic-support-operations-specialist:scale-008",
+        "realistic-support-operations-specialist:scale-009",
+        "realistic-support-operations-specialist:scale-010"
+      ],
+      "rejected": [],
+      "requestHash": "3415a5458a36257bbf95206d385d488d081ff2ee7eb14c1d2a8c9d0ef186028a",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "93c14aaad13d6d8474d852d6c2de281850353d27ad85595d651c212dfbd8e9de"
+    },
+    {
+      "batchIndex": 2,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "2d951332c917a8033d8e3c58d4f50655425d04bac60ccd1f448e79680797c559",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-011",
+        "realistic-support-operations-specialist:scale-012",
+        "realistic-support-operations-specialist:scale-013",
+        "realistic-support-operations-specialist:scale-014",
+        "realistic-support-operations-specialist:scale-015",
+        "realistic-support-operations-specialist:scale-016",
+        "realistic-support-operations-specialist:scale-017",
+        "realistic-support-operations-specialist:scale-018",
+        "realistic-support-operations-specialist:scale-019",
+        "realistic-support-operations-specialist:scale-020"
+      ],
+      "rejected": [],
+      "requestHash": "ec00b91de3e1b78a5c10ccb03a82a57ad14e302df389246f50742f902267a068",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "f81aa8ff76a3d8cd419af1a48aa53687c0995da70ffe3ae24e5fa9488775a5d4"
+    },
+    {
+      "batchIndex": 3,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "8257e79014e6450952b4dc8dca8fe432a9af467c55902f6d78e31f095aa01c02",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-021",
+        "realistic-support-operations-specialist:scale-022",
+        "realistic-support-operations-specialist:scale-023",
+        "realistic-support-operations-specialist:scale-024",
+        "realistic-support-operations-specialist:scale-025",
+        "realistic-support-operations-specialist:scale-026",
+        "realistic-support-operations-specialist:scale-027",
+        "realistic-support-operations-specialist:scale-028",
+        "realistic-support-operations-specialist:scale-029",
+        "realistic-support-operations-specialist:scale-030"
+      ],
+      "rejected": [],
+      "requestHash": "79579b7b52973e862a1bfa8a40e7f1763dc78f442b994ecba464e4d9c12362bc",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "8c5806f7c9c47a96d55caba23471da3cc4aa3f7da5aab048e1b2bb4f301f55ae"
+    },
+    {
+      "batchIndex": 4,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "0d826e1f1eb892c487fea25848adf8aca02949fbe701fd20689eab80a6ce1980",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-031",
+        "realistic-support-operations-specialist:scale-032",
+        "realistic-support-operations-specialist:scale-033",
+        "realistic-support-operations-specialist:scale-034",
+        "realistic-support-operations-specialist:scale-035",
+        "realistic-support-operations-specialist:scale-036",
+        "realistic-support-operations-specialist:scale-037",
+        "realistic-support-operations-specialist:scale-038",
+        "realistic-support-operations-specialist:scale-039",
+        "realistic-support-operations-specialist:scale-040"
+      ],
+      "rejected": [],
+      "requestHash": "1569729b0f235d87864ea1aec4db48c971c17f23db69d3f6c2e2918842b5c833",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "a550cc52ec95409f06ebe47724a0a6f74c10e00139f1e4e44a82d3116419624d"
+    },
+    {
+      "batchIndex": 5,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "9687c94d0c5eed8070a754e3683963c475de1c5dc7844d01a13acfb53187e6df",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-041",
+        "realistic-support-operations-specialist:scale-042",
+        "realistic-support-operations-specialist:scale-043",
+        "realistic-support-operations-specialist:scale-044",
+        "realistic-support-operations-specialist:scale-045",
+        "realistic-support-operations-specialist:scale-046",
+        "realistic-support-operations-specialist:scale-047",
+        "realistic-support-operations-specialist:scale-048",
+        "realistic-support-operations-specialist:scale-049",
+        "realistic-support-operations-specialist:scale-050"
+      ],
+      "rejected": [],
+      "requestHash": "dff7f5a8674e48a4e32a7dbfe5802a190428a782f9cbb73d9dabc427f205a3a7",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "95859ba67399cbebb011eb43d0ff174b8ef1145263833f3d47ce78d821d3c63c"
+    },
+    {
+      "batchIndex": 6,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "be597d7f9e817a6be0f296b44c7598df32ee288d35f6c07e13bbc156d6d33180",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-051",
+        "realistic-support-operations-specialist:scale-052",
+        "realistic-support-operations-specialist:scale-053",
+        "realistic-support-operations-specialist:scale-054",
+        "realistic-support-operations-specialist:scale-055",
+        "realistic-support-operations-specialist:scale-056",
+        "realistic-support-operations-specialist:scale-057",
+        "realistic-support-operations-specialist:scale-058",
+        "realistic-support-operations-specialist:scale-059",
+        "realistic-support-operations-specialist:scale-060"
+      ],
+      "rejected": [],
+      "requestHash": "c36a28834e792d256dbda9a36575af838edb06eb839f1e6c74fc8e7d866fc9c1",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "a3e8224dfe8d9b5c8eabb294ca9a0beee22f3a0baba5b5646327ab4b30e4dbd2"
+    },
+    {
+      "batchIndex": 7,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "c7604e07a2158badacf11899522ffccde88ff7a925055900b606305dc4abba5e",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-061",
+        "realistic-support-operations-specialist:scale-062",
+        "realistic-support-operations-specialist:scale-063",
+        "realistic-support-operations-specialist:scale-064",
+        "realistic-support-operations-specialist:scale-065",
+        "realistic-support-operations-specialist:scale-066",
+        "realistic-support-operations-specialist:scale-067",
+        "realistic-support-operations-specialist:scale-068",
+        "realistic-support-operations-specialist:scale-069",
+        "realistic-support-operations-specialist:scale-070"
+      ],
+      "rejected": [],
+      "requestHash": "6788ab696d8f75aebc4682036f1d2f615f3bbcbb6aa0fa858c64ebc0b648dabe",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "34f6cfdd5b7fcb549005170c98b606455d737765af7e255ce5dddc6d04eed6a6"
+    },
+    {
+      "batchIndex": 8,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "31f9963fb8b5e7d0c0ab8955bb022486ae0e7cdf304f1b9372f06ede98a24649",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-071",
+        "realistic-support-operations-specialist:scale-072",
+        "realistic-support-operations-specialist:scale-073",
+        "realistic-support-operations-specialist:scale-074",
+        "realistic-support-operations-specialist:scale-075",
+        "realistic-support-operations-specialist:scale-076",
+        "realistic-support-operations-specialist:scale-077",
+        "realistic-support-operations-specialist:scale-078",
+        "realistic-support-operations-specialist:scale-079",
+        "realistic-support-operations-specialist:scale-080"
+      ],
+      "rejected": [],
+      "requestHash": "de8f3ccb8c096099efa1245dbc9232a2ba8b2f0c55b7c4a1ba1bbc16adcb0273",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "4dc286c6dfdb9f8a7d0c3887ad1592a0636e69cdd0090802bdf712147c7e7369"
+    },
+    {
+      "batchIndex": 9,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "b12907dc43ffa65d3b05f1c1e2dc8f5d248321e381378d540d008d1d12afaa13",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-081",
+        "realistic-support-operations-specialist:scale-082",
+        "realistic-support-operations-specialist:scale-083",
+        "realistic-support-operations-specialist:scale-084",
+        "realistic-support-operations-specialist:scale-085",
+        "realistic-support-operations-specialist:scale-086",
+        "realistic-support-operations-specialist:scale-087",
+        "realistic-support-operations-specialist:scale-088",
+        "realistic-support-operations-specialist:scale-089",
+        "realistic-support-operations-specialist:scale-090"
+      ],
+      "rejected": [],
+      "requestHash": "ad917dd89584c2acd0c3e4e78d69835470453029194a2e103a027a6d73be8755",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "1568bdbb1df9b3021b25a9c0fb72d409f798372e27c975d7716c5e21be7e0598"
+    },
+    {
+      "batchIndex": 10,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "4129f94ccb2938edd4561004ef14f64fec65c881dff24761542b950e7ca3ad5e",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-091",
+        "realistic-support-operations-specialist:scale-092",
+        "realistic-support-operations-specialist:scale-093",
+        "realistic-support-operations-specialist:scale-094",
+        "realistic-support-operations-specialist:scale-095",
+        "realistic-support-operations-specialist:scale-096",
+        "realistic-support-operations-specialist:scale-097",
+        "realistic-support-operations-specialist:scale-098",
+        "realistic-support-operations-specialist:scale-099",
+        "realistic-support-operations-specialist:scale-100"
+      ],
+      "rejected": [],
+      "requestHash": "35c0e80630c98ec751fd8d9d7af060b32d593cfe4e830904444c2e796186ce84",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "6f678bdc128d51409efd980cd0d17bbaba33c8613e7802a90a63fb2f0172191c"
+    },
+    {
+      "batchIndex": 11,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "97abb1fb1fe598ee5a394a3c7300954ff03e9449f2577d0b53a340c7c8fead9c",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-101",
+        "realistic-support-operations-specialist:scale-102",
+        "realistic-support-operations-specialist:scale-103",
+        "realistic-support-operations-specialist:scale-104",
+        "realistic-support-operations-specialist:scale-105",
+        "realistic-support-operations-specialist:scale-106",
+        "realistic-support-operations-specialist:scale-107",
+        "realistic-support-operations-specialist:scale-108",
+        "realistic-support-operations-specialist:scale-109",
+        "realistic-support-operations-specialist:scale-110"
+      ],
+      "rejected": [],
+      "requestHash": "6b8a93d1d2b8cb52b25d59461c15ede8b951d80299d7fca73aeab2b7dadf6720",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "dadeb8d676c9d5aef51b007514dd4c728233d4582a3edb06fec61024b024d78c"
+    },
+    {
+      "batchIndex": 12,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "cb688b0981de87025e691e2fe6772afc33e2e9f1d94873408511e7fe498e19fb",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-111",
+        "realistic-support-operations-specialist:scale-112",
+        "realistic-support-operations-specialist:scale-113",
+        "realistic-support-operations-specialist:scale-114",
+        "realistic-support-operations-specialist:scale-115",
+        "realistic-support-operations-specialist:scale-116",
+        "realistic-support-operations-specialist:scale-117",
+        "realistic-support-operations-specialist:scale-118",
+        "realistic-support-operations-specialist:scale-119",
+        "realistic-support-operations-specialist:scale-120"
+      ],
+      "rejected": [],
+      "requestHash": "1cd8631fe03444182e66140dc88597387abd03d8e06b4427ca31fa77e3e1d01c",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "424d0c0242da53ffb6475d97d53d2d54d0db722bf913ed6ab8f9f58025964d8b"
+    },
+    {
+      "batchIndex": 13,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "758ffb27927c9509f12e72bcaa2a602750dca6644b135bdeacefc7d9a72c8019",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-121",
+        "realistic-support-operations-specialist:scale-122",
+        "realistic-support-operations-specialist:scale-123",
+        "realistic-support-operations-specialist:scale-124",
+        "realistic-support-operations-specialist:scale-125",
+        "realistic-support-operations-specialist:scale-126",
+        "realistic-support-operations-specialist:scale-127",
+        "realistic-support-operations-specialist:scale-128",
+        "realistic-support-operations-specialist:scale-129",
+        "realistic-support-operations-specialist:scale-130"
+      ],
+      "rejected": [],
+      "requestHash": "1fa66217585102b23f2ff1998ef5ed87b40229247f136a40988198835b65b035",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "eee877409cda05d7d9d124d609b3c6b4988d89d216fd7e36741b934415888ebe"
+    },
+    {
+      "batchIndex": 14,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "b50100046baed85195ea88fe04210f25e69e32b2c187a89349313e94db72128f",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-131",
+        "realistic-support-operations-specialist:scale-132",
+        "realistic-support-operations-specialist:scale-133",
+        "realistic-support-operations-specialist:scale-134",
+        "realistic-support-operations-specialist:scale-135",
+        "realistic-support-operations-specialist:scale-136",
+        "realistic-support-operations-specialist:scale-137",
+        "realistic-support-operations-specialist:scale-138",
+        "realistic-support-operations-specialist:scale-139",
+        "realistic-support-operations-specialist:scale-140"
+      ],
+      "rejected": [],
+      "requestHash": "08d2debed057225daddde2e77ee3fc4c7538ba5f3cd5a079291223c07676caec",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "d7831d2ee9bbaa8762bfa4cfb67b343e4fb3fb1e20a0bcc667d3f6ceb7de48aa"
+    },
+    {
+      "batchIndex": 15,
+      "requestedCount": 10,
+      "acceptedCount": 10,
+      "rejectedCount": 0,
+      "priorDesignMemoryHash": "64d9283d110e2474c085c2d8f4f2480554abf797e0625d6c2a512a5075d23e8e",
+      "acceptedCandidateIds": [
+        "realistic-support-operations-specialist:scale-141",
+        "realistic-support-operations-specialist:scale-142",
+        "realistic-support-operations-specialist:scale-143",
+        "realistic-support-operations-specialist:scale-144",
+        "realistic-support-operations-specialist:scale-145",
+        "realistic-support-operations-specialist:scale-146",
+        "realistic-support-operations-specialist:scale-147",
+        "realistic-support-operations-specialist:scale-148",
+        "realistic-support-operations-specialist:scale-149",
+        "realistic-support-operations-specialist:scale-150"
+      ],
+      "rejected": [],
+      "requestHash": "06aea3be22c1bee930115261e1108f78d91d23beafe1217707deafb2334dff6c",
+      "modelReceipt": {
+        "provider": "deterministic-fixture",
+        "model": "none",
+        "actualUsd": 0,
+        "elapsedMs": 0,
+        "cached": false
+      },
+      "batchHash": "c49f10e603bd2135be8a5a15c072a0ee90ec6f5a7c3486609f9a8029d071f3ca"
+    }
+  ],
+  "diversity": {
+    "candidateCount": 150,
+    "exactUniqueDesigns": 143,
+    "exactDuplicatePackages": 7,
+    "exactDuplicateGroups": [
+      {
+        "designFingerprint": "2c46c37baac6e3094151450c9e9f042826ee185137355f7749dfe026f0ef983b",
+        "candidateIds": [
+          "realistic-support-operations-specialist:scale-012",
+          "realistic-support-operations-specialist:scale-019"
+        ]
+      },
+      {
+        "designFingerprint": "6eec452fbbd7d45123c726410e2773a9ad600343166f1794150765779d9c61d9",
+        "candidateIds": [
+          "realistic-support-operations-specialist:scale-031",
+          "realistic-support-operations-specialist:scale-038"
+        ]
+      },
+      {
+        "designFingerprint": "dce7f37380053e7b45d97bf4f754e05dfdb5b195c81854e3eac254edd728081d",
+        "candidateIds": [
+          "realistic-support-operations-specialist:scale-050",
+          "realistic-support-operations-specialist:scale-057"
+        ]
+      },
+      {
+        "designFingerprint": "56a2dbff241aafc51fc684bdd00a04e6fe799cf495c5471db43671b641e06650",
+        "candidateIds": [
+          "realistic-support-operations-specialist:scale-069",
+          "realistic-support-operations-specialist:scale-076"
+        ]
+      },
+      {
+        "designFingerprint": "53581078c87954e46c451b03e9df213f43460aa927cc82a6cdca6295bc3818dc",
+        "candidateIds": [
+          "realistic-support-operations-specialist:scale-088",
+          "realistic-support-operations-specialist:scale-095"
+        ]
+      },
+      {
+        "designFingerprint": "7db5e3f241f5baf448e8860602afeef3e42f0e57a00c5ad7b373f5dd8de8a413",
+        "candidateIds": [
+          "realistic-support-operations-specialist:scale-107",
+          "realistic-support-operations-specialist:scale-114"
+        ]
+      },
+      {
+        "designFingerprint": "6e4af1f07f1eb39d89abbe5857de1c1c3e30334c740f978c767aaf652ac47ed0",
+        "candidateIds": [
+          "realistic-support-operations-specialist:scale-126",
+          "realistic-support-operations-specialist:scale-133"
+        ]
+      }
+    ],
+    "architectureSignatureCount": 137,
+    "effectiveUniqueArchitectureCount": 127.84090909090932,
+    "meaningfulDistanceThreshold": 0.12,
+    "meaningfulUniqueDesignCount": 91,
+    "meaningfulRepresentatives": [
+      "realistic-support-operations-specialist:scale-058",
+      "realistic-support-operations-specialist:scale-106",
+      "realistic-support-operations-specialist:scale-085",
+      "realistic-support-operations-specialist:scale-147",
+      "realistic-support-operations-specialist:scale-092",
+      "realistic-support-operations-specialist:scale-016",
+      "realistic-support-operations-specialist:scale-041",
+      "realistic-support-operations-specialist:scale-146",
+      "realistic-support-operations-specialist:scale-110",
+      "realistic-support-operations-specialist:scale-103",
+      "realistic-support-operations-specialist:scale-083",
+      "realistic-support-operations-specialist:scale-021",
+      "realistic-support-operations-specialist:scale-121",
+      "realistic-support-operations-specialist:scale-094",
+      "realistic-support-operations-specialist:scale-150",
+      "realistic-support-operations-specialist:scale-148",
+      "realistic-support-operations-specialist:scale-124",
+      "realistic-support-operations-specialist:scale-089",
+      "realistic-support-operations-specialist:scale-012",
+      "realistic-support-operations-specialist:scale-100",
+      "realistic-support-operations-specialist:scale-131",
+      "realistic-support-operations-specialist:scale-009",
+      "realistic-support-operations-specialist:scale-081",
+      "realistic-support-operations-specialist:scale-149",
+      "realistic-support-operations-specialist:scale-037",
+      "realistic-support-operations-specialist:scale-116",
+      "realistic-support-operations-specialist:scale-104",
+      "realistic-support-operations-specialist:scale-105",
+      "realistic-support-operations-specialist:scale-079",
+      "realistic-support-operations-specialist:scale-123",
+      "realistic-support-operations-specialist:scale-130",
+      "realistic-support-operations-specialist:scale-024",
+      "realistic-support-operations-specialist:scale-080",
+      "realistic-support-operations-specialist:scale-127",
+      "realistic-support-operations-specialist:scale-109",
+      "realistic-support-operations-specialist:scale-088",
+      "realistic-support-operations-specialist:scale-069",
+      "realistic-support-operations-specialist:scale-039",
+      "realistic-support-operations-specialist:scale-071",
+      "realistic-support-operations-specialist:scale-020",
+      "realistic-support-operations-specialist:scale-134",
+      "realistic-support-operations-specialist:scale-064",
+      "realistic-support-operations-specialist:scale-090",
+      "realistic-support-operations-specialist:scale-137",
+      "realistic-support-operations-specialist:scale-102",
+      "realistic-support-operations-specialist:scale-098",
+      "realistic-support-operations-specialist:scale-144",
+      "realistic-support-operations-specialist:scale-126",
+      "realistic-support-operations-specialist:scale-084",
+      "realistic-support-operations-specialist:scale-031",
+      "realistic-support-operations-specialist:scale-013",
+      "realistic-support-operations-specialist:scale-078",
+      "realistic-support-operations-specialist:scale-005",
+      "realistic-support-operations-specialist:scale-135",
+      "realistic-support-operations-specialist:scale-120",
+      "realistic-support-operations-specialist:scale-052",
+      "realistic-support-operations-specialist:scale-108",
+      "realistic-support-operations-specialist:scale-107",
+      "realistic-support-operations-specialist:scale-006",
+      "realistic-support-operations-specialist:scale-045",
+      "realistic-support-operations-specialist:scale-128",
+      "realistic-support-operations-specialist:scale-035",
+      "realistic-support-operations-specialist:scale-097",
+      "realistic-support-operations-specialist:scale-025",
+      "realistic-support-operations-specialist:scale-059",
+      "realistic-support-operations-specialist:scale-022",
+      "realistic-support-operations-specialist:scale-111",
+      "realistic-support-operations-specialist:scale-062",
+      "realistic-support-operations-specialist:scale-096",
+      "realistic-support-operations-specialist:scale-070",
+      "realistic-support-operations-specialist:scale-002",
+      "realistic-support-operations-specialist:scale-113",
+      "realistic-support-operations-specialist:scale-036",
+      "realistic-support-operations-specialist:scale-048",
+      "realistic-support-operations-specialist:scale-112",
+      "realistic-support-operations-specialist:scale-093",
+      "realistic-support-operations-specialist:scale-053",
+      "realistic-support-operations-specialist:scale-117",
+      "realistic-support-operations-specialist:scale-055",
+      "realistic-support-operations-specialist:scale-099",
+      "realistic-support-operations-specialist:scale-075",
+      "realistic-support-operations-specialist:scale-060",
+      "realistic-support-operations-specialist:scale-018",
+      "realistic-support-operations-specialist:scale-115",
+      "realistic-support-operations-specialist:scale-027",
+      "realistic-support-operations-specialist:scale-054",
+      "realistic-support-operations-specialist:scale-119",
+      "realistic-support-operations-specialist:scale-061",
+      "realistic-support-operations-specialist:scale-072",
+      "realistic-support-operations-specialist:scale-063",
+      "realistic-support-operations-specialist:scale-087"
+    ],
+    "meaningfulAssignments": [
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-058",
+        "representativeId": "realistic-support-operations-specialist:scale-058",
+        "nearestDistance": null
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-106",
+        "representativeId": "realistic-support-operations-specialist:scale-106",
+        "nearestDistance": 0.28511246591419004
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-085",
+        "representativeId": "realistic-support-operations-specialist:scale-085",
+        "nearestDistance": 0.4150234695660629
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-147",
+        "representativeId": "realistic-support-operations-specialist:scale-147",
+        "nearestDistance": 0.34968847091605715
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-092",
+        "representativeId": "realistic-support-operations-specialist:scale-092",
+        "nearestDistance": 0.4067506318388671
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-016",
+        "representativeId": "realistic-support-operations-specialist:scale-016",
+        "nearestDistance": 0.19254645760743325
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-041",
+        "representativeId": "realistic-support-operations-specialist:scale-041",
+        "nearestDistance": 0.34411170486018045
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-146",
+        "representativeId": "realistic-support-operations-specialist:scale-146",
+        "nearestDistance": 0.2842857142857143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-046",
+        "representativeId": "realistic-support-operations-specialist:scale-106",
+        "nearestDistance": 0.11730283140283143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-110",
+        "representativeId": "realistic-support-operations-specialist:scale-110",
+        "nearestDistance": 0.33830054137039434
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-103",
+        "representativeId": "realistic-support-operations-specialist:scale-103",
+        "nearestDistance": 0.32994389978213506
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-083",
+        "representativeId": "realistic-support-operations-specialist:scale-083",
+        "nearestDistance": 0.2975886554621849
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-021",
+        "representativeId": "realistic-support-operations-specialist:scale-021",
+        "nearestDistance": 0.3157171457171457
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-023",
+        "representativeId": "realistic-support-operations-specialist:scale-083",
+        "nearestDistance": 0.11444126984126986
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-121",
+        "representativeId": "realistic-support-operations-specialist:scale-121",
+        "nearestDistance": 0.2816655052264809
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-094",
+        "representativeId": "realistic-support-operations-specialist:scale-094",
+        "nearestDistance": 0.32624994322053147
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-150",
+        "representativeId": "realistic-support-operations-specialist:scale-150",
+        "nearestDistance": 0.30641205329223625
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-148",
+        "representativeId": "realistic-support-operations-specialist:scale-148",
+        "nearestDistance": 0.1943698412698413
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-124",
+        "representativeId": "realistic-support-operations-specialist:scale-124",
+        "nearestDistance": 0.20078906955736225
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-089",
+        "representativeId": "realistic-support-operations-specialist:scale-089",
+        "nearestDistance": 0.2873110349743061
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-012",
+        "representativeId": "realistic-support-operations-specialist:scale-012",
+        "nearestDistance": 0.29194299939411505
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-019",
+        "representativeId": "realistic-support-operations-specialist:scale-012",
+        "nearestDistance": 0
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-100",
+        "representativeId": "realistic-support-operations-specialist:scale-100",
+        "nearestDistance": 0.27282972601722605
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-131",
+        "representativeId": "realistic-support-operations-specialist:scale-131",
+        "nearestDistance": 0.17993143143143145
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-009",
+        "representativeId": "realistic-support-operations-specialist:scale-009",
+        "nearestDistance": 0.3186197844903727
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-081",
+        "representativeId": "realistic-support-operations-specialist:scale-081",
+        "nearestDistance": 0.21444126984126988
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-149",
+        "representativeId": "realistic-support-operations-specialist:scale-149",
+        "nearestDistance": 0.12991823461091756
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-037",
+        "representativeId": "realistic-support-operations-specialist:scale-037",
+        "nearestDistance": 0.2757883921434854
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-116",
+        "representativeId": "realistic-support-operations-specialist:scale-116",
+        "nearestDistance": 0.2100885456885457
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-104",
+        "representativeId": "realistic-support-operations-specialist:scale-104",
+        "nearestDistance": 0.3247295572883809
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-105",
+        "representativeId": "realistic-support-operations-specialist:scale-105",
+        "nearestDistance": 0.23069129767291532
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-079",
+        "representativeId": "realistic-support-operations-specialist:scale-079",
+        "nearestDistance": 0.24901717011128777
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-123",
+        "representativeId": "realistic-support-operations-specialist:scale-123",
+        "nearestDistance": 0.27023896509746953
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-130",
+        "representativeId": "realistic-support-operations-specialist:scale-130",
+        "nearestDistance": 0.16627953296703296
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-024",
+        "representativeId": "realistic-support-operations-specialist:scale-024",
+        "nearestDistance": 0.3344796140678494
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-143",
+        "representativeId": "realistic-support-operations-specialist:scale-083",
+        "nearestDistance": 0.11730283140283143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-080",
+        "representativeId": "realistic-support-operations-specialist:scale-080",
+        "nearestDistance": 0.2100885456885457
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-004",
+        "representativeId": "realistic-support-operations-specialist:scale-124",
+        "nearestDistance": 0.018332171893147505
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-127",
+        "representativeId": "realistic-support-operations-specialist:scale-127",
+        "nearestDistance": 0.17993143143143145
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-101",
+        "representativeId": "realistic-support-operations-specialist:scale-041",
+        "nearestDistance": 0.10912162162162165
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-109",
+        "representativeId": "realistic-support-operations-specialist:scale-109",
+        "nearestDistance": 0.17151711711711715
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-088",
+        "representativeId": "realistic-support-operations-specialist:scale-088",
+        "nearestDistance": 0.12991823461091756
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-095",
+        "representativeId": "realistic-support-operations-specialist:scale-088",
+        "nearestDistance": 0
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-069",
+        "representativeId": "realistic-support-operations-specialist:scale-069",
+        "nearestDistance": 0.2075886554621849
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-076",
+        "representativeId": "realistic-support-operations-specialist:scale-069",
+        "nearestDistance": 0
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-039",
+        "representativeId": "realistic-support-operations-specialist:scale-039",
+        "nearestDistance": 0.16333590733590736
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-030",
+        "representativeId": "realistic-support-operations-specialist:scale-150",
+        "nearestDistance": 0.013302941176470589
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-071",
+        "representativeId": "realistic-support-operations-specialist:scale-071",
+        "nearestDistance": 0.12571714571714573
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-140",
+        "representativeId": "realistic-support-operations-specialist:scale-080",
+        "nearestDistance": 0.11730283140283143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-020",
+        "representativeId": "realistic-support-operations-specialist:scale-020",
+        "nearestDistance": 0.12991823461091756
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-134",
+        "representativeId": "realistic-support-operations-specialist:scale-134",
+        "nearestDistance": 0.18707142857142858
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-064",
+        "representativeId": "realistic-support-operations-specialist:scale-064",
+        "nearestDistance": 0.12377177700348434
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-090",
+        "representativeId": "realistic-support-operations-specialist:scale-090",
+        "nearestDistance": 0.22991823461091757
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-137",
+        "representativeId": "realistic-support-operations-specialist:scale-137",
+        "nearestDistance": 0.2186245908562982
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-102",
+        "representativeId": "realistic-support-operations-specialist:scale-102",
+        "nearestDistance": 0.1612829153605016
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-118",
+        "representativeId": "realistic-support-operations-specialist:scale-058",
+        "nearestDistance": 0.11444126984126986
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-098",
+        "representativeId": "realistic-support-operations-specialist:scale-098",
+        "nearestDistance": 0.2685169418186659
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-144",
+        "representativeId": "realistic-support-operations-specialist:scale-144",
+        "nearestDistance": 0.13143143143143143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-126",
+        "representativeId": "realistic-support-operations-specialist:scale-126",
+        "nearestDistance": 0.25694167161814224
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-133",
+        "representativeId": "realistic-support-operations-specialist:scale-126",
+        "nearestDistance": 0
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-084",
+        "representativeId": "realistic-support-operations-specialist:scale-084",
+        "nearestDistance": 0.13657478384307653
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-031",
+        "representativeId": "realistic-support-operations-specialist:scale-031",
+        "nearestDistance": 0.17798606271777007
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-038",
+        "representativeId": "realistic-support-operations-specialist:scale-031",
+        "nearestDistance": 0
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-013",
+        "representativeId": "realistic-support-operations-specialist:scale-013",
+        "nearestDistance": 0.16180294117647062
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-078",
+        "representativeId": "realistic-support-operations-specialist:scale-078",
+        "nearestDistance": 0.15996422893481715
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-005",
+        "representativeId": "realistic-support-operations-specialist:scale-005",
+        "nearestDistance": 0.27782517630752923
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-034",
+        "representativeId": "realistic-support-operations-specialist:scale-094",
+        "nearestDistance": 0.11447961406784937
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-135",
+        "representativeId": "realistic-support-operations-specialist:scale-135",
+        "nearestDistance": 0.26333590733590734
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-120",
+        "representativeId": "realistic-support-operations-specialist:scale-120",
+        "nearestDistance": 0.17913667582417583
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-141",
+        "representativeId": "realistic-support-operations-specialist:scale-021",
+        "nearestDistance": 0.03143143143143143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-052",
+        "representativeId": "realistic-support-operations-specialist:scale-052",
+        "nearestDistance": 0.25305832799950445
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-108",
+        "representativeId": "realistic-support-operations-specialist:scale-108",
+        "nearestDistance": 0.25029640082796467
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-107",
+        "representativeId": "realistic-support-operations-specialist:scale-107",
+        "nearestDistance": 0.16333590733590736
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-114",
+        "representativeId": "realistic-support-operations-specialist:scale-107",
+        "nearestDistance": 0
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-067",
+        "representativeId": "realistic-support-operations-specialist:scale-127",
+        "nearestDistance": 0.11447961406784937
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-056",
+        "representativeId": "realistic-support-operations-specialist:scale-116",
+        "nearestDistance": 0.11444126984126986
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-006",
+        "representativeId": "realistic-support-operations-specialist:scale-006",
+        "nearestDistance": 0.13143143143143143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-125",
+        "representativeId": "realistic-support-operations-specialist:scale-005",
+        "nearestDistance": 0.018332171893147505
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-091",
+        "representativeId": "realistic-support-operations-specialist:scale-031",
+        "nearestDistance": 0.11447961406784937
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-043",
+        "representativeId": "realistic-support-operations-specialist:scale-103",
+        "nearestDistance": 0.10758865546218489
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-139",
+        "representativeId": "realistic-support-operations-specialist:scale-079",
+        "nearestDistance": 0.10758865546218489
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-045",
+        "representativeId": "realistic-support-operations-specialist:scale-045",
+        "nearestDistance": 0.16180294117647062
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-032",
+        "representativeId": "realistic-support-operations-specialist:scale-092",
+        "nearestDistance": 0.11447961406784937
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-128",
+        "representativeId": "realistic-support-operations-specialist:scale-128",
+        "nearestDistance": 0.20726532835356365
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-035",
+        "representativeId": "realistic-support-operations-specialist:scale-035",
+        "nearestDistance": 0.14850000000000002
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-097",
+        "representativeId": "realistic-support-operations-specialist:scale-097",
+        "nearestDistance": 0.12571714571714573
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-028",
+        "representativeId": "realistic-support-operations-specialist:scale-148",
+        "nearestDistance": 0.013302941176470589
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-025",
+        "representativeId": "realistic-support-operations-specialist:scale-025",
+        "nearestDistance": 0.13657478384307653
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-068",
+        "representativeId": "realistic-support-operations-specialist:scale-128",
+        "nearestDistance": 0.11447961406784937
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-001",
+        "representativeId": "realistic-support-operations-specialist:scale-121",
+        "nearestDistance": 0.018332171893147505
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-047",
+        "representativeId": "realistic-support-operations-specialist:scale-107",
+        "nearestDistance": 0.11730283140283143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-059",
+        "representativeId": "realistic-support-operations-specialist:scale-059",
+        "nearestDistance": 0.15996422893481715
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-011",
+        "representativeId": "realistic-support-operations-specialist:scale-131",
+        "nearestDistance": 0.020155555555555555
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-022",
+        "representativeId": "realistic-support-operations-specialist:scale-022",
+        "nearestDistance": 0.20078906955736225
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-111",
+        "representativeId": "realistic-support-operations-specialist:scale-111",
+        "nearestDistance": 0.17993143143143145
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-129",
+        "representativeId": "realistic-support-operations-specialist:scale-069",
+        "nearestDistance": 0.11447961406784937
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-065",
+        "representativeId": "realistic-support-operations-specialist:scale-005",
+        "nearestDistance": 0.10912162162162165
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-003",
+        "representativeId": "realistic-support-operations-specialist:scale-123",
+        "nearestDistance": 0.018332171893147505
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-044",
+        "representativeId": "realistic-support-operations-specialist:scale-104",
+        "nearestDistance": 0.10758865546218489
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-062",
+        "representativeId": "realistic-support-operations-specialist:scale-062",
+        "nearestDistance": 0.18707142857142858
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-077",
+        "representativeId": "realistic-support-operations-specialist:scale-137",
+        "nearestDistance": 0.10758865546218489
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-096",
+        "representativeId": "realistic-support-operations-specialist:scale-096",
+        "nearestDistance": 0.17628138528138532
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-051",
+        "representativeId": "realistic-support-operations-specialist:scale-111",
+        "nearestDistance": 0.11261788617886181
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-145",
+        "representativeId": "realistic-support-operations-specialist:scale-025",
+        "nearestDistance": 0.03143143143143143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-040",
+        "representativeId": "realistic-support-operations-specialist:scale-100",
+        "nearestDistance": 0.10912162162162165
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-070",
+        "representativeId": "realistic-support-operations-specialist:scale-070",
+        "nearestDistance": 0.12571714571714573
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-002",
+        "representativeId": "realistic-support-operations-specialist:scale-002",
+        "nearestDistance": 0.12571714571714573
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-113",
+        "representativeId": "realistic-support-operations-specialist:scale-113",
+        "nearestDistance": 0.14850000000000002
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-036",
+        "representativeId": "realistic-support-operations-specialist:scale-036",
+        "nearestDistance": 0.1927885742885743
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-048",
+        "representativeId": "realistic-support-operations-specialist:scale-048",
+        "nearestDistance": 0.16135714285714287
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-086",
+        "representativeId": "realistic-support-operations-specialist:scale-146",
+        "nearestDistance": 0.11261788617886181
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-122",
+        "representativeId": "realistic-support-operations-specialist:scale-002",
+        "nearestDistance": 0.018332171893147505
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-112",
+        "representativeId": "realistic-support-operations-specialist:scale-112",
+        "nearestDistance": 0.12991823461091756
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-029",
+        "representativeId": "realistic-support-operations-specialist:scale-149",
+        "nearestDistance": 0.013302941176470589
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-014",
+        "representativeId": "realistic-support-operations-specialist:scale-134",
+        "nearestDistance": 0.029486062717770035
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-073",
+        "representativeId": "realistic-support-operations-specialist:scale-013",
+        "nearestDistance": 0.11730283140283143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-093",
+        "representativeId": "realistic-support-operations-specialist:scale-093",
+        "nearestDistance": 0.19078906955736225
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-066",
+        "representativeId": "realistic-support-operations-specialist:scale-006",
+        "nearestDistance": 0.10912162162162165
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-053",
+        "representativeId": "realistic-support-operations-specialist:scale-053",
+        "nearestDistance": 0.12991823461091756
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-117",
+        "representativeId": "realistic-support-operations-specialist:scale-117",
+        "nearestDistance": 0.24850000000000003
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-055",
+        "representativeId": "realistic-support-operations-specialist:scale-055",
+        "nearestDistance": 0.14850000000000002
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-010",
+        "representativeId": "realistic-support-operations-specialist:scale-130",
+        "nearestDistance": 0.020155555555555555
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-099",
+        "representativeId": "realistic-support-operations-specialist:scale-099",
+        "nearestDistance": 0.16180294117647062
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-075",
+        "representativeId": "realistic-support-operations-specialist:scale-075",
+        "nearestDistance": 0.14850000000000002
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-060",
+        "representativeId": "realistic-support-operations-specialist:scale-060",
+        "nearestDistance": 0.13657478384307653
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-042",
+        "representativeId": "realistic-support-operations-specialist:scale-102",
+        "nearestDistance": 0.10758865546218489
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-050",
+        "representativeId": "realistic-support-operations-specialist:scale-110",
+        "nearestDistance": 0.11261788617886181
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-057",
+        "representativeId": "realistic-support-operations-specialist:scale-110",
+        "nearestDistance": 0.11261788617886181
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-018",
+        "representativeId": "realistic-support-operations-specialist:scale-018",
+        "nearestDistance": 0.17968931475029037
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-049",
+        "representativeId": "realistic-support-operations-specialist:scale-109",
+        "nearestDistance": 0.11261788617886181
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-082",
+        "representativeId": "realistic-support-operations-specialist:scale-022",
+        "nearestDistance": 0.11444126984126986
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-136",
+        "representativeId": "realistic-support-operations-specialist:scale-016",
+        "nearestDistance": 0.029486062717770035
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-115",
+        "representativeId": "realistic-support-operations-specialist:scale-115",
+        "nearestDistance": 0.12991823461091756
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-015",
+        "representativeId": "realistic-support-operations-specialist:scale-075",
+        "nearestDistance": 0.11261788617886181
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-027",
+        "representativeId": "realistic-support-operations-specialist:scale-027",
+        "nearestDistance": 0.12015555555555556
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-054",
+        "representativeId": "realistic-support-operations-specialist:scale-054",
+        "nearestDistance": 0.17968931475029037
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-007",
+        "representativeId": "realistic-support-operations-specialist:scale-127",
+        "nearestDistance": 0.020155555555555555
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-074",
+        "representativeId": "realistic-support-operations-specialist:scale-134",
+        "nearestDistance": 0.10912162162162165
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-119",
+        "representativeId": "realistic-support-operations-specialist:scale-119",
+        "nearestDistance": 0.13657478384307653
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-138",
+        "representativeId": "realistic-support-operations-specialist:scale-078",
+        "nearestDistance": 0.10758865546218489
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-017",
+        "representativeId": "realistic-support-operations-specialist:scale-137",
+        "nearestDistance": 0.029486062717770035
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-132",
+        "representativeId": "realistic-support-operations-specialist:scale-012",
+        "nearestDistance": 0.020155555555555555
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-061",
+        "representativeId": "realistic-support-operations-specialist:scale-061",
+        "nearestDistance": 0.13657478384307653
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-008",
+        "representativeId": "realistic-support-operations-specialist:scale-128",
+        "nearestDistance": 0.020155555555555555
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-072",
+        "representativeId": "realistic-support-operations-specialist:scale-072",
+        "nearestDistance": 0.21730283140283144
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-033",
+        "representativeId": "realistic-support-operations-specialist:scale-093",
+        "nearestDistance": 0.11447961406784937
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-063",
+        "representativeId": "realistic-support-operations-specialist:scale-063",
+        "nearestDistance": 0.22377177700348436
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-142",
+        "representativeId": "realistic-support-operations-specialist:scale-022",
+        "nearestDistance": 0.03143143143143143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-026",
+        "representativeId": "realistic-support-operations-specialist:scale-146",
+        "nearestDistance": 0.03143143143143143
+      },
+      {
+        "candidateId": "realistic-support-operations-specialist:scale-087",
+        "representativeId": "realistic-support-operations-specialist:scale-087",
+        "nearestDistance": 0.12991823461091756
+      }
+    ],
+    "pairwiseDistance": {
+      "comparisons": 11175,
+      "mean": 0.407073270597287,
+      "p10": 0.3026178861788618,
+      "p50": 0.42240250827603765,
+      "p90": 0.49752261371379025
+    }
+  },
+  "evidenceBoundary": "Candidate construction and contract validation only. No candidate performance, optimum portfolio size or customer value is implied.",
+  "portfolioHash": "814beb0d0fd70d6596ff13aae35aed228eaa2696f0baea4bd01269f587fc4426"
+}

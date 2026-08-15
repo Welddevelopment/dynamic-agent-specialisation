@@ -1,0 +1,1319 @@
+{
+  "definitionId": "parceldock-return-authorization-mcp-v1",
+  "prepared": {
+    "workPlanHash": "fe29b98d9791c6e70797ebbd325ce0ba6a70e92eeea6a94e463c861dc7832fa3",
+    "structuralBindingHash": "d16e688d03b7ddfbb0364a3c5652995f4a28071ab853dbb9d1cab9c4c3daa9a3",
+    "sourceHash": "932772a6a6c04d139843b1124c0eba5a20d70857ed95386a9c995905500226bc"
+  },
+  "generated": {
+    "schemaVersion": "das.customer-local-binding-package.v1",
+    "sourceIdentity": {
+      "kind": "mcp-tools-list",
+      "sourceHash": "932772a6a6c04d139843b1124c0eba5a20d70857ed95386a9c995905500226bc",
+      "provenance": {
+        "status": "reviewed-source-observed",
+        "suppliedBy": "Reviewed source for parceldock-return-authorization-mcp-v1",
+        "sourceHash": "932772a6a6c04d139843b1124c0eba5a20d70857ed95386a9c995905500226bc"
+      },
+      "mcp": {
+        "serverId": "parceldock-return-actions",
+        "serverVersion": "2.1.0",
+        "toolsListHash": "932772a6a6c04d139843b1124c0eba5a20d70857ed95386a9c995905500226bc",
+        "transportIdentityHash": "3b8ac2ce6c0a7279f1f5421511bf58a2d4dd5fa14d480a02cb419a425b79c5a3"
+      }
+    },
+    "actionRuntimeDeclaration": {
+      "schemaVersion": "das.customer-local-action-runtime-declaration.v1",
+      "bindingId": "parceldock-return-action-v1",
+      "surfaceId": "parceldock-return-action-mcp",
+      "credentialAliases": [
+        "PARCELDOCK_RETURN_ACTION_TOKEN"
+      ],
+      "implementationHash": "9e0a890447f216b4e9ad21d749d7eca3513cb3f7cd1100b3af77f7b84aafdbe6",
+      "runtimeSchemaHash": "c520317015cff8ee7eb50b92732f34247472a6193421797a98f92075aa10da66",
+      "authenticationIdentityHash": "0fa5bb02c53242f84b09acc5e86db34885f2b1cca546b9f6bf4a919d0c57e980",
+      "sourceHash": "932772a6a6c04d139843b1124c0eba5a20d70857ed95386a9c995905500226bc",
+      "transportIdentityHash": "3b8ac2ce6c0a7279f1f5421511bf58a2d4dd5fa14d480a02cb419a425b79c5a3",
+      "provenance": {
+        "status": "engineer-supplied-unproved",
+        "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+        "sourceHash": "9f81f7362622771e83accd0c02e3a19ffccf3c37d46f6f4de708d1c05cfe93e5"
+      },
+      "status": "engineer-declared-unprobed-non-executable",
+      "credentialsResolved": false,
+      "runtimeAuthorityGranted": false,
+      "probed": false,
+      "executable": false,
+      "activationReady": false,
+      "evidenceBoundary": "Exact engineer-supplied action runtime identity declaration only. No credential value, authority, runtime probe, qualification or activation is established.",
+      "declarationHash": "e8fa5f9f64cbca0ed04dea7e96b3cccc5aca37795a3425eb6865f64dc8daf524"
+    },
+    "writeSafetyContracts": [
+      {
+        "schemaVersion": "das.customer-local-declarative-write-safety.v1",
+        "sourceName": "draftReturnAuthorization",
+        "stableIdentity": {
+          "fields": [
+            "sourceReturnId",
+            "idempotencyKey"
+          ],
+          "provenance": {
+            "status": "customer-confirmed",
+            "suppliedBy": "Fictional role owner for parceldock-return-authorization-mcp-v1",
+            "sourceHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a"
+          }
+        },
+        "idempotency": {
+          "conflictKeyFields": [
+            "idempotencyKey"
+          ],
+          "conflictKeySource": "mcp-required-input-field",
+          "conflictBehavior": "halt-handoff-no-overwrite",
+          "provenance": {
+            "status": "engineer-supplied-unproved",
+            "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+            "sourceHash": "db4e50453190f156b8ce30b8e1898328913f4153e7c872aa981790b268836a4e"
+          }
+        },
+        "allowedMutation": {
+          "entityKinds": [
+            "draft-rma"
+          ],
+          "scopeFields": [
+            "sourceReturnId",
+            "idempotencyKey"
+          ],
+          "maximumWritesPerAssignedItem": 1,
+          "provenance": {
+            "status": "customer-confirmed",
+            "suppliedBy": "Fictional role owner for parceldock-return-authorization-mcp-v1",
+            "sourceHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a"
+          }
+        },
+        "reconciliation": {
+          "readOperation": "readDraftReturn",
+          "inputBindings": [
+            "sourceReturnId->sourceReturnId",
+            "idempotencyKey->idempotencyKey"
+          ],
+          "requiredPredicates": [
+            "one exact result for the stable identity",
+            "no protected or unrelated state changed"
+          ],
+          "proofSource": "separate-independent-observer",
+          "provenance": {
+            "status": "engineer-supplied-unproved",
+            "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+            "sourceHash": "4395522a5d790d7770b8eadef9974a10e93dd5746ff7633ad405592359f50ffc"
+          }
+        },
+        "retryPolicy": {
+          "automaticRetries": 0,
+          "eligibleClassification": "not-started",
+          "requiresExplicitGate": true,
+          "maximumGatedRetries": 1,
+          "provenance": {
+            "status": "engineer-supplied-unproved",
+            "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+            "sourceHash": "88aa14c2465907d19c1f3f2cacfb3df458a3778186a7efefc4b907f33c1d4345"
+          }
+        },
+        "terminalBehavior": {
+          "unknown": "halt-handoff-no-retry",
+          "unavailable": "halt-handoff-no-retry",
+          "partial": "halt-quarantine-no-retry",
+          "incorrect": "halt-quarantine-no-retry",
+          "duplicate": "halt-quarantine-no-retry",
+          "collateral": "halt-quarantine-no-retry",
+          "provenance": {
+            "status": "customer-confirmed",
+            "suppliedBy": "Fictional role owner for parceldock-return-authorization-mcp-v1",
+            "sourceHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a"
+          }
+        },
+        "review": {
+          "responsibility": "customer-local-engineer-and-role-owner-reviewed-unproved",
+          "reviewedBy": "Fictional owner and engineer for parceldock-return-authorization-mcp-v1",
+          "confirmationHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a",
+          "successCriteriaHash": "debbdeecbbece401f7559e49b9be575636ebdd8efef2094213ea8d689c070fd2",
+          "provenance": {
+            "status": "customer-confirmed",
+            "suppliedBy": "Fictional role owner for parceldock-return-authorization-mcp-v1",
+            "sourceHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a"
+          }
+        },
+        "status": "declarative-write-safety-reviewed-unproved",
+        "executable": false,
+        "qualified": false,
+        "activationReady": false,
+        "evidenceBoundary": "Explicit owner/engineer write-safety meaning only. The rules are provenance-bound but remain unproved until a separate runtime and independent observer pass frozen qualification.",
+        "contractHash": "2e4e15af0c1f90504c67a2854c3d4c174e52802a348d28b65fdd085c0b646dea"
+      }
+    ],
+    "proofContractInput": {
+      "schemaVersion": "das.customer-local-declarative-observer-proof-input.v1",
+      "runtime": {
+        "observerId": "parceldock-return-audit-v1",
+        "surfaceId": "parceldock-return-read-only-audit-mcp",
+        "credentialAliases": [
+          "PARCELDOCK_RETURN_AUDIT_TOKEN"
+        ],
+        "implementationHash": "490658f6079807c5ca1fbf3b915f41ec10bb62e50a53dbe35a3050c59031dfd4",
+        "sourceHash": "eec849d1b16fa7273086bba0ed770fdf231200c70cb2210efa2611ebb856c4e9",
+        "runtimeSchemaHash": "9bfb2b8f823d07f4a77126ed13f783716fa5f4d3a04e54bce3e990cc3417eecf",
+        "transportIdentityHash": "aab2286f0ce29dea4baf4754e20413f57b9390e454692039f44d2aab6784fe98",
+        "authenticationIdentityHash": "b389d45bfe5b8149b24faf0a831a51622e74b07e0d28cbde3d052b3970fa6497",
+        "readOperations": [
+          "auditReturnOutcome",
+          "auditProtectedOrderScope"
+        ],
+        "provenance": {
+          "status": "engineer-supplied-unproved",
+          "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "b00cc4c6220ec4dc658e2e925b29b2bf1358242fd0b5ad066e6c5c07d57fbc13"
+        }
+      },
+      "stableIdentity": {
+        "fields": [
+          "sourceReturnId",
+          "idempotencyKey"
+        ],
+        "provenance": {
+          "status": "customer-confirmed",
+          "suppliedBy": "Fictional role owner for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a"
+        }
+      },
+      "freshness": {
+        "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+        "caughtUpThroughField": "caughtUpThroughMs",
+        "maximumAgeMs": 50,
+        "provenance": {
+          "status": "engineer-supplied-unproved",
+          "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "c9852d8d339f1cc855b07469e5bb84c91865b62beedb84893be9ed12ed1a055b"
+        }
+      },
+      "outcomeRules": {
+        "requiredExactFields": [
+          "sourceReturnId",
+          "idempotencyKey",
+          "orderId",
+          "reasonCode",
+          "approvedItemsDigest"
+        ],
+        "statusField": "status",
+        "completionStatuses": [
+          "draft"
+        ],
+        "provenance": {
+          "status": "customer-confirmed",
+          "suppliedBy": "Fictional role owner for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a"
+        }
+      },
+      "duplicateRule": {
+        "maximumDistinctResults": 1,
+        "resultIdentityField": "rmaId",
+        "provenance": {
+          "status": "customer-confirmed",
+          "suppliedBy": "Fictional role owner for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a"
+        }
+      },
+      "collateralRules": {
+        "changedEntitiesField": "changedEntities",
+        "unrelatedStateDigestField": "unrelatedStateDigest",
+        "allowedChangedEntityKinds": [
+          "draft-rma"
+        ],
+        "provenance": {
+          "status": "customer-confirmed",
+          "suppliedBy": "Fictional role owner for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a"
+        }
+      },
+      "predicates": {
+        "values": [
+          "observed result matches every exact assigned-work field",
+          "observed status is draft"
+        ],
+        "provenance": {
+          "status": "engineer-supplied-unproved",
+          "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "4066d3069c4c26c7f0a989ab1e06d9b8dcee9bbfcabb575b025dcd55f0f2a9d1"
+        }
+      },
+      "invariants": {
+        "values": [
+          "no unrelated protected state changes",
+          "no second result exists for the stable identity"
+        ],
+        "provenance": {
+          "status": "engineer-supplied-unproved",
+          "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "ed73646602579508c5099b0d9bbd3c05aead7e864d8a6852f1f5de3226020d89"
+        }
+      },
+      "evidenceTiming": {
+        "beforeActionBaselineRequired": true,
+        "afterActionFenceRequired": true,
+        "futureEvidenceRejected": true,
+        "preExistingMatchRejected": true,
+        "provenance": {
+          "status": "engineer-supplied-unproved",
+          "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "34851e81655a288455a2544a2bbd10ed80823605de1deb85a9801d716fa69953"
+        }
+      },
+      "canonicalClassifications": {
+        "completed": {
+          "classification": "completed",
+          "disposition": "accept",
+          "maximumBusinessWrites": 1
+        },
+        "not-started": {
+          "classification": "not-started",
+          "disposition": "retry-eligible-after-explicit-gate",
+          "maximumBusinessWrites": 0
+        },
+        "partial": {
+          "classification": "partial",
+          "disposition": "halt-quarantine",
+          "maximumBusinessWrites": 1
+        },
+        "incorrect": {
+          "classification": "incorrect",
+          "disposition": "halt-quarantine",
+          "maximumBusinessWrites": 1
+        },
+        "duplicate": {
+          "classification": "duplicate",
+          "disposition": "halt-quarantine",
+          "maximumBusinessWrites": 2
+        },
+        "stale": {
+          "classification": "stale",
+          "disposition": "halt-handoff",
+          "maximumBusinessWrites": 1
+        },
+        "collateral": {
+          "classification": "collateral",
+          "disposition": "halt-quarantine",
+          "maximumBusinessWrites": 1
+        },
+        "unknown": {
+          "classification": "unknown",
+          "disposition": "halt-handoff",
+          "maximumBusinessWrites": 0
+        },
+        "unavailable": {
+          "classification": "unavailable",
+          "disposition": "halt-handoff",
+          "maximumBusinessWrites": 0
+        },
+        "lost-response": {
+          "classification": "completed",
+          "disposition": "accept",
+          "maximumBusinessWrites": 1
+        }
+      },
+      "classificationRuleProvenance": {
+        "status": "das-fixed-safety-rule",
+        "sourceHash": "fcdcfe08c4de45a784f620ea8737b18b5c57f247221123a084bddd0aadff801d",
+        "suppliedBy": "DAS frozen qualification profile"
+      },
+      "proofRuleReview": {
+        "responsibility": "engineer-owned-reviewed-unproved",
+        "reviewedBy": "Fictional independent-proof engineer for parceldock-return-authorization-mcp-v1",
+        "confirmationHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a",
+        "successCriteriaHash": "debbdeecbbece401f7559e49b9be575636ebdd8efef2094213ea8d689c070fd2",
+        "provenance": {
+          "status": "engineer-supplied-unproved",
+          "suppliedBy": "Fictional implementation engineer for parceldock-return-authorization-mcp-v1",
+          "sourceHash": "00c53c531733857e92c6d78842ce98267132aa8eb3479a9c56bba76155af3e3a"
+        }
+      },
+      "provisionalObserverContractHash": "5eeaba7dcd65df44ab71a5a56317248cd4d1cfc71d600cd505a10d51e9bf6606",
+      "status": "declarative-observer-proof-reviewed-unproved",
+      "executable": false,
+      "qualified": false,
+      "activationReady": false,
+      "evidenceBoundary": "Observer identity, proof predicates, invariants, timing, and all ten classifications are declared. Authentication, implementation and direct observation remain unproved.",
+      "contractHash": "e6e794f560f579cee6322c823ccab846cc17c67cb1930e2ae5ea15a87d24af17"
+    },
+    "observerContract": {
+      "schemaVersion": "das.customer-local-observer-contract.v1",
+      "sessionId": "parceldock-return-authorization-v1",
+      "systemId": "returns",
+      "workPlanHash": "fe29b98d9791c6e70797ebbd325ce0ba6a70e92eeea6a94e463c861dc7832fa3",
+      "structuralBindingHash": "d16e688d03b7ddfbb0364a3c5652995f4a28071ab853dbb9d1cab9c4c3daa9a3",
+      "observerId": "parceldock-return-audit-v1",
+      "surfaceId": "parceldock-return-read-only-audit-mcp",
+      "credentialAliases": [
+        "PARCELDOCK_RETURN_AUDIT_TOKEN"
+      ],
+      "implementationHash": "490658f6079807c5ca1fbf3b915f41ec10bb62e50a53dbe35a3050c59031dfd4",
+      "sourceHash": "eec849d1b16fa7273086bba0ed770fdf231200c70cb2210efa2611ebb856c4e9",
+      "runtimeSchemaHash": "9bfb2b8f823d07f4a77126ed13f783716fa5f4d3a04e54bce3e990cc3417eecf",
+      "transportIdentityHash": "aab2286f0ce29dea4baf4754e20413f57b9390e454692039f44d2aab6784fe98",
+      "readOperations": [
+        "auditReturnOutcome",
+        "auditProtectedOrderScope"
+      ],
+      "writeOperations": [],
+      "evidenceProvenance": "observer-direct-external-state",
+      "stableIdentity": {
+        "fields": [
+          "sourceReturnId",
+          "idempotencyKey"
+        ]
+      },
+      "freshness": {
+        "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+        "caughtUpThroughField": "caughtUpThroughMs",
+        "maximumAgeMs": 50
+      },
+      "outcomeRules": {
+        "requiredExactFields": [
+          "sourceReturnId",
+          "idempotencyKey",
+          "orderId",
+          "reasonCode",
+          "approvedItemsDigest"
+        ],
+        "statusField": "status",
+        "completionStatuses": [
+          "draft"
+        ]
+      },
+      "duplicateRule": {
+        "maximumDistinctResults": 1,
+        "resultIdentityField": "rmaId"
+      },
+      "collateralRules": {
+        "changedEntitiesField": "changedEntities",
+        "unrelatedStateDigestField": "unrelatedStateDigest",
+        "allowedChangedEntityKinds": [
+          "draft-rma"
+        ]
+      },
+      "proofRuleReview": {
+        "responsibility": "engineer-owned-reviewed-unproved",
+        "reviewedBy": "Fictional independent-proof engineer for parceldock-return-authorization-mcp-v1",
+        "confirmationHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a",
+        "successCriteriaHash": "debbdeecbbece401f7559e49b9be575636ebdd8efef2094213ea8d689c070fd2",
+        "reviewedRuleHash": "07d0d495e6f3be3e9f33a31741f9b25880ed6212a8e6d088307d0dffd05981e9"
+      },
+      "status": "provisional-observer-contract-non-executable",
+      "independentlyAuthenticated": "unproved",
+      "qualified": false,
+      "executable": false,
+      "activationReady": false,
+      "evidenceBoundary": "Provisional customer-local observer declaration. Separate identities and rules are declared but no observer was authenticated, probed or qualified.",
+      "contractHash": "5eeaba7dcd65df44ab71a5a56317248cd4d1cfc71d600cd505a10d51e9bf6606"
+    },
+    "candidate": {
+      "schemaVersion": "das.customer-local-binding-candidate.v1",
+      "sessionId": "parceldock-return-authorization-v1",
+      "systemId": "returns",
+      "roleId": "parceldock-return-authorization-v1:support-operations",
+      "workPlanHash": "fe29b98d9791c6e70797ebbd325ce0ba6a70e92eeea6a94e463c861dc7832fa3",
+      "structuralBindingHash": "d16e688d03b7ddfbb0364a3c5652995f4a28071ab853dbb9d1cab9c4c3daa9a3",
+      "action": {
+        "bindingId": "parceldock-return-action-v1",
+        "surfaceId": "parceldock-return-action-mcp",
+        "credentialAliases": [
+          "PARCELDOCK_RETURN_ACTION_TOKEN"
+        ],
+        "implementationHash": "9e0a890447f216b4e9ad21d749d7eca3513cb3f7cd1100b3af77f7b84aafdbe6",
+        "sourceHash": "932772a6a6c04d139843b1124c0eba5a20d70857ed95386a9c995905500226bc",
+        "runtimeSchemaHash": "c520317015cff8ee7eb50b92732f34247472a6193421797a98f92075aa10da66",
+        "transportIdentityHash": "3b8ac2ce6c0a7279f1f5421511bf58a2d4dd5fa14d480a02cb419a425b79c5a3",
+        "operations": [
+          {
+            "sourceName": "readApprovedReturn",
+            "targetExposedName": "returns:read-approved-return",
+            "mode": "read",
+            "authorityAction": null,
+            "boundedInputSchemaHash": "1e4a7b5ce141f1f68a30f971275a27f48c5562fa7d9ba24ebf6b89f2aa353925"
+          },
+          {
+            "sourceName": "draftReturnAuthorization",
+            "targetExposedName": "returns:draft-return-authorization",
+            "mode": "write",
+            "authorityAction": "create-draft-return-authorization",
+            "boundedInputSchemaHash": "a2f3d1339fb4e16d60483f52c2b748d28ad855b2bbf3aaa16da50aafa81e9719",
+            "writeSafetyContractHash": "2e4e15af0c1f90504c67a2854c3d4c174e52802a348d28b65fdd085c0b646dea",
+            "stableIdentityRule": "fields:sourceReturnId,idempotencyKey;review:7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a",
+            "idempotencyRule": "source:mcp-required-input-field;fields:idempotencyKey;conflict:halt-handoff-no-overwrite",
+            "reconciliationRule": "read:readDraftReturn;proof:separate-independent-observer;unknown:halt-handoff-no-retry;unavailable:halt-handoff-no-retry"
+          },
+          {
+            "sourceName": "readDraftReturn",
+            "targetExposedName": "returns:read-draft-return",
+            "mode": "read",
+            "authorityAction": null,
+            "boundedInputSchemaHash": "1e4a7b5ce141f1f68a30f971275a27f48c5562fa7d9ba24ebf6b89f2aa353925"
+          }
+        ],
+        "reviewed": true,
+        "probed": false
+      },
+      "observerContractHash": "5eeaba7dcd65df44ab71a5a56317248cd4d1cfc71d600cd505a10d51e9bf6606",
+      "observer": {
+        "observerId": "parceldock-return-audit-v1",
+        "surfaceId": "parceldock-return-read-only-audit-mcp",
+        "credentialAliases": [
+          "PARCELDOCK_RETURN_AUDIT_TOKEN"
+        ],
+        "implementationHash": "490658f6079807c5ca1fbf3b915f41ec10bb62e50a53dbe35a3050c59031dfd4",
+        "sourceHash": "eec849d1b16fa7273086bba0ed770fdf231200c70cb2210efa2611ebb856c4e9",
+        "runtimeSchemaHash": "9bfb2b8f823d07f4a77126ed13f783716fa5f4d3a04e54bce3e990cc3417eecf",
+        "transportIdentityHash": "aab2286f0ce29dea4baf4754e20413f57b9390e454692039f44d2aab6784fe98",
+        "readOperations": [
+          "auditReturnOutcome",
+          "auditProtectedOrderScope"
+        ],
+        "reviewed": true,
+        "probed": false,
+        "qualified": false
+      },
+      "status": "reviewed-candidate-non-executable",
+      "runtimeAuthorityGranted": false,
+      "credentialsResolved": false,
+      "acceptanceComplete": false,
+      "executableOperations": 0,
+      "executable": false,
+      "activationReady": false,
+      "evidenceBoundary": "Reviewed customer-local action and observer candidate only. Separate implementation identities and credential aliases are declarations, not runtime or qualification proof.",
+      "candidateHash": "04736bbf9191a42ab576385ced84eb7e90ad4f130b91183bfc45f4662228e0b4"
+    },
+    "runtimeWorkPack": {
+      "schemaVersion": "das.customer-local-runtime-work-pack.v1",
+      "sessionId": "parceldock-return-authorization-v1",
+      "systemId": "returns",
+      "roleId": "support-operations",
+      "workPlanHash": "fe29b98d9791c6e70797ebbd325ce0ba6a70e92eeea6a94e463c861dc7832fa3",
+      "structuralBindingHash": "d16e688d03b7ddfbb0364a3c5652995f4a28071ab853dbb9d1cab9c4c3daa9a3",
+      "sourceIdentityHash": "e2b2f551f181b777bbda4c959ddf52479a7d9405426159a1638fd88d9eb52f02",
+      "actionRuntimeDeclarationHash": "e8fa5f9f64cbca0ed04dea7e96b3cccc5aca37795a3425eb6865f64dc8daf524",
+      "actionCandidateHash": "04736bbf9191a42ab576385ced84eb7e90ad4f130b91183bfc45f4662228e0b4",
+      "observerContractHash": "5eeaba7dcd65df44ab71a5a56317248cd4d1cfc71d600cd505a10d51e9bf6606",
+      "proofContractInputHash": "e6e794f560f579cee6322c823ccab846cc17c67cb1930e2ae5ea15a87d24af17",
+      "writeSafetyContractHashes": [
+        "2e4e15af0c1f90504c67a2854c3d4c174e52802a348d28b65fdd085c0b646dea"
+      ],
+      "generatedArtifacts": [
+        "source-identity-receipt",
+        "action-runtime-declaration",
+        "declarative-write-safety-contracts",
+        "declarative-observer-proof-input",
+        "non-executable-action-observer-candidate",
+        "runtime-work-pack",
+        "generation-receipt"
+      ],
+      "exactEngineerWork": [
+        "implement-and-authenticate-action-runtime-against-exact-action-identities",
+        "implement-and-authenticate-separate-read-only-observer-against-exact-observer-identities",
+        "prove-stable-identity-idempotency-conflict-and-reconciliation-semantics",
+        "prove-outcome-predicates-freshness-duplicate-and-collateral-rules",
+        "bind-customer-local-credential-values-outside-generated-artifacts",
+        "run-all-ten-canonical-controls-in-an-integrity-bound-disposable-world",
+        "run-separate-mandatory-customer-environment-acceptance"
+      ],
+      "exactBlockers": [
+        "action-runtime-implementation-unprobed",
+        "observer-runtime-implementation-unprobed",
+        "independent-authentication-unproved",
+        "write-safety-semantics-unproved",
+        "observer-proof-semantics-unproved",
+        "customer-local-credentials-unresolved",
+        "canonical-local-qualification-not-run",
+        "mandatory-customer-environment-acceptance-not-run",
+        "comparison-execution-blocked",
+        "controlled-activation-blocked"
+      ],
+      "measurements": {
+        "structurallyCompiledOperations": 3,
+        "declarativeWriteSafetyContractsGenerated": 1,
+        "observerProofContractsGenerated": 1,
+        "canonicalClassificationsBound": 10,
+        "provenanceBoundSections": 19,
+        "packageSpecificExecutableCodeGenerated": 0,
+        "credentialValues": 0,
+        "modelCalls": 0,
+        "spendUsd": 0
+      },
+      "gates": {
+        "sourcePinned": true,
+        "roleOwnerAndEngineerDeclarationsBound": true,
+        "credentialValuesPresent": false,
+        "runtimeAuthorityGranted": false,
+        "actionRuntimeProbed": false,
+        "observerRuntimeProbed": false,
+        "independentlyAuthenticated": false,
+        "canonicalQualificationRun": false,
+        "mandatoryAcceptanceRun": false,
+        "comparisonReady": false,
+        "executable": false,
+        "activationReady": false
+      },
+      "evidenceBoundary": "Integrity-bound runtime implementation work pack only. It enumerates exact remaining engineering and proof work; it is not executable code, qualification, acceptance, comparison readiness or activation.",
+      "workPackHash": "5565e99b8d21d64d6ecd9f3e7b3f0c9b93955b8ffe5088fc7c2d6eb6472bf229"
+    },
+    "receipt": {
+      "schemaVersion": "das.customer-local-binding-package-generation.v1",
+      "sessionId": "parceldock-return-authorization-v1",
+      "systemId": "returns",
+      "roleId": "support-operations",
+      "workPlanHash": "fe29b98d9791c6e70797ebbd325ce0ba6a70e92eeea6a94e463c861dc7832fa3",
+      "structuralBindingHash": "d16e688d03b7ddfbb0364a3c5652995f4a28071ab853dbb9d1cab9c4c3daa9a3",
+      "confirmationHash": "7c0ece25f4a85491ee98681105317acafaa8334dd976d06f382620be3bf2bf4a",
+      "successCriteriaHash": "debbdeecbbece401f7559e49b9be575636ebdd8efef2094213ea8d689c070fd2",
+      "sourceIdentityHash": "e2b2f551f181b777bbda4c959ddf52479a7d9405426159a1638fd88d9eb52f02",
+      "actionRuntimeDeclarationHash": "e8fa5f9f64cbca0ed04dea7e96b3cccc5aca37795a3425eb6865f64dc8daf524",
+      "writeSafetyContractHashes": [
+        "2e4e15af0c1f90504c67a2854c3d4c174e52802a348d28b65fdd085c0b646dea"
+      ],
+      "proofContractInputHash": "e6e794f560f579cee6322c823ccab846cc17c67cb1930e2ae5ea15a87d24af17",
+      "observerContractHash": "5eeaba7dcd65df44ab71a5a56317248cd4d1cfc71d600cd505a10d51e9bf6606",
+      "candidateHash": "04736bbf9191a42ab576385ced84eb7e90ad4f130b91183bfc45f4662228e0b4",
+      "workPackHash": "5565e99b8d21d64d6ecd9f3e7b3f0c9b93955b8ffe5088fc7c2d6eb6472bf229",
+      "status": "generated-reviewed-non-executable-runtime-work-pack",
+      "credentialValuesIncluded": false,
+      "runtimeAuthorityGranted": false,
+      "executableOperations": 0,
+      "comparisonReady": false,
+      "qualified": false,
+      "activated": false,
+      "modelCalls": 0,
+      "spendUsd": 0,
+      "evidenceBoundary": "DAS generated exact non-executable candidates and a work pack from reviewed source plus explicit owner/engineer meaning. No runtime, proof, customer comparison or activation is established.",
+      "receiptHash": "c90283199b0d42dcd4e62ccbda16780b94904e5db3c4eee9dc6723b32d01eb56"
+    }
+  },
+  "localWorld": {
+    "schemaVersion": "das.declarative-customer-local-qualification-world.v1",
+    "packageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a",
+    "assignedWork": {
+      "sourceReturnId": "return-0109",
+      "idempotencyKey": "draft-rma:return-0109:v1",
+      "orderId": "order-7721",
+      "reasonCode": "DAMAGED_IN_TRANSIT",
+      "approvedItemsDigest": "sha256:approved-items-return-0109"
+    },
+    "stableIdentityFields": [
+      "sourceReturnId",
+      "idempotencyKey"
+    ],
+    "requiredExactFields": [
+      "sourceReturnId",
+      "idempotencyKey",
+      "orderId",
+      "reasonCode",
+      "approvedItemsDigest"
+    ],
+    "resultIdentityField": "rmaId",
+    "statusField": "status",
+    "completionStatus": "draft",
+    "allowedChangedEntityKind": "draft-rma",
+    "partialField": "approvedItemsDigest",
+    "incorrectField": "reasonCode",
+    "incorrectValue": "CUSTOMER_CHANGED_MIND",
+    "protectedStateDigest": "protected-unrelated-state:parceldock-return-authorization-mcp-v1:v1",
+    "observationTimeMs": 1000,
+    "staleObservationTimeMs": 900,
+    "controls": [
+      "completed",
+      "not-started",
+      "partial",
+      "incorrect",
+      "duplicate",
+      "stale",
+      "collateral",
+      "unknown",
+      "unavailable",
+      "lost-response"
+    ],
+    "packageSpecificCallbacks": 0,
+    "generatedExecutableCustomerCode": 0,
+    "productionAuthorityGranted": false,
+    "evidenceBoundary": "Declarative disposable qualification world only. Its business truth and fault outcomes are fixture inputs, not generated customer runtime or production evidence.",
+    "contractHash": "836dbd338b86e2610306369ef801714ec467636e80d622cd1f6f924d562d76cb"
+  },
+  "harnessContract": {
+    "schemaVersion": "das.customer-local-qualification-harness.v1",
+    "harnessId": "parceldock-return-authorization-mcp-v1:declarative-local-qualification-v1",
+    "worldImplementationHash": "260de33cdf00d8f51bbd3205a245f626c900d273c0087618c51988155589a0d7",
+    "persistentStoreSchemaHash": "65747fbb4e47dbf75675f31e405dd8da2dd6df846647780bdc83b664ea1888a3",
+    "authenticationAuthorityHash": "6d52837840fc2c70fef8fffe34229212d1e83ba71a829fbbcec283af68603690",
+    "observerEvidenceSchemaHash": "17b825e7785b3861dffbd5afa7e530c2623d61f7c27f73f277c739d9862ea038",
+    "supportsFreshRuntimeReattach": true,
+    "productionAuthorityGranted": false,
+    "credentialValuesIncluded": false,
+    "evidenceBoundary": "Disposable local qualification harness identity only. It grants no customer runtime authority.",
+    "contractHash": "f19678353feb739c361bc5803d30fe7cb567a8e3dd3efa5075fb2d6431009b60"
+  },
+  "result": {
+    "schemaVersion": "das.customer-local-qualification-runtime-bridge-result.v1",
+    "packageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a",
+    "bridgeContractHash": "4551b602cdb4be2ed6c05cec6603214901e3dc9c1884a57270695b2faae5dc00",
+    "caseContractHash": "82aca3340f6ba0d81248b9dc6838584678c51e1a47cd2bf7f65712b7c583ab8c",
+    "qualificationReceiptHash": "697f6d06271de0269fcc8c36ba55e2c2c4b14d5ce6b281f27e0a7bec4c188f54",
+    "cases": [
+      {
+        "id": "completed",
+        "expectedClassification": "completed",
+        "expectedDisposition": "accept",
+        "maximumBusinessWrites": 1,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "completed"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "not-started",
+        "expectedClassification": "not-started",
+        "expectedDisposition": "retry-eligible-after-explicit-gate",
+        "maximumBusinessWrites": 0,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "not-started"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "partial",
+        "expectedClassification": "partial",
+        "expectedDisposition": "halt-quarantine",
+        "maximumBusinessWrites": 1,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "partial"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "incorrect",
+        "expectedClassification": "incorrect",
+        "expectedDisposition": "halt-quarantine",
+        "maximumBusinessWrites": 1,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "incorrect"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "duplicate",
+        "expectedClassification": "duplicate",
+        "expectedDisposition": "halt-quarantine",
+        "maximumBusinessWrites": 2,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "duplicate"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "stale",
+        "expectedClassification": "stale",
+        "expectedDisposition": "halt-handoff",
+        "maximumBusinessWrites": 1,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "stale"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "collateral",
+        "expectedClassification": "collateral",
+        "expectedDisposition": "halt-quarantine",
+        "maximumBusinessWrites": 1,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "collateral"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "unknown",
+        "expectedClassification": "unknown",
+        "expectedDisposition": "halt-handoff",
+        "maximumBusinessWrites": 0,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "unknown"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "unavailable",
+        "expectedClassification": "unavailable",
+        "expectedDisposition": "halt-handoff",
+        "maximumBusinessWrites": 0,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "unavailable"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      },
+      {
+        "id": "lost-response",
+        "expectedClassification": "completed",
+        "expectedDisposition": "accept",
+        "maximumBusinessWrites": 1,
+        "payload": {
+          "assignedWork": {
+            "sourceReturnId": "return-0109",
+            "idempotencyKey": "draft-rma:return-0109:v1",
+            "orderId": "order-7721",
+            "reasonCode": "DAMAGED_IN_TRANSIT",
+            "approvedItemsDigest": "sha256:approved-items-return-0109"
+          },
+          "fault": {
+            "kind": "lost-response"
+          },
+          "qualificationPackageIdentityHash": "9bed496bbea0cdaf42163e2d625129421db31aac59fe9eb563727646b518cf1a"
+        }
+      }
+    ],
+    "caseContract": {
+      "schemaVersion": "das.customer-local-qualification-case-contract.v1",
+      "candidateHash": "04736bbf9191a42ab576385ced84eb7e90ad4f130b91183bfc45f4662228e0b4",
+      "harnessContractHash": "f19678353feb739c361bc5803d30fe7cb567a8e3dd3efa5075fb2d6431009b60",
+      "canonicalControlProfileHash": "fcdcfe08c4de45a784f620ea8737b18b5c57f247221123a084bddd0aadff801d",
+      "cases": [
+        {
+          "id": "completed",
+          "expectedClassification": "completed",
+          "expectedDisposition": "accept",
+          "maximumBusinessWrites": 1,
+          "payloadHash": "ee0366aa965689cb199399727e776b9585366d32024bd72ba712a75f2427069b"
+        },
+        {
+          "id": "not-started",
+          "expectedClassification": "not-started",
+          "expectedDisposition": "retry-eligible-after-explicit-gate",
+          "maximumBusinessWrites": 0,
+          "payloadHash": "df53fbcf859b6f1092666d2b20f2ec7a04546467ead3c501f245bb3dfe701c46"
+        },
+        {
+          "id": "partial",
+          "expectedClassification": "partial",
+          "expectedDisposition": "halt-quarantine",
+          "maximumBusinessWrites": 1,
+          "payloadHash": "5cc6a24d1c5d360ed33eb29c8f4c1b64892d2730c57671f6fab5f978009d6a10"
+        },
+        {
+          "id": "incorrect",
+          "expectedClassification": "incorrect",
+          "expectedDisposition": "halt-quarantine",
+          "maximumBusinessWrites": 1,
+          "payloadHash": "0dcf84d5f7ecd15b843a2f3351ff6e822e1a605a5fe920582998ccd4b6bab13a"
+        },
+        {
+          "id": "duplicate",
+          "expectedClassification": "duplicate",
+          "expectedDisposition": "halt-quarantine",
+          "maximumBusinessWrites": 2,
+          "payloadHash": "eb5bcb4a91ac19a015b0215b658c17d43ff667498eb46a67a37ba45b151096c8"
+        },
+        {
+          "id": "stale",
+          "expectedClassification": "stale",
+          "expectedDisposition": "halt-handoff",
+          "maximumBusinessWrites": 1,
+          "payloadHash": "875a8b2dd98557eb49c8984cd5ac2868030ff2beb2f1c72e8a64948d3cfbf752"
+        },
+        {
+          "id": "collateral",
+          "expectedClassification": "collateral",
+          "expectedDisposition": "halt-quarantine",
+          "maximumBusinessWrites": 1,
+          "payloadHash": "9b5592d26812c8b124129b3f171ad99ab19e699e728e3aa47b72eff4f6020d86"
+        },
+        {
+          "id": "unknown",
+          "expectedClassification": "unknown",
+          "expectedDisposition": "halt-handoff",
+          "maximumBusinessWrites": 0,
+          "payloadHash": "b5615293b66c9b4835020c26b38404b56a13b9e92ca380060eb06270ed1355df"
+        },
+        {
+          "id": "unavailable",
+          "expectedClassification": "unavailable",
+          "expectedDisposition": "halt-handoff",
+          "maximumBusinessWrites": 0,
+          "payloadHash": "bd597efef454e12cfb75064709112b8fe1d1a3811d1ba01dd0498965b9d6bf13"
+        },
+        {
+          "id": "lost-response",
+          "expectedClassification": "completed",
+          "expectedDisposition": "accept",
+          "maximumBusinessWrites": 1,
+          "payloadHash": "aea93b58709c1d81a961209ce8dce1f0ce793a2364db71e3ed69f52ad9021cea"
+        }
+      ],
+      "sourceCasesHash": "7b93d07aec1fe7c7fb0f46cf39e7f3ff79015f156e056a85abebbce3cc77e70c",
+      "controls": [
+        "completed",
+        "not-started",
+        "partial",
+        "incorrect",
+        "duplicate",
+        "stale",
+        "collateral",
+        "unknown",
+        "unavailable",
+        "lost-response"
+      ],
+      "evidenceBoundary": "Frozen canonical local negative-control contract only. No control has run.",
+      "contractHash": "82aca3340f6ba0d81248b9dc6838584678c51e1a47cd2bf7f65712b7c583ab8c"
+    },
+    "qualificationReceipt": {
+      "schemaVersion": "das.customer-local-binding-qualification.v1",
+      "candidateHash": "04736bbf9191a42ab576385ced84eb7e90ad4f130b91183bfc45f4662228e0b4",
+      "observerContractHash": "5eeaba7dcd65df44ab71a5a56317248cd4d1cfc71d600cd505a10d51e9bf6606",
+      "caseContractHash": "82aca3340f6ba0d81248b9dc6838584678c51e1a47cd2bf7f65712b7c583ab8c",
+      "harnessContractHash": "f19678353feb739c361bc5803d30fe7cb567a8e3dd3efa5075fb2d6431009b60",
+      "runnerImplementationHash": "add34e4da4525fc7f452453ec5e7eab16eb02f72d99d88816176357c3df44a2e",
+      "status": "local-action-observer-qualified-non-executable",
+      "cases": [
+        {
+          "id": "completed",
+          "casePayloadHash": "ee0366aa965689cb199399727e776b9585366d32024bd72ba712a75f2427069b",
+          "expectedClassification": "completed",
+          "observedClassification": "completed",
+          "expectedDisposition": "accept",
+          "observedDisposition": "accept",
+          "businessWrites": 1,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 1,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "7d199b6d55aec94a15745e419a2367ea28eeeab6ce3acb8e22e7eddee5cfbcff",
+          "observerAuthenticationProofHash": "aa010ddb9527445bca56b3b79fd0d3f8e5c02473e5853425fd12c2ff1eb28cdc",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:completed:original",
+          "storageIdentityHash": "e5e94cee8529b245cd63e81d75eb8056612a9ad31d635c8fb471e4c4f4cc4e08",
+          "classification": {
+            "classification": "completed",
+            "reason": "fresh-independent-observer-confirmed-exact-outcome",
+            "disposition": "accept",
+            "retryEligible": false,
+            "reconciledAfterLostResponse": false,
+            "observedResultIdentity": "9bed496bbea0-result-1"
+          },
+          "passed": true,
+          "worldStateHash": "d68f4732886b1df5cdb18d0f3ef28b1920b4a376aa51ddf823d01e78fe98f8cc",
+          "observerEvidenceHash": "a0005a01c8886ec2b04a2aa19dc935ed689e4e0f10b861b2e5fece97694e973f",
+          "receiptHash": "9134929997a7ca40a27dd15dbc847f0bfb8e1e93a22bd2be3d9fa677abff1c68"
+        },
+        {
+          "id": "not-started",
+          "casePayloadHash": "df53fbcf859b6f1092666d2b20f2ec7a04546467ead3c501f245bb3dfe701c46",
+          "expectedClassification": "not-started",
+          "observedClassification": "not-started",
+          "expectedDisposition": "retry-eligible-after-explicit-gate",
+          "observedDisposition": "retry-eligible-after-explicit-gate",
+          "businessWrites": 0,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 0,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "32a2025a80eeee65449542c148c44ddca2a179fa0b0d3b0a8e8069be0e81801c",
+          "observerAuthenticationProofHash": "98f632508a032b3193c2c4f044a39dcf3cc2c73bd38c4fa362032836ca81fee0",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:not-started:original",
+          "storageIdentityHash": "bc92253a2a8cf10fe867f579464b706e0f7b919303dc2935984e8bae0bdfba82",
+          "classification": {
+            "classification": "not-started",
+            "reason": "fresh-independent-observer-found-no-effect",
+            "disposition": "retry-eligible-after-explicit-gate",
+            "retryEligible": true,
+            "reconciledAfterLostResponse": false
+          },
+          "passed": true,
+          "worldStateHash": "c6fa73418d44398d8a8c3a875486c583257cda81689f9d00e40b2871a7b482ab",
+          "observerEvidenceHash": "5a3a7c16e77ceadf6b64de06b32d42fea2739f3ca9844596e851938dcc2150cb",
+          "receiptHash": "1cdd7be53d2073dc7405e077a93c4544dc6bec03584f93cab996ff49e861f8f5"
+        },
+        {
+          "id": "partial",
+          "casePayloadHash": "5cc6a24d1c5d360ed33eb29c8f4c1b64892d2730c57671f6fab5f978009d6a10",
+          "expectedClassification": "partial",
+          "observedClassification": "partial",
+          "expectedDisposition": "halt-quarantine",
+          "observedDisposition": "halt-quarantine",
+          "businessWrites": 1,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 1,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "d99411aa11d5b3f7835b810ab4dd7911be6c8e99f12b3260aae3e22a4f284828",
+          "observerAuthenticationProofHash": "ecdc2f1074936711dee5258d61408a05047b29466ac31dbe0417f8ad83fec3ff",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:partial:original",
+          "storageIdentityHash": "fb84751c273890e7a09943ebe8c243dddb4937940ebe0cdd346afb3155e8434a",
+          "classification": {
+            "classification": "partial",
+            "reason": "required-observed-outcome-missing",
+            "disposition": "halt-quarantine",
+            "retryEligible": false
+          },
+          "passed": true,
+          "worldStateHash": "deb5f78b201228d5de4fe562253da28316c90f36dac0030f81d0e861efe8a60e",
+          "observerEvidenceHash": "41358f61b00e8907846b69296b398b3227f88c2f9f4378bf8a573f4cfc2b56cf",
+          "receiptHash": "1d6a1fcf2313ed693cd6fa93e75431f17d295168fcc628b2c151c10b09c976d3"
+        },
+        {
+          "id": "incorrect",
+          "casePayloadHash": "0dcf84d5f7ecd15b843a2f3351ff6e822e1a605a5fe920582998ccd4b6bab13a",
+          "expectedClassification": "incorrect",
+          "observedClassification": "incorrect",
+          "expectedDisposition": "halt-quarantine",
+          "observedDisposition": "halt-quarantine",
+          "businessWrites": 1,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 1,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "908a19a48610d4f31dd49e0311deaa49b6729f03aff3ad39f347133d03e68947",
+          "observerAuthenticationProofHash": "50faf91d2f53ca120013a53c2127cea76bb2e1dd8f387eaa33bc1c5fc33e7481",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:incorrect:original",
+          "storageIdentityHash": "09c1a4d6b5b8ea1ce985443dd6a4915abb46311dd1147fcb5ef7aa4d99d21627",
+          "classification": {
+            "classification": "incorrect",
+            "reason": "mismatched:reasonCode",
+            "disposition": "halt-quarantine",
+            "retryEligible": false
+          },
+          "passed": true,
+          "worldStateHash": "d48039082d49e5b3d76916a4c0881c380abb3901e47811926c38b489d84b777c",
+          "observerEvidenceHash": "28d86068276c69fab6e959f1a414a932af1508fa348bfdfa6dafbdcc109a5520",
+          "receiptHash": "a114936a4d94633d9f39ac33f410d0e1b160378a1f08c457ddbf217460583660"
+        },
+        {
+          "id": "duplicate",
+          "casePayloadHash": "eb5bcb4a91ac19a015b0215b658c17d43ff667498eb46a67a37ba45b151096c8",
+          "expectedClassification": "duplicate",
+          "observedClassification": "duplicate",
+          "expectedDisposition": "halt-quarantine",
+          "observedDisposition": "halt-quarantine",
+          "businessWrites": 2,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 2,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "7259f3cc79dd1d25a0c2887dc92b13e2e071f00ed624ffaa81fcbbc6fb174e60",
+          "observerAuthenticationProofHash": "733c011b4a84cef0a66b8d37da096782e279eacc30814fa1d01d41099df9013b",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:duplicate:original",
+          "storageIdentityHash": "cad0e3686418da147cf92925b82f4d03dd28c5ba3f085bd57f8bd342b9584a10",
+          "classification": {
+            "classification": "duplicate",
+            "reason": "duplicate-external-effect",
+            "disposition": "halt-quarantine",
+            "retryEligible": false
+          },
+          "passed": true,
+          "worldStateHash": "f59579dee911ca6b55577715bb7d26d44fe0ae257548a1e46bf2aca216e1cdb5",
+          "observerEvidenceHash": "81463e71de0421320e5a804d6f4c6410160576799cc3c3528fb663e3c7a415a7",
+          "receiptHash": "6bd5f43f48cdce6a8616cc6c76eb07dfd2238dad7268d622d1f51a7305d847b0"
+        },
+        {
+          "id": "stale",
+          "casePayloadHash": "875a8b2dd98557eb49c8984cd5ac2868030ff2beb2f1c72e8a64948d3cfbf752",
+          "expectedClassification": "stale",
+          "observedClassification": "stale",
+          "expectedDisposition": "halt-handoff",
+          "observedDisposition": "halt-handoff",
+          "businessWrites": 1,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 1,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "74fd94d59db59e6e492103928f0b2834fee582577e6e43e0c0c095466ed59003",
+          "observerAuthenticationProofHash": "98cc9a9e18d0bb86b194491ede436a26cf518f4004f4fc2903d3e4c34255213c",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:stale:original",
+          "storageIdentityHash": "1b5c37c57ad147498144af396681600307d3f9e2e5b0be4fc12601dfd0f502e3",
+          "classification": {
+            "classification": "stale",
+            "reason": "observer-stale",
+            "disposition": "halt-handoff",
+            "retryEligible": false
+          },
+          "passed": true,
+          "worldStateHash": "d68f4732886b1df5cdb18d0f3ef28b1920b4a376aa51ddf823d01e78fe98f8cc",
+          "observerEvidenceHash": "baf182bd1a3bf825ab86610f27e2c5f1b75fdf8203802c2a6e9c04fe3ea61d3c",
+          "receiptHash": "d5ac5bd630c948065a187493d304fa22f07bdd19eed4961dd961a6f3e06c2ce7"
+        },
+        {
+          "id": "collateral",
+          "casePayloadHash": "9b5592d26812c8b124129b3f171ad99ab19e699e728e3aa47b72eff4f6020d86",
+          "expectedClassification": "collateral",
+          "observedClassification": "collateral",
+          "expectedDisposition": "halt-quarantine",
+          "observedDisposition": "halt-quarantine",
+          "businessWrites": 1,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 1,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "13b02e37468b3cc35581b18fbd4c6c63b0afc7b4a92f306dea7a9a6080b1d128",
+          "observerAuthenticationProofHash": "6cb8e6784821b0d6d1859afb7510f86dc5c367f3aec0064b6246f50a89a5aba8",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:collateral:original",
+          "storageIdentityHash": "99093d323143d555cb25c4cdf993d0e71329596e3fe3a6c5320c1f370b8a5751",
+          "classification": {
+            "classification": "collateral",
+            "reason": "collateral-effect",
+            "disposition": "halt-quarantine",
+            "retryEligible": false,
+            "reconciledAfterLostResponse": false
+          },
+          "passed": true,
+          "worldStateHash": "336320e0c853ae1e4b97b99ff160742b49f9863f3c26c6dcc56e548b3b38f6c0",
+          "observerEvidenceHash": "931debb6f5a20faab04372ab8883396d7db5bf76f92c123e216173c230ebffff",
+          "receiptHash": "38d30d9a21cf385832af2b813b7e28fca330c6b035265b78ea9a778e7da011ee"
+        },
+        {
+          "id": "unknown",
+          "casePayloadHash": "b5615293b66c9b4835020c26b38404b56a13b9e92ca380060eb06270ed1355df",
+          "expectedClassification": "unknown",
+          "observedClassification": "unknown",
+          "expectedDisposition": "halt-handoff",
+          "observedDisposition": "halt-handoff",
+          "businessWrites": 0,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 0,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "907541dc1e95231bcf1806bbcc44cd31dffb4d4691014323db412cc972465657",
+          "observerAuthenticationProofHash": "e38a8c0ab607c317144a29639f107325df3780a08c0a6fda6750846ce1c144a4",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:unknown:original",
+          "storageIdentityHash": "bd9e7ed64727853c5168a548d9df76ae1227bdf8c3b6421e8dcb69c98ebc2c20",
+          "classification": {
+            "classification": "unknown",
+            "reason": "fictional-read-only-observer-could-not-establish-state",
+            "disposition": "halt-handoff",
+            "retryEligible": false,
+            "reconciledAfterLostResponse": false
+          },
+          "passed": true,
+          "worldStateHash": "c6fa73418d44398d8a8c3a875486c583257cda81689f9d00e40b2871a7b482ab",
+          "observerEvidenceHash": "9a776c3415dd381f25da0fa22c37d935ca031815a4cf510b33c3137a1730bf8b",
+          "receiptHash": "e0d6edef76c5bae7b50b7c76cdb7a78e89c9d05f47fff0fd7b633fc6023c1ea0"
+        },
+        {
+          "id": "unavailable",
+          "casePayloadHash": "bd597efef454e12cfb75064709112b8fe1d1a3811d1ba01dd0498965b9d6bf13",
+          "expectedClassification": "unavailable",
+          "observedClassification": "unavailable",
+          "expectedDisposition": "halt-handoff",
+          "observedDisposition": "halt-handoff",
+          "businessWrites": 0,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 0,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "d4d1e97b0697e63062de6759ce1f88b10de66d15a8ac92ea70863162ee62cd77",
+          "observerAuthenticationProofHash": "b1c54c60090433e37fa72fcf31db918f729951666ecc249e78beff15acae5de7",
+          "restartedAfterLostResponse": false,
+          "processInstanceId": "9bed496bbea0:unavailable:original",
+          "storageIdentityHash": "b07da9f2c71de6c2740f0f7babc9dad481e7e35c6b2adb1981b017bb40057b08",
+          "classification": {
+            "classification": "unavailable",
+            "reason": "fictional-read-only-observer-unavailable",
+            "disposition": "halt-handoff",
+            "retryEligible": false,
+            "reconciledAfterLostResponse": false
+          },
+          "passed": true,
+          "worldStateHash": "c6fa73418d44398d8a8c3a875486c583257cda81689f9d00e40b2871a7b482ab",
+          "observerEvidenceHash": "2e227bece514c95b3e4cc5ac8e0e98133dab6e57d14319c46b127029d569c869",
+          "receiptHash": "eb0c84357332e90266c8bb753847f2ce3732c617a49e134db2e1e025968d42e9"
+        },
+        {
+          "id": "lost-response",
+          "casePayloadHash": "aea93b58709c1d81a961209ce8dce1f0ce793a2364db71e3ed69f52ad9021cea",
+          "expectedClassification": "completed",
+          "observedClassification": "completed",
+          "expectedDisposition": "accept",
+          "observedDisposition": "accept",
+          "businessWrites": 1,
+          "observerWrites": 0,
+          "maximumBusinessWrites": 1,
+          "actionResponseIgnored": true,
+          "actionAuthenticationProofHash": "0fdf553657e8f427892d9dbbd9cc36e05ee05c6d89b9427e798d18bc45952676",
+          "observerAuthenticationProofHash": "1d3cf6b832f3296339ca28a64e542cc2205be1700ace1094f24afe7f479ba62f",
+          "restartedAfterLostResponse": true,
+          "processInstanceId": "9bed496bbea0:lost-response:original:fresh-1",
+          "storageIdentityHash": "1956791d8c987f000b1c63bbc91bc7637b485e413887f11898f6a2d887c3fce9",
+          "classification": {
+            "classification": "completed",
+            "reason": "fresh-independent-observer-confirmed-exact-outcome",
+            "disposition": "accept",
+            "retryEligible": false,
+            "reconciledAfterLostResponse": true,
+            "observedResultIdentity": "9bed496bbea0-result-1"
+          },
+          "passed": true,
+          "worldStateHash": "d68f4732886b1df5cdb18d0f3ef28b1920b4a376aa51ddf823d01e78fe98f8cc",
+          "observerEvidenceHash": "a0005a01c8886ec2b04a2aa19dc935ed689e4e0f10b861b2e5fece97694e973f",
+          "receiptHash": "5bf1653a49433646d88df6e8e11a3b6eb19067e4c6b012f922a3d3b7abc7b757"
+        }
+      ],
+      "controlsPassed": 10,
+      "controlsRequired": 10,
+      "qualificationPassed": true,
+      "separatelyAuthenticatedObserverQualifiedLocally": true,
+      "mandatoryCommercialAcceptanceComplete": false,
+      "executableOperations": 0,
+      "executable": false,
+      "activationReady": false,
+      "modelCalls": 0,
+      "spendUsd": 0,
+      "evidenceBoundary": "Disposable local action/observer qualification only. A pass does not grant credentials, runtime authority, commercial acceptance, execution or activation.",
+      "receiptHash": "697f6d06271de0269fcc8c36ba55e2c2c4b14d5ce6b281f27e0a7bec4c188f54"
+    },
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "productionAuthorityGranted": false,
+    "credentialsResolved": false,
+    "executableOperations": 0,
+    "executable": false,
+    "activationReady": false,
+    "evidenceBoundary": "Shared disposable local qualification result only. It does not establish a customer binding, executable operation, commercial acceptance, comparison readiness or activation.",
+    "resultHash": "7badc40050a9ba72943108ee5e19822d37578b83a5208df01c5841b7a99a8419"
+  },
+  "acceptance": {
+    "schemaVersion": "das.customer-local-acceptance-only.v1",
+    "candidateHash": "04736bbf9191a42ab576385ced84eb7e90ad4f130b91183bfc45f4662228e0b4",
+    "observerContractHash": "5eeaba7dcd65df44ab71a5a56317248cd4d1cfc71d600cd505a10d51e9bf6606",
+    "caseContractHash": "82aca3340f6ba0d81248b9dc6838584678c51e1a47cd2bf7f65712b7c583ab8c",
+    "harnessContractHash": "f19678353feb739c361bc5803d30fe7cb567a8e3dd3efa5075fb2d6431009b60",
+    "qualificationReceiptHash": "697f6d06271de0269fcc8c36ba55e2c2c4b14d5ce6b281f27e0a7bec4c188f54",
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "status": "local-acceptance-only-passed-non-executable",
+    "observerQualifiedInDisposableLocalWorld": true,
+    "mandatoryCommercialAcceptanceComplete": false,
+    "customerEnvironmentAccepted": false,
+    "runtimeAuthorityGranted": false,
+    "credentialsResolved": false,
+    "executableOperations": 0,
+    "executable": false,
+    "activationReady": false,
+    "evidenceBoundary": "Frozen disposable local acceptance-only evidence. It does not substitute for exact customer-environment acceptance, credentials, authority, execution readiness or activation.",
+    "receiptHash": "220d0f1af7652417e916f41fe14c37cb7392adc301ea8754e35eaa82e17b699b"
+  },
+  "measurement": {
+    "packageId": "parceldock-return-authorization-mcp-v1",
+    "sourceKind": "mcp-tools-list",
+    "approvedOperations": 3,
+    "structurallyCompiledOperations": 3,
+    "generatedArtifacts": 7,
+    "generatedWriteSafetyContracts": 1,
+    "generatedObserverProofContracts": 1,
+    "roleOwnerDecisionCategories": 7,
+    "engineerDecisionCategories": 7,
+    "independentProofCategories": 6,
+    "packageSpecificExecutableCodeGenerated": 0,
+    "packageSpecificRuntimeFactoriesWritten": 0,
+    "packageSpecificObserverCallbacksWritten": 0,
+    "packageSpecificAuthenticationChoreographyWritten": 0,
+    "packageSpecificCanonicalCaseChoreographyWritten": 0,
+    "packageSpecificCoreBranches": 0,
+    "declarativeFixtureFields": 13,
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "businessWrites": 8,
+    "observerWrites": 0,
+    "blindRetries": 0,
+    "lostResponseWrites": 1,
+    "lostResponseReplays": 0,
+    "freshProcessRecovery": true,
+    "unsafeOrAmbiguousAccepted": 0,
+    "localAcceptanceOnlyPassed": true,
+    "executableOperations": 0,
+    "customerEnvironmentAccepted": false,
+    "runtimeAuthorityGranted": false,
+    "comparisonReady": false,
+    "activationReady": false,
+    "activeMachineTimeMs": 20.547,
+    "humanSetupTimeMeasured": false,
+    "modelCalls": 0,
+    "spendUsd": 0
+  }
+}

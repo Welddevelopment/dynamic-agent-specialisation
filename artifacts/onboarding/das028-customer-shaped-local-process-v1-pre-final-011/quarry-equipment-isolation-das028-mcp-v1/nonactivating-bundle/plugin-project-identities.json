@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "das.nonactivating-plugin-project-identities.v1",
+  "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+  "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "f183043ffdd96f2a03b800ea1e64a9a4a2eee40427baecdbd8b0e54f4d62ecbe",
+  "sourceHash": "31d09ff3188fa3dd986486a50949e039b33a0f40958fb74352713a03532f9492",
+  "draftHash": "bf11a5d725b5562530ef6bd4be5a1b87af160409e744990ea5434c354ad477ed",
+  "packageReceiptHash": "ea97aa58c7cc87fc76ec7ff24d441012c62ab6a11051abf3cfd893fe31a3b0e3",
+  "planHash": "70cb7ede7a4dc5a03c4a6ce87b0c75222105d8759c229668615aa880e91567c9",
+  "scaffoldReceiptHash": "486ee9baed613f9ba5ff18a3d079c2786c80ba7b31e235ff0630fd7c8de2f9a8",
+  "generatedProjectHash": "6e8a637783115828bef822c1e9bfe26809e682082422e81c4a8575e9a1a4298a",
+  "action": {
+    "projectIdentity": "379ce928d6abd8c7088510327362647c6b37cd04d14d31015d2c34737e1f7e7e",
+    "authenticationIdentity": "442d43262b1914f55f3624892598789a1ac9a0aba3f2876d8d083f57d196ebca"
+  },
+  "observer": {
+    "projectIdentity": "6f139d8c48f33227965e1b68caf4c0aa8e1706541d6d5aea0f6038fc529cb82d",
+    "authenticationIdentity": "2460859a97c849fb6535ff6dcc0dcfbe8a4ce70e233ce063a0060ee6f6d36e38",
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "executable": false,
+  "qualified": false,
+  "customerEnvironmentAccepted": false,
+  "activationReady": false,
+  "identityHash": "c0ece9bc2a5cf23780b41a835821f79f539e62c8d88c024efc1cc36b76310c17"
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "das.generated-declarative-observer-runtime-contract.v1",
+  "packageIdentityHash": "de947fbf5db509fc612641be6a27230b4eaa3ce21db189d5f96bb68bafe92528",
+  "workPackHash": "d9f1d4959c176b34f26b54173a5962b1fb09b2cfdd13ccbc8faac77c082b23b8",
+  "executionProfileHash": "dd75b0272a9d98e85aaeb38c90331f32e116203fa459b50b62456606a9f4e9fd",
+  "sourceKind": "mcp-tools-list",
+  "sourceHash": "e94c8df31099cc9a9d65ad4ab8f6b17d0afa6aa0a055440d8e2405f6f0b7c1a9",
+  "credentialAlias": "QUARRY_SAFETY_AUDIT_READ",
+  "operations": [
+    {
+      "family": "mcp-tools-list",
+      "operationName": "observeEquipmentIsolationOutcome",
+      "serverId": "quarry-safety-audit",
+      "serverVersion": "3.0.0",
+      "toolsListHash": "e94c8df31099cc9a9d65ad4ab8f6b17d0afa6aa0a055440d8e2405f6f0b7c1a9",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "assetId": {
+            "type": "string"
+          },
+          "deduplicationKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assetId",
+          "deduplicationKey"
+        ],
+        "additionalProperties": false
+      },
+      "operationIdentityHash": "a0a6d82aa738d3cffe3975b86ff0dcfb4653c61d5714f032ede937ac4cebe75c"
+    },
+    {
+      "family": "mcp-tools-list",
+      "operationName": "observeProtectedEquipmentState",
+      "serverId": "quarry-safety-audit",
+      "serverVersion": "3.0.0",
+      "toolsListHash": "e94c8df31099cc9a9d65ad4ab8f6b17d0afa6aa0a055440d8e2405f6f0b7c1a9",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "assetId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assetId"
+        ],
+        "additionalProperties": false
+      },
+      "operationIdentityHash": "c093bc1dd76417ddbfd18da6180c786e097e2414634fcdbee1c4cca104dffcba"
+    }
+  ],
+  "stableIdentityFields": [
+    "assetId",
+    "deduplicationKey"
+  ],
+  "observerContractHash": "f24c849351193e5265bf07fb83f9668289c8417c3e51a2654b79d08a7878bf66",
+  "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+  "caughtUpThroughField": "caughtUpThroughMs",
+  "changedEntitiesField": "changedEntities",
+  "unrelatedStateDigestField": "unrelatedStateDigest",
+  "requiredExactFields": [
+    "assetId",
+    "deduplicationKey",
+    "workOrderId",
+    "reasonCode",
+    "inspectionDigest",
+    "isolationMinutes"
+  ],
+  "statusField": "status",
+  "completionStatuses": [
+    "unsubmitted-draft"
+  ],
+  "resultIdentityField": "isolationRecordId",
+  "maximumRequestsPerMinute": 60,
+  "timeoutMs": 350,
+  "readOnly": true,
+  "writeOperations": [],
+  "actionResponseMayProveOutcome": false,
+  "customerExecutionAuthorized": false,
+  "activationAuthorized": false,
+  "contractHash": "3fe6749be55e2c17429ddc92f1a42d37cdc304ff0ab70d585c98f9f167466fb3"
+}

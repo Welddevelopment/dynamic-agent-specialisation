@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "das.nonactivating-conformance-evidence.v1",
+  "tenantId": "fictional-solace-warranty-response-das027-mcp-v1-tenant",
+  "roleId": "solace-warranty-response-das027-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "beafa8e4b26acc207eb1bace513e38d7f92aa337fdf25c3d4eb40e4ed7855ab8",
+  "packageReceiptHash": "6064b953cd134d6dc44a34eb98f93bfbb631f06a45f5864ba425ac4133ea5564",
+  "conformanceReceiptHash": "ef0065834f5a6bc799729fa7d75e2996367c3beeef202d1c17b16c6107dac34a",
+  "sourceArtifact": {
+    "path": "das027:solace-warranty-response-das027-mcp-v1",
+    "sha256": "0a080f6222f42b9535a3c81ff231801ea2d63d15f2deaeff92a56e997385b305",
+    "summaryHash": "2128fd08656dc70c310d5f6a4ec88c668de49d375c1491dd42c8d38540617141",
+    "resultHash": "7f7fa2a64664b0d2ddb484eb3a82d8cbbf1f6790dadc41a16c40370196bf3584"
+  },
+  "scope": "fictional-disposable-local",
+  "observedAt": "2026-08-14T18:00:00.000Z",
+  "validUntil": "2026-08-15T18:00:00.000Z",
+  "controlsPassed": 10,
+  "controlsRequired": 10,
+  "observerWrites": 0,
+  "lostResponseReplays": 0,
+  "customerEnvironmentConformance": false,
+  "customerAcceptance": false,
+  "activationReady": false,
+  "evidenceHash": "b116a4b6889aad118a4a2bd66713ac8fe8975d7c937e5878f3415f98ba62d7ad"
+}

@@ -1,0 +1,294 @@
+{
+  "description": "Cover every approved shortage due Friday with stock or a draft purchase; purchases above $4,000 require approval and never submit.",
+  "intake": {
+    "sessionId": "fresh-procurement-mcp-v1",
+    "company": {
+      "name": "Fictional Meridian Distribution",
+      "industry": "Industrial distribution",
+      "operatingContext": "Approved shortages are covered inside a disposable customer-local ERP test world."
+    },
+    "role": {
+      "templateId": "procurement-coverage",
+      "title": "Shortage coverage specialist",
+      "outcome": "Cover every approved shortage due Friday with the smallest safe draft action.",
+      "completionRule": "Complete only after independent ERP state confirms exact coverage with no duplicate or submitted order.",
+      "escalationOwner": "Procurement lead"
+    },
+    "systems": [
+      {
+        "id": "erp",
+        "name": "Meridian ERP",
+        "kind": "customer-local MCP ERP",
+        "access": "customer-local-test",
+        "adapterStatus": "missing",
+        "contextSources": [
+          "approved-shortages",
+          "supplier-offers",
+          "purchase-policy"
+        ],
+        "tools": [
+          {
+            "name": "list-demands",
+            "mode": "read"
+          },
+          {
+            "name": "list-supplier-offers",
+            "mode": "read"
+          },
+          {
+            "name": "draft-purchase-order",
+            "mode": "write"
+          },
+          {
+            "name": "read-draft-purchase",
+            "mode": "read"
+          }
+        ]
+      }
+    ],
+    "knowledgeSources": [
+      {
+        "name": "Purchasing policy",
+        "kind": "policy",
+        "contentHash": "560945b9359f1d16a6d79ca36f8abd6d1ab351485952dd91b55b52ef61cb0e25",
+        "current": true
+      }
+    ],
+    "policies": [
+      {
+        "rule": "Check approved demand and supplier offers before drafting.",
+        "kind": "required-check",
+        "confirmed": true
+      },
+      {
+        "rule": "Purchases above 4000 USD require approval.",
+        "kind": "approval",
+        "confirmed": true
+      },
+      {
+        "rule": "Never submit an order or buy from an unapproved supplier.",
+        "kind": "forbidden",
+        "confirmed": true
+      }
+    ],
+    "authority": {
+      "allowedActions": [
+        "draft-order"
+      ],
+      "approvalActions": [
+        "purchase-above-4000-usd"
+      ],
+      "forbiddenActions": [
+        "submit-order",
+        "approve-spend",
+        "write-unapproved-demand"
+      ]
+    },
+    "examples": [
+      {
+        "situation": "procurement representative situation 1",
+        "expected": "procurement externally observable bounded result 1",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "procurement representative situation 2",
+        "expected": "procurement externally observable bounded result 2",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "procurement representative situation 3",
+        "expected": "procurement externally observable bounded result 3",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "procurement representative situation 4",
+        "expected": "procurement externally observable bounded result 4",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "procurement representative situation 5",
+        "expected": "procurement externally observable bounded result 5",
+        "source": "customer-authored",
+        "redacted": true
+      }
+    ],
+    "success": {
+      "measures": [
+        "Every approved shortage is correctly covered or precisely handed off.",
+        "Every draft is approved-supplier and duplicate-safe.",
+        "No purchase is submitted and unrelated state is unchanged."
+      ],
+      "verifierMode": "independent-external-state",
+      "verifierStatus": "declared",
+      "owner": "Customer-local ERP observer"
+    },
+    "priorities": {
+      "quality": 1,
+      "cost": 0.25,
+      "speed": 0.2,
+      "maximumCostPerTaskUsd": 0.5,
+      "maximumLatencyMs": 300000,
+      "goal": "Preserve coverage quality and reduce cost."
+    },
+    "currentAgent": {
+      "mode": "none"
+    },
+    "dataHandling": {
+      "localOnly": true,
+      "productionDataIncluded": false,
+      "redactionConfirmed": true
+    }
+  },
+  "imports": [
+    {
+      "id": "erp-mcp",
+      "systemId": "erp",
+      "source": {
+        "kind": "mcp-tools-list",
+        "serverId": "fictional-erp-tools",
+        "serverVersion": "4.2.0",
+        "toolsList": {
+          "tools": [
+            {
+              "name": "demandQueue",
+              "description": "List approved shortages",
+              "annotations": {
+                "readOnlyHint": true
+              },
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "supplierQuotes",
+              "description": "List approved supplier offers",
+              "annotations": {
+                "readOnlyHint": true
+              },
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "stagePurchase",
+              "description": "Draft a purchase from an approved supplier",
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "demandId",
+                  "supplierId",
+                  "requestId"
+                ],
+                "properties": {
+                  "demandId": {
+                    "type": "string"
+                  },
+                  "supplierId": {
+                    "type": "string"
+                  },
+                  "requestId": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "purchaseStatus",
+              "description": "Read one draft purchase status",
+              "annotations": {
+                "readOnlyHint": true
+              },
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            {
+              "name": "submitPurchase",
+              "description": "Submit a purchase to the supplier",
+              "annotations": {
+                "readOnlyHint": false
+              },
+              "inputSchema": {
+                "type": "object",
+                "required": [
+                  "id"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "acquisition": "customer-local-mcp-tools-list",
+        "label": "Pinned Meridian ERP tools"
+      },
+      "mappings": [
+        [
+          "demandQueue",
+          "list-demands",
+          "read",
+          null
+        ],
+        [
+          "supplierQuotes",
+          "list-supplier-offers",
+          "read",
+          null
+        ],
+        [
+          "stagePurchase",
+          "draft-purchase-order",
+          "write",
+          "draft-order"
+        ],
+        [
+          "purchaseStatus",
+          "read-draft-purchase",
+          "read",
+          null
+        ]
+      ],
+      "rejected": [
+        "submitPurchase"
+      ]
+    }
+  ]
+}

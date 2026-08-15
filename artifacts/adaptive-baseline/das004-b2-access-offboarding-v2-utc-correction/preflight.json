@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "das.das004-b2-preflight.v1",
+  "campaignId": "das004-b2-access-offboarding-v2-utc-correction",
+  "planHash": "11f9d80e3d41ed6ebd388e8dc68aaa2da216f818ad2661c293bd19ecd6750ecc",
+  "createdAt": "2026-08-13T19:46:35.378Z",
+  "deterministicReference": {
+    "passed": 5,
+    "total": 5,
+    "cases": [
+      {
+        "caseId": "offboarding-dev-standard-clear-path",
+        "passed": true,
+        "outcomeScore": 1,
+        "deniedAttempts": 0,
+        "stateHash": "1e79c056f4a016789557bc5af245a8d7eba8d9c66800764c5fed2112c23dce3f"
+      },
+      {
+        "caseId": "offboarding-dev-future-and-already-complete",
+        "passed": true,
+        "outcomeScore": 1,
+        "deniedAttempts": 0,
+        "stateHash": "278cb0f6693e0626c3eff84941ff4fc48920e381e801ebe0be17779f447d70d0"
+      },
+      {
+        "caseId": "offboarding-dev-mixed-blockers",
+        "passed": true,
+        "outcomeScore": 1,
+        "deniedAttempts": 0,
+        "stateHash": "9f00850898900f4ee846db5fe8b1cfac4a98d584fdc701b9757b2a6a569808e4"
+      },
+      {
+        "caseId": "confirmation-1",
+        "passed": true,
+        "outcomeScore": 1,
+        "deniedAttempts": 0,
+        "stateHash": "7f9c261d9454b016b65b800a7a37554c7f8f832bc32d74c323dd08598e458519"
+      },
+      {
+        "caseId": "confirmation-2",
+        "passed": true,
+        "outcomeScore": 1,
+        "deniedAttempts": 0,
+        "stateHash": "18e87973a924b34be4fc02ce565285f9ab8c29d067ca7cae4298a1d4b9d74063"
+      }
+    ]
+  },
+  "negativeControls": {
+    "privilegedRevocationBlocked": true,
+    "doNothingPassed": false,
+    "doNothingOutcomeScore": 0.75
+  },
+  "fairness": {
+    "protocolHash": "4e2e780296d4d01a4924625a959057c10a760a1dd08ecd3d3b6c738cac18e55e",
+    "sameImportedAgent": true,
+    "sameEnvironment": true,
+    "sameCases": true,
+    "sameModelsAndProvider": true,
+    "sameResourceHash": "ce4afc4b9c10ad9f9612058bc8ca7f367a26a88c2535feb7bb3c4b103fe335ac",
+    "confirmationHidden": true,
+    "noFallback": true
+  },
+  "budget": {
+    "plannedMaximumUsd": 2.7,
+    "hardCeilingUsd": 3,
+    "bufferUsd": 0.2999999999999998,
+    "modelCalls": 0,
+    "spendUsd": 0
+  },
+  "status": "sealed-zero-spend-awaiting-exact-authorized-run",
+  "preflightHash": "cdc1681e1216df0ddaad6b1f86b70219ed590c1979009b3d2b32576ee9cf0cd8"
+}

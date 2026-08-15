@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "das.nonactivating-implementation-identities.v1",
+  "tenantId": "fictional-northstar-tenant",
+  "roleId": "invoice-dispute-specialist",
+  "roleRevision": 4,
+  "specialistHash": "ccdd2a96b6d56f742de291c8667a397e9d65f30e2bd95e977acd96005bcfcb4c",
+  "packageReceiptHash": "54eca9552e65ee4965ecfa1fd240a7b775c6e40cd38f4535cf977deba0ca203d",
+  "generatedProjectHash": "36e344362ebafe5231ec5b0a2fbb51a445f7b0bbb62614dcfeefd29bc3cd71f0",
+  "actionImplementationIntentHash": "c8ade95d7c95dcc8e4e6c1cb46aafade2efe387674ec2905b73672d81fcbde0b",
+  "actionImplementationContentHash": "2614a373d7359e5c87d87c40f26bf6ea934bbc1e59747c9462a1bc835d154dfb",
+  "observerImplementationIntentHash": "8530e0bf8ff35bb0a8e734a042b83574959a82f91d03984505dfabec6d70cc50",
+  "observerImplementationContentHash": "383fbefb121a813c91806b1098727f16cabfbca043a4fefa38008cdcd1669f2e",
+  "conformanceReceiptHash": "22d018d436baaeafaa702d7f9316c4ab143438569234eb03e1fb38092d83099b",
+  "scope": "fictional-disposable-local",
+  "customerEnvironmentImplemented": false,
+  "customerExecutableOperations": 0,
+  "identityHash": "827eceb5284cb9d9c9477381f3897bd363619f93bc955d60c8eb2c59b768d6d8"
+}

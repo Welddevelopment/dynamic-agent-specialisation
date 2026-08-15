@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "das.generated-declarative-action-runtime-contract.v1",
+  "packageIdentityHash": "08fe1eb33ad8d5877762635e6cc155801f28b33dd2210e995bea54da759fb172",
+  "workPackHash": "a657ef78edec4746f24b33c9bc64d4f348fc02cea1ab778c3fae4854b1c61da5",
+  "executionProfileHash": "526c10c1355e2facdb90a944570f21b5becc7b8f7ccdfb430b9242d7d6565976",
+  "sourceKind": "openapi",
+  "sourceHash": "4c99e4355c6920a8fd51d7cad1af83ae97aa9233597c54b33f2081311ed3ca71",
+  "baseUrl": "https://arbor-supplier-actions.example.test/v6",
+  "credentialAlias": "ARBOR_SUPPLIER_ACTION_LEASE",
+  "requiredAuthorityAction": "create-draft-supplier-quality-hold",
+  "stableIdentityFields": [
+    "supplierId",
+    "idempotencyKey"
+  ],
+  "conflictKeyFields": [
+    "idempotencyKey"
+  ],
+  "writeOperation": {
+    "family": "openapi",
+    "operationName": "createDraftSupplierQualityHold",
+    "method": "POST",
+    "route": "/suppliers/{supplierId}/quality-holds",
+    "parameters": [
+      {
+        "name": "supplierId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 12
+        }
+      }
+    ],
+    "bodySchema": {
+      "type": "object",
+      "properties": {
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 12
+        },
+        "issueCode": {
+          "type": "string",
+          "enum": [
+            "CERTIFICATE_MISSING",
+            "BATCH_DEFECT",
+            "PACKAGING_NONCONFORMITY"
+          ]
+        },
+        "evidenceDigest": {
+          "type": "string",
+          "minLength": 12
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        }
+      },
+      "required": [
+        "idempotencyKey",
+        "issueCode",
+        "evidenceDigest",
+        "severity"
+      ],
+      "additionalProperties": false
+    },
+    "responseShapes": [
+      {
+        "status": "201",
+        "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+      },
+      {
+        "status": "409",
+        "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+      }
+    ],
+    "operationIdentityHash": "768958dc04ed43c410aea7c246e6257691208bcad9f05d141e78c8ca09acfb89"
+  },
+  "reconciliationOperation": {
+    "family": "openapi",
+    "operationName": "listDraftSupplierQualityHolds",
+    "method": "GET",
+    "route": "/suppliers/{supplierId}/quality-holds",
+    "parameters": [
+      {
+        "name": "supplierId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      {
+        "name": "cursor",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "bodySchema": null,
+    "responseShapes": [
+      {
+        "status": "200",
+        "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+      }
+    ],
+    "operationIdentityHash": "579c5bc06a4f9b5ddfb11268deda5d5a376537564114909d957e507e425294e9"
+  },
+  "reconciliationBindings": [
+    {
+      "from": "supplierId",
+      "to": "supplierId"
+    }
+  ],
+  "maximumRequestsPerMinute": 60,
+  "timeoutMs": 2000,
+  "automaticRetries": 0,
+  "actionResponseMayProveOutcome": false,
+  "customerExecutionAuthorized": false,
+  "activationAuthorized": false,
+  "contractHash": "4d24881bdd8ea0db64e24a3f580cc58d30bad0ed8c101f233ccf4b873e832e88"
+}

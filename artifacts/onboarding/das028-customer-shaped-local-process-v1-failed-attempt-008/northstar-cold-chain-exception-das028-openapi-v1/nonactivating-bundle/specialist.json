@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "das.nonactivating-specialist.v1",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistId": "synthetic-provisional-northstar-cold-chain-exception-das028-openapi-v1",
+  "status": "synthetic-provisional",
+  "candidateFingerprint": "3b7d230ce3af84e580e5e6baa536cb2723bc783d3afab63a7106eb4dd9a6dc97",
+  "selectionEvidence": null,
+  "bindingPackageReceiptHash": "72377a627e8bfa8c32bfdcefae2aeb73f81f6c87e56ccd70b4e53341289abc8e",
+  "active": false,
+  "activationAuthorized": false,
+  "customerExecutionAuthorized": false,
+  "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f"
+}

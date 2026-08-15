@@ -328,10 +328,10 @@ export function createOpenApiAdapterRuntime({ plan, fetchImpl = fetch, secretRes
         const actual = jsonPointer(external, assertion.actualPointer);
         return { actualPointer: assertion.actualPointer, passed: JSON.stringify(actual) === JSON.stringify(expected) };
       });
-      return Object.freeze({ classification: checks.every((item) => item.passed) ? "completed" : "incorrect", independent: true, verifierKind: "direct-external-read", operationId: read.operationId, checks });
+      return Object.freeze({ classification: checks.every((item) => item.passed) ? "completed" : "incorrect", independent: true, independentBusinessOutcomeProof: false, verifierKind: "action-plane-readback-through-openapi", operationId: read.operationId, checks });
     } catch (error) {
-      if (error?.status === 404) return Object.freeze({ classification: "not-started", independent: true, verifierKind: "direct-external-read", operationId: read.operationId, checks: [] });
-      return Object.freeze({ classification: "unknown", independent: true, verifierKind: "direct-external-read", operationId: read.operationId, checks: [], error: clean(error?.message, 240) });
+      if (error?.status === 404) return Object.freeze({ classification: "not-started", independent: true, independentBusinessOutcomeProof: false, verifierKind: "action-plane-readback-through-openapi", operationId: read.operationId, checks: [] });
+      return Object.freeze({ classification: "unknown", independent: true, independentBusinessOutcomeProof: false, verifierKind: "action-plane-readback-through-openapi", operationId: read.operationId, checks: [], error: clean(error?.message, 240) });
     }
   }
 

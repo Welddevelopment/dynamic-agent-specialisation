@@ -1,0 +1,50 @@
+import fs from "node:fs";
+import path from "node:path";
+import { digest } from "../../core/canonical.js";
+import { generateBatchedCandidatePortfolio } from "./batched-architect.js";
+import { DurableBudgetGuard, PersistentModelResponseCache } from "../../core/durable-model-campaign.js";
+import { EvidenceLedger } from "../../core/evidence.js";
+import { MeteredModelGateway } from "../../core/model-gateway.js";
+import { createCommercialSupportPack } from "../../product/commercial-support-pack.js";
+import { PairedScaleOpenAIProvider } from "./paired-openai-provider.js";
+import { freezePairedStructuralSelection } from "./paired-selection.js";
+import { assertPairedCampaignClock, createPairedCampaignClock, pairedCampaignRemainingMs } from "./paired-campaign-clock.js";
+import { PairedV6ModelBatchArchitect } from "./paired-v6-architect.js";
+import { assertPairedV6ContextInvariant } from "./paired-v6-contract.js";
+import { assertPairedV6Authorization, createPairedV6ProtocolCore, PAIRED_V6_ARTIFACT_ROOT, V5_BUDGET_SOURCE_HASH, V5_FAILURE_RECEIPT_HASH, V5_PRIOR_SPEND_USD } from "./paired-v6-protocol.js";
+import { assertPairedV6PrivateCasePack, pairedV6PrivateCasePackHash } from "./paired-v6-private-case-pack.js";
+import { PAIRED_SCALE_ARTIFACT_ROOT } from "./paired-protocol.js";
+
+function requireCondition(condition, message) { if (!condition) throw new Error(message); }
+function writePrivate(filePath, value) { fs.mkdirSync(path.dirname(filePath), { recursive: true }); const temporary = `${filePath}.${process.pid}.tmp`; fs.writeFileSync(temporary, `${JSON.stringify(value, null, 2)}\n`, { mode: 0o600 }); fs.renameSync(temporary, filePath); fs.chmodSync(filePath, 0o600); }
+
+const root = path.resolve(PAIRED_V6_ARTIFACT_ROOT); const state = path.join(root, "model-campaign");
+const plan = JSON.parse(fs.readFileSync(path.join(root, "live-plan.json"), "utf8"));
+const casePack = JSON.parse(fs.readFileSync(path.join(root, "private-case-pack.json"), "utf8"));
+const v5Failure = JSON.parse(fs.readFileSync(path.resolve(PAIRED_SCALE_ARTIFACT_ROOT, "model-campaign/generation-failure-receipt.json"), "utf8"));
+const failureCopy = structuredClone(v5Failure); delete failureCopy.receiptHash;
+requireCondition(v5Failure.receiptHash === V5_FAILURE_RECEIPT_HASH && digest(failureCopy) === v5Failure.receiptHash && v5Failure.sourceBindings.budgetSha256 === V5_BUDGET_SOURCE_HASH && v5Failure.actualSpendUsd === V5_PRIOR_SPEND_USD, "v6 launch v5 failure/spend binding changed");
+const protocol = createPairedV6ProtocolCore();
+assertPairedV6PrivateCasePack(casePack, { protocol });
+requireCondition(pairedV6PrivateCasePackHash(casePack) === plan.casePackHash, "v6 plan/private pack binding mismatch");
+const authorization = assertPairedV6Authorization({ plan, environment: process.env, currentUtcDate: new Date().toISOString().slice(0, 10) });
+fs.mkdirSync(state, { recursive: true });
+const clockPath = path.join(state, "campaign-clock.json");
+const campaignClock = fs.existsSync(clockPath) ? JSON.parse(fs.readFileSync(clockPath, "utf8")) : createPairedCampaignClock({ planHash: plan.planHash });
+assertPairedCampaignClock(campaignClock, { planHash: plan.planHash }); if (!fs.existsSync(clockPath)) writePrivate(clockPath, campaignClock);
+const budget = new DurableBudgetGuard({ filePath: path.join(state, "budget.json"), hardLimitUsd: authorization.limitUsd, campaignId: protocol.campaignId });
+const cache = new PersistentModelResponseCache({ filePath: path.join(state, "response-cache.json") }); const evidence = new EvidenceLedger(path.join(state, "evidence.jsonl"));
+const provider = new PairedScaleOpenAIProvider({ apiKey: process.env.OPENAI_API_KEY, pricingByModel: protocol.pricing.models, modelMap: { "candidate-architect-policy": protocol.generation.architectModel }, environment: process.env });
+const gateway = new MeteredModelGateway({ provider, budget, cache, evidence, secrets: [process.env.OPENAI_API_KEY] });
+const architect = new PairedV6ModelBatchArchitect({ gateway, maxOutputTokens: protocol.generation.maxOutputTokensPerArchitectBatch, reasoningEffort: protocol.generation.architectReasoningEffort });
+const brief = createCommercialSupportPack().roleDraft.compiled.brief;
+const generated = await generateBatchedCandidatePortfolio({ brief, architect, targetCount: protocol.targetCandidateCount, batchSize: protocol.batchSize, executionModel: { family: protocol.generation.executionModel, tier: "paired-v6-normalized-execution" }, maximumWallClockMs: pairedCampaignRemainingMs(campaignClock, protocol.budget.maximumWallClockMs), onBatch: async (batch) => writePrivate(path.join(state, "generation-progress.json"), { planHash: plan.planHash, completedBatch: batch.batchIndex, batchHash: batch.batchHash, contextMode: batch.modelReceipt.contextMode, budget: budget.snapshot() }) });
+requireCondition(generated.receipt.returnedCount === 150 && generated.candidates.length === 150 && generated.rejected.length === 0, `v6 produced ${generated.candidates.length}/150 valid packages; preserve the negative result and do not evaluate`);
+for (const candidate of generated.candidates) assertPairedV6ContextInvariant(candidate, brief);
+const selection = freezePairedStructuralSelection({ candidates: generated.candidates, brief, prefixCount: protocol.prefixCandidateCount, globalCount: protocol.structuralScreen.globalFinalistCount, meaningfulDistance: protocol.structuralScreen.meaningfulDistanceThreshold });
+const portfolio = { schemaVersion: "das.candidate-scale-paired-generated-portfolio.v6-contract-repair", planHash: plan.planHash, protocolCoreHash: protocol.protocolCoreHash, roleHash: protocol.bindings.roleHash, model: protocol.generation.architectModel, candidates: generated.candidates, rejected: generated.rejected, receipt: generated.receipt, v5FailureReceiptHash: V5_FAILURE_RECEIPT_HASH, cumulativeSpendThroughGenerationUsd: V5_PRIOR_SPEND_USD + budget.spentUsd, budget: budget.snapshot(), evidenceLedgerValid: evidence.verify() };
+portfolio.integrityHash = digest(portfolio);
+const checkpoint = { schemaVersion: "das.candidate-scale-paired-generation-checkpoint.v6-contract-repair", planHash: plan.planHash, protocolCoreHash: protocol.protocolCoreHash, casePackHash: plan.casePackHash, pricingHash: protocol.pricingHash, generationReceiptHash: digest(generated.receipt), portfolioIntegrityHash: portfolio.integrityHash, firstFiveCandidateIds: selection.firstFiveCandidateIds, globalFinalistIds: selection.globalFinalistIds, protectedFirstFiveFinalistIds: selection.protectedFirstFiveFinalistIds, evaluationUnionIds: selection.evaluationUnionIds, structuralSelectionFreezeHash: selection.freezeHash, generatedCount: 150, validCount: 150, rejectedCount: 0, exactUniqueCount: selection.exactUniqueCount, exactDuplicateCount: selection.exactDuplicates.length, budget: budget.snapshot(), cumulativeSpendUsd: V5_PRIOR_SPEND_USD + budget.spentUsd, evidenceLedgerValid: evidence.verify() };
+checkpoint.integrityHash = digest(checkpoint);
+writePrivate(path.join(state, "generated-portfolio.json"), portfolio); writePrivate(path.join(state, "structural-selection-freeze.json"), selection); writePrivate(path.join(state, "generation-checkpoint.json"), checkpoint);
+process.stdout.write(`${JSON.stringify({ status: "paired-v6-portfolio-generated-and-structurally-frozen", planHash: plan.planHash, generatedCount: checkpoint.generatedCount, validCount: checkpoint.validCount, exactUniqueCount: checkpoint.exactUniqueCount, evaluationUnionCount: selection.evaluationUnionIds.length, v6SpendUsd: budget.spentUsd, cumulativeV5V6SpendUsd: checkpoint.cumulativeSpendUsd, v6LimitUsd: budget.hardLimitUsd, structuralSelectionFreezeHash: selection.freezeHash, checkpointHash: checkpoint.integrityHash }, null, 2)}\n`);

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "das.das026-summary.v1",
+  "resultHash": "be5c2cb5d75fee35ed847edeb4a8921155f76e5d78ba01fe85ac6376e644a9cf",
+  "verdict": "passed-non-executable-assistance-and-fictional-qualification",
+  "aggregate": {
+    "packages": 2,
+    "workPacksGenerated": 2,
+    "transportSkeletonsGenerated": 4,
+    "classificationHooksGenerated": 20,
+    "testsGenerated": 36,
+    "dependencyTasksGenerated": 24,
+    "packageSpecificExecutableFilesGenerated": 0,
+    "packageSpecificExecutableLinesGenerated": 0,
+    "fictionalQualificationControlsPassed": 20,
+    "fictionalQualificationControlsRequired": 20,
+    "integrityAttacksPassed": 16,
+    "integrityAttacksRequired": 16,
+    "customerExecutableOperations": 0,
+    "credentialValues": 0,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "activeMachineMs": 127.392
+  },
+  "workPackHashes": {
+    "cedar-return-authorization-das026-openapi-v1": "83bae77ad711bb5893a86aed5d41614930d4e28aff6af117bce1d58f72d3ae11",
+    "northlight-catalog-correction-das026-mcp-v1": "44de0f07c8b96fa1dce6af7051c73cbd6c92dee3359258d60aa122697c42908b"
+  },
+  "evidenceBoundary": "Private fictional deterministic local evidence only. It is not self-serve onboarding, customer execution, arbitrary OpenAPI/MCP support, production reliability, customer validation, deployment or activation.",
+  "summaryHash": "fb7ce8edf56935f1b612da48de89f4bb323bb5e2e5fe80db5a96c87ebd4e9123"
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "das.nonactivating-implementation-identities.v1",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f",
+  "packageReceiptHash": "72377a627e8bfa8c32bfdcefae2aeb73f81f6c87e56ccd70b4e53341289abc8e",
+  "generatedProjectHash": "fd0804c4edabe779250c920096d16004fc7a6138351c7a1c2a8ad817b6cd3b58",
+  "actionImplementationIntentHash": "d25ddbde56d9b41db61b87264937009fe1181cac72fc3daa8c2cdc322ba33604",
+  "actionImplementationContentHash": "d642aa4de1864e0015b0e9b70d40fed7a85d2ce5f18ba2323d004a43bfb373d5",
+  "observerImplementationIntentHash": "6fe829dec25fa06f09dbd23dc0b165c2cb9d59bdd9e924c0dcbfee88695539c1",
+  "observerImplementationContentHash": "1195d5699ca497728fd4d3d37a496625dd9d4f344d797390e3243c0c4fdba587",
+  "conformanceReceiptHash": "f8ef1548c47ffbb94978c6e2989b0571a8db41e45a006a7ed567c0cc7d12f7c9",
+  "scope": "fictional-disposable-local",
+  "customerEnvironmentImplemented": false,
+  "customerExecutableOperations": 0,
+  "identityHash": "9d2dd93c6ade757c41010c2667b3adb18920860d55aff1b10112e9330e5790fc"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-rollback-plan.v1",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "726c0fe5fa70c976c8ac6335ec18d1f1048d41df8345fb331d487d22ae5e5b5f",
+  "previousBundleHash": null,
+  "fallback": "leave-current-specialist-unchanged",
+  "allowedFromStatuses": [
+    "packaged-nonactivating",
+    "preview-loaded-nonactivating"
+  ],
+  "targetStatus": "rolled-back-nonactivating",
+  "activationAuthorized": false,
+  "executionAuthorized": false,
+  "rollbackPlanHash": "d7a9d6cd961d08bbf6663de16c41f9ef8cab6e75371fe881df004dbefd882a73"
+}

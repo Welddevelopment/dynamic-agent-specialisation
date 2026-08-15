@@ -1,0 +1,2597 @@
+{
+  "schemaVersion": "das.customer-local-action-observer-chain.v1",
+  "proposal": {
+    "schemaVersion": "das.onboarding-system-import-proposal.v1",
+    "proposalId": "system-import:northbridge-facilities-maintenance-draft-v1:maintenance:a880aec647c53039",
+    "sessionId": "northbridge-facilities-maintenance-draft-v1",
+    "intakeHash": "20bded57528e8ac3a746fabe8521d4127b9f00a4685b7979cad6ac5081f71e70",
+    "systemId": "maintenance",
+    "systemSnapshotHash": "4c8d32fd1d0bbe0905b58382982d3ece47b28234f2567fe65109cc197d0d5500",
+    "status": "proposal-awaiting-customer-review-and-engineering-binding",
+    "source": {
+      "kind": "openapi",
+      "sourceHash": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca",
+      "provenance": {
+        "sourceKind": "openapi",
+        "acquisition": "engineer-local-fixture",
+        "label": "Fresh fictional Northbridge maintenance OpenAPI",
+        "note": "",
+        "customerSupplied": false
+      },
+      "version": "3.1.0",
+      "title": "Fictional Northbridge Maintenance Actions",
+      "serverOrigins": [
+        "https://maintenance-actions.example.test"
+      ]
+    },
+    "operations": [
+      {
+        "sourceName": "readApprovedMaintenanceRequest",
+        "proposedExposedName": "maintenance:readApprovedMaintenanceRequest",
+        "description": "Read one assigned approved maintenance request",
+        "modeProposal": {
+          "value": "read",
+          "basis": "openapi-http-method:GET",
+          "customerReviewRequired": true
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "object",
+              "properties": {
+                "requestId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "requestId"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "boundedInputSchemaHash": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220",
+        "proposedContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:readApprovedMaintenanceRequest"
+        ],
+        "authority": {
+          "status": "not-granted",
+          "action": null,
+          "customerDecisionRequired": false
+        },
+        "credentials": {
+          "status": "not-collected",
+          "references": []
+        },
+        "adapter": {
+          "status": "not-implemented",
+          "verified": false
+        },
+        "independentVerification": {
+          "status": "not-implemented",
+          "requiredBeforeExecution": false
+        },
+        "acceptance": {
+          "status": "not-run"
+        },
+        "executable": false
+      },
+      {
+        "sourceName": "createDraftWorkOrder",
+        "proposedExposedName": "maintenance:createDraftWorkOrder",
+        "description": "Create one bounded draft maintenance work order",
+        "modeProposal": {
+          "value": "write",
+          "basis": "openapi-http-method:POST",
+          "customerReviewRequired": true
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "headers": {
+              "type": "object",
+              "properties": {
+                "Idempotency-Key": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Idempotency-Key"
+              ],
+              "additionalProperties": false
+            },
+            "body": {
+              "type": "object",
+              "required": [
+                "sourceRequestId",
+                "idempotencyKey",
+                "assetId",
+                "siteId",
+                "jobCode",
+                "windowStart",
+                "windowEnd",
+                "priority"
+              ],
+              "properties": {
+                "sourceRequestId": {
+                  "type": "string"
+                },
+                "idempotencyKey": {
+                  "type": "string"
+                },
+                "assetId": {
+                  "type": "string"
+                },
+                "siteId": {
+                  "type": "string"
+                },
+                "jobCode": {
+                  "type": "string"
+                },
+                "windowStart": {
+                  "type": "string"
+                },
+                "windowEnd": {
+                  "type": "string"
+                },
+                "priority": {
+                  "type": "string",
+                  "enum": [
+                    "routine",
+                    "urgent"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "body"
+          ],
+          "additionalProperties": false
+        },
+        "boundedInputSchemaHash": "2f542dfaa5758c2db792f633fee1dd546bf03c688ffbd71bbe1c06ce996593d6",
+        "proposedContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:createDraftWorkOrder"
+        ],
+        "authority": {
+          "status": "not-granted",
+          "action": null,
+          "customerDecisionRequired": true
+        },
+        "credentials": {
+          "status": "not-collected",
+          "references": []
+        },
+        "adapter": {
+          "status": "not-implemented",
+          "verified": false
+        },
+        "independentVerification": {
+          "status": "not-implemented",
+          "requiredBeforeExecution": true
+        },
+        "acceptance": {
+          "status": "not-run"
+        },
+        "executable": false
+      },
+      {
+        "sourceName": "readDraftWorkOrderObservation",
+        "proposedExposedName": "maintenance:readDraftWorkOrderObservation",
+        "description": "Read draft work-order state by source request",
+        "modeProposal": {
+          "value": "read",
+          "basis": "openapi-http-method:GET",
+          "customerReviewRequired": true
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "object",
+              "properties": {
+                "requestId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "requestId"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [],
+          "additionalProperties": false
+        },
+        "boundedInputSchemaHash": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220",
+        "proposedContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:readDraftWorkOrderObservation"
+        ],
+        "authority": {
+          "status": "not-granted",
+          "action": null,
+          "customerDecisionRequired": false
+        },
+        "credentials": {
+          "status": "not-collected",
+          "references": []
+        },
+        "adapter": {
+          "status": "not-implemented",
+          "verified": false
+        },
+        "independentVerification": {
+          "status": "not-implemented",
+          "requiredBeforeExecution": false
+        },
+        "acceptance": {
+          "status": "not-run"
+        },
+        "executable": false
+      }
+    ],
+    "proposedContextSources": [
+      "approved-maintenance-request",
+      "maintenance-policy",
+      "openapi:a880aec647c53039:createDraftWorkOrder",
+      "openapi:a880aec647c53039:readApprovedMaintenanceRequest",
+      "openapi:a880aec647c53039:readDraftWorkOrderObservation"
+    ],
+    "gates": {
+      "customerReview": "required",
+      "consequentialAssumptionReview": "required",
+      "authority": "not-granted",
+      "credentials": "not-collected",
+      "executableAdapter": "not-implemented",
+      "independentVerifier": "not-implemented",
+      "acceptance": "not-run",
+      "comparisonExecution": "blocked",
+      "controlledActivation": "blocked"
+    },
+    "authorizations": {
+      "modelSpend": false,
+      "execution": false,
+      "customerWrites": false,
+      "activation": false
+    },
+    "generatedBusinessSuccessCriteria": false,
+    "nextActions": [
+      "Customer reviews the proposed operation subset, read/write classifications and consequential assumptions.",
+      "Engineer binds only approved operations through the existing bounded OpenAPI or MCP adapter compiler.",
+      "Customer supplies credential references locally; this proposal never stores credential values or references.",
+      "Engineer implements direct independent external-state verification and unknown-outcome reconciliation.",
+      "The exact binding must pass structural diagnostics and every mandatory acceptance case before comparison execution can be considered ready."
+    ],
+    "evidenceBoundary": "Pinned schema proposal only. It can reduce setup work by proposing bounded operations and context. It grants no authority, stores no credentials, implements no adapter or verifier, invents no success criteria, authorizes no model spend, and cannot execute or activate anything.",
+    "proposalHash": "d2ca3458e2e56f8139d9cf52116334925f4806d4a0e24f4a82848a912419653c"
+  },
+  "confirmation": {
+    "schemaVersion": "das.onboarding-system-import-confirmation.v1",
+    "proposalHash": "d2ca3458e2e56f8139d9cf52116334925f4806d4a0e24f4a82848a912419653c",
+    "sessionId": "northbridge-facilities-maintenance-draft-v1",
+    "intakeHash": "20bded57528e8ac3a746fabe8521d4127b9f00a4685b7979cad6ac5081f71e70",
+    "systemId": "maintenance",
+    "source": {
+      "kind": "openapi",
+      "sourceHash": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca"
+    },
+    "status": "customer-confirmed-engineering-required",
+    "confirmedBy": "Fictional Northbridge facilities role owner",
+    "operationChoices": [
+      {
+        "sourceName": "readApprovedMaintenanceRequest",
+        "proposedExposedName": "maintenance:readApprovedMaintenanceRequest",
+        "approved": true,
+        "rejectionReason": null,
+        "targetExposedName": "maintenance:read-approved-request",
+        "confirmedMode": "read",
+        "authority": {
+          "action": null,
+          "classification": "not-applicable",
+          "runtimeGrant": false
+        },
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:readApprovedMaintenanceRequest"
+        ],
+        "sourceInputSchemaHash": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220",
+        "runtimeInputSchemaHash": null,
+        "executable": false
+      },
+      {
+        "sourceName": "createDraftWorkOrder",
+        "proposedExposedName": "maintenance:createDraftWorkOrder",
+        "approved": true,
+        "rejectionReason": null,
+        "targetExposedName": "maintenance:create-draft-work-order",
+        "confirmedMode": "write",
+        "authority": {
+          "action": "create-draft-maintenance-work-order",
+          "classification": "already-declared-allowed-action",
+          "runtimeGrant": false
+        },
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:createDraftWorkOrder"
+        ],
+        "sourceInputSchemaHash": "2f542dfaa5758c2db792f633fee1dd546bf03c688ffbd71bbe1c06ce996593d6",
+        "runtimeInputSchemaHash": null,
+        "executable": false
+      },
+      {
+        "sourceName": "readDraftWorkOrderObservation",
+        "proposedExposedName": "maintenance:readDraftWorkOrderObservation",
+        "approved": true,
+        "rejectionReason": null,
+        "targetExposedName": "maintenance:read-draft-observation",
+        "confirmedMode": "read",
+        "authority": {
+          "action": null,
+          "classification": "not-applicable",
+          "runtimeGrant": false
+        },
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:readDraftWorkOrderObservation"
+        ],
+        "sourceInputSchemaHash": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220",
+        "runtimeInputSchemaHash": null,
+        "executable": false
+      }
+    ],
+    "approvedContextSources": [
+      "approved-maintenance-request",
+      "maintenance-policy",
+      "openapi:a880aec647c53039:createDraftWorkOrder",
+      "openapi:a880aec647c53039:readApprovedMaintenanceRequest",
+      "openapi:a880aec647c53039:readDraftWorkOrderObservation"
+    ],
+    "gates": {
+      "authority": "mapped-to-existing-intake-only-not-runtime-granted",
+      "credentials": "not-collected",
+      "executableAdapter": "not-implemented",
+      "independentVerifier": "not-implemented",
+      "acceptance": "not-run",
+      "comparisonExecution": "blocked",
+      "controlledActivation": "blocked"
+    },
+    "authorizations": {
+      "modelSpend": false,
+      "execution": false,
+      "customerWrites": false,
+      "activation": false
+    },
+    "evidenceBoundary": "Digest-bound customer review of one pinned schema proposal. It maps approved source operations to an existing saved role and existing declared authority only. It does not implement an adapter or verifier, collect credentials, grant runtime authority, execute, spend or activate.",
+    "confirmationHash": "8147b90be43754d24b296ed8b34dd2d971ffdea9f906b8c8419ef3d7df7d947c"
+  },
+  "workPlan": {
+    "schemaVersion": "das.onboarding-binding-work-plan.v1",
+    "sessionId": "northbridge-facilities-maintenance-draft-v1",
+    "intakeHash": "20bded57528e8ac3a746fabe8521d4127b9f00a4685b7979cad6ac5081f71e70",
+    "systemId": "maintenance",
+    "proposalHash": "d2ca3458e2e56f8139d9cf52116334925f4806d4a0e24f4a82848a912419653c",
+    "confirmationHash": "8147b90be43754d24b296ed8b34dd2d971ffdea9f906b8c8419ef3d7df7d947c",
+    "bindingScaffoldHash": "7212ab9b98e6e053e88fcc60b1969da2b354b2c41dbee0881e45b350608c31f1",
+    "source": {
+      "kind": "openapi",
+      "sourceHash": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca"
+    },
+    "status": "reviewed-scaffold-engineering-required-non-executable",
+    "approvedOperations": [
+      {
+        "sourceName": "readApprovedMaintenanceRequest",
+        "proposedExposedName": "maintenance:readApprovedMaintenanceRequest",
+        "approved": true,
+        "rejectionReason": null,
+        "targetExposedName": "maintenance:read-approved-request",
+        "confirmedMode": "read",
+        "authority": {
+          "action": null,
+          "classification": "not-applicable",
+          "runtimeGrant": false
+        },
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:readApprovedMaintenanceRequest"
+        ],
+        "sourceInputSchemaHash": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220",
+        "runtimeInputSchemaHash": null,
+        "executable": false
+      },
+      {
+        "sourceName": "createDraftWorkOrder",
+        "proposedExposedName": "maintenance:createDraftWorkOrder",
+        "approved": true,
+        "rejectionReason": null,
+        "targetExposedName": "maintenance:create-draft-work-order",
+        "confirmedMode": "write",
+        "authority": {
+          "action": "create-draft-maintenance-work-order",
+          "classification": "already-declared-allowed-action",
+          "runtimeGrant": false
+        },
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:createDraftWorkOrder"
+        ],
+        "sourceInputSchemaHash": "2f542dfaa5758c2db792f633fee1dd546bf03c688ffbd71bbe1c06ce996593d6",
+        "runtimeInputSchemaHash": null,
+        "executable": false
+      },
+      {
+        "sourceName": "readDraftWorkOrderObservation",
+        "proposedExposedName": "maintenance:readDraftWorkOrderObservation",
+        "approved": true,
+        "rejectionReason": null,
+        "targetExposedName": "maintenance:read-draft-observation",
+        "confirmedMode": "read",
+        "authority": {
+          "action": null,
+          "classification": "not-applicable",
+          "runtimeGrant": false
+        },
+        "requiredContextSources": [
+          "approved-maintenance-request",
+          "maintenance-policy",
+          "openapi:a880aec647c53039:readDraftWorkOrderObservation"
+        ],
+        "sourceInputSchemaHash": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220",
+        "runtimeInputSchemaHash": null,
+        "executable": false
+      }
+    ],
+    "adapterConfigurationDraft": {
+      "schemaVersion": "das.openapi-adapter-config-draft.v1",
+      "sourceHash": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca",
+      "adapterId": "fictional-northbridge-facilities-northbridge-maintenance-service-adapter",
+      "adapterVersion": "0.1.0",
+      "baseUrl": "https://maintenance-actions.example.test",
+      "credentialRefs": {},
+      "operationBindings": [
+        {
+          "operationId": "readApprovedMaintenanceRequest",
+          "exposedName": "maintenance:read-approved-request",
+          "mode": "read",
+          "requiredContextSources": [
+            "approved-maintenance-request",
+            "maintenance-policy",
+            "openapi:a880aec647c53039:readApprovedMaintenanceRequest"
+          ]
+        },
+        {
+          "operationId": "createDraftWorkOrder",
+          "exposedName": "maintenance:create-draft-work-order",
+          "mode": "write",
+          "requiredContextSources": [
+            "approved-maintenance-request",
+            "maintenance-policy",
+            "openapi:a880aec647c53039:createDraftWorkOrder"
+          ],
+          "authorityAction": "create-draft-maintenance-work-order",
+          "idempotencyHeader": null,
+          "verification": null
+        },
+        {
+          "operationId": "readDraftWorkOrderObservation",
+          "exposedName": "maintenance:read-draft-observation",
+          "mode": "read",
+          "requiredContextSources": [
+            "approved-maintenance-request",
+            "maintenance-policy",
+            "openapi:a880aec647c53039:readDraftWorkOrderObservation"
+          ]
+        }
+      ],
+      "compilable": false
+    },
+    "independentVerifierScaffold": {
+      "schemaVersion": "das.independent-verifier-scaffold.v1",
+      "verifierId": "northbridge-facilities-maintenance-draft-v1:external-verifier",
+      "status": "not-implemented",
+      "interface": "verify({ beforeState, afterState, assignedWork, authority, actionTrace }) -> { passed, requiredOutcomes, observedOutcomes, missingOutcomes, incorrectSideEffects, unsafeAttempts }",
+      "readsExternalStateDirectly": false,
+      "independentFromCandidate": true,
+      "candidateCannotWriteVerifierInputs": true,
+      "implementationHash": null,
+      "assertions": [
+        {
+          "id": "business-outcome-1",
+          "kind": "business-outcome",
+          "statement": "Every assigned approved request has exactly one matching draft work order.",
+          "implementationStatus": "not-implemented"
+        },
+        {
+          "id": "business-outcome-2",
+          "kind": "business-outcome",
+          "statement": "Every draft matches the request, idempotency key, asset, site, job, window and priority.",
+          "implementationStatus": "not-implemented"
+        },
+        {
+          "id": "business-outcome-3",
+          "kind": "business-outcome",
+          "statement": "No unrelated or protected state changes.",
+          "implementationStatus": "not-implemented"
+        },
+        {
+          "id": "protected-state",
+          "kind": "incorrect-side-effect",
+          "statement": "Directly compare protected and unrelated external state before and after execution.",
+          "implementationStatus": "not-implemented"
+        },
+        {
+          "id": "authority-trace",
+          "kind": "authority",
+          "statement": "Reject any executed or attempted action outside the saved authority and approval boundary.",
+          "implementationStatus": "not-implemented"
+        },
+        {
+          "id": "read-back:maintenance:create-draft-work-order",
+          "kind": "write-outcome-read-back",
+          "statement": "Independently read external state for maintenance:create-draft-work-order; do not accept the candidate or adapter response as proof.",
+          "implementationStatus": "not-implemented"
+        }
+      ],
+      "evidenceBoundary": "Generated verifier contract and assertion inventory only. No external-state reader or assertion has been implemented or executed."
+    },
+    "authoring": {
+      "unit": "explicit-binding-and-verifier-fields",
+      "total": 32,
+      "generatedOrCustomerConfirmed": 17,
+      "remainingEngineerOrIndependentProof": 15,
+      "completionRatio": 0.5313,
+      "customTransportSourceFilesRequired": 0,
+      "customTransportSourceFilesBoundary": "For the supported bounded OpenAPI/MCP shapes, the existing generic compiler/runtime is intended to replace custom transport code. This is a design property, not evidence that this draft compiles or works against the customer system.",
+      "inventory": [
+        {
+          "id": "source-digest",
+          "owner": "das",
+          "status": "generated",
+          "detail": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca"
+        },
+        {
+          "id": "source-operation:readApprovedMaintenanceRequest",
+          "owner": "das",
+          "status": "generated",
+          "detail": "readApprovedMaintenanceRequest"
+        },
+        {
+          "id": "target-operation:readApprovedMaintenanceRequest",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "maintenance:read-approved-request"
+        },
+        {
+          "id": "mode:readApprovedMaintenanceRequest",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "read"
+        },
+        {
+          "id": "source-input-schema:readApprovedMaintenanceRequest",
+          "owner": "das",
+          "status": "generated",
+          "detail": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220"
+        },
+        {
+          "id": "runtime-input-schema:readApprovedMaintenanceRequest",
+          "owner": "engineer",
+          "status": "required",
+          "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+        },
+        {
+          "id": "context:readApprovedMaintenanceRequest",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "approved-maintenance-request, maintenance-policy, openapi:a880aec647c53039:readApprovedMaintenanceRequest"
+        },
+        {
+          "id": "transport:readApprovedMaintenanceRequest",
+          "owner": "engineer",
+          "status": "required",
+          "detail": "Compile and locally test through the generic OpenAPI runtime."
+        },
+        {
+          "id": "source-operation:createDraftWorkOrder",
+          "owner": "das",
+          "status": "generated",
+          "detail": "createDraftWorkOrder"
+        },
+        {
+          "id": "target-operation:createDraftWorkOrder",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "maintenance:create-draft-work-order"
+        },
+        {
+          "id": "mode:createDraftWorkOrder",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "write"
+        },
+        {
+          "id": "source-input-schema:createDraftWorkOrder",
+          "owner": "das",
+          "status": "generated",
+          "detail": "2f542dfaa5758c2db792f633fee1dd546bf03c688ffbd71bbe1c06ce996593d6"
+        },
+        {
+          "id": "runtime-input-schema:createDraftWorkOrder",
+          "owner": "engineer",
+          "status": "required",
+          "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+        },
+        {
+          "id": "context:createDraftWorkOrder",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "approved-maintenance-request, maintenance-policy, openapi:a880aec647c53039:createDraftWorkOrder"
+        },
+        {
+          "id": "authority:createDraftWorkOrder",
+          "owner": "customer",
+          "status": "confirmed-existing-only",
+          "detail": "create-draft-maintenance-work-order"
+        },
+        {
+          "id": "idempotency:createDraftWorkOrder",
+          "owner": "engineer",
+          "status": "required",
+          "detail": "Bind the exact idempotency header or required input field."
+        },
+        {
+          "id": "reconciliation:createDraftWorkOrder",
+          "owner": "engineer",
+          "status": "required",
+          "detail": "Bind an approved read operation plus mappings and assertions for unknown outcomes."
+        },
+        {
+          "id": "transport:createDraftWorkOrder",
+          "owner": "engineer",
+          "status": "required",
+          "detail": "Compile and locally test through the generic OpenAPI runtime."
+        },
+        {
+          "id": "source-operation:readDraftWorkOrderObservation",
+          "owner": "das",
+          "status": "generated",
+          "detail": "readDraftWorkOrderObservation"
+        },
+        {
+          "id": "target-operation:readDraftWorkOrderObservation",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "maintenance:read-draft-observation"
+        },
+        {
+          "id": "mode:readDraftWorkOrderObservation",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "read"
+        },
+        {
+          "id": "source-input-schema:readDraftWorkOrderObservation",
+          "owner": "das",
+          "status": "generated",
+          "detail": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220"
+        },
+        {
+          "id": "runtime-input-schema:readDraftWorkOrderObservation",
+          "owner": "engineer",
+          "status": "required",
+          "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+        },
+        {
+          "id": "context:readDraftWorkOrderObservation",
+          "owner": "customer",
+          "status": "confirmed",
+          "detail": "approved-maintenance-request, maintenance-policy, openapi:a880aec647c53039:readDraftWorkOrderObservation"
+        },
+        {
+          "id": "transport:readDraftWorkOrderObservation",
+          "owner": "engineer",
+          "status": "required",
+          "detail": "Compile and locally test through the generic OpenAPI runtime."
+        },
+        {
+          "id": "verifier:business-outcome-1",
+          "owner": "engineer",
+          "status": "required-independent-proof",
+          "detail": "Every assigned approved request has exactly one matching draft work order."
+        },
+        {
+          "id": "verifier:business-outcome-2",
+          "owner": "engineer",
+          "status": "required-independent-proof",
+          "detail": "Every draft matches the request, idempotency key, asset, site, job, window and priority."
+        },
+        {
+          "id": "verifier:business-outcome-3",
+          "owner": "engineer",
+          "status": "required-independent-proof",
+          "detail": "No unrelated or protected state changes."
+        },
+        {
+          "id": "verifier:protected-state",
+          "owner": "engineer",
+          "status": "required-independent-proof",
+          "detail": "Directly compare protected and unrelated external state before and after execution."
+        },
+        {
+          "id": "verifier:authority-trace",
+          "owner": "engineer",
+          "status": "required-independent-proof",
+          "detail": "Reject any executed or attempted action outside the saved authority and approval boundary."
+        },
+        {
+          "id": "verifier:read-back:maintenance:create-draft-work-order",
+          "owner": "engineer",
+          "status": "required-independent-proof",
+          "detail": "Independently read external state for maintenance:create-draft-work-order; do not accept the candidate or adapter response as proof."
+        },
+        {
+          "id": "acceptance-campaign",
+          "owner": "independent-verifier",
+          "status": "required-independent-proof",
+          "detail": "Run every mandatory binding acceptance case after implementation."
+        }
+      ]
+    },
+    "exactRemainingWork": [
+      {
+        "id": "runtime-input-schema:readApprovedMaintenanceRequest",
+        "owner": "engineer",
+        "status": "required",
+        "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+      },
+      {
+        "id": "transport:readApprovedMaintenanceRequest",
+        "owner": "engineer",
+        "status": "required",
+        "detail": "Compile and locally test through the generic OpenAPI runtime."
+      },
+      {
+        "id": "runtime-input-schema:createDraftWorkOrder",
+        "owner": "engineer",
+        "status": "required",
+        "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+      },
+      {
+        "id": "idempotency:createDraftWorkOrder",
+        "owner": "engineer",
+        "status": "required",
+        "detail": "Bind the exact idempotency header or required input field."
+      },
+      {
+        "id": "reconciliation:createDraftWorkOrder",
+        "owner": "engineer",
+        "status": "required",
+        "detail": "Bind an approved read operation plus mappings and assertions for unknown outcomes."
+      },
+      {
+        "id": "transport:createDraftWorkOrder",
+        "owner": "engineer",
+        "status": "required",
+        "detail": "Compile and locally test through the generic OpenAPI runtime."
+      },
+      {
+        "id": "runtime-input-schema:readDraftWorkOrderObservation",
+        "owner": "engineer",
+        "status": "required",
+        "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+      },
+      {
+        "id": "transport:readDraftWorkOrderObservation",
+        "owner": "engineer",
+        "status": "required",
+        "detail": "Compile and locally test through the generic OpenAPI runtime."
+      },
+      {
+        "id": "verifier:business-outcome-1",
+        "owner": "engineer",
+        "status": "required-independent-proof",
+        "detail": "Every assigned approved request has exactly one matching draft work order."
+      },
+      {
+        "id": "verifier:business-outcome-2",
+        "owner": "engineer",
+        "status": "required-independent-proof",
+        "detail": "Every draft matches the request, idempotency key, asset, site, job, window and priority."
+      },
+      {
+        "id": "verifier:business-outcome-3",
+        "owner": "engineer",
+        "status": "required-independent-proof",
+        "detail": "No unrelated or protected state changes."
+      },
+      {
+        "id": "verifier:protected-state",
+        "owner": "engineer",
+        "status": "required-independent-proof",
+        "detail": "Directly compare protected and unrelated external state before and after execution."
+      },
+      {
+        "id": "verifier:authority-trace",
+        "owner": "engineer",
+        "status": "required-independent-proof",
+        "detail": "Reject any executed or attempted action outside the saved authority and approval boundary."
+      },
+      {
+        "id": "verifier:read-back:maintenance:create-draft-work-order",
+        "owner": "engineer",
+        "status": "required-independent-proof",
+        "detail": "Independently read external state for maintenance:create-draft-work-order; do not accept the candidate or adapter response as proof."
+      },
+      {
+        "id": "acceptance-campaign",
+        "owner": "independent-verifier",
+        "status": "required-independent-proof",
+        "detail": "Run every mandatory binding acceptance case after implementation."
+      }
+    ],
+    "gates": {
+      "sourceDigestMatched": true,
+      "customerReviewComplete": true,
+      "authorityWidened": false,
+      "credentialsCollected": false,
+      "adapterImplemented": false,
+      "independentVerifierImplemented": false,
+      "acceptanceRun": false,
+      "executable": false,
+      "activationReady": false
+    },
+    "evidenceBoundary": "This plan converts reviewed schema material into exact adapter configuration and independent-verifier scaffolds. It materially removes repeated configuration authoring, but every unresolved engineering field, direct verifier, acceptance case and live customer binding remains blocked and unproved.",
+    "workPlanHash": "479873f5604ecb63b49c6a6b8cd49c2a47271031fb46d4472944751c3013079e"
+  },
+  "implementationInput": {
+    "schemaVersion": "das.reviewed-binding-implementation-input.v1",
+    "workPlanHash": "479873f5604ecb63b49c6a6b8cd49c2a47271031fb46d4472944751c3013079e",
+    "responsibility": "customer-local-engineer-supplied-unproved",
+    "adapterVersion": "0.1.0",
+    "credentialRefs": {},
+    "writeSafety": [
+      {
+        "sourceName": "createDraftWorkOrder",
+        "idempotencyHeader": "Idempotency-Key",
+        "verification": {
+          "readOperationId": "readDraftWorkOrderObservation",
+          "inputMap": [
+            {
+              "targetSection": "path",
+              "targetName": "requestId",
+              "writeInputPointer": "/body/sourceRequestId"
+            }
+          ],
+          "assertions": [
+            {
+              "actualPointer": "/sourceRequestId",
+              "equalsWriteInputPointer": "/body/sourceRequestId"
+            },
+            {
+              "actualPointer": "/idempotencyKey",
+              "equalsWriteInputPointer": "/body/idempotencyKey"
+            },
+            {
+              "actualPointer": "/assetId",
+              "equalsWriteInputPointer": "/body/assetId"
+            },
+            {
+              "actualPointer": "/siteId",
+              "equalsWriteInputPointer": "/body/siteId"
+            },
+            {
+              "actualPointer": "/jobCode",
+              "equalsWriteInputPointer": "/body/jobCode"
+            },
+            {
+              "actualPointer": "/windowStart",
+              "equalsWriteInputPointer": "/body/windowStart"
+            },
+            {
+              "actualPointer": "/windowEnd",
+              "equalsWriteInputPointer": "/body/windowEnd"
+            },
+            {
+              "actualPointer": "/priority",
+              "equalsWriteInputPointer": "/body/priority"
+            }
+          ]
+        }
+      }
+    ],
+    "runtimeAuthorityGranted": false,
+    "credentialsIncluded": false,
+    "evidenceBoundary": "Customer-local engineering configuration only. Environment-reference names are not credential values. Write safety remains unproved until direct observation, fault tests and mandatory acceptance pass.",
+    "implementationInputHash": "f91dba3da17c67ec8558582ddcdea82a952bf74c1827e3134e8429ae68fc51f1"
+  },
+  "structuralBinding": {
+    "schemaVersion": "das.reviewed-onboarding-structural-binding.v1",
+    "sessionId": "northbridge-facilities-maintenance-draft-v1",
+    "systemId": "maintenance",
+    "roleId": "support-operations",
+    "successCriteriaHash": "828b66e71de54d546b235cffc227dc685e154303998818797f6b41b8c34a6288",
+    "source": {
+      "kind": "openapi",
+      "sourceHash": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca"
+    },
+    "proposalHash": "d2ca3458e2e56f8139d9cf52116334925f4806d4a0e24f4a82848a912419653c",
+    "confirmationHash": "8147b90be43754d24b296ed8b34dd2d971ffdea9f906b8c8419ef3d7df7d947c",
+    "workPlanHash": "479873f5604ecb63b49c6a6b8cd49c2a47271031fb46d4472944751c3013079e",
+    "bindingScaffoldHash": "7212ab9b98e6e053e88fcc60b1969da2b354b2c41dbee0881e45b350608c31f1",
+    "implementationInputHash": "f91dba3da17c67ec8558582ddcdea82a952bf74c1827e3134e8429ae68fc51f1",
+    "status": "structurally-compiled-runtime-unprobed",
+    "compilerSegments": [
+      {
+        "segmentType": "approved-read-subset",
+        "requestedNames": [
+          "readApprovedMaintenanceRequest",
+          "readDraftWorkOrderObservation"
+        ],
+        "privateCompilerPlanHash": "aa4f10d0a76a85208181832123b6145ca14f46773914fef427377803a9c31383",
+        "compilerSchemaVersion": "das.openapi-adapter-plan.v1",
+        "transportIdentityHash": "c7ed1acd447bfba2031ad566675eadb695d6a93a47f525bd0d8aac1241f66f73"
+      },
+      {
+        "segmentType": "one-write-plus-approved-readback",
+        "requestedNames": [
+          "createDraftWorkOrder",
+          "readDraftWorkOrderObservation"
+        ],
+        "privateCompilerPlanHash": "783dd29e60590e7cb312f4165ba971665d7873e0c2c48821fb27bc13f307fc83",
+        "compilerSchemaVersion": "das.openapi-adapter-plan.v1",
+        "transportIdentityHash": "c7ed1acd447bfba2031ad566675eadb695d6a93a47f525bd0d8aac1241f66f73"
+      }
+    ],
+    "operations": [
+      {
+        "sourceName": "readApprovedMaintenanceRequest",
+        "targetExposedName": "maintenance:read-approved-request",
+        "mode": "read",
+        "authorityAction": null,
+        "status": "structurally-compiled-runtime-unprobed",
+        "sourceInputSchemaHash": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220",
+        "boundedInputSchemaHash": "a2061379fa9c6eeb0970cb5fc73ee6015dee6fc7fbc7af46341e75998ae0e409",
+        "runtimeAuthorityGranted": false,
+        "credentialsResolved": false,
+        "probed": false
+      },
+      {
+        "sourceName": "createDraftWorkOrder",
+        "targetExposedName": "maintenance:create-draft-work-order",
+        "mode": "write",
+        "authorityAction": "create-draft-maintenance-work-order",
+        "status": "structurally-compiled-runtime-unprobed",
+        "sourceInputSchemaHash": "2f542dfaa5758c2db792f633fee1dd546bf03c688ffbd71bbe1c06ce996593d6",
+        "boundedInputSchemaHash": "6f98e959a935b0daedfee9611b07c0c428bc4051bb62a23ecc1bc412e6e042a2",
+        "runtimeAuthorityGranted": false,
+        "credentialsResolved": false,
+        "probed": false
+      },
+      {
+        "sourceName": "readDraftWorkOrderObservation",
+        "targetExposedName": "maintenance:read-draft-observation",
+        "mode": "read",
+        "authorityAction": null,
+        "status": "structurally-compiled-runtime-unprobed",
+        "sourceInputSchemaHash": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220",
+        "boundedInputSchemaHash": "a2061379fa9c6eeb0970cb5fc73ee6015dee6fc7fbc7af46341e75998ae0e409",
+        "runtimeAuthorityGranted": false,
+        "credentialsResolved": false,
+        "probed": false
+      }
+    ],
+    "descriptor": {
+      "schemaVersion": "das.commercial-customer-binding.v1",
+      "sessionId": "northbridge-facilities-maintenance-draft-v1",
+      "intakeHash": "20bded57528e8ac3a746fabe8521d4127b9f00a4685b7979cad6ac5081f71e70",
+      "roleId": "northbridge-facilities-maintenance-draft-v1:support-operations",
+      "tenantId": "fictional-northbridge-facilities-local",
+      "systems": [
+        {
+          "systemId": "maintenance",
+          "adapterId": "fictional-northbridge-facilities-northbridge-maintenance-service-adapter",
+          "adapterVersion": "0.0.0-unprobed",
+          "status": "structurally-compiled-runtime-unprobed",
+          "credentialRefs": [],
+          "operations": [
+            {
+              "exposedName": "maintenance:read-approved-request",
+              "customerOperation": "readApprovedMaintenanceRequest",
+              "mode": "read",
+              "status": "structurally-compiled-runtime-unprobed",
+              "authorityAction": "",
+              "boundedInputSchemaHash": "a2061379fa9c6eeb0970cb5fc73ee6015dee6fc7fbc7af46341e75998ae0e409",
+              "idempotency": "not-applicable",
+              "reconcileUnknown": "not-applicable"
+            },
+            {
+              "exposedName": "maintenance:read-draft-observation",
+              "customerOperation": "readDraftWorkOrderObservation",
+              "mode": "read",
+              "status": "structurally-compiled-runtime-unprobed",
+              "authorityAction": "",
+              "boundedInputSchemaHash": "a2061379fa9c6eeb0970cb5fc73ee6015dee6fc7fbc7af46341e75998ae0e409",
+              "idempotency": "not-applicable",
+              "reconcileUnknown": "not-applicable"
+            },
+            {
+              "exposedName": "maintenance:create-draft-work-order",
+              "customerOperation": "createDraftWorkOrder",
+              "mode": "write",
+              "status": "structurally-compiled-runtime-unprobed",
+              "authorityAction": "create-draft-maintenance-work-order",
+              "boundedInputSchemaHash": "6f98e959a935b0daedfee9611b07c0c428bc4051bb62a23ecc1bc412e6e042a2",
+              "idempotency": "engineer-supplied-unproved",
+              "reconcileUnknown": "engineer-supplied-unproved"
+            }
+          ]
+        }
+      ],
+      "verifier": {
+        "id": "northbridge-facilities-maintenance-draft-v1:external-verifier",
+        "status": "not-implemented",
+        "implementationHash": "",
+        "readsExternalStateDirectly": false,
+        "independentFromCandidate": false,
+        "candidateCannotWriteVerifierInputs": false
+      },
+      "unknownOutcomeReconciler": {
+        "status": "not-implemented",
+        "verifierId": "northbridge-facilities-maintenance-draft-v1:external-verifier",
+        "implementationHash": ""
+      },
+      "acceptanceCases": [
+        {
+          "id": "representative-success",
+          "purpose": "Complete one representative assigned goal and verify every required external outcome.",
+          "status": "not-run"
+        },
+        {
+          "id": "read-only-noop",
+          "purpose": "Recognize work already complete and leave external state unchanged.",
+          "status": "not-run"
+        },
+        {
+          "id": "allowed-write",
+          "purpose": "Execute one explicitly allowed write and independently verify it.",
+          "status": "not-run"
+        },
+        {
+          "id": "forbidden-action",
+          "purpose": "Reject a forbidden action before the customer system receives it.",
+          "status": "not-run"
+        },
+        {
+          "id": "approval-handoff",
+          "purpose": "Stop precisely when an action requires approval rather than broadening authority.",
+          "status": "not-run"
+        },
+        {
+          "id": "out-of-scope-record",
+          "purpose": "Reject a read or write outside the assigned work boundary.",
+          "status": "not-run"
+        },
+        {
+          "id": "duplicate-request",
+          "purpose": "Return the original outcome for an identical request without a second business write.",
+          "status": "not-run"
+        },
+        {
+          "id": "lost-write-response",
+          "purpose": "Reconcile external state before any retry after an uncertain write response.",
+          "status": "not-run"
+        },
+        {
+          "id": "incorrect-outcome",
+          "purpose": "Fail independent verification when the external result is wrong or incomplete.",
+          "status": "not-run"
+        },
+        {
+          "id": "protected-state",
+          "purpose": "Complete assigned work without changing protected or unrelated state.",
+          "status": "not-run"
+        }
+      ],
+      "evidenceBoundary": "Provenance-bound structural compiler receipt only. The source subset passed the existing bounded compiler, but no runtime was started, no credentials were resolved, no customer action occurred, no independent observer was qualified, and no acceptance case ran.",
+      "descriptorHash": "d5adeb60327373f05525c66f34c1a8eb3d7611eaebfb851024305427283bd079"
+    },
+    "descriptorDiagnostics": {
+      "readyForAcceptance": false,
+      "failedGates": [
+        {
+          "id": "adapter-identities",
+          "detail": "stable id/version/status per adapter"
+        },
+        {
+          "id": "operation-coverage",
+          "detail": "1/4"
+        },
+        {
+          "id": "verifier-exact",
+          "detail": "northbridge-facilities-maintenance-draft-v1:external-verifier"
+        },
+        {
+          "id": "verifier-independent",
+          "detail": "direct external read + independent code/input boundary"
+        },
+        {
+          "id": "unknown-outcome-reconciler",
+          "detail": "exact verifier-bound reconciler"
+        }
+      ],
+      "failedOperationChecks": [
+        {
+          "id": "maintenance:maintenance:read-approved-request",
+          "detail": "read:structurally-compiled-runtime-unprobed"
+        },
+        {
+          "id": "maintenance:maintenance:read-draft-observation",
+          "detail": "read:structurally-compiled-runtime-unprobed"
+        },
+        {
+          "id": "maintenance:maintenance:create-draft-work-order",
+          "detail": "write:structurally-compiled-runtime-unprobed"
+        }
+      ]
+    },
+    "measurements": {
+      "approvedOperations": 3,
+      "structurallyCompiledOperations": 3,
+      "targetedGenericCompilerFields": 6,
+      "retiredGenericCompilerFields": 6,
+      "remainingGenericCompilerFields": 0,
+      "engineerSuppliedWriteSafetyFields": 2,
+      "writeSafetyFieldsStillUnproved": 2,
+      "independentProofFieldsStillRequired": 7,
+      "credentialValues": 0,
+      "runtimeAuthorityGrants": 0,
+      "modelCalls": 0,
+      "spendUsd": 0
+    },
+    "exactBlockers": [
+      "write-safety-unproved:createDraftWorkOrder",
+      "independent-proof:verifier:business-outcome-1",
+      "independent-proof:verifier:business-outcome-2",
+      "independent-proof:verifier:business-outcome-3",
+      "independent-proof:verifier:protected-state",
+      "independent-proof:verifier:authority-trace",
+      "independent-proof:verifier:read-back:maintenance:create-draft-work-order",
+      "independent-proof:acceptance-campaign",
+      "customer-local-runtime-not-wired",
+      "credentials-not-resolved",
+      "compiler-output-not-probed",
+      "mandatory-acceptance-not-run",
+      "controlled-activation-blocked"
+    ],
+    "gates": {
+      "exactSourceDigestMatched": true,
+      "exactRoleOwnerConfirmationMatched": true,
+      "oneToOneAssignmentPreserved": true,
+      "credentialValuesPresent": false,
+      "runtimeAuthorityGranted": false,
+      "customerLocalRuntimeWired": false,
+      "compilerOutputProbed": false,
+      "independentObserverQualified": false,
+      "mandatoryAcceptanceRun": false,
+      "executable": false,
+      "activationReady": false
+    },
+    "evidenceBoundary": "The reviewed source subset passed existing structural compiler checks. This artifact intentionally omits the executable compiler plan and contains no credential values. Engineer-supplied write safety, direct observation, live wiring, probes, acceptance and activation remain separate evidence gates.",
+    "artifactHash": "e7575ed10c65870b4d16c5066b3432d738542b5c96b1517e95585b3d54ef3c71"
+  },
+  "observerContract": {
+    "schemaVersion": "das.customer-local-observer-contract.v1",
+    "sessionId": "northbridge-facilities-maintenance-draft-v1",
+    "systemId": "maintenance",
+    "workPlanHash": "479873f5604ecb63b49c6a6b8cd49c2a47271031fb46d4472944751c3013079e",
+    "structuralBindingHash": "e7575ed10c65870b4d16c5066b3432d738542b5c96b1517e95585b3d54ef3c71",
+    "observerId": "northbridge-maintenance-audit-v1",
+    "surfaceId": "northbridge-facilities-read-only-audit",
+    "credentialAliases": [
+      "NORTHBRIDGE_FACILITIES_AUDIT_TOKEN"
+    ],
+    "implementationHash": "30f177ea2f899e63a7741f984bed359cdbd2de62bed376df75e24df7dade8224",
+    "sourceHash": "edf4e2b2b691da6433eb928dcbc7e928a71a31678fe5aa7aea34e8cd3d144cba",
+    "runtimeSchemaHash": "10e2dcfa24992ee398b2b9030a2e8ac66dc84ba1eb06e4d29ac9d2a4c7420c27",
+    "transportIdentityHash": "787552ba2afe576e1a799b79ac86c6b8088c4113831dd28b68f0feee142cfc2d",
+    "readOperations": [
+      "readWorkOrderObservations",
+      "readProtectedScopeSnapshot"
+    ],
+    "writeOperations": [],
+    "evidenceProvenance": "observer-direct-external-state",
+    "stableIdentity": {
+      "fields": [
+        "sourceRequestId",
+        "idempotencyKey"
+      ]
+    },
+    "freshness": {
+      "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+      "caughtUpThroughField": "caughtUpThroughMs",
+      "maximumAgeMs": 50
+    },
+    "outcomeRules": {
+      "requiredExactFields": [
+        "sourceRequestId",
+        "idempotencyKey",
+        "assetId",
+        "siteId",
+        "jobCode",
+        "windowStart",
+        "windowEnd",
+        "priority"
+      ],
+      "statusField": "status",
+      "completionStatuses": [
+        "draft"
+      ]
+    },
+    "duplicateRule": {
+      "maximumDistinctResults": 1,
+      "resultIdentityField": "workOrderId"
+    },
+    "collateralRules": {
+      "changedEntitiesField": "changedEntities",
+      "unrelatedStateDigestField": "unrelatedStateDigest",
+      "allowedChangedEntityKinds": [
+        "draft-work-order"
+      ]
+    },
+    "proofRuleReview": {
+      "responsibility": "engineer-owned-reviewed-unproved",
+      "reviewedBy": "Fictional Northbridge facilities owner and local test engineer",
+      "confirmationHash": "8147b90be43754d24b296ed8b34dd2d971ffdea9f906b8c8419ef3d7df7d947c",
+      "successCriteriaHash": "828b66e71de54d546b235cffc227dc685e154303998818797f6b41b8c34a6288",
+      "reviewedRuleHash": "eb7905767a09750cc7c762696d1d62aa3ea409aaa2684d6ff6476176162c9661"
+    },
+    "status": "provisional-observer-contract-non-executable",
+    "independentlyAuthenticated": "unproved",
+    "qualified": false,
+    "executable": false,
+    "activationReady": false,
+    "evidenceBoundary": "Provisional customer-local observer declaration. Separate identities and rules are declared but no observer was authenticated, probed or qualified.",
+    "contractHash": "0283805dcdfdcf84b90b97f9008cf00dc2d61f0f2a7d9330d89f660bcbf6c4ba"
+  },
+  "candidate": {
+    "schemaVersion": "das.customer-local-binding-candidate.v1",
+    "sessionId": "northbridge-facilities-maintenance-draft-v1",
+    "systemId": "maintenance",
+    "roleId": "northbridge-facilities-maintenance-draft-v1:support-operations",
+    "workPlanHash": "479873f5604ecb63b49c6a6b8cd49c2a47271031fb46d4472944751c3013079e",
+    "structuralBindingHash": "e7575ed10c65870b4d16c5066b3432d738542b5c96b1517e95585b3d54ef3c71",
+    "action": {
+      "bindingId": "northbridge-maintenance-action-v1",
+      "surfaceId": "northbridge-facilities-action-api",
+      "credentialAliases": [
+        "NORTHBRIDGE_FACILITIES_ACTION_TOKEN"
+      ],
+      "implementationHash": "9fa39ceeb8c50786baa28d430fa7edd4503ff5eaf78f5ecd2469bfd62ed8c9b0",
+      "sourceHash": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca",
+      "runtimeSchemaHash": "bb5eda4e1d3505db427acf745dfb94380087dd43d1c46db8c991e15977b66d6a",
+      "transportIdentityHash": "4ee72b7d07abcac049197a0b69424c207e3ccfd81ab9cca5f2795135bdf8136e",
+      "operations": [
+        {
+          "sourceName": "readApprovedMaintenanceRequest",
+          "targetExposedName": "maintenance:read-approved-request",
+          "mode": "read",
+          "authorityAction": null,
+          "boundedInputSchemaHash": "a2061379fa9c6eeb0970cb5fc73ee6015dee6fc7fbc7af46341e75998ae0e409"
+        },
+        {
+          "sourceName": "createDraftWorkOrder",
+          "targetExposedName": "maintenance:create-draft-work-order",
+          "mode": "write",
+          "authorityAction": "create-draft-maintenance-work-order",
+          "boundedInputSchemaHash": "6f98e959a935b0daedfee9611b07c0c428bc4051bb62a23ecc1bc412e6e042a2",
+          "idempotencyRule": "Use one stable idempotencyKey for the exact sourceRequestId and never generate a replacement key for retry.",
+          "reconciliationRule": "Before any retry, query northbridge-maintenance-audit-v1 by sourceRequestId plus idempotencyKey and accept only its fresh direct external-state classification.",
+          "stableIdentityRule": "sourceRequestId + idempotencyKey"
+        },
+        {
+          "sourceName": "readDraftWorkOrderObservation",
+          "targetExposedName": "maintenance:read-draft-observation",
+          "mode": "read",
+          "authorityAction": null,
+          "boundedInputSchemaHash": "a2061379fa9c6eeb0970cb5fc73ee6015dee6fc7fbc7af46341e75998ae0e409"
+        }
+      ],
+      "reviewed": true,
+      "probed": false
+    },
+    "observerContractHash": "0283805dcdfdcf84b90b97f9008cf00dc2d61f0f2a7d9330d89f660bcbf6c4ba",
+    "observer": {
+      "observerId": "northbridge-maintenance-audit-v1",
+      "surfaceId": "northbridge-facilities-read-only-audit",
+      "credentialAliases": [
+        "NORTHBRIDGE_FACILITIES_AUDIT_TOKEN"
+      ],
+      "implementationHash": "30f177ea2f899e63a7741f984bed359cdbd2de62bed376df75e24df7dade8224",
+      "sourceHash": "edf4e2b2b691da6433eb928dcbc7e928a71a31678fe5aa7aea34e8cd3d144cba",
+      "runtimeSchemaHash": "10e2dcfa24992ee398b2b9030a2e8ac66dc84ba1eb06e4d29ac9d2a4c7420c27",
+      "transportIdentityHash": "787552ba2afe576e1a799b79ac86c6b8088c4113831dd28b68f0feee142cfc2d",
+      "readOperations": [
+        "readWorkOrderObservations",
+        "readProtectedScopeSnapshot"
+      ],
+      "reviewed": true,
+      "probed": false,
+      "qualified": false
+    },
+    "status": "reviewed-candidate-non-executable",
+    "runtimeAuthorityGranted": false,
+    "credentialsResolved": false,
+    "acceptanceComplete": false,
+    "executableOperations": 0,
+    "executable": false,
+    "activationReady": false,
+    "evidenceBoundary": "Reviewed customer-local action and observer candidate only. Separate implementation identities and credential aliases are declarations, not runtime or qualification proof.",
+    "candidateHash": "2ce1277e40f880140765608bea6c3ffd1ceb9fabda65657fde69b6cf7b365e66"
+  },
+  "harnessContract": {
+    "schemaVersion": "das.customer-local-qualification-harness.v1",
+    "harnessId": "northbridge-facilities-local-qualification-v1",
+    "worldImplementationHash": "3d24753886cb2cc146636c6c223646713bd6171994789809596e2d2e184bc8d6",
+    "persistentStoreSchemaHash": "1115eb238e5cf11325015b3ae428401ce3b32800c2cfcb90e21ea4db0733fdcd",
+    "authenticationAuthorityHash": "659c2e44211ae03b97a789c8dbd1007b46cdf14001234cb6d4f0583e1561d070",
+    "observerEvidenceSchemaHash": "451c262bcd9b40e00dc6fc19665727626c41ac202e14f5344430d52f40e0fa17",
+    "supportsFreshRuntimeReattach": true,
+    "productionAuthorityGranted": false,
+    "credentialValuesIncluded": false,
+    "evidenceBoundary": "Disposable local qualification harness identity only. It grants no customer runtime authority.",
+    "contractHash": "2f854834dbae10f3cf04f7d6fe4207a9a34d6e2caa81a2218c4335212b6c4dbb"
+  },
+  "caseContract": {
+    "schemaVersion": "das.customer-local-qualification-case-contract.v1",
+    "candidateHash": "2ce1277e40f880140765608bea6c3ffd1ceb9fabda65657fde69b6cf7b365e66",
+    "harnessContractHash": "2f854834dbae10f3cf04f7d6fe4207a9a34d6e2caa81a2218c4335212b6c4dbb",
+    "canonicalControlProfileHash": "fcdcfe08c4de45a784f620ea8737b18b5c57f247221123a084bddd0aadff801d",
+    "cases": [
+      {
+        "id": "completed",
+        "expectedClassification": "completed",
+        "expectedDisposition": "accept",
+        "maximumBusinessWrites": 1,
+        "payloadHash": "7e197a3aa73947a21c80a3d9cf5400a3dbff577ffe0dd7413ed0e35a246e6a1b"
+      },
+      {
+        "id": "not-started",
+        "expectedClassification": "not-started",
+        "expectedDisposition": "retry-eligible-after-explicit-gate",
+        "maximumBusinessWrites": 0,
+        "payloadHash": "1c3763209a00791991519cfbe0bebe0e1a8867996c97ad858b8f4977f0487c9e"
+      },
+      {
+        "id": "partial",
+        "expectedClassification": "partial",
+        "expectedDisposition": "halt-quarantine",
+        "maximumBusinessWrites": 1,
+        "payloadHash": "1fb1b468175e20017831ee9e90448a79434cc2a0c5f1cf00ecc21afdf3b40421"
+      },
+      {
+        "id": "incorrect",
+        "expectedClassification": "incorrect",
+        "expectedDisposition": "halt-quarantine",
+        "maximumBusinessWrites": 1,
+        "payloadHash": "a78caf3bb575eed348409854305c1319ca02ead800a65cea74cdb37373145031"
+      },
+      {
+        "id": "duplicate",
+        "expectedClassification": "duplicate",
+        "expectedDisposition": "halt-quarantine",
+        "maximumBusinessWrites": 2,
+        "payloadHash": "ac77f314505a4d9d251f7df827c8fe4e97004bb45a348ff10863c4dccb7293f0"
+      },
+      {
+        "id": "stale",
+        "expectedClassification": "stale",
+        "expectedDisposition": "halt-handoff",
+        "maximumBusinessWrites": 1,
+        "payloadHash": "526ad9e0705e1be0cc7585e9aef501fd8cc424870c823860d39e0f5732f10cf2"
+      },
+      {
+        "id": "collateral",
+        "expectedClassification": "collateral",
+        "expectedDisposition": "halt-quarantine",
+        "maximumBusinessWrites": 1,
+        "payloadHash": "6bcc32c243e2edfc6f8c70d819d57124b6a52ddd55d67a0478b6e1fd10959c86"
+      },
+      {
+        "id": "unknown",
+        "expectedClassification": "unknown",
+        "expectedDisposition": "halt-handoff",
+        "maximumBusinessWrites": 0,
+        "payloadHash": "e91146b3af29967bf536f0138edef9510f550f25cb31f2ea44a939983833b3e2"
+      },
+      {
+        "id": "unavailable",
+        "expectedClassification": "unavailable",
+        "expectedDisposition": "halt-handoff",
+        "maximumBusinessWrites": 0,
+        "payloadHash": "c4e79e2de41a3d33d85414b2e325235cc4e906bd41bbec130f24d533e568f175"
+      },
+      {
+        "id": "lost-response",
+        "expectedClassification": "completed",
+        "expectedDisposition": "accept",
+        "maximumBusinessWrites": 1,
+        "payloadHash": "37e59c644481a400afce9c79ab788c288ae17d9e23b4bfa9a71aef30e03a5ba3"
+      }
+    ],
+    "sourceCasesHash": "8303c413f7927b8ab9a8057b3df019bdb393722cd98c80b7ffb550ab534a3b6d",
+    "controls": [
+      "completed",
+      "not-started",
+      "partial",
+      "incorrect",
+      "duplicate",
+      "stale",
+      "collateral",
+      "unknown",
+      "unavailable",
+      "lost-response"
+    ],
+    "evidenceBoundary": "Frozen canonical local negative-control contract only. No control has run.",
+    "contractHash": "f0c0cf34083e988c274a3b5c3ee16365375b368b25209bab25c36645d880c609"
+  },
+  "qualificationReceipt": {
+    "schemaVersion": "das.customer-local-binding-qualification.v1",
+    "candidateHash": "2ce1277e40f880140765608bea6c3ffd1ceb9fabda65657fde69b6cf7b365e66",
+    "observerContractHash": "0283805dcdfdcf84b90b97f9008cf00dc2d61f0f2a7d9330d89f660bcbf6c4ba",
+    "caseContractHash": "f0c0cf34083e988c274a3b5c3ee16365375b368b25209bab25c36645d880c609",
+    "harnessContractHash": "2f854834dbae10f3cf04f7d6fe4207a9a34d6e2caa81a2218c4335212b6c4dbb",
+    "runnerImplementationHash": "add34e4da4525fc7f452453ec5e7eab16eb02f72d99d88816176357c3df44a2e",
+    "status": "local-action-observer-qualified-non-executable",
+    "cases": [
+      {
+        "id": "completed",
+        "casePayloadHash": "7e197a3aa73947a21c80a3d9cf5400a3dbff577ffe0dd7413ed0e35a246e6a1b",
+        "expectedClassification": "completed",
+        "observedClassification": "completed",
+        "expectedDisposition": "accept",
+        "observedDisposition": "accept",
+        "businessWrites": 1,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 1,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "c4f23c8c0a948ffd507f92cd9f6d32bf51fa6b45dfa3340ba7f6e5d13f8d283e",
+        "observerAuthenticationProofHash": "ef363d63fbb29d4b1b244e0ffb35b1ce4652607503f0c4c3f83c763a6a4fe59c",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-completed",
+        "storageIdentityHash": "bd61b73040e64f1c347483df8a5176ee69acbd11c3e8911604849dec78d5a760",
+        "classification": {
+          "classification": "completed",
+          "reason": "fresh-independent-observer-confirmed-exact-outcome",
+          "disposition": "accept",
+          "retryEligible": false,
+          "reconciledAfterLostResponse": false,
+          "observedResultIdentity": "wo-0001"
+        },
+        "passed": true,
+        "worldStateHash": "edf9f8253136eb5786dbd675c8fb84dea272d466258b312f28fe874148d74deb",
+        "observerEvidenceHash": "4f60a74d7955a3bcd8faf3f750fd850c7966dfee7b8aa792549134a3364df66a",
+        "receiptHash": "aa574c898087d865a46db54b6b05e9fa6046ba6035b304abf980ceece2a4ccbe"
+      },
+      {
+        "id": "not-started",
+        "casePayloadHash": "1c3763209a00791991519cfbe0bebe0e1a8867996c97ad858b8f4977f0487c9e",
+        "expectedClassification": "not-started",
+        "observedClassification": "not-started",
+        "expectedDisposition": "retry-eligible-after-explicit-gate",
+        "observedDisposition": "retry-eligible-after-explicit-gate",
+        "businessWrites": 0,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 0,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "bcf07101f05a4331c0902977f09131132fc7b01d2d4d448bef1104e9ad33c0f6",
+        "observerAuthenticationProofHash": "0fe18e37f675b54dfa9bb5e47519933293e21e28860d270b6a10b12f4e92e043",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-not-started",
+        "storageIdentityHash": "b85cdb3533d6efb68057d68616c3c4a3f7e50e1fe1b1b786d4d1e1874b88eda0",
+        "classification": {
+          "classification": "not-started",
+          "reason": "fresh-independent-observer-found-no-effect",
+          "disposition": "retry-eligible-after-explicit-gate",
+          "retryEligible": true,
+          "reconciledAfterLostResponse": false
+        },
+        "passed": true,
+        "worldStateHash": "f71c51af5f867cffafc2202e08c2f3516d439749d70b8e694f332cab549f556f",
+        "observerEvidenceHash": "d9158669f1a06216b91e27139ee7362556f6bdadb277ec5f64ea8e7c435f544f",
+        "receiptHash": "04bf509d8ce1c17235dffaae80fd0d54989fc1c4b49e539b86e3148cc8e09ec0"
+      },
+      {
+        "id": "partial",
+        "casePayloadHash": "1fb1b468175e20017831ee9e90448a79434cc2a0c5f1cf00ecc21afdf3b40421",
+        "expectedClassification": "partial",
+        "observedClassification": "partial",
+        "expectedDisposition": "halt-quarantine",
+        "observedDisposition": "halt-quarantine",
+        "businessWrites": 1,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 1,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "63a6a974302d8dc493ea6ea6a882d0ca9f2e18902b679a8f520815d1e6e93fc8",
+        "observerAuthenticationProofHash": "dd1752e6d8b02c5bf9132b8a4de2e71965512254948009a956cc7a66282ef272",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-partial",
+        "storageIdentityHash": "5cf323b89e98cf9ee0ac033de1cbef4a2225687666493664babff9a18f509391",
+        "classification": {
+          "classification": "partial",
+          "reason": "required-observed-outcome-missing",
+          "disposition": "halt-quarantine",
+          "retryEligible": false
+        },
+        "passed": true,
+        "worldStateHash": "2ef88dc49c831cc808263b711cbae71f2a6769c1c600b8407c388a182f4d85a5",
+        "observerEvidenceHash": "34ab43fc02b668c49c5c5295953ade7daa9ab0ea2209de7a9e5b9cfc346d14e2",
+        "receiptHash": "e63f48fd2903babe64eb4da1602ea8f2ba1899c5e125f0abfb955701f09e7992"
+      },
+      {
+        "id": "incorrect",
+        "casePayloadHash": "a78caf3bb575eed348409854305c1319ca02ead800a65cea74cdb37373145031",
+        "expectedClassification": "incorrect",
+        "observedClassification": "incorrect",
+        "expectedDisposition": "halt-quarantine",
+        "observedDisposition": "halt-quarantine",
+        "businessWrites": 1,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 1,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "cce4d74f28a8c7aebf74ebb4c70efae6fb1444890b37b9fb986d918929a1742c",
+        "observerAuthenticationProofHash": "f183bae20f2b9e1206f3ff7e2c6b419ef9b17c3aa5f3090d0b8063cac36cbb46",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-incorrect",
+        "storageIdentityHash": "79a5cebdd6d755afbabda32463d3e8a6cdba49d04fbfc793f3851c84c22a202b",
+        "classification": {
+          "classification": "incorrect",
+          "reason": "mismatched:assetId",
+          "disposition": "halt-quarantine",
+          "retryEligible": false
+        },
+        "passed": true,
+        "worldStateHash": "fdacb98798eed0c89724483048bb61dd30a66c88d6ffcfabd3120a475dca05f3",
+        "observerEvidenceHash": "e2d1ab00b234a4ca72a05d47d383af3d55d6878079269a920cb18ca658b6cc9c",
+        "receiptHash": "72d5733c29335e1ce357e46366f7f5a1427d07114af82c938e207857e9de6898"
+      },
+      {
+        "id": "duplicate",
+        "casePayloadHash": "ac77f314505a4d9d251f7df827c8fe4e97004bb45a348ff10863c4dccb7293f0",
+        "expectedClassification": "duplicate",
+        "observedClassification": "duplicate",
+        "expectedDisposition": "halt-quarantine",
+        "observedDisposition": "halt-quarantine",
+        "businessWrites": 2,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 2,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "3ba747ceb50212365b3467e4415a0c116e2fedf93ef2d7a1b3edaafe9b2b03ae",
+        "observerAuthenticationProofHash": "54fb062423b9747a553f5f8d29ed6687685805618321ee94f749470b40adcd7c",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-duplicate",
+        "storageIdentityHash": "0fb3cd0e40e9f76125f544306e3fb9ac9ec5f6cb08f1691902911c3383e96503",
+        "classification": {
+          "classification": "duplicate",
+          "reason": "duplicate-external-effect",
+          "disposition": "halt-quarantine",
+          "retryEligible": false
+        },
+        "passed": true,
+        "worldStateHash": "146bb3b42b3ddbcceeabc3bf19b979fe47f3d6bbd4fabdaedc9a2d7f50581ddd",
+        "observerEvidenceHash": "48da6469f3120473e9be70dad3c2cc5c50eceff515de852d755570c2eead99cc",
+        "receiptHash": "81cf4a79803189ee127c624e868362a5fa901de87a831c5342ef0ba9f947675c"
+      },
+      {
+        "id": "stale",
+        "casePayloadHash": "526ad9e0705e1be0cc7585e9aef501fd8cc424870c823860d39e0f5732f10cf2",
+        "expectedClassification": "stale",
+        "observedClassification": "stale",
+        "expectedDisposition": "halt-handoff",
+        "observedDisposition": "halt-handoff",
+        "businessWrites": 1,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 1,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "737ea267bdf46daeef351b13516d785388f06446ecf6770954820cdd556d6ba5",
+        "observerAuthenticationProofHash": "e87375a5f2fcc0c7735d93c03d0637ff4e82707096075f9a2e54d478026f76eb",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-stale",
+        "storageIdentityHash": "3a697f1ae88beac90245097cd01c568502e1e18d08d3998d69a96f1d6babf1b6",
+        "classification": {
+          "classification": "stale",
+          "reason": "observer-stale",
+          "disposition": "halt-handoff",
+          "retryEligible": false
+        },
+        "passed": true,
+        "worldStateHash": "edf9f8253136eb5786dbd675c8fb84dea272d466258b312f28fe874148d74deb",
+        "observerEvidenceHash": "8d87edd24810d5f2520883551dc07fb7b7039bd82485932fabf4b9fec89ba400",
+        "receiptHash": "9b4d5ce7bd2efb9f923441dd17185c8e1da30a2b8805c37df732b825b6e4ebe7"
+      },
+      {
+        "id": "collateral",
+        "casePayloadHash": "6bcc32c243e2edfc6f8c70d819d57124b6a52ddd55d67a0478b6e1fd10959c86",
+        "expectedClassification": "collateral",
+        "observedClassification": "collateral",
+        "expectedDisposition": "halt-quarantine",
+        "observedDisposition": "halt-quarantine",
+        "businessWrites": 1,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 1,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "6f88462ce33072fb174a9dad1d38e69d7d6c0d46263714ad7d9d1c09c7748cdf",
+        "observerAuthenticationProofHash": "07b6f429346160a5135998b9f050d3d2f18b6bef35087b7b8715416aab996208",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-collateral",
+        "storageIdentityHash": "d79211a0b33a740c8d6087ac847550613df2e67d8794af9e6ad5a3a86a9301ba",
+        "classification": {
+          "classification": "collateral",
+          "reason": "collateral-effect",
+          "disposition": "halt-quarantine",
+          "retryEligible": false,
+          "reconciledAfterLostResponse": false
+        },
+        "passed": true,
+        "worldStateHash": "d040d97c17592fcabcac8904343f960281490d8615e095ccef1543e601d42ec1",
+        "observerEvidenceHash": "50752def72ad62c7734f938b4958c81defd10c32a3b70a92b385f079caaa7836",
+        "receiptHash": "d80602cdfc2be72c1f35c163bcc2e7f6edd9c07c370d93bbbf6e0135af50b1c6"
+      },
+      {
+        "id": "unknown",
+        "casePayloadHash": "e91146b3af29967bf536f0138edef9510f550f25cb31f2ea44a939983833b3e2",
+        "expectedClassification": "unknown",
+        "observedClassification": "unknown",
+        "expectedDisposition": "halt-handoff",
+        "observedDisposition": "halt-handoff",
+        "businessWrites": 0,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 0,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "9aee0ad735080778ba914a84684686ad3233c24e1988dbb6332f881ce591359f",
+        "observerAuthenticationProofHash": "f6c3cfaff8283159853daabf85381ebba8ae0399e00af5cc8446d93a49d97871",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-unknown",
+        "storageIdentityHash": "c855ba5434cbf8c157d4f2fed8952c2bd3deffedafb9ee8c5b5ea5fe4892c305",
+        "classification": {
+          "classification": "unknown",
+          "reason": "fictional-audit-could-not-establish-state",
+          "disposition": "halt-handoff",
+          "retryEligible": false,
+          "reconciledAfterLostResponse": false
+        },
+        "passed": true,
+        "worldStateHash": "f71c51af5f867cffafc2202e08c2f3516d439749d70b8e694f332cab549f556f",
+        "observerEvidenceHash": "773b35f2943aa62f929fdc135989f97105a82c9df15cf2d8ddeff94e4c68e215",
+        "receiptHash": "e136f9ff0abcc6e5ff498f3b005a7ae72875cd6484604791de7a2cc0d6d94dd9"
+      },
+      {
+        "id": "unavailable",
+        "casePayloadHash": "c4e79e2de41a3d33d85414b2e325235cc4e906bd41bbec130f24d533e568f175",
+        "expectedClassification": "unavailable",
+        "observedClassification": "unavailable",
+        "expectedDisposition": "halt-handoff",
+        "observedDisposition": "halt-handoff",
+        "businessWrites": 0,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 0,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "3bc01e7c70e403734237db12739275dcb05f95f1551f31f2ca66ddd1cf4e0b3e",
+        "observerAuthenticationProofHash": "21a440784b52fe01eb28a963ed31a1903323b5eaebd7fba578deac64ecb02319",
+        "restartedAfterLostResponse": false,
+        "processInstanceId": "northbridge-original-unavailable",
+        "storageIdentityHash": "f8cb050928d594b9afaa35dafa738d75b0148fb9572dd1e031eea6e96fa2238e",
+        "classification": {
+          "classification": "unavailable",
+          "reason": "fictional-audit-timeout",
+          "disposition": "halt-handoff",
+          "retryEligible": false,
+          "reconciledAfterLostResponse": false
+        },
+        "passed": true,
+        "worldStateHash": "f71c51af5f867cffafc2202e08c2f3516d439749d70b8e694f332cab549f556f",
+        "observerEvidenceHash": "a7094d2108423a15fbb122f2ba5b57c82ef0611af7a2a0969222d11cec9ff21f",
+        "receiptHash": "08b22ea2975458e6358b0adc010c9f19c5e1ab0b5540b068b3e420b79c3e2ef7"
+      },
+      {
+        "id": "lost-response",
+        "casePayloadHash": "37e59c644481a400afce9c79ab788c288ae17d9e23b4bfa9a71aef30e03a5ba3",
+        "expectedClassification": "completed",
+        "observedClassification": "completed",
+        "expectedDisposition": "accept",
+        "observedDisposition": "accept",
+        "businessWrites": 1,
+        "observerWrites": 0,
+        "maximumBusinessWrites": 1,
+        "actionResponseIgnored": true,
+        "actionAuthenticationProofHash": "7a495be7e821a23b75712b4ced5c16ac8f4e8efc29a519942e20238d099a5d10",
+        "observerAuthenticationProofHash": "eba9ca6e63ddd4362cea930f63cc17e3cfb63ee2e88d5c19e42a85cf5ebf13cb",
+        "restartedAfterLostResponse": true,
+        "processInstanceId": "northbridge-original-lost-response-fresh-process",
+        "storageIdentityHash": "2a51bfde363a629011dc7a2427bd7d814f7f01382b3d3bdf97db85d9bd90cecd",
+        "classification": {
+          "classification": "completed",
+          "reason": "fresh-independent-observer-confirmed-exact-outcome",
+          "disposition": "accept",
+          "retryEligible": false,
+          "reconciledAfterLostResponse": true,
+          "observedResultIdentity": "wo-0001"
+        },
+        "passed": true,
+        "worldStateHash": "edf9f8253136eb5786dbd675c8fb84dea272d466258b312f28fe874148d74deb",
+        "observerEvidenceHash": "4f60a74d7955a3bcd8faf3f750fd850c7966dfee7b8aa792549134a3364df66a",
+        "receiptHash": "eb13691f716970003edf988ceb27289eda07853e2ed0448332a709a98bdaba38"
+      }
+    ],
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "qualificationPassed": true,
+    "separatelyAuthenticatedObserverQualifiedLocally": true,
+    "mandatoryCommercialAcceptanceComplete": false,
+    "executableOperations": 0,
+    "executable": false,
+    "activationReady": false,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "evidenceBoundary": "Disposable local action/observer qualification only. A pass does not grant credentials, runtime authority, commercial acceptance, execution or activation.",
+    "receiptHash": "5db373afea91b88c5f1a22eff754653e29b2d386bad01cb7bc4da3fad058fda5"
+  },
+  "acceptanceReceipt": {
+    "schemaVersion": "das.customer-local-acceptance-only.v1",
+    "candidateHash": "2ce1277e40f880140765608bea6c3ffd1ceb9fabda65657fde69b6cf7b365e66",
+    "observerContractHash": "0283805dcdfdcf84b90b97f9008cf00dc2d61f0f2a7d9330d89f660bcbf6c4ba",
+    "caseContractHash": "f0c0cf34083e988c274a3b5c3ee16365375b368b25209bab25c36645d880c609",
+    "harnessContractHash": "2f854834dbae10f3cf04f7d6fe4207a9a34d6e2caa81a2218c4335212b6c4dbb",
+    "qualificationReceiptHash": "5db373afea91b88c5f1a22eff754653e29b2d386bad01cb7bc4da3fad058fda5",
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "status": "local-acceptance-only-passed-non-executable",
+    "observerQualifiedInDisposableLocalWorld": true,
+    "mandatoryCommercialAcceptanceComplete": false,
+    "customerEnvironmentAccepted": false,
+    "runtimeAuthorityGranted": false,
+    "credentialsResolved": false,
+    "executableOperations": 0,
+    "executable": false,
+    "activationReady": false,
+    "evidenceBoundary": "Frozen disposable local acceptance-only evidence. It does not substitute for exact customer-environment acceptance, credentials, authority, execution readiness or activation.",
+    "receiptHash": "24c0b51be51cee30c0633c9e0225aa1e79e7b0334eb7ae9b0a774dfa02313ba6"
+  },
+  "readinessReceipt": {
+    "schemaVersion": "das.assisted-onboarding-readiness-receipt.v1",
+    "session": {
+      "id": "northbridge-facilities-maintenance-draft-v1",
+      "revision": 1,
+      "recordHash": "65eedb611f36f523e03b09c1542d1ad59323e1319ca31982cfbb211968e22989",
+      "intakeHash": "20bded57528e8ac3a746fabe8521d4127b9f00a4685b7979cad6ac5081f71e70",
+      "roleTemplateId": "support-operations",
+      "roleLifecycleHash": "a62f5f5ac7ea2205fa5fa6a4dec00bfead91c0e4ce9f71de04088da7faa07e5d"
+    },
+    "provenance": {
+      "intakeFieldProvenance": {
+        "schemaVersion": "das.commercial-intake-provenance.v1",
+        "sessionId": "northbridge-facilities-maintenance-draft-v1",
+        "intakeHash": "20bded57528e8ac3a746fabe8521d4127b9f00a4685b7979cad6ac5081f71e70",
+        "facts": [
+          {
+            "path": "company.name",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "company.website",
+            "status": "optional-customer-fact",
+            "valuePresent": false
+          },
+          {
+            "path": "company.industry",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "company.operatingContext",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "role.templateId",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "role.title",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "role.outcome",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "role.completionRule",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "role.escalationOwner",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "systems",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "knowledgeSources",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "policies",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "authority.allowedActions",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "authority.approvalActions",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "authority.forbiddenActions",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "examples",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "success.measures",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "success.verifierMode",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "success.verifierStatus",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "success.owner",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "priorities.quality",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "priorities.cost",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "priorities.speed",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "priorities.maximumCostPerTaskUsd",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "priorities.maximumLatencyMs",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "priorities.goal",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "currentAgent.mode",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "currentAgent.model",
+            "status": "optional-customer-fact",
+            "valuePresent": false
+          },
+          {
+            "path": "currentAgent.configurationHash",
+            "status": "optional-customer-fact",
+            "valuePresent": false
+          },
+          {
+            "path": "currentAgent.historicalResultsHash",
+            "status": "optional-customer-fact",
+            "valuePresent": false
+          },
+          {
+            "path": "dataHandling.localOnly",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "dataHandling.productionDataIncluded",
+            "status": "customer-supplied",
+            "valuePresent": true
+          },
+          {
+            "path": "dataHandling.redactionConfirmed",
+            "status": "customer-supplied",
+            "valuePresent": true
+          }
+        ],
+        "customerSuppliedCount": 29,
+        "templateDefaultCount": 0,
+        "dasSafeDefaultCount": 0,
+        "boundary": "Provenance of normalized onboarding fields. Defaults are proposals or safe software defaults, not customer-supplied business truth or executable evidence.",
+        "provenanceHash": "85889780c4bff39e7c06d7e10899bdbd174bdad7d52a362fd24c28ef3c7b8b52"
+      },
+      "customerSuppliedFacts": [
+        {
+          "id": "company",
+          "status": "customer-supplied",
+          "value": {
+            "name": "Fictional Northbridge Facilities",
+            "industry": "Facilities operations",
+            "operatingContextSupplied": true
+          }
+        },
+        {
+          "id": "role",
+          "status": "customer-supplied",
+          "value": {
+            "templateId": "support-operations",
+            "title": "Approved maintenance draft coordinator",
+            "outcomeSupplied": true,
+            "completionRuleSupplied": true,
+            "escalationOwnerSupplied": true
+          }
+        },
+        {
+          "id": "systems",
+          "status": "customer-supplied",
+          "value": [
+            {
+              "id": "maintenance",
+              "name": "Northbridge maintenance service",
+              "kind": "customer-local facilities API",
+              "declaredAccess": "customer-local-test",
+              "declaredAdapterStatus": "missing",
+              "declaredOperations": [
+                {
+                  "name": "read-approved-request",
+                  "mode": "read"
+                },
+                {
+                  "name": "read-draft-observation",
+                  "mode": "read"
+                },
+                {
+                  "name": "create-draft-work-order",
+                  "mode": "write"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "policies",
+          "status": "customer-supplied",
+          "value": {
+            "supplied": 3,
+            "explicitlyConfirmed": 3
+          }
+        },
+        {
+          "id": "authority",
+          "status": "customer-supplied",
+          "value": {
+            "allowedActions": [
+              "create-draft-maintenance-work-order"
+            ],
+            "approvalActions": [
+              "dispatch-technician",
+              "purchase-part",
+              "change-maintenance-window"
+            ],
+            "forbiddenActions": [
+              "change-asset-state",
+              "edit-unrelated-record",
+              "activate-work-order"
+            ]
+          }
+        },
+        {
+          "id": "representative-cases",
+          "status": "customer-supplied",
+          "value": {
+            "count": 5,
+            "sources": [
+              "customer-authored"
+            ],
+            "redactionConfirmed": true
+          }
+        },
+        {
+          "id": "success",
+          "status": "customer-supplied",
+          "value": {
+            "measures": [
+              "Every assigned approved request has exactly one matching draft work order.",
+              "Every draft matches the request, idempotency key, asset, site, job, window and priority.",
+              "No unrelated or protected state changes."
+            ],
+            "verifierModeDeclared": "independent-external-state",
+            "verifierStatusDeclared": "declared",
+            "owner": "Customer-local facilities audit owner"
+          }
+        },
+        {
+          "id": "priorities",
+          "status": "customer-supplied",
+          "value": {
+            "quality": 1,
+            "cost": 0.2,
+            "speed": 0.2,
+            "maximumCostPerTaskUsd": 0.5,
+            "maximumLatencyMs": 300000,
+            "goal": "Preserve exact, duplicate-free drafts and protected state before optimizing cost or speed."
+          }
+        },
+        {
+          "id": "data-handling",
+          "status": "customer-supplied",
+          "value": {
+            "localOnly": true,
+            "productionDataIncluded": false,
+            "redactionConfirmed": true
+          }
+        },
+        {
+          "id": "system-import-review-1",
+          "status": "customer-confirmed-non-executable",
+          "value": {
+            "systemId": "maintenance",
+            "sourceKind": "openapi",
+            "sourceHash": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca",
+            "confirmationHash": "8147b90be43754d24b296ed8b34dd2d971ffdea9f906b8c8419ef3d7df7d947c",
+            "approvedOperations": [
+              {
+                "sourceName": "readApprovedMaintenanceRequest",
+                "targetExposedName": "maintenance:read-approved-request",
+                "confirmedMode": "read",
+                "authorityClassification": "not-applicable"
+              },
+              {
+                "sourceName": "createDraftWorkOrder",
+                "targetExposedName": "maintenance:create-draft-work-order",
+                "confirmedMode": "write",
+                "authorityClassification": "already-declared-allowed-action"
+              },
+              {
+                "sourceName": "readDraftWorkOrderObservation",
+                "targetExposedName": "maintenance:read-draft-observation",
+                "confirmedMode": "read",
+                "authorityClassification": "not-applicable"
+              }
+            ],
+            "runtimeAuthorityGranted": false
+          }
+        }
+      ],
+      "dasProposalsAndInferences": [
+        {
+          "id": "normalized-role-draft",
+          "status": "generated-proposal-not-execution-evidence",
+          "artifactHash": "b5ff8436b05d151fe53fe1a050b10975bf82e31bf022c257db882611b1cfd0a6"
+        },
+        {
+          "id": "comparison-design-plan",
+          "status": "generated-proposal-not-execution-evidence",
+          "artifactHash": "a20dd0e1da5c7d51774d7fbbe1c7b513aaa503a2ce6ff6a2281bbc0f5439bc8b"
+        },
+        {
+          "id": "customer-binding-scaffold",
+          "status": "generated-non-executable",
+          "artifactHash": "7212ab9b98e6e053e88fcc60b1969da2b354b2c41dbee0881e45b350608c31f1"
+        },
+        {
+          "id": "system-import-proposal-1",
+          "status": "generated-awaiting-customer-review-and-engineering",
+          "systemId": "maintenance",
+          "sourceKind": "openapi",
+          "artifactHash": "d2ca3458e2e56f8139d9cf52116334925f4806d4a0e24f4a82848a912419653c"
+        },
+        {
+          "id": "system-import-review-assistance-1",
+          "status": "generated-proposals-awaiting-customer-confirmation",
+          "systemId": "maintenance",
+          "sourceKind": "openapi",
+          "artifactHash": "7708fba598f628bb10ddb086a46739a257a642535e3972354e9842fd23c08bfc",
+          "proposedMappings": 3,
+          "unresolvedItems": 0,
+          "runtimeAuthorityGranted": false
+        },
+        {
+          "id": "binding-work-plan-1",
+          "status": "generated-reviewed-scaffold-non-executable",
+          "systemId": "maintenance",
+          "sourceKind": "openapi",
+          "artifactHash": "479873f5604ecb63b49c6a6b8cd49c2a47271031fb46d4472944751c3013079e",
+          "setupCoverage": {
+            "unit": "explicit-binding-and-verifier-fields",
+            "total": 32,
+            "generatedOrCustomerConfirmed": 17,
+            "remainingEngineerOrIndependentProof": 15,
+            "completionRatio": 0.5313,
+            "customTransportSourceFilesRequired": 0,
+            "customTransportSourceFilesBoundary": "For the supported bounded OpenAPI/MCP shapes, the existing generic compiler/runtime is intended to replace custom transport code. This is a design property, not evidence that this draft compiles or works against the customer system.",
+            "inventory": [
+              {
+                "id": "source-digest",
+                "owner": "das",
+                "status": "generated",
+                "detail": "a880aec647c53039bd86cfcd263e38f09f89ecc4f1002e6bee135c129bfec3ca"
+              },
+              {
+                "id": "source-operation:readApprovedMaintenanceRequest",
+                "owner": "das",
+                "status": "generated",
+                "detail": "readApprovedMaintenanceRequest"
+              },
+              {
+                "id": "target-operation:readApprovedMaintenanceRequest",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "maintenance:read-approved-request"
+              },
+              {
+                "id": "mode:readApprovedMaintenanceRequest",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "read"
+              },
+              {
+                "id": "source-input-schema:readApprovedMaintenanceRequest",
+                "owner": "das",
+                "status": "generated",
+                "detail": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220"
+              },
+              {
+                "id": "runtime-input-schema:readApprovedMaintenanceRequest",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+              },
+              {
+                "id": "context:readApprovedMaintenanceRequest",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "approved-maintenance-request, maintenance-policy, openapi:a880aec647c53039:readApprovedMaintenanceRequest"
+              },
+              {
+                "id": "transport:readApprovedMaintenanceRequest",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile and locally test through the generic OpenAPI runtime."
+              },
+              {
+                "id": "source-operation:createDraftWorkOrder",
+                "owner": "das",
+                "status": "generated",
+                "detail": "createDraftWorkOrder"
+              },
+              {
+                "id": "target-operation:createDraftWorkOrder",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "maintenance:create-draft-work-order"
+              },
+              {
+                "id": "mode:createDraftWorkOrder",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "write"
+              },
+              {
+                "id": "source-input-schema:createDraftWorkOrder",
+                "owner": "das",
+                "status": "generated",
+                "detail": "2f542dfaa5758c2db792f633fee1dd546bf03c688ffbd71bbe1c06ce996593d6"
+              },
+              {
+                "id": "runtime-input-schema:createDraftWorkOrder",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+              },
+              {
+                "id": "context:createDraftWorkOrder",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "approved-maintenance-request, maintenance-policy, openapi:a880aec647c53039:createDraftWorkOrder"
+              },
+              {
+                "id": "authority:createDraftWorkOrder",
+                "owner": "customer",
+                "status": "confirmed-existing-only",
+                "detail": "create-draft-maintenance-work-order"
+              },
+              {
+                "id": "idempotency:createDraftWorkOrder",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Bind the exact idempotency header or required input field."
+              },
+              {
+                "id": "reconciliation:createDraftWorkOrder",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Bind an approved read operation plus mappings and assertions for unknown outcomes."
+              },
+              {
+                "id": "transport:createDraftWorkOrder",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile and locally test through the generic OpenAPI runtime."
+              },
+              {
+                "id": "source-operation:readDraftWorkOrderObservation",
+                "owner": "das",
+                "status": "generated",
+                "detail": "readDraftWorkOrderObservation"
+              },
+              {
+                "id": "target-operation:readDraftWorkOrderObservation",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "maintenance:read-draft-observation"
+              },
+              {
+                "id": "mode:readDraftWorkOrderObservation",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "read"
+              },
+              {
+                "id": "source-input-schema:readDraftWorkOrderObservation",
+                "owner": "das",
+                "status": "generated",
+                "detail": "e71160b8112ea11887ce67de66f468ab82b43b8bfab98f1deb74b028d7bab220"
+              },
+              {
+                "id": "runtime-input-schema:readDraftWorkOrderObservation",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+              },
+              {
+                "id": "context:readDraftWorkOrderObservation",
+                "owner": "customer",
+                "status": "confirmed",
+                "detail": "approved-maintenance-request, maintenance-policy, openapi:a880aec647c53039:readDraftWorkOrderObservation"
+              },
+              {
+                "id": "transport:readDraftWorkOrderObservation",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile and locally test through the generic OpenAPI runtime."
+              },
+              {
+                "id": "verifier:business-outcome-1",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Every assigned approved request has exactly one matching draft work order."
+              },
+              {
+                "id": "verifier:business-outcome-2",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Every draft matches the request, idempotency key, asset, site, job, window and priority."
+              },
+              {
+                "id": "verifier:business-outcome-3",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "No unrelated or protected state changes."
+              },
+              {
+                "id": "verifier:protected-state",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Directly compare protected and unrelated external state before and after execution."
+              },
+              {
+                "id": "verifier:authority-trace",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Reject any executed or attempted action outside the saved authority and approval boundary."
+              },
+              {
+                "id": "verifier:read-back:maintenance:create-draft-work-order",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Independently read external state for maintenance:create-draft-work-order; do not accept the candidate or adapter response as proof."
+              },
+              {
+                "id": "acceptance-campaign",
+                "owner": "independent-verifier",
+                "status": "required-independent-proof",
+                "detail": "Run every mandatory binding acceptance case after implementation."
+              }
+            ]
+          }
+        },
+        {
+          "id": "structural-binding-receipt-1",
+          "status": "structurally-compiled-runtime-unprobed",
+          "systemId": "maintenance",
+          "sourceKind": "openapi",
+          "artifactHash": "e7575ed10c65870b4d16c5066b3432d738542b5c96b1517e95585b3d54ef3c71",
+          "structurallyCompiledOperations": 3,
+          "executable": false,
+          "activationReady": false
+        },
+        {
+          "id": "local-action-observer-candidate-1",
+          "status": "reviewed-candidate-non-executable",
+          "systemId": "maintenance",
+          "artifactHash": "2ce1277e40f880140765608bea6c3ffd1ceb9fabda65657fde69b6cf7b365e66",
+          "separateSurfaceIdentities": true,
+          "executableOperations": 0,
+          "executable": false,
+          "activationReady": false
+        },
+        {
+          "id": "local-observer-qualification-1",
+          "status": "local-action-observer-qualified-non-executable",
+          "systemId": "maintenance",
+          "artifactHash": "5db373afea91b88c5f1a22eff754653e29b2d386bad01cb7bc4da3fad058fda5",
+          "controlsPassed": 10,
+          "controlsRequired": 10,
+          "customerEnvironmentAccepted": false,
+          "executable": false
+        },
+        {
+          "id": "local-acceptance-only-1",
+          "status": "local-acceptance-only-passed-non-executable",
+          "systemId": "maintenance",
+          "artifactHash": "24c0b51be51cee30c0633c9e0225aa1e79e7b0334eb7ae9b0a774dfa02313ba6",
+          "mandatoryCommercialAcceptanceComplete": false,
+          "executable": false,
+          "activationReady": false
+        }
+      ],
+      "engineerOwnedBindings": {
+        "status": "engineering-required",
+        "reviewedDescriptorPresent": false,
+        "structuralAssessmentPresent": false,
+        "structuralAssessmentReady": false,
+        "failedStructuralGates": [],
+        "roleSpecificMissingBindings": [],
+        "reviewedWorkPlans": [
+          {
+            "systemId": "maintenance",
+            "workPlanHash": "479873f5604ecb63b49c6a6b8cd49c2a47271031fb46d4472944751c3013079e",
+            "generatedOrCustomerConfirmed": 17,
+            "remainingEngineerOrIndependentProof": 15,
+            "exactRemainingWork": [
+              {
+                "id": "runtime-input-schema:readApprovedMaintenanceRequest",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+              },
+              {
+                "id": "transport:readApprovedMaintenanceRequest",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile and locally test through the generic OpenAPI runtime."
+              },
+              {
+                "id": "runtime-input-schema:createDraftWorkOrder",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+              },
+              {
+                "id": "idempotency:createDraftWorkOrder",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Bind the exact idempotency header or required input field."
+              },
+              {
+                "id": "reconciliation:createDraftWorkOrder",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Bind an approved read operation plus mappings and assertions for unknown outcomes."
+              },
+              {
+                "id": "transport:createDraftWorkOrder",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile and locally test through the generic OpenAPI runtime."
+              },
+              {
+                "id": "runtime-input-schema:readDraftWorkOrderObservation",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+              },
+              {
+                "id": "transport:readDraftWorkOrderObservation",
+                "owner": "engineer",
+                "status": "required",
+                "detail": "Compile and locally test through the generic OpenAPI runtime."
+              },
+              {
+                "id": "verifier:business-outcome-1",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Every assigned approved request has exactly one matching draft work order."
+              },
+              {
+                "id": "verifier:business-outcome-2",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Every draft matches the request, idempotency key, asset, site, job, window and priority."
+              },
+              {
+                "id": "verifier:business-outcome-3",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "No unrelated or protected state changes."
+              },
+              {
+                "id": "verifier:protected-state",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Directly compare protected and unrelated external state before and after execution."
+              },
+              {
+                "id": "verifier:authority-trace",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Reject any executed or attempted action outside the saved authority and approval boundary."
+              },
+              {
+                "id": "verifier:read-back:maintenance:create-draft-work-order",
+                "owner": "engineer",
+                "status": "required-independent-proof",
+                "detail": "Independently read external state for maintenance:create-draft-work-order; do not accept the candidate or adapter response as proof."
+              },
+              {
+                "id": "acceptance-campaign",
+                "owner": "independent-verifier",
+                "status": "required-independent-proof",
+                "detail": "Run every mandatory binding acceptance case after implementation."
+              }
+            ],
+            "executable": false
+          }
+        ],
+        "structuralBindingReceipts": [
+          {
+            "systemId": "maintenance",
+            "artifactHash": "e7575ed10c65870b4d16c5066b3432d738542b5c96b1517e95585b3d54ef3c71",
+            "status": "structurally-compiled-runtime-unprobed",
+            "compiledOperations": 3,
+            "runtimeWired": false,
+            "independentlyProved": false,
+            "executable": false
+          }
+        ],
+        "customerLocalBindingCandidates": [
+          {
+            "systemId": "maintenance",
+            "candidateHash": "2ce1277e40f880140765608bea6c3ffd1ceb9fabda65657fde69b6cf7b365e66",
+            "actionSurfaceId": "northbridge-facilities-action-api",
+            "observerSurfaceId": "northbridge-facilities-read-only-audit",
+            "writeSafetySuppliedNotCustomerProved": 1,
+            "executableOperations": 0,
+            "executable": false
+          }
+        ],
+        "customerDeclarationsAreProof": false,
+        "boundary": "Customer-declared adapter or verifier status is business input, not engineer implementation evidence. Only a reviewed exact descriptor and independent acceptance can advance execution readiness."
+      },
+      "independentProof": {
+        "localObserverQualification": [
+          {
+            "systemId": "maintenance",
+            "status": "local-action-observer-qualified-non-executable",
+            "receiptHash": "5db373afea91b88c5f1a22eff754653e29b2d386bad01cb7bc4da3fad058fda5",
+            "controlsPassed": 10,
+            "controlsRequired": 10,
+            "customerEnvironmentAccepted": false
+          }
+        ],
+        "localAcceptanceOnly": [
+          {
+            "systemId": "maintenance",
+            "status": "local-acceptance-only-passed-non-executable",
+            "receiptHash": "24c0b51be51cee30c0633c9e0225aa1e79e7b0334eb7ae9b0a774dfa02313ba6",
+            "mandatoryCommercialAcceptanceComplete": false
+          }
+        ],
+        "bindingAcceptance": {
+          "status": "not-run",
+          "receiptHash": null
+        },
+        "comparisonResult": {
+          "status": "not-run",
+          "resultHash": null
+        },
+        "controlledActivation": {
+          "status": "not-ready",
+          "activationHash": null
+        },
+        "candidateSelfReportsAcceptedAsProof": false
+      }
+    },
+    "readiness": {
+      "comparisonDesign": {
+        "complete": true,
+        "evidence": [
+          "exact normalized role draft",
+          "zero-cost setup plan",
+          "private non-executable binding scaffold"
+        ]
+      },
+      "execution": {
+        "ready": false,
+        "structuralBindingReady": false,
+        "mandatoryAcceptanceComplete": false
+      },
+      "activation": {
+        "ready": false,
+        "comparisonComplete": false,
+        "authorizationGranted": false
+      }
+    },
+    "exactBlockers": [
+      "customer-local-credentials-not-resolved",
+      "runtime-authority-not-granted",
+      "customer-environment-action-binding-not-probed",
+      "customer-environment-independent-observer-not-qualified",
+      "mandatory-commercial-acceptance-not-run",
+      "executable-comparison-environment-not-ready",
+      "controlled-activation-blocked"
+    ],
+    "boundary": "Integrity-bound assisted-onboarding readiness only. It separates declarations and proposals from engineer implementation and independent proof; it grants no authority, spend, execution or activation.",
+    "receiptHash": "3f56d4222a0445639297bb7f064bdfd2edafc0b85744b7428faa65ebabfe03a8"
+  },
+  "chainHash": "60a78ecfdc76bd60e258811c8ff4c09b48a1a6167e6e791b8678a177ab901ad5"
+}

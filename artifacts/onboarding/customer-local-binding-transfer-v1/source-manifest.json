@@ -1,0 +1,18 @@
+{
+  "core": {
+    "src/product/customer-local-binding-package-factory.js": "bffe68132cde6d1c9d7624eab92df21f859c0f581dceeb235737a01f9b9dc515",
+    "src/product/customer-local-qualification-runtime-bridge.js": "1d12e29c22046c3f6c498eea808d63fbf96f7c82d56d9f3af65989722d83f48b",
+    "src/product/declarative-customer-local-qualification-world.js": "eaa8bbd73e94135561c9b6e12a11fee4ee93c91c466a61a6354384a14d2d6c46",
+    "src/product/customer-local-binding-qualification.js": "f35a9afd1af3bfc2b38bfa06fc3a61e820ed59193ca72ac20a5308c6b9e48b99",
+    "src/product/customer-local-observer-contract.js": "244afc313d27e66b5104b175207ec4b407982715202272b737b4cfcf1a624f24",
+    "src/product/reviewed-onboarding-binding-compiler.js": "ef87c356fef73f4b870d4d65e911865f4b15115103f90f3b0efb18869b80ac58",
+    "src/product/openapi-adapter-kit.js": "99954e14e1c9a42331825089c09dacbafc4fada4a32c567c634d31b4556a96c4",
+    "src/product/mcp-adapter-kit.js": "ee5f8bd991e5fb1b526bf906b8ed4feb41f3d1de094031312892e6c334b0bc47"
+  },
+  "packages": {
+    "src/experiments/das023-transfer/fresh-reviewed-packages.js": "84da357f68413e94ec157461d514b57bfc0aa301d544418395fb88b406f82432",
+    "src/experiments/das023-transfer/declarations.js": "cf7fef0811aaf36e8e3a57fb72bbeee6f02610e849ef3e0da3f9c5435c2272d7",
+    "src/experiments/das023-transfer/run.js": "8e95b7e9cf24b6969c0cf15f028405ca25273ce5447bff93bca460b48802623d"
+  },
+  "manifestHash": "3890262edac49b08a77d2ae6d932c7e70b75baf4891f531c350c6e53719b8cdf"
+}

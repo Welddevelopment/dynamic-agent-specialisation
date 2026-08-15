@@ -1,0 +1,278 @@
+{
+  "schemaVersion": "das.durable-model-budget.v1",
+  "campaignId": "candidate-scale-paired-5-vs-150-v6-contract-repair",
+  "hardLimitUsd": 21.83,
+  "warningUsd": 17.464,
+  "calls": [
+    {
+      "id": "reservation-1",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.1958625,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.0558665,
+      "usage": {
+        "input_tokens": 1760,
+        "input_tokens_details": {
+          "cache_write_tokens": 1757,
+          "cached_tokens": 0
+        },
+        "output_tokens": 4289,
+        "output_tokens_details": {
+          "reasoning_tokens": 134
+        },
+        "total_tokens": 6049,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 1757,
+          "outputTokens": 4289,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-2",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.2026525,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.072949,
+      "usage": {
+        "input_tokens": 4729,
+        "input_tokens_details": {
+          "cache_write_tokens": 4726,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5094,
+        "output_tokens_details": {
+          "reasoning_tokens": 147
+        },
+        "total_tokens": 9823,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 4726,
+          "outputTokens": 5094,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-3",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.2107725,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.08353,
+      "usage": {
+        "input_tokens": 7867,
+        "input_tokens_details": {
+          "cache_write_tokens": 7864,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5322,
+        "output_tokens_details": {
+          "reasoning_tokens": 185
+        },
+        "total_tokens": 13189,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 7864,
+          "outputTokens": 5322,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-4",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.2144075,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.085882,
+      "usage": {
+        "input_tokens": 9331,
+        "input_tokens_details": {
+          "cache_write_tokens": 9328,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5213,
+        "output_tokens_details": {
+          "reasoning_tokens": 133
+        },
+        "total_tokens": 14544,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 9328,
+          "outputTokens": 5213,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-5",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.21455000000000002,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.08824549999999999,
+      "usage": {
+        "input_tokens": 9302,
+        "input_tokens_details": {
+          "cache_write_tokens": 9299,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5416,
+        "output_tokens_details": {
+          "reasoning_tokens": 66
+        },
+        "total_tokens": 14718,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 9299,
+          "outputTokens": 5416,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-6",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.21486750000000002,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.0895285,
+      "usage": {
+        "input_tokens": 9508,
+        "input_tokens_details": {
+          "cache_write_tokens": 9505,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5480,
+        "output_tokens_details": {
+          "reasoning_tokens": 142
+        },
+        "total_tokens": 14988,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 9505,
+          "outputTokens": 5480,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-7",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.215005,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.088257,
+      "usage": {
+        "input_tokens": 9441,
+        "input_tokens_details": {
+          "cache_write_tokens": 9438,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5388,
+        "output_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "total_tokens": 14829,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 9438,
+          "outputTokens": 5388,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-8",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.21573,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.0909345,
+      "usage": {
+        "input_tokens": 9744,
+        "input_tokens_details": {
+          "cache_write_tokens": 9741,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5548,
+        "output_tokens_details": {
+          "reasoning_tokens": 83
+        },
+        "total_tokens": 15292,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 9741,
+          "outputTokens": 5548,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-9",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.2161375,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "settled",
+      "actualUsd": 0.0882745,
+      "usage": {
+        "input_tokens": 9736,
+        "input_tokens_details": {
+          "cache_write_tokens": 9733,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5328,
+        "output_tokens_details": {
+          "reasoning_tokens": 96
+        },
+        "total_tokens": 15064,
+        "pairedScaleAccounting": {
+          "uncachedInputTokens": 3,
+          "cachedInputTokens": 0,
+          "cacheWriteTokens": 9733,
+          "outputTokens": 5328,
+          "requestedServiceTier": "default",
+          "returnedServiceTier": "default"
+        }
+      }
+    },
+    {
+      "id": "reservation-10",
+      "provider": "openai-responses-paired-scale",
+      "model": "candidate-architect-policy",
+      "projectedUsd": 0.216265,
+      "purpose": "candidate-scale-v6-construct-contract-safe-specialist-batch",
+      "status": "reserved"
+    }
+  ],
+  "integrityHash": "d73aa70d88c5dabe45be698d5330206ea6f4f16c6e5de3a77cbfabebaba3e8c4"
+}

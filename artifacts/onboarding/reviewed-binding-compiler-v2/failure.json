@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "das.reviewed-binding-compiler-rehearsal-failure.v1",
+  "checkpoint": "DAS-012",
+  "stage": "held-out-business-intake-readiness",
+  "error": "Held-out packet supplied only two success measures; the support-role contract requires a complete independent-success definition before scaffolding.",
+  "frozenFamilyCompletedInMemoryBeforeFailure": true,
+  "heldOutResultCompleted": false,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "preserved": true
+}

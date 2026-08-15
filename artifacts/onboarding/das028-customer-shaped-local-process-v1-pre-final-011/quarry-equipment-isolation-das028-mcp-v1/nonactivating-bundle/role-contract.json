@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "das.customer-local-role-contract.v1",
+  "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+  "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+  "revision": 1,
+  "sourceIdentity": {
+    "kind": "mcp-tools-list",
+    "sourceHash": "31d09ff3188fa3dd986486a50949e039b33a0f40958fb74352713a03532f9492"
+  },
+  "outcome": "Turn an assigned approved maintenance request into exactly one draft isolation record.",
+  "authority": {
+    "allowed": [
+      "create-unsubmitted-equipment-isolation-draft"
+    ],
+    "approvalRequired": [
+      "lock-out-equipment",
+      "submit-isolation-record"
+    ],
+    "forbidden": [
+      "lock-out-equipment",
+      "change-protected-work-order"
+    ]
+  },
+  "authorizations": {
+    "customerExecution": false,
+    "modelSpend": false,
+    "activation": false
+  },
+  "contractHash": "4674ea7c644e0b153e4396ad784677bb8c9488f05b010fe6d5005f6f4582ac7f"
+}

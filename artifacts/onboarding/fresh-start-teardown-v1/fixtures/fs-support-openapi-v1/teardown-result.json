@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "das.fresh-start-onboarding-teardown-result.v1",
+  "fixtureId": "fs-support-openapi-v1",
+  "expectedBoundary": "full-lifecycle-role-but-unbound",
+  "highestHonestStage": "comparison-design-complete-binding-required",
+  "roleAvailability": {
+    "discovery": true,
+    "businessIntake": true,
+    "bindingScaffold": true,
+    "systemImportReview": true,
+    "bindingDescriptorReview": true,
+    "bindingAcceptance": true,
+    "comparisonPlanning": true,
+    "comparisonResult": true,
+    "controlledActivation": true,
+    "blockers": []
+  },
+  "executionReady": false,
+  "activationReady": false,
+  "readinessBlockers": [
+    "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs.",
+    "Compile and locally test through the generic OpenAPI runtime.",
+    "Bind the exact idempotency header or required input field.",
+    "Bind an approved read operation plus mappings and assertions for unknown outcomes.",
+    "Every assigned case has the correct terminal state.",
+    "Every response or handoff is exact and duplicate-safe.",
+    "No unrelated or forbidden state changes.",
+    "Directly compare protected and unrelated external state before and after execution.",
+    "Reject any executed or attempted action outside the saved authority and approval boundary.",
+    "Independently read external state for helpdesk:draft-response; do not accept the candidate or adapter response as proof.",
+    "Run every mandatory binding acceptance case after implementation."
+  ],
+  "ledgerMeasurements": {
+    "activeMachineMs": 21.806,
+    "productApiActions": 4,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "authorInterventions": 0,
+    "exactMappingProposalHits": 2,
+    "exactAuthorityProposalHits": 3,
+    "approvedOperations": 3,
+    "rejectedOperations": 1,
+    "silentAuthorOnlyInjections": 0,
+    "meaningfulSetupUnits": 81,
+    "traceableSetupUnits": 68,
+    "provenanceCoverage": 0.8395,
+    "automationStatusCounts": {
+      "blocked-unknown": 6,
+      "generated": 21,
+      "requires-engineering": 8,
+      "requires-independent-proof": 7,
+      "requires-ordinary-language-decision": 39
+    },
+    "executableEvidenceRows": 0,
+    "authorityGrantedRows": 0,
+    "credentialValueRows": 0
+  },
+  "generatedMappingAccuracy": 0.6667,
+  "generatedAuthorityAccuracy": 1,
+  "manualBaselineTargetChoices": 3,
+  "generatedExactTargetProposals": 2,
+  "roleOwnerConfirmationsStillRequired": 3,
+  "rejectedSourceOperations": 1,
+  "restart": {
+    "freshProcessReloadPassed": true,
+    "recordHash": "961ea21c56428e75510b0f6b4bb65fa34d9f13899bd90b7aba7adf24de5b0e83",
+    "receiptHash": "1c6e21d01c4f4931a6001044c55c0700197da08a6664aac689bf2c858aa7baee"
+  },
+  "repeatability": {
+    "exactFreshReplayPassed": true,
+    "semanticHash": "70a546ae17244921ddbf7036231ab413b033bbdbb2e8bca507d96e7561fed9b8"
+  },
+  "sourceKinds": [
+    "openapi"
+  ],
+  "importResults": [
+    {
+      "sourceKind": "openapi",
+      "confirmationHash": "a8b623295fe4e8d8d0037a87d4a515a33fae27d97a486bceeea75850da4971ae",
+      "workPlanHash": "1c7df6629fe17feb4e07e29b3e0d2d803ccd498031fa08cdef70ff5c67695301",
+      "assistanceHash": "17ab49e1b3c761f4265bf8132e860029ddcfd28eb9c69f223da079241a22366a",
+      "residualTotals": {
+        "automatable-generic-compiler-or-source-schema-work": 6,
+        "complete": 17,
+        "customer-specific-write-safety-implementation": 2,
+        "independent-verifier-or-proof-work": 7
+      }
+    }
+  ],
+  "ledgerHash": "19817f9244451bf95f9f565b8edf333ec8ad91c652452be172596264cbca842e",
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "boundary": "Machine-observed onboarding provenance and residual-work ledger. Active machine time is not human setup time. Customer confirmations are not DAS automation, and generated scaffolds are not executable evidence.",
+  "resultHash": "0446bb5641c4780408a2ca86fa6e6ef33457885648dd85a8e36ab067c5fbbd3f"
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "das.fresh-start-onboarding-teardown-result.v1",
+  "fixtureId": "fs-support-openapi-v1",
+  "expectedBoundary": "full-lifecycle-role-but-unbound",
+  "highestHonestStage": "comparison-design-complete-binding-required",
+  "roleAvailability": {
+    "discovery": true,
+    "businessIntake": true,
+    "bindingScaffold": true,
+    "systemImportReview": true,
+    "bindingDescriptorReview": true,
+    "bindingAcceptance": true,
+    "comparisonPlanning": true,
+    "comparisonResult": true,
+    "controlledActivation": true,
+    "blockers": []
+  },
+  "executionReady": false,
+  "activationReady": false,
+  "readinessBlockers": [
+    "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs.",
+    "Compile and locally test through the generic OpenAPI runtime.",
+    "Bind the exact idempotency header or required input field.",
+    "Bind an approved read operation plus mappings and assertions for unknown outcomes.",
+    "Every assigned case has the correct terminal state.",
+    "Every response or handoff is exact and duplicate-safe.",
+    "No unrelated or forbidden state changes.",
+    "Directly compare protected and unrelated external state before and after execution.",
+    "Reject any executed or attempted action outside the saved authority and approval boundary.",
+    "Independently read external state for helpdesk:draft-response; do not accept the candidate or adapter response as proof.",
+    "Run every mandatory binding acceptance case after implementation."
+  ],
+  "ledgerMeasurements": {
+    "activeMachineMs": 19.182,
+    "productApiActions": 4,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "authorInterventions": 0,
+    "exactMappingProposalHits": 3,
+    "exactAuthorityProposalHits": 3,
+    "approvedOperations": 3,
+    "rejectedOperations": 1,
+    "silentAuthorOnlyInjections": 0,
+    "meaningfulSetupUnits": 81,
+    "usedToAdvanceUnits": 56,
+    "traceableUsedToAdvanceUnits": 56,
+    "provenanceCoverage": 1,
+    "preciseUnknownOrBlockedUnits": 13,
+    "automationStatusCounts": {
+      "blocked-unknown": 6,
+      "generated": 21,
+      "requires-engineering": 8,
+      "requires-independent-proof": 7,
+      "requires-ordinary-language-decision": 39
+    },
+    "executableEvidenceRows": 0,
+    "authorityGrantedRows": 0,
+    "credentialValueRows": 0
+  },
+  "generatedMappingAccuracy": 1,
+  "generatedAuthorityAccuracy": 1,
+  "manualBaselineTargetChoices": 3,
+  "generatedExactTargetProposals": 3,
+  "roleOwnerConfirmationsStillRequired": 3,
+  "rejectedSourceOperations": 1,
+  "restart": {
+    "freshProcessReloadPassed": true,
+    "recordHash": "3948f13d0a8597c375914bc124565e04f8588d28018662748d62652f42757989",
+    "receiptHash": "3a09c150c548fc43f3716ed603d88e9015e483ea4f7e35732494aec38a014e65"
+  },
+  "repeatability": {
+    "exactFreshReplayPassed": true,
+    "semanticHash": "b568f64cf30b8197d87a3041ce67577a56829819dbe1698d063b35d410520ec8"
+  },
+  "sourceKinds": [
+    "openapi"
+  ],
+  "importResults": [
+    {
+      "sourceKind": "openapi",
+      "confirmationHash": "a8b623295fe4e8d8d0037a87d4a515a33fae27d97a486bceeea75850da4971ae",
+      "workPlanHash": "1c7df6629fe17feb4e07e29b3e0d2d803ccd498031fa08cdef70ff5c67695301",
+      "assistanceHash": "7e6f5f31522b812df7d4f526a840686c116d26f9c56d8daea533533531caf2a8",
+      "residualTotals": {
+        "automatable-generic-compiler-or-source-schema-work": 6,
+        "complete": 17,
+        "customer-specific-write-safety-implementation": 2,
+        "independent-verifier-or-proof-work": 7
+      }
+    }
+  ],
+  "ledgerHash": "8c16f3d5570b7303b4b48131cca6a11e50e507d9c795d3a8e3c04b486b80504e",
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "boundary": "Machine-observed onboarding provenance and residual-work ledger. Active machine time is not human setup time. Customer confirmations are not DAS automation, and generated scaffolds are not executable evidence.",
+  "resultHash": "8defe4b61699b7648769652439c36df3c8f0ff4a538c881b81476da565ea601b"
+}

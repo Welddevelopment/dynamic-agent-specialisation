@@ -1,0 +1,113 @@
+{
+  "fixtureId": "solace-warranty-response-das027-mcp-v1",
+  "sourceKind": "mcp-tools-list",
+  "identities": {
+    "das024DraftHash": "edcdc710ea4260afb6d93a05dff1d29ba39b3a3ad30c344c79b968f7b2c83a88",
+    "das023PackageReceiptHash": "ffe563d9e9941ef02e03e590e01177367b1caea6c559b4340ab35586fcd11150",
+    "das026WorkPackHash": "999ad2dd032770837574abf6131690c2ff7c55a1021804dcda31d4874ba3f694",
+    "das027PlanHash": "2128fd08656dc70c310d5f6a4ec88c668de49d375c1491dd42c8d38540617141",
+    "das027RuntimeReceiptHash": "1856219ec5afd83299f6690d46d99fa8dd8e5d7fd3d051cac96cea0e806d22ec",
+    "actionImplementationContentHash": "b6c7036e0e6231dc6f93915d729bacda131154f2d71713f424c388962288b333",
+    "observerImplementationContentHash": "bc1ed91f94393c624f9e2ba89ddb83e1b333818a5286bdc7bb429460f098bb8d",
+    "qualificationPackageReceiptHash": "6064b953cd134d6dc44a34eb98f93bfbb631f06a45f5864ba425ac4133ea5564",
+    "qualificationReceiptHash": "ef0065834f5a6bc799729fa7d75e2996367c3beeef202d1c17b16c6107dac34a",
+    "acceptanceOnlyReceiptHash": "86af3b96a1eafd6c05bff22503a99588539c00decc1cb6de5b8a30d80f78c830",
+    "nonactivatingBundleHash": "d69bfb154d24ac97a5823d4af47cc78a4cc2122655622e2188f7097a6b6bfecc"
+  },
+  "implementation": {
+    "generatedFiles": 6,
+    "generatedExecutableFiles": 2,
+    "generatedExecutableLines": 161,
+    "generatedExecutableOperations": 5,
+    "manualPackageSpecificExecutableFiles": 0,
+    "manualPackageSpecificExecutableLines": 0,
+    "explicitOwnerEngineerConfirmedSectionsReused": 12,
+    "credentialValues": 0,
+    "modelCalls": 0,
+    "spendUsd": 0
+  },
+  "qualification": {
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "businessWrites": 8,
+    "observerWrites": 0,
+    "blindRetries": 0,
+    "lostResponseFreshRuntimeReattachments": 1,
+    "lostResponseReplays": 0,
+    "unexpectedIncorrectEffects": 0
+  },
+  "packaging": {
+    "packageIntegrityValid": true,
+    "readyForNonactivatingHandoff": true,
+    "customerExecutionReady": false,
+    "activationReady": false,
+    "blockers": [
+      "activation-not-authorized",
+      "comparison-readiness-unproved",
+      "customer-action-transport-not-bound",
+      "customer-credentials-not-resolved",
+      "customer-environment-conformance-not-run",
+      "customer-execution-not-authorized",
+      "customer-observer-transport-not-bound",
+      "mandatory-customer-acceptance-not-run",
+      "real-customer-authority-source-not-supplied",
+      "real-customer-local-credential-resolver-not-supplied",
+      "real-customer-local-provider-transport-not-supplied",
+      "selected-specialist-not-proved"
+    ]
+  },
+  "unsupported": {
+    "id": "nested-schema",
+    "blocked": true,
+    "exactWork": "Action source.draftWarrantyClaimResponse.input.unsupportedNested uses unsupported type object"
+  },
+  "attacks": [
+    {
+      "id": "authority-bypass",
+      "passed": true,
+      "reason": "transport remained untouched after authority denial"
+    },
+    {
+      "id": "observer-write-surface",
+      "passed": true,
+      "reason": "observer adapter requires one read-only transport"
+    },
+    {
+      "id": "implementation-byte-mutation",
+      "passed": true,
+      "reason": "DAS-027 generated implementation changed: action-plugin/index.js"
+    },
+    {
+      "id": "endpoint-tool-schema-widening",
+      "passed": true,
+      "reason": "DAS-027 source bytes differ from the reviewed DAS-024 source identities"
+    },
+    {
+      "id": "cross-package-implementation-evidence",
+      "passed": true,
+      "reason": "DAS-027 runtime receipt belongs to another implementation"
+    },
+    {
+      "id": "action-response-as-proof",
+      "passed": true,
+      "reason": "DAS-026 work pack weakened independent observation"
+    },
+    {
+      "id": "alias-value-leak",
+      "passed": true,
+      "reason": "customer-local test lease values absent from implementation and qualification receipts"
+    },
+    {
+      "id": "lost-response-retry-replay",
+      "passed": true,
+      "reason": "one write, fresh observer reattachment, no replay"
+    }
+  ],
+  "manualPackageSpecificExecutableFiles": 0,
+  "manualPackageSpecificExecutableLines": 0,
+  "customerExecutableOperations": 0,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Compiled executable disposable local candidate plus nonactivating package only. No real customer provider, credential, authority, environment acceptance, execution or activation.",
+  "resultHash": "6eed7ca0849dcec594b858784c7e6e131454ce43d562732ab60e496134394962"
+}

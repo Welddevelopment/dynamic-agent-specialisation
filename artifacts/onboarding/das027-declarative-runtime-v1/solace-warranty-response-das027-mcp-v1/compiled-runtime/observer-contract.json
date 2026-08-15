@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "das.generated-declarative-observer-runtime-contract.v1",
+  "packageIdentityHash": "cd30d0ef05927915342d446ab0ea50865a730820e415fec011c41594d1442a9c",
+  "workPackHash": "999ad2dd032770837574abf6131690c2ff7c55a1021804dcda31d4874ba3f694",
+  "executionProfileHash": "44711fab9533d3c0af5e17330030d44ddb0ea073722ddbb11931f493253a4b8d",
+  "sourceKind": "mcp-tools-list",
+  "sourceHash": "b6840c8cede24e86d511375e4ab0c4e10275f5474644f85d959ba3c6490d6f76",
+  "credentialAlias": "SOLACE_WARRANTY_AUDIT_LEASE",
+  "operations": [
+    {
+      "family": "mcp-tools-list",
+      "operationName": "observeWarrantyClaimResponseOutcome",
+      "serverId": "solace-warranty-audit",
+      "serverVersion": "4.6.0",
+      "toolsListHash": "b6840c8cede24e86d511375e4ab0c4e10275f5474644f85d959ba3c6490d6f76",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "claimId": {
+            "type": "string"
+          },
+          "deduplicationKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claimId",
+          "deduplicationKey"
+        ],
+        "additionalProperties": false
+      },
+      "operationIdentityHash": "47421802c1df3a264868c9f1901ffb5b4099ccb2df6eb71a685c10958a5eec3f"
+    },
+    {
+      "family": "mcp-tools-list",
+      "operationName": "observeProtectedWarrantyScope",
+      "serverId": "solace-warranty-audit",
+      "serverVersion": "4.6.0",
+      "toolsListHash": "b6840c8cede24e86d511375e4ab0c4e10275f5474644f85d959ba3c6490d6f76",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "claimId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claimId"
+        ],
+        "additionalProperties": false
+      },
+      "operationIdentityHash": "a2efe42a7e01e63aa51fb7bae2f5480ee60ed73ddc254a1a262e7bcae6fc14a7"
+    }
+  ],
+  "stableIdentityFields": [
+    "claimId",
+    "deduplicationKey"
+  ],
+  "observerContractHash": "f57e0adcd805f0aaea5c403d1cb4a8d9050f44230121b2d3d9cab2b099dbcadc",
+  "snapshotGeneratedAtField": "snapshotGeneratedAtMs",
+  "caughtUpThroughField": "caughtUpThroughMs",
+  "changedEntitiesField": "changedEntities",
+  "unrelatedStateDigestField": "unrelatedStateDigest",
+  "requiredExactFields": [
+    "claimId",
+    "deduplicationKey",
+    "productSerial",
+    "decisionCode",
+    "evidenceDigest",
+    "approvedAmountMinor"
+  ],
+  "statusField": "status",
+  "completionStatuses": [
+    "unsubmitted-draft"
+  ],
+  "resultIdentityField": "warrantyResponseId",
+  "maximumRequestsPerMinute": 60,
+  "timeoutMs": 2000,
+  "readOnly": true,
+  "writeOperations": [],
+  "actionResponseMayProveOutcome": false,
+  "customerExecutionAuthorized": false,
+  "activationAuthorized": false,
+  "contractHash": "1fa0b7577561cc6ef63447409e0aa5fc81935272d3511fc90ad262e1119bef95"
+}

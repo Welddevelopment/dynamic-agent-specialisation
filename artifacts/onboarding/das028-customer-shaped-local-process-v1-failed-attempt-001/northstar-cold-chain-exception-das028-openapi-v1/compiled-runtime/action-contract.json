@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "das.generated-declarative-action-runtime-contract.v1",
+  "packageIdentityHash": "89befb767ad6a1c915ee216b97754122c5cea9e299ce1e0b2da9676c429b59ff",
+  "workPackHash": "417d752ec23ce031c1cbf22348ae436f6b6e881ed39e6d0704e2c682cc1d62ad",
+  "executionProfileHash": "3478165d3dd47755cfb0996a1be8ddfb8b0d8c7cbf0aeb4f7bf46b599013c2d7",
+  "sourceKind": "openapi",
+  "sourceHash": "5cfa958d9af9c8ffc623bd0a81cb158a82e6e4a3f8f068136f00c8335b9fc04d",
+  "baseUrl": "https://northstar-cold-chain.example.test/v1",
+  "credentialAlias": "NORTHSTAR_COLD_CHAIN_ACTION",
+  "requiredAuthorityAction": "create-draft-temperature-exception",
+  "stableIdentityFields": [
+    "shipmentId",
+    "exceptionKey"
+  ],
+  "conflictKeyFields": [
+    "exceptionKey"
+  ],
+  "writeOperation": {
+    "family": "openapi",
+    "operationName": "createDraftTemperatureException",
+    "method": "POST",
+    "route": "/shipments/{shipmentId}/temperature-exceptions",
+    "parameters": [
+      {
+        "name": "shipmentId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      {
+        "name": "Idempotency-Key",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 12
+        }
+      },
+      {
+        "name": "facilityCode",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 3
+        }
+      }
+    ],
+    "bodySchema": {
+      "type": "object",
+      "properties": {
+        "exceptionKey": {
+          "type": "string",
+          "minLength": 12
+        },
+        "sensorState": {
+          "type": "string",
+          "enum": [
+            "EXCURSION_CONFIRMED",
+            "SENSOR_REVIEW_REQUIRED"
+          ]
+        },
+        "sensorDigest": {
+          "type": "string",
+          "minLength": 12
+        },
+        "temperatureCelsius": {
+          "type": "number",
+          "minimum": -40,
+          "maximum": 80
+        }
+      },
+      "required": [
+        "exceptionKey",
+        "sensorState",
+        "sensorDigest",
+        "temperatureCelsius"
+      ],
+      "additionalProperties": false
+    },
+    "responseShapes": [
+      {
+        "status": "201",
+        "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+      },
+      {
+        "status": "409",
+        "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+      }
+    ],
+    "operationIdentityHash": "4ff878844f49ffab244e5963b59d9ccad46264173f42e7a0d2956a1beb3d6d56"
+  },
+  "reconciliationOperation": {
+    "family": "openapi",
+    "operationName": "listDraftTemperatureExceptions",
+    "method": "GET",
+    "route": "/shipments/{shipmentId}/temperature-exceptions",
+    "parameters": [
+      {
+        "name": "shipmentId",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 3
+        }
+      }
+    ],
+    "bodySchema": null,
+    "responseShapes": [
+      {
+        "status": "200",
+        "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+      }
+    ],
+    "operationIdentityHash": "ed0edb328262e37873c4aff221358701accc4d8cd9155ace51eb760db497868d"
+  },
+  "reconciliationBindings": [
+    {
+      "from": "shipmentId",
+      "to": "shipmentId"
+    }
+  ],
+  "maximumRequestsPerMinute": 60,
+  "timeoutMs": 350,
+  "automaticRetries": 0,
+  "actionResponseMayProveOutcome": false,
+  "customerExecutionAuthorized": false,
+  "activationAuthorized": false,
+  "contractHash": "0787bcd6fc7c1dc11332ebd48ad306c7e5e73a90460f5d405b7ec6c2ece4e8e7"
+}

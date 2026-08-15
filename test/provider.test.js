@@ -51,8 +51,43 @@ test("provider extracts text from the raw Responses REST payload and sends struc
   assert.equal(result.resolvedModel, "gpt-test");
   assert.deepEqual(sent.text, { format: { type: "json_object" } });
   assert.equal(sent.store, false);
+  assert.equal(sent.service_tier, "default");
   assert.equal(sent.model, "gpt-test");
   assert.equal(sent.input, "test");
+  assert.equal(result.requestedServiceTier, "default");
+  assert.equal(result.resolvedServiceTier, "default");
+});
+
+test("provider separately meters GPT-5.6 cache writes and preserves raw usage", async () => {
+  const current = { inputPerMillionUsd: .2, cachedInputPerMillionUsd: .02, cacheWritePerMillionUsd: .25, outputPerMillionUsd: 1.2 };
+  const usage = { input_tokens: 1_000, output_tokens: 200, input_tokens_details: { cached_tokens: 200, cache_write_tokens: 500 } };
+  const provider = new OpenAIResponsesProvider({
+    apiKey: "test-key", pricing: current, allowPaidCalls: true, environment: { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED" },
+    fetchImpl: async (_url, options) => {
+      assert.equal(JSON.parse(options.body).service_tier, "default");
+      return { ok: true, json: async () => ({ output_parsed: { kind: "complete" }, usage, service_tier: "default" }) };
+    },
+  });
+  const result = await provider.generate({ model: "gpt-5.6-luna", input: "x" });
+  const expected = 300 / 1_000_000 * .2 + 200 / 1_000_000 * .02 + 500 / 1_000_000 * .25 + 200 / 1_000_000 * 1.2;
+  assert.equal(result.actualUsd, expected);
+  assert.deepEqual(result.usage, usage);
+});
+
+test("provider fails closed when cache writes are reported without explicit write pricing", async () => {
+  const provider = new OpenAIResponsesProvider({
+    apiKey: "test-key", pricing, allowPaidCalls: true, environment: { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED" },
+    fetchImpl: async () => ({ ok: true, json: async () => ({ output_parsed: { kind: "complete" }, usage: { input_tokens: 10, output_tokens: 1, input_tokens_details: { cached_tokens: 0, cache_write_tokens: 10 } } }) }),
+  });
+  await assert.rejects(() => provider.generate({ model: "x", input: "x" }), /cache-write pricing is missing/);
+});
+
+test("provider rejects a request tier that does not match the priced provider tier", async () => {
+  const provider = new OpenAIResponsesProvider({
+    apiKey: "test-key", pricing, serviceTier: "default", allowPaidCalls: true, environment: { DAS_ENABLE_PAID_MODEL_CALLS: "JOEL_APPROVED" },
+    fetchImpl: async () => { throw new Error("must not call network"); },
+  });
+  await assert.rejects(() => provider.generate({ model: "x", input: "x", serviceTier: "fast" }), /does not match the provider pricing tier/);
 });
 
 test("provider fails closed when the REST payload has no model output", async () => {

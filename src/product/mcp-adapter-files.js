@@ -13,7 +13,7 @@ export function compileLocalMcpAdapterPackage({ toolsListFile, configFile, outpu
   requireCondition(!fs.existsSync(root), "MCP adapter package refuses to overwrite an existing directory");
   const toolsList = readJson(toolsListFile, "MCP tools/list response");
   const config = readJson(configFile, "MCP adapter config");
-  const allowed = new Set(["serverId", "serverVersion", "operationBindings"]);
+  const allowed = new Set(["serverId", "serverVersion", "adapterVersion", "operationBindings"]);
   requireCondition(Object.keys(config).every((key) => allowed.has(key)), "MCP adapter config contains an unsupported top-level field");
   requireCondition(!JSON.stringify(config).match(/(api[-_]?key|password|secret|access[-_]?token|private[-_]?key)/i), "MCP adapter config must not contain credential fields; server access remains in the customer-local transport");
   const plan = compileMcpAdapterPlan({ toolsList, ...config });

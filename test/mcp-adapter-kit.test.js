@@ -4,8 +4,11 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { composeBoundedAdapterRuntimes } from "../src/product/openapi-adapter-kit.js";
-import { compileMcpAdapterPlan, createMcpAdapterRuntime } from "../src/product/mcp-adapter-kit.js";
+import { bindMcpPlanToCommercialDescriptor, compileMcpAdapterPlan, createMcpAdapterRuntime } from "../src/product/mcp-adapter-kit.js";
 import { compileLocalMcpAdapterPackage } from "../src/product/mcp-adapter-files.js";
+import { createCommercialBindingScaffold } from "../src/product/commercial-binding-kit.js";
+import { buildCommercialJobDraft, normalizeCommercialIntake } from "../src/product/commercial-intake.js";
+import { createCommercialSupportPack } from "../src/product/commercial-support-pack.js";
 
 const toolsList = {
   tools: [
@@ -59,6 +62,8 @@ test("bounded MCP runtime enforces authority and reconciles a lost write through
   const reconciliation = await runtime.reconcile("crm:assign-owner", input);
   assert.equal(reconciliation.classification, "completed");
   assert.equal(reconciliation.independent, true);
+  assert.equal(reconciliation.independentBusinessOutcomeProof, false);
+  assert.equal(reconciliation.verifierKind, "action-plane-readback-through-mcp");
   assert.equal(leads.get("lead-1").ownerId, "owner-7");
   assert.equal(calls.at(-1).name, "crm_get_lead");
 });
@@ -69,6 +74,34 @@ test("MCP and OpenAPI shaped runtimes share the same composition boundary", () =
   assert.deepEqual(host.componentAdapterIds, ["mcp:fictional-crm"]);
   assert.equal(host.definitions().length, 2);
   assert.deepEqual(host.externalState(), { "mcp:fictional-crm": { leads: [] } });
+});
+
+test("an exact MCP plan fills transport coverage without pretending the business verifier passed", () => {
+  const base = createCommercialSupportPack().intake;
+  const intake = normalizeCommercialIntake({
+    ...structuredClone(base),
+    sessionId: "mcp-binding-parity",
+    systems: [{ ...structuredClone(base.systems[0]), id: "crm", tools: [{ name: "get-lead", mode: "read" }, { name: "assign-owner", mode: "write" }] }],
+    authority: { ...structuredClone(base.authority), allowedActions: ["assign-lead-owner"] },
+  });
+  const roleDraft = buildCommercialJobDraft(intake);
+  const scaffold = createCommercialBindingScaffold({ intake, roleDraft });
+  const imported = compileMcpAdapterPlan({
+    serverId: "fictional-crm",
+    serverVersion: "1.2.0",
+    adapterVersion: "1.0.0",
+    toolsList,
+    operationBindings: [
+      { toolName: "crm_get_lead", exposedName: "crm:get-lead", mode: "read" },
+      { toolName: "crm_assign_owner", exposedName: "crm:assign-owner", mode: "write", authorityAction: "assign-lead-owner", idempotencyField: "requestId", verification: { readToolName: "crm_get_lead", inputMap: [{ targetName: "leadId", writeInputPointer: "/leadId" }], assertions: [{ actualPointer: "/ownerId", equalsWriteInputPointer: "/ownerId" }] } },
+    ],
+  });
+  const bound = bindMcpPlanToCommercialDescriptor({ descriptor: scaffold, systemId: "crm", plan: imported });
+  assert.equal(bound.systems[0].adapterVersion, "1.0.0");
+  assert.equal(bound.systems[0].status, "executable");
+  assert.equal(bound.systems[0].operations.every((operation) => operation.status === "executable"), true);
+  assert.equal(bound.verifier.status, "not-implemented");
+  assert.equal(bound.acceptanceCases.every((item) => item.status === "not-run"), true);
 });
 
 test("local MCP package compiler pins review inputs privately and refuses credentials or overwrite", () => {

@@ -1,0 +1,3525 @@
+{
+  "schemaVersion": "das.candidate-scale-paired-structural-selection.v1",
+  "portfolioCount": 150,
+  "firstFiveCandidateIds": [
+    "csops-b1-triage-ledger",
+    "csops-b1-sla-risk-router",
+    "csops-b1-billing-proof-gate",
+    "csops-b1-incident-correlator",
+    "csops-b1-duplicate-graph"
+  ],
+  "exactUniqueCount": 150,
+  "exactDuplicates": [],
+  "diversity": {
+    "candidateCount": 150,
+    "exactUniqueDesigns": 150,
+    "exactDuplicatePackages": 0,
+    "exactDuplicateGroups": [],
+    "architectureSignatureCount": 150,
+    "effectiveUniqueArchitectureCount": 150.00000000000023,
+    "meaningfulDistanceThreshold": 0.12,
+    "meaningfulUniqueDesignCount": 150,
+    "meaningfulRepresentatives": [
+      "batch15-complete-06-causal-scope",
+      "selective-response-claim-auditor",
+      "batch8-evidence-frontier",
+      "selective-exception-router",
+      "batch9-complete-counterfactual-disposition",
+      "batch4-candidate-06",
+      "b14-c08-sla-bucket-controller",
+      "csops-b1-billing-proof-gate",
+      "batch4-candidate-05",
+      "batch8-incident-temporal",
+      "csops-b1-sla-risk-router",
+      "batch4-candidate-04",
+      "batch12-work-conservation-controller",
+      "commercial-support-v1:support-operations:batch3-candidate-04",
+      "selective-terminal-state-partitioner",
+      "batch11-policy-precedence",
+      "commercial-support-v1:batch7-c04",
+      "csops-b1-policy-decision-tree",
+      "batch13-complete-10",
+      "commercial-support-v1:support-operations:batch3-candidate-01",
+      "b14-c10-batch-coverage-auditor",
+      "b14-c05-duplicate-canonicalization",
+      "batch13-complete-07",
+      "commercial-support-v1:batch7-c01",
+      "batch4-candidate-08",
+      "commercial-support-v1:batch7-c08",
+      "commercial-support-v1:support-operations:batch3-candidate-07",
+      "selective-sla-intake-cell",
+      "batch10-reversibility-gated-operator",
+      "batch10-disposition-regret-minimizer",
+      "selective-self-service-publisher",
+      "commercial-support-v1:batch7-c10",
+      "batch4-candidate-03",
+      "csops-b1-two-pass-closer",
+      "csops-b1-duplicate-graph",
+      "batch12-queue-fairness-scheduler",
+      "batch5-batch-fairness-scheduler",
+      "batch9-complete-write-ahead-reconciliation",
+      "batch5-cross-source-consensus-controller",
+      "b14-c03-credit-ledger",
+      "batch9-complete-symptom-cluster-triage",
+      "batch13-complete-01",
+      "batch10-exception-recurrence-detector",
+      "batch15-complete-07-commitment-contract",
+      "batch9-complete-dependency-graph",
+      "b14-c02-security-containment",
+      "batch11-obligation-ledger",
+      "batch8-policy-version",
+      "batch9-complete-evidence-conflict-arbiter",
+      "csops-b1-verification-backward",
+      "batch10-dependency-graph-controller",
+      "commercial-support-v1:support-operations:batch3-candidate-08",
+      "commercial-support-v1:batch7-c09",
+      "selective-incident-fanout-coordinator",
+      "batch15-complete-03-write-ahead",
+      "batch8-financial-ledger",
+      "csops-b1-triage-ledger",
+      "selective-billing-event-attribution",
+      "batch8-external-state-backward",
+      "batch5-evidence-frontier-controller",
+      "commercial-support-v1:support-operations:batch3-candidate-06",
+      "selective-mutation-serialization-controller",
+      "batch5-proof-carrying-disposition-engine",
+      "batch12-policy-language-translator",
+      "b14-c06-self-service-validation",
+      "commercial-support-v1:batch7-c05",
+      "batch10-customer-impact-budget",
+      "batch8-security-containment",
+      "batch13-complete-04",
+      "commercial-support-v1:batch7-c02",
+      "csops-b1-customer-journey",
+      "commercial-support-v1:support-operations:batch3-candidate-10",
+      "batch5-obligation-ledger-operator",
+      "batch5-conflict-arbitration-cell",
+      "batch13-complete-03",
+      "csops-b1-conservative-handoff",
+      "selective-minimal-sufficient-evidence",
+      "batch15-complete-05-entitlement-ledger",
+      "b14-c04-incident-blast-radius",
+      "commercial-support-v1:batch7-c03",
+      "batch8-remedy-ladder",
+      "batch13-complete-06",
+      "batch4-candidate-01",
+      "batch12-explanation-action-decoupler",
+      "batch9-complete-obligation-ledger",
+      "batch5-rollback-avoidance-operator",
+      "commercial-support-v1:support-operations:batch3-candidate-02",
+      "batch10-resolution-proof-compressor",
+      "batch12-handoff-contract-builder",
+      "batch11-evidence-graph",
+      "batch5-separation-of-duties-sentinel",
+      "csops-b1-incident-correlator",
+      "batch15-complete-09-policy-proof",
+      "batch4-candidate-10",
+      "batch8-relational-dedup",
+      "b14-c07-write-reconciliation",
+      "selective-incident-liaison",
+      "batch5-counterfactual-disposition-reviewer",
+      "selective-billing-audit-cell",
+      "selective-account-history-cell",
+      "batch4-candidate-02",
+      "batch11-disconfirming-evidence",
+      "batch9-complete-reversibility-first",
+      "batch8-customer-intent",
+      "selective-product-symptom-cell",
+      "batch12-financial-causality-tracer",
+      "commercial-support-v1:support-operations:batch3-candidate-05",
+      "selective-policy-version-arbitrator",
+      "selective-duplicate-canonizer",
+      "batch11-sla-slack",
+      "batch11-two-phase-commit",
+      "b14-c09-policy-exception-map",
+      "batch10-policy-exception-miner",
+      "batch12-retry-safety-journal",
+      "batch11-cross-ticket-consistency",
+      "batch12-evidence-sufficiency-frontier",
+      "selective-security-signal-containment",
+      "batch12-customer-history-consistency",
+      "batch13-complete-08",
+      "batch11-outcome-delta",
+      "batch10-sequenced-customer-obligation",
+      "batch10-write-ahead-disposition-log",
+      "batch8-write-ahead",
+      "selective-account-history-continuity",
+      "batch9-complete-repairability-monitor",
+      "batch10-evidence-delta-triage",
+      "b14-c01-evidence-triage",
+      "batch15-complete-04-harm-minimization",
+      "batch15-complete-08-canonicalization",
+      "batch5-write-intent-controller",
+      "commercial-support-v1:batch7-c07",
+      "batch15-complete-10-terminal-invariants",
+      "batch13-complete-02",
+      "commercial-support-v1:support-operations:batch3-candidate-03",
+      "batch4-candidate-09",
+      "batch9-complete-disposition-certificates",
+      "batch15-complete-02-obligation-graph",
+      "batch13-complete-05",
+      "batch11-separation-of-duties",
+      "batch9-complete-financial-separation",
+      "batch13-complete-09",
+      "selective-closeout-auditor",
+      "batch12-symptom-cluster-separator",
+      "selective-authority-boundary-router",
+      "commercial-support-v1:batch7-c06",
+      "batch15-complete-01-evidence-freshness",
+      "batch11-write-budget",
+      "selective-security-handoff-cell",
+      "batch4-candidate-07",
+      "commercial-support-v1:support-operations:batch3-candidate-09"
+    ],
+    "meaningfulAssignments": [
+      {
+        "candidateId": "batch15-complete-06-causal-scope",
+        "representativeId": "batch15-complete-06-causal-scope",
+        "nearestDistance": null
+      },
+      {
+        "candidateId": "selective-response-claim-auditor",
+        "representativeId": "selective-response-claim-auditor",
+        "nearestDistance": 0.5789949858986589
+      },
+      {
+        "candidateId": "batch8-evidence-frontier",
+        "representativeId": "batch8-evidence-frontier",
+        "nearestDistance": 0.4250821171582041
+      },
+      {
+        "candidateId": "selective-exception-router",
+        "representativeId": "selective-exception-router",
+        "nearestDistance": 0.5975261728467611
+      },
+      {
+        "candidateId": "batch9-complete-counterfactual-disposition",
+        "representativeId": "batch9-complete-counterfactual-disposition",
+        "nearestDistance": 0.40324604743083003
+      },
+      {
+        "candidateId": "batch4-candidate-06",
+        "representativeId": "batch4-candidate-06",
+        "nearestDistance": 0.46181424839528296
+      },
+      {
+        "candidateId": "b14-c08-sla-bucket-controller",
+        "representativeId": "b14-c08-sla-bucket-controller",
+        "nearestDistance": 0.43438580047403574
+      },
+      {
+        "candidateId": "csops-b1-billing-proof-gate",
+        "representativeId": "csops-b1-billing-proof-gate",
+        "nearestDistance": 0.4141225490196079
+      },
+      {
+        "candidateId": "batch4-candidate-05",
+        "representativeId": "batch4-candidate-05",
+        "nearestDistance": 0.5285929429516012
+      },
+      {
+        "candidateId": "batch8-incident-temporal",
+        "representativeId": "batch8-incident-temporal",
+        "nearestDistance": 0.4990804657831512
+      },
+      {
+        "candidateId": "csops-b1-sla-risk-router",
+        "representativeId": "csops-b1-sla-risk-router",
+        "nearestDistance": 0.36587500000000006
+      },
+      {
+        "candidateId": "batch4-candidate-04",
+        "representativeId": "batch4-candidate-04",
+        "nearestDistance": 0.4428677105123767
+      },
+      {
+        "candidateId": "batch12-work-conservation-controller",
+        "representativeId": "batch12-work-conservation-controller",
+        "nearestDistance": 0.4525814636131133
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-04",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-04",
+        "nearestDistance": 0.35751169980812847
+      },
+      {
+        "candidateId": "selective-terminal-state-partitioner",
+        "representativeId": "selective-terminal-state-partitioner",
+        "nearestDistance": 0.4133394320939078
+      },
+      {
+        "candidateId": "batch11-policy-precedence",
+        "representativeId": "batch11-policy-precedence",
+        "nearestDistance": 0.34744642857142866
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c04",
+        "representativeId": "commercial-support-v1:batch7-c04",
+        "nearestDistance": 0.35140705128205135
+      },
+      {
+        "candidateId": "csops-b1-policy-decision-tree",
+        "representativeId": "csops-b1-policy-decision-tree",
+        "nearestDistance": 0.34665000000000007
+      },
+      {
+        "candidateId": "batch13-complete-10",
+        "representativeId": "batch13-complete-10",
+        "nearestDistance": 0.3446657942838153
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-01",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-01",
+        "nearestDistance": 0.34663717805151184
+      },
+      {
+        "candidateId": "b14-c10-batch-coverage-auditor",
+        "representativeId": "b14-c10-batch-coverage-auditor",
+        "nearestDistance": 0.4495923603369256
+      },
+      {
+        "candidateId": "b14-c05-duplicate-canonicalization",
+        "representativeId": "b14-c05-duplicate-canonicalization",
+        "nearestDistance": 0.40892594760312156
+      },
+      {
+        "candidateId": "batch13-complete-07",
+        "representativeId": "batch13-complete-07",
+        "nearestDistance": 0.34112676138484516
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c01",
+        "representativeId": "commercial-support-v1:batch7-c01",
+        "nearestDistance": 0.34446295259425164
+      },
+      {
+        "candidateId": "batch4-candidate-08",
+        "representativeId": "batch4-candidate-08",
+        "nearestDistance": 0.4438397871638344
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c08",
+        "representativeId": "commercial-support-v1:batch7-c08",
+        "nearestDistance": 0.34405411699981664
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-07",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-07",
+        "nearestDistance": 0.3417115384615385
+      },
+      {
+        "candidateId": "selective-sla-intake-cell",
+        "representativeId": "selective-sla-intake-cell",
+        "nearestDistance": 0.4485138859141858
+      },
+      {
+        "candidateId": "batch10-reversibility-gated-operator",
+        "representativeId": "batch10-reversibility-gated-operator",
+        "nearestDistance": 0.43112058700209643
+      },
+      {
+        "candidateId": "batch10-disposition-regret-minimizer",
+        "representativeId": "batch10-disposition-regret-minimizer",
+        "nearestDistance": 0.411299919484702
+      },
+      {
+        "candidateId": "selective-self-service-publisher",
+        "representativeId": "selective-self-service-publisher",
+        "nearestDistance": 0.45244794584500464
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c10",
+        "representativeId": "commercial-support-v1:batch7-c10",
+        "nearestDistance": 0.3484933229105597
+      },
+      {
+        "candidateId": "batch4-candidate-03",
+        "representativeId": "batch4-candidate-03",
+        "nearestDistance": 0.41129141185611773
+      },
+      {
+        "candidateId": "csops-b1-two-pass-closer",
+        "representativeId": "csops-b1-two-pass-closer",
+        "nearestDistance": 0.36013831138516017
+      },
+      {
+        "candidateId": "csops-b1-duplicate-graph",
+        "representativeId": "csops-b1-duplicate-graph",
+        "nearestDistance": 0.34927940630797777
+      },
+      {
+        "candidateId": "batch12-queue-fairness-scheduler",
+        "representativeId": "batch12-queue-fairness-scheduler",
+        "nearestDistance": 0.40666813919243583
+      },
+      {
+        "candidateId": "batch5-batch-fairness-scheduler",
+        "representativeId": "batch5-batch-fairness-scheduler",
+        "nearestDistance": 0.34961784196049017
+      },
+      {
+        "candidateId": "batch9-complete-write-ahead-reconciliation",
+        "representativeId": "batch9-complete-write-ahead-reconciliation",
+        "nearestDistance": 0.35052326568925446
+      },
+      {
+        "candidateId": "batch5-cross-source-consensus-controller",
+        "representativeId": "batch5-cross-source-consensus-controller",
+        "nearestDistance": 0.34312840612168727
+      },
+      {
+        "candidateId": "b14-c03-credit-ledger",
+        "representativeId": "b14-c03-credit-ledger",
+        "nearestDistance": 0.515352817182817
+      },
+      {
+        "candidateId": "batch9-complete-symptom-cluster-triage",
+        "representativeId": "batch9-complete-symptom-cluster-triage",
+        "nearestDistance": 0.3505732018726061
+      },
+      {
+        "candidateId": "batch13-complete-01",
+        "representativeId": "batch13-complete-01",
+        "nearestDistance": 0.34066666666666673
+      },
+      {
+        "candidateId": "batch10-exception-recurrence-detector",
+        "representativeId": "batch10-exception-recurrence-detector",
+        "nearestDistance": 0.4094955147013876
+      },
+      {
+        "candidateId": "batch15-complete-07-commitment-contract",
+        "representativeId": "batch15-complete-07-commitment-contract",
+        "nearestDistance": 0.3459897421419161
+      },
+      {
+        "candidateId": "batch9-complete-dependency-graph",
+        "representativeId": "batch9-complete-dependency-graph",
+        "nearestDistance": 0.3448122561648878
+      },
+      {
+        "candidateId": "b14-c02-security-containment",
+        "representativeId": "b14-c02-security-containment",
+        "nearestDistance": 0.45957974754240744
+      },
+      {
+        "candidateId": "batch11-obligation-ledger",
+        "representativeId": "batch11-obligation-ledger",
+        "nearestDistance": 0.3410447442904375
+      },
+      {
+        "candidateId": "batch8-policy-version",
+        "representativeId": "batch8-policy-version",
+        "nearestDistance": 0.40610801314524714
+      },
+      {
+        "candidateId": "batch9-complete-evidence-conflict-arbiter",
+        "representativeId": "batch9-complete-evidence-conflict-arbiter",
+        "nearestDistance": 0.3443489886073007
+      },
+      {
+        "candidateId": "csops-b1-verification-backward",
+        "representativeId": "csops-b1-verification-backward",
+        "nearestDistance": 0.34642241379310346
+      },
+      {
+        "candidateId": "batch10-dependency-graph-controller",
+        "representativeId": "batch10-dependency-graph-controller",
+        "nearestDistance": 0.4289872989329511
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-08",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-08",
+        "nearestDistance": 0.3475534786474397
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c09",
+        "representativeId": "commercial-support-v1:batch7-c09",
+        "nearestDistance": 0.3450045985304606
+      },
+      {
+        "candidateId": "selective-incident-fanout-coordinator",
+        "representativeId": "selective-incident-fanout-coordinator",
+        "nearestDistance": 0.44313491843522335
+      },
+      {
+        "candidateId": "batch15-complete-03-write-ahead",
+        "representativeId": "batch15-complete-03-write-ahead",
+        "nearestDistance": 0.3411702127659575
+      },
+      {
+        "candidateId": "batch8-financial-ledger",
+        "representativeId": "batch8-financial-ledger",
+        "nearestDistance": 0.41936488359201773
+      },
+      {
+        "candidateId": "csops-b1-triage-ledger",
+        "representativeId": "csops-b1-triage-ledger",
+        "nearestDistance": 0.3546250000000001
+      },
+      {
+        "candidateId": "selective-billing-event-attribution",
+        "representativeId": "selective-billing-event-attribution",
+        "nearestDistance": 0.40633099319240923
+      },
+      {
+        "candidateId": "batch8-external-state-backward",
+        "representativeId": "batch8-external-state-backward",
+        "nearestDistance": 0.38008339564639415
+      },
+      {
+        "candidateId": "batch5-evidence-frontier-controller",
+        "representativeId": "batch5-evidence-frontier-controller",
+        "nearestDistance": 0.34426767512470186
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-06",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-06",
+        "nearestDistance": 0.3436930946291561
+      },
+      {
+        "candidateId": "selective-mutation-serialization-controller",
+        "representativeId": "selective-mutation-serialization-controller",
+        "nearestDistance": 0.4511048476483259
+      },
+      {
+        "candidateId": "batch5-proof-carrying-disposition-engine",
+        "representativeId": "batch5-proof-carrying-disposition-engine",
+        "nearestDistance": 0.3449601994952926
+      },
+      {
+        "candidateId": "batch12-policy-language-translator",
+        "representativeId": "batch12-policy-language-translator",
+        "nearestDistance": 0.4660720486111111
+      },
+      {
+        "candidateId": "b14-c06-self-service-validation",
+        "representativeId": "b14-c06-self-service-validation",
+        "nearestDistance": 0.4148395030156373
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c05",
+        "representativeId": "commercial-support-v1:batch7-c05",
+        "nearestDistance": 0.3405
+      },
+      {
+        "candidateId": "batch10-customer-impact-budget",
+        "representativeId": "batch10-customer-impact-budget",
+        "nearestDistance": 0.4063562633019155
+      },
+      {
+        "candidateId": "batch8-security-containment",
+        "representativeId": "batch8-security-containment",
+        "nearestDistance": 0.4388415700859137
+      },
+      {
+        "candidateId": "batch13-complete-04",
+        "representativeId": "batch13-complete-04",
+        "nearestDistance": 0.3407375821018063
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c02",
+        "representativeId": "commercial-support-v1:batch7-c02",
+        "nearestDistance": 0.3446457342657343
+      },
+      {
+        "candidateId": "csops-b1-customer-journey",
+        "representativeId": "csops-b1-customer-journey",
+        "nearestDistance": 0.35138897385984436
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-10",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-10",
+        "nearestDistance": 0.3415983606557378
+      },
+      {
+        "candidateId": "batch5-obligation-ledger-operator",
+        "representativeId": "batch5-obligation-ledger-operator",
+        "nearestDistance": 0.33949802371541504
+      },
+      {
+        "candidateId": "batch5-conflict-arbitration-cell",
+        "representativeId": "batch5-conflict-arbitration-cell",
+        "nearestDistance": 0.3445221681893097
+      },
+      {
+        "candidateId": "batch13-complete-03",
+        "representativeId": "batch13-complete-03",
+        "nearestDistance": 0.3419091078760732
+      },
+      {
+        "candidateId": "csops-b1-conservative-handoff",
+        "representativeId": "csops-b1-conservative-handoff",
+        "nearestDistance": 0.3521585665500584
+      },
+      {
+        "candidateId": "selective-minimal-sufficient-evidence",
+        "representativeId": "selective-minimal-sufficient-evidence",
+        "nearestDistance": 0.41026784566666924
+      },
+      {
+        "candidateId": "batch15-complete-05-entitlement-ledger",
+        "representativeId": "batch15-complete-05-entitlement-ledger",
+        "nearestDistance": 0.3479689542483661
+      },
+      {
+        "candidateId": "b14-c04-incident-blast-radius",
+        "representativeId": "b14-c04-incident-blast-radius",
+        "nearestDistance": 0.40584145299145297
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c03",
+        "representativeId": "commercial-support-v1:batch7-c03",
+        "nearestDistance": 0.343020541958042
+      },
+      {
+        "candidateId": "batch8-remedy-ladder",
+        "representativeId": "batch8-remedy-ladder",
+        "nearestDistance": 0.4042776848755109
+      },
+      {
+        "candidateId": "batch13-complete-06",
+        "representativeId": "batch13-complete-06",
+        "nearestDistance": 0.3444928904428905
+      },
+      {
+        "candidateId": "batch4-candidate-01",
+        "representativeId": "batch4-candidate-01",
+        "nearestDistance": 0.40720213626952756
+      },
+      {
+        "candidateId": "batch12-explanation-action-decoupler",
+        "representativeId": "batch12-explanation-action-decoupler",
+        "nearestDistance": 0.4528839406207827
+      },
+      {
+        "candidateId": "batch9-complete-obligation-ledger",
+        "representativeId": "batch9-complete-obligation-ledger",
+        "nearestDistance": 0.30323539982030545
+      },
+      {
+        "candidateId": "batch5-rollback-avoidance-operator",
+        "representativeId": "batch5-rollback-avoidance-operator",
+        "nearestDistance": 0.34579276397515535
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-02",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-02",
+        "nearestDistance": 0.34346343873517793
+      },
+      {
+        "candidateId": "batch10-resolution-proof-compressor",
+        "representativeId": "batch10-resolution-proof-compressor",
+        "nearestDistance": 0.4002830188679245
+      },
+      {
+        "candidateId": "batch12-handoff-contract-builder",
+        "representativeId": "batch12-handoff-contract-builder",
+        "nearestDistance": 0.47892402904424186
+      },
+      {
+        "candidateId": "batch11-evidence-graph",
+        "representativeId": "batch11-evidence-graph",
+        "nearestDistance": 0.3385
+      },
+      {
+        "candidateId": "batch5-separation-of-duties-sentinel",
+        "representativeId": "batch5-separation-of-duties-sentinel",
+        "nearestDistance": 0.33903191489361706
+      },
+      {
+        "candidateId": "csops-b1-incident-correlator",
+        "representativeId": "csops-b1-incident-correlator",
+        "nearestDistance": 0.34724048408488073
+      },
+      {
+        "candidateId": "batch15-complete-09-policy-proof",
+        "representativeId": "batch15-complete-09-policy-proof",
+        "nearestDistance": 0.34235294117647064
+      },
+      {
+        "candidateId": "batch4-candidate-10",
+        "representativeId": "batch4-candidate-10",
+        "nearestDistance": 0.40973669467787116
+      },
+      {
+        "candidateId": "batch8-relational-dedup",
+        "representativeId": "batch8-relational-dedup",
+        "nearestDistance": 0.400500998185118
+      },
+      {
+        "candidateId": "b14-c07-write-reconciliation",
+        "representativeId": "b14-c07-write-reconciliation",
+        "nearestDistance": 0.40850222222222216
+      },
+      {
+        "candidateId": "selective-incident-liaison",
+        "representativeId": "selective-incident-liaison",
+        "nearestDistance": 0.38106095517385835
+      },
+      {
+        "candidateId": "batch5-counterfactual-disposition-reviewer",
+        "representativeId": "batch5-counterfactual-disposition-reviewer",
+        "nearestDistance": 0.3423188902975614
+      },
+      {
+        "candidateId": "selective-billing-audit-cell",
+        "representativeId": "selective-billing-audit-cell",
+        "nearestDistance": 0.41739464285714284
+      },
+      {
+        "candidateId": "selective-account-history-cell",
+        "representativeId": "selective-account-history-cell",
+        "nearestDistance": 0.42896929824561403
+      },
+      {
+        "candidateId": "batch4-candidate-02",
+        "representativeId": "batch4-candidate-02",
+        "nearestDistance": 0.40508363933088537
+      },
+      {
+        "candidateId": "batch11-disconfirming-evidence",
+        "representativeId": "batch11-disconfirming-evidence",
+        "nearestDistance": 0.3455126072041167
+      },
+      {
+        "candidateId": "batch9-complete-reversibility-first",
+        "representativeId": "batch9-complete-reversibility-first",
+        "nearestDistance": 0.3447139589969779
+      },
+      {
+        "candidateId": "batch8-customer-intent",
+        "representativeId": "batch8-customer-intent",
+        "nearestDistance": 0.4085125227686703
+      },
+      {
+        "candidateId": "selective-product-symptom-cell",
+        "representativeId": "selective-product-symptom-cell",
+        "nearestDistance": 0.4382357105260331
+      },
+      {
+        "candidateId": "batch12-financial-causality-tracer",
+        "representativeId": "batch12-financial-causality-tracer",
+        "nearestDistance": 0.4399506870976441
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-05",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-05",
+        "nearestDistance": 0.30456455190771964
+      },
+      {
+        "candidateId": "selective-policy-version-arbitrator",
+        "representativeId": "selective-policy-version-arbitrator",
+        "nearestDistance": 0.4563364441516616
+      },
+      {
+        "candidateId": "selective-duplicate-canonizer",
+        "representativeId": "selective-duplicate-canonizer",
+        "nearestDistance": 0.4160533966033966
+      },
+      {
+        "candidateId": "batch11-sla-slack",
+        "representativeId": "batch11-sla-slack",
+        "nearestDistance": 0.3464029151404152
+      },
+      {
+        "candidateId": "batch11-two-phase-commit",
+        "representativeId": "batch11-two-phase-commit",
+        "nearestDistance": 0.340081867816092
+      },
+      {
+        "candidateId": "b14-c09-policy-exception-map",
+        "representativeId": "b14-c09-policy-exception-map",
+        "nearestDistance": 0.4112105888676541
+      },
+      {
+        "candidateId": "batch10-policy-exception-miner",
+        "representativeId": "batch10-policy-exception-miner",
+        "nearestDistance": 0.4404562728514163
+      },
+      {
+        "candidateId": "batch12-retry-safety-journal",
+        "representativeId": "batch12-retry-safety-journal",
+        "nearestDistance": 0.401858270956097
+      },
+      {
+        "candidateId": "batch11-cross-ticket-consistency",
+        "representativeId": "batch11-cross-ticket-consistency",
+        "nearestDistance": 0.34493281972265033
+      },
+      {
+        "candidateId": "batch12-evidence-sufficiency-frontier",
+        "representativeId": "batch12-evidence-sufficiency-frontier",
+        "nearestDistance": 0.40103589000371603
+      },
+      {
+        "candidateId": "selective-security-signal-containment",
+        "representativeId": "selective-security-signal-containment",
+        "nearestDistance": 0.45430904670840355
+      },
+      {
+        "candidateId": "batch12-customer-history-consistency",
+        "representativeId": "batch12-customer-history-consistency",
+        "nearestDistance": 0.4289988281222324
+      },
+      {
+        "candidateId": "batch13-complete-08",
+        "representativeId": "batch13-complete-08",
+        "nearestDistance": 0.3434427414690573
+      },
+      {
+        "candidateId": "batch11-outcome-delta",
+        "representativeId": "batch11-outcome-delta",
+        "nearestDistance": 0.3417115384615385
+      },
+      {
+        "candidateId": "batch10-sequenced-customer-obligation",
+        "representativeId": "batch10-sequenced-customer-obligation",
+        "nearestDistance": 0.4389683752417795
+      },
+      {
+        "candidateId": "batch10-write-ahead-disposition-log",
+        "representativeId": "batch10-write-ahead-disposition-log",
+        "nearestDistance": 0.43301303415011494
+      },
+      {
+        "candidateId": "batch8-write-ahead",
+        "representativeId": "batch8-write-ahead",
+        "nearestDistance": 0.4027940272288098
+      },
+      {
+        "candidateId": "selective-account-history-continuity",
+        "representativeId": "selective-account-history-continuity",
+        "nearestDistance": 0.4046299657188949
+      },
+      {
+        "candidateId": "batch9-complete-repairability-monitor",
+        "representativeId": "batch9-complete-repairability-monitor",
+        "nearestDistance": 0.3411999405822936
+      },
+      {
+        "candidateId": "batch10-evidence-delta-triage",
+        "representativeId": "batch10-evidence-delta-triage",
+        "nearestDistance": 0.40366249902776696
+      },
+      {
+        "candidateId": "b14-c01-evidence-triage",
+        "representativeId": "b14-c01-evidence-triage",
+        "nearestDistance": 0.4024502826585179
+      },
+      {
+        "candidateId": "batch15-complete-04-harm-minimization",
+        "representativeId": "batch15-complete-04-harm-minimization",
+        "nearestDistance": 0.3405192307692308
+      },
+      {
+        "candidateId": "batch15-complete-08-canonicalization",
+        "representativeId": "batch15-complete-08-canonicalization",
+        "nearestDistance": 0.34216789819376026
+      },
+      {
+        "candidateId": "batch5-write-intent-controller",
+        "representativeId": "batch5-write-intent-controller",
+        "nearestDistance": 0.3422670454545455
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c07",
+        "representativeId": "commercial-support-v1:batch7-c07",
+        "nearestDistance": 0.3463440386680989
+      },
+      {
+        "candidateId": "batch15-complete-10-terminal-invariants",
+        "representativeId": "batch15-complete-10-terminal-invariants",
+        "nearestDistance": 0.3411176470588236
+      },
+      {
+        "candidateId": "batch13-complete-02",
+        "representativeId": "batch13-complete-02",
+        "nearestDistance": 0.34363914788914796
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-03",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-03",
+        "nearestDistance": 0.3410102040816327
+      },
+      {
+        "candidateId": "batch4-candidate-09",
+        "representativeId": "batch4-candidate-09",
+        "nearestDistance": 0.4085578231292517
+      },
+      {
+        "candidateId": "batch9-complete-disposition-certificates",
+        "representativeId": "batch9-complete-disposition-certificates",
+        "nearestDistance": 0.345517517683466
+      },
+      {
+        "candidateId": "batch15-complete-02-obligation-graph",
+        "representativeId": "batch15-complete-02-obligation-graph",
+        "nearestDistance": 0.33952949804432864
+      },
+      {
+        "candidateId": "batch13-complete-05",
+        "representativeId": "batch13-complete-05",
+        "nearestDistance": 0.34021818181818186
+      },
+      {
+        "candidateId": "batch11-separation-of-duties",
+        "representativeId": "batch11-separation-of-duties",
+        "nearestDistance": 0.3439742563692144
+      },
+      {
+        "candidateId": "batch9-complete-financial-separation",
+        "representativeId": "batch9-complete-financial-separation",
+        "nearestDistance": 0.34572101449275366
+      },
+      {
+        "candidateId": "batch13-complete-09",
+        "representativeId": "batch13-complete-09",
+        "nearestDistance": 0.34427298016448965
+      },
+      {
+        "candidateId": "selective-closeout-auditor",
+        "representativeId": "selective-closeout-auditor",
+        "nearestDistance": 0.4567735577105345
+      },
+      {
+        "candidateId": "batch12-symptom-cluster-separator",
+        "representativeId": "batch12-symptom-cluster-separator",
+        "nearestDistance": 0.41944956140350875
+      },
+      {
+        "candidateId": "selective-authority-boundary-router",
+        "representativeId": "selective-authority-boundary-router",
+        "nearestDistance": 0.4223609338061466
+      },
+      {
+        "candidateId": "commercial-support-v1:batch7-c06",
+        "representativeId": "commercial-support-v1:batch7-c06",
+        "nearestDistance": 0.3443720131978075
+      },
+      {
+        "candidateId": "batch15-complete-01-evidence-freshness",
+        "representativeId": "batch15-complete-01-evidence-freshness",
+        "nearestDistance": 0.3091007788039391
+      },
+      {
+        "candidateId": "batch11-write-budget",
+        "representativeId": "batch11-write-budget",
+        "nearestDistance": 0.3390833333333334
+      },
+      {
+        "candidateId": "selective-security-handoff-cell",
+        "representativeId": "selective-security-handoff-cell",
+        "nearestDistance": 0.48333522430409154
+      },
+      {
+        "candidateId": "batch4-candidate-07",
+        "representativeId": "batch4-candidate-07",
+        "nearestDistance": 0.40577192982456145
+      },
+      {
+        "candidateId": "commercial-support-v1:support-operations:batch3-candidate-09",
+        "representativeId": "commercial-support-v1:support-operations:batch3-candidate-09",
+        "nearestDistance": 0.3423900000000001
+      }
+    ],
+    "pairwiseDistance": {
+      "comparisons": 11175,
+      "mean": 0.48677022742305215,
+      "p10": 0.36822321428571436,
+      "p50": 0.49120741023682196,
+      "p90": 0.5926086219105341
+    }
+  },
+  "structuralRows": [
+    {
+      "candidateId": "csops-b1-triage-ledger",
+      "acceptedPosition": 1,
+      "candidateFingerprint": "0b2ed1798c9707fad9c41224ab5857baaa57880793cd35e311b0003ec31bb140",
+      "designFingerprint": "65756904e1c7c7bcdd60ea3c89182ca2dd4d5d88fdd126e4e0b093a00ec06ffc",
+      "score": 0.7783846153846153,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.88,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-sla-risk-router",
+      "acceptedPosition": 2,
+      "candidateFingerprint": "e2580ecdc4cdc4bf84f7dc4e990a0615bf47f8395c340645870c714de7f89754",
+      "designFingerprint": "0ed353beb3d142cd8e48715e7671d73085356a0cb3f7c9d22a5d9cfb01f348b1",
+      "score": 0.7973846153846154,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.92,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.19999999999999996
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-billing-proof-gate",
+      "acceptedPosition": 3,
+      "candidateFingerprint": "57e88a70270783d2901f88670c11451a4f4afa8439b11420a16f1e3dc30c5a31",
+      "designFingerprint": "0772b5cc0989be71fa200df281b044496313356c32bb63311fcb717703325555",
+      "score": 0.7881874999999999,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-incident-correlator",
+      "acceptedPosition": 4,
+      "candidateFingerprint": "7be6e46a14caacf0ca5d5d697592fc843867bcaac82a3ace3be1539180317c99",
+      "designFingerprint": "9a423e76fc214d6497c170370e6ca7db3027e6355b6423a1ec793d583c5fc105",
+      "score": 0.7921874999999999,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.9,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-duplicate-graph",
+      "acceptedPosition": 5,
+      "candidateFingerprint": "d97671d92532a30dfa9ee8c5bf6cff7c1d8dc958adb6370d4268e7f4087e5f76",
+      "designFingerprint": "36d4e5fb15bfe7462e01a905f724e800fa3e35ff9a69b6c9cbebb1290e500b6e",
+      "score": 0.7963636363636363,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7424242424242425,
+        "inverseRiskTolerance": 0.9,
+        "inverseCostLimit": 0.19999999999999996,
+        "inverseLatencyLimit": 0.19999999999999996
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-policy-decision-tree",
+      "acceptedPosition": 6,
+      "candidateFingerprint": "e5650ca1f3337553751ae595419fb27b1b2a0c41cb9513c5b0b7ac837cd48e83",
+      "designFingerprint": "1b20cce535edda601a0e883c53036a9c61cf0e2d071a72066f0ef2d3e7680df9",
+      "score": 0.7899999999999999,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.8,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-two-pass-closer",
+      "acceptedPosition": 7,
+      "candidateFingerprint": "f79d59d857f1df2b131c04c36f37ff11d854cda19a1483aee971fc9c7ffc6eea",
+      "designFingerprint": "360c5b25843c64a57c9c3dd5d62a51161f20751219e8ade789bc772842349a79",
+      "score": 0.797111111111111,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7185185185185184,
+        "inverseRiskTolerance": 0.89,
+        "inverseCostLimit": 0.24,
+        "inverseLatencyLimit": 0.2666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-conservative-handoff",
+      "acceptedPosition": 8,
+      "candidateFingerprint": "73bdf0f543dfd9ef939a71e92c006d59060953070c6997aaa1f578b521a54503",
+      "designFingerprint": "790f18ad128f8c94fbffb0b78d2481a1780c7d525c3064575f6917f86c5d9be0",
+      "score": 0.8022845528455284,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.8130081300813008,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-customer-journey",
+      "acceptedPosition": 9,
+      "candidateFingerprint": "f7a4b5b841207265b9d39ab9291a3e63ae4bfea333cba7380467380c7987d78e",
+      "designFingerprint": "7726977628de0d13d70ebaceb3e6dc990c4e3f6a3fdcc731b842342742b8cb75",
+      "score": 0.7877769028871391,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7874015748031495,
+        "inverseRiskTolerance": 0.91,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.033333333333333326
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "csops-b1-verification-backward",
+      "acceptedPosition": 10,
+      "candidateFingerprint": "78504a878c994a3e5645552e00f9b79d9e8abd92b5fd782a43aebf29d85fbd27",
+      "designFingerprint": "56c10cc3e37e69ce36d61a666cf4d271aa69de974040f7bef9a20acf278b2dfa",
+      "score": 0.7843846153846153,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.94,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-sla-intake-cell",
+      "acceptedPosition": 11,
+      "candidateFingerprint": "ec1a52e12210842f510ad00dd2aa50b4caa09af3976c9ced38b85b58c8d262b7",
+      "designFingerprint": "2bbb524be7485fe941b4e074a8dd14794c7f316c554ec7b24f75bb22cbe288e2",
+      "score": 0.5540546265328874,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.9299999999999999,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.23333333333333328
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-billing-audit-cell",
+      "acceptedPosition": 12,
+      "candidateFingerprint": "28c1c918582d3bcf89686b4f12e911d949aa465895f4fb39e404c7251c1de32e",
+      "designFingerprint": "a2b9e7a3eed2fc77ef9d57456787472dd5cbe553ea6c35ab62f0de4e9fa6a6e7",
+      "score": 0.6554615384615384,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.8,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-incident-liaison",
+      "acceptedPosition": 13,
+      "candidateFingerprint": "b3daae0067f41d06bb654ed293ed1de5b90fcc5e300451cdd22fcce4a26d2803",
+      "designFingerprint": "9f1f787e63ab9c3c6bebd77b2f73f5f4cf35e9784f7bd14ca0fd5c7ce0219839",
+      "score": 0.6209312354312354,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7575757575757577,
+        "inverseRiskTolerance": 0.92,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.16666666666666663
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-duplicate-canonizer",
+      "acceptedPosition": 14,
+      "candidateFingerprint": "05b7d0939cb855a6478eff84b8ae0480b464ce9a4aec14baec1300a28469e5c9",
+      "designFingerprint": "b8cb0d5a9c66d5f52c08e5217616876db9e0a8336a0e180adf2ba7698ddef32c",
+      "score": 0.5722447887843571,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.712230215827338,
+        "inverseRiskTolerance": 0.92,
+        "inverseCostLimit": 0.24,
+        "inverseLatencyLimit": 0.2666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-self-service-publisher",
+      "acceptedPosition": 15,
+      "candidateFingerprint": "d5fd59eea298cd9393d4119e848924c75566914e83df1630878cac00dbd478be",
+      "designFingerprint": "309218e26d336e19afd78cd8138b9d6adfb3e7a425bf5d113c74b1e90c9bfb7b",
+      "score": 0.5614049513704685,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.6758620689655173,
+        "inverseRiskTolerance": 0.91,
+        "inverseCostLimit": 0.36,
+        "inverseLatencyLimit": 0.3666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-security-handoff-cell",
+      "acceptedPosition": 16,
+      "candidateFingerprint": "6955ed1ccc2ab97acae5c304a09fbe6da7e41478cc8104a980b7a658171ba55a",
+      "designFingerprint": "f96343aa577e264f27786721aae5b8d56a0ff4d91bcbe20ba1955a3dcfea92c2",
+      "score": 0.552110576923077,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.38461538461538464,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7812500000000001,
+        "inverseRiskTolerance": 0.99,
+        "inverseCostLimit": 0.28,
+        "inverseLatencyLimit": 0.4
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-closeout-auditor",
+      "acceptedPosition": 17,
+      "candidateFingerprint": "745c4e8fb4999d6534e8baabb6cb376f4b5486bb6ae053bda66dfb4f81bdcd07",
+      "designFingerprint": "f379164e02eabf7b41b5f88c3107514eb640258ebe8aaf7556b32a733d65129a",
+      "score": 0.5202140850017563,
+      "components": {
+        "contextCoverage": 0.375,
+        "toolCoverage": 0.46153846153846156,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.684931506849315,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.4,
+        "inverseLatencyLimit": 0.43333333333333335
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-account-history-cell",
+      "acceptedPosition": 18,
+      "candidateFingerprint": "4b6f2f3508154fd118f15d871703e102cb4d884f90b2e448915cd24254330fc2",
+      "designFingerprint": "a2f62ab011dd51259aeffcf65ee1d6fad9dd6dfec37372cf1726f0ce4368d848",
+      "score": 0.6204051080153442,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7874015748031495,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-exception-router",
+      "acceptedPosition": 19,
+      "candidateFingerprint": "ad04a0819269db75de40affd8528ef6e6aab85f56564703957e5031696f493e3",
+      "designFingerprint": "056c359a8468208357b8782896dd43d825213de7815804a83d59d8a2c69805eb",
+      "score": 0.568430402930403,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7071428571428572,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.31999999999999995,
+        "inverseLatencyLimit": 0.33333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-product-symptom-cell",
+      "acceptedPosition": 20,
+      "candidateFingerprint": "20c0a1e9d0d79442fae85bd61b438589742e815c90b7c9cdf6e6cd5837aadb96",
+      "designFingerprint": "aea074bd301889aee0667a328728a86b308a70ed070934e110d8720502bea54d",
+      "score": 0.6249018369690011,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.9299999999999999,
+        "inverseCostLimit": 0.18000000000000005,
+        "inverseLatencyLimit": 0.19999999999999996
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-01",
+      "acceptedPosition": 21,
+      "candidateFingerprint": "26cc2ed190bc2a48d84437c34b8575ecbe80a9465b55dbdb1e2874d11ad460aa",
+      "designFingerprint": "1cef0a664d322c4eb0f72beb6e6494fb907b33fafeafe246334728dd31ccdd8a",
+      "score": 0.7917790697674418,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.050000000000000044
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-02",
+      "acceptedPosition": 22,
+      "candidateFingerprint": "9c8a5b1f0e979add5ed5a7325d431b56917b0977a6549862f584baaa801d6905",
+      "designFingerprint": "88ddba022f6b629e1a8b55cf3c061cb8dd220eb1b04f7e4542835100bbbba2ad",
+      "score": 0.7974457364341084,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.08333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-03",
+      "acceptedPosition": 23,
+      "candidateFingerprint": "a19b379e55ce9016ee107681f24876eae685dfab82996ce746dbcd4d5f1761da",
+      "designFingerprint": "ddfb2f1d1044d117448be30eb863b1e5ad47ce41619263887aef78c7d42793d4",
+      "score": 0.7928809523809524,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7936507936507936,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.01666666666666672
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-04",
+      "acceptedPosition": 24,
+      "candidateFingerprint": "a5ee6562b8362f19f13b6909d530b68bb9fe5a753c08b29f030686fd22f21164",
+      "designFingerprint": "161add816180d8bbfa92127ae032581a0ba8e23d7c395ba2758e2d9b05497828",
+      "score": 0.7983578431372549,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7279411764705883,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.19999999999999996,
+        "inverseLatencyLimit": 0.18333333333333335
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-05",
+      "acceptedPosition": 25,
+      "candidateFingerprint": "6b09bfac3b55381c0fa2a2e25207be961b766b22ba0f9cff1b35e61dd575373f",
+      "designFingerprint": "b56e2d514a80e64d7714e13fe374e23bc9493930e41caa7c277ea0c5ae0abb81",
+      "score": 0.7937142857142857,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7936507936507936,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.020000000000000018,
+        "inverseLatencyLimit": 0.033333333333333326
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-06",
+      "acceptedPosition": 26,
+      "candidateFingerprint": "6e3052a05a49660fce7add62b033371265688d69c7b4e4c52401bf744b914f76",
+      "designFingerprint": "6e5de3e22063e65d3ec7523dffa682425aa4d0f67a928b64b710a46d4bd98327",
+      "score": 0.7916911764705882,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7279411764705883,
+        "inverseRiskTolerance": 0.9299999999999999,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-07",
+      "acceptedPosition": 27,
+      "candidateFingerprint": "33543e1342008233ec2001a02410429e923f37ab1a27a105ff481a649b1d1fc8",
+      "designFingerprint": "2b16e6b5bc6f361a67d1c31c9c46b12165dd39ca993bae43197633bd8bdf76a4",
+      "score": 0.7975208333333332,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-08",
+      "acceptedPosition": 28,
+      "candidateFingerprint": "f754b34d035c1b6ec654c456347c156dffe3d26ad351f38cad14a2855fa26e6e",
+      "designFingerprint": "589d1d3adf88cce0d87385e27e6ab2d88548063bf3375f8ed32435094da1b116",
+      "score": 0.7961524822695035,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7021276595744681,
+        "inverseRiskTolerance": 0.94,
+        "inverseCostLimit": 0.21999999999999997,
+        "inverseLatencyLimit": 0.21666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-09",
+      "acceptedPosition": 29,
+      "candidateFingerprint": "c46f990da379c512e22ed4325ae60c748941f1e85364962a057dce042435fae3",
+      "designFingerprint": "fd24ba1f3e138ed721840b6da5a0e5b1a14db7464ffa2c29a6f35e64c4bb20d6",
+      "score": 0.7909999999999999,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.8,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:support-operations:batch3-candidate-10",
+      "acceptedPosition": 30,
+      "candidateFingerprint": "de1771e06bf61c74a0256be9ca2e9982c88fe4ce3a4a264b7d9e985bdb3d7954",
+      "designFingerprint": "7774644fd45ec8ce36ffe40dc426d9061ecd89170d5dffd94c3bc14a98278ec8",
+      "score": 0.7954486215538846,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-01",
+      "acceptedPosition": 31,
+      "candidateFingerprint": "12e98f43fcb0b23291457450e752a5738daea3580e6ad3ccedc73a71ee334254",
+      "designFingerprint": "838adfc077a759d27ddf29dfb75a51f95956bc4acc4ddf8f23eb69be05e1481c",
+      "score": 0.5581059767570559,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7194244604316548,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.19999999999999996,
+        "inverseLatencyLimit": 0.25
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-02",
+      "acceptedPosition": 32,
+      "candidateFingerprint": "d65f498d627a7df884ef72c6739a3d70f3c8771949ae1c089d24bc5d165880cb",
+      "designFingerprint": "a3a516a472141c5aba84f312c20bbd0dae45ef346ba5e7dc9efbf854342f6215",
+      "score": 0.6562384413486776,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7874015748031495,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.020000000000000018,
+        "inverseLatencyLimit": 0.033333333333333326
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-03",
+      "acceptedPosition": 33,
+      "candidateFingerprint": "9205ecf65c13e9ca0c0aeeb6a76a98f62591325a98142a3be0726a32bb14759e",
+      "designFingerprint": "35b0ef9f14363806690627e0a8ab56fec9b9fffdcb2f94422567612ead2979e4",
+      "score": 0.5619046364594309,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.678082191780822,
+        "inverseRiskTolerance": 0.94,
+        "inverseCostLimit": 0.31999999999999995,
+        "inverseLatencyLimit": 0.35
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-04",
+      "acceptedPosition": 34,
+      "candidateFingerprint": "c984473e7c01483bb2f7765783f8451f2ae76bc6c6f9e1f37a587cee43544e3d",
+      "designFingerprint": "1427f33301855ebf818b3e1370d90926851dc7876b2f24f747c369b499e35b99",
+      "score": 0.5738505549177192,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.94,
+        "inverseCostLimit": 0.18000000000000005,
+        "inverseLatencyLimit": 0.21666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-05",
+      "acceptedPosition": 35,
+      "candidateFingerprint": "20f83fa6df458dad843cf293125e8da02987defd6bcfdc2acc881762c52934d5",
+      "designFingerprint": "0d99ec61d3f36a3027455d5031592ed1a3dd5ac05574728aa80c2c7cc9a51e8e",
+      "score": 0.5786838882510525,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.21999999999999997,
+        "inverseLatencyLimit": 0.23333333333333328
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-06",
+      "acceptedPosition": 36,
+      "candidateFingerprint": "5039939f006e165a6e510c316f25642cc340327828a5d71879dc66b54a46888c",
+      "designFingerprint": "06ad300996c0efc12aa9a174ae06002a828b654719142238de128039920494c5",
+      "score": 0.6048879598662208,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.28,
+        "inverseLatencyLimit": 0.30000000000000004
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-07",
+      "acceptedPosition": 37,
+      "candidateFingerprint": "a806e61c276f52040caca8926fe9216da7066d44edc5e4b6a243fcc6faccab40",
+      "designFingerprint": "fbad90c1370a234bb2665d41f976e605688849a71d14554e6be21583de97b7d8",
+      "score": 0.6177406082289802,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.050000000000000044
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-08",
+      "acceptedPosition": 38,
+      "candidateFingerprint": "d090ca909a6159e185a245a5bfa7cd94aa30ef5e7c2fac1af8d95b5d2dacce62",
+      "designFingerprint": "28fa11376dbb0f6874129362833fa33b95bc22f274cb4cfc6648355bd5e63b30",
+      "score": 0.6156059085841694,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.24,
+        "inverseLatencyLimit": 0.2666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-09",
+      "acceptedPosition": 39,
+      "candidateFingerprint": "15807a90a1aa68f1738f8fc4aee3a3f92f58d66002826c90bf043bf00d4c66f9",
+      "designFingerprint": "df8e15997acc6bc32aa14462665055f64aa5392bffaca8485d9c9243919369e5",
+      "score": 0.6260685036356678,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.18333333333333335
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch4-candidate-10",
+      "acceptedPosition": 40,
+      "candidateFingerprint": "f47a206b0215364debc4fea19704db79326b831df02a11317213a7ced2ad8d87",
+      "designFingerprint": "9bcc2e3db6e03a76a107c03f023922fc6055e29f76fc44c7bf205791ac69d55e",
+      "score": 0.696,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-evidence-frontier-controller",
+      "acceptedPosition": 41,
+      "candidateFingerprint": "d604a2ca7f296df3f7c78e1b626df6165a0e970c8121ad3ebb6c38300ec73c90",
+      "designFingerprint": "6a03cc26263c2b97ec21942402768141f5e2a223598a5d84225d83c961e7ebf1",
+      "score": 0.7954486215538846,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-write-intent-controller",
+      "acceptedPosition": 42,
+      "candidateFingerprint": "3653631a34d2a45c79a0016f48f07c82b57f1f0d623a0fe4ef4655a0d9928aa3",
+      "designFingerprint": "d7197123ecb2cc9513570620bc9225b9b176ef8e7873db957bbb0e856aa0c642",
+      "score": 0.7973846153846154,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-counterfactual-disposition-reviewer",
+      "acceptedPosition": 43,
+      "candidateFingerprint": "57466e7415f943a90c407c88da59817de925956e4cd61a804c87c32ebda7ae7b",
+      "designFingerprint": "a0aee7712366477b1d7bc9b2e07160371a16f58009ae45734c8d4afd716cf71a",
+      "score": 0.7984402985074626,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7462686567164178,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-separation-of-duties-sentinel",
+      "acceptedPosition": 44,
+      "candidateFingerprint": "fa8660026e942b685f1dddd0b998d69b4a4cab454ccd474831daf74e44a7dc23",
+      "designFingerprint": "99c7586c27b7a77082e09f209f663f9ce6ad56d010e29f94d13b9f05bc1fd058",
+      "score": 0.7965208333333332,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-obligation-ledger-operator",
+      "acceptedPosition": 45,
+      "candidateFingerprint": "470f19ed72d5da3be1c7be85dc709781d7142c48a8f1d1dd1132de73f44b3cc6",
+      "designFingerprint": "77b25456facdf80e9467f990ae9c074a62fbbfd295905b3fee8b0519ea9e3c16",
+      "score": 0.794551282051282,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.08333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-conflict-arbitration-cell",
+      "acceptedPosition": 46,
+      "candidateFingerprint": "8eaa2e5f49b9843aba3f1db52ba2dbe815e9c8aa86706c267dd6d93026405818",
+      "designFingerprint": "77ec89fc04f4c1e622c840ef7da827c203d60597ad46290370cfa6a38eb1aa0f",
+      "score": 0.7957142857142857,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7936507936507936,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.033333333333333326
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-batch-fairness-scheduler",
+      "acceptedPosition": 47,
+      "candidateFingerprint": "e71b179c4bf1bcc958dc5c8f69c35d939f4f135ff3a2ed03c8d204889f27a9b4",
+      "designFingerprint": "3a040d1983639538aea836ea1c1734abb844bd6199f84dfabeba8ca9023f192f",
+      "score": 0.7935245098039215,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7279411764705883,
+        "inverseRiskTolerance": 0.94,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.16666666666666663
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-proof-carrying-disposition-engine",
+      "acceptedPosition": 48,
+      "candidateFingerprint": "920b080e043a2be0d7c51126363e77e35c5b964778cbb6e6e602fa31af220e50",
+      "designFingerprint": "70e01a3753e3ec6e4383626ba2bba557c01214631f5e7311670e3a4438674969",
+      "score": 0.7928809523809524,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7936507936507936,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.020000000000000018,
+        "inverseLatencyLimit": 0.01666666666666672
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-rollback-avoidance-operator",
+      "acceptedPosition": 49,
+      "candidateFingerprint": "d5b21edd4524f380ed955dbb7fe4e17b753737649a5f6d0c4e5f4b004f1736a5",
+      "designFingerprint": "86337f717598a62ab8dcaf0b4c92388c88160082920d05bad8783efcd7d66652",
+      "score": 0.8001124031007751,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.1166666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch5-cross-source-consensus-controller",
+      "acceptedPosition": 50,
+      "candidateFingerprint": "9eba6e739bcc01059e769094c9350c6b723eb21df8ef03381a9a3f6602aa00cd",
+      "designFingerprint": "3c78a74e5bf1c1f1d1c042a6ddc05d9a1fdcb322844f8f6168693788a143f22e",
+      "score": 0.7946124031007751,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-security-signal-containment",
+      "acceptedPosition": 51,
+      "candidateFingerprint": "8f1aed28bb5138056b7ddf21ac299a506965093d0f1d1fb73dd746a1d137c3c5",
+      "designFingerprint": "bee0fa6c08c20f96cca8b566e967ce99c589b3046522cc9854eb5a2c5533066c",
+      "score": 0.5723354700854701,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.46153846153846156,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7407407407407407,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.26,
+        "inverseLatencyLimit": 0.2833333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-mutation-serialization-controller",
+      "acceptedPosition": 52,
+      "candidateFingerprint": "40cd94cb86626003aa74af12fe62783672ec59ddd5f5304688ff955b5ccd08dd",
+      "designFingerprint": "6e9349ed21b7a98ccb091f06185a1a5ca8b97802dbe677b068e812dc8899dc44",
+      "score": 0.6583752236135957,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.7692307692307693,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-account-history-continuity",
+      "acceptedPosition": 53,
+      "candidateFingerprint": "1a3b7ffc3199e4f3c229ea3d9f8c924bbf5b55be82080be2c0c3776098b97a59",
+      "designFingerprint": "d0e9d5442c8408b237f79723762eacf45d0d5439eaefec3b11cb3a2b3feef782",
+      "score": 0.6344356187290969,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7173913043478262,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.28,
+        "inverseLatencyLimit": 0.25
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-billing-event-attribution",
+      "acceptedPosition": 54,
+      "candidateFingerprint": "ed4b68b9a2e10b24ebdd17e7ceb382f2da1ca87b12326f8b420bf3634a7dda94",
+      "designFingerprint": "685a7bc0a0d34c2805180d87b1bd90889854b6fd234d90f969e4d542db166632",
+      "score": 0.6842153552554315,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7633587786259541,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-incident-fanout-coordinator",
+      "acceptedPosition": 55,
+      "candidateFingerprint": "17918b98a98bf43a06326222cff3b6ac8b050dffd0e3d7c831e8f9008d96f52b",
+      "designFingerprint": "591f1ffd8b30fa86e6609a8168d55e2c0a2edd45ceb960e584ad925b35db09f5",
+      "score": 0.6450056561085973,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7352941176470589,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.19999999999999996,
+        "inverseLatencyLimit": 0.19999999999999996
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-authority-boundary-router",
+      "acceptedPosition": 56,
+      "candidateFingerprint": "b44373236f4d18880827142a4186bc3a5a8eff2466f2f26669fe056ecd07a0c0",
+      "designFingerprint": "f552eb2e5939c14ee770d47f399bf3eed0ad4acd6af570112c2c8a2ea3a776c4",
+      "score": 0.6541786746117733,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7042253521126761,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.30000000000000004,
+        "inverseLatencyLimit": 0.31666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-response-claim-auditor",
+      "acceptedPosition": 57,
+      "candidateFingerprint": "44ebf685fd386eca24bd5de53f8d3898e44fca5543213738721e14351a174ce5",
+      "designFingerprint": "038931b24ad2c065b7de6e18856ad3f3f73e3e1893759faf9a1985961d1b18e2",
+      "score": 0.6381185897435898,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.6875,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.33999999999999997,
+        "inverseLatencyLimit": 0.33333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-policy-version-arbitrator",
+      "acceptedPosition": 58,
+      "candidateFingerprint": "38db134768e9ed7c0248020661d1f024623a1bbe6e08ffe45dec15ecd87a4b87",
+      "designFingerprint": "b69603713c4f1287205ff956c41efef623ee437766f6065ab31365ccadf52dd2",
+      "score": 0.6468185036356677,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7462686567164178,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.18000000000000005,
+        "inverseLatencyLimit": 0.18333333333333335
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-minimal-sufficient-evidence",
+      "acceptedPosition": 59,
+      "candidateFingerprint": "77ef1a479acf2bf31b85e37076f11d65fec5555f82d7105210ec056cbcf06b16",
+      "designFingerprint": "7a83e843d096d0dbecd08fe529881fb1f8cda0878f1c82b542ca436a2e0f74e7",
+      "score": 0.7739294871794872,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.6923076923076923,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.21666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "selective-terminal-state-partitioner",
+      "acceptedPosition": 60,
+      "candidateFingerprint": "9ffd266d2a0145ad5c65b358c5f3b64a02556a562738f43bcd745735ef62e376",
+      "designFingerprint": "17f4df388d1823f63c0d32a648f1803c29e396282ec0a390f7aaa8efc0a34cf1",
+      "score": 0.7248140061692694,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c01",
+      "acceptedPosition": 61,
+      "candidateFingerprint": "8de61d85be6098238e37714450591924ebf7b75558451b52011bd97c331b6ee0",
+      "designFingerprint": "26d806c221d9b90d2deb7a3b41e23953653c18f5c30b2dd0723bb2a4015cf1e3",
+      "score": 0.8151346153846154,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c02",
+      "acceptedPosition": 62,
+      "candidateFingerprint": "a9d54083e5e56f53ee613dd7165c008bbe7d9bbb1dea5f2f386fd0405d114fa5",
+      "designFingerprint": "76093ac82b34ba0d55ce998745ed435200691730f7b4b932c44e0461dd56bc02",
+      "score": 0.8170530303030303,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7575757575757576,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c03",
+      "acceptedPosition": 63,
+      "candidateFingerprint": "6a39a2cc4e96e747d90365916eac5e47bf47fc7e335631153eb784be9e4f8ec5",
+      "designFingerprint": "7d90cc99a5fba363972ce596b474aa70b9e17667e58ed5b4fe98a02fb226fc91",
+      "score": 0.8161902985074626,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c04",
+      "acceptedPosition": 64,
+      "candidateFingerprint": "95ce210a5fff72bb3c0e21ffa5b46425aa7c30c279f8ae029512508308026eea",
+      "designFingerprint": "185626b588617921e9a8745566f394584b88b725933bc33ae2574f067549ffca",
+      "score": 0.8152708333333333,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c05",
+      "acceptedPosition": 65,
+      "candidateFingerprint": "35e307fb3f678f4213db1e4229428b41eeb2ae52b4fad80d5c0d1be497536648",
+      "designFingerprint": "727860a92c60ed0482bf53ef06a80fb212d0b9683ebdbb9ba53c1f5082dbe4fd",
+      "score": 0.8115290697674418,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.050000000000000044
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c06",
+      "acceptedPosition": 66,
+      "candidateFingerprint": "c34d411f1c29993c0efb8cde075dd56b9346ae512195a1cb50edfdd06d4031ec",
+      "designFingerprint": "f5c2d2dac0a7541d108b8cf7d6becdcc189f66d4f4a955ca2a4ce233db3b2cef",
+      "score": 0.8173774509803922,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7352941176470589,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.16666666666666663
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c07",
+      "acceptedPosition": 67,
+      "candidateFingerprint": "d5f2703f9cf73b4728c5f76e4cf937e803fefbec92ca9a4553ea1507dfd99bdb",
+      "designFingerprint": "d83d0ac0344b4aef1babda44b2516717448c8263a9a0c1e9c2cb82a0ff2e9272",
+      "score": 0.8183586956521739,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7173913043478262,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.19999999999999996,
+        "inverseLatencyLimit": 0.19999999999999996
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c08",
+      "acceptedPosition": 68,
+      "candidateFingerprint": "347298229252a97f001c95c864da5d8c64c3d61b02a8d6e7ca69be8fabe39904",
+      "designFingerprint": "2908b818e5484637f74504ce1f19427727a3248c04fa40ab2fc6ce7e0b38b32a",
+      "score": 0.8156123188405797,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.18000000000000005,
+        "inverseLatencyLimit": 0.18333333333333335
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c09",
+      "acceptedPosition": 69,
+      "candidateFingerprint": "4bbbab46e744812345dad779f92661dc7a0d954469bc810acd6cdc831b52c3e3",
+      "designFingerprint": "590206deb3e250b0d617f8ed2bc4ae1cddca25ae8f18ba1c30bda0c42e7933af",
+      "score": 0.815219696969697,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7575757575757576,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1166666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "commercial-support-v1:batch7-c10",
+      "acceptedPosition": 70,
+      "candidateFingerprint": "ec581b441b7bfafedca667f3c21da6323e05441ed64ca5d7f67e9d6481069e61",
+      "designFingerprint": "324de62fa72d0b10666c7258aae185010c163ac9536406d1a4a26501d2e420b1",
+      "score": 0.8171944444444444,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7407407407407407,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.16666666666666663
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-evidence-frontier",
+      "acceptedPosition": 71,
+      "candidateFingerprint": "45e0e3c1fcb2cb5213296f37634fd3c53b6b12df3590f745ec711d65cdd3896c",
+      "designFingerprint": "038f1cc5dfae0e4c0672ab9a0b58b3b18fa57e2c5ddbb9e1ae02175abf9a9957",
+      "score": 0.7572941176470588,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7352941176470589,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-security-containment",
+      "acceptedPosition": 72,
+      "candidateFingerprint": "e24b0abebda2918803cfbabb720741a5c0b9f6eeb8f8804eece48f16634ba8df",
+      "designFingerprint": "74f8e6c152bfae303a021447e0d49088c7583f0c6f082d768026d68d0d4440c4",
+      "score": 0.5833053613053614,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.6993006993006994,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.28,
+        "inverseLatencyLimit": 0.3666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-financial-ledger",
+      "acceptedPosition": 73,
+      "candidateFingerprint": "6008facde874411730c688f220e9071f5f6727fcda0c22d521339f5669ec6c2b",
+      "designFingerprint": "61b3b58ba7754dbd49c4e0375397961a8926ca8d3023de4ee22b4f53aea9833a",
+      "score": 0.6304312354312355,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7575757575757576,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.21666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-incident-temporal",
+      "acceptedPosition": 74,
+      "candidateFingerprint": "37e67a2e40690392ce6d6893ffb889c8c7289a5c205d345285ff286e8d03ae65",
+      "designFingerprint": "0e1682763f897391d2923aa70861f6de71edd5a7f84aae02ca16480408128763",
+      "score": 0.6289505895564289,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7299270072992701,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.21999999999999997,
+        "inverseLatencyLimit": 0.25
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-relational-dedup",
+      "acceptedPosition": 75,
+      "candidateFingerprint": "7a65dd1131a031d09d3028dcb44414d70653e36632570b3de0bc02f837b304c4",
+      "designFingerprint": "9d089839fc711cb2bef708f203435b65fc53edbf402219f2067b3bdd1029c56b",
+      "score": 0.5807326408384803,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7299270072992701,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.24,
+        "inverseLatencyLimit": 0.2833333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-remedy-ladder",
+      "acceptedPosition": 76,
+      "candidateFingerprint": "16fefe14342c4b5e29b8cb9b87129e5f93c7561a6bf7f9db49d00fccce30012f",
+      "designFingerprint": "7f10a8df6c74d8666f1772dd22c3722f63e032c53fe0c911a61d26acfb479724",
+      "score": 0.7571069651741293,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-policy-version",
+      "acceptedPosition": 77,
+      "candidateFingerprint": "ab7c03fefd463df2cf89ea3d7584915ce36bd867537733976219fec6ca200139",
+      "designFingerprint": "51c80a6e74fe828b070fb34720bf27de6268f45550208f871a6340f7fdcbb7da",
+      "score": 0.6077212931995541,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.30000000000000004,
+        "inverseLatencyLimit": 0.31666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-write-ahead",
+      "acceptedPosition": 78,
+      "candidateFingerprint": "1604dd3c935cf736c918fee4ee06cdc38b00624452e453c3f36b7664642e1ccc",
+      "designFingerprint": "cfa90eecb3dfc965bbe1229d1a4429c784edf9f9fe4b5dea1550cc88e1468f63",
+      "score": 0.707,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-customer-intent",
+      "acceptedPosition": 79,
+      "candidateFingerprint": "c455fd391d2c3fcd7cbf73d2967234ee9919cf743d0ccfaf5c5c46866efe78d5",
+      "designFingerprint": "ab82551bb081ddba65e0326f2a6bfb4a5f83ba976e85e92f8c3d78c0b3e50b99",
+      "score": 0.6170897435897437,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.6923076923076923,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.31999999999999995,
+        "inverseLatencyLimit": 0.33333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch8-external-state-backward",
+      "acceptedPosition": 80,
+      "candidateFingerprint": "625497129f47de6a5eebab5033321db5a444dbec74c345e78ced8fe9e2c92b5e",
+      "designFingerprint": "69dc3d67acf19d646730f937f3edc7ef662f68d9a80da7874181e2b8fc7f13fe",
+      "score": 0.7570512820512819,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.08333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-counterfactual-disposition",
+      "acceptedPosition": 81,
+      "candidateFingerprint": "f8ee3197015b89d4d459e83c1732edfb90a5d916a5abe5d8266b55efd4892af2",
+      "designFingerprint": "069cbab8f23f6d9e91167bf93e4f73aa0d31419a2ef3deef65ecb304c75fd3c2",
+      "score": 0.8179679487179488,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1166666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-write-ahead-reconciliation",
+      "acceptedPosition": 82,
+      "candidateFingerprint": "b71e9671f60813f6b0d40096204730b78d943bd1fb3472f6281875ebc905c622",
+      "designFingerprint": "3a9dbccf0e39f0b1cc3166fe55272f18e42b4c728524833903c447d5096e6f91",
+      "score": 0.8161935695538057,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7874015748031495,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-evidence-conflict-arbiter",
+      "acceptedPosition": 83,
+      "candidateFingerprint": "683f0f045385efe7586bcd38601a0612b7a4ef104eb863263e7237e43439fb20",
+      "designFingerprint": "53b57b66a186f4dc545db7289967ee9d214a2532be88ebfcc32f61d2529fa6e6",
+      "score": 0.8151957364341085,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.08333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-reversibility-first",
+      "acceptedPosition": 84,
+      "candidateFingerprint": "ee92e327e51624faf947a1acad5b9d6421297ddced03f868fb7b8e210bdc5dd9",
+      "designFingerprint": "a70ac8e657a9c18e9b4cc8d3864647595c7770ea034288e5d0f49c644458e120",
+      "score": 0.820753816793893,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7633587786259541,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-dependency-graph",
+      "acceptedPosition": 85,
+      "candidateFingerprint": "dc600f574aea449d845c0e1bfdfb7ae29e923ccd38864de1c3fb58abbb81befb",
+      "designFingerprint": "4b42f00baf393669c2187eac6ef8810de8e19df6dfdb9a00bf6b7758cfc9bbbd",
+      "score": 0.8177374686716792,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.744360902255639,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.16666666666666663
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-obligation-ledger",
+      "acceptedPosition": 86,
+      "candidateFingerprint": "5579ce26efd4b024a3cb8a7cc269b2ead62f0220ede850ab21a4796fe0ac5e64",
+      "designFingerprint": "85fc3d613c23c0a524e5fedf418cf35a8f0055cc1bbe41fd36c6d93f7299bce6",
+      "score": 0.8170290697674418,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-financial-separation",
+      "acceptedPosition": 87,
+      "candidateFingerprint": "8772c751a8820c55a47df583b3496e90cd9e62b3fded7582088d8bb8efd2d904",
+      "designFingerprint": "ed6e5352c80dc131ab54a2fb9e99fce2aa751621693ca7813ad5b86e2a41d507",
+      "score": 0.810797619047619,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7936507936507936,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-symptom-cluster-triage",
+      "acceptedPosition": 88,
+      "candidateFingerprint": "a706da5127f2cb0285af66dfa48506c3f0c07b25a9903e5e2bf3fa0ed01ca1c4",
+      "designFingerprint": "40f8d60ecec970fa273390f4a60ea8d8d63f531b7af3dfb82573434a806ccd79",
+      "score": 0.8141986215538847,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-disposition-certificates",
+      "acceptedPosition": 89,
+      "candidateFingerprint": "e0de33a7c95041a2a2e9d6a5de7f66870b62c1daaa49ef443288188f36df4b4c",
+      "designFingerprint": "e0f25e09aa001f518e0312f341b44037386c914870f3114f3c7449a3f1187217",
+      "score": 0.8144642857142858,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7936507936507936,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.033333333333333326
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch9-complete-repairability-monitor",
+      "acceptedPosition": 90,
+      "candidateFingerprint": "aa4dcb2ec8067a3b52499fbd5a7a9723824e826028ef0465ce1660d1b07767e7",
+      "designFingerprint": "d2689e161432153a73c3b2b51e553b3619b005c859f723e7399fb403c87d81eb",
+      "score": 0.815301282051282,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.08333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-evidence-delta-triage",
+      "acceptedPosition": 91,
+      "candidateFingerprint": "9991d6a10329fa1759741336d4e9bcb0a736ef59c1e4ebfbadc240dc1a93b594",
+      "designFingerprint": "d386113326af8f670d40987f1630b6a675b5e6e6607b89363daaff7cff909a41",
+      "score": 0.7258098290598289,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7407407407407407,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.16666666666666663
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-reversibility-gated-operator",
+      "acceptedPosition": 92,
+      "candidateFingerprint": "94ff018a1d8804d08c0a4cb08e976c9428facd39f715e2d1f818728eb7b01402",
+      "designFingerprint": "2d7f6dfacba8af83796a13fe8eb70f02b1a9b63228066f75e8efc8f4674857ed",
+      "score": 0.725702534742611,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7633587786259541,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.1166666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-dependency-graph-controller",
+      "acceptedPosition": 93,
+      "candidateFingerprint": "88c8b4ec9d09b2587faf1f3d9c93158215704754a72d8ab4e49f9b90a3c814f8",
+      "designFingerprint": "5890c4994c2910ed063fc447ff191a6a93249cf7bbe3af6244d75a3e764b7734",
+      "score": 0.7248140061692694,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-customer-impact-budget",
+      "acceptedPosition": 94,
+      "candidateFingerprint": "5c2e8b5d0d27b664e25034a2a0572cff0ee9743dd7b7edf41470d56fad00ac93",
+      "designFingerprint": "7408bd135490a4bccb7caeddabd9d31690ea70f007f7f0df3bd64b9b3078f1d4",
+      "score": 0.7278261689291101,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7352941176470589,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.18333333333333335
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-exception-recurrence-detector",
+      "acceptedPosition": 95,
+      "candidateFingerprint": "0ce5392d21c9d514d18ab1eae65228f1cd8a750ec9d8d309fcf5842375a4f7c0",
+      "designFingerprint": "42a8948ec58faab161054b7c0a3192ac63032d0f412f5fead005a22758b4f831",
+      "score": 0.6624584726867336,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.7692307692307693,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.21999999999999997,
+        "inverseLatencyLimit": 0.23333333333333328
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-policy-exception-miner",
+      "acceptedPosition": 96,
+      "candidateFingerprint": "0c4dde5a4feb2d03355299b6bec3db623f846eedd7d80ddd77b324c82ff47da4",
+      "designFingerprint": "bcb760fc0fda0e9dc4c4a6f765cae494bfd8ad03378c8b64a32e9f217b29b560",
+      "score": 0.6491252075262866,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7194244604316546,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.24,
+        "inverseLatencyLimit": 0.25
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-write-ahead-disposition-log",
+      "acceptedPosition": 97,
+      "candidateFingerprint": "88024a7ef9ebc2561e5c413cab62663ecefde5e02e1dbbafaf46b0bc30b1bd81",
+      "designFingerprint": "cf613a75ca923c06de8bf0676aa1379fba9018c7dd607d4509d463be0dfaa33f",
+      "score": 0.6802627241179873,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.8461538461538461,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.18000000000000005,
+        "inverseLatencyLimit": 0.19999999999999996
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-resolution-proof-compressor",
+      "acceptedPosition": 98,
+      "candidateFingerprint": "c8f9b044ca01f159cf81e9d5bad2cfe32468f98ae98c119d6fb851a14f31d7fd",
+      "designFingerprint": "8a87df3a6f07ef69f091b703c7c550605068efeaa16ed1046f7761ff1188cffa",
+      "score": 0.7760441176470588,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7352941176470589,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-sequenced-customer-obligation",
+      "acceptedPosition": 99,
+      "candidateFingerprint": "a1aa34ade1a5086ee3c085d4fe03c6ede44da4930f81022ceb549aa5d12cb157",
+      "designFingerprint": "cea04b914bab805beaf45cc4add2c19bee6763ba088575a34466ca47d422aa4c",
+      "score": 0.6978236477634288,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.7692307692307693,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7226277372262773,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.19999999999999996,
+        "inverseLatencyLimit": 0.21666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch10-disposition-regret-minimizer",
+      "acceptedPosition": 100,
+      "candidateFingerprint": "0042f1d8565af8a4ecfb468953cd26a472115356e90bcb74abaf5ce0e1aab9f8",
+      "designFingerprint": "2d99c3913d2e4a1fe08b1ad28b2eb5ec1c60c1d2d3bff25e578cda1055b8d4a6",
+      "score": 0.7776346153846153,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-evidence-graph",
+      "acceptedPosition": 101,
+      "candidateFingerprint": "b9111f36cb78147e39717a527f23a5d10365647d65e4b7af7671c7eeb8ea32cf",
+      "designFingerprint": "9444f174834cae27a7b8ddd59f0a6aa00ad01bef09cffa807689414dead5dbb1",
+      "score": 0.814301282051282,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.08333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-two-phase-commit",
+      "acceptedPosition": 102,
+      "candidateFingerprint": "62418724033dcc0e751c7cdd7816681a04e594bb99e565ff7ef806c83335fae6",
+      "designFingerprint": "bb84852cabc6c28370d8ddd30bf754d781095d74f336948fd1044ca981c7320d",
+      "score": 0.8144374999999999,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.050000000000000044
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-obligation-ledger",
+      "acceptedPosition": 103,
+      "candidateFingerprint": "222bf9c53a74dfd80942b2833a12debd04b9396b25d1f730328d2026a06ef017",
+      "designFingerprint": "4cc3b20454d377de9bfd3ae0bb8785183eae3d3dff051180e96528765015b661",
+      "score": 0.8152538167938931,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7633587786259541,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-cross-ticket-consistency",
+      "acceptedPosition": 104,
+      "candidateFingerprint": "7cd7de06dc34c635afc87fe2efc8c5efc6ec3df8daa350dfd187b928b6e9a788",
+      "designFingerprint": "bd0ac385003a410762ceedd3a9d24342b98d856783af0a641851a7615b8eb906",
+      "score": 0.8134642857142858,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7936507936507936,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.033333333333333326
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-disconfirming-evidence",
+      "acceptedPosition": 105,
+      "candidateFingerprint": "66280f618e5ce124852411002d1f3b580f771029c301a1aadc33fb29597bcfb2",
+      "designFingerprint": "a60fb134933ea23b7aa0bc1e8a84330ff1d9f4db8d520b9d7183eeea70a84e9c",
+      "score": 0.8163652882205513,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1166666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-write-budget",
+      "acceptedPosition": 106,
+      "candidateFingerprint": "015707731d083737e1a6c6bb719f7b08a92db29015977e7b5cca57bcb8b5f91d",
+      "designFingerprint": "f87611698638f961050f4cfa28502dbc5698e76c22e8166ce2c9f18601c6e520",
+      "score": 0.8155441176470588,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7352941176470589,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-policy-precedence",
+      "acceptedPosition": 107,
+      "candidateFingerprint": "cf2dfd9d71b1d912b94978e90a94b52c2886ba6810889b1c8c05b4c6d18c4bf9",
+      "designFingerprint": "180b03ac2406f292695ca8529399dcc02b628082ed4533b7eb8ef8be691baf4a",
+      "score": 0.8153624031007751,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-separation-of-duties",
+      "acceptedPosition": 108,
+      "candidateFingerprint": "7a8da231bb0eb5401eda094332755ff30aab13553d6364b319fb20bc525963aa",
+      "designFingerprint": "ebff65cf912ea3e0a972cfd5d3f89c3a8a141d7f59b82cdbcb54bd167e78e716",
+      "score": 0.8145510752688172,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.8064516129032259,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.020000000000000018,
+        "inverseLatencyLimit": 0.01666666666666672
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-sla-slack",
+      "acceptedPosition": 109,
+      "candidateFingerprint": "a546fe525524048a6ae06aefb470786f926f9f28f068371960264832e29ca613",
+      "designFingerprint": "bb0253c9c49cff999e55b808afb2d9e6f5ea79415b59c45dc98d6104d098260d",
+      "score": 0.8141986215538847,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch11-outcome-delta",
+      "acceptedPosition": 110,
+      "candidateFingerprint": "8a079b59fe2e3142b05ab5bb46365ce27f4a82d1e3105d4c6c1a653a1a38cb54",
+      "designFingerprint": "c9465b0ae775bae4a1c40c61accb0a1e01994725ad238e8768fa60550a03b3cf",
+      "score": 0.8153652882205513,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1166666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-evidence-sufficiency-frontier",
+      "acceptedPosition": 111,
+      "candidateFingerprint": "6e5983cf9c13560987f64a11b9a4aa6c5b53ef2f10073fedfa45ad9683cab868",
+      "designFingerprint": "be3020dea123ea8330a716198a09167ed4cc055780fb84347eff02d4f3cf4f10",
+      "score": 0.7750277777777778,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7407407407407407,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-handoff-contract-builder",
+      "acceptedPosition": 112,
+      "candidateFingerprint": "464f180f7622f8800b2a6b985484f07fd7d10db3bf6c61e874e6a2386cf6beff",
+      "designFingerprint": "8de33c4b3887343030f34f25876294468dc0b85224d2727023a114bb587d802b",
+      "score": 0.6360553613053613,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.6993006993006994,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.28,
+        "inverseLatencyLimit": 0.31666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-work-conservation-controller",
+      "acceptedPosition": 113,
+      "candidateFingerprint": "9abaf96d368899be14e37c0a2e9c01b870f4fa783eb146eb91361225c4285afe",
+      "designFingerprint": "14ed359edaa9b97793ff3743fa6a94d67370a1ed33296f8132c7c9c7535b2372",
+      "score": 0.6630364523536165,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.7692307692307693,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.18000000000000005,
+        "inverseLatencyLimit": 0.19999999999999996
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-financial-causality-tracer",
+      "acceptedPosition": 114,
+      "candidateFingerprint": "307d1efacd3b512f8d9b0f5904be03a02219e030a13b6a689a8b98c59f1853e0",
+      "designFingerprint": "b00a13fa0c42197a153af747425b2b2b17e65e8063d136a863dd13596719ab79",
+      "score": 0.6476559829059829,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7407407407407407,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.21666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-symptom-cluster-separator",
+      "acceptedPosition": 115,
+      "candidateFingerprint": "6f47828df8ee9fad80f03033b1274472314147887b2f2868e2e55294926a63a9",
+      "designFingerprint": "f3bb1a81a379ce8d10b2e0f886f3fffa5f96c59e4584c5f693980208d28a444f",
+      "score": 0.646672322775264,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7352941176470589,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.19999999999999996,
+        "inverseLatencyLimit": 0.23333333333333328
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-retry-safety-journal",
+      "acceptedPosition": 116,
+      "candidateFingerprint": "b190eb4f05bf050bc12fad1329830f7ea65d22ea9990aeff3785679f575a1329",
+      "designFingerprint": "bcf51e3a9bfb21e66eecfcd95c240233b58713e79d8c59f02b41e810b4520047",
+      "score": 0.7293692014092776,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7633587786259541,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-policy-language-translator",
+      "acceptedPosition": 117,
+      "candidateFingerprint": "2d82b231578c2d17fb945a9d001ba511dbb3e319bcb3ff095d2861f7653d1df8",
+      "designFingerprint": "70ff1a50c69782a8b785e7511d6f66c631b84bef0997a98388c6e35f7793223a",
+      "score": 0.583356100795756,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.6827586206896552,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.31999999999999995,
+        "inverseLatencyLimit": 0.35
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-customer-history-consistency",
+      "acceptedPosition": 118,
+      "candidateFingerprint": "c4113ee5cbd8f72c060cef42f872e20b767a1377de085ecd30a87dfd8c604c7e",
+      "designFingerprint": "c31a98457bf7821b70552553807d603dc9ace801901df923d55a7b2ce96886d6",
+      "score": 0.6630852049410443,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.7692307692307693,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7299270072992701,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.19999999999999996,
+        "inverseLatencyLimit": 0.25
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-explanation-action-decoupler",
+      "acceptedPosition": 119,
+      "candidateFingerprint": "3750a2660a01441b7423089dbb6f356af0d8ab9fb31d8b4b27e0458a7572ab7e",
+      "designFingerprint": "847cf5f70bfa1f9fac039c3bfa42a6bddf3beaebf9a244034443275cda0958c8",
+      "score": 0.6490945171849427,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7092198581560284,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.26,
+        "inverseLatencyLimit": 0.30000000000000004
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch12-queue-fairness-scheduler",
+      "acceptedPosition": 120,
+      "candidateFingerprint": "51145ebc23116a34b7f259af6d08dd0b3b3a6f562253e7834ab071c7275fc8b9",
+      "designFingerprint": "37b96b7b2a71ff47c48454918240fa9f3b541b5d2d6b8b48418ffe5d4b29e2b2",
+      "score": 0.7761123188405797,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.18333333333333335
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-01",
+      "acceptedPosition": 121,
+      "candidateFingerprint": "1b2288ecc4a97b5764d1b1394cab93ea34b96deffde2bf11192cd3b014af8061",
+      "designFingerprint": "41d6da74b26ffbad4f0b9210d379d14ce7124f9c66a901f31f9ccfc57126b0c6",
+      "score": 0.795551282051282,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.08333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-02",
+      "acceptedPosition": 122,
+      "candidateFingerprint": "2072a3c7652d8158c59fdfa2aed6e3f4b9748efac0d076d6dbd2a9c8746f3ed3",
+      "designFingerprint": "db7a67129f8b18a2b61a2d6400662938e49b04fcdace3747b7ff96450c4751e2",
+      "score": 0.7946363636363636,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7575757575757576,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-03",
+      "acceptedPosition": 123,
+      "candidateFingerprint": "63c767f539bf1aba81d71fe3e46ba1b0c817a29339a0414d6f881401fe815774",
+      "designFingerprint": "782610a486a98e160e8bb179e2ee67d813b49ce6cc821a086e28f0c51aba6ca5",
+      "score": 0.7927790697674417,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.050000000000000044
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-04",
+      "acceptedPosition": 124,
+      "candidateFingerprint": "0cc2e3c9a317a3123d70165f33a4b7afb21b71488f31eb422a0cfd07eaf2416e",
+      "designFingerprint": "756cc97b6f7d0d4629badac566a2098b619d4ab271a57da66f3a31e0c8f27117",
+      "score": 0.7938541666666666,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.033333333333333326
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-05",
+      "acceptedPosition": 125,
+      "candidateFingerprint": "c85cc6f3f44d1a6a1c98b30fa6eebf2bc4acb1af46c114218969ce21ab693903",
+      "designFingerprint": "eae46d80c384ff775b83785e091e91bfb20ee6a293e8e0e33b0bc5333269a1a9",
+      "score": 0.7966152882205513,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7518796992481203,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1166666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-06",
+      "acceptedPosition": 126,
+      "candidateFingerprint": "e900070b568dea8ebe26e22deea6a62c1b5d7537c324f9f6cbda4569ef4d5ecd",
+      "designFingerprint": "818872717dd52ef98d6257ed643c3d8267b06db69796abeeed2edf8b511230e7",
+      "score": 0.7967941176470588,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7352941176470589,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-07",
+      "acceptedPosition": 127,
+      "candidateFingerprint": "89e6c398fdab5ef21d98cb1ab9c716e73bb977e7862a1b1e8dd64d0fe8e409d9",
+      "designFingerprint": "2638932abee6305d13dc49d4f6cfe9e7f2024243511144e440569b92c2febc11",
+      "score": 0.7956874999999999,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.050000000000000044
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-08",
+      "acceptedPosition": 128,
+      "candidateFingerprint": "0e20a886452bb91b657450e48ff77ee14da6ce21a9c2455281f5021be248dc9f",
+      "designFingerprint": "c6b309d9779d4fc7d43167018223fbf8fea830ed7e369cd379fd1d7dcc72f7f9",
+      "score": 0.7952736318407959,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.16666666666666663
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-09",
+      "acceptedPosition": 129,
+      "candidateFingerprint": "01c13c69b86a88542ce312a6f428a69e29502498f6c489340b11d994c62ec5ad",
+      "designFingerprint": "f27edec078cf9ba832b514fd0bf5eef6022af62a74129cded5ca6f3b0634f610",
+      "score": 0.7966069651741293,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch13-complete-10",
+      "acceptedPosition": 130,
+      "candidateFingerprint": "2e011407d1e3aa87b0ac3b2dd7b3de450e0355807e720be0885e0ac57e645b1d",
+      "designFingerprint": "1c486bae891c4643586d972089565cec2ee0a734b5c411113037465117ceda6b",
+      "score": 0.7939435695538057,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7874015748031495,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.01666666666666672
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c01-evidence-triage",
+      "acceptedPosition": 131,
+      "candidateFingerprint": "cba72133dd31fbb28851ca26a203d3b5f86748353512d50cd0cbe919c119b19f",
+      "designFingerprint": "d3a378f494b58af6a4496416f1df6eae7ac95f0d17f01eea153a963cc7761320",
+      "score": 0.7575289855072463,
+      "components": {
+        "contextCoverage": 0.875,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.16666666666666663
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c02-security-containment",
+      "acceptedPosition": 132,
+      "candidateFingerprint": "a30d338d99e209bacd07b661ada8245f916f0dccf541b73462b17140e2461346",
+      "designFingerprint": "4bf7e0b65712aa316b7f9aa5122d647c7dc6471b805e871eddf851f67e33dea7",
+      "score": 0.6096923076923076,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.5384615384615384,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.6944444444444444,
+        "inverseRiskTolerance": 0.99,
+        "inverseCostLimit": 0.36,
+        "inverseLatencyLimit": 0.3666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c03-credit-ledger",
+      "acceptedPosition": 133,
+      "candidateFingerprint": "7de3ededb747e9d4b00665265eecbcf659053e5206212df4eade7f7b8cbc08e2",
+      "designFingerprint": "3f1829ea4828437f7ca3feabcf1387537c87e65dfb2d79094b21e7880ae31d7f",
+      "score": 0.6664018369690011,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.746268656716418,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.16000000000000003,
+        "inverseLatencyLimit": 0.19999999999999996
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c04-incident-blast-radius",
+      "acceptedPosition": 134,
+      "candidateFingerprint": "6f3db96a6967a46997ba8608b8562a323ec8cd8b02cbea58f4ac83092bbf283f",
+      "designFingerprint": "7c4530e92b3898bba410f259dd18a1ef21475f834a601fe886ca4b38312ecf8f",
+      "score": 0.6294377289377289,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7142857142857143,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.24,
+        "inverseLatencyLimit": 0.2666666666666667
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c05-duplicate-canonicalization",
+      "acceptedPosition": 135,
+      "candidateFingerprint": "a82691794496820dace98fc79c4633d3781b55eeba551b199f34e94ca7b58a10",
+      "designFingerprint": "20bbd21fcba60dc138e4e481e39dd945d55c19cc62972761e28648c37f3f70ac",
+      "score": 0.5809392419175028,
+      "components": {
+        "contextCoverage": 0.5,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.26,
+        "inverseLatencyLimit": 0.2833333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c06-self-service-validation",
+      "acceptedPosition": 136,
+      "candidateFingerprint": "a44d5dd760d3abe207831cfa68a147a172c3f9cd8066de80330c08f6d951c6f9",
+      "designFingerprint": "718f2faea29123140777d94ef764d01e5ded79d21996354bfc7197b7bae9fd4a",
+      "score": 0.6177639979068551,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6153846153846154,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.673469387755102,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.31999999999999995,
+        "inverseLatencyLimit": 0.3833333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c07-write-reconciliation",
+      "acceptedPosition": 137,
+      "candidateFingerprint": "bd183e58807fc4f2bbae5ed1f2d9d0c4ebdf7658ffbd5d5557baf5e7570cc4b2",
+      "designFingerprint": "9e427283578162e079a1af771ae753769c5f016ba5e0f11ac3a7d75eb6faa320",
+      "score": 0.7079184149184149,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7575757575757576,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c08-sla-bucket-controller",
+      "acceptedPosition": 138,
+      "candidateFingerprint": "240899d28c27d1913793a662e1c2385f7433dfd5093826f7d5bc7bfd5d6bf661",
+      "designFingerprint": "06d99ea143690d093a36559a9ed789a20a660ad3f20d1ea6a1e2cf7caa8cb898",
+      "score": 0.7044249084249085,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.9230769230769231,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7142857142857143,
+        "inverseRiskTolerance": 0.95,
+        "inverseCostLimit": 0.12,
+        "inverseLatencyLimit": 0.23333333333333328
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c09-policy-exception-map",
+      "acceptedPosition": 139,
+      "candidateFingerprint": "e4ccda48d5a93c8e232e2f0b8ae14b60b12b92be56bf1abb8536b5b4109eb75e",
+      "designFingerprint": "bbb0a48a9ae03f9d7617aad84565025b660a339deb63dac8c1adb32e26dc5f5b",
+      "score": 0.6676571906354515,
+      "components": {
+        "contextCoverage": 0.75,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7246376811594204,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.21999999999999997,
+        "inverseLatencyLimit": 0.25
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "b14-c10-batch-coverage-auditor",
+      "acceptedPosition": 140,
+      "candidateFingerprint": "4b51901059b5c214936c45896849e64ae3a52e94965dd934fd161c4ad07bf927",
+      "designFingerprint": "1ef86e5621ff67b7c8a6ccff4dd7f0341a01fba021d200deaaacb6c2b93b7c68",
+      "score": 0.6325953412784399,
+      "components": {
+        "contextCoverage": 0.625,
+        "toolCoverage": 0.6923076923076923,
+        "emphasisCoverage": 0.5,
+        "normalizedQualityWeight": 0.7042253521126761,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.28,
+        "inverseLatencyLimit": 0.30000000000000004
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-01-evidence-freshness",
+      "acceptedPosition": 141,
+      "candidateFingerprint": "f1c89173a4e9a4b7815596044b59ff9cc762b751680e97bb2bf9c57bf6bb00ae",
+      "designFingerprint": "f701b7ac6065d7e293cdf0dbfea696f88d9f8742821a7b41131710d3cae299ff",
+      "score": 0.8162708333333333,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.78125,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.06666666666666665
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-02-obligation-graph",
+      "acceptedPosition": 142,
+      "candidateFingerprint": "6f7e054b64c24ed53680500b50fd997dbc28af5274596d059a44ca177119c5b2",
+      "designFingerprint": "e5ccab1414711ce419ccf1ac46315316d59ed4829afa5692f6b079898de9e920",
+      "score": 0.8135269028871391,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7874015748031495,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.033333333333333326
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-03-write-ahead",
+      "acceptedPosition": 143,
+      "candidateFingerprint": "3bd5439a2c0636e09c4b9b90018d6c48f4d7f7d8f97800c601fe1fad4be49708",
+      "designFingerprint": "5bf6c4817368327bf2fe7761d7195c48fdb1560252e0d0cec1110eee3862df2e",
+      "score": 0.8135290697674418,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.050000000000000044
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-04-harm-minimization",
+      "acceptedPosition": 144,
+      "candidateFingerprint": "1e547f1874fdcc207cb1bf692317008fb9457d5b5c77fd5d1bd908edfc174b84",
+      "designFingerprint": "d53b4c210ac8f84def5f91ebfd2b3a44048759bd98d208004101d82364bea17d",
+      "score": 0.8158863636363636,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7575757575757577,
+        "inverseRiskTolerance": 0.96,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.15000000000000002
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-05-entitlement-ledger",
+      "acceptedPosition": 145,
+      "candidateFingerprint": "5f9025ee8d08db011719525b05b90141b5d696f8433847288e38f4f905c2faf4",
+      "designFingerprint": "7c391e3905479ded23ba2c66de1daaca5efa3d48e4a6e86e5429132668d33ab9",
+      "score": 0.81175,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.8,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0,
+        "inverseLatencyLimit": 0
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-06-causal-scope",
+      "acceptedPosition": 146,
+      "candidateFingerprint": "ac2070de81123509c6605942ec126dedf30d3c4b2ea25750e30ada6231e2045e",
+      "designFingerprint": "014c46950c285d5674eb1831e7e12cd4bf1bb80d25de0e39f0f4625f2ab9ffc2",
+      "score": 0.8151957364341085,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.07999999999999996,
+        "inverseLatencyLimit": 0.08333333333333337
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-07-commitment-contract",
+      "acceptedPosition": 147,
+      "candidateFingerprint": "a0551dc71398b5b90e8595d21eae538a350834aacbb7df358b38166559d6d27b",
+      "designFingerprint": "46cc510ec6070891ba001a89bf2b1f7e50f235feb89130a893e6aef35c18a7a6",
+      "score": 0.8177754452926209,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7557251908396946,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.14,
+        "inverseLatencyLimit": 0.1333333333333333
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-08-canonicalization",
+      "acceptedPosition": 148,
+      "candidateFingerprint": "282228246979a75f2214a5b4628afdbb39310dbb815620bddeba842e40493034",
+      "designFingerprint": "d69242f408d32fb13aa3f52e6165ad86a2b11816306ef7c7981bd606e25e0ef9",
+      "score": 0.8161346153846154,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7692307692307692,
+        "inverseRiskTolerance": 0.97,
+        "inverseCostLimit": 0.09999999999999998,
+        "inverseLatencyLimit": 0.09999999999999998
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-09-policy-proof",
+      "acceptedPosition": 149,
+      "candidateFingerprint": "e7b18fee567f3232990dd2a8c84422497e289f82d4f093fef0fe450c22ff7d5d",
+      "designFingerprint": "9b1b4c63bccf29ad90e7edfd1c8db8d75828a95b5081010c9078aae7841e4728",
+      "score": 0.8136309523809524,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7936507936507936,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.040000000000000036,
+        "inverseLatencyLimit": 0.01666666666666672
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    },
+    {
+      "candidateId": "batch15-complete-10-terminal-invariants",
+      "acceptedPosition": 150,
+      "candidateFingerprint": "ccb1c8ff7c163c89ec2b0d490d5edb8b8dc162b7b2efed5a57acb1f3a04435da",
+      "designFingerprint": "db664488dbf2e06f8443204433a4a0187de37c043f26bae50c8346fdb7cdd8de",
+      "score": 0.8135290697674418,
+      "components": {
+        "contextCoverage": 1,
+        "toolCoverage": 1,
+        "emphasisCoverage": 0.625,
+        "normalizedQualityWeight": 0.7751937984496123,
+        "inverseRiskTolerance": 0.98,
+        "inverseCostLimit": 0.06000000000000005,
+        "inverseLatencyLimit": 0.050000000000000044
+      },
+      "priorHash": "99b7d4ff01b96596587f26b9ddb82eef7e3554cf3e0cc1de8045bfd435b78d3d"
+    }
+  ],
+  "globalFinalistIds": [
+    "batch9-complete-reversibility-first",
+    "commercial-support-v1:batch7-c07",
+    "batch9-complete-counterfactual-disposition",
+    "batch15-complete-07-commitment-contract",
+    "batch9-complete-dependency-graph",
+    "commercial-support-v1:batch7-c06",
+    "commercial-support-v1:batch7-c10",
+    "commercial-support-v1:batch7-c02",
+    "batch9-complete-obligation-ledger",
+    "batch11-disconfirming-evidence"
+  ],
+  "protectedFirstFiveFinalistIds": [
+    "csops-b1-sla-risk-router",
+    "csops-b1-duplicate-graph",
+    "csops-b1-incident-correlator",
+    "csops-b1-billing-proof-gate",
+    "csops-b1-triage-ledger"
+  ],
+  "evaluationUnionIds": [
+    "csops-b1-triage-ledger",
+    "csops-b1-sla-risk-router",
+    "csops-b1-billing-proof-gate",
+    "csops-b1-incident-correlator",
+    "csops-b1-duplicate-graph",
+    "commercial-support-v1:batch7-c02",
+    "commercial-support-v1:batch7-c06",
+    "commercial-support-v1:batch7-c07",
+    "commercial-support-v1:batch7-c10",
+    "batch9-complete-counterfactual-disposition",
+    "batch9-complete-reversibility-first",
+    "batch9-complete-dependency-graph",
+    "batch9-complete-obligation-ledger",
+    "batch11-disconfirming-evidence",
+    "batch15-complete-07-commitment-contract"
+  ],
+  "selectionRulesHash": "5f4c270ce871ac4f1af4ca97c993e897d17252087bc75b0ce864fc24a29851ec",
+  "evidenceBoundary": "Zero-call structural validation, exact deduplication, diversity analysis and preregistered prior selection only. It contains no task-performance evidence.",
+  "freezeHash": "4b588c786562530a89cf21e485822fe3944a331a15f74eda207247b3986bcc75"
+}

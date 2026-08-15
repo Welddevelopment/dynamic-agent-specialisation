@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "das.nonactivating-specialist.v1",
+  "tenantId": "fictional-solace-warranty-response-das027-mcp-v1-tenant",
+  "roleId": "solace-warranty-response-das027-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistId": "synthetic-provisional-solace-warranty-response-das027-mcp-v1",
+  "status": "synthetic-provisional",
+  "candidateFingerprint": "26c1339f9e3211b970e0e7e7bff073d838efa0e8b9136b1749367803b0466662",
+  "selectionEvidence": null,
+  "bindingPackageReceiptHash": "6064b953cd134d6dc44a34eb98f93bfbb631f06a45f5864ba425ac4133ea5564",
+  "active": false,
+  "activationAuthorized": false,
+  "customerExecutionAuthorized": false,
+  "specialistHash": "beafa8e4b26acc207eb1bace513e38d7f92aa337fdf25c3d4eb40e4ed7855ab8"
+}

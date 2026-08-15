@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "das.candidate-scale-v6-infrastructure-failure.v1",
+  "campaignId": "candidate-scale-paired-5-vs-150-v6-contract-repair",
+  "resultStatus": "invalid-concurrent-writer-infrastructure-run",
+  "performanceEvaluationStarted": false,
+  "generatedPortfolioSealed": false,
+  "generationCheckpointSealed": false,
+  "scientificResultUsable": false,
+  "failure": {
+    "class": "concurrent-writer-state-corruption",
+    "finding": "Two live generators wrote the same budget, cache, progress and append-only evidence paths. The evidence graph forked and the surviving budget snapshot undercounted distinct settled provider responses.",
+    "terminatedWriterPids": [
+      40547,
+      41071
+    ],
+    "noLiveWriterVerifiedAfterTermination": true,
+    "survivingProgressBatch": 9
+  },
+  "accounting": {
+    "knownSettledProviderCalls": 12,
+    "knownSettledSpendUsd": 0.9895715000000002,
+    "unresolvedInFlightReservations": 2,
+    "maximumUnknownInFlightSpendUsd": 0.43174500000000005,
+    "conservativeProviderSpendUpperBoundUsd": 1.4213165,
+    "cacheHits": 5,
+    "survivingBudgetRecordedCalls": 10,
+    "survivingBudgetRecordedSpendUsd": 0.7434675000000001,
+    "deduplicationRule": "Deduplicate only identical settled response hashes. Every settled response hash was unique. Match settlements to their nearest same-id ancestor reservation within the fork graph; unmatched reservations remain charged at their full projected maximum."
+  },
+  "evidenceGraph": {
+    "records": 31,
+    "forkParentHash": "1b77026bdfb671d3312c3110eae2413001f4ea1986fe28a3879d7045835ff34f",
+    "forkChildHashes": [
+      "bf98702d5a07a083876cdd2c22548b04cc85f2ac90f8c74927be9b8eac7a01da",
+      "ab243d1c946ee7aa348b52838c3ab5cb7e97f15375dea8080342814e29991907"
+    ],
+    "reservationEvents": 14,
+    "settledResponseHashesHash": "5cd559b7e6ed6c08c9be886f2828e85ff556c0599d92d2958df1315dc05be4b6",
+    "unresolvedReservationsHash": "317ded3c20fb54090b64ee9db7d18254d82595fe4a04e78177dfa8f091120b1c"
+  },
+  "sourceBindings": {
+    "live-plan.json": "5b84603ba984cf84d3d8a441e5964a6124d04a3442782b502a7f8ed2eaa9224d",
+    "private-case-pack.json": "d20de236a3fc7bcacf489c5243fdff338d3ef37f52d768385801aa673c74b0b1",
+    "private-case-pack-preflight-receipt.json": "e78f4846e21522cb21b900df833eeb2d3e08ccdaf9541542e7fedc7161521ece",
+    "model-campaign/budget.json": "905a1f0456aa859b8ed62678e34b5a7d1812243a5df24989028e7d5dfa486c4d",
+    "model-campaign/campaign-clock.json": "f21a770b1bdfe7ad9a9fcaa60de25f30cd9dc1ca35cf2cfb5f784d55a4752957",
+    "model-campaign/evidence.jsonl": "69a47208b3f91d6de808490eeba3f8def377ec3e107e1dfc6ce6fb40ebc15d4b",
+    "model-campaign/generation-progress.json": "5123c032296707ff0fe63e563a9f9b8b76dd958d6ab5e1ec138d6ce9d11ea5c4",
+    "model-campaign/response-cache.json": "5d865b09546911a48624291254cdbd11e984e1eb3bf55aa7a9673d7e5a601e5c"
+  },
+  "recoveryRule": "Preserve V6 unchanged as failed infrastructure evidence. Start a fresh campaign namespace only after an exclusive single-writer lock passes concurrent-process tests. Do not import, repair, substitute or evaluate V6 candidates.",
+  "receiptHash": "f2c5b717445f71049fb855df0b1fe9f771fc9c74c20c93a2d5057be64d708311"
+}

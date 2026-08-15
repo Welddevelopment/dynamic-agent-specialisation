@@ -1,0 +1,497 @@
+{
+  "schemaVersion": "das.onboarding-binding-accelerator-rehearsal.v1",
+  "checkpoint": "DAS-007",
+  "modes": [
+    {
+      "mode": "openapi",
+      "proposalHash": "e47a4e7976b4ab686d796cb58763ce40c5dbfafa1b134b6a54af225117e9f028",
+      "confirmationHash": "85cf14b6d78c25d262d2c9e1bc3635f36924add16980cd8f0d5667366e438440",
+      "workPlanHash": "e41e4c159089aa8d4ed36f2ef527dce7f5c02eaea67deb2ee90c142fe9134088",
+      "approvedOperations": 2,
+      "setupCoverage": {
+        "unit": "explicit-binding-and-verifier-fields",
+        "total": 36,
+        "generatedOrCustomerConfirmed": 12,
+        "remainingEngineerOrIndependentProof": 24,
+        "completionRatio": 0.3333,
+        "customTransportSourceFilesRequired": 0,
+        "customTransportSourceFilesBoundary": "For the supported bounded OpenAPI/MCP shapes, the existing generic compiler/runtime is intended to replace custom transport code. This is a design property, not evidence that this draft compiles or works against the customer system.",
+        "inventory": [
+          {
+            "id": "source-digest",
+            "owner": "das",
+            "status": "generated",
+            "detail": "ac31d032ad60004e8c30ded23734f34f6b906dd6b7978e4e0051bb2644e2a9bb"
+          },
+          {
+            "id": "source-operation:getTicket",
+            "owner": "das",
+            "status": "generated",
+            "detail": "getTicket"
+          },
+          {
+            "id": "target-operation:getTicket",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "support-sandbox:read-ticket"
+          },
+          {
+            "id": "mode:getTicket",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "read"
+          },
+          {
+            "id": "source-input-schema:getTicket",
+            "owner": "das",
+            "status": "generated",
+            "detail": "72f9fd354c49112614d52c361be2ed1bb66078914c74ae8eac36aff9208c69a9"
+          },
+          {
+            "id": "runtime-input-schema:getTicket",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+          },
+          {
+            "id": "context:getTicket",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "ticket-thread"
+          },
+          {
+            "id": "transport:getTicket",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Compile and locally test through the generic OpenAPI runtime."
+          },
+          {
+            "id": "source-operation:draftReply",
+            "owner": "das",
+            "status": "generated",
+            "detail": "draftReply"
+          },
+          {
+            "id": "target-operation:draftReply",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "support-sandbox:draft-response"
+          },
+          {
+            "id": "mode:draftReply",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "write"
+          },
+          {
+            "id": "source-input-schema:draftReply",
+            "owner": "das",
+            "status": "generated",
+            "detail": "246f5bdfc89017e30bbc0939484286c108cc21e6098b41d946b4876dcaddb9de"
+          },
+          {
+            "id": "runtime-input-schema:draftReply",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+          },
+          {
+            "id": "context:draftReply",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "support-policy, ticket-thread"
+          },
+          {
+            "id": "authority:draftReply",
+            "owner": "customer",
+            "status": "confirmed-existing-only",
+            "detail": "draft-support-response"
+          },
+          {
+            "id": "idempotency:draftReply",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Bind the exact idempotency header or required input field."
+          },
+          {
+            "id": "reconciliation:draftReply",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Bind an approved read operation plus mappings and assertions for unknown outcomes."
+          },
+          {
+            "id": "transport:draftReply",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Compile and locally test through the generic OpenAPI runtime."
+          },
+          {
+            "id": "coverage:support-sandbox:list-assigned-tickets",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:list-assigned-tickets has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:read-account",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:read-account has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:list-billing-events",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:list-billing-events has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:list-active-incidents",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:list-active-incidents has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:search-knowledge",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:search-knowledge has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:read-support-policy",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:read-support-policy has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:apply-service-credit",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:apply-service-credit has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:create-support-escalation",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:create-support-escalation has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:link-ticket-to-incident",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:link-ticket-to-incident has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:merge-duplicate-ticket",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:merge-duplicate-ticket has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:close-ticket",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:close-ticket has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "verifier:business-outcome-1",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Every assigned ticket reaches the correct externally observable state."
+          },
+          {
+            "id": "verifier:business-outcome-2",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Credits, incident links and escalation routes are exact and duplicate-safe."
+          },
+          {
+            "id": "verifier:business-outcome-3",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "No denied, out-of-scope or protected-data side effect occurs."
+          },
+          {
+            "id": "verifier:protected-state",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Directly compare protected and unrelated external state before and after execution."
+          },
+          {
+            "id": "verifier:authority-trace",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Reject any executed or attempted action outside the saved authority and approval boundary."
+          },
+          {
+            "id": "verifier:read-back:support-sandbox:draft-response",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Independently read external state for support-sandbox:draft-response; do not accept the candidate or adapter response as proof."
+          },
+          {
+            "id": "acceptance-campaign",
+            "owner": "independent-verifier",
+            "status": "required-independent-proof",
+            "detail": "Run every mandatory binding acceptance case after implementation."
+          }
+        ]
+      },
+      "exactRemainingWorkCount": 24,
+      "fileHashes": {
+        "review-confirmation.json": "c81eca8f67b02551c020cfc51e4793137ae2723c36b071c883e768ac40f490b8",
+        "binding-work-plan.json": "3d7410fa182743f3a4007f4370698489d679b8ffac5bd4bdd91ed63143155215",
+        "adapter-config.draft.json": "28c04851ca1f3b3076aca9ccb6c2785a5d94089879d4bb580518de24fff9aace",
+        "independent-verifier-scaffold.json": "72a67429b398f82a24914c66f41b2061f66283d85146b875f3abb133a3e0e09d",
+        "README.md": "656a8289f317ce7828b25f969b2a2e5da85a8b467441aa7e8af8d02967888db8"
+      },
+      "executable": false
+    },
+    {
+      "mode": "mcp",
+      "proposalHash": "b5ae64c0cb8d8f67d6d2d6c16c7875fe4a6f22331376dceab72145fb1765ed1c",
+      "confirmationHash": "3157383fdde083d82c462c25a0c1aec3e1fd6864dab76e07618b7dc714bdb217",
+      "workPlanHash": "b380cb74a0241f01e5db5ed8ff2322309349c33c3600b566ee22c1a5962c1641",
+      "approvedOperations": 2,
+      "setupCoverage": {
+        "unit": "explicit-binding-and-verifier-fields",
+        "total": 36,
+        "generatedOrCustomerConfirmed": 12,
+        "remainingEngineerOrIndependentProof": 24,
+        "completionRatio": 0.3333,
+        "customTransportSourceFilesRequired": 0,
+        "customTransportSourceFilesBoundary": "For the supported bounded OpenAPI/MCP shapes, the existing generic compiler/runtime is intended to replace custom transport code. This is a design property, not evidence that this draft compiles or works against the customer system.",
+        "inventory": [
+          {
+            "id": "source-digest",
+            "owner": "das",
+            "status": "generated",
+            "detail": "4909054f4ecfe5607b458935bbb72b39dab2ee3675cbac44af699fef93c2d10f"
+          },
+          {
+            "id": "source-operation:get_ticket",
+            "owner": "das",
+            "status": "generated",
+            "detail": "get_ticket"
+          },
+          {
+            "id": "target-operation:get_ticket",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "support-sandbox:read-ticket"
+          },
+          {
+            "id": "mode:get_ticket",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "read"
+          },
+          {
+            "id": "source-input-schema:get_ticket",
+            "owner": "das",
+            "status": "generated",
+            "detail": "8d604cb90c66816380ec87c79576a985c7ab817c6a5c13a39289b37ab6b2aa4e"
+          },
+          {
+            "id": "runtime-input-schema:get_ticket",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+          },
+          {
+            "id": "context:get_ticket",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "ticket-thread"
+          },
+          {
+            "id": "transport:get_ticket",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Compile and locally test through the generic MCP runtime."
+          },
+          {
+            "id": "source-operation:draft_reply",
+            "owner": "das",
+            "status": "generated",
+            "detail": "draft_reply"
+          },
+          {
+            "id": "target-operation:draft_reply",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "support-sandbox:draft-response"
+          },
+          {
+            "id": "mode:draft_reply",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "write"
+          },
+          {
+            "id": "source-input-schema:draft_reply",
+            "owner": "das",
+            "status": "generated",
+            "detail": "274d150693a02327a93aaff4107e9f5f04e38a2702eb901cbc4440508bfa8c3a"
+          },
+          {
+            "id": "runtime-input-schema:draft_reply",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs."
+          },
+          {
+            "id": "context:draft_reply",
+            "owner": "customer",
+            "status": "confirmed",
+            "detail": "support-policy, ticket-thread"
+          },
+          {
+            "id": "authority:draft_reply",
+            "owner": "customer",
+            "status": "confirmed-existing-only",
+            "detail": "draft-support-response"
+          },
+          {
+            "id": "idempotency:draft_reply",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Bind the exact idempotency header or required input field."
+          },
+          {
+            "id": "reconciliation:draft_reply",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Bind an approved read operation plus mappings and assertions for unknown outcomes."
+          },
+          {
+            "id": "transport:draft_reply",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "Compile and locally test through the generic MCP runtime."
+          },
+          {
+            "id": "coverage:support-sandbox:list-assigned-tickets",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:list-assigned-tickets has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:read-account",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:read-account has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:list-billing-events",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:list-billing-events has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:list-active-incidents",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:list-active-incidents has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:search-knowledge",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:search-knowledge has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:read-support-policy",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:read-support-policy has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:apply-service-credit",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:apply-service-credit has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:create-support-escalation",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:create-support-escalation has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:link-ticket-to-incident",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:link-ticket-to-incident has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:merge-duplicate-ticket",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:merge-duplicate-ticket has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "coverage:support-sandbox:close-ticket",
+            "owner": "engineer",
+            "status": "required",
+            "detail": "The saved role operation support-sandbox:close-ticket has no approved source-operation mapping; the customer must supply and review a matching schema operation or create a new intake revision."
+          },
+          {
+            "id": "verifier:business-outcome-1",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Every assigned ticket reaches the correct externally observable state."
+          },
+          {
+            "id": "verifier:business-outcome-2",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Credits, incident links and escalation routes are exact and duplicate-safe."
+          },
+          {
+            "id": "verifier:business-outcome-3",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "No denied, out-of-scope or protected-data side effect occurs."
+          },
+          {
+            "id": "verifier:protected-state",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Directly compare protected and unrelated external state before and after execution."
+          },
+          {
+            "id": "verifier:authority-trace",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Reject any executed or attempted action outside the saved authority and approval boundary."
+          },
+          {
+            "id": "verifier:read-back:support-sandbox:draft-response",
+            "owner": "engineer",
+            "status": "required-independent-proof",
+            "detail": "Independently read external state for support-sandbox:draft-response; do not accept the candidate or adapter response as proof."
+          },
+          {
+            "id": "acceptance-campaign",
+            "owner": "independent-verifier",
+            "status": "required-independent-proof",
+            "detail": "Run every mandatory binding acceptance case after implementation."
+          }
+        ]
+      },
+      "exactRemainingWorkCount": 24,
+      "fileHashes": {
+        "review-confirmation.json": "79d1af19537903ac4342ce994beebe44d85d6da0803a894ec745e6f13bdfb8e5",
+        "binding-work-plan.json": "1a4ce32c42e3ec0ed62d190232e939c226c6256799ff6c279c867cdba6f616a0",
+        "adapter-config.draft.json": "150877bb635230bb33b82a13df4ec5ca3bc5ab35ec65eb839b314a07fa153c01",
+        "independent-verifier-scaffold.json": "72a67429b398f82a24914c66f41b2061f66283d85146b875f3abb133a3e0e09d",
+        "README.md": "656a8289f317ce7828b25f969b2a2e5da85a8b467441aa7e8af8d02967888db8"
+      },
+      "executable": false
+    }
+  ],
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "verdict": "Both approved OpenAPI and MCP materials produced digest-bound reviewed adapter and independent-verifier scaffolds with exact omissions. Neither path produced an executable binding or independent proof.",
+  "evidenceBoundary": "Fictional deterministic local preparation evidence only. It does not prove compilation against an unknown customer system, human setup-time reduction, customer compatibility, verifier correctness, acceptance, activation, demand or production reliability.",
+  "summaryHash": "3fe090eb3c524dfafde84732878c568db01f869569b3ef3a6508f06da71562ed"
+}

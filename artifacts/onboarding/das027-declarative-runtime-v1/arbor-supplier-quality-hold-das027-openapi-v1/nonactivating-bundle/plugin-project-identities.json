@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "das.nonactivating-plugin-project-identities.v1",
+  "tenantId": "fictional-arbor-supplier-quality-hold-das027-openapi-v1-tenant",
+  "roleId": "arbor-supplier-quality-hold-das027-openapi-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "db901a9370d432563c74bc26d481c9e8e275e028e7f643a5556205d9fc0efa9f",
+  "sourceHash": "6f6ebeaf52cbc9552c0adcc91ce411babacb6fa06f35c06b2d75f7b1a53ff01f",
+  "draftHash": "3f30da08e478e6dd9934330bfb8a5c8613ee3dadb7df621f1d7a416a107d978b",
+  "packageReceiptHash": "d7852922493523f5b204eed8c3a06e73877dc6e8ee0fd5958244c68c17fd51ea",
+  "planHash": "1937fdfa510ebdff81be10e42e06219d97d30272640bda989b841dc8680fd9c4",
+  "scaffoldReceiptHash": "45ce1b1b502d10285a6df72fb963e0594cbffb56706ab8da5dbaa85d034157e2",
+  "generatedProjectHash": "07bd0e00d904002fc8fed352ad548747510c3239d20a77de862cc3d17f524f0b",
+  "action": {
+    "projectIdentity": "79df54c1930a9201b0ef9fdc19d50088d858a93dd0aece72dbeda5ac5123791b",
+    "authenticationIdentity": "3747dac53fa793176fc8c4b00227e92da97c457e306fab8b4f81a9866c62c728"
+  },
+  "observer": {
+    "projectIdentity": "01431206060b9c686b90b4e3ee8fd97e560259ee34fc47558bae4c7118739b41",
+    "authenticationIdentity": "04f5f94251007eaf7cf57050f85c66ef1076d02547a1611e159e18a7a46eeb31",
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "executable": false,
+  "qualified": false,
+  "customerEnvironmentAccepted": false,
+  "activationReady": false,
+  "identityHash": "1cd54b166c947b1a7a5d1f3398a7df2ee9d7cea32ce9a7c4625e44c7815a00b7"
+}

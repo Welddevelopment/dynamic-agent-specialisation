@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "das.onboarding-system-import-confirmation.v1",
+  "proposalHash": "e47a4e7976b4ab686d796cb58763ce40c5dbfafa1b134b6a54af225117e9f028",
+  "sessionId": "commercial-support-v1",
+  "intakeHash": "efe848910b366e76bbac3101721dea7958492afbad3e77e5e0276c5401f5cfbc",
+  "systemId": "support-sandbox",
+  "source": {
+    "kind": "openapi",
+    "sourceHash": "ac31d032ad60004e8c30ded23734f34f6b906dd6b7978e4e0051bb2644e2a9bb"
+  },
+  "status": "customer-confirmed-engineering-required",
+  "confirmedBy": "fictional-rehearsal-owner",
+  "operationChoices": [
+    {
+      "sourceName": "getTicket",
+      "proposedExposedName": "support-sandbox:getTicket",
+      "approved": true,
+      "rejectionReason": null,
+      "targetExposedName": "support-sandbox:read-ticket",
+      "confirmedMode": "read",
+      "authority": {
+        "action": null,
+        "classification": "not-applicable",
+        "runtimeGrant": false
+      },
+      "requiredContextSources": [
+        "ticket-thread"
+      ],
+      "sourceInputSchemaHash": "72f9fd354c49112614d52c361be2ed1bb66078914c74ae8eac36aff9208c69a9",
+      "runtimeInputSchemaHash": null,
+      "executable": false
+    },
+    {
+      "sourceName": "draftReply",
+      "proposedExposedName": "support-sandbox:draftReply",
+      "approved": true,
+      "rejectionReason": null,
+      "targetExposedName": "support-sandbox:draft-response",
+      "confirmedMode": "write",
+      "authority": {
+        "action": "draft-support-response",
+        "classification": "already-declared-allowed-action",
+        "runtimeGrant": false
+      },
+      "requiredContextSources": [
+        "support-policy",
+        "ticket-thread"
+      ],
+      "sourceInputSchemaHash": "246f5bdfc89017e30bbc0939484286c108cc21e6098b41d946b4876dcaddb9de",
+      "runtimeInputSchemaHash": null,
+      "executable": false
+    }
+  ],
+  "approvedContextSources": [
+    "active-incidents",
+    "assigned-ticket-queue",
+    "billing-events",
+    "customer-account",
+    "knowledge-base",
+    "openapi:ac31d032ad60004e:draftReply",
+    "openapi:ac31d032ad60004e:getTicket",
+    "support-policy",
+    "ticket-thread"
+  ],
+  "gates": {
+    "authority": "mapped-to-existing-intake-only-not-runtime-granted",
+    "credentials": "not-collected",
+    "executableAdapter": "not-implemented",
+    "independentVerifier": "not-implemented",
+    "acceptance": "not-run",
+    "comparisonExecution": "blocked",
+    "controlledActivation": "blocked"
+  },
+  "authorizations": {
+    "modelSpend": false,
+    "execution": false,
+    "customerWrites": false,
+    "activation": false
+  },
+  "evidenceBoundary": "Digest-bound customer review of one pinned schema proposal. It maps approved source operations to an existing saved role and existing declared authority only. It does not implement an adapter or verifier, collect credentials, grant runtime authority, execute, spend or activate.",
+  "confirmationHash": "85cf14b6d78c25d262d2c9e1bc3635f36924add16980cd8f0d5667366e438440"
+}

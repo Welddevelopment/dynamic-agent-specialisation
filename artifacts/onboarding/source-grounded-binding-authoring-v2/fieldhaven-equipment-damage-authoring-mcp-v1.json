@@ -1,0 +1,57 @@
+{
+  "fixtureId": "fieldhaven-equipment-damage-authoring-mcp-v1",
+  "sourceKind": "mcp-tools-list",
+  "authoring": {
+    "revisionZeroHash": "f551926655045516cd0c135b979f79ab2e990fd996e72704a224a47d78a1a077",
+    "completedSessionHash": "4d8145272c898ed9b13810f31445e2bd6b68c352ea91d50af2b90efced7ec5f6",
+    "revision": 1,
+    "questionCount": 43,
+    "answeredQuestions": 43,
+    "answerRevisions": 1,
+    "factsByStatus": {
+      "observed": 9,
+      "extracted": 4,
+      "inferred-proposal": 5,
+      "owner-confirmed": 19,
+      "engineer-confirmed": 24,
+      "independently-verified": 0,
+      "unknown": 0
+    },
+    "operationsExtracted": 7,
+    "instructionWarnings": 0,
+    "blockers": [],
+    "freshProcessReceiptEqual": true,
+    "packageDraftHash": "2990c95db7e5b3161498c4fc1ad240d54888f37d8d38c67f3fed101e8f800ba9",
+    "protectedGates": {
+      "credentialValues": 0,
+      "runtimeAuthorityGranted": false,
+      "independentlyVerified": false,
+      "executable": false,
+      "comparisonReady": false,
+      "activationReady": false
+    },
+    "packageSpecificExecutableCode": 0,
+    "packageSpecificCallbacks": 0
+  },
+  "qualification": {
+    "separateHarnessInputs": true,
+    "structuralBindingHash": "35b2b45691befdaa72e72f1331bc2a7582a1397647b0d246016968e6ec0a3ac0",
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "businessWrites": 8,
+    "observerWrites": 0,
+    "lostResponseWrites": 1,
+    "lostResponseReplays": 0,
+    "freshProcessRecovery": true,
+    "unsafeOrAmbiguousAccepted": 0,
+    "acceptanceStatus": "local-acceptance-only-passed-non-executable",
+    "executableOperations": 0,
+    "runtimeAuthorityGranted": false,
+    "activationReady": false
+  },
+  "activeMachineTimeMs": 36.38,
+  "humanSetupTimeMeasured": false,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Synthetic qualification harness only. Extra examples and commercial-intake structure are not DAS-024 authoring inputs or evidence of customer setup automation."
+}

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-release-signature.v1",
+  "algorithm": "Ed25519",
+  "manifestHash": "eba7d8a7c583d52257972e7cedda63c72ecb985659c34c2980aaed1daf27d79e",
+  "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAs8wmhghSGoKVnNmvp6BKRXKxW6RbUJhmUNKFg9OszeU=\n-----END PUBLIC KEY-----\n",
+  "signature": "bA/bLDsGNc8MauaKyojIMU6wTODBQ8DUi8LXrdHVjJd4IZv8aiBqaGJ60KwiKYnSXfNa/hqb/0//hJl7XYMfBg=="
+}

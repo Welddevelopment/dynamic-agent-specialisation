@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "das.nonactivating-plugin-project-identities.v1",
+  "tenantId": "fictional-solace-warranty-response-das027-mcp-v1-tenant",
+  "roleId": "solace-warranty-response-das027-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "beafa8e4b26acc207eb1bace513e38d7f92aa337fdf25c3d4eb40e4ed7855ab8",
+  "sourceHash": "dd4f7305988b4a66263e5231a583593bee1dff3cc7608ad9a2af3a951d2aec7f",
+  "draftHash": "edcdc710ea4260afb6d93a05dff1d29ba39b3a3ad30c344c79b968f7b2c83a88",
+  "packageReceiptHash": "6064b953cd134d6dc44a34eb98f93bfbb631f06a45f5864ba425ac4133ea5564",
+  "planHash": "2128fd08656dc70c310d5f6a4ec88c668de49d375c1491dd42c8d38540617141",
+  "scaffoldReceiptHash": "1856219ec5afd83299f6690d46d99fa8dd8e5d7fd3d051cac96cea0e806d22ec",
+  "generatedProjectHash": "5b89e3ea23f647e02c8783aff211a8426a5444ef59ff19b34c267efacf63f693",
+  "action": {
+    "projectIdentity": "b6c7036e0e6231dc6f93915d729bacda131154f2d71713f424c388962288b333",
+    "authenticationIdentity": "bef74724175a769d351a64a0251f7f970403a8b6163ea408ee194ddeab6d0574"
+  },
+  "observer": {
+    "projectIdentity": "bc1ed91f94393c624f9e2ba89ddb83e1b333818a5286bdc7bb429460f098bb8d",
+    "authenticationIdentity": "951c15ba4116e62cd702b6c871f736c46de9e47865ff96638add2ffa690d7c13",
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "executable": false,
+  "qualified": false,
+  "customerEnvironmentAccepted": false,
+  "activationReady": false,
+  "identityHash": "d5e5b21bb9876e871d63013e4cb419325434f1b7b7a5ac99a34b07fe2646175c"
+}

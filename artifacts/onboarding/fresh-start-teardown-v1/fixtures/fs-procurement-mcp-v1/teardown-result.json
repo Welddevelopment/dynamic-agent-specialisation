@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "das.fresh-start-onboarding-teardown-result.v1",
+  "fixtureId": "fs-procurement-mcp-v1",
+  "expectedBoundary": "full-lifecycle-role-but-unbound",
+  "highestHonestStage": "comparison-design-complete-binding-required",
+  "roleAvailability": {
+    "discovery": true,
+    "businessIntake": true,
+    "bindingScaffold": true,
+    "systemImportReview": true,
+    "bindingDescriptorReview": true,
+    "bindingAcceptance": true,
+    "comparisonPlanning": true,
+    "comparisonResult": true,
+    "controlledActivation": true,
+    "blockers": []
+  },
+  "executionReady": false,
+  "activationReady": false,
+  "readinessBlockers": [
+    "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs.",
+    "Compile and locally test through the generic MCP runtime.",
+    "Bind the exact idempotency header or required input field.",
+    "Bind an approved read operation plus mappings and assertions for unknown outcomes.",
+    "Every approved shortage is correctly covered or precisely handed off.",
+    "Every draft is approved-supplier and duplicate-safe.",
+    "No purchase is submitted and unrelated state is unchanged.",
+    "Directly compare protected and unrelated external state before and after execution.",
+    "Reject any executed or attempted action outside the saved authority and approval boundary.",
+    "Independently read external state for erp:draft-purchase-order; do not accept the candidate or adapter response as proof.",
+    "Run every mandatory binding acceptance case after implementation."
+  ],
+  "ledgerMeasurements": {
+    "activeMachineMs": 11.3,
+    "productApiActions": 4,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "authorInterventions": 0,
+    "exactMappingProposalHits": 3,
+    "exactAuthorityProposalHits": 3,
+    "approvedOperations": 4,
+    "rejectedOperations": 1,
+    "silentAuthorOnlyInjections": 0,
+    "meaningfulSetupUnits": 89,
+    "traceableSetupUnits": 77,
+    "provenanceCoverage": 0.8652,
+    "automationStatusCounts": {
+      "blocked-unknown": 5,
+      "generated": 27,
+      "requires-engineering": 10,
+      "requires-independent-proof": 7,
+      "requires-ordinary-language-decision": 40
+    },
+    "executableEvidenceRows": 0,
+    "authorityGrantedRows": 0,
+    "credentialValueRows": 0
+  },
+  "generatedMappingAccuracy": 0.75,
+  "generatedAuthorityAccuracy": 0.75,
+  "manualBaselineTargetChoices": 4,
+  "generatedExactTargetProposals": 3,
+  "roleOwnerConfirmationsStillRequired": 4,
+  "rejectedSourceOperations": 1,
+  "restart": {
+    "freshProcessReloadPassed": true,
+    "recordHash": "4d2396d91baae0a351f09b785b25894ce40b1ec75e9a1074b11234b09605c423",
+    "receiptHash": "acd2edeed5fa9d6b2c84345ed822d21b3952e770cce00e9946cd48cdbb6cb66d"
+  },
+  "repeatability": {
+    "exactFreshReplayPassed": true,
+    "semanticHash": "340b38379885c7f9cd8532e4131c9e91950201de603d8cdeaa57311eccca0e15"
+  },
+  "sourceKinds": [
+    "mcp-tools-list"
+  ],
+  "importResults": [
+    {
+      "sourceKind": "mcp-tools-list",
+      "confirmationHash": "95476e8e7c0d0494bf03d1efe1d1708a462ebec34f8aff121fc282c032c1093e",
+      "workPlanHash": "fbe7646a0780f9b883f42b9586b2c3b3a5f49de779a488d5b76a39ebc5e9a1d6",
+      "assistanceHash": "ed0a21c50338273956123e16d9e83cf9067ebd119f69eb0368e7670f9552b6b3",
+      "residualTotals": {
+        "automatable-generic-compiler-or-source-schema-work": 8,
+        "complete": 22,
+        "customer-specific-write-safety-implementation": 2,
+        "independent-verifier-or-proof-work": 7
+      }
+    }
+  ],
+  "ledgerHash": "76d303898781ae55d165f9d00f2642172d2e19d20949175bd8fb86c483ca0336",
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "boundary": "Machine-observed onboarding provenance and residual-work ledger. Active machine time is not human setup time. Customer confirmations are not DAS automation, and generated scaffolds are not executable evidence.",
+  "resultHash": "33ea1ecba87ee3d285a0748eaecd057265e15cd15224a82ce50567d515651dd2"
+}

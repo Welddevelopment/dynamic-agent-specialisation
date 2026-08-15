@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "das.generated-declarative-action-runtime-contract.v1",
+  "packageIdentityHash": "de947fbf5db509fc612641be6a27230b4eaa3ce21db189d5f96bb68bafe92528",
+  "workPackHash": "d9f1d4959c176b34f26b54173a5962b1fb09b2cfdd13ccbc8faac77c082b23b8",
+  "executionProfileHash": "dd75b0272a9d98e85aaeb38c90331f32e116203fa459b50b62456606a9f4e9fd",
+  "sourceKind": "mcp-tools-list",
+  "sourceHash": "889a6dec01171dc7a9b5ab0822022d79c3cbd2ad59a4c8a8a291d4c678160ce1",
+  "baseUrl": null,
+  "credentialAlias": "QUARRY_EQUIPMENT_ACTION",
+  "requiredAuthorityAction": "create-unsubmitted-equipment-isolation-draft",
+  "stableIdentityFields": [
+    "assetId",
+    "deduplicationKey"
+  ],
+  "conflictKeyFields": [
+    "deduplicationKey"
+  ],
+  "writeOperation": {
+    "family": "mcp-tools-list",
+    "operationName": "createDraftEquipmentIsolation",
+    "serverId": "quarry-equipment-actions",
+    "serverVersion": "1.9.0",
+    "toolsListHash": "889a6dec01171dc7a9b5ab0822022d79c3cbd2ad59a4c8a8a291d4c678160ce1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "assetId": {
+          "type": "string",
+          "minLength": 3
+        },
+        "deduplicationKey": {
+          "type": "string",
+          "minLength": 12
+        },
+        "workOrderId": {
+          "type": "string",
+          "minLength": 4
+        },
+        "reasonCode": {
+          "type": "string",
+          "enum": [
+            "SAFETY_INSPECTION",
+            "PLANNED_MAINTENANCE"
+          ]
+        },
+        "inspectionDigest": {
+          "type": "string",
+          "minLength": 12
+        },
+        "isolationMinutes": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 1440
+        }
+      },
+      "required": [
+        "assetId",
+        "deduplicationKey",
+        "workOrderId",
+        "reasonCode",
+        "inspectionDigest",
+        "isolationMinutes"
+      ],
+      "additionalProperties": false
+    },
+    "operationIdentityHash": "be61fe1a8163d7f58d6e2c82fe089737a409e57057e6bfda77ce40bc4c5e2676"
+  },
+  "reconciliationOperation": {
+    "family": "mcp-tools-list",
+    "operationName": "readDraftEquipmentIsolation",
+    "serverId": "quarry-equipment-actions",
+    "serverVersion": "1.9.0",
+    "toolsListHash": "889a6dec01171dc7a9b5ab0822022d79c3cbd2ad59a4c8a8a291d4c678160ce1",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "assetId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "assetId"
+      ],
+      "additionalProperties": false
+    },
+    "operationIdentityHash": "5e614ad364d2d478e4d75b3057c2cbe226784ab9038119a43ef45c62f3fecd82"
+  },
+  "reconciliationBindings": [
+    {
+      "from": "assetId",
+      "to": "assetId"
+    }
+  ],
+  "maximumRequestsPerMinute": 60,
+  "timeoutMs": 350,
+  "automaticRetries": 0,
+  "actionResponseMayProveOutcome": false,
+  "customerExecutionAuthorized": false,
+  "activationAuthorized": false,
+  "contractHash": "7735ff8340fef4436a574e923ae91e6509d138fb77530d24778559693cf7ca95"
+}

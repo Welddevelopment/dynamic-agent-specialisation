@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "das.reviewed-binding-compiler-rehearsal-failure.v1",
+  "checkpoint": "DAS-012",
+  "stage": "held-out-intake-precondition",
+  "error": "System-import confirmation requires the exact generated customer-binding scaffold",
+  "frozenFamilyCompletedInMemoryBeforeFailure": true,
+  "heldOutResultCompleted": false,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "preserved": true
+}

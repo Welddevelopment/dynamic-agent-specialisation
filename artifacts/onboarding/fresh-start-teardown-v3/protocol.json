@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "das.fresh-start-onboarding-teardown-protocol.v1",
+  "checkpoint": "DAS-010",
+  "hypothesis": "Every required onboarding fact can be attributed to approved customer material, an explicit role-owner confirmation, a deterministic DAS proposal, bounded engineer implementation, independent proof, or a precise blocker; source-grounded review assistance reduces author-only mapping work without widening authority or readiness.",
+  "fixtures": [
+    {
+      "id": "fs-support-openapi-v1",
+      "customerPacketHash": "c8948b74503e5b4535ca0b5c52e225cbcaf6448a3362c10dc70a477d26da3254",
+      "sealedOracleHash": "58f71a20ea5c2c9677a93204afcc3f4a458d1f43c7e2b532b808a244c45872f1",
+      "expectedBoundary": "full-lifecycle-role-but-unbound"
+    },
+    {
+      "id": "fs-procurement-mcp-v1",
+      "customerPacketHash": "55593bbeca3436cd54a8945e38a4549414af8f5a590987543f12d26919c6b185",
+      "sealedOracleHash": "05bea85e7a03179fb15f7f65d293a05a70c649cdef5fd452dd9aab90b67ebf92",
+      "expectedBoundary": "full-lifecycle-role-but-unbound"
+    },
+    {
+      "id": "fs-revops-mixed-v1",
+      "customerPacketHash": "73aeac4eeefc4a2b7038aa1b3e9fb01a68dba05d0c786e59b93e0d96f35ac4ea",
+      "sealedOracleHash": "4e6025a1a90850f94496e4278a50fc55a29427e8a34e9e7190298c8ac2a55325",
+      "expectedBoundary": "full-lifecycle-role-but-unbound"
+    },
+    {
+      "id": "fs-frontend-partial-v1",
+      "customerPacketHash": "80843ceed2974a9e3dc33d1e2a92c818295765cc94343d9aba0db1b6e8e16bf2",
+      "sealedOracleHash": "8eca959a22526856c22c64b6c52b4b0d41fd86b81c09712f51da9f66d99a3a82",
+      "expectedBoundary": "design-and-scaffold-only"
+    }
+  ],
+  "stopConditions": [
+    "credential persisted",
+    "authority widened",
+    "unknown provenance used to advance",
+    "source mutation accepted",
+    "false execution or activation readiness",
+    "paid call or network access"
+  ],
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "protocolHash": "a39b6afa4a620d508de481e88d218c9956aaba55146800cd8c68667f50cdd57a"
+}

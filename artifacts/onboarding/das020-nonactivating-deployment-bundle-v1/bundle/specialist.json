@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "das.nonactivating-specialist.v1",
+  "tenantId": "fictional-northstar-tenant",
+  "roleId": "invoice-dispute-specialist",
+  "roleRevision": 4,
+  "specialistId": "synthetic-provisional-northstar-dispute-v1",
+  "status": "synthetic-provisional",
+  "candidateFingerprint": "da890415a9b90d26bec5c9f8db998b77965e09a32f7c922d64cddbfe6a09103b",
+  "selectionEvidence": null,
+  "bindingPackageReceiptHash": "54eca9552e65ee4965ecfa1fd240a7b775c6e40cd38f4535cf977deba0ca203d",
+  "active": false,
+  "activationAuthorized": false,
+  "customerExecutionAuthorized": false,
+  "specialistHash": "ccdd2a96b6d56f742de291c8667a397e9d65f30e2bd95e977acd96005bcfcb4c"
+}

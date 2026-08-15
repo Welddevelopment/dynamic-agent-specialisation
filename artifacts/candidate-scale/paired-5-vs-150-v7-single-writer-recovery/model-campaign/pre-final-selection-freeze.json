@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "das.candidate-scale-paired-pre-final-freeze.v7-single-writer-recovery",
+  "planHash": "be1e5db937be4252883cb1506675e43885166789ce6821e024d0e03f555c1875",
+  "protocolCoreHash": "250103e2b780be0965954a2d076f22ac06e2c966c16af0e1002b4b750c9559fd",
+  "structuralSelectionFreezeHash": "4b588c786562530a89cf21e485822fe3944a331a15f74eda207247b3986bcc75",
+  "selectionObservationHash": "0a31e8d85fa6419ce091a816b3a06e318952120150e132aedc30ba059437cd5a",
+  "prefixWinner": null,
+  "globalWinner": null,
+  "baselineHashesHash": "5a66de151c458e0d8463f5b04a6cd82e5bf12f32fd21afb42ea9fa611b43b28a",
+  "holdoutDigest": "e2fd9cf0539aa6f57775cf6cd7229e7fa3bcabcefe9fc92f484d6df7ea7a3db7",
+  "repeatDigest": "3a7678ef1757967d6bce4c637cd2013d266254688f82851a2b62da7e1c953056",
+  "rule": "Freeze each arm winner before releasing holdout/repeat. Run each distinct winner and all four baselines on the same untouched confirmation cases. No fallback winner is selected after confirmation.",
+  "v5FailureReceiptHash": "d1dd3ded907f6c39b3d80a0646c99dc07bda15e5f397cf06dcb9930f030ae098",
+  "v6InfrastructureFailureReceiptHash": "f2c5b717445f71049fb855df0b1fe9f771fc9c74c20c93a2d5057be64d708311",
+  "freezeHash": "d8e40967cdc48999e4b285177333220306ed7565227bf0560b4ad6cf7f7a1f5f"
+}

@@ -1,0 +1,334 @@
+{
+  "schemaVersion": "das.das025-plugin-project-rehearsal-summary.v1",
+  "fixtureCount": 2,
+  "sourceKinds": [
+    "mcp-tools-list",
+    "openapi"
+  ],
+  "controlsPassed": 20,
+  "controlsRequired": 20,
+  "integrityAttacksPassed": 10,
+  "integrityAttacksRequired": 10,
+  "generatedFiles": 32,
+  "generatedSourceLines": 342,
+  "packageSpecificExecutableFiles": 0,
+  "packageSpecificExecutableLines": 0,
+  "observerWrites": 0,
+  "lostResponseReplays": 0,
+  "protectedGatesPreserved": true,
+  "sourceIntegrity": {
+    "files": [
+      {
+        "relative": "reports/0101-das025-plugin-project-preregistration.md",
+        "sha256": "6f7c4f240a9f41734c978dfdb87974930c4c6f0f2197ab9f976dcff017b4d5dc"
+      },
+      {
+        "relative": "src/product/customer-local-binding-plugin-scaffold.js",
+        "sha256": "fb9ddeaf1cddd3a8fa57e379a0bfffc431f599ce68ae84a424f938ac16131998"
+      },
+      {
+        "relative": "src/product/source-grounded-binding-package-draft.js",
+        "sha256": "601003f1e0b4fc15944add53d18fec72a21fb65f9949ca9979a69a51f2624efc"
+      },
+      {
+        "relative": "src/product/customer-local-binding-package-factory.js",
+        "sha256": "0d777690e91761ea263fdf37bb4022cb77243ce0b54ce108324a678c9a55d84d"
+      },
+      {
+        "relative": "src/product/customer-local-binding-qualification.js",
+        "sha256": "4d652ab9c7ce5de9de78cf311b13b6824ea6adcadf0d464a4c27682bf6545278"
+      },
+      {
+        "relative": "src/product/customer-local-qualification-runtime-bridge.js",
+        "sha256": "aca6c94a6999ecfc3c1fdfeed72beeb672d4c7ff9f75871710b70dadef53fba2"
+      },
+      {
+        "relative": "src/product/declarative-customer-local-qualification-world.js",
+        "sha256": "10341f54cc680113e9fd8204e4dd504b6fae268e083da3bf6e5d558d7e5e2f83"
+      },
+      {
+        "relative": "src/experiments/das024-authoring/fixtures.js",
+        "sha256": "860191a5b8f66fb6565d04119037b99390941faf7ceada84d8b008d79a5d41a4"
+      },
+      {
+        "relative": "src/experiments/das024-authoring/qualification-harness.js",
+        "sha256": "0077f6b56738147921935640b12b7f7498382bb542643c2315e6a57bde2a0c75"
+      },
+      {
+        "relative": "src/experiments/das025-plugin-project/fictional-runtime.js",
+        "sha256": "cc4f8eed746662c750663186cfbf3cc64358f2512e089554fbe57f7840fbe2ac"
+      },
+      {
+        "relative": "src/experiments/das025-plugin-project/rehearsal.js",
+        "sha256": "aa208b759aa983a416ed22193c7a3974e1f1caf53e9b471972da24e5c74e2e57"
+      }
+    ],
+    "manifestHash": "28850e16f3d09c8eb442ba941b223c6a03ef7769e76c7d480e233ad95f4505ce",
+    "unchangedDuringCampaign": true
+  },
+  "activeMachineTimeMs": 115.62,
+  "humanSetupTimeMeasured": false,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "status": "private-local-fictional-rehearsal-only",
+  "evidenceBoundary": "Two fresh fictional source families only. The generator produced non-executable plugin projects; separately bound disposable implementations passed local controls. This is not customer code generation, customer execution, arbitrary source support, activation, usability, production reliability or public evidence.",
+  "results": [
+    {
+      "schemaVersion": "das.das025-plugin-project-fixture-rehearsal.v1",
+      "fixtureId": "northstar-invoice-dispute-authoring-openapi-v1",
+      "sourceKind": "openapi",
+      "reconstruction": {
+        "freshDAS024Session": true,
+        "explicitQuestions": 43,
+        "ownerDecisions": 19,
+        "engineerDecisions": 24,
+        "das024DraftHash": "115e2922d1bff2a41fa4f83fd9ea4a727b9ceb6e81a556389bf5e44b81a55de7",
+        "originalDAS023PackageReceiptHash": "54eca9552e65ee4965ecfa1fd240a7b775c6e40cd38f4535cf977deba0ca203d"
+      },
+      "scaffold": {
+        "planHash": "205b11560278b145b796d42756445420c3b0562e15b67b9dd0855483cf7ababe",
+        "receiptHash": "e9d3e1ec384393360a4591d43e20f0697ac7f868da9989b8ec075baa2ef62507",
+        "generatedProjectHash": "36e344362ebafe5231ec5b0a2fbb51a445f7b0bbb62614dcfeefd29bc3cd71f0",
+        "generatedFiles": 16,
+        "generatedSourceFiles": 7,
+        "generatedSourceLines": 171,
+        "generatedExecutableFunctions": 0,
+        "remainingImplementationItems": 7,
+        "protectedGates": {
+          "sourcePinned": true,
+          "actionObserverSeparated": true,
+          "credentialValuesPresent": false,
+          "runtimeAuthorityGranted": false,
+          "executable": false,
+          "qualified": false,
+          "activated": false
+        }
+      },
+      "implementation": {
+        "receiptHash": "b9934cfbea7b12040431291908731387a53996634a46c5b8b788da203a37dd37",
+        "actionImplementationIntentHash": "c8ade95d7c95dcc8e4e6c1cb46aafade2efe387674ec2905b73672d81fcbde0b",
+        "actionImplementationContentHash": "2614a373d7359e5c87d87c40f26bf6ea934bbc1e59747c9462a1bc835d154dfb",
+        "observerImplementationIntentHash": "8530e0bf8ff35bb0a8e734a042b83574959a82f91d03984505dfabec6d70cc50",
+        "observerImplementationContentHash": "383fbefb121a813c91806b1098727f16cabfbca043a4fefa38008cdcd1669f2e",
+        "conformanceReceiptHash": "22d018d436baaeafaa702d7f9316c4ab143438569234eb03e1fb38092d83099b",
+        "conformanceReceipt": {
+          "schemaVersion": "das.das025-fictional-implementation-conformance-receipt.v1",
+          "fixtureId": "northstar-invoice-dispute-authoring-openapi-v1",
+          "implementationBindingReceiptHash": "b9934cfbea7b12040431291908731387a53996634a46c5b8b788da203a37dd37",
+          "actionImplementationContentHash": "2614a373d7359e5c87d87c40f26bf6ea934bbc1e59747c9462a1bc835d154dfb",
+          "observerImplementationContentHash": "383fbefb121a813c91806b1098727f16cabfbca043a4fefa38008cdcd1669f2e",
+          "exactImplementationSourceFiles": [
+            {
+              "relative": "src/experiments/das025-plugin-project/fictional-runtime.js",
+              "sha256": "0bff3263b7221647d9a3a42fc1173c5ae499c9708434a798d6f1b2bebbae1537",
+              "nonBlankLines": 225
+            },
+            {
+              "relative": "src/product/declarative-customer-local-qualification-world.js",
+              "sha256": "eaa8bbd73e94135561c9b6e12a11fee4ee93c91c466a61a6354384a14d2d6c46",
+              "nonBlankLines": 188
+            },
+            {
+              "relative": "src/product/customer-local-qualification-runtime-bridge.js",
+              "sha256": "1d12e29c22046c3f6c498eea808d63fbf96f7c82d56d9f3af65989722d83f48b",
+              "nonBlankLines": 424
+            }
+          ],
+          "qualificationPackageReceiptHash": "4e5c109c7b05622bd7dccb45e9425d88e4a9f42a0243994b4ffedf293beaaccb",
+          "caseContractHash": "15d9692eaef926360321357fe818e6fdaa61cdba5a10c2c8fa4460e202bcd1c1",
+          "qualificationReceiptHash": "fc2bc272e01df0dba55f39513ac95e95ec7807c5fc72a3b41df8f76bda0ef650",
+          "acceptanceOnlyReceiptHash": "83467c8126952469e912ad5e19dca7c2a36ed26ca230354790aae8c759aa1604",
+          "controlsPassed": 10,
+          "controlsRequired": 10,
+          "executableCustomerOperations": 0,
+          "runtimeAuthorityGranted": false,
+          "activationReady": false,
+          "modelCalls": 0,
+          "spendUsd": 0,
+          "evidenceBoundary": "Exact implementation-content and disposable local qualification receipt only. This does not upgrade the generated scaffold itself or establish a customer-executable plugin, credential, authority, activation or production conformance.",
+          "conformanceReceiptHash": "22d018d436baaeafaa702d7f9316c4ab143438569234eb03e1fb38092d83099b"
+        },
+        "sharedImplementationFiles": 3,
+        "sharedImplementationNonBlankLines": 837,
+        "packageSpecificExecutableFiles": 0,
+        "packageSpecificExecutableLines": 0,
+        "explicitPackageProfileFields": 16
+      },
+      "qualification": {
+        "controlsPassed": 10,
+        "controlsRequired": 10,
+        "businessWrites": 8,
+        "observerWrites": 0,
+        "lostResponseWrites": 1,
+        "lostResponseReplays": 0,
+        "freshProcessRecovery": true,
+        "acceptanceStatus": "local-acceptance-only-passed-non-executable",
+        "executableCustomerOperations": 0,
+        "runtimeAuthorityGranted": false,
+        "activationReady": false
+      },
+      "integrityAttacks": [
+        {
+          "id": "generated-file-mutation",
+          "passed": true,
+          "reason": "Plugin scaffold file content changed: action-plugin/src/index.js"
+        },
+        {
+          "id": "stale-mutated-das023-package",
+          "passed": true,
+          "reason": "DAS-023 action declaration integrity mismatch"
+        },
+        {
+          "id": "implementation-content-substitution",
+          "passed": true,
+          "reason": "DAS-025 implementation binding receipt integrity mismatch"
+        },
+        {
+          "id": "cross-package-scaffold-receipt",
+          "passed": true,
+          "reason": "Plugin scaffold receipt does not match the expected generation"
+        },
+        {
+          "id": "cross-role-implementation-replay",
+          "passed": true,
+          "reason": "DAS-025 implementation binding is stale or belongs to another package, scaffold, source, role, or implementation"
+        }
+      ],
+      "activeMachineTimeMs": 62.562,
+      "humanSetupTimeMeasured": false,
+      "modelCalls": 0,
+      "spendUsd": 0,
+      "evidenceBoundary": "Private deterministic fictional local rehearsal. Generated plugin projects remained non-executable; qualification used a separate exact implementation layer outside generated directories. No customer binding, credential, production authority, activation, human setup-time result, model call or spend is established.",
+      "resultHash": "f5ad1c8ea11e409026e8fe72d8a2f36ac3a92494a55cef729b4c739816d24412"
+    },
+    {
+      "schemaVersion": "das.das025-plugin-project-fixture-rehearsal.v1",
+      "fixtureId": "fieldhaven-equipment-damage-authoring-mcp-v1",
+      "sourceKind": "mcp-tools-list",
+      "reconstruction": {
+        "freshDAS024Session": true,
+        "explicitQuestions": 43,
+        "ownerDecisions": 19,
+        "engineerDecisions": 24,
+        "das024DraftHash": "2990c95db7e5b3161498c4fc1ad240d54888f37d8d38c67f3fed101e8f800ba9",
+        "originalDAS023PackageReceiptHash": "7cd1c875b9ab6ad90360d6d21bcea39e6ec8d67cc68020591af836b146081dfe"
+      },
+      "scaffold": {
+        "planHash": "b8ac6b5d7bfc3758785ef23ab75d32e5de77eac8abf65643b3db423eb788a027",
+        "receiptHash": "ba12890a87527d1ea29ec34c8a5b3c6a1cafec9559abb3f62be39f789f9ad1a5",
+        "generatedProjectHash": "36a2e3b11f1b9bad5d6212982a882a4a0b4dfc903c997b76e1bb3c5ac434d524",
+        "generatedFiles": 16,
+        "generatedSourceFiles": 7,
+        "generatedSourceLines": 171,
+        "generatedExecutableFunctions": 0,
+        "remainingImplementationItems": 7,
+        "protectedGates": {
+          "sourcePinned": true,
+          "actionObserverSeparated": true,
+          "credentialValuesPresent": false,
+          "runtimeAuthorityGranted": false,
+          "executable": false,
+          "qualified": false,
+          "activated": false
+        }
+      },
+      "implementation": {
+        "receiptHash": "031e92f1906af12f87a12d36c3ae279dc0cdbc6d53bc832bcc4c13c2ce3b277f",
+        "actionImplementationIntentHash": "f1cfcb52a8795e08a976fbe18dec69e57129d641e2f6bf772cc04829fc1690f0",
+        "actionImplementationContentHash": "fe7df3250876ae772380a5c70f72cc01452a6a218a8d8d2335d76ab57b508abd",
+        "observerImplementationIntentHash": "4ebdd416ad015aedbb78d4eb6e103e0f0f3b0d0e31142d247f7fe438a17f0b48",
+        "observerImplementationContentHash": "82e09de7d0adba3a2689a2c1e74ab47b40be598694cb6d2409ffc46c5d42062b",
+        "conformanceReceiptHash": "5c2b5506b1e0af04e4deb2be88665fe00118f72ca2456ab25632f521a7bb4e09",
+        "conformanceReceipt": {
+          "schemaVersion": "das.das025-fictional-implementation-conformance-receipt.v1",
+          "fixtureId": "fieldhaven-equipment-damage-authoring-mcp-v1",
+          "implementationBindingReceiptHash": "031e92f1906af12f87a12d36c3ae279dc0cdbc6d53bc832bcc4c13c2ce3b277f",
+          "actionImplementationContentHash": "fe7df3250876ae772380a5c70f72cc01452a6a218a8d8d2335d76ab57b508abd",
+          "observerImplementationContentHash": "82e09de7d0adba3a2689a2c1e74ab47b40be598694cb6d2409ffc46c5d42062b",
+          "exactImplementationSourceFiles": [
+            {
+              "relative": "src/experiments/das025-plugin-project/fictional-runtime.js",
+              "sha256": "0bff3263b7221647d9a3a42fc1173c5ae499c9708434a798d6f1b2bebbae1537",
+              "nonBlankLines": 225
+            },
+            {
+              "relative": "src/product/declarative-customer-local-qualification-world.js",
+              "sha256": "eaa8bbd73e94135561c9b6e12a11fee4ee93c91c466a61a6354384a14d2d6c46",
+              "nonBlankLines": 188
+            },
+            {
+              "relative": "src/product/customer-local-qualification-runtime-bridge.js",
+              "sha256": "1d12e29c22046c3f6c498eea808d63fbf96f7c82d56d9f3af65989722d83f48b",
+              "nonBlankLines": 424
+            }
+          ],
+          "qualificationPackageReceiptHash": "1ebbfbb25974af074936b629b88b0de4f87435316648f9d40cb16a53a168f70e",
+          "caseContractHash": "1a3d57edaba7a0dca304119579f43baa2391eacdc82af91f471f8d94903ebdbe",
+          "qualificationReceiptHash": "d9fdd9bbadcbb0904f1a42c159df9f00db66547b8a67a1c41e125ff7d24b6dfd",
+          "acceptanceOnlyReceiptHash": "59342dd0c597bebe4867fd792dccd780334747d9c855cd36ca7a1df5d728867d",
+          "controlsPassed": 10,
+          "controlsRequired": 10,
+          "executableCustomerOperations": 0,
+          "runtimeAuthorityGranted": false,
+          "activationReady": false,
+          "modelCalls": 0,
+          "spendUsd": 0,
+          "evidenceBoundary": "Exact implementation-content and disposable local qualification receipt only. This does not upgrade the generated scaffold itself or establish a customer-executable plugin, credential, authority, activation or production conformance.",
+          "conformanceReceiptHash": "5c2b5506b1e0af04e4deb2be88665fe00118f72ca2456ab25632f521a7bb4e09"
+        },
+        "sharedImplementationFiles": 3,
+        "sharedImplementationNonBlankLines": 837,
+        "packageSpecificExecutableFiles": 0,
+        "packageSpecificExecutableLines": 0,
+        "explicitPackageProfileFields": 16
+      },
+      "qualification": {
+        "controlsPassed": 10,
+        "controlsRequired": 10,
+        "businessWrites": 8,
+        "observerWrites": 0,
+        "lostResponseWrites": 1,
+        "lostResponseReplays": 0,
+        "freshProcessRecovery": true,
+        "acceptanceStatus": "local-acceptance-only-passed-non-executable",
+        "executableCustomerOperations": 0,
+        "runtimeAuthorityGranted": false,
+        "activationReady": false
+      },
+      "integrityAttacks": [
+        {
+          "id": "generated-file-mutation",
+          "passed": true,
+          "reason": "Plugin scaffold file content changed: action-plugin/src/index.js"
+        },
+        {
+          "id": "stale-mutated-das023-package",
+          "passed": true,
+          "reason": "DAS-023 action declaration integrity mismatch"
+        },
+        {
+          "id": "implementation-content-substitution",
+          "passed": true,
+          "reason": "DAS-025 implementation binding receipt integrity mismatch"
+        },
+        {
+          "id": "cross-package-scaffold-receipt",
+          "passed": true,
+          "reason": "Plugin scaffold receipt does not match the expected generation"
+        },
+        {
+          "id": "cross-role-implementation-replay",
+          "passed": true,
+          "reason": "DAS-025 implementation binding is stale or belongs to another package, scaffold, source, role, or implementation"
+        }
+      ],
+      "activeMachineTimeMs": 43.866,
+      "humanSetupTimeMeasured": false,
+      "modelCalls": 0,
+      "spendUsd": 0,
+      "evidenceBoundary": "Private deterministic fictional local rehearsal. Generated plugin projects remained non-executable; qualification used a separate exact implementation layer outside generated directories. No customer binding, credential, production authority, activation, human setup-time result, model call or spend is established.",
+      "resultHash": "40b77eb51be4e08b71e7b073e738be610840e87a89119dac5c561521fed49d8d"
+    }
+  ],
+  "summaryHash": "6aafe9bba5fa86a301c30ab4e51fe5d89ee611d0b9b72d4dc205e77e7d6edf2a"
+}

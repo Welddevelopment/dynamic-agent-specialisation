@@ -1,0 +1,57 @@
+{
+  "fixtureId": "northstar-invoice-dispute-authoring-openapi-v1",
+  "sourceKind": "openapi",
+  "authoring": {
+    "revisionZeroHash": "c5fa12ff79295e4052a3edf961cb60f6c5edd20f195016868cce2c9ad7535ea1",
+    "completedSessionHash": "b125714424f4d8e62ee8b0f919d0b79cda2b959b890bdcc242e911286d99e27f",
+    "revision": 1,
+    "questionCount": 43,
+    "answeredQuestions": 43,
+    "answerRevisions": 1,
+    "factsByStatus": {
+      "observed": 9,
+      "extracted": 4,
+      "inferred-proposal": 0,
+      "owner-confirmed": 19,
+      "engineer-confirmed": 24,
+      "independently-verified": 0,
+      "unknown": 0
+    },
+    "operationsExtracted": 6,
+    "instructionWarnings": 0,
+    "blockers": [],
+    "freshProcessReceiptEqual": true,
+    "packageDraftHash": "0506bd0aa7bbd0c30e053dd71f211e8644316932e6e94a29219c165b9c17f490",
+    "protectedGates": {
+      "credentialValues": 0,
+      "runtimeAuthorityGranted": false,
+      "independentlyVerified": false,
+      "executable": false,
+      "comparisonReady": false,
+      "activationReady": false
+    },
+    "packageSpecificExecutableCode": 0,
+    "packageSpecificCallbacks": 0
+  },
+  "qualification": {
+    "separateHarnessInputs": true,
+    "structuralBindingHash": "82eac5313f23f0b00f7bef8e0417281c3589833222eb5e1477eb6bbf93a49671",
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "businessWrites": 8,
+    "observerWrites": 0,
+    "lostResponseWrites": 1,
+    "lostResponseReplays": 0,
+    "freshProcessRecovery": true,
+    "unsafeOrAmbiguousAccepted": 0,
+    "acceptanceStatus": "local-acceptance-only-passed-non-executable",
+    "executableOperations": 0,
+    "runtimeAuthorityGranted": false,
+    "activationReady": false
+  },
+  "activeMachineTimeMs": 41.148,
+  "humanSetupTimeMeasured": false,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Synthetic qualification harness only. Extra examples and commercial-intake structure are not DAS-024 authoring inputs or evidence of customer setup automation."
+}

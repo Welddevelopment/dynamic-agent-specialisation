@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-blocker-ledger.v1",
+  "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+  "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "f183043ffdd96f2a03b800ea1e64a9a4a2eee40427baecdbd8b0e54f4d62ecbe",
+  "blockers": [
+    "HTTP-local-only transport has no TLS claim",
+    "activation-not-authorized",
+    "comparison-readiness-unproved",
+    "customer credentials, runtime authority and activation remain absent",
+    "customer-action-transport-not-bound",
+    "customer-credentials-not-resolved",
+    "customer-environment-conformance-not-run",
+    "customer-execution-not-authorized",
+    "customer-observer-transport-not-bound",
+    "fictional localhost process conformance is not customer environment acceptance",
+    "mandatory-customer-acceptance-not-run",
+    "real-customer-authority-source-not-supplied",
+    "real-customer-local-credential-resolver-not-supplied",
+    "real-customer-local-provider-transport-not-supplied",
+    "selected-specialist-not-proved"
+  ],
+  "requiredBlockers": [
+    "activation-not-authorized",
+    "comparison-readiness-unproved",
+    "customer-action-transport-not-bound",
+    "customer-credentials-not-resolved",
+    "customer-environment-conformance-not-run",
+    "customer-execution-not-authorized",
+    "customer-observer-transport-not-bound",
+    "mandatory-customer-acceptance-not-run",
+    "selected-specialist-not-proved"
+  ],
+  "allResolved": false,
+  "blockerLedgerHash": "8aaa4c7c5430258ab188c24b32d688edd60e2be6ef488ef9684dfc24e3411f27"
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "das.customer-local-declarative-runtime-receipt.v1",
+  "planHash": "2128fd08656dc70c310d5f6a4ec88c668de49d375c1491dd42c8d38540617141",
+  "packageIdentityHash": "cd30d0ef05927915342d446ab0ea50865a730820e415fec011c41594d1442a9c",
+  "workPackHash": "999ad2dd032770837574abf6131690c2ff7c55a1021804dcda31d4874ba3f694",
+  "executionProfileHash": "44711fab9533d3c0af5e17330030d44ddb0ea073722ddbb11931f493253a4b8d",
+  "implementationHash": "5b89e3ea23f647e02c8783aff211a8426a5444ef59ff19b34c267efacf63f693",
+  "actionImplementationContentHash": "b6c7036e0e6231dc6f93915d729bacda131154f2d71713f424c388962288b333",
+  "observerImplementationContentHash": "bc1ed91f94393c624f9e2ba89ddb83e1b333818a5286bdc7bb429460f098bb8d",
+  "files": [
+    {
+      "relative": "action-contract.json",
+      "contentHash": "054c27656fbf064733729f133e03d038ef10ccd3be229904da054b2170dde0e0",
+      "mode": "0600"
+    },
+    {
+      "relative": "action-plugin/index.js",
+      "contentHash": "b6c7036e0e6231dc6f93915d729bacda131154f2d71713f424c388962288b333",
+      "mode": "0600"
+    },
+    {
+      "relative": "observer-contract.json",
+      "contentHash": "43ecef0df83025e3ea5c63294960a440cbbf1f972cfe0933375b24d05f885d86",
+      "mode": "0600"
+    },
+    {
+      "relative": "observer-plugin/index.js",
+      "contentHash": "bc1ed91f94393c624f9e2ba89ddb83e1b333818a5286bdc7bb429460f098bb8d",
+      "mode": "0600"
+    },
+    {
+      "relative": "package.json",
+      "contentHash": "d088b811846797a7ea923ea429a8a863fef8a4ba0524e4efff15436049e48acf",
+      "mode": "0600"
+    }
+  ],
+  "measurements": {
+    "generatedFiles": 6,
+    "generatedExecutableFiles": 2,
+    "generatedExecutableLines": 161,
+    "generatedExecutableOperations": 5,
+    "manualPackageSpecificExecutableFiles": 0,
+    "manualPackageSpecificExecutableLines": 0,
+    "explicitOwnerEngineerConfirmedSectionsReused": 12,
+    "credentialValues": 0,
+    "modelCalls": 0,
+    "spendUsd": 0
+  },
+  "status": "compiled-disposable-implementation-candidate-unqualified",
+  "customerEnvironmentImplemented": false,
+  "customerExecutionAuthorized": false,
+  "activationAuthorized": false,
+  "evidenceBoundary": "Actual generated action/observer bytes for the exact bounded disposable subset. No real customer transport, credential, authority, acceptance, execution or activation is established.",
+  "receiptHash": "1856219ec5afd83299f6690d46d99fa8dd8e5d7fd3d051cac96cea0e806d22ec"
+}

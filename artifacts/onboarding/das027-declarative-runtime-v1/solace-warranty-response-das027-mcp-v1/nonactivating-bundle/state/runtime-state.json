@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-runtime-state.v1",
+  "events": [
+    {
+      "schemaVersion": "das.nonactivating-deployment-state-event.v1",
+      "revision": 0,
+      "type": "deployment.packaged-nonactivating",
+      "status": "packaged-nonactivating",
+      "previousEventHash": null,
+      "bundleHash": "d69bfb154d24ac97a5823d4af47cc78a4cc2122655622e2188f7097a6b6bfecc",
+      "tenantId": "fictional-solace-warranty-response-das027-mcp-v1-tenant",
+      "roleId": "solace-warranty-response-das027-mcp-v1-specialist",
+      "roleRevision": 1,
+      "specialistHash": "beafa8e4b26acc207eb1bace513e38d7f92aa337fdf25c3d4eb40e4ed7855ab8",
+      "blockerLedgerHash": "1b462c852768b5b74a92bbd1073d8954659422345aab91d884f8fe59801a1696",
+      "rollbackPlanHash": "8509455765828aa7e6265a36103cf5359bd6536461e873eaeb6fd996f15537f7",
+      "restoredBundleHash": null,
+      "executableCustomerOperations": 0,
+      "customerExecutionAuthorized": false,
+      "activationAuthorized": false,
+      "eventHash": "d8fdffecd18d31a2f225e9a50cc6803b93d83d4b86a6f2b5df04f069e37f2627",
+      "signature": "anoG+ONQYjdfhEOdR/5f3rRdgGpI+jNtG4IbLqB5KeVmiMkVGP2yGscP5e40s50AgQ2gGgjv0xscmPSAkmOaAA=="
+    }
+  ],
+  "stateHash": "41157095647e795833574e3eaa2a6f3107c179b165670b192e7e3f31464fa1b1"
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "das.das028-disposable-business-state.v1",
+  "records": [
+    {
+      "assetId": "asset-552",
+      "deduplicationKey": "equipment-isolation:asset-552:v1",
+      "workOrderId": "wo-7752",
+      "reasonCode": "PLANNED_MAINTENANCE",
+      "inspectionDigest": "sha256:inspection-552",
+      "isolationMinutes": 90,
+      "isolationRecordId": "de947fbf5db5-result-1",
+      "status": "unsubmitted-draft"
+    }
+  ],
+  "businessWrites": 1,
+  "observerWrites": 0,
+  "unrelatedStateDigest": "protected-quarry-equipment-state:v1:mutated",
+  "additionalChanges": [
+    {
+      "kind": "protected-unrelated-state",
+      "id": "protected-de947fbf5db5"
+    }
+  ],
+  "requests": [
+    {
+      "role": "action",
+      "operationIdentityHash": "be61fe1a8163d7f58d6e2c82fe089737a409e57057e6bfda77ce40bc4c5e2676",
+      "requestBodyHash": "24d521f36a2051786d9c4374153ecbc027fc1ba1a6996783cf5a2ab249fe8b8e",
+      "recordedAtRevision": 1
+    }
+  ],
+  "revision": 1
+}

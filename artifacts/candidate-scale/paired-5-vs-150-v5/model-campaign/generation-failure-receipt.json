@@ -1,0 +1,604 @@
+{
+  "schemaVersion": "das.candidate-scale-v5-generation-failure-receipt.v1",
+  "planHash": "81183ed3aac70938c57b40f28e8d00fe9c6457dc0bd22655ecb7bb73fc180dda",
+  "protocolCoreHash": "b0cea7e15b92330077c32f41add1d0fcc0d84d1b1d63ce643d1ff26854f2f6bf",
+  "sourceBindings": {
+    "responseCacheSha256": "9ae64251fff7caae8e19cea617b1d6d450c25d165386971b455373a044ad7220",
+    "budgetSha256": "4ed8464ef5ca2516070191629d344585d1d213d0465656a8aeaae21936c9d82b",
+    "evidenceLedgerSha256": "571beca3cb582cacd937cac70be769445153522d5b9426d82603465c17a39dc1"
+  },
+  "rawCandidateCount": 150,
+  "validCandidateCount": 96,
+  "rejectedCandidateCount": 54,
+  "groupedExactReasonCounts": {
+    "incomplete-context:knowledge:support-policy-v1": 42,
+    "incomplete-context:support-sandbox:active-incidents": 6,
+    "incomplete-context:support-sandbox:billing-events": 21,
+    "incomplete-context:support-sandbox:customer-account": 3,
+    "incomplete-context:support-sandbox:knowledge-base": 11
+  },
+  "rejected": [
+    {
+      "batchIndex": 1,
+      "responsePosition": 1,
+      "acceptedPosition": 1,
+      "candidateId": "support-ops-triage-ledger-v1",
+      "rawHash": "e4373ee877ab03d471ba51c15e04a4feada57951a45b17b131e7a0a22cb6325b",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 1,
+      "responsePosition": 2,
+      "acceptedPosition": 2,
+      "candidateId": "support-ops-incident-router-v1",
+      "rawHash": "9934daff1b25d86d5257cecbb1dcd02cf4a95d8595e465630862f34dc0b6b0df",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 1,
+      "responsePosition": 3,
+      "acceptedPosition": 3,
+      "candidateId": "support-ops-billing-auditor-v1",
+      "rawHash": "61739f2c180f5574deaa49d95963ff902b6c90f978efff1d752a72610de3dd5d",
+      "reasons": [
+        "incomplete-context:support-sandbox:active-incidents"
+      ]
+    },
+    {
+      "batchIndex": 1,
+      "responsePosition": 4,
+      "acceptedPosition": 4,
+      "candidateId": "support-ops-duplicate-graph-v1",
+      "rawHash": "cb44be785cc6464eff3747025584f4bc13cd626ef55b838723403f8319474418",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 1,
+      "responsePosition": 5,
+      "acceptedPosition": 5,
+      "candidateId": "support-ops-sla-wave-v1",
+      "rawHash": "aba7b290eda94b4c8ebd37147f3b6f66b6d44d3dd0e800bef2658063488d181e",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 1,
+      "responsePosition": 6,
+      "acceptedPosition": 6,
+      "candidateId": "support-ops-security-gate-v1",
+      "rawHash": "18e78495c3b5cab0d6daafe5732916567ccd490d7de9e3eb186f4ebe4b8b2aa5",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events"
+      ]
+    },
+    {
+      "batchIndex": 1,
+      "responsePosition": 7,
+      "acceptedPosition": 7,
+      "candidateId": "support-ops-kb-resolution-v1",
+      "rawHash": "df3bfde5021be2148ea506bc55754db9133a7880f1e0b304941a8c4ea5256f29",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 1,
+      "responsePosition": 8,
+      "acceptedPosition": 8,
+      "candidateId": "support-ops-write-minimizer-v1",
+      "rawHash": "f4c31921f96a8fb6c78856ffc32987743bf4c062ecfad4189edfc919c8537b06",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 1,
+      "responsePosition": 9,
+      "acceptedPosition": 9,
+      "candidateId": "support-ops-two-pass-v1",
+      "rawHash": "c842ae886afa8e9a49791eda0e5c66718f2658034b08d9455ca55a1ccabefc00",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 1,
+      "acceptedPosition": 11,
+      "candidateId": "supportops-b2-01",
+      "rawHash": "c003cdb1d7ce913223355be03955de15bae1916b2101d41f2cef24618fb8b870",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 3,
+      "acceptedPosition": 13,
+      "candidateId": "supportops-b2-03",
+      "rawHash": "7694b38d36deb96ea131434f778fc89f86e6c72eef7a9486e4872886fd9b72b5",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 4,
+      "acceptedPosition": 14,
+      "candidateId": "supportops-b2-04",
+      "rawHash": "d4e128dbefc3ffab148ec16337a399b370ec2ab630aea5c6520dce7394af9886",
+      "reasons": [
+        "incomplete-context:support-sandbox:active-incidents"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 5,
+      "acceptedPosition": 15,
+      "candidateId": "supportops-b2-05",
+      "rawHash": "124c25931bd3cc1c841436afa0fecc75bdb129b3bf3da4d005a94698f5426077",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 6,
+      "acceptedPosition": 16,
+      "candidateId": "supportops-b2-06",
+      "rawHash": "7cab28121fbb0b4e2ea28f06ef31bd86593dedd4789632a8df102f4e5f4e0e77",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 7,
+      "acceptedPosition": 17,
+      "candidateId": "supportops-b2-07",
+      "rawHash": "a498ffc8cef77d697d4682a3cde4adc022b3d518b183b9142570aeaf8ca0966a",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 8,
+      "acceptedPosition": 18,
+      "candidateId": "supportops-b2-08",
+      "rawHash": "adc89f983302036cdbceb504efe131f3067691df0a72c23043c9f9efb8ca879d",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 9,
+      "acceptedPosition": 19,
+      "candidateId": "supportops-b2-09",
+      "rawHash": "b13c67d9f13c7f6626915a9ea6ff9368684755ae23b12eb0f356f3159ec8b29f",
+      "reasons": [
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 2,
+      "responsePosition": 10,
+      "acceptedPosition": 20,
+      "candidateId": "supportops-b2-10",
+      "rawHash": "e8ec6d8ea1328f488e725f88e0a6eca216681f40295df4c783cb9fd7e3f527b2",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 3,
+      "responsePosition": 1,
+      "acceptedPosition": 21,
+      "candidateId": "supportops-b3-01",
+      "rawHash": "c3145447cd3fe9bacc1a3907cef9afb8f6afb971791f62ae02bfe5edb726dbc6",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 3,
+      "responsePosition": 2,
+      "acceptedPosition": 22,
+      "candidateId": "supportops-b3-02",
+      "rawHash": "67c659eadce5cbe8f961a3ec1c49ea0a77d3162ce3201bb5c0e027587cf0933d",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 3,
+      "responsePosition": 3,
+      "acceptedPosition": 23,
+      "candidateId": "supportops-b3-03",
+      "rawHash": "7b67c3351a340d99ec0f53e9b84ef8aeb9d726e5831f8ab8601e3d1272b56bb2",
+      "reasons": [
+        "incomplete-context:support-sandbox:active-incidents",
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 3,
+      "responsePosition": 4,
+      "acceptedPosition": 24,
+      "candidateId": "supportops-b3-04",
+      "rawHash": "d8b6f0dcab2df1de24347df1a967563ae68268ffcc73aec9a42df50d3aa4c95c",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 3,
+      "responsePosition": 6,
+      "acceptedPosition": 26,
+      "candidateId": "supportops-b3-06",
+      "rawHash": "a853b52bdc41a6e83278e75dd7d877d95dbd1e0a0433a96f3d44fa7d9f78e15f",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 3,
+      "responsePosition": 7,
+      "acceptedPosition": 27,
+      "candidateId": "supportops-b3-07",
+      "rawHash": "0550521aa0429cf845436cb600cef0bafd42ee2a79b5c433b6a6c54744dc5719",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 3,
+      "responsePosition": 8,
+      "acceptedPosition": 28,
+      "candidateId": "supportops-b3-08",
+      "rawHash": "b5be4deca633704016cc147550babf444873d69f8408ec4a6928ff9764f5e23c",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 3,
+      "responsePosition": 9,
+      "acceptedPosition": 29,
+      "candidateId": "supportops-b3-09",
+      "rawHash": "30c6f29a4bc2c6a65227acf8cd904da6d8be0ff57375f85a29d4bee433a19b0c",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 1,
+      "acceptedPosition": 31,
+      "candidateId": "batch4-sla-triage",
+      "rawHash": "f78276c49aa171132142173de82b529058a5e5b30fe9259b95eb07e31f04709f",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 2,
+      "acceptedPosition": 32,
+      "candidateId": "batch4-incident-cluster",
+      "rawHash": "f83c4f619f94472da031917a683b557418412b697a84793c4ae1669c0ba851de",
+      "reasons": [
+        "incomplete-context:support-sandbox:customer-account",
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 3,
+      "acceptedPosition": 33,
+      "candidateId": "batch4-billing-reconciliation",
+      "rawHash": "d9038ee7b4a3589f5b670a9daf4af957b9c8063d7c91f959f26dc870d8f83fe5",
+      "reasons": [
+        "incomplete-context:support-sandbox:active-incidents",
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 4,
+      "acceptedPosition": 34,
+      "candidateId": "batch4-duplicate-graph",
+      "rawHash": "d814a2a1d8bf8bafbcbb1d85949b351972982b6dde4a3cdac86a0beb12516737",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:support-sandbox:knowledge-base",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 5,
+      "acceptedPosition": 35,
+      "candidateId": "batch4-communication-loop",
+      "rawHash": "036a62a1ef4152521359e37a275490b43cfe8c68b96dea701081367b306d93ba",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:support-sandbox:active-incidents",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 6,
+      "acceptedPosition": 36,
+      "candidateId": "batch4-security-containment",
+      "rawHash": "4eebe4ac653eccfc385a6211b1fa7ed6cc83803f2bf7f3099cb9d2d6b27047db",
+      "reasons": [
+        "incomplete-context:support-sandbox:customer-account",
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 7,
+      "acceptedPosition": 37,
+      "candidateId": "batch4-knowledge-first",
+      "rawHash": "76ab83eb8fba2759bd8c2e95fd606dfeec19e449a7e1302e85bd12761b46c870",
+      "reasons": [
+        "incomplete-context:support-sandbox:customer-account",
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 8,
+      "acceptedPosition": 38,
+      "candidateId": "batch4-two-pass-audit",
+      "rawHash": "8c4eb2a3b18ecd2c944c0c9e5d412f27672d1ac73404e29e2b161515fc739f57",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 4,
+      "responsePosition": 9,
+      "acceptedPosition": 39,
+      "candidateId": "batch4-write-journal",
+      "rawHash": "84964d85aeb56c98a2e889acdcc2dbcb88c2dde9e892e36eaa5bb5afd8bcba64",
+      "reasons": [
+        "incomplete-context:support-sandbox:knowledge-base",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 1,
+      "acceptedPosition": 131,
+      "candidateId": "batch14-c01",
+      "rawHash": "cc417df7e00546545b8e900cb14c02a40215bceabd3e7083ea7e7dbf0f35071f",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 2,
+      "acceptedPosition": 132,
+      "candidateId": "batch14-c02",
+      "rawHash": "1c64298cddbc029e3d1ff869591040ea34dae6bca1e71bd75e45e77f1cc95f7d",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 3,
+      "acceptedPosition": 133,
+      "candidateId": "batch14-c03",
+      "rawHash": "c9936a83c66c3a72539001e2b7ab330f8ee22c23fddda2be78d2740db52865d5",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 4,
+      "acceptedPosition": 134,
+      "candidateId": "batch14-c04",
+      "rawHash": "47d2d8f4e80dda31a4f9a4ead2d3f8f758e849ed3c45b1615448f95c531cd8b0",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 5,
+      "acceptedPosition": 135,
+      "candidateId": "batch14-c05",
+      "rawHash": "db55fa82b7950c51b4d11fe8b46cdfcf858cdf6e55c8d68cec7ee586fd4ea8a4",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 6,
+      "acceptedPosition": 136,
+      "candidateId": "batch14-c06",
+      "rawHash": "c0a7414246017949346632b9d2def9e88c94dd067b586dbdbe5c78701ff9768c",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 7,
+      "acceptedPosition": 137,
+      "candidateId": "batch14-c07",
+      "rawHash": "55f8a803a97bf30c94d76247469ebc65b14753784bb84a654d53ce0646646dd3",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 8,
+      "acceptedPosition": 138,
+      "candidateId": "batch14-c08",
+      "rawHash": "e2f2ef3dc0869081a96759700239e3761dd63f8b78de92bccfc8b5456c2190b8",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 9,
+      "acceptedPosition": 139,
+      "candidateId": "batch14-c09",
+      "rawHash": "facb63ed4fa68f20fd8dc8ef2dbc41abb1c7590fe4fd0cdb7828cc896eb314e5",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 14,
+      "responsePosition": 10,
+      "acceptedPosition": 140,
+      "candidateId": "batch14-c10",
+      "rawHash": "263ec064ceb12a725a54a174ab2f6543e3767f4e4096638c8a488bc546ef78e1",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 1,
+      "acceptedPosition": 141,
+      "candidateId": "support-ops-b15-01",
+      "rawHash": "f1ffde32f3a468921349a49cf6eb025704badbee514079fa99898d055fb0cca1",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 2,
+      "acceptedPosition": 142,
+      "candidateId": "support-ops-b15-02",
+      "rawHash": "93e31080e1027d8a6c4b87cc387d0a5099b31100c73dc974657bcf92e560106d",
+      "reasons": [
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 3,
+      "acceptedPosition": 143,
+      "candidateId": "support-ops-b15-03",
+      "rawHash": "9b4afc49d87a922c8b8f2a09be59a146cd858a4ebec070989bda5f9a2cdb5c0d",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 4,
+      "acceptedPosition": 144,
+      "candidateId": "support-ops-b15-04",
+      "rawHash": "7d91de5ba457fa6ea0faad5778e9e0432fe1e024cc30681f661fb1e791bbecdf",
+      "reasons": [
+        "incomplete-context:support-sandbox:active-incidents",
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 5,
+      "acceptedPosition": 145,
+      "candidateId": "support-ops-b15-05",
+      "rawHash": "459af98a48115cabb9fc8b0db58534422e5c9efc82e6e59b86a25fa7acfd38bd",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 6,
+      "acceptedPosition": 146,
+      "candidateId": "support-ops-b15-06",
+      "rawHash": "8f685caf370dbc072202b704dbb56f84a3eac86c66a7c8fd03cc58fd1f34781d",
+      "reasons": [
+        "incomplete-context:support-sandbox:billing-events",
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 8,
+      "acceptedPosition": 148,
+      "candidateId": "support-ops-b15-08",
+      "rawHash": "27db174fffc807b459607645fc5cacd1050b79705dda52bda3307c7bd741f177",
+      "reasons": [
+        "incomplete-context:support-sandbox:knowledge-base"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 9,
+      "acceptedPosition": 149,
+      "candidateId": "support-ops-b15-09",
+      "rawHash": "8622dd208924c48f9481e8889ab075cbd24a5886f041a74fa5b80e400797d41e",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    },
+    {
+      "batchIndex": 15,
+      "responsePosition": 10,
+      "acceptedPosition": 150,
+      "candidateId": "support-ops-b15-10",
+      "rawHash": "66cde359f51c1093dca7722284193c19d5f0cb4af66eea5f0c67417c8b33c02b",
+      "reasons": [
+        "incomplete-context:knowledge:support-policy-v1"
+      ]
+    }
+  ],
+  "validPoolDiversity": {
+    "exactUniqueDesigns": 96,
+    "meaningfulUniqueDesignCount": 96,
+    "architectureSignatureCount": 96,
+    "exactDuplicatePackages": 0
+  },
+  "paidCalls": 15,
+  "actualSpendUsd": 1.1633299999999998,
+  "portfolioEmitted": false,
+  "performanceEvaluationStarted": false,
+  "resultStatus": "negative-generation-validity-gate",
+  "evidenceBoundary": "The v5 architect returned 150 raw packages, but the frozen candidate contract accepted only 96. The campaign correctly stopped before structural portfolio freeze or performance evaluation. This receipt is a read-only reconstruction from integrity-bound durable inputs and is not performance evidence.",
+  "receiptHash": "d1dd3ded907f6c39b3d80a0646c99dc07bda15e5f397cf06dcb9930f030ae098"
+}

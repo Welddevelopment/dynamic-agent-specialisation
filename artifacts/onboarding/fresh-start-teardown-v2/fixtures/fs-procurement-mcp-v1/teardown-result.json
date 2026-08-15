@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "das.fresh-start-onboarding-teardown-result.v1",
+  "fixtureId": "fs-procurement-mcp-v1",
+  "expectedBoundary": "full-lifecycle-role-but-unbound",
+  "highestHonestStage": "comparison-design-complete-binding-required",
+  "roleAvailability": {
+    "discovery": true,
+    "businessIntake": true,
+    "bindingScaffold": true,
+    "systemImportReview": true,
+    "bindingDescriptorReview": true,
+    "bindingAcceptance": true,
+    "comparisonPlanning": true,
+    "comparisonResult": true,
+    "controlledActivation": true,
+    "blockers": []
+  },
+  "executionReady": false,
+  "activationReady": false,
+  "readinessBlockers": [
+    "Compile the reviewed source operation and pin the resulting runtime input-schema hash; write schemas may add explicit idempotency inputs.",
+    "Compile and locally test through the generic MCP runtime.",
+    "Bind the exact idempotency header or required input field.",
+    "Bind an approved read operation plus mappings and assertions for unknown outcomes.",
+    "Every approved shortage is correctly covered or precisely handed off.",
+    "Every draft is approved-supplier and duplicate-safe.",
+    "No purchase is submitted and unrelated state is unchanged.",
+    "Directly compare protected and unrelated external state before and after execution.",
+    "Reject any executed or attempted action outside the saved authority and approval boundary.",
+    "Independently read external state for erp:draft-purchase-order; do not accept the candidate or adapter response as proof.",
+    "Run every mandatory binding acceptance case after implementation."
+  ],
+  "ledgerMeasurements": {
+    "activeMachineMs": 10.709,
+    "productApiActions": 4,
+    "modelCalls": 0,
+    "spendUsd": 0,
+    "authorInterventions": 0,
+    "exactMappingProposalHits": 4,
+    "exactAuthorityProposalHits": 4,
+    "approvedOperations": 4,
+    "rejectedOperations": 1,
+    "silentAuthorOnlyInjections": 0,
+    "meaningfulSetupUnits": 91,
+    "traceableSetupUnits": 78,
+    "provenanceCoverage": 0.8571,
+    "automationStatusCounts": {
+      "blocked-unknown": 6,
+      "generated": 27,
+      "requires-engineering": 10,
+      "requires-independent-proof": 7,
+      "requires-ordinary-language-decision": 41
+    },
+    "executableEvidenceRows": 0,
+    "authorityGrantedRows": 0,
+    "credentialValueRows": 0
+  },
+  "generatedMappingAccuracy": 1,
+  "generatedAuthorityAccuracy": 1,
+  "manualBaselineTargetChoices": 4,
+  "generatedExactTargetProposals": 4,
+  "roleOwnerConfirmationsStillRequired": 4,
+  "rejectedSourceOperations": 1,
+  "restart": {
+    "freshProcessReloadPassed": true,
+    "recordHash": "8914b9637a6a124a1211dd8b936605f495f62c925aa0ee80a4a6bc024f3565cd",
+    "receiptHash": "6c6d0a46dea0955235f1b855c202447864654dba92bde9032eaeed07a404ab95"
+  },
+  "repeatability": {
+    "exactFreshReplayPassed": true,
+    "semanticHash": "60b65411bf4a1a21af5094a6e4c1b1261b16a7321c9ccbe123abb3df2c86db94"
+  },
+  "sourceKinds": [
+    "mcp-tools-list"
+  ],
+  "importResults": [
+    {
+      "sourceKind": "mcp-tools-list",
+      "confirmationHash": "95476e8e7c0d0494bf03d1efe1d1708a462ebec34f8aff121fc282c032c1093e",
+      "workPlanHash": "fbe7646a0780f9b883f42b9586b2c3b3a5f49de779a488d5b76a39ebc5e9a1d6",
+      "assistanceHash": "b640ba15da9661a24e555a5f9cbd305af7cea7e965c650de623d9db0f4cbc3d6",
+      "residualTotals": {
+        "automatable-generic-compiler-or-source-schema-work": 8,
+        "complete": 22,
+        "customer-specific-write-safety-implementation": 2,
+        "independent-verifier-or-proof-work": 7
+      }
+    }
+  ],
+  "ledgerHash": "b032cca9d5891650fde3e4526df702b84372b3e0f105159982f466ef8be74f6e",
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "boundary": "Machine-observed onboarding provenance and residual-work ledger. Active machine time is not human setup time. Customer confirmations are not DAS automation, and generated scaffolds are not executable evidence.",
+  "resultHash": "7916d2ce117867b5b61e4425472a9bd644547b419b6ade29175b02d819179018"
+}

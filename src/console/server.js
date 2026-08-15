@@ -6,10 +6,13 @@ import { runDeterministicReference } from "../run.js";
 import { buildCommercialJobDraft } from "../product/commercial-intake.js";
 import { listCommercialRoleTemplates } from "../product/commercial-role-templates.js";
 import { CommercialOnboardingStore } from "../product/onboarding-store.js";
+import { AssistedCommercialOnboardingJourney } from "../product/assisted-onboarding-journey.js";
 import { COMMERCIAL_PRODUCT_CONFIGS, loadCommercialProductState, loadCommercialProductStates, readOptionalJson } from "./commercial-product-state.js";
 import { ImprovementConsoleStore } from "./improvement-store.js";
 import { loadCommercialLifecycleConsoleState } from "./lifecycle-state.js";
 import { loadFleetConsoleState } from "./fleet-state.js";
+import { previewPlainEnglishRoleForConsole } from "./plain-english-discovery-route.js";
+import { recordConsoleSystemImport, recordConsoleSystemImportReview } from "./system-import-route.js";
 
 const port = Number(process.env.PORT ?? 4391);
 const directory = path.dirname(fileURLToPath(import.meta.url));
@@ -20,6 +23,8 @@ const onboardingStatePath = path.resolve(process.env.DAS_ONBOARDING_STATE_PATH ?
 const onboardingStore = fs.existsSync(onboardingStatePath)
   ? CommercialOnboardingStore.load(onboardingStatePath)
   : new CommercialOnboardingStore({ filePath: onboardingStatePath });
+const assistedOnboardingStateDirectory = path.resolve(process.env.DAS_ASSISTED_ONBOARDING_STATE_DIRECTORY ?? "artifacts/console/assisted-onboarding");
+const assistedOnboardingJourney = new AssistedCommercialOnboardingJourney({ stateDirectory: assistedOnboardingStateDirectory });
 
 function commercialState(sessionId = null) {
   const sessions = onboardingStore.list();
@@ -28,12 +33,17 @@ function commercialState(sessionId = null) {
   if (selected?.readiness?.stages?.draft?.ready) {
     try { draft = buildCommercialJobDraft(selected.intake); } catch { draft = null; }
   }
+  let assistedOnboarding = null;
+  if (selected) {
+    try { assistedOnboarding = assistedOnboardingJourney.latest(selected.sessionId); } catch { assistedOnboarding = null; }
+  }
   return {
     boundary: "Generated role drafts are not performance evidence. Comparison and activation require separate gates.",
     templates: listCommercialRoleTemplates(),
     sessions,
     selected,
     draft,
+    assistedOnboarding,
   };
 }
 
@@ -110,12 +120,12 @@ function consoleState() {
   };
 }
 
-async function readJson(request) {
+async function readJson(request, maximumSize = 64 * 1024) {
   const chunks = [];
   let size = 0;
   for await (const chunk of request) {
     size += chunk.length;
-    if (size > 64 * 1024) throw new Error("Request body is too large");
+    if (size > maximumSize) throw new Error("Request body is too large");
     chunks.push(chunk);
   }
   return JSON.parse(Buffer.concat(chunks).toString("utf8") || "{}");
@@ -132,6 +142,7 @@ const assets = {
   "/improvement.css": ["improvement.css", "text/css; charset=utf-8"],
   "/lifecycle.css": ["lifecycle.css", "text/css; charset=utf-8"],
   "/commercial.css": ["commercial.css", "text/css; charset=utf-8"],
+  "/assisted-onboarding-projection.js": ["assisted-onboarding-projection.js", "text/javascript; charset=utf-8"],
   "/comparison.css": ["comparison.css", "text/css; charset=utf-8"],
   "/fleet.css": ["fleet.css", "text/css; charset=utf-8"],
   "/app.js": ["app.js", "text/javascript; charset=utf-8"],
@@ -162,12 +173,26 @@ const server = http.createServer(async (request, response) => {
       improvementStore.start(input).catch(() => {});
       return json(response, 200, consoleState());
     }
+    if (request.method === "POST" && request.url === "/api/commercial/system-import") {
+      const result = recordConsoleSystemImport({ journey: assistedOnboardingJourney, input: await readJson(request, 512 * 1024) });
+      return json(response, 200, { proposal: result.proposal, commercial: commercialState(result.projection.sessionId) });
+    }
+    if (request.method === "POST" && request.url === "/api/commercial/system-import/review") {
+      const result = recordConsoleSystemImportReview({ journey: assistedOnboardingJourney, input: await readJson(request, 512 * 1024) });
+      return json(response, 200, { review: result.review, commercial: commercialState(result.projection.sessionId) });
+    }
+    if (request.method === "POST" && request.url === "/api/commercial/discover-role") {
+      const preview = await previewPlainEnglishRoleForConsole({ journey: assistedOnboardingJourney, input: await readJson(request, 32 * 1024) });
+      return json(response, 200, { preview });
+    }
     if (request.method === "GET" && request.url?.startsWith("/api/commercial")) {
       const url = new URL(request.url, `http://${request.headers.host ?? "127.0.0.1"}`);
       return json(response, 200, commercialState(url.searchParams.get("sessionId")));
     }
     if (request.method === "POST" && request.url === "/api/commercial/intake") {
-      const saved = onboardingStore.saveIntake(await readJson(request));
+      const input = await readJson(request);
+      const saved = onboardingStore.saveIntake(input);
+      assistedOnboardingJourney.saveBusinessIntake(saved.intake);
       return json(response, 200, { saved, commercial: commercialState(saved.sessionId) });
     }
     const asset = request.method === "GET" ? assets[request.url] : null;

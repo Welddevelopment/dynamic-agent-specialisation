@@ -1,0 +1,57 @@
+{
+  "fixtureId": "fieldhaven-equipment-damage-authoring-mcp-v1",
+  "sourceKind": "mcp-tools-list",
+  "authoring": {
+    "revisionZeroHash": "d68e0873bb119196cbf4c14bd69ffaa3b5b6637660422f3ffc1c93e7317e747b",
+    "completedSessionHash": "444102d4efadec56f2bd792e1f0b403c351cfed76d161ec87dfdb016abaa3c10",
+    "revision": 1,
+    "questionCount": 43,
+    "answeredQuestions": 43,
+    "answerRevisions": 1,
+    "factsByStatus": {
+      "observed": 9,
+      "extracted": 4,
+      "inferred-proposal": 0,
+      "owner-confirmed": 19,
+      "engineer-confirmed": 24,
+      "independently-verified": 0,
+      "unknown": 0
+    },
+    "operationsExtracted": 7,
+    "instructionWarnings": 0,
+    "blockers": [],
+    "freshProcessReceiptEqual": true,
+    "packageDraftHash": "9b73a4a6db1d5f6d57e64ddd3566bf6f2383801f6693bdb922d0689093060cd9",
+    "protectedGates": {
+      "credentialValues": 0,
+      "runtimeAuthorityGranted": false,
+      "independentlyVerified": false,
+      "executable": false,
+      "comparisonReady": false,
+      "activationReady": false
+    },
+    "packageSpecificExecutableCode": 0,
+    "packageSpecificCallbacks": 0
+  },
+  "qualification": {
+    "separateHarnessInputs": true,
+    "structuralBindingHash": "35b2b45691befdaa72e72f1331bc2a7582a1397647b0d246016968e6ec0a3ac0",
+    "controlsPassed": 10,
+    "controlsRequired": 10,
+    "businessWrites": 8,
+    "observerWrites": 0,
+    "lostResponseWrites": 1,
+    "lostResponseReplays": 0,
+    "freshProcessRecovery": true,
+    "unsafeOrAmbiguousAccepted": 0,
+    "acceptanceStatus": "local-acceptance-only-passed-non-executable",
+    "executableOperations": 0,
+    "runtimeAuthorityGranted": false,
+    "activationReady": false
+  },
+  "activeMachineTimeMs": 31.997,
+  "humanSetupTimeMeasured": false,
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "evidenceBoundary": "Synthetic qualification harness only. Extra examples and commercial-intake structure are not DAS-024 authoring inputs or evidence of customer setup automation."
+}

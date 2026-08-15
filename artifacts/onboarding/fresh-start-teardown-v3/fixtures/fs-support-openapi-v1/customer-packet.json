@@ -1,0 +1,285 @@
+{
+  "description": "Handle our assigned support cases, answer routine questions, escalate security, and never change subscriptions.",
+  "intake": {
+    "sessionId": "fresh-support-openapi-v1",
+    "company": {
+      "name": "Fictional Northstar SaaS",
+      "industry": "B2B SaaS",
+      "operatingContext": "A support team handles assigned cases in a disposable local helpdesk world."
+    },
+    "role": {
+      "templateId": "support-operations",
+      "title": "Support case specialist",
+      "outcome": "Handle every assigned case through a correct response or precise escalation.",
+      "completionRule": "Complete only when an independent reader confirms every assigned case result and unrelated state is unchanged.",
+      "escalationOwner": "Support operations lead"
+    },
+    "systems": [
+      {
+        "id": "helpdesk",
+        "name": "Northstar Helpdesk",
+        "kind": "customer-local helpdesk",
+        "access": "customer-local-test",
+        "adapterStatus": "missing",
+        "contextSources": [
+          "assigned-case-queue",
+          "case-thread",
+          "support-policy"
+        ],
+        "tools": [
+          {
+            "name": "list-assigned-tickets",
+            "mode": "read"
+          },
+          {
+            "name": "read-ticket",
+            "mode": "read"
+          },
+          {
+            "name": "draft-response",
+            "mode": "write"
+          }
+        ]
+      }
+    ],
+    "knowledgeSources": [
+      {
+        "name": "Support policy",
+        "kind": "policy",
+        "contentHash": "6038018b1c5501a13a49fd584246283d4af48e5bc5760ecf688b0d7c143f3678",
+        "current": true
+      }
+    ],
+    "policies": [
+      {
+        "rule": "Inspect the assigned case before acting.",
+        "kind": "required-check",
+        "confirmed": true
+      },
+      {
+        "rule": "Security or uncertain cases require escalation.",
+        "kind": "approval",
+        "confirmed": true
+      },
+      {
+        "rule": "Never change subscriptions or unassigned cases.",
+        "kind": "forbidden",
+        "confirmed": true
+      }
+    ],
+    "authority": {
+      "allowedActions": [
+        "draft-support-response"
+      ],
+      "approvalActions": [
+        "security-review"
+      ],
+      "forbiddenActions": [
+        "change-subscription",
+        "write-outside-assigned-cases"
+      ]
+    },
+    "examples": [
+      {
+        "situation": "support representative situation 1",
+        "expected": "support externally observable bounded result 1",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "support representative situation 2",
+        "expected": "support externally observable bounded result 2",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "support representative situation 3",
+        "expected": "support externally observable bounded result 3",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "support representative situation 4",
+        "expected": "support externally observable bounded result 4",
+        "source": "customer-authored",
+        "redacted": true
+      },
+      {
+        "situation": "support representative situation 5",
+        "expected": "support externally observable bounded result 5",
+        "source": "customer-authored",
+        "redacted": true
+      }
+    ],
+    "success": {
+      "measures": [
+        "Every assigned case has the correct terminal state.",
+        "Every response or handoff is exact and duplicate-safe.",
+        "No unrelated or forbidden state changes."
+      ],
+      "verifierMode": "independent-external-state",
+      "verifierStatus": "declared",
+      "owner": "Customer-local helpdesk observer"
+    },
+    "priorities": {
+      "quality": 1,
+      "cost": 0.2,
+      "speed": 0.15,
+      "maximumCostPerTaskUsd": 0.5,
+      "maximumLatencyMs": 300000,
+      "goal": "Preserve outcome quality, then reduce cost and speed."
+    },
+    "currentAgent": {
+      "mode": "none"
+    },
+    "dataHandling": {
+      "localOnly": true,
+      "productionDataIncluded": false,
+      "redactionConfirmed": true
+    }
+  },
+  "imports": [
+    {
+      "id": "helpdesk-openapi",
+      "systemId": "helpdesk",
+      "source": {
+        "kind": "openapi",
+        "document": {
+          "openapi": "3.1.0",
+          "info": {
+            "title": "Northstar Helpdesk",
+            "version": "1.0.0"
+          },
+          "servers": [
+            {
+              "url": "https://northstar-helpdesk.example.test"
+            }
+          ],
+          "paths": {
+            "/cases": {
+              "get": {
+                "operationId": "listCases",
+                "summary": "List assigned support cases",
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/cases/{caseId}": {
+              "get": {
+                "operationId": "fetchCase",
+                "summary": "Fetch one support case",
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/cases/{caseId}/reply": {
+              "post": {
+                "operationId": "composeReply",
+                "summary": "Compose a support response",
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "required": [
+                          "caseId",
+                          "message",
+                          "requestId"
+                        ],
+                        "properties": {
+                          "caseId": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "requestId": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            },
+            "/cases/{caseId}/subscription": {
+              "post": {
+                "operationId": "changeSubscription",
+                "summary": "Change the customer subscription",
+                "requestBody": {
+                  "required": true,
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "requestId"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "requestId": {
+                            "type": "string"
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "ok"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "provenance": {
+        "acquisition": "customer-upload",
+        "label": "Approved Northstar helpdesk schema"
+      },
+      "mappings": [
+        [
+          "listCases",
+          "list-assigned-tickets",
+          "read",
+          null
+        ],
+        [
+          "fetchCase",
+          "read-ticket",
+          "read",
+          null
+        ],
+        [
+          "composeReply",
+          "draft-response",
+          "write",
+          "draft-support-response"
+        ]
+      ],
+      "rejected": [
+        "changeSubscription"
+      ]
+    }
+  ]
+}

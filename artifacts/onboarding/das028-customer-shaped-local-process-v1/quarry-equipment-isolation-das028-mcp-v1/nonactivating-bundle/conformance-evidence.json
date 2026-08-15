@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "das.nonactivating-conformance-evidence.v1",
+  "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+  "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "f183043ffdd96f2a03b800ea1e64a9a4a2eee40427baecdbd8b0e54f4d62ecbe",
+  "packageReceiptHash": "ea97aa58c7cc87fc76ec7ff24d441012c62ab6a11051abf3cfd893fe31a3b0e3",
+  "conformanceReceiptHash": "0df3ffb11827c08e97a288f7123bbf3fcef9e8ed07ebf9ca95ebb92f3d1a0d16",
+  "sourceArtifact": {
+    "path": "das028:quarry-equipment-isolation-das028-mcp-v1",
+    "sha256": "1ea48cc02b889ac3c2a447834879096cfad7b12c13386041d252289b32174af1",
+    "summaryHash": "36acf77640106d9d5db63923c83b1490aa57ce7bff390f38dc9f8e3a24ba57e5",
+    "resultHash": "8d6bd823f0ea578a3827710003a12b6a8988de2ddd1b96609fe4ef451cc474a0"
+  },
+  "scope": "fictional-disposable-local",
+  "observedAt": "2026-08-14T22:00:00.000Z",
+  "validUntil": "2026-08-15T22:00:00.000Z",
+  "controlsPassed": 10,
+  "controlsRequired": 10,
+  "observerWrites": 0,
+  "lostResponseReplays": 0,
+  "customerEnvironmentConformance": false,
+  "customerAcceptance": false,
+  "activationReady": false,
+  "evidenceHash": "e3df1f516bf122e30ef8b782602f67c3bf1c9ae43db6613b7945e3fc5d3fa199"
+}

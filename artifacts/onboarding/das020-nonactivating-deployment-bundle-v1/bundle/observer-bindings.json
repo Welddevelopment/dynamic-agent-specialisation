@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "das.nonactivating-observer-bindings.v1",
+  "tenantId": "fictional-northstar-tenant",
+  "roleId": "invoice-dispute-specialist",
+  "roleRevision": 4,
+  "specialistHash": "ccdd2a96b6d56f742de291c8667a397e9d65f30e2bd95e977acd96005bcfcb4c",
+  "packageReceiptHash": "54eca9552e65ee4965ecfa1fd240a7b775c6e40cd38f4535cf977deba0ca203d",
+  "action": {
+    "sourceIdentity": "fictional-northstar-action-openapi-v1",
+    "authenticationIdentity": "fictional-northstar-action-principal-v1",
+    "credentialAlias": "NORTHSTAR_ACTION_CREDENTIAL",
+    "implementationContentHash": "2614a373d7359e5c87d87c40f26bf6ea934bbc1e59747c9462a1bc835d154dfb"
+  },
+  "observer": {
+    "sourceIdentity": "fictional-northstar-read-model-v1",
+    "authenticationIdentity": "fictional-northstar-observer-principal-v1",
+    "credentialAlias": "NORTHSTAR_OBSERVER_CREDENTIAL",
+    "implementationContentHash": "383fbefb121a813c91806b1098727f16cabfbca043a4fefa38008cdcd1669f2e",
+    "independent": true,
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "actionResponseAcceptedAsIndependentProof": false,
+  "customerBound": false,
+  "customerProbed": false,
+  "customerQualified": false,
+  "activationReady": false,
+  "bindingsHash": "b9e27443caec75a11771e722b1d00c6f18f10c91ec8f35ff2652b267ff149c9f"
+}

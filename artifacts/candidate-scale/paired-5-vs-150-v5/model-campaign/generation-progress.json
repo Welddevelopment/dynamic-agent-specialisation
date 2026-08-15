@@ -1,0 +1,449 @@
+{
+  "planHash": "81183ed3aac70938c57b40f28e8d00fe9c6457dc0bd22655ecb7bb73fc180dda",
+  "completedBatch": 15,
+  "batchHash": "201402cf4e47937a2c8c75ee71b7ae309ba28712c5fd9174058520959a81d887",
+  "budget": {
+    "campaignId": "candidate-scale-paired-5-vs-150-v5",
+    "hardLimitUsd": 23,
+    "warningUsd": 18.400000000000002,
+    "spentUsd": 1.1633299999999998,
+    "reservedUsd": 0,
+    "calls": [
+      {
+        "id": "reservation-1",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.1955275,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.058939000000000005,
+        "usage": {
+          "input_tokens": 1717,
+          "input_tokens_details": {
+            "cache_write_tokens": 1714,
+            "cached_tokens": 0
+          },
+          "output_tokens": 4554,
+          "output_tokens_details": {
+            "reasoning_tokens": 78
+          },
+          "total_tokens": 6271,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 1714,
+            "outputTokens": 4554,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-2",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.1961675,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.061928500000000004,
+        "usage": {
+          "input_tokens": 1996,
+          "input_tokens_details": {
+            "cache_write_tokens": 1993,
+            "cached_tokens": 0
+          },
+          "output_tokens": 4745,
+          "output_tokens_details": {
+            "reasoning_tokens": 51
+          },
+          "total_tokens": 6741,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 1993,
+            "outputTokens": 4745,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-3",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.1968225,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.0627375,
+        "usage": {
+          "input_tokens": 2286,
+          "input_tokens_details": {
+            "cache_write_tokens": 2283,
+            "cached_tokens": 0
+          },
+          "output_tokens": 4752,
+          "output_tokens_details": {
+            "reasoning_tokens": 78
+          },
+          "total_tokens": 7038,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 2283,
+            "outputTokens": 4752,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-4",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.19818,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.069476,
+        "usage": {
+          "input_tokens": 2855,
+          "input_tokens_details": {
+            "cache_write_tokens": 2852,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5195,
+          "output_tokens_details": {
+            "reasoning_tokens": 134
+          },
+          "total_tokens": 8050,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 2852,
+            "outputTokens": 5195,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-5",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.1988775,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.072188,
+        "usage": {
+          "input_tokens": 3143,
+          "input_tokens_details": {
+            "cache_write_tokens": 3140,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5361,
+          "output_tokens_details": {
+            "reasoning_tokens": 63
+          },
+          "total_tokens": 8504,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 3140,
+            "outputTokens": 5361,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-6",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.20583,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.07974600000000001,
+        "usage": {
+          "input_tokens": 6075,
+          "input_tokens_details": {
+            "cache_write_tokens": 6072,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5380,
+          "output_tokens_details": {
+            "reasoning_tokens": 59
+          },
+          "total_tokens": 11455,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 6072,
+            "outputTokens": 5380,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-7",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.2121725,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.083438,
+        "usage": {
+          "input_tokens": 8723,
+          "input_tokens_details": {
+            "cache_write_tokens": 8720,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5136,
+          "output_tokens_details": {
+            "reasoning_tokens": 50
+          },
+          "total_tokens": 13859,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8720,
+            "outputTokens": 5136,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-8",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.212455,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.08491749999999999,
+        "usage": {
+          "input_tokens": 8782,
+          "input_tokens_details": {
+            "cache_write_tokens": 8779,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5247,
+          "output_tokens_details": {
+            "reasoning_tokens": 83
+          },
+          "total_tokens": 14029,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8779,
+            "outputTokens": 5247,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-9",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.2127625,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.0835245,
+        "usage": {
+          "input_tokens": 8844,
+          "input_tokens_details": {
+            "cache_write_tokens": 8841,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5118,
+          "output_tokens_details": {
+            "reasoning_tokens": 93
+          },
+          "total_tokens": 13962,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8841,
+            "outputTokens": 5118,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-10",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.212815,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.084142,
+        "usage": {
+          "input_tokens": 8851,
+          "input_tokens_details": {
+            "cache_write_tokens": 8848,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5168,
+          "output_tokens_details": {
+            "reasoning_tokens": 78
+          },
+          "total_tokens": 14019,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8848,
+            "outputTokens": 5168,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-11",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.212725,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.0840665,
+        "usage": {
+          "input_tokens": 8816,
+          "input_tokens_details": {
+            "cache_write_tokens": 8813,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5169,
+          "output_tokens_details": {
+            "reasoning_tokens": 80
+          },
+          "total_tokens": 13985,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8813,
+            "outputTokens": 5169,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-12",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.2127775,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.08835950000000001,
+        "usage": {
+          "input_tokens": 8834,
+          "input_tokens_details": {
+            "cache_write_tokens": 8831,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5523,
+          "output_tokens_details": {
+            "reasoning_tokens": 90
+          },
+          "total_tokens": 14357,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8831,
+            "outputTokens": 5523,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-13",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.21309,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.083923,
+        "usage": {
+          "input_tokens": 8917,
+          "input_tokens_details": {
+            "cache_write_tokens": 8914,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5136,
+          "output_tokens_details": {
+            "reasoning_tokens": 52
+          },
+          "total_tokens": 14053,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8914,
+            "outputTokens": 5136,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-14",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.2130525,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.08324799999999999,
+        "usage": {
+          "input_tokens": 8911,
+          "input_tokens_details": {
+            "cache_write_tokens": 8908,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5081,
+          "output_tokens_details": {
+            "reasoning_tokens": 44
+          },
+          "total_tokens": 13992,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8908,
+            "outputTokens": 5081,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      },
+      {
+        "id": "reservation-15",
+        "provider": "openai-responses-paired-scale",
+        "model": "candidate-architect-policy",
+        "projectedUsd": 0.2130525,
+        "purpose": "candidate-scale-construct-complete-specialist-batch",
+        "status": "settled",
+        "actualUsd": 0.08269599999999999,
+        "usage": {
+          "input_tokens": 8911,
+          "input_tokens_details": {
+            "cache_write_tokens": 8908,
+            "cached_tokens": 0
+          },
+          "output_tokens": 5035,
+          "output_tokens_details": {
+            "reasoning_tokens": 87
+          },
+          "total_tokens": 13946,
+          "pairedScaleAccounting": {
+            "uncachedInputTokens": 3,
+            "cachedInputTokens": 0,
+            "cacheWriteTokens": 8908,
+            "outputTokens": 5035,
+            "requestedServiceTier": "default",
+            "returnedServiceTier": "default"
+          }
+        }
+      }
+    ]
+  }
+}

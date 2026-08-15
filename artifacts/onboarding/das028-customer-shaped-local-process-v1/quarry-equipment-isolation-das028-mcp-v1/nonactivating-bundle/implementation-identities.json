@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "das.nonactivating-implementation-identities.v1",
+  "tenantId": "fictional-quarry-equipment-isolation-das028-mcp-v1-tenant",
+  "roleId": "quarry-equipment-isolation-das028-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "f183043ffdd96f2a03b800ea1e64a9a4a2eee40427baecdbd8b0e54f4d62ecbe",
+  "packageReceiptHash": "ea97aa58c7cc87fc76ec7ff24d441012c62ab6a11051abf3cfd893fe31a3b0e3",
+  "generatedProjectHash": "6e8a637783115828bef822c1e9bfe26809e682082422e81c4a8575e9a1a4298a",
+  "actionImplementationIntentHash": "fdfd7eb7cb5656aefda3df783aea6c702e19ac240617b97c6f3d4950cb1e628b",
+  "actionImplementationContentHash": "379ce928d6abd8c7088510327362647c6b37cd04d14d31015d2c34737e1f7e7e",
+  "observerImplementationIntentHash": "d7e8560672d9f0c4de6bfdb27bff0baaed181c486cadd20333fd5bae6a7663e0",
+  "observerImplementationContentHash": "6f139d8c48f33227965e1b68caf4c0aa8e1706541d6d5aea0f6038fc529cb82d",
+  "conformanceReceiptHash": "0df3ffb11827c08e97a288f7123bbf3fcef9e8ed07ebf9ca95ebb92f3d1a0d16",
+  "scope": "fictional-disposable-local",
+  "customerEnvironmentImplemented": false,
+  "customerExecutableOperations": 0,
+  "identityHash": "bb484b9f6b87c4b388b5f6db1eaab3003ae80510537b83e7d05321310eab871e"
+}

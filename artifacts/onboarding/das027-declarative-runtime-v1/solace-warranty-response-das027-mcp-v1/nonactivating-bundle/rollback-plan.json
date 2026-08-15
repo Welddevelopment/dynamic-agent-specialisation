@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "das.nonactivating-deployment-rollback-plan.v1",
+  "tenantId": "fictional-solace-warranty-response-das027-mcp-v1-tenant",
+  "roleId": "solace-warranty-response-das027-mcp-v1-specialist",
+  "roleRevision": 1,
+  "specialistHash": "beafa8e4b26acc207eb1bace513e38d7f92aa337fdf25c3d4eb40e4ed7855ab8",
+  "previousBundleHash": null,
+  "fallback": "leave-current-specialist-unchanged",
+  "allowedFromStatuses": [
+    "packaged-nonactivating",
+    "preview-loaded-nonactivating"
+  ],
+  "targetStatus": "rolled-back-nonactivating",
+  "activationAuthorized": false,
+  "executionAuthorized": false,
+  "rollbackPlanHash": "8509455765828aa7e6265a36103cf5359bd6536461e873eaeb6fd996f15537f7"
+}

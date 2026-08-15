@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "das.nonactivating-plugin-project-identities.v1",
+  "tenantId": "fictional-northstar-tenant",
+  "roleId": "invoice-dispute-specialist",
+  "roleRevision": 4,
+  "specialistHash": "ccdd2a96b6d56f742de291c8667a397e9d65f30e2bd95e977acd96005bcfcb4c",
+  "sourceHash": "240f2669116d8e85a5580707d44b5f58b6e97dc06a82714f946e00add04adbbf",
+  "draftHash": "115e2922d1bff2a41fa4f83fd9ea4a727b9ceb6e81a556389bf5e44b81a55de7",
+  "packageReceiptHash": "54eca9552e65ee4965ecfa1fd240a7b775c6e40cd38f4535cf977deba0ca203d",
+  "planHash": "205b11560278b145b796d42756445420c3b0562e15b67b9dd0855483cf7ababe",
+  "scaffoldReceiptHash": "e9d3e1ec384393360a4591d43e20f0697ac7f868da9989b8ec075baa2ef62507",
+  "generatedProjectHash": "36e344362ebafe5231ec5b0a2fbb51a445f7b0bbb62614dcfeefd29bc3cd71f0",
+  "action": {
+    "projectIdentity": "3f2518b47621dc5c2240489613d6335ab5a3d0dd302c45f7d0171c8d8744cf84",
+    "authenticationIdentity": "4a3995415e5a61c8f436b2d6e43154cd63ca431190c0b71d3f399e41169d86a3"
+  },
+  "observer": {
+    "projectIdentity": "b0a568bf4e108238874dae1f8161a6966cb7d9281173cf5d2f76533a8c50e88c",
+    "authenticationIdentity": "b40ba167d096cd132b7c042e673473d216e56f548edf8c305b7a4e189782c12e",
+    "readOnly": true,
+    "writeOperations": []
+  },
+  "executable": false,
+  "qualified": false,
+  "customerEnvironmentAccepted": false,
+  "activationReady": false,
+  "identityHash": "ec963bd802b110bfe60a14485a8cde1b863f84a8a288c72bcf13aa661163c9f6"
+}

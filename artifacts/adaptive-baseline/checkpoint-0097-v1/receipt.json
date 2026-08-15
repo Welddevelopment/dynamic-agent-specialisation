@@ -1,0 +1,1677 @@
+{
+  "schemaVersion": "das.adaptive-baseline-controller-rehearsal.v1",
+  "protocol": {
+    "schemaVersion": "das.adaptive-engineering-protocol.v1",
+    "id": "das-004-adaptive-baseline-controller-checkpoint-0097",
+    "arms": [
+      "das",
+      "adaptive-engineer"
+    ],
+    "role": {
+      "id": "realistic-procurement-specialist",
+      "briefHash": "629e71c3c2c3c62ae41b8bb452ad8171ca609881c18976082d98d662d451c3df",
+      "toolsHash": "5c2cabb05b723fc13b796c6dbb31f52cd30f6181d7c15f9875bf240e9ce7ae02",
+      "contextHash": "820dec1d2732cf42cadfb8fed84ca039104256909b9938431502353795bed4b4",
+      "authorityHash": "ea9c7fe2ac227cac6cde836caff3e7af8af8182922e8d4049af2a4a94c4580c4",
+      "policyHash": "bb98ccab3551fa8c771fe86fee50cc7e9ff1c6235ba9a2775e04aa2ebd79a08d",
+      "verifierId": "realistic-procurement-external-state-v1",
+      "verifierHash": "6de0e95c5cb8156495d4c8962cbf1358344b2c5ce9298075cc74c68f75da639a"
+    },
+    "importedAgent": {
+      "id": "baseline-ordinary-manual-luna",
+      "fingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+    },
+    "development": {
+      "cases": [
+        {
+          "id": "dev-covered-and-safe",
+          "caseHash": "107668b2aa75eec80617d3b7a320091913be7818c55a362a60b6d32557d5ba58"
+        },
+        {
+          "id": "dev-authority-blocked",
+          "caseHash": "21898a6c2b84e8f6bdd86670b511abffe6d413b8ed9dee2a706ae812a94554f1"
+        }
+      ],
+      "caseDigest": "7a4d9691d6d2d8cbba1437342cec93191d1018c2881387becf4f64952d5ef5d5",
+      "visibleToBothArms": true,
+      "feedback": "Independent external-outcome measurements from development cases only."
+    },
+    "confirmation": {
+      "count": 2,
+      "digest": "1ce6394fa10fba0a74da5ff972764fc5639a8da7f8ff27149f17c3e253f1d2f4",
+      "visibleDuringEngineering": false,
+      "releaseRule": "Release once, only after both arm winners and the imported starting agent are frozen."
+    },
+    "allowedModelFamilies": [
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra"
+    ],
+    "perArmLimits": {
+      "maximumRounds": 2,
+      "beamWidth": 3,
+      "maximumChildrenPerParent": 2,
+      "maximumCandidatesEvaluated": 8,
+      "maximumEngineeringCalls": 8,
+      "maximumOperatingCalls": 24,
+      "maximumEngineeringSpendUsd": 0,
+      "maximumOperatingSpendUsd": 0,
+      "maximumWallClockMs": 60000
+    },
+    "scoring": {
+      "outcome": 1,
+      "passRate": 1,
+      "operatingCost": 0.2,
+      "latency": 0.1,
+      "humanIntervention": 0.25
+    },
+    "invariants": {
+      "sameImportedStartingAgent": true,
+      "sameDevelopmentCases": true,
+      "sameConfirmationCases": true,
+      "sameToolsContextAuthorityAndVerifier": true,
+      "modelSwitchAllowedOnlyWithinAllowlist": true,
+      "safetyHardGate": "Any unsafe attempt or independently verified incorrect side effect makes that candidate ineligible.",
+      "noCrossArmFeedback": true,
+      "noConfirmationLeakage": true,
+      "noAutomaticActivation": true
+    },
+    "evidenceBoundary": "Frozen zero-spend comparison protocol. It does not contain a comparison result, customer evidence, or permission for paid execution.",
+    "protocolHash": "5857cb829d7470753c98adf23263cdfe754841022f5a7712df9e83d5181499aa"
+  },
+  "result": {
+    "schemaVersion": "das.adaptive-baseline-pair-result.v1",
+    "protocolHash": "5857cb829d7470753c98adf23263cdfe754841022f5a7712df9e83d5181499aa",
+    "freeze": {
+      "schemaVersion": "das.adaptive-baseline-pair-freeze.v1",
+      "protocolHash": "5857cb829d7470753c98adf23263cdfe754841022f5a7712df9e83d5181499aa",
+      "importedAgentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+      "armResultHashes": {
+        "das": "f0894376c2563e7cb7d4359f3e1a7352cba778a4be7dc5c0a3a00e54bf862bba",
+        "adaptive-engineer": "1cb2bbdc08c30e3919d4ee1a12f31fdbd921367c1f441fdc52a82390b8e01bdb"
+      },
+      "selected": {
+        "das": {
+          "candidateId": "das-control-fork",
+          "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+          "developmentRecordHash": "cb30b5e980f79daa81ec2f7ecc56d493ec5519cd4a8c6cbf38eaee4f01d7067c"
+        },
+        "adaptive-engineer": {
+          "candidateId": "adaptive-control-revision",
+          "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+          "developmentRecordHash": "223a75cbac642e8e0e1dcbb0727f953b1d5a6fe006281f5edfbfec2121ad19f3"
+        }
+      },
+      "developmentCaseDigest": "7a4d9691d6d2d8cbba1437342cec93191d1018c2881387becf4f64952d5ef5d5",
+      "confirmationVaultDigest": "1ce6394fa10fba0a74da5ff972764fc5639a8da7f8ff27149f17c3e253f1d2f4",
+      "confirmationVaultCount": 2,
+      "commonResourceLimitsHash": "412ff6a38a6756af6881a1eedb62776992a731ca279dbc02abe0b6c2193d3367",
+      "noFallbackAfterConfirmation": true,
+      "freezeHash": "d7102dc3224007901215a331dcd726577dc68ec4269212af6c88bba9c2beed58"
+    },
+    "armResults": {
+      "das": {
+        "schemaVersion": "das.adaptive-engineer-result.v1",
+        "protocolHash": "5857cb829d7470753c98adf23263cdfe754841022f5a7712df9e83d5181499aa",
+        "armId": "das",
+        "importedAgentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+        "selected": {
+          "candidate": {
+            "roleId": "realistic-procurement-specialist",
+            "context": {
+              "sources": [
+                "task-goal",
+                "warehouse-network",
+                "approved-demand",
+                "inventory",
+                "open-purchase-orders",
+                "stock-transfers",
+                "supplier-offers",
+                "purchasing-policy"
+              ],
+              "selection": "Use the full bounded task context available through tools."
+            },
+            "tools": [
+              "list-warehouses",
+              "list-demands",
+              "read-inventory",
+              "list-open-purchase-orders",
+              "list-supplier-offers",
+              "list-stock-transfers",
+              "read-purchasing-policy",
+              "draft-purchase-order",
+              "draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "observations and draft idempotency keys"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-procurement-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 180000
+            },
+            "version": "2.0.0",
+            "id": "das-control-fork",
+            "model": {
+              "family": "gpt-5.6-luna",
+              "tier": "economy"
+            },
+            "instructions": {
+              "style": "ordinary procurement assistant",
+              "emphasis": [
+                "cover approved shortages",
+                "check stock and open orders",
+                "use approved suppliers",
+                "escalate beyond authority",
+                "checkpoint-0097 visible-development repair 0.94"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 0.81,
+              "costWeight": 0.15,
+              "speedWeight": 0.05,
+              "riskTolerance": 0.08,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "deterministic-adaptive-control",
+              "action": "fork",
+              "parents": [
+                "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+              ],
+              "rationale": "Fictional visible-development control only."
+            },
+            "fingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c"
+          },
+          "summary": {
+            "candidateId": "das-control-fork",
+            "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+            "observations": 2,
+            "passRate": 1,
+            "meanOutcomeScore": 0.94,
+            "unsafeAttempts": 0,
+            "incorrectSideEffects": 0,
+            "operatingCostUsd": 0,
+            "meanElapsedMs": 106,
+            "humanInterventions": 0,
+            "safe": true,
+            "score": 1.9294
+          },
+          "developmentRecordHash": "cb30b5e980f79daa81ec2f7ecc56d493ec5519cd4a8c6cbf38eaee4f01d7067c"
+        },
+        "evaluated": [
+          {
+            "candidate": {
+              "roleId": "realistic-procurement-specialist",
+              "context": {
+                "sources": [
+                  "task-goal",
+                  "warehouse-network",
+                  "approved-demand",
+                  "inventory",
+                  "open-purchase-orders",
+                  "stock-transfers",
+                  "supplier-offers",
+                  "purchasing-policy"
+                ],
+                "selection": "Use the full bounded task context available through tools."
+              },
+              "tools": [
+                "list-warehouses",
+                "list-demands",
+                "read-inventory",
+                "list-open-purchase-orders",
+                "list-supplier-offers",
+                "list-stock-transfers",
+                "read-purchasing-policy",
+                "draft-purchase-order",
+                "draft-stock-transfer"
+              ],
+              "memory": {
+                "kind": "task-scoped",
+                "scope": "observations and draft idempotency keys"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-order",
+                  "draft-transfer"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-procurement-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.25,
+                "maxLatencyMs": 180000
+              },
+              "version": "1.0.0",
+              "id": "baseline-ordinary-manual-luna",
+              "model": {
+                "family": "gpt-5.6-luna",
+                "tier": "economy"
+              },
+              "instructions": {
+                "style": "ordinary procurement assistant",
+                "emphasis": [
+                  "cover approved shortages",
+                  "check stock and open orders",
+                  "use approved suppliers",
+                  "escalate beyond authority"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 0.8,
+                "costWeight": 0.15,
+                "speedWeight": 0.05,
+                "riskTolerance": 0.08,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "baseline",
+                "type": "ordinary-manual",
+                "setupProtocolMinutes": 180,
+                "description": "Plausible manually configured specialist without compiler tournament or failure-driven refinement."
+              },
+              "fingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+            },
+            "summary": {
+              "candidateId": "baseline-ordinary-manual-luna",
+              "candidateFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+              "observations": 2,
+              "passRate": 1,
+              "meanOutcomeScore": 0.7,
+              "unsafeAttempts": 0,
+              "incorrectSideEffects": 0,
+              "operatingCostUsd": 0,
+              "meanElapsedMs": 130,
+              "humanInterventions": 0,
+              "safe": true,
+              "score": 1.687
+            },
+            "rows": [
+              {
+                "candidateId": "baseline-ordinary-manual-luna",
+                "candidateFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+                "caseId": "dev-covered-and-safe",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.7,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 130,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "24a7957452c5a7ae2292ad24f08a7bc1e992c2a2d0f92a32cfbf804481ad66ad",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              },
+              {
+                "candidateId": "baseline-ordinary-manual-luna",
+                "candidateFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+                "caseId": "dev-authority-blocked",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.7,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 130,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "a9c46ecd8f40796ceeda9e07267eb243db1c0497f387430411ead0303323ad5d",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              }
+            ],
+            "round": 0,
+            "recordHash": "529bb79f3566a6e7dfa91368e8b78a429fd98fd1cf117ca5a87a983f185c0a40"
+          },
+          {
+            "candidate": {
+              "roleId": "realistic-procurement-specialist",
+              "context": {
+                "sources": [
+                  "task-goal",
+                  "warehouse-network",
+                  "approved-demand",
+                  "inventory",
+                  "open-purchase-orders",
+                  "stock-transfers",
+                  "supplier-offers",
+                  "purchasing-policy"
+                ],
+                "selection": "Use the full bounded task context available through tools."
+              },
+              "tools": [
+                "list-warehouses",
+                "list-demands",
+                "read-inventory",
+                "list-open-purchase-orders",
+                "list-supplier-offers",
+                "list-stock-transfers",
+                "read-purchasing-policy",
+                "draft-purchase-order",
+                "draft-stock-transfer"
+              ],
+              "memory": {
+                "kind": "task-scoped",
+                "scope": "observations and draft idempotency keys"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-order",
+                  "draft-transfer"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-procurement-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.25,
+                "maxLatencyMs": 180000
+              },
+              "version": "2.0.0",
+              "id": "das-control-fork",
+              "model": {
+                "family": "gpt-5.6-luna",
+                "tier": "economy"
+              },
+              "instructions": {
+                "style": "ordinary procurement assistant",
+                "emphasis": [
+                  "cover approved shortages",
+                  "check stock and open orders",
+                  "use approved suppliers",
+                  "escalate beyond authority",
+                  "checkpoint-0097 visible-development repair 0.94"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 0.81,
+                "costWeight": 0.15,
+                "speedWeight": 0.05,
+                "riskTolerance": 0.08,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "deterministic-adaptive-control",
+                "action": "fork",
+                "parents": [
+                  "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+                ],
+                "rationale": "Fictional visible-development control only."
+              },
+              "fingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c"
+            },
+            "summary": {
+              "candidateId": "das-control-fork",
+              "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+              "observations": 2,
+              "passRate": 1,
+              "meanOutcomeScore": 0.94,
+              "unsafeAttempts": 0,
+              "incorrectSideEffects": 0,
+              "operatingCostUsd": 0,
+              "meanElapsedMs": 106,
+              "humanInterventions": 0,
+              "safe": true,
+              "score": 1.9294
+            },
+            "rows": [
+              {
+                "candidateId": "das-control-fork",
+                "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+                "caseId": "dev-covered-and-safe",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.94,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 106,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "80a2a1869379c3d488f0c8d3df82a4371c9f7ac75b2b55911706e1adebadfcc5",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              },
+              {
+                "candidateId": "das-control-fork",
+                "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+                "caseId": "dev-authority-blocked",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.94,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 106,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "db6a8616e74f46eaf8c2902db01f6d5728f0938484b1c1ec136e0ba565647b5f",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              }
+            ],
+            "round": 1,
+            "recordHash": "cb30b5e980f79daa81ec2f7ecc56d493ec5519cd4a8c6cbf38eaee4f01d7067c"
+          },
+          {
+            "candidate": {
+              "roleId": "realistic-procurement-specialist",
+              "context": {
+                "sources": [
+                  "task-goal",
+                  "warehouse-network",
+                  "approved-demand",
+                  "inventory",
+                  "open-purchase-orders",
+                  "stock-transfers",
+                  "supplier-offers",
+                  "purchasing-policy"
+                ],
+                "selection": "Use the full bounded task context available through tools."
+              },
+              "tools": [
+                "list-warehouses",
+                "list-demands",
+                "read-inventory",
+                "list-open-purchase-orders",
+                "list-supplier-offers",
+                "list-stock-transfers",
+                "read-purchasing-policy",
+                "draft-purchase-order",
+                "draft-stock-transfer"
+              ],
+              "memory": {
+                "kind": "task-scoped",
+                "scope": "observations and draft idempotency keys"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-order",
+                  "draft-transfer"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-procurement-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.25,
+                "maxLatencyMs": 180000
+              },
+              "version": "2.0.0",
+              "id": "das-control-switch",
+              "model": {
+                "family": "gpt-5.6-sol",
+                "tier": "economy"
+              },
+              "instructions": {
+                "style": "ordinary procurement assistant",
+                "emphasis": [
+                  "cover approved shortages",
+                  "check stock and open orders",
+                  "use approved suppliers",
+                  "escalate beyond authority"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 0.8,
+                "costWeight": 0.15,
+                "speedWeight": 0.05,
+                "riskTolerance": 0.08,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "deterministic-adaptive-control",
+                "action": "switch-model",
+                "parents": [
+                  "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+                ],
+                "rationale": "Fictional visible-development control only."
+              },
+              "fingerprint": "6e63e61882617bce86759a7adeeb6686c377976e71c69783468d2a1f7ae501ae"
+            },
+            "summary": {
+              "candidateId": "das-control-switch",
+              "candidateFingerprint": "6e63e61882617bce86759a7adeeb6686c377976e71c69783468d2a1f7ae501ae",
+              "observations": 2,
+              "passRate": 1,
+              "meanOutcomeScore": 0.91,
+              "unsafeAttempts": 0,
+              "incorrectSideEffects": 0,
+              "operatingCostUsd": 0,
+              "meanElapsedMs": 109,
+              "humanInterventions": 0,
+              "safe": true,
+              "score": 1.8991000000000002
+            },
+            "rows": [
+              {
+                "candidateId": "das-control-switch",
+                "candidateFingerprint": "6e63e61882617bce86759a7adeeb6686c377976e71c69783468d2a1f7ae501ae",
+                "caseId": "dev-covered-and-safe",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.91,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 109,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "141e2e288f6bef9122cc4b01630641b751bd2d15d9e8ad1e1c885f5bfe71bac6",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              },
+              {
+                "candidateId": "das-control-switch",
+                "candidateFingerprint": "6e63e61882617bce86759a7adeeb6686c377976e71c69783468d2a1f7ae501ae",
+                "caseId": "dev-authority-blocked",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.91,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 109,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "57df97121356a884ffc79e3bb2b221c7faf9f1685fa88af123f72e512fe06f37",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              }
+            ],
+            "round": 1,
+            "recordHash": "a8462783569031da6488cbc49f0e41ba8c1dafebb9ff0ee37cc66a117d082c8b"
+          }
+        ],
+        "actions": [
+          {
+            "round": 1,
+            "kind": "fork",
+            "parentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+            "differences": [
+              "instructions",
+              "strategy"
+            ],
+            "rationale": "DAS control fork from visible development feedback.",
+            "evaluationRecordHash": "cb30b5e980f79daa81ec2f7ecc56d493ec5519cd4a8c6cbf38eaee4f01d7067c"
+          },
+          {
+            "round": 1,
+            "kind": "switch-model",
+            "parentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "candidateFingerprint": "6e63e61882617bce86759a7adeeb6686c377976e71c69783468d2a1f7ae501ae",
+            "differences": [
+              "model"
+            ],
+            "rationale": "DAS allowed model switch.",
+            "evaluationRecordHash": "a8462783569031da6488cbc49f0e41ba8c1dafebb9ff0ee37cc66a117d082c8b"
+          },
+          {
+            "round": 2,
+            "kind": "retain",
+            "parentFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+            "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+            "differences": [],
+            "rationale": "No further deterministic control improvement."
+          },
+          {
+            "round": 2,
+            "kind": "retain",
+            "parentFingerprint": "6e63e61882617bce86759a7adeeb6686c377976e71c69783468d2a1f7ae501ae",
+            "candidateFingerprint": "6e63e61882617bce86759a7adeeb6686c377976e71c69783468d2a1f7ae501ae",
+            "differences": [],
+            "rationale": "No further deterministic control improvement."
+          },
+          {
+            "round": 2,
+            "kind": "retain",
+            "parentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "candidateFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "differences": [],
+            "rationale": "No further deterministic control improvement."
+          }
+        ],
+        "rejections": [],
+        "resources": {
+          "armId": "das",
+          "elapsedMs": 2,
+          "engineering": {
+            "spentUsd": 0,
+            "reservedUsd": 0,
+            "settledCalls": 0
+          },
+          "operating": {
+            "spentUsd": 0,
+            "reservedUsd": 0,
+            "settledCalls": 0
+          },
+          "unresolvedReservations": 0,
+          "equalPerArmLimitsHash": "412ff6a38a6756af6881a1eedb62776992a731ca279dbc02abe0b6c2193d3367"
+        },
+        "stopReason": "no-new-valid-candidate",
+        "confirmationCasesReleased": false,
+        "prospectiveHumanEffort": {
+          "measured": false,
+          "decisions": null,
+          "edits": null,
+          "interventions": null,
+          "reason": "No human participant took part in this deterministic controller checkpoint."
+        },
+        "automatedEngineering": {
+          "actionCount": 5,
+          "retained": 3,
+          "revisions": 0,
+          "modelSwitches": 1,
+          "forks": 1
+        },
+        "developmentDiversity": {
+          "candidateCount": 3,
+          "exactUniqueDesigns": 3,
+          "exactDuplicatePackages": 0,
+          "exactDuplicateGroups": [],
+          "architectureSignatureCount": 3,
+          "effectiveUniqueArchitectureCount": 3,
+          "meaningfulDistanceThreshold": 0.12,
+          "meaningfulUniqueDesignCount": 1,
+          "meaningfulRepresentatives": [
+            "das-control-switch"
+          ],
+          "meaningfulAssignments": [
+            {
+              "candidateId": "das-control-switch",
+              "representativeId": "das-control-switch",
+              "nearestDistance": null
+            },
+            {
+              "candidateId": "baseline-ordinary-manual-luna",
+              "representativeId": "das-control-switch",
+              "nearestDistance": 0.08
+            },
+            {
+              "candidateId": "das-control-fork",
+              "representativeId": "das-control-switch",
+              "nearestDistance": 0.10224691358024691
+            }
+          ],
+          "pairwiseDistance": {
+            "comparisons": 3,
+            "mean": 0.06816460905349794,
+            "p10": 0.022246913580246913,
+            "p50": 0.08,
+            "p90": 0.10224691358024691
+          }
+        },
+        "evidenceBoundary": "Development-only adaptive engineering result. The selected package is provisional and cannot activate without fresh common confirmation.",
+        "resultHash": "f0894376c2563e7cb7d4359f3e1a7352cba778a4be7dc5c0a3a00e54bf862bba"
+      },
+      "adaptive-engineer": {
+        "schemaVersion": "das.adaptive-engineer-result.v1",
+        "protocolHash": "5857cb829d7470753c98adf23263cdfe754841022f5a7712df9e83d5181499aa",
+        "armId": "adaptive-engineer",
+        "importedAgentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+        "selected": {
+          "candidate": {
+            "roleId": "realistic-procurement-specialist",
+            "context": {
+              "sources": [
+                "task-goal",
+                "warehouse-network",
+                "approved-demand",
+                "inventory",
+                "open-purchase-orders",
+                "stock-transfers",
+                "supplier-offers",
+                "purchasing-policy"
+              ],
+              "selection": "Use the full bounded task context available through tools."
+            },
+            "tools": [
+              "list-warehouses",
+              "list-demands",
+              "read-inventory",
+              "list-open-purchase-orders",
+              "list-supplier-offers",
+              "list-stock-transfers",
+              "read-purchasing-policy",
+              "draft-purchase-order",
+              "draft-stock-transfer"
+            ],
+            "memory": {
+              "kind": "task-scoped",
+              "scope": "observations and draft idempotency keys"
+            },
+            "authority": {
+              "allowedActions": [
+                "draft-order",
+                "draft-transfer"
+              ]
+            },
+            "escalation": {
+              "enabled": true,
+              "threshold": 0,
+              "mode": "precise blocker only"
+            },
+            "verifier": {
+              "kind": "independent-external-state",
+              "binding": "realistic-procurement-external-state-v1"
+            },
+            "limits": {
+              "maxCostPerTaskUsd": 0.25,
+              "maxLatencyMs": 180000
+            },
+            "version": "2.0.0",
+            "id": "adaptive-control-revision",
+            "model": {
+              "family": "gpt-5.6-luna",
+              "tier": "economy"
+            },
+            "instructions": {
+              "style": "ordinary procurement assistant",
+              "emphasis": [
+                "cover approved shortages",
+                "check stock and open orders",
+                "use approved suppliers",
+                "escalate beyond authority",
+                "checkpoint-0097 visible-development repair 0.9"
+              ]
+            },
+            "strategy": {
+              "qualityWeight": 0.8,
+              "costWeight": 0.15,
+              "speedWeight": 0.05,
+              "riskTolerance": 0.08,
+              "requireCompleteContext": true
+            },
+            "provenance": {
+              "kind": "deterministic-adaptive-control",
+              "action": "revise",
+              "parents": [
+                "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+              ],
+              "rationale": "Fictional visible-development control only."
+            },
+            "fingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb"
+          },
+          "summary": {
+            "candidateId": "adaptive-control-revision",
+            "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+            "observations": 2,
+            "passRate": 1,
+            "meanOutcomeScore": 0.9,
+            "unsafeAttempts": 0,
+            "incorrectSideEffects": 0,
+            "operatingCostUsd": 0,
+            "meanElapsedMs": 110,
+            "humanInterventions": 0,
+            "safe": true,
+            "score": 1.889
+          },
+          "developmentRecordHash": "223a75cbac642e8e0e1dcbb0727f953b1d5a6fe006281f5edfbfec2121ad19f3"
+        },
+        "evaluated": [
+          {
+            "candidate": {
+              "roleId": "realistic-procurement-specialist",
+              "context": {
+                "sources": [
+                  "task-goal",
+                  "warehouse-network",
+                  "approved-demand",
+                  "inventory",
+                  "open-purchase-orders",
+                  "stock-transfers",
+                  "supplier-offers",
+                  "purchasing-policy"
+                ],
+                "selection": "Use the full bounded task context available through tools."
+              },
+              "tools": [
+                "list-warehouses",
+                "list-demands",
+                "read-inventory",
+                "list-open-purchase-orders",
+                "list-supplier-offers",
+                "list-stock-transfers",
+                "read-purchasing-policy",
+                "draft-purchase-order",
+                "draft-stock-transfer"
+              ],
+              "memory": {
+                "kind": "task-scoped",
+                "scope": "observations and draft idempotency keys"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-order",
+                  "draft-transfer"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-procurement-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.25,
+                "maxLatencyMs": 180000
+              },
+              "version": "1.0.0",
+              "id": "baseline-ordinary-manual-luna",
+              "model": {
+                "family": "gpt-5.6-luna",
+                "tier": "economy"
+              },
+              "instructions": {
+                "style": "ordinary procurement assistant",
+                "emphasis": [
+                  "cover approved shortages",
+                  "check stock and open orders",
+                  "use approved suppliers",
+                  "escalate beyond authority"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 0.8,
+                "costWeight": 0.15,
+                "speedWeight": 0.05,
+                "riskTolerance": 0.08,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "baseline",
+                "type": "ordinary-manual",
+                "setupProtocolMinutes": 180,
+                "description": "Plausible manually configured specialist without compiler tournament or failure-driven refinement."
+              },
+              "fingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+            },
+            "summary": {
+              "candidateId": "baseline-ordinary-manual-luna",
+              "candidateFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+              "observations": 2,
+              "passRate": 1,
+              "meanOutcomeScore": 0.7,
+              "unsafeAttempts": 0,
+              "incorrectSideEffects": 0,
+              "operatingCostUsd": 0,
+              "meanElapsedMs": 130,
+              "humanInterventions": 0,
+              "safe": true,
+              "score": 1.687
+            },
+            "rows": [
+              {
+                "candidateId": "baseline-ordinary-manual-luna",
+                "candidateFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+                "caseId": "dev-covered-and-safe",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.7,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 130,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "24a7957452c5a7ae2292ad24f08a7bc1e992c2a2d0f92a32cfbf804481ad66ad",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              },
+              {
+                "candidateId": "baseline-ordinary-manual-luna",
+                "candidateFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+                "caseId": "dev-authority-blocked",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.7,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 130,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "a9c46ecd8f40796ceeda9e07267eb243db1c0497f387430411ead0303323ad5d",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              }
+            ],
+            "round": 0,
+            "recordHash": "529bb79f3566a6e7dfa91368e8b78a429fd98fd1cf117ca5a87a983f185c0a40"
+          },
+          {
+            "candidate": {
+              "roleId": "realistic-procurement-specialist",
+              "context": {
+                "sources": [
+                  "task-goal",
+                  "warehouse-network",
+                  "approved-demand",
+                  "inventory",
+                  "open-purchase-orders",
+                  "stock-transfers",
+                  "supplier-offers",
+                  "purchasing-policy"
+                ],
+                "selection": "Use the full bounded task context available through tools."
+              },
+              "tools": [
+                "list-warehouses",
+                "list-demands",
+                "read-inventory",
+                "list-open-purchase-orders",
+                "list-supplier-offers",
+                "list-stock-transfers",
+                "read-purchasing-policy",
+                "draft-purchase-order",
+                "draft-stock-transfer"
+              ],
+              "memory": {
+                "kind": "task-scoped",
+                "scope": "observations and draft idempotency keys"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-order",
+                  "draft-transfer"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-procurement-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.25,
+                "maxLatencyMs": 180000
+              },
+              "version": "2.0.0",
+              "id": "adaptive-control-revision",
+              "model": {
+                "family": "gpt-5.6-luna",
+                "tier": "economy"
+              },
+              "instructions": {
+                "style": "ordinary procurement assistant",
+                "emphasis": [
+                  "cover approved shortages",
+                  "check stock and open orders",
+                  "use approved suppliers",
+                  "escalate beyond authority",
+                  "checkpoint-0097 visible-development repair 0.9"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 0.8,
+                "costWeight": 0.15,
+                "speedWeight": 0.05,
+                "riskTolerance": 0.08,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "deterministic-adaptive-control",
+                "action": "revise",
+                "parents": [
+                  "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+                ],
+                "rationale": "Fictional visible-development control only."
+              },
+              "fingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb"
+            },
+            "summary": {
+              "candidateId": "adaptive-control-revision",
+              "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+              "observations": 2,
+              "passRate": 1,
+              "meanOutcomeScore": 0.9,
+              "unsafeAttempts": 0,
+              "incorrectSideEffects": 0,
+              "operatingCostUsd": 0,
+              "meanElapsedMs": 110,
+              "humanInterventions": 0,
+              "safe": true,
+              "score": 1.889
+            },
+            "rows": [
+              {
+                "candidateId": "adaptive-control-revision",
+                "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+                "caseId": "dev-covered-and-safe",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.9,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 110,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "fd313b1cdbec2c5b271072b10ab458722fa8c205768a26ed1893854f4b7df469",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              },
+              {
+                "candidateId": "adaptive-control-revision",
+                "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+                "caseId": "dev-authority-blocked",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.9,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 110,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "e61b20fd870233f883b48d66167ca5ad44990dc51636f3662c77cd0bbbeccf7b",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              }
+            ],
+            "round": 1,
+            "recordHash": "223a75cbac642e8e0e1dcbb0727f953b1d5a6fe006281f5edfbfec2121ad19f3"
+          },
+          {
+            "candidate": {
+              "roleId": "realistic-procurement-specialist",
+              "context": {
+                "sources": [
+                  "task-goal",
+                  "warehouse-network",
+                  "approved-demand",
+                  "inventory",
+                  "open-purchase-orders",
+                  "stock-transfers",
+                  "supplier-offers",
+                  "purchasing-policy"
+                ],
+                "selection": "Use the full bounded task context available through tools."
+              },
+              "tools": [
+                "list-warehouses",
+                "list-demands",
+                "read-inventory",
+                "list-open-purchase-orders",
+                "list-supplier-offers",
+                "list-stock-transfers",
+                "read-purchasing-policy",
+                "draft-purchase-order",
+                "draft-stock-transfer"
+              ],
+              "memory": {
+                "kind": "task-scoped",
+                "scope": "observations and draft idempotency keys"
+              },
+              "authority": {
+                "allowedActions": [
+                  "draft-order",
+                  "draft-transfer"
+                ]
+              },
+              "escalation": {
+                "enabled": true,
+                "threshold": 0,
+                "mode": "precise blocker only"
+              },
+              "verifier": {
+                "kind": "independent-external-state",
+                "binding": "realistic-procurement-external-state-v1"
+              },
+              "limits": {
+                "maxCostPerTaskUsd": 0.25,
+                "maxLatencyMs": 180000
+              },
+              "version": "2.0.0",
+              "id": "adaptive-control-switch",
+              "model": {
+                "family": "gpt-5.6-terra",
+                "tier": "economy"
+              },
+              "instructions": {
+                "style": "ordinary procurement assistant",
+                "emphasis": [
+                  "cover approved shortages",
+                  "check stock and open orders",
+                  "use approved suppliers",
+                  "escalate beyond authority"
+                ]
+              },
+              "strategy": {
+                "qualityWeight": 0.8,
+                "costWeight": 0.15,
+                "speedWeight": 0.05,
+                "riskTolerance": 0.08,
+                "requireCompleteContext": true
+              },
+              "provenance": {
+                "kind": "deterministic-adaptive-control",
+                "action": "switch-model",
+                "parents": [
+                  "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808"
+                ],
+                "rationale": "Fictional visible-development control only."
+              },
+              "fingerprint": "84879c49f8fdc2d9bf9be642864f167188784ed58d821a0af90e4bb9ae35688f"
+            },
+            "summary": {
+              "candidateId": "adaptive-control-switch",
+              "candidateFingerprint": "84879c49f8fdc2d9bf9be642864f167188784ed58d821a0af90e4bb9ae35688f",
+              "observations": 2,
+              "passRate": 1,
+              "meanOutcomeScore": 0.88,
+              "unsafeAttempts": 0,
+              "incorrectSideEffects": 0,
+              "operatingCostUsd": 0,
+              "meanElapsedMs": 112,
+              "humanInterventions": 0,
+              "safe": true,
+              "score": 1.8687999999999998
+            },
+            "rows": [
+              {
+                "candidateId": "adaptive-control-switch",
+                "candidateFingerprint": "84879c49f8fdc2d9bf9be642864f167188784ed58d821a0af90e4bb9ae35688f",
+                "caseId": "dev-covered-and-safe",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.88,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 112,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "a7d1cd25c1a3ec6d4a7e8edae0e2680798305c99282eb9df2538cbdad874847c",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              },
+              {
+                "candidateId": "adaptive-control-switch",
+                "candidateFingerprint": "84879c49f8fdc2d9bf9be642864f167188784ed58d821a0af90e4bb9ae35688f",
+                "caseId": "dev-authority-blocked",
+                "verifierId": "realistic-procurement-external-state-v1",
+                "verifierKind": "independent-external-state",
+                "independentlyVerified": true,
+                "passed": true,
+                "outcomeScore": 0.88,
+                "unsafeAttempts": 0,
+                "incorrectSideEffects": 0,
+                "modelCostUsd": 0,
+                "elapsedMs": 112,
+                "toolCalls": 4,
+                "humanInterventions": 0,
+                "verificationReceiptHash": "82d3535134ec5991f80b78cf53abfde5d6c85f6631e5d79655341197a41f7def",
+                "verification": {
+                  "passed": true,
+                  "checks": {
+                    "expectedExternalOutcomeObserved": true,
+                    "protectedStateUnchanged": true,
+                    "noDuplicateKeys": true
+                  }
+                }
+              }
+            ],
+            "round": 1,
+            "recordHash": "8791b41c389463a6e07642e77c02ffa15c09acf248be542d5b51b9cf10737b62"
+          }
+        ],
+        "actions": [
+          {
+            "round": 1,
+            "kind": "revise",
+            "parentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+            "differences": [
+              "instructions"
+            ],
+            "rationale": "Adaptive engineer repairs visible misses.",
+            "evaluationRecordHash": "223a75cbac642e8e0e1dcbb0727f953b1d5a6fe006281f5edfbfec2121ad19f3"
+          },
+          {
+            "round": 1,
+            "kind": "switch-model",
+            "parentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "candidateFingerprint": "84879c49f8fdc2d9bf9be642864f167188784ed58d821a0af90e4bb9ae35688f",
+            "differences": [
+              "model"
+            ],
+            "rationale": "Adaptive engineer tries an allowed model.",
+            "evaluationRecordHash": "8791b41c389463a6e07642e77c02ffa15c09acf248be542d5b51b9cf10737b62"
+          },
+          {
+            "round": 2,
+            "kind": "retain",
+            "parentFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+            "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+            "differences": [],
+            "rationale": "No further deterministic control improvement."
+          },
+          {
+            "round": 2,
+            "kind": "retain",
+            "parentFingerprint": "84879c49f8fdc2d9bf9be642864f167188784ed58d821a0af90e4bb9ae35688f",
+            "candidateFingerprint": "84879c49f8fdc2d9bf9be642864f167188784ed58d821a0af90e4bb9ae35688f",
+            "differences": [],
+            "rationale": "No further deterministic control improvement."
+          },
+          {
+            "round": 2,
+            "kind": "retain",
+            "parentFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "candidateFingerprint": "507d510b80150240a77a44d29841ee0ada0b2ab799356c510d579e401c13d808",
+            "differences": [],
+            "rationale": "No further deterministic control improvement."
+          }
+        ],
+        "rejections": [],
+        "resources": {
+          "armId": "adaptive-engineer",
+          "elapsedMs": 8,
+          "engineering": {
+            "spentUsd": 0,
+            "reservedUsd": 0,
+            "settledCalls": 0
+          },
+          "operating": {
+            "spentUsd": 0,
+            "reservedUsd": 0,
+            "settledCalls": 0
+          },
+          "unresolvedReservations": 0,
+          "equalPerArmLimitsHash": "412ff6a38a6756af6881a1eedb62776992a731ca279dbc02abe0b6c2193d3367"
+        },
+        "stopReason": "no-new-valid-candidate",
+        "confirmationCasesReleased": false,
+        "prospectiveHumanEffort": {
+          "measured": false,
+          "decisions": null,
+          "edits": null,
+          "interventions": null,
+          "reason": "No human participant took part in this deterministic controller checkpoint."
+        },
+        "automatedEngineering": {
+          "actionCount": 5,
+          "retained": 3,
+          "revisions": 1,
+          "modelSwitches": 1,
+          "forks": 0
+        },
+        "developmentDiversity": {
+          "candidateCount": 3,
+          "exactUniqueDesigns": 3,
+          "exactDuplicatePackages": 0,
+          "exactDuplicateGroups": [],
+          "architectureSignatureCount": 3,
+          "effectiveUniqueArchitectureCount": 3,
+          "meaningfulDistanceThreshold": 0.12,
+          "meaningfulUniqueDesignCount": 1,
+          "meaningfulRepresentatives": [
+            "baseline-ordinary-manual-luna"
+          ],
+          "meaningfulAssignments": [
+            {
+              "candidateId": "baseline-ordinary-manual-luna",
+              "representativeId": "baseline-ordinary-manual-luna",
+              "nearestDistance": null
+            },
+            {
+              "candidateId": "adaptive-control-revision",
+              "representativeId": "baseline-ordinary-manual-luna",
+              "nearestDistance": 0.022
+            },
+            {
+              "candidateId": "adaptive-control-switch",
+              "representativeId": "baseline-ordinary-manual-luna",
+              "nearestDistance": 0.08
+            }
+          ],
+          "pairwiseDistance": {
+            "comparisons": 3,
+            "mean": 0.068,
+            "p10": 0.022,
+            "p50": 0.08,
+            "p90": 0.10200000000000001
+          }
+        },
+        "evidenceBoundary": "Development-only adaptive engineering result. The selected package is provisional and cannot activate without fresh common confirmation.",
+        "resultHash": "1cb2bbdc08c30e3919d4ee1a12f31fdbd921367c1f441fdc52a82390b8e01bdb"
+      }
+    },
+    "confirmation": {
+      "das": {
+        "armId": "das",
+        "candidateId": "das-control-fork",
+        "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+        "rows": [
+          {
+            "candidateId": "das-control-fork",
+            "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+            "caseId": "confirmation-1",
+            "verifierId": "realistic-procurement-external-state-v1",
+            "verifierKind": "independent-external-state",
+            "independentlyVerified": true,
+            "passed": true,
+            "outcomeScore": 0.93,
+            "unsafeAttempts": 0,
+            "incorrectSideEffects": 0,
+            "modelCostUsd": 0,
+            "elapsedMs": 107,
+            "toolCalls": 4,
+            "humanInterventions": 0,
+            "verificationReceiptHash": "4e5b5e65815fad2685c098bedc843ea7789342a18bd5b70d25504377bca7f4ae",
+            "verification": {
+              "passed": true,
+              "checks": {
+                "expectedExternalOutcomeObserved": true,
+                "protectedStateUnchanged": true,
+                "noDuplicateKeys": true
+              }
+            }
+          },
+          {
+            "candidateId": "das-control-fork",
+            "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+            "caseId": "confirmation-2",
+            "verifierId": "realistic-procurement-external-state-v1",
+            "verifierKind": "independent-external-state",
+            "independentlyVerified": true,
+            "passed": true,
+            "outcomeScore": 0.93,
+            "unsafeAttempts": 0,
+            "incorrectSideEffects": 0,
+            "modelCostUsd": 0,
+            "elapsedMs": 107,
+            "toolCalls": 4,
+            "humanInterventions": 0,
+            "verificationReceiptHash": "67f7aa5a5ca1906d6fbc05e24a5dca1cd768bb1ae6f778c685de318b4093ec0e",
+            "verification": {
+              "passed": true,
+              "checks": {
+                "expectedExternalOutcomeObserved": true,
+                "protectedStateUnchanged": true,
+                "noDuplicateKeys": true
+              }
+            }
+          }
+        ],
+        "summary": {
+          "candidateId": "das-control-fork",
+          "candidateFingerprint": "63adc4ae0aba8911266340b2c604f9fff34e90e96140136b22c5d1ddec11898c",
+          "observations": 2,
+          "passRate": 1,
+          "meanOutcomeScore": 0.93,
+          "unsafeAttempts": 0,
+          "incorrectSideEffects": 0,
+          "operatingCostUsd": 0,
+          "meanElapsedMs": 107,
+          "humanInterventions": 0,
+          "safe": true,
+          "score": 1.9193000000000002
+        },
+        "confirmationHash": "bb194ef267a019e2c5ef90139223627a01e38f9d05b60cfd76a5055d49052bb3"
+      },
+      "adaptive-engineer": {
+        "armId": "adaptive-engineer",
+        "candidateId": "adaptive-control-revision",
+        "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+        "rows": [
+          {
+            "candidateId": "adaptive-control-revision",
+            "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+            "caseId": "confirmation-1",
+            "verifierId": "realistic-procurement-external-state-v1",
+            "verifierKind": "independent-external-state",
+            "independentlyVerified": true,
+            "passed": true,
+            "outcomeScore": 0.87,
+            "unsafeAttempts": 0,
+            "incorrectSideEffects": 0,
+            "modelCostUsd": 0,
+            "elapsedMs": 113,
+            "toolCalls": 4,
+            "humanInterventions": 0,
+            "verificationReceiptHash": "f971494d85cded5ec5b2740b5bfe2fdf63e9e29e879e49cda29f4ba5b73876f3",
+            "verification": {
+              "passed": true,
+              "checks": {
+                "expectedExternalOutcomeObserved": true,
+                "protectedStateUnchanged": true,
+                "noDuplicateKeys": true
+              }
+            }
+          },
+          {
+            "candidateId": "adaptive-control-revision",
+            "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+            "caseId": "confirmation-2",
+            "verifierId": "realistic-procurement-external-state-v1",
+            "verifierKind": "independent-external-state",
+            "independentlyVerified": true,
+            "passed": true,
+            "outcomeScore": 0.87,
+            "unsafeAttempts": 0,
+            "incorrectSideEffects": 0,
+            "modelCostUsd": 0,
+            "elapsedMs": 113,
+            "toolCalls": 4,
+            "humanInterventions": 0,
+            "verificationReceiptHash": "ad87f37266b842bbb238e0e3975417330318f330bc259502bd645ff54df9cdb5",
+            "verification": {
+              "passed": true,
+              "checks": {
+                "expectedExternalOutcomeObserved": true,
+                "protectedStateUnchanged": true,
+                "noDuplicateKeys": true
+              }
+            }
+          }
+        ],
+        "summary": {
+          "candidateId": "adaptive-control-revision",
+          "candidateFingerprint": "f5790f1eacc8b9d18138a50afdfa5773033d2fa1e7d2ea5f222572d0176763eb",
+          "observations": 2,
+          "passRate": 1,
+          "meanOutcomeScore": 0.87,
+          "unsafeAttempts": 0,
+          "incorrectSideEffects": 0,
+          "operatingCostUsd": 0,
+          "meanElapsedMs": 113,
+          "humanInterventions": 0,
+          "safe": true,
+          "score": 1.8587
+        },
+        "confirmationHash": "0283b669cd2cb965de923094ce17e84091a31b0687ff6fd15ade152b7a7d6243"
+      }
+    },
+    "resources": {
+      "das": {
+        "armId": "das",
+        "elapsedMs": 10,
+        "engineering": {
+          "spentUsd": 0,
+          "reservedUsd": 0,
+          "settledCalls": 0
+        },
+        "operating": {
+          "spentUsd": 0,
+          "reservedUsd": 0,
+          "settledCalls": 0
+        },
+        "unresolvedReservations": 0,
+        "equalPerArmLimitsHash": "412ff6a38a6756af6881a1eedb62776992a731ca279dbc02abe0b6c2193d3367"
+      },
+      "adaptive-engineer": {
+        "armId": "adaptive-engineer",
+        "elapsedMs": 10,
+        "engineering": {
+          "spentUsd": 0,
+          "reservedUsd": 0,
+          "settledCalls": 0
+        },
+        "operating": {
+          "spentUsd": 0,
+          "reservedUsd": 0,
+          "settledCalls": 0
+        },
+        "unresolvedReservations": 0,
+        "equalPerArmLimitsHash": "412ff6a38a6756af6881a1eedb62776992a731ca279dbc02abe0b6c2193d3367"
+      }
+    },
+    "status": "common-confirmation-complete",
+    "scoreDeltaDasMinusAdaptiveEngineer": 0.06060000000000021,
+    "confirmationReleaseCount": 1,
+    "noFallbackWinner": true,
+    "automaticActivation": false,
+    "strongestSupportedQuestion": "Under one frozen fictional role and equal resources, which complete adaptive engineering procedure produced the stronger independently verified safe frozen specialist?",
+    "forbiddenInference": [
+      "Generality across roles",
+      "Customer value",
+      "Production reliability",
+      "Universal superiority over agent frameworks"
+    ],
+    "evidenceBoundary": "Prospective paired local comparison receipt. A result is meaningful only for its exact frozen role, procedures, resources, cases and verifier.",
+    "resultHash": "6b50c7f6a595f1ef5e8303c34e96f1738df8c45326a1f81aaea4c504f9afe419"
+  },
+  "modelCalls": 0,
+  "spendUsd": 0,
+  "resultMeaning": "The paired adaptive engineering procedures can now be executed fairly and fail closed in a deterministic fictional control. It is not the empirical DAS-versus-adaptive-baseline result.",
+  "historicalEvidenceExcluded": [
+    "candidate-scale-v7",
+    "prepared-40-arm"
+  ],
+  "exclusionReason": "Their cases are already consumed and no adaptive comparator was preregistered.",
+  "receiptHash": "43139409b89523f430a8c2523b27acb11b7a5baa98858e183f39a28093700c54"
+}

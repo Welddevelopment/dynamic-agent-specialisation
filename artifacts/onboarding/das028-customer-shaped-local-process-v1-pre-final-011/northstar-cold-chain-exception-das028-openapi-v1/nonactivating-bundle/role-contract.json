@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "das.customer-local-role-contract.v1",
+  "tenantId": "fictional-northstar-cold-chain-exception-das028-openapi-v1-tenant",
+  "roleId": "northstar-cold-chain-exception-das028-openapi-v1-specialist",
+  "revision": 1,
+  "sourceIdentity": {
+    "kind": "openapi",
+    "sourceHash": "b2ade987dba58e69869e7ae7f3c034ffe865beae7bc91b0a8f89fdf948681c7e"
+  },
+  "outcome": "Turn an assigned approved temperature excursion into exactly one draft exception.",
+  "authority": {
+    "allowed": [
+      "create-draft-temperature-exception"
+    ],
+    "approvalRequired": [
+      "release-shipment",
+      "submit-temperature-exception"
+    ],
+    "forbidden": [
+      "release-shipment",
+      "change-protected-shipment"
+    ]
+  },
+  "authorizations": {
+    "customerExecution": false,
+    "modelSpend": false,
+    "activation": false
+  },
+  "contractHash": "51a48400cf07252b7db812dea84d12585e865b128b672cd39ea4c9e366514825"
+}
