@@ -21,12 +21,20 @@ repo of its own by design — that is correct, not an oversight.
 
 - Everything currently ends with **zero executable operations**. Deliberate.
 - **DAS-028 completed** at checkpoint 0108 (2026-08-14). Reports run to 0111.
-- **DAS-004 / Lane B2** was the decisive comparison against an adaptive agent, and
-  it RAN on 2026-08-13 (report 0111). Same task outcome, 1/2 each. DAS was 19%
-  more expensive and 23% slower. Its own words: *"a safety win, not an efficiency
-  win."* Cross-role replication remains open.
-  There is no work item **DAS-013** — that ID was invented in an earlier draft of
-  this file and does not exist anywhere in the repo.
+- **DAS work items live in the Capability Factory repo**, not here:
+  `~/Desktop/Capability Factory/coordination/engineering-queue/index.json`.
+  Grepping this repo for a DAS-0NN item finds nothing and proves nothing — that
+  mistake was made once and wrongly concluded an item was invented.
+  This repo numbers by **checkpoint** (0001–0111) and **lane** (A1, A2, A6, B1,
+  B2, B3, B4). Both systems are real.
+- **DAS-013 is real, open (`ready`), and has never run.** "Adversarially test
+  autonomous specialist design against strong adaptive single-agent and
+  expert-designed baselines on unseen role families." The review calls it *"still
+  a decisive open test."* **Until it runs, the core thesis is unconfirmed.**
+- **DAS-004 / Lane B2** is a narrower, completed comparison — not DAS-013. It ran
+  2026-08-13 (report 0111): same task outcome 1/2 each, DAS 19% more expensive and
+  23% slower, *"a safety win, not an efficiency win."* One fictional role, single
+  paired sample. Cross-role replication open.
 - **Lifetime paid-model spend: $25.711985** (report 0089). The $25 figure is a scoped Level 1 ceiling, not a lifetime cap - see below.
   Do not confuse it with the DAS-004/B2 campaign figure of $0.36181282.
 - The real evidence is `docs/LIVING_TECHNICAL_BACKLOG.md` and `reports/`. Two
