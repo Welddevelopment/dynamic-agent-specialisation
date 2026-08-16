@@ -31,7 +31,21 @@ function nav() {
 
 function overview() {
   const historical = state.historicalImprovementRuns[0];
-  return `<p class="kicker">Autonomous recommendation · human control on demand</p><h1 class="page-title">Build the strongest specialist you can actually prove.</h1><p class="lede">The compiler designs candidates, tests them against external outcomes, recommends the strongest measured fit, and keeps every serious alternative inspectable. Further self-improvement is optional and budget-bound.</p><div class="metric-row"><div class="metric"><span>Reference roles</span><strong>${state.roles.length}</strong></div><div class="metric"><span>Evidence chain</span><strong>${state.evidenceValid ? "Valid" : "Invalid"}</strong></div><div class="metric"><span>Latest paid experiment</span><strong>${historical ? `$${historical.spendUsd.toFixed(2)}` : "None"}</strong></div></div>${historical ? `<div class="card"><p class="kicker">Latest honest decision</p><h2>${esc(historical.label)}</h2><p>${esc(String(historical.result).replace(/\.\s*$/, ""))}. ${esc(String(historical.stopReason).replace(/\.\s*$/, ""))}.</p><p class="explain">${esc(historical.boundary)}</p></div>` : ""}`;
+  return `<p class="kicker">Autonomous recommendation · human control on demand</p><h1 class="page-title">Build the strongest specialist you can actually prove.</h1><p class="lede">The compiler designs candidates, tests them against external outcomes, recommends the strongest measured fit, and keeps every serious alternative inspectable. Further self-improvement is optional and budget-bound.</p><div class="metric-row"><div class="metric"><span>Reference roles</span><strong>${state.roles.length}</strong></div><div class="metric"><span>Evidence chain</span><strong>${state.evidenceValid ? "Valid" : "Invalid"}</strong></div><div class="metric"><span>Latest paid experiment</span><strong>${historical ? `$${historical.spendUsd.toFixed(2)}` : "None"}</strong></div></div>${level1Decisions()}${historical ? `<div class="card"><p class="kicker">Latest honest decision</p><h2>${esc(historical.label)}</h2><p>${esc(String(historical.result).replace(/\.\s*$/, ""))}. ${esc(String(historical.stopReason).replace(/\.\s*$/, ""))}.</p><p class="explain">${esc(historical.boundary)}</p></div>` : ""}`;
+}
+
+
+function level1Decisions() {
+  const closeout = state.product?.level1;
+  if (!closeout?.selections?.length) return "";
+  const label = { "activate-compiler-specialist": ["Activated", "activated"], "retain-existing-specialist": ["Kept existing", "retained"], "retain-existing-unproved-upgrade": ["Kept existing", "retained"] };
+  const roleName = (id) => String(id).replace(/^realistic-/, "").replace(/-specialist$/, "").replaceAll("-", " ");
+  const rows = closeout.selections.map((s) => {
+    const [text, cls] = label[s.decision] ?? [s.decision, "other"];
+    return `<article class="decision-row ${cls}"><div class="decision-role"><span class="kicker">Role</span><strong>${esc(roleName(s.roleId))}</strong></div><div class="decision-outcome"><span class="kicker">Decision</span><strong>${esc(text)}</strong><small>${esc(s.candidateId)} · v${esc(s.candidateVersion)}</small></div><div class="decision-alts"><span class="kicker">Alternatives kept</span><strong>${s.alternativesPreserved}</strong></div><code title="Record hash">${esc(String(s.recordHash).slice(0, 16))}…</code></article>`;
+  }).join("");
+  const activated = closeout.selections.filter((s) => s.decision === "activate-compiler-specialist").length;
+  return `<section class="decisions"><div class="decisions-head"><p class="kicker">Level 1 decisions · from the sealed closeout record</p><h2>${activated} activated. ${closeout.selections.length - activated} kept the existing agent.</h2><p class="explain">"Keep what you have" is a first-class outcome. Each row is bound to a hashed selection record; the exact numbers behind each decision are in <code>reports/</code>.</p></div>${rows}</section>`;
 }
 
 function comparisonStage(label, count, copy, stateClass = "") {

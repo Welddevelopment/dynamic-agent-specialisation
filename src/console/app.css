@@ -2,3 +2,15 @@
 
 .nav-item.nav-external{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:inherit}
 .nav-item.nav-external .optional{font-size:10px}
+
+/* Level 1 decisions panel — renders the sealed closeout selections. */
+.decisions{margin:26px 0 22px;border:1px solid var(--line);border-radius:14px;background:var(--paper);overflow:hidden}
+.decisions-head{padding:22px 24px 8px}.decisions-head h2{margin:8px 0 8px;font-size:clamp(20px,2.4vw,30px);letter-spacing:-.04em;line-height:1.1}
+.decisions-head .explain{color:var(--muted);line-height:1.6;max-width:820px;font-size:14px;margin:0 0 6px}
+.decision-row{display:grid;grid-template-columns:1.1fr 2fr .8fr auto;gap:18px;align-items:center;padding:16px 24px;border-top:1px solid var(--line)}
+.decision-row .kicker{display:block;margin-bottom:5px}.decision-row strong{display:block;font-size:16px;letter-spacing:-.01em}
+.decision-row small{display:block;color:var(--muted);font:11px ui-monospace,monospace;margin-top:4px;overflow-wrap:anywhere}
+.decision-row code{color:var(--muted);font:11px ui-monospace,monospace}
+.decision-row.activated .decision-outcome strong{color:var(--green)}
+.decision-row.retained .decision-outcome strong{color:var(--amber)}
+@media(max-width:900px){.decision-row{grid-template-columns:1fr 1fr}.decision-row code{display:none}}
