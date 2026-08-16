@@ -21,7 +21,9 @@ compiler/controller".
   DAS bounded candidate-search procedure."*
 - `compileSpecialist()` is never invoked anywhere in `src/experiments/das004-b2/`.
   `generateCandidatePortfolio`, `runStagedTournament` and `freezeEvaluation` do not
-  execute. The only compiler import in the pairing code is `validateCandidate`.
+  execute. `src/experiments/das004-b2/` itself imports **nothing** from the compiler; the
+  single `validateCandidate` import sits in the shared `src/evaluation/` pairing
+  module, and it is a validation helper, not the pipeline.
 
 ## What survives and what does not
 
