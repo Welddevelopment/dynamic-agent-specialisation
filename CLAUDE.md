@@ -45,7 +45,7 @@ repo of its own by design — that is correct, not an oversight.
   2026-08-13 (report 0111): same task outcome 1/2 each, DAS 19% more expensive and
   23% slower, *"a safety win, not an efficiency win."* One fictional role, single
   paired sample. Cross-role replication open.
-- **Lifetime paid-model spend: $25.711985** (report 0089). The $25 figure is a scoped Level 1 ceiling, not a lifetime cap - see below.
+- **Lifetime paid-model spend: ~$26.0766** as of report 0111 ($25.711985 through 0089, plus $0.00281775 and $0.36181282). Recompute rather than quoting. The $25 figure is a scoped Level 1 ceiling, not a lifetime cap - see below.
   Do not confuse it with the DAS-004/B2 campaign figure of $0.36181282.
 - The real evidence is `docs/LIVING_TECHNICAL_BACKLOG.md` and `reports/`. Two
   objections have survived all fourteen self-audits: **unclear recurring value**

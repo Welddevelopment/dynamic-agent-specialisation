@@ -211,6 +211,34 @@ external state decides whether the goal was actually met.
 restricted to permitted tools. It projects cost and throws
 `candidate-task-cost-limit-before-call` **before** spending.
 
+## The terminal-resolution asymmetry — undocumented, and it cost a campaign
+
+Found by a cold session planning real work. **`complete` and `escalate` are not
+symmetric, and nothing outside the source says so.**
+
+- `complete` → external verification. If it fails with `recoveryClass:
+  "missing-outcome"` and repair rounds remain, the verifier's feedback is fed back
+  and **the loop continues**.
+- `escalate` → hard-codes `resolution: { kind: "handoff" }` and is **terminal**.
+  No repair branch exists on that path at all.
+
+Worlds also disagree on what they will accept. `access-offboarding-world.js`
+grades `correctResolution` as `resolution.kind === "complete"` **unconditionally**,
+including for the case with a blocked item — item-level handoffs are supposed to be
+recorded as tool calls, then the parent resolved as `complete`. Other worlds accept
+dual resolutions.
+
+Nothing tells the model that escalating ends the run, and nothing distinguishes an
+**item-scoped** blocker from a **goal-scoped** one.
+
+This is not theoretical. In the DAS-004/B2 campaign the winner passed 11 of 12
+atomic checks on the failing case — zero unsafe attempts, zero incorrect side
+effects, every item handled — and lost solely on returning the wrong terminal
+decision kind. One decision away from 2/2.
+
+**Anyone touching the runtime or writing a new world must know this.** It is also
+the same failure shape as the Day 7 goal-resumption failure in Capability Factory.
+
 ## Where to make a change
 
 | Change | Touch |
