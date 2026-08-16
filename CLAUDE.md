@@ -11,6 +11,16 @@ state, evidence, maturity — and the Fleet Brain implementation.
 Never say "small context loss is fine" or "this should work per the docs".
 Verify, or flag it cleanly.
 
+## Start here
+
+**`docs/ARCHITECTURE_MAP.md`** — how this system actually works: the compile
+pipeline, the runtime loop, the money/evidence substrate, the invariants, and
+where to touch for a given change. Written from a full read of the core modules.
+Read it before touching code; it saves re-deriving the system every session.
+
+Structure only — no results or spend. Those live in `reports/` and
+`docs/LIVING_TECHNICAL_BACKLOG.md`.
+
 ## What lives here
 
 DAS builds and evaluates specialist agents. **Agent Fleet Brain is built here
