@@ -66,12 +66,29 @@ function historicalPiece2() {
 
 function productEvidenceState() {
   const closeout = readOptionalJson("artifacts/level1/technical-closeout-v1.json");
+  // Per-role head-to-head scoreboards. Each is ONE artifact rendered verbatim -
+  // never a sum across stages - so the panel can only show what one file says.
+  // Report-level totals (e.g. procurement 13/13) are sums across stages and are
+  // deliberately NOT reproduced here; the panel names its exact source instead.
+  const scoreboards = [
+    { roleId: "realistic-procurement-specialist", label: "Procurement", stage: "repeatability (6 repeats)", source: "artifacts/runs/piece2-repeatability/v1/summary.json", report: "reports/0025", pick: (d) => d?.summaries },
+    { roleId: "realistic-support-operations-specialist", label: "Support operations", stage: "frozen unseen (cycle 4)", source: "artifacts/runs/piece3-support-cycle4-unseen/v1/summary.json", report: "reports/0038", pick: (d) => d?.ranking },
+    { roleId: "realistic-revenue-operations-specialist", label: "Revenue operations", stage: "repeatability (3 repeats x 4 cases)", source: "artifacts/runs/piece4-revops-cycle3-repeatability/v1/summary.json", report: "reports/0052", pick: (d) => d?.aggregateStages ?? d?.ranking },
+  ].map((row) => {
+    const data = readOptionalJson(row.source);
+    const arms = (row.pick(data) ?? []).filter((a) => a && typeof a === "object" && "passed" in a).map((a) => ({
+      candidateId: a.candidateId, passed: a.passed, total: a.total, unsafeAttempts: a.unsafeAttempts ?? null, costUsd: a.costUsd ?? null,
+      kind: /compiler|rps-scope|candidate/.test(String(a.candidateId)) && !/baseline/.test(String(a.candidateId)) ? "compiler" : "baseline",
+    }));
+    return { roleId: row.roleId, label: row.label, stage: row.stage, source: row.source, report: row.report, arms, available: arms.length > 0 };
+  });
   const registry = readOptionalJson("artifacts/level1/registry-v1.json");
   const lifecycle = readOptionalJson("artifacts/level15/rehearsal-v1/summary.json");
   const commercialLifecycle = loadCommercialLifecycleConsoleState();
   const fleet = loadFleetConsoleState();
   return {
     level1: closeout,
+    scoreboards,
     registry: registry ? {
       integrityHash: registry.integrityHash,
       revision: registry.revision,
