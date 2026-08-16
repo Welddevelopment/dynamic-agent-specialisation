@@ -19,7 +19,7 @@ confidence is marked because parts of this map are inferred.
 | DAS-026 | provenance-bound transport/authority work pack | 0104 | high |
 | DAS-027 | bounded declarative subset compiler | 0106 | high |
 | DAS-028 | customer-shaped local process boundaries | 0108 | high |
-| DAS-013 | no lane — the broad adversarial test ("still a decisive open test") | never run | high |
+| DAS-013 | no lane — the broad adversarial test ("still a decisive open test" — CF `adversarial-investor-review-2026-08-14.md:289`, not this repo's backlog) | never run | high |
 | DAS-019 | related to handoff/uncertainty calibration; see hub PROP-0003 | open | low |
 | — (gap) | **A6 fresh non-author user study has NO queue id** | never run | high |
 
