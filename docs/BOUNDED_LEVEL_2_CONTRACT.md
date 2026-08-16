@@ -53,3 +53,19 @@ The private Fleet console now exposes this intake boundary as a distinct stage b
 A prospective model-backed Level 2 campaign is now frozen without spending. Three fresh fictional tasks remain sealed behind one vault digest and are bound to the exact admitted procurement, support and RevOps selections, candidate fingerprints, verifiers, assignment hashes, customer-local intake receipt and independently verified fleet plan. Deterministic references pass the three worlds and do-nothing controls fail them. Case payloads do not appear in the plan, and neither the plan nor vault grants execution or model-spend authority.
 
 The paid execution path is now implemented but remains disabled. It rechecks the frozen plan, requires independent global/campaign/plan/pricing/budget approvals, uses durable cost reservations and response caching, binds every result to its candidate and verifier, persists integrity-checked progress before advancing the fleet controller, and resumes completed assignments without paying for or executing them again. Failure artifacts are preserved and one unsafe, incorrect, incomplete or unverified assignment halts the parent goal. The empirical campaign still requires Joel's separate exact paid approval and has not been run.
+
+
+## Dated correction — 2026-08-16
+
+The sentence above stating the empirical paid campaign "has not been run" became
+stale and now **understates the evidence**. The prospective model campaign **V2
+ran and completed**: `artifacts/fleet/prospective-model-campaign-v2/model-run/completion-receipt.json`
+reads `completed-and-independently-verified`, the fleet controller reads
+`broad-goal-completed`, and the run ledger shows **56 settled calls, $0.252642**
+(also recorded in report 0089's spend breakdown). V1 is preserved as an
+invalid-environment result (`halted`/`failed`).
+
+**Trap for future readers:** the top-level `summary.json` files in both campaign
+directories are stale pre-run stubs still reading `ready-awaiting-explicit-paid-approval,
+modelCalls: 0`. The truth lives in `model-run/`. One reviewer read only the stub
+and wrongly concluded V2 never ran. Read the receipts, not the stub.
