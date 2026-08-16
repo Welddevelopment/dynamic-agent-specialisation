@@ -31,7 +31,7 @@ function nav() {
 
 function overview() {
   const historical = state.historicalImprovementRuns[0];
-  return `<p class="kicker">Autonomous recommendation · human control on demand</p><h1 class="page-title">Build the strongest specialist you can actually prove.</h1><p class="lede">The compiler designs candidates, tests them against external outcomes, recommends the strongest measured fit, and keeps every serious alternative inspectable. Further self-improvement is optional and budget-bound.</p><div class="metric-row"><div class="metric"><span>Reference roles</span><strong>${state.roles.length}</strong></div><div class="metric"><span>Evidence chain</span><strong>${state.evidenceValid ? "Valid" : "Invalid"}</strong></div><div class="metric"><span>Latest paid experiment</span><strong>${historical ? `$${historical.spendUsd.toFixed(2)}` : "None"}</strong></div></div>${historical ? `<div class="card"><p class="kicker">Latest honest decision</p><h2>${esc(historical.label)}</h2><p>${esc(historical.result)}. ${esc(historical.stopReason)}.</p><p class="explain">${esc(historical.boundary)}</p></div>` : ""}`;
+  return `<p class="kicker">Autonomous recommendation · human control on demand</p><h1 class="page-title">Build the strongest specialist you can actually prove.</h1><p class="lede">The compiler designs candidates, tests them against external outcomes, recommends the strongest measured fit, and keeps every serious alternative inspectable. Further self-improvement is optional and budget-bound.</p><div class="metric-row"><div class="metric"><span>Reference roles</span><strong>${state.roles.length}</strong></div><div class="metric"><span>Evidence chain</span><strong>${state.evidenceValid ? "Valid" : "Invalid"}</strong></div><div class="metric"><span>Latest paid experiment</span><strong>${historical ? `$${historical.spendUsd.toFixed(2)}` : "None"}</strong></div></div>${historical ? `<div class="card"><p class="kicker">Latest honest decision</p><h2>${esc(historical.label)}</h2><p>${esc(String(historical.result).replace(/\.\s*$/, ""))}. ${esc(String(historical.stopReason).replace(/\.\s*$/, ""))}.</p><p class="explain">${esc(historical.boundary)}</p></div>` : ""}`;
 }
 
 function comparisonStage(label, count, copy, stateClass = "") {
@@ -67,6 +67,7 @@ function comparisonPage() {
 }
 
 function animateComparisonPage() {
+  if (document.hidden || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (page !== "comparison" || !globalThis.gsap) return;
   gsap.from(".comparison-hero > *", { y: 24, opacity: 0, duration: .75, stagger: .1, ease: "power3.out" });
   gsap.from(".comparison-bento > *", { y: 20, opacity: 0, duration: .65, stagger: .07, delay: .12, ease: "power3.out" });
@@ -237,19 +238,20 @@ function createSpecialist() {
 }
 
 function animateCreatePage() {
+  if (document.hidden || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (page !== "create" || !globalThis.gsap) return;
   if (globalThis.ScrollTrigger) {
     globalThis.gsap.registerPlugin(globalThis.ScrollTrigger);
     globalThis.ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   }
   const title = document.querySelector(".onboarding-welcome h1, .step-copy h1");
-  if (title) globalThis.gsap.fromTo(title, { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: .72, ease: "power3.out" });
+  if (title) globalThis.gsap.from(title, { y: 26, opacity: 0, duration: .72, ease: "power3.out", clearProps: "all" });
   const welcomeCards = document.querySelectorAll(".promise-rail > div");
-  if (welcomeCards.length) globalThis.gsap.fromTo(welcomeCards, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .6, stagger: .08, ease: "power2.out" });
+  if (welcomeCards.length) globalThis.gsap.from(welcomeCards, { y: 30, opacity: 0, duration: .6, stagger: .08, ease: "power2.out", clearProps: "all" });
   const reviewCards = document.querySelectorAll(".review-bento > *");
-  if (reviewCards.length) globalThis.gsap.fromTo(reviewCards, { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: .58, stagger: .09, ease: "power3.out" });
+  if (reviewCards.length) globalThis.gsap.from(reviewCards, { y: 34, opacity: 0, duration: .58, stagger: .09, ease: "power3.out", clearProps: "all" });
   const setupStages = document.querySelectorAll(".setup-stage");
-  if (setupStages.length) globalThis.gsap.fromTo(setupStages, { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: .52, stagger: .055, ease: "power2.out" });
+  if (setupStages.length) globalThis.gsap.from(setupStages, { y: 22, opacity: 0, duration: .52, stagger: .055, ease: "power2.out", clearProps: "all" });
   const explanatoryCopy = document.querySelector(".step-copy p");
   if (explanatoryCopy && globalThis.ScrollTrigger) globalThis.gsap.fromTo(explanatoryCopy, { opacity: .28 }, { opacity: 1, scrollTrigger: { trigger: explanatoryCopy, start: "top 92%", end: "bottom 72%", scrub: .4 } });
 }
@@ -272,6 +274,11 @@ function lifecycle() {
 }
 
 function fleet() {
+  // Fleet Brain is a separate product direction with its own console (src/fleet-console, port 4392).
+  // This page is retained only so a stale deep-link does not 404; it points across.
+  return `<p class="kicker">Agent Fleet Brain</p><h1 class="page-title">Fleet Brain has its own console.</h1><p class="lede">Fleet Brain is the destination Capability Factory and DAS converge toward - not a DAS feature. It renders from the same preserved evidence, on its own front door.</p><p><a class="button primary" href="http://127.0.0.1:4392/" target="_blank" rel="noopener">Open Agent Fleet Brain ↗</a></p><p class="notice">Start it with <code>pnpm fleet:console</code> from the DAS repo.</p>`;
+}
+function fleetLegacyUnused() {
   const fleet = state.product?.fleet;
   if (!fleet || fleet.integrity !== "valid") return `<p class="kicker">Bounded fleet coordination</p><h1 class="page-title">Fleet evidence is unavailable.</h1><p class="lede">The console refuses to summarize a missing or mutated coordination chain.</p><p class="notice error">${esc(fleet?.error ?? "No fleet checkpoint is loaded.")}</p>`;
   const rows = fleet.plan.assignments.map((assignment) => `<article class="fleet-assignment ${assignment.phase}"><div class="fleet-assignment-main"><span>${esc(assignment.workload)}</span><strong>${esc(assignment.specialist)}</strong><small>${assignment.quantity} items · ${esc(assignment.phase === "residual" ? "new specialist" : "verified before gap")}</small></div><dl><div><dt>Outcome</dt><dd>${Math.round(assignment.expectedOutcomeScore * 100)}%</dd></div><div><dt>Estimate</dt><dd>$${Number(assignment.estimatedCostUsd).toFixed(2)}</dd></div><div><dt>Verifier</dt><dd>${esc(assignment.verifier)}</dd></div></dl></article>`).join("");
@@ -287,9 +294,10 @@ function fleet() {
 }
 
 function animateFleetPage() {
+  if (document.hidden || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (page !== "fleet" || !globalThis.gsap) return;
-  gsap.fromTo(".fleet-hero > *", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: .75, stagger: .12, ease: "power3.out" });
-  gsap.fromTo(".fleet-summary > article", { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: .6, stagger: .07, delay: .12, ease: "power2.out" });
+  gsap.from(".fleet-hero > *", { y: 28, opacity: 0, duration: .75, stagger: .12, ease: "power3.out", clearProps: "all" });
+  gsap.from(".fleet-summary > article", { y: 22, opacity: 0, duration: .6, stagger: .07, delay: .12, ease: "power2.out", clearProps: "all" });
   if (globalThis.ScrollTrigger) {
     gsap.utils.toArray(".fleet-assignment").forEach((card, index) => gsap.fromTo(card, { y: 24 + index * 4, opacity: .35 }, { y: 0, opacity: 1, scrollTrigger: { trigger: card, start: "top 92%", end: "top 68%", scrub: .35 } }));
     gsap.fromTo(".fleet-turn-states", { opacity: .35 }, { opacity: 1, scrollTrigger: { trigger: ".fleet-turn", start: "top 82%", end: "center 55%", scrub: .5 } });
