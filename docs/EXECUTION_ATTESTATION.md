@@ -12,10 +12,10 @@ point, counts real invocations, and `assertAllReached()` fails the campaign befo
 any result is quotable if a declared entry point never executed. `receipt()`
 returns a hash-stamped record to persist beside the result JSON.
 
-**Status:** module and tests are written but **not executed on this machine —
-`node` is not on PATH here** (searched PATH, homebrew, nvm, volta, asdf). Run
-`node --test test/execution-attestation.test.js` before relying on it. Flagged
-per the project rule: verify or state plainly.
+**Status:** module and tests written and **executed 2026-08-16 — 4/4 pass**
+using Codex's bundled Node (`~/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node`,
+v24.19.0; not on PATH by default). An earlier version of this note said
+"not executed"; that was true only until the bundled runtime was found.
 
 **Wiring into a live campaign changes preregistration content and therefore needs
 approval** — hub proposal PROP-0002. The module itself is additive and changes no
