@@ -74,7 +74,7 @@ await withCampaignWriterLock({ stateDirectory: state, campaignId: DAS004_B3_CAMP
   attestInstanceEntryPoint(attestor, "adaptive-engineer", adaptiveDesigner);
   const designers = { das: compilerDesigner, "adaptive-engineer": adaptiveDesigner };
 
-  const evaluator = new AccessOffboardingAdaptiveEvaluator({ gatewaysByArm, evidence });
+  const evaluator = new AccessOffboardingAdaptiveEvaluator({ gatewaysByArm, evidence, tenantPrefix: "das004-b3" });
   const pair = new AdaptiveBaselinePair({ protocol: bundle.protocol, brief: bundle.brief, designers, developmentEvaluator: evaluator, confirmationEvaluator: evaluator, evidence });
   const startedAt = new Date().toISOString();
   evidence.append("das004-b3.campaign-started", { planHash: plan.planHash, protocolHash: plan.protocol.protocolHash, priorSettledSpendUsd: before.spentUsd, distinctArmEntryPoints: plan.distinctArmEntryPoints });

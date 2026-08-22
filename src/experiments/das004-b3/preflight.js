@@ -1,6 +1,7 @@
 import { digest } from "../../core/canonical.js";
 import { attestorForSealedEntryPoints } from "../../evaluation/execution-attestation.js";
 import { accessOffboardingB3ConfirmationPayloads, accessOffboardingB3DevelopmentCases } from "../../worlds/access-offboarding-b3-cases.js";
+import { accessOffboardingB3V2ConfirmationPayloads, accessOffboardingB3V2DevelopmentCases } from "../../worlds/access-offboarding-b3v2-cases.js";
 import { accessOffboardingConfirmationPayloads, accessOffboardingDevelopmentCases } from "../../worlds/access-offboarding-cases.js";
 import { runReferenceAccessOffboardingCase } from "../das004-b2/reference-preflight.js";
 import { createDas004B3Preregistration, createDas004B3ProtocolBundle } from "./protocol.js";
@@ -47,8 +48,8 @@ export async function runDas004B3Preflight({ repositoryRoot = process.cwd() } = 
   const plan = createDas004B3Preregistration();
   const bundle = createDas004B3ProtocolBundle();
 
-  const developmentTasks = accessOffboardingB3DevelopmentCases.map((row) => structuredClone(row));
-  const confirmationTasks = accessOffboardingB3ConfirmationPayloads.map((payload, index) => asTask(payload, index, "b3-confirmation"));
+  const developmentTasks = accessOffboardingB3V2DevelopmentCases.map((row) => structuredClone(row));
+  const confirmationTasks = accessOffboardingB3V2ConfirmationPayloads.map((payload, index) => asTask(payload, index, "b3v2-confirmation"));
   const allTasks = [...developmentTasks, ...confirmationTasks];
 
   const reference = [];
@@ -61,13 +62,16 @@ export async function runDas004B3Preflight({ repositoryRoot = process.cwd() } = 
 
   // Freshness: no B3 case may share an identifier with any consumed B2 case.
   const identifiers = (value) => new Set(JSON.stringify(value).match(/"(?:worker|grant|resource)-[a-z]+"/g) ?? []);
-  const b3Ids = new Set([...identifiers(accessOffboardingB3DevelopmentCases), ...identifiers(accessOffboardingB3ConfirmationPayloads)]);
-  const b2Ids = new Set([...identifiers(accessOffboardingDevelopmentCases), ...identifiers(accessOffboardingConfirmationPayloads)]);
-  const reusedIdentifiers = [...b3Ids].filter((id) => b2Ids.has(id));
+  const b3Ids = new Set([...identifiers(accessOffboardingB3V2DevelopmentCases), ...identifiers(accessOffboardingB3V2ConfirmationPayloads)]);
+  const consumedIds = new Set([
+    ...identifiers(accessOffboardingDevelopmentCases), ...identifiers(accessOffboardingConfirmationPayloads),
+    ...identifiers(accessOffboardingB3DevelopmentCases), ...identifiers(accessOffboardingB3ConfirmationPayloads),
+  ]);
+  const reusedIdentifiers = [...b3Ids].filter((id) => consumedIds.has(id));
 
   // The sealed plan must not leak any confirmation payload.
   const planText = JSON.stringify(plan);
-  const leakedConfirmation = accessOffboardingB3ConfirmationPayloads
+  const leakedConfirmation = accessOffboardingB3V2ConfirmationPayloads
     .flatMap((payload) => (payload.scenario.workers ?? []).map((worker) => worker.id))
     .filter((workerId) => planText.includes(workerId));
 

@@ -1,0 +1,3537 @@
+{
+  "schemaVersion": "das.durable-model-budget.v1",
+  "campaignId": "das004-b3-access-offboarding-real-compiler-v2",
+  "hardLimitUsd": 3,
+  "warningUsd": 2.4000000000000004,
+  "calls": [
+    {
+      "id": "reservation-1",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00170525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00046775,
+      "usage": {
+        "input_tokens": 1382,
+        "input_tokens_details": {
+          "cache_write_tokens": 1379,
+          "cached_tokens": 0
+        },
+        "output_tokens": 102,
+        "output_tokens_details": {
+          "reasoning_tokens": 41
+        },
+        "total_tokens": 1484
+      }
+    },
+    {
+      "id": "reservation-2",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017429999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00054075,
+      "usage": {
+        "input_tokens": 1554,
+        "input_tokens_details": {
+          "cache_write_tokens": 1551,
+          "cached_tokens": 0
+        },
+        "output_tokens": 127,
+        "output_tokens_details": {
+          "reasoning_tokens": 71
+        },
+        "total_tokens": 1681
+      }
+    },
+    {
+      "id": "reservation-3",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017974999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00057055,
+      "usage": {
+        "input_tokens": 1774,
+        "input_tokens_details": {
+          "cache_write_tokens": 1771,
+          "cached_tokens": 0
+        },
+        "output_tokens": 106,
+        "output_tokens_details": {
+          "reasoning_tokens": 46
+        },
+        "total_tokens": 1880
+      }
+    },
+    {
+      "id": "reservation-4",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018325,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006033,
+      "usage": {
+        "input_tokens": 1929,
+        "input_tokens_details": {
+          "cache_write_tokens": 1926,
+          "cached_tokens": 0
+        },
+        "output_tokens": 101,
+        "output_tokens_details": {
+          "reasoning_tokens": 39
+        },
+        "total_tokens": 2030
+      }
+    },
+    {
+      "id": "reservation-5",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018674999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006476,
+      "usage": {
+        "input_tokens": 2087,
+        "input_tokens_details": {
+          "cache_write_tokens": 2084,
+          "cached_tokens": 0
+        },
+        "output_tokens": 105,
+        "output_tokens_details": {
+          "reasoning_tokens": 43
+        },
+        "total_tokens": 2192
+      }
+    },
+    {
+      "id": "reservation-6",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00189025,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00067145,
+      "usage": {
+        "input_tokens": 2192,
+        "input_tokens_details": {
+          "cache_write_tokens": 2189,
+          "cached_tokens": 0
+        },
+        "output_tokens": 103,
+        "output_tokens_details": {
+          "reasoning_tokens": 41
+        },
+        "total_tokens": 2295
+      }
+    },
+    {
+      "id": "reservation-7",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00190925,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007964,
+      "usage": {
+        "input_tokens": 2279,
+        "input_tokens_details": {
+          "cache_write_tokens": 2276,
+          "cached_tokens": 0
+        },
+        "output_tokens": 189,
+        "output_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "total_tokens": 2468
+      }
+    },
+    {
+      "id": "reservation-8",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019432499999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00076235,
+      "usage": {
+        "input_tokens": 2426,
+        "input_tokens_details": {
+          "cache_write_tokens": 2423,
+          "cached_tokens": 0
+        },
+        "output_tokens": 130,
+        "output_tokens_details": {
+          "reasoning_tokens": 33
+        },
+        "total_tokens": 2556
+      }
+    },
+    {
+      "id": "reservation-9",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019735,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007890500000000001,
+      "usage": {
+        "input_tokens": 2576,
+        "input_tokens_details": {
+          "cache_write_tokens": 2573,
+          "cached_tokens": 0
+        },
+        "output_tokens": 121,
+        "output_tokens_details": {
+          "reasoning_tokens": 24
+        },
+        "total_tokens": 2697
+      }
+    },
+    {
+      "id": "reservation-10",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002003,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008251,
+      "usage": {
+        "input_tokens": 2725,
+        "input_tokens_details": {
+          "cache_write_tokens": 2722,
+          "cached_tokens": 0
+        },
+        "output_tokens": 120,
+        "output_tokens_details": {
+          "reasoning_tokens": 39
+        },
+        "total_tokens": 2845
+      }
+    },
+    {
+      "id": "reservation-11",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020239999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00083425,
+      "usage": {
+        "input_tokens": 2824,
+        "input_tokens_details": {
+          "cache_write_tokens": 2821,
+          "cached_tokens": 0
+        },
+        "output_tokens": 107,
+        "output_tokens_details": {
+          "reasoning_tokens": 45
+        },
+        "total_tokens": 2931
+      }
+    },
+    {
+      "id": "reservation-12",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0021167499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009688499999999999,
+      "usage": {
+        "input_tokens": 3276,
+        "input_tokens_details": {
+          "cache_write_tokens": 3273,
+          "cached_tokens": 0
+        },
+        "output_tokens": 125,
+        "output_tokens_details": {
+          "reasoning_tokens": 44
+        },
+        "total_tokens": 3401
+      }
+    },
+    {
+      "id": "reservation-13",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002138,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00099215,
+      "usage": {
+        "input_tokens": 3374,
+        "input_tokens_details": {
+          "cache_write_tokens": 3371,
+          "cached_tokens": 0
+        },
+        "output_tokens": 124,
+        "output_tokens_details": {
+          "reasoning_tokens": 62
+        },
+        "total_tokens": 3498
+      }
+    },
+    {
+      "id": "reservation-14",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0022405,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0010913,
+      "usage": {
+        "input_tokens": 3881,
+        "input_tokens_details": {
+          "cache_write_tokens": 3878,
+          "cached_tokens": 0
+        },
+        "output_tokens": 101,
+        "output_tokens_details": {
+          "reasoning_tokens": 48
+        },
+        "total_tokens": 3982
+      }
+    },
+    {
+      "id": "reservation-15",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00170525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00044975,
+      "usage": {
+        "input_tokens": 1382,
+        "input_tokens_details": {
+          "cache_write_tokens": 1379,
+          "cached_tokens": 0
+        },
+        "output_tokens": 87,
+        "output_tokens_details": {
+          "reasoning_tokens": 27
+        },
+        "total_tokens": 1469
+      }
+    },
+    {
+      "id": "reservation-16",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017699999999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00052245,
+      "usage": {
+        "input_tokens": 1668,
+        "input_tokens_details": {
+          "cache_write_tokens": 1665,
+          "cached_tokens": 0
+        },
+        "output_tokens": 88,
+        "output_tokens_details": {
+          "reasoning_tokens": 32
+        },
+        "total_tokens": 1756
+      }
+    },
+    {
+      "id": "reservation-17",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018239999999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006055,
+      "usage": {
+        "input_tokens": 1885,
+        "input_tokens_details": {
+          "cache_write_tokens": 1882,
+          "cached_tokens": 0
+        },
+        "output_tokens": 112,
+        "output_tokens_details": {
+          "reasoning_tokens": 52
+        },
+        "total_tokens": 1997
+      }
+    },
+    {
+      "id": "reservation-18",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001859,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006454500000000001,
+      "usage": {
+        "input_tokens": 2040,
+        "input_tokens_details": {
+          "cache_write_tokens": 2037,
+          "cached_tokens": 0
+        },
+        "output_tokens": 113,
+        "output_tokens_details": {
+          "reasoning_tokens": 51
+        },
+        "total_tokens": 2153
+      }
+    },
+    {
+      "id": "reservation-19",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001882,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00073145,
+      "usage": {
+        "input_tokens": 2144,
+        "input_tokens_details": {
+          "cache_write_tokens": 2141,
+          "cached_tokens": 0
+        },
+        "output_tokens": 163,
+        "output_tokens_details": {
+          "reasoning_tokens": 101
+        },
+        "total_tokens": 2307
+      }
+    },
+    {
+      "id": "reservation-20",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018922499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007827999999999999,
+      "usage": {
+        "input_tokens": 2191,
+        "input_tokens_details": {
+          "cache_write_tokens": 2188,
+          "cached_tokens": 0
+        },
+        "output_tokens": 196,
+        "output_tokens_details": {
+          "reasoning_tokens": 134
+        },
+        "total_tokens": 2387
+      }
+    },
+    {
+      "id": "reservation-21",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019117499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009253,
+      "usage": {
+        "input_tokens": 2281,
+        "input_tokens_details": {
+          "cache_write_tokens": 2278,
+          "cached_tokens": 0
+        },
+        "output_tokens": 296,
+        "output_tokens_details": {
+          "reasoning_tokens": 197
+        },
+        "total_tokens": 2577
+      }
+    },
+    {
+      "id": "reservation-22",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00194225,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007903,
+      "usage": {
+        "input_tokens": 2413,
+        "input_tokens_details": {
+          "cache_write_tokens": 2410,
+          "cached_tokens": 0
+        },
+        "output_tokens": 156,
+        "output_tokens_details": {
+          "reasoning_tokens": 94
+        },
+        "total_tokens": 2569
+      }
+    },
+    {
+      "id": "reservation-23",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019702499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00100565,
+      "usage": {
+        "input_tokens": 2540,
+        "input_tokens_details": {
+          "cache_write_tokens": 2537,
+          "cached_tokens": 0
+        },
+        "output_tokens": 309,
+        "output_tokens_details": {
+          "reasoning_tokens": 185
+        },
+        "total_tokens": 2849
+      }
+    },
+    {
+      "id": "reservation-24",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002002,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009843,
+      "usage": {
+        "input_tokens": 2661,
+        "input_tokens_details": {
+          "cache_write_tokens": 2658,
+          "cached_tokens": 0
+        },
+        "output_tokens": 266,
+        "output_tokens_details": {
+          "reasoning_tokens": 204
+        },
+        "total_tokens": 2927
+      }
+    },
+    {
+      "id": "reservation-25",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020412499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009473999999999999,
+      "usage": {
+        "input_tokens": 2835,
+        "input_tokens_details": {
+          "cache_write_tokens": 2832,
+          "cached_tokens": 0
+        },
+        "output_tokens": 199,
+        "output_tokens_details": {
+          "reasoning_tokens": 137
+        },
+        "total_tokens": 3034
+      }
+    },
+    {
+      "id": "reservation-26",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00206925,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0011186,
+      "usage": {
+        "input_tokens": 2963,
+        "input_tokens_details": {
+          "cache_write_tokens": 2960,
+          "cached_tokens": 0
+        },
+        "output_tokens": 315,
+        "output_tokens_details": {
+          "reasoning_tokens": 253
+        },
+        "total_tokens": 3278
+      }
+    },
+    {
+      "id": "reservation-27",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00210925,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0010594,
+      "usage": {
+        "input_tokens": 3139,
+        "input_tokens_details": {
+          "cache_write_tokens": 3136,
+          "cached_tokens": 0
+        },
+        "output_tokens": 229,
+        "output_tokens_details": {
+          "reasoning_tokens": 176
+        },
+        "total_tokens": 3368
+      }
+    },
+    {
+      "id": "reservation-28",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0021999999999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00110655,
+      "usage": {
+        "input_tokens": 3486,
+        "input_tokens_details": {
+          "cache_write_tokens": 3483,
+          "cached_tokens": 0
+        },
+        "output_tokens": 196,
+        "output_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "total_tokens": 3682
+      }
+    },
+    {
+      "id": "reservation-29",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00223025,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0010505,
+      "usage": {
+        "input_tokens": 3617,
+        "input_tokens_details": {
+          "cache_write_tokens": 3614,
+          "cached_tokens": 0
+        },
+        "output_tokens": 122,
+        "output_tokens_details": {
+          "reasoning_tokens": 60
+        },
+        "total_tokens": 3739
+      }
+    },
+    {
+      "id": "reservation-30",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0022707499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0012143,
+      "usage": {
+        "input_tokens": 3797,
+        "input_tokens_details": {
+          "cache_write_tokens": 3794,
+          "cached_tokens": 0
+        },
+        "output_tokens": 221,
+        "output_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "total_tokens": 4018
+      }
+    },
+    {
+      "id": "reservation-31",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00170525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00013138,
+      "usage": {
+        "input_tokens": 1382,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1379
+        },
+        "output_tokens": 86,
+        "output_tokens_details": {
+          "reasoning_tokens": 25
+        },
+        "total_tokens": 1468
+      }
+    },
+    {
+      "id": "reservation-32",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017429999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00053115,
+      "usage": {
+        "input_tokens": 1554,
+        "input_tokens_details": {
+          "cache_write_tokens": 1551,
+          "cached_tokens": 0
+        },
+        "output_tokens": 119,
+        "output_tokens_details": {
+          "reasoning_tokens": 63
+        },
+        "total_tokens": 1673
+      }
+    },
+    {
+      "id": "reservation-33",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017974999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00056935,
+      "usage": {
+        "input_tokens": 1774,
+        "input_tokens_details": {
+          "cache_write_tokens": 1771,
+          "cached_tokens": 0
+        },
+        "output_tokens": 105,
+        "output_tokens_details": {
+          "reasoning_tokens": 45
+        },
+        "total_tokens": 1879
+      }
+    },
+    {
+      "id": "reservation-34",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018319999999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00059655,
+      "usage": {
+        "input_tokens": 1926,
+        "input_tokens_details": {
+          "cache_write_tokens": 1923,
+          "cached_tokens": 0
+        },
+        "output_tokens": 96,
+        "output_tokens_details": {
+          "reasoning_tokens": 34
+        },
+        "total_tokens": 2022
+      }
+    },
+    {
+      "id": "reservation-35",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018674999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00062,
+      "usage": {
+        "input_tokens": 2087,
+        "input_tokens_details": {
+          "cache_write_tokens": 2084,
+          "cached_tokens": 0
+        },
+        "output_tokens": 82,
+        "output_tokens_details": {
+          "reasoning_tokens": 20
+        },
+        "total_tokens": 2169
+      }
+    },
+    {
+      "id": "reservation-36",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00188975,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006527,
+      "usage": {
+        "input_tokens": 2189,
+        "input_tokens_details": {
+          "cache_write_tokens": 2186,
+          "cached_tokens": 0
+        },
+        "output_tokens": 88,
+        "output_tokens_details": {
+          "reasoning_tokens": 26
+        },
+        "total_tokens": 2277
+      }
+    },
+    {
+      "id": "reservation-37",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00190975,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007779500000000001,
+      "usage": {
+        "input_tokens": 2282,
+        "input_tokens_details": {
+          "cache_write_tokens": 2279,
+          "cached_tokens": 0
+        },
+        "output_tokens": 173,
+        "output_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "total_tokens": 2455
+      }
+    },
+    {
+      "id": "reservation-38",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001945,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007658000000000001,
+      "usage": {
+        "input_tokens": 2435,
+        "input_tokens_details": {
+          "cache_write_tokens": 2432,
+          "cached_tokens": 0
+        },
+        "output_tokens": 131,
+        "output_tokens_details": {
+          "reasoning_tokens": 34
+        },
+        "total_tokens": 2566
+      }
+    },
+    {
+      "id": "reservation-39",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019749999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008076,
+      "usage": {
+        "input_tokens": 2583,
+        "input_tokens_details": {
+          "cache_write_tokens": 2580,
+          "cached_tokens": 0
+        },
+        "output_tokens": 135,
+        "output_tokens_details": {
+          "reasoning_tokens": 38
+        },
+        "total_tokens": 2718
+      }
+    },
+    {
+      "id": "reservation-40",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00200525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00082495,
+      "usage": {
+        "input_tokens": 2734,
+        "input_tokens_details": {
+          "cache_write_tokens": 2731,
+          "cached_tokens": 0
+        },
+        "output_tokens": 118,
+        "output_tokens_details": {
+          "reasoning_tokens": 37
+        },
+        "total_tokens": 2852
+      }
+    },
+    {
+      "id": "reservation-41",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00202525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008614,
+      "usage": {
+        "input_tokens": 2827,
+        "input_tokens_details": {
+          "cache_write_tokens": 2824,
+          "cached_tokens": 0
+        },
+        "output_tokens": 129,
+        "output_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "total_tokens": 2956
+      }
+    },
+    {
+      "id": "reservation-42",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00212,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00097045,
+      "usage": {
+        "input_tokens": 3292,
+        "input_tokens_details": {
+          "cache_write_tokens": 3289,
+          "cached_tokens": 0
+        },
+        "output_tokens": 123,
+        "output_tokens_details": {
+          "reasoning_tokens": 42
+        },
+        "total_tokens": 3415
+      }
+    },
+    {
+      "id": "reservation-43",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00214125,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00100215,
+      "usage": {
+        "input_tokens": 3390,
+        "input_tokens_details": {
+          "cache_write_tokens": 3387,
+          "cached_tokens": 0
+        },
+        "output_tokens": 129,
+        "output_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "total_tokens": 3519
+      }
+    },
+    {
+      "id": "reservation-44",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00224525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0010373000000000001,
+      "usage": {
+        "input_tokens": 3905,
+        "input_tokens_details": {
+          "cache_write_tokens": 3902,
+          "cached_tokens": 0
+        },
+        "output_tokens": 51,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 3956
+      }
+    },
+    {
+      "id": "reservation-45",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00170525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00045815,
+      "usage": {
+        "input_tokens": 1382,
+        "input_tokens_details": {
+          "cache_write_tokens": 1379,
+          "cached_tokens": 0
+        },
+        "output_tokens": 94,
+        "output_tokens_details": {
+          "reasoning_tokens": 33
+        },
+        "total_tokens": 1476
+      }
+    },
+    {
+      "id": "reservation-46",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017699999999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00056445,
+      "usage": {
+        "input_tokens": 1668,
+        "input_tokens_details": {
+          "cache_write_tokens": 1665,
+          "cached_tokens": 0
+        },
+        "output_tokens": 123,
+        "output_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "total_tokens": 1791
+      }
+    },
+    {
+      "id": "reservation-47",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018245,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00065185,
+      "usage": {
+        "input_tokens": 1888,
+        "input_tokens_details": {
+          "cache_write_tokens": 1885,
+          "cached_tokens": 0
+        },
+        "output_tokens": 150,
+        "output_tokens_details": {
+          "reasoning_tokens": 90
+        },
+        "total_tokens": 2038
+      }
+    },
+    {
+      "id": "reservation-48",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018594999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006774000000000001,
+      "usage": {
+        "input_tokens": 2043,
+        "input_tokens_details": {
+          "cache_write_tokens": 2040,
+          "cached_tokens": 0
+        },
+        "output_tokens": 139,
+        "output_tokens_details": {
+          "reasoning_tokens": 77
+        },
+        "total_tokens": 2182
+      }
+    },
+    {
+      "id": "reservation-49",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001882,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00083945,
+      "usage": {
+        "input_tokens": 2144,
+        "input_tokens_details": {
+          "cache_write_tokens": 2141,
+          "cached_tokens": 0
+        },
+        "output_tokens": 253,
+        "output_tokens_details": {
+          "reasoning_tokens": 191
+        },
+        "total_tokens": 2397
+      }
+    },
+    {
+      "id": "reservation-50",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00189275,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007943499999999999,
+      "usage": {
+        "input_tokens": 2194,
+        "input_tokens_details": {
+          "cache_write_tokens": 2191,
+          "cached_tokens": 0
+        },
+        "output_tokens": 205,
+        "output_tokens_details": {
+          "reasoning_tokens": 143
+        },
+        "total_tokens": 2399
+      }
+    },
+    {
+      "id": "reservation-51",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019117499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009733000000000001,
+      "usage": {
+        "input_tokens": 2281,
+        "input_tokens_details": {
+          "cache_write_tokens": 2278,
+          "cached_tokens": 0
+        },
+        "output_tokens": 336,
+        "output_tokens_details": {
+          "reasoning_tokens": 238
+        },
+        "total_tokens": 2617
+      }
+    },
+    {
+      "id": "reservation-52",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00194225,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007391499999999999,
+      "usage": {
+        "input_tokens": 2410,
+        "input_tokens_details": {
+          "cache_write_tokens": 2407,
+          "cached_tokens": 0
+        },
+        "output_tokens": 114,
+        "output_tokens_details": {
+          "reasoning_tokens": 54
+        },
+        "total_tokens": 2524
+      }
+    },
+    {
+      "id": "reservation-53",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00197775,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008069500000000001,
+      "usage": {
+        "input_tokens": 2566,
+        "input_tokens_details": {
+          "cache_write_tokens": 2563,
+          "cached_tokens": 0
+        },
+        "output_tokens": 138,
+        "output_tokens_details": {
+          "reasoning_tokens": 76
+        },
+        "total_tokens": 2704
+      }
+    },
+    {
+      "id": "reservation-54",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00198775,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008715,
+      "usage": {
+        "input_tokens": 2613,
+        "input_tokens_details": {
+          "cache_write_tokens": 2610,
+          "cached_tokens": 0
+        },
+        "output_tokens": 182,
+        "output_tokens_details": {
+          "reasoning_tokens": 120
+        },
+        "total_tokens": 2795
+      }
+    },
+    {
+      "id": "reservation-55",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020275,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00104965,
+      "usage": {
+        "input_tokens": 2788,
+        "input_tokens_details": {
+          "cache_write_tokens": 2785,
+          "cached_tokens": 0
+        },
+        "output_tokens": 294,
+        "output_tokens_details": {
+          "reasoning_tokens": 232
+        },
+        "total_tokens": 3082
+      }
+    },
+    {
+      "id": "reservation-56",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020555,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00126405,
+      "usage": {
+        "input_tokens": 2916,
+        "input_tokens_details": {
+          "cache_write_tokens": 2913,
+          "cached_tokens": 0
+        },
+        "output_tokens": 446,
+        "output_tokens_details": {
+          "reasoning_tokens": 331
+        },
+        "total_tokens": 3362
+      }
+    },
+    {
+      "id": "reservation-57",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00208475,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00090465,
+      "usage": {
+        "input_tokens": 3024,
+        "input_tokens_details": {
+          "cache_write_tokens": 3021,
+          "cached_tokens": 0
+        },
+        "output_tokens": 124,
+        "output_tokens_details": {
+          "reasoning_tokens": 71
+        },
+        "total_tokens": 3148
+      }
+    },
+    {
+      "id": "reservation-58",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00217475,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00115985,
+      "usage": {
+        "input_tokens": 3368,
+        "input_tokens_details": {
+          "cache_write_tokens": 3365,
+          "cached_tokens": 0
+        },
+        "output_tokens": 265,
+        "output_tokens_details": {
+          "reasoning_tokens": 167
+        },
+        "total_tokens": 3633
+      }
+    },
+    {
+      "id": "reservation-59",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0022055,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0010646499999999999,
+      "usage": {
+        "input_tokens": 3496,
+        "input_tokens_details": {
+          "cache_write_tokens": 3493,
+          "cached_tokens": 0
+        },
+        "output_tokens": 159,
+        "output_tokens_details": {
+          "reasoning_tokens": 97
+        },
+        "total_tokens": 3655
+      }
+    },
+    {
+      "id": "reservation-60",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00224525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0012284,
+      "usage": {
+        "input_tokens": 3671,
+        "input_tokens_details": {
+          "cache_write_tokens": 3668,
+          "cached_tokens": 0
+        },
+        "output_tokens": 259,
+        "output_tokens_details": {
+          "reasoning_tokens": 197
+        },
+        "total_tokens": 3930
+      }
+    },
+    {
+      "id": "reservation-61",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00170525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00048215,
+      "usage": {
+        "input_tokens": 1382,
+        "input_tokens_details": {
+          "cache_write_tokens": 1379,
+          "cached_tokens": 0
+        },
+        "output_tokens": 114,
+        "output_tokens_details": {
+          "reasoning_tokens": 54
+        },
+        "total_tokens": 1496
+      }
+    },
+    {
+      "id": "reservation-62",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017419999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00050545,
+      "usage": {
+        "input_tokens": 1552,
+        "input_tokens_details": {
+          "cache_write_tokens": 1549,
+          "cached_tokens": 0
+        },
+        "output_tokens": 98,
+        "output_tokens_details": {
+          "reasoning_tokens": 42
+        },
+        "total_tokens": 1650
+      }
+    },
+    {
+      "id": "reservation-63",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017959999999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0005765,
+      "usage": {
+        "input_tokens": 1769,
+        "input_tokens_details": {
+          "cache_write_tokens": 1766,
+          "cached_tokens": 0
+        },
+        "output_tokens": 112,
+        "output_tokens_details": {
+          "reasoning_tokens": 52
+        },
+        "total_tokens": 1881
+      }
+    },
+    {
+      "id": "reservation-64",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018297499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006116,
+      "usage": {
+        "input_tokens": 1919,
+        "input_tokens_details": {
+          "cache_write_tokens": 1916,
+          "cached_tokens": 0
+        },
+        "output_tokens": 110,
+        "output_tokens_details": {
+          "reasoning_tokens": 48
+        },
+        "total_tokens": 2029
+      }
+    },
+    {
+      "id": "reservation-65",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018677499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00066625,
+      "usage": {
+        "input_tokens": 2080,
+        "input_tokens_details": {
+          "cache_write_tokens": 2077,
+          "cached_tokens": 0
+        },
+        "output_tokens": 122,
+        "output_tokens_details": {
+          "reasoning_tokens": 60
+        },
+        "total_tokens": 2202
+      }
+    },
+    {
+      "id": "reservation-66",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018917499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006728000000000001,
+      "usage": {
+        "input_tokens": 2183,
+        "input_tokens_details": {
+          "cache_write_tokens": 2180,
+          "cached_tokens": 0
+        },
+        "output_tokens": 106,
+        "output_tokens_details": {
+          "reasoning_tokens": 44
+        },
+        "total_tokens": 2289
+      }
+    },
+    {
+      "id": "reservation-67",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019112499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007888999999999999,
+      "usage": {
+        "input_tokens": 2273,
+        "input_tokens_details": {
+          "cache_write_tokens": 2270,
+          "cached_tokens": 0
+        },
+        "output_tokens": 184,
+        "output_tokens_details": {
+          "reasoning_tokens": 88
+        },
+        "total_tokens": 2457
+      }
+    },
+    {
+      "id": "reservation-68",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019435,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008134,
+      "usage": {
+        "input_tokens": 2419,
+        "input_tokens_details": {
+          "cache_write_tokens": 2416,
+          "cached_tokens": 0
+        },
+        "output_tokens": 174,
+        "output_tokens_details": {
+          "reasoning_tokens": 73
+        },
+        "total_tokens": 2593
+      }
+    },
+    {
+      "id": "reservation-69",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00197525,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00085055,
+      "usage": {
+        "input_tokens": 2558,
+        "input_tokens_details": {
+          "cache_write_tokens": 2555,
+          "cached_tokens": 0
+        },
+        "output_tokens": 176,
+        "output_tokens_details": {
+          "reasoning_tokens": 75
+        },
+        "total_tokens": 2734
+      }
+    },
+    {
+      "id": "reservation-70",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00200625,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00116075,
+      "usage": {
+        "input_tokens": 2690,
+        "input_tokens_details": {
+          "cache_write_tokens": 2687,
+          "cached_tokens": 0
+        },
+        "output_tokens": 407,
+        "output_tokens_details": {
+          "reasoning_tokens": 297
+        },
+        "total_tokens": 3097
+      }
+    },
+    {
+      "id": "reservation-71",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020377499999999996,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00087715,
+      "usage": {
+        "input_tokens": 2794,
+        "input_tokens_details": {
+          "cache_write_tokens": 2791,
+          "cached_tokens": 0
+        },
+        "output_tokens": 149,
+        "output_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "total_tokens": 2943
+      }
+    },
+    {
+      "id": "reservation-72",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0021227499999999996,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00112355,
+      "usage": {
+        "input_tokens": 3170,
+        "input_tokens_details": {
+          "cache_write_tokens": 3167,
+          "cached_tokens": 0
+        },
+        "output_tokens": 276,
+        "output_tokens_details": {
+          "reasoning_tokens": 223
+        },
+        "total_tokens": 3446
+      }
+    },
+    {
+      "id": "reservation-73",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00218625,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0017159,
+      "usage": {
+        "input_tokens": 3413,
+        "input_tokens_details": {
+          "cache_write_tokens": 3410,
+          "cached_tokens": 0
+        },
+        "output_tokens": 719,
+        "output_tokens_details": {
+          "reasoning_tokens": 621
+        },
+        "total_tokens": 4132
+      }
+    },
+    {
+      "id": "reservation-74",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0022175,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00103755,
+      "usage": {
+        "input_tokens": 3546,
+        "input_tokens_details": {
+          "cache_write_tokens": 3543,
+          "cached_tokens": 0
+        },
+        "output_tokens": 126,
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        },
+        "total_tokens": 3672
+      }
+    },
+    {
+      "id": "reservation-75",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0023225,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0013176999999999998,
+      "usage": {
+        "input_tokens": 4009,
+        "input_tokens_details": {
+          "cache_write_tokens": 4006,
+          "cached_tokens": 0
+        },
+        "output_tokens": 263,
+        "output_tokens_details": {
+          "reasoning_tokens": 201
+        },
+        "total_tokens": 4272
+      }
+    },
+    {
+      "id": "reservation-76",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00242875,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0014805499999999997,
+      "usage": {
+        "input_tokens": 4478,
+        "input_tokens_details": {
+          "cache_write_tokens": 4475,
+          "cached_tokens": 0
+        },
+        "output_tokens": 301,
+        "output_tokens_details": {
+          "reasoning_tokens": 248
+        },
+        "total_tokens": 4779
+      }
+    },
+    {
+      "id": "reservation-77",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-terra",
+      "projectedUsd": 0.0549325,
+      "purpose": "das004-b2-adaptive-engineer-engineering-round-1",
+      "status": "settled",
+      "actualUsd": 0.018409000000000002,
+      "usage": {
+        "input_tokens": 3241,
+        "input_tokens_details": {
+          "cache_write_tokens": 3238,
+          "cached_tokens": 0
+        },
+        "output_tokens": 859,
+        "output_tokens_details": {
+          "reasoning_tokens": 75
+        },
+        "total_tokens": 4100
+      }
+    },
+    {
+      "id": "reservation-78",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017605,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00054955,
+      "usage": {
+        "input_tokens": 1546,
+        "input_tokens_details": {
+          "cache_write_tokens": 1543,
+          "cached_tokens": 0
+        },
+        "output_tokens": 136,
+        "output_tokens_details": {
+          "reasoning_tokens": 75
+        },
+        "total_tokens": 1682
+      }
+    },
+    {
+      "id": "reservation-79",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017989999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0005525,
+      "usage": {
+        "input_tokens": 1721,
+        "input_tokens_details": {
+          "cache_write_tokens": 1718,
+          "cached_tokens": 0
+        },
+        "output_tokens": 102,
+        "output_tokens_details": {
+          "reasoning_tokens": 46
+        },
+        "total_tokens": 1823
+      }
+    },
+    {
+      "id": "reservation-80",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018529999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006163500000000001,
+      "usage": {
+        "input_tokens": 1938,
+        "input_tokens_details": {
+          "cache_write_tokens": 1935,
+          "cached_tokens": 0
+        },
+        "output_tokens": 110,
+        "output_tokens_details": {
+          "reasoning_tokens": 50
+        },
+        "total_tokens": 2048
+      }
+    },
+    {
+      "id": "reservation-81",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018877499999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006502999999999999,
+      "usage": {
+        "input_tokens": 2093,
+        "input_tokens_details": {
+          "cache_write_tokens": 2090,
+          "cached_tokens": 0
+        },
+        "output_tokens": 106,
+        "output_tokens_details": {
+          "reasoning_tokens": 44
+        },
+        "total_tokens": 2199
+      }
+    },
+    {
+      "id": "reservation-82",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00192275,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006934,
+      "usage": {
+        "input_tokens": 2251,
+        "input_tokens_details": {
+          "cache_write_tokens": 2248,
+          "cached_tokens": 0
+        },
+        "output_tokens": 109,
+        "output_tokens_details": {
+          "reasoning_tokens": 47
+        },
+        "total_tokens": 2360
+      }
+    },
+    {
+      "id": "reservation-83",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00194575,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00069805,
+      "usage": {
+        "input_tokens": 2356,
+        "input_tokens_details": {
+          "cache_write_tokens": 2353,
+          "cached_tokens": 0
+        },
+        "output_tokens": 91,
+        "output_tokens_details": {
+          "reasoning_tokens": 29
+        },
+        "total_tokens": 2447
+      }
+    },
+    {
+      "id": "reservation-84",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019645,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007798,
+      "usage": {
+        "input_tokens": 2443,
+        "input_tokens_details": {
+          "cache_write_tokens": 2440,
+          "cached_tokens": 0
+        },
+        "output_tokens": 141,
+        "output_tokens_details": {
+          "reasoning_tokens": 44
+        },
+        "total_tokens": 2584
+      }
+    },
+    {
+      "id": "reservation-85",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019944999999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007717,
+      "usage": {
+        "input_tokens": 2593,
+        "input_tokens_details": {
+          "cache_write_tokens": 2590,
+          "cached_tokens": 0
+        },
+        "output_tokens": 103,
+        "output_tokens_details": {
+          "reasoning_tokens": 41
+        },
+        "total_tokens": 2696
+      }
+    },
+    {
+      "id": "reservation-86",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00203425,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009102,
+      "usage": {
+        "input_tokens": 2787,
+        "input_tokens_details": {
+          "cache_write_tokens": 2784,
+          "cached_tokens": 0
+        },
+        "output_tokens": 178,
+        "output_tokens_details": {
+          "reasoning_tokens": 81
+        },
+        "total_tokens": 2965
+      }
+    },
+    {
+      "id": "reservation-87",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002064,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00084545,
+      "usage": {
+        "input_tokens": 2936,
+        "input_tokens_details": {
+          "cache_write_tokens": 2933,
+          "cached_tokens": 0
+        },
+        "output_tokens": 93,
+        "output_tokens_details": {
+          "reasoning_tokens": 31
+        },
+        "total_tokens": 3029
+      }
+    },
+    {
+      "id": "reservation-88",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00212425,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009802,
+      "usage": {
+        "input_tokens": 3235,
+        "input_tokens_details": {
+          "cache_write_tokens": 3232,
+          "cached_tokens": 0
+        },
+        "output_tokens": 143,
+        "output_tokens_details": {
+          "reasoning_tokens": 41
+        },
+        "total_tokens": 3378
+      }
+    },
+    {
+      "id": "reservation-89",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00215775,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009646,
+      "usage": {
+        "input_tokens": 3379,
+        "input_tokens_details": {
+          "cache_write_tokens": 3376,
+          "cached_tokens": 0
+        },
+        "output_tokens": 100,
+        "output_tokens_details": {
+          "reasoning_tokens": 38
+        },
+        "total_tokens": 3479
+      }
+    },
+    {
+      "id": "reservation-90",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00224175,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.001177,
+      "usage": {
+        "input_tokens": 3787,
+        "input_tokens_details": {
+          "cache_write_tokens": 3784,
+          "cached_tokens": 0
+        },
+        "output_tokens": 192,
+        "output_tokens_details": {
+          "reasoning_tokens": 130
+        },
+        "total_tokens": 3979
+      }
+    },
+    {
+      "id": "reservation-91",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002251,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0011172,
+      "usage": {
+        "input_tokens": 3831,
+        "input_tokens_details": {
+          "cache_write_tokens": 3828,
+          "cached_tokens": 0
+        },
+        "output_tokens": 133,
+        "output_tokens_details": {
+          "reasoning_tokens": 71
+        },
+        "total_tokens": 3964
+      }
+    },
+    {
+      "id": "reservation-92",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00226125,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00111095,
+      "usage": {
+        "input_tokens": 3878,
+        "input_tokens_details": {
+          "cache_write_tokens": 3875,
+          "cached_tokens": 0
+        },
+        "output_tokens": 118,
+        "output_tokens_details": {
+          "reasoning_tokens": 37
+        },
+        "total_tokens": 3996
+      }
+    },
+    {
+      "id": "reservation-93",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00228175,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00119255,
+      "usage": {
+        "input_tokens": 3974,
+        "input_tokens_details": {
+          "cache_write_tokens": 3971,
+          "cached_tokens": 0
+        },
+        "output_tokens": 166,
+        "output_tokens_details": {
+          "reasoning_tokens": 104
+        },
+        "total_tokens": 4140
+      }
+    },
+    {
+      "id": "reservation-94",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017605,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00051115,
+      "usage": {
+        "input_tokens": 1546,
+        "input_tokens_details": {
+          "cache_write_tokens": 1543,
+          "cached_tokens": 0
+        },
+        "output_tokens": 104,
+        "output_tokens_details": {
+          "reasoning_tokens": 43
+        },
+        "total_tokens": 1650
+      }
+    },
+    {
+      "id": "reservation-95",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018252499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0005670499999999999,
+      "usage": {
+        "input_tokens": 1832,
+        "input_tokens_details": {
+          "cache_write_tokens": 1829,
+          "cached_tokens": 0
+        },
+        "output_tokens": 91,
+        "output_tokens_details": {
+          "reasoning_tokens": 35
+        },
+        "total_tokens": 1923
+      }
+    },
+    {
+      "id": "reservation-96",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018792499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006525000000000001,
+      "usage": {
+        "input_tokens": 2049,
+        "input_tokens_details": {
+          "cache_write_tokens": 2046,
+          "cached_tokens": 0
+        },
+        "output_tokens": 117,
+        "output_tokens_details": {
+          "reasoning_tokens": 57
+        },
+        "total_tokens": 2166
+      }
+    },
+    {
+      "id": "reservation-97",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00191425,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00071525,
+      "usage": {
+        "input_tokens": 2204,
+        "input_tokens_details": {
+          "cache_write_tokens": 2201,
+          "cached_tokens": 0
+        },
+        "output_tokens": 137,
+        "output_tokens_details": {
+          "reasoning_tokens": 75
+        },
+        "total_tokens": 2341
+      }
+    },
+    {
+      "id": "reservation-98",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019375,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007700500000000001,
+      "usage": {
+        "input_tokens": 2308,
+        "input_tokens_details": {
+          "cache_write_tokens": 2305,
+          "cached_tokens": 0
+        },
+        "output_tokens": 161,
+        "output_tokens_details": {
+          "reasoning_tokens": 99
+        },
+        "total_tokens": 2469
+      }
+    },
+    {
+      "id": "reservation-99",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019575,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008185,
+      "usage": {
+        "input_tokens": 2401,
+        "input_tokens_details": {
+          "cache_write_tokens": 2398,
+          "cached_tokens": 0
+        },
+        "output_tokens": 182,
+        "output_tokens_details": {
+          "reasoning_tokens": 120
+        },
+        "total_tokens": 2583
+      }
+    },
+    {
+      "id": "reservation-100",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00196775,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00105225,
+      "usage": {
+        "input_tokens": 2448,
+        "input_tokens_details": {
+          "cache_write_tokens": 2445,
+          "cached_tokens": 0
+        },
+        "output_tokens": 367,
+        "output_tokens_details": {
+          "reasoning_tokens": 245
+        },
+        "total_tokens": 2815
+      }
+    },
+    {
+      "id": "reservation-101",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00200475,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00082405,
+      "usage": {
+        "input_tokens": 2620,
+        "input_tokens_details": {
+          "cache_write_tokens": 2617,
+          "cached_tokens": 0
+        },
+        "output_tokens": 141,
+        "output_tokens_details": {
+          "reasoning_tokens": 81
+        },
+        "total_tokens": 2761
+      }
+    },
+    {
+      "id": "reservation-102",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00204025,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00083905,
+      "usage": {
+        "input_tokens": 2776,
+        "input_tokens_details": {
+          "cache_write_tokens": 2773,
+          "cached_tokens": 0
+        },
+        "output_tokens": 121,
+        "output_tokens_details": {
+          "reasoning_tokens": 59
+        },
+        "total_tokens": 2897
+      }
+    },
+    {
+      "id": "reservation-103",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020495,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00099645,
+      "usage": {
+        "input_tokens": 2820,
+        "input_tokens_details": {
+          "cache_write_tokens": 2817,
+          "cached_tokens": 0
+        },
+        "output_tokens": 243,
+        "output_tokens_details": {
+          "reasoning_tokens": 181
+        },
+        "total_tokens": 3063
+      }
+    },
+    {
+      "id": "reservation-104",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00206025,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009597500000000001,
+      "usage": {
+        "input_tokens": 2870,
+        "input_tokens_details": {
+          "cache_write_tokens": 2867,
+          "cached_tokens": 0
+        },
+        "output_tokens": 202,
+        "output_tokens_details": {
+          "reasoning_tokens": 140
+        },
+        "total_tokens": 3072
+      }
+    },
+    {
+      "id": "reservation-105",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0021072499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00105795,
+      "usage": {
+        "input_tokens": 3090,
+        "input_tokens_details": {
+          "cache_write_tokens": 3087,
+          "cached_tokens": 0
+        },
+        "output_tokens": 238,
+        "output_tokens_details": {
+          "reasoning_tokens": 185
+        },
+        "total_tokens": 3328
+      }
+    },
+    {
+      "id": "reservation-106",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002198,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0013451,
+      "usage": {
+        "input_tokens": 3437,
+        "input_tokens_details": {
+          "cache_write_tokens": 3434,
+          "cached_tokens": 0
+        },
+        "output_tokens": 405,
+        "output_tokens_details": {
+          "reasoning_tokens": 343
+        },
+        "total_tokens": 3842
+      }
+    },
+    {
+      "id": "reservation-107",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002245,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00125585,
+      "usage": {
+        "input_tokens": 3656,
+        "input_tokens_details": {
+          "cache_write_tokens": 3653,
+          "cached_tokens": 0
+        },
+        "output_tokens": 285,
+        "output_tokens_details": {
+          "reasoning_tokens": 223
+        },
+        "total_tokens": 3941
+      }
+    },
+    {
+      "id": "reservation-108",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0022915,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0013353,
+      "usage": {
+        "input_tokens": 3873,
+        "input_tokens_details": {
+          "cache_write_tokens": 3870,
+          "cached_tokens": 0
+        },
+        "output_tokens": 306,
+        "output_tokens_details": {
+          "reasoning_tokens": 244
+        },
+        "total_tokens": 4179
+      }
+    },
+    {
+      "id": "reservation-109",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017605,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0005075500000000001,
+      "usage": {
+        "input_tokens": 1546,
+        "input_tokens_details": {
+          "cache_write_tokens": 1543,
+          "cached_tokens": 0
+        },
+        "output_tokens": 101,
+        "output_tokens_details": {
+          "reasoning_tokens": 41
+        },
+        "total_tokens": 1647
+      }
+    },
+    {
+      "id": "reservation-110",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001798,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0005412,
+      "usage": {
+        "input_tokens": 1719,
+        "input_tokens_details": {
+          "cache_write_tokens": 1716,
+          "cached_tokens": 0
+        },
+        "output_tokens": 93,
+        "output_tokens_details": {
+          "reasoning_tokens": 37
+        },
+        "total_tokens": 1812
+      }
+    },
+    {
+      "id": "reservation-111",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018512499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006031000000000001,
+      "usage": {
+        "input_tokens": 1933,
+        "input_tokens_details": {
+          "cache_write_tokens": 1930,
+          "cached_tokens": 0
+        },
+        "output_tokens": 100,
+        "output_tokens_details": {
+          "reasoning_tokens": 40
+        },
+        "total_tokens": 2033
+      }
+    },
+    {
+      "id": "reservation-112",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018857499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006425500000000001,
+      "usage": {
+        "input_tokens": 2086,
+        "input_tokens_details": {
+          "cache_write_tokens": 2083,
+          "cached_tokens": 0
+        },
+        "output_tokens": 101,
+        "output_tokens_details": {
+          "reasoning_tokens": 39
+        },
+        "total_tokens": 2187
+      }
+    },
+    {
+      "id": "reservation-113",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019229999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00071805,
+      "usage": {
+        "input_tokens": 2244,
+        "input_tokens_details": {
+          "cache_write_tokens": 2241,
+          "cached_tokens": 0
+        },
+        "output_tokens": 131,
+        "output_tokens_details": {
+          "reasoning_tokens": 69
+        },
+        "total_tokens": 2375
+      }
+    },
+    {
+      "id": "reservation-114",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019464999999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006986500000000001,
+      "usage": {
+        "input_tokens": 2344,
+        "input_tokens_details": {
+          "cache_write_tokens": 2341,
+          "cached_tokens": 0
+        },
+        "output_tokens": 94,
+        "output_tokens_details": {
+          "reasoning_tokens": 32
+        },
+        "total_tokens": 2438
+      }
+    },
+    {
+      "id": "reservation-115",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019667499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008707000000000001,
+      "usage": {
+        "input_tokens": 2437,
+        "input_tokens_details": {
+          "cache_write_tokens": 2434,
+          "cached_tokens": 0
+        },
+        "output_tokens": 218,
+        "output_tokens_details": {
+          "reasoning_tokens": 123
+        },
+        "total_tokens": 2655
+      }
+    },
+    {
+      "id": "reservation-116",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00199775,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007778500000000001,
+      "usage": {
+        "input_tokens": 2584,
+        "input_tokens_details": {
+          "cache_write_tokens": 2581,
+          "cached_tokens": 0
+        },
+        "output_tokens": 110,
+        "output_tokens_details": {
+          "reasoning_tokens": 48
+        },
+        "total_tokens": 2694
+      }
+    },
+    {
+      "id": "reservation-117",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020387499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0010320000000000001,
+      "usage": {
+        "input_tokens": 2775,
+        "input_tokens_details": {
+          "cache_write_tokens": 2772,
+          "cached_tokens": 0
+        },
+        "output_tokens": 282,
+        "output_tokens_details": {
+          "reasoning_tokens": 182
+        },
+        "total_tokens": 3057
+      }
+    },
+    {
+      "id": "reservation-118",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002068,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0010076500000000001,
+      "usage": {
+        "input_tokens": 2908,
+        "input_tokens_details": {
+          "cache_write_tokens": 2905,
+          "cached_tokens": 0
+        },
+        "output_tokens": 234,
+        "output_tokens_details": {
+          "reasoning_tokens": 130
+        },
+        "total_tokens": 3142
+      }
+    },
+    {
+      "id": "reservation-119",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0021005,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009827,
+      "usage": {
+        "input_tokens": 3053,
+        "input_tokens_details": {
+          "cache_write_tokens": 3050,
+          "cached_tokens": 0
+        },
+        "output_tokens": 183,
+        "output_tokens_details": {
+          "reasoning_tokens": 121
+        },
+        "total_tokens": 3236
+      }
+    },
+    {
+      "id": "reservation-120",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0021822499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00133975,
+      "usage": {
+        "input_tokens": 3430,
+        "input_tokens_details": {
+          "cache_write_tokens": 3427,
+          "cached_tokens": 0
+        },
+        "output_tokens": 402,
+        "output_tokens_details": {
+          "reasoning_tokens": 301
+        },
+        "total_tokens": 3832
+      }
+    },
+    {
+      "id": "reservation-121",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00221025,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00115255,
+      "usage": {
+        "input_tokens": 3526,
+        "input_tokens_details": {
+          "cache_write_tokens": 3523,
+          "cached_tokens": 0
+        },
+        "output_tokens": 226,
+        "output_tokens_details": {
+          "reasoning_tokens": 173
+        },
+        "total_tokens": 3752
+      }
+    },
+    {
+      "id": "reservation-122",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0022737499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0012325,
+      "usage": {
+        "input_tokens": 3769,
+        "input_tokens_details": {
+          "cache_write_tokens": 3766,
+          "cached_tokens": 0
+        },
+        "output_tokens": 242,
+        "output_tokens_details": {
+          "reasoning_tokens": 180
+        },
+        "total_tokens": 4011
+      }
+    },
+    {
+      "id": "reservation-123",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00235625,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0017883,
+      "usage": {
+        "input_tokens": 4149,
+        "input_tokens_details": {
+          "cache_write_tokens": 4146,
+          "cached_tokens": 0
+        },
+        "output_tokens": 626,
+        "output_tokens_details": {
+          "reasoning_tokens": 516
+        },
+        "total_tokens": 4775
+      }
+    },
+    {
+      "id": "reservation-124",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0023882499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00151265,
+      "usage": {
+        "input_tokens": 4256,
+        "input_tokens_details": {
+          "cache_write_tokens": 4253,
+          "cached_tokens": 0
+        },
+        "output_tokens": 374,
+        "output_tokens_details": {
+          "reasoning_tokens": 264
+        },
+        "total_tokens": 4630
+      }
+    },
+    {
+      "id": "reservation-125",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-terra",
+      "projectedUsd": 0.059035000000000004,
+      "purpose": "das004-b2-adaptive-engineer-engineering-round-2",
+      "status": "settled",
+      "actualUsd": 0.024667,
+      "usage": {
+        "input_tokens": 5005,
+        "input_tokens_details": {
+          "cache_write_tokens": 5002,
+          "cached_tokens": 0
+        },
+        "output_tokens": 1013,
+        "output_tokens_details": {
+          "reasoning_tokens": 188
+        },
+        "total_tokens": 6018
+      }
+    },
+    {
+      "id": "reservation-126",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017662499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.000532,
+      "usage": {
+        "input_tokens": 1567,
+        "input_tokens_details": {
+          "cache_write_tokens": 1564,
+          "cached_tokens": 0
+        },
+        "output_tokens": 117,
+        "output_tokens_details": {
+          "reasoning_tokens": 61
+        },
+        "total_tokens": 1684
+      }
+    },
+    {
+      "id": "reservation-127",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018202499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0005531500000000001,
+      "usage": {
+        "input_tokens": 1786,
+        "input_tokens_details": {
+          "cache_write_tokens": 1783,
+          "cached_tokens": 0
+        },
+        "output_tokens": 89,
+        "output_tokens_details": {
+          "reasoning_tokens": 28
+        },
+        "total_tokens": 1875
+      }
+    },
+    {
+      "id": "reservation-128",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018579999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00060405,
+      "usage": {
+        "input_tokens": 1956,
+        "input_tokens_details": {
+          "cache_write_tokens": 1953,
+          "cached_tokens": 0
+        },
+        "output_tokens": 96,
+        "output_tokens_details": {
+          "reasoning_tokens": 36
+        },
+        "total_tokens": 2052
+      }
+    },
+    {
+      "id": "reservation-129",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00189275,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006488,
+      "usage": {
+        "input_tokens": 2111,
+        "input_tokens_details": {
+          "cache_write_tokens": 2108,
+          "cached_tokens": 0
+        },
+        "output_tokens": 101,
+        "output_tokens_details": {
+          "reasoning_tokens": 39
+        },
+        "total_tokens": 2212
+      }
+    },
+    {
+      "id": "reservation-130",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019284999999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.000738,
+      "usage": {
+        "input_tokens": 2271,
+        "input_tokens_details": {
+          "cache_write_tokens": 2268,
+          "cached_tokens": 0
+        },
+        "output_tokens": 142,
+        "output_tokens_details": {
+          "reasoning_tokens": 80
+        },
+        "total_tokens": 2413
+      }
+    },
+    {
+      "id": "reservation-131",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019512499999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007273,
+      "usage": {
+        "input_tokens": 2377,
+        "input_tokens_details": {
+          "cache_write_tokens": 2374,
+          "cached_tokens": 0
+        },
+        "output_tokens": 111,
+        "output_tokens_details": {
+          "reasoning_tokens": 49
+        },
+        "total_tokens": 2488
+      }
+    },
+    {
+      "id": "reservation-132",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00197075,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007954,
+      "usage": {
+        "input_tokens": 2467,
+        "input_tokens_details": {
+          "cache_write_tokens": 2464,
+          "cached_tokens": 0
+        },
+        "output_tokens": 149,
+        "output_tokens_details": {
+          "reasoning_tokens": 60
+        },
+        "total_tokens": 2616
+      }
+    },
+    {
+      "id": "reservation-133",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007905,
+      "usage": {
+        "input_tokens": 2601,
+        "input_tokens_details": {
+          "cache_write_tokens": 2598,
+          "cached_tokens": 0
+        },
+        "output_tokens": 117,
+        "output_tokens_details": {
+          "reasoning_tokens": 55
+        },
+        "total_tokens": 2718
+      }
+    },
+    {
+      "id": "reservation-134",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00203675,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008813,
+      "usage": {
+        "input_tokens": 2777,
+        "input_tokens_details": {
+          "cache_write_tokens": 2774,
+          "cached_tokens": 0
+        },
+        "output_tokens": 156,
+        "output_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "total_tokens": 2933
+      }
+    },
+    {
+      "id": "reservation-135",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020647499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00086725,
+      "usage": {
+        "input_tokens": 2908,
+        "input_tokens_details": {
+          "cache_write_tokens": 2905,
+          "cached_tokens": 0
+        },
+        "output_tokens": 117,
+        "output_tokens_details": {
+          "reasoning_tokens": 55
+        },
+        "total_tokens": 3025
+      }
+    },
+    {
+      "id": "reservation-136",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00212075,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00095485,
+      "usage": {
+        "input_tokens": 3172,
+        "input_tokens_details": {
+          "cache_write_tokens": 3169,
+          "cached_tokens": 0
+        },
+        "output_tokens": 135,
+        "output_tokens_details": {
+          "reasoning_tokens": 42
+        },
+        "total_tokens": 3307
+      }
+    },
+    {
+      "id": "reservation-137",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0021522499999999996,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009859,
+      "usage": {
+        "input_tokens": 3301,
+        "input_tokens_details": {
+          "cache_write_tokens": 3298,
+          "cached_tokens": 0
+        },
+        "output_tokens": 134,
+        "output_tokens_details": {
+          "reasoning_tokens": 72
+        },
+        "total_tokens": 3435
+      }
+    },
+    {
+      "id": "reservation-138",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0021625,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00098085,
+      "usage": {
+        "input_tokens": 3348,
+        "input_tokens_details": {
+          "cache_write_tokens": 3345,
+          "cached_tokens": 0
+        },
+        "output_tokens": 120,
+        "output_tokens_details": {
+          "reasoning_tokens": 58
+        },
+        "total_tokens": 3468
+      }
+    },
+    {
+      "id": "reservation-139",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0022407499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0010547500000000001,
+      "usage": {
+        "input_tokens": 3706,
+        "input_tokens_details": {
+          "cache_write_tokens": 3703,
+          "cached_tokens": 0
+        },
+        "output_tokens": 107,
+        "output_tokens_details": {
+          "reasoning_tokens": 30
+        },
+        "total_tokens": 3813
+      }
+    },
+    {
+      "id": "reservation-140",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.002261,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00110265,
+      "usage": {
+        "input_tokens": 3792,
+        "input_tokens_details": {
+          "cache_write_tokens": 3789,
+          "cached_tokens": 0
+        },
+        "output_tokens": 129,
+        "output_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "total_tokens": 3921
+      }
+    },
+    {
+      "id": "reservation-141",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0023492499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0011860999999999998,
+      "usage": {
+        "input_tokens": 4193,
+        "input_tokens_details": {
+          "cache_write_tokens": 4190,
+          "cached_tokens": 0
+        },
+        "output_tokens": 115,
+        "output_tokens_details": {
+          "reasoning_tokens": 38
+        },
+        "total_tokens": 4308
+      }
+    },
+    {
+      "id": "reservation-142",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017662499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0005104,
+      "usage": {
+        "input_tokens": 1567,
+        "input_tokens_details": {
+          "cache_write_tokens": 1564,
+          "cached_tokens": 0
+        },
+        "output_tokens": 99,
+        "output_tokens_details": {
+          "reasoning_tokens": 43
+        },
+        "total_tokens": 1666
+      }
+    },
+    {
+      "id": "reservation-143",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001821,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00056255,
+      "usage": {
+        "input_tokens": 1790,
+        "input_tokens_details": {
+          "cache_write_tokens": 1787,
+          "cached_tokens": 0
+        },
+        "output_tokens": 96,
+        "output_tokens_details": {
+          "reasoning_tokens": 35
+        },
+        "total_tokens": 1886
+      }
+    },
+    {
+      "id": "reservation-144",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001885,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00066975,
+      "usage": {
+        "input_tokens": 2070,
+        "input_tokens_details": {
+          "cache_write_tokens": 2067,
+          "cached_tokens": 0
+        },
+        "output_tokens": 127,
+        "output_tokens_details": {
+          "reasoning_tokens": 67
+        },
+        "total_tokens": 2197
+      }
+    },
+    {
+      "id": "reservation-145",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019199999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007325,
+      "usage": {
+        "input_tokens": 2225,
+        "input_tokens_details": {
+          "cache_write_tokens": 2222,
+          "cached_tokens": 0
+        },
+        "output_tokens": 147,
+        "output_tokens_details": {
+          "reasoning_tokens": 85
+        },
+        "total_tokens": 2372
+      }
+    },
+    {
+      "id": "reservation-146",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019437499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00076165,
+      "usage": {
+        "input_tokens": 2332,
+        "input_tokens_details": {
+          "cache_write_tokens": 2329,
+          "cached_tokens": 0
+        },
+        "output_tokens": 149,
+        "output_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "total_tokens": 2481
+      }
+    },
+    {
+      "id": "reservation-147",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00195325,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00077265,
+      "usage": {
+        "input_tokens": 2376,
+        "input_tokens_details": {
+          "cache_write_tokens": 2373,
+          "cached_tokens": 0
+        },
+        "output_tokens": 149,
+        "output_tokens_details": {
+          "reasoning_tokens": 87
+        },
+        "total_tokens": 2525
+      }
+    },
+    {
+      "id": "reservation-148",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019727499999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0011683499999999999,
+      "usage": {
+        "input_tokens": 2466,
+        "input_tokens_details": {
+          "cache_write_tokens": 2463,
+          "cached_tokens": 0
+        },
+        "output_tokens": 460,
+        "output_tokens_details": {
+          "reasoning_tokens": 374
+        },
+        "total_tokens": 2926
+      }
+    },
+    {
+      "id": "reservation-149",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0019995,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00079935,
+      "usage": {
+        "input_tokens": 2574,
+        "input_tokens_details": {
+          "cache_write_tokens": 2571,
+          "cached_tokens": 0
+        },
+        "output_tokens": 130,
+        "output_tokens_details": {
+          "reasoning_tokens": 70
+        },
+        "total_tokens": 2704
+      }
+    },
+    {
+      "id": "reservation-150",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00203375,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0008920499999999999,
+      "usage": {
+        "input_tokens": 2724,
+        "input_tokens_details": {
+          "cache_write_tokens": 2721,
+          "cached_tokens": 0
+        },
+        "output_tokens": 176,
+        "output_tokens_details": {
+          "reasoning_tokens": 114
+        },
+        "total_tokens": 2900
+      }
+    },
+    {
+      "id": "reservation-151",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00207,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00092815,
+      "usage": {
+        "input_tokens": 2878,
+        "input_tokens_details": {
+          "cache_write_tokens": 2875,
+          "cached_tokens": 0
+        },
+        "output_tokens": 174,
+        "output_tokens_details": {
+          "reasoning_tokens": 112
+        },
+        "total_tokens": 3052
+      }
+    },
+    {
+      "id": "reservation-152",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00207975,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009951,
+      "usage": {
+        "input_tokens": 2925,
+        "input_tokens_details": {
+          "cache_write_tokens": 2922,
+          "cached_tokens": 0
+        },
+        "output_tokens": 220,
+        "output_tokens_details": {
+          "reasoning_tokens": 158
+        },
+        "total_tokens": 3145
+      }
+    },
+    {
+      "id": "reservation-153",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00209,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00096125,
+      "usage": {
+        "input_tokens": 2972,
+        "input_tokens_details": {
+          "cache_write_tokens": 2969,
+          "cached_tokens": 0
+        },
+        "output_tokens": 182,
+        "output_tokens_details": {
+          "reasoning_tokens": 129
+        },
+        "total_tokens": 3154
+      }
+    },
+    {
+      "id": "reservation-154",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0017662499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0005128,
+      "usage": {
+        "input_tokens": 1567,
+        "input_tokens_details": {
+          "cache_write_tokens": 1564,
+          "cached_tokens": 0
+        },
+        "output_tokens": 101,
+        "output_tokens_details": {
+          "reasoning_tokens": 45
+        },
+        "total_tokens": 1668
+      }
+    },
+    {
+      "id": "reservation-155",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.001821,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00054935,
+      "usage": {
+        "input_tokens": 1790,
+        "input_tokens_details": {
+          "cache_write_tokens": 1787,
+          "cached_tokens": 0
+        },
+        "output_tokens": 85,
+        "output_tokens_details": {
+          "reasoning_tokens": 24
+        },
+        "total_tokens": 1875
+      }
+    },
+    {
+      "id": "reservation-156",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018574999999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0006079,
+      "usage": {
+        "input_tokens": 1957,
+        "input_tokens_details": {
+          "cache_write_tokens": 1954,
+          "cached_tokens": 0
+        },
+        "output_tokens": 99,
+        "output_tokens_details": {
+          "reasoning_tokens": 39
+        },
+        "total_tokens": 2056
+      }
+    },
+    {
+      "id": "reservation-157",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0018909999999999999,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00066625,
+      "usage": {
+        "input_tokens": 2104,
+        "input_tokens_details": {
+          "cache_write_tokens": 2101,
+          "cached_tokens": 0
+        },
+        "output_tokens": 117,
+        "output_tokens_details": {
+          "reasoning_tokens": 55
+        },
+        "total_tokens": 2221
+      }
+    },
+    {
+      "id": "reservation-158",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00192875,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007041,
+      "usage": {
+        "input_tokens": 2265,
+        "input_tokens_details": {
+          "cache_write_tokens": 2262,
+          "cached_tokens": 0
+        },
+        "output_tokens": 115,
+        "output_tokens_details": {
+          "reasoning_tokens": 53
+        },
+        "total_tokens": 2380
+      }
+    },
+    {
+      "id": "reservation-159",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00195225,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0007183000000000001,
+      "usage": {
+        "input_tokens": 2365,
+        "input_tokens_details": {
+          "cache_write_tokens": 2362,
+          "cached_tokens": 0
+        },
+        "output_tokens": 106,
+        "output_tokens_details": {
+          "reasoning_tokens": 44
+        },
+        "total_tokens": 2471
+      }
+    },
+    {
+      "id": "reservation-160",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00197175,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0011668,
+      "usage": {
+        "input_tokens": 2455,
+        "input_tokens_details": {
+          "cache_write_tokens": 2452,
+          "cached_tokens": 0
+        },
+        "output_tokens": 461,
+        "output_tokens_details": {
+          "reasoning_tokens": 374
+        },
+        "total_tokens": 2916
+      }
+    },
+    {
+      "id": "reservation-161",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020009999999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00081145,
+      "usage": {
+        "input_tokens": 2584,
+        "input_tokens_details": {
+          "cache_write_tokens": 2581,
+          "cached_tokens": 0
+        },
+        "output_tokens": 138,
+        "output_tokens_details": {
+          "reasoning_tokens": 76
+        },
+        "total_tokens": 2722
+      }
+    },
+    {
+      "id": "reservation-162",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020399999999999997,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0013496,
+      "usage": {
+        "input_tokens": 2759,
+        "input_tokens_details": {
+          "cache_write_tokens": 2756,
+          "cached_tokens": 0
+        },
+        "output_tokens": 550,
+        "output_tokens_details": {
+          "reasoning_tokens": 455
+        },
+        "total_tokens": 3309
+      }
+    },
+    {
+      "id": "reservation-163",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00207,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0009731,
+      "usage": {
+        "input_tokens": 2885,
+        "input_tokens_details": {
+          "cache_write_tokens": 2882,
+          "cached_tokens": 0
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 115
+        },
+        "total_tokens": 3095
+      }
+    },
+    {
+      "id": "reservation-164",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0020995,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0011207,
+      "usage": {
+        "input_tokens": 3005,
+        "input_tokens_details": {
+          "cache_write_tokens": 3002,
+          "cached_tokens": 0
+        },
+        "output_tokens": 308,
+        "output_tokens_details": {
+          "reasoning_tokens": 246
+        },
+        "total_tokens": 3313
+      }
+    },
+    {
+      "id": "reservation-165",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00217775,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0011591,
+      "usage": {
+        "input_tokens": 3341,
+        "input_tokens_details": {
+          "cache_write_tokens": 3338,
+          "cached_tokens": 0
+        },
+        "output_tokens": 270,
+        "output_tokens_details": {
+          "reasoning_tokens": 217
+        },
+        "total_tokens": 3611
+      }
+    },
+    {
+      "id": "reservation-166",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.0022412499999999998,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00205145,
+      "usage": {
+        "input_tokens": 3584,
+        "input_tokens_details": {
+          "cache_write_tokens": 3581,
+          "cached_tokens": 0
+        },
+        "output_tokens": 963,
+        "output_tokens_details": {
+          "reasoning_tokens": 875
+        },
+        "total_tokens": 4547
+      }
+    },
+    {
+      "id": "reservation-167",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00226875,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.00113385,
+      "usage": {
+        "input_tokens": 3696,
+        "input_tokens_details": {
+          "cache_write_tokens": 3693,
+          "cached_tokens": 0
+        },
+        "output_tokens": 175,
+        "output_tokens_details": {
+          "reasoning_tokens": 113
+        },
+        "total_tokens": 3871
+      }
+    },
+    {
+      "id": "reservation-168",
+      "provider": "openai-responses",
+      "model": "gpt-5.6-luna",
+      "projectedUsd": 0.00236325,
+      "purpose": "specialist-runtime-decision",
+      "status": "settled",
+      "actualUsd": 0.0014952,
+      "usage": {
+        "input_tokens": 4095,
+        "input_tokens_details": {
+          "cache_write_tokens": 4092,
+          "cached_tokens": 0
+        },
+        "output_tokens": 393,
+        "output_tokens_details": {
+          "reasoning_tokens": 340
+        },
+        "total_tokens": 4488
+      }
+    }
+  ],
+  "integrityHash": "0dad81ec9e80a2ab303ce3551efad211cad7b0ee16ce6a35cc99fd9b3d6c57d9"
+}

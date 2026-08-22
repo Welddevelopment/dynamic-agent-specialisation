@@ -3,11 +3,17 @@ import { createCaseVault } from "../../evaluation/case-vault.js";
 import { createAdaptiveEngineeringProtocol } from "../../evaluation/adaptive-engineering-protocol.js";
 import { declareArmEntryPoints } from "../../evaluation/execution-attestation.js";
 import { accessOffboardingBrief, importedAccessOffboardingAgent } from "../../roles/access-offboarding.js";
-import { accessOffboardingB3ConfirmationPayloads, accessOffboardingB3DevelopmentCases } from "../../worlds/access-offboarding-b3-cases.js";
+import { accessOffboardingB3V2ConfirmationPayloads, accessOffboardingB3V2DevelopmentCases } from "../../worlds/access-offboarding-b3v2-cases.js";
 
-export const DAS004_B3_CAMPAIGN_ID = "das004-b3-access-offboarding-real-compiler-v1";
-export const DAS004_B3_ARTIFACT_ROOT = "artifacts/adaptive-baseline/das004-b3-access-offboarding-real-compiler-v1";
-export const DAS004_B3_APPROVAL = "JOEL_APPROVED_DAS004_B3_REAL_COMPILER_3USD_2026_08_22";
+/**
+ * v2: the v1 attempt (report 0115, campaign id ...-v1) stopped before engineering when the
+ * shared starting agent failed its development safety screen on a shared-identity trap
+ * that v1 had placed in development. v1's artifacts are a closed record; never overwrite.
+ * v2 moves the trap to hidden confirmation, restoring B2's proven-runnable structure.
+ */
+export const DAS004_B3_CAMPAIGN_ID = "das004-b3-access-offboarding-real-compiler-v2";
+export const DAS004_B3_ARTIFACT_ROOT = "artifacts/adaptive-baseline/das004-b3-access-offboarding-real-compiler-v2";
+export const DAS004_B3_APPROVAL = "JOEL_APPROVED_DAS004_B3_V2_REAL_COMPILER_3USD_2026_08_22";
 
 /**
  * PRICING FRESHNESS — read before running.
@@ -65,12 +71,12 @@ export function armEntryPointsAreDistinct(sealed = DAS004_B3_ARM_ENTRY_POINTS) {
 }
 
 function developmentCases() {
-  return accessOffboardingB3DevelopmentCases.map(({ id, ...payload }) => Object.freeze({ id, payload: Object.freeze(structuredClone(payload)) }));
+  return accessOffboardingB3V2DevelopmentCases.map(({ id, ...payload }) => Object.freeze({ id, payload: Object.freeze(structuredClone(payload)) }));
 }
 
 export function createDas004B3ProtocolBundle() {
   const cases = Object.freeze(developmentCases());
-  const confirmationVault = createCaseVault(`adaptive-pair:${accessOffboardingBrief.id}:b3`, accessOffboardingB3ConfirmationPayloads);
+  const confirmationVault = createCaseVault(`adaptive-pair:${accessOffboardingBrief.id}:b3v2`, accessOffboardingB3V2ConfirmationPayloads);
   const protocol = createAdaptiveEngineeringProtocol({
     id: DAS004_B3_CAMPAIGN_ID,
     brief: accessOffboardingBrief,
