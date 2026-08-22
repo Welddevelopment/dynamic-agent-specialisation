@@ -70,7 +70,7 @@ await withCampaignWriterLock({ stateDirectory: state, campaignId: DAS004_B3_CAMP
     knowledgeEntries: knowledge.query(["general", "operations", "identity-access"]),
   });
   attestInstanceEntryPoint(attestor, "das", compilerDesigner.architect);
-  const adaptiveDesigner = new ModelAdaptiveDesigner({ armId: "adaptive-engineer", brief: bundle.brief, gateway: gatewaysByArm["adaptive-engineer"], engineeringModel: DAS004_B3_ENGINEERING_MODEL });
+  const adaptiveDesigner = new ModelAdaptiveDesigner({ armId: "adaptive-engineer", brief: bundle.brief, gateway: gatewaysByArm["adaptive-engineer"], engineeringModel: DAS004_B3_ENGINEERING_MODEL, purposePrefix: "das004-b3" });
   attestInstanceEntryPoint(attestor, "adaptive-engineer", adaptiveDesigner);
   const designers = { das: compilerDesigner, "adaptive-engineer": adaptiveDesigner };
 

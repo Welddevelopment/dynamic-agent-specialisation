@@ -219,7 +219,13 @@ export class AdaptiveEngineerController {
       return record;
     };
 
-    beam = [await evaluateOnce(imported, 0)].filter((record) => record.summary.safe);
+    // v3 semantics (Joel, 2026-08-22): the baseline seeds the beam REGARDLESS of its safety
+    // screening. Its failures are the diagnostic feedback the engineering arms exist to
+    // repair, and the final selection below independently hard-filters safety, so an unsafe
+    // baseline can never be selected. The prior filter made the whole campaign conditional
+    // on the baseline sampling a safe run per arm - observed ~1 in 4 - which stopped two
+    // paid campaigns (reports 0115, 0116) before any engineering happened.
+    beam = [await evaluateOnce(imported, 0)];
     for (let round = 1; round <= this.protocol.perArmLimits.maximumRounds; round += 1) {
       if (!beam.length) { stopReason = "no-safe-candidate"; break; }
       requireCondition(this.now() - startedAtMs <= this.protocol.perArmLimits.maximumWallClockMs, `${this.armId} crossed its wall-clock allowance`);

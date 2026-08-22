@@ -182,3 +182,65 @@ test("the campaign records the ceiling override and does not claim re-verified p
   assert.match(plan.pricing.carriedForwardFrom, /unchanged/);
   assert.equal(plan.caseFreeze.reusesConsumedCases, false);
 });
+
+// ── v3 semantics: an unsafe baseline no longer blocks the comparison ───────────
+
+test("v3: an unsafe baseline seeds the beam, engineering runs, and the baseline can never win", async () => {
+  const { AdaptiveEngineerController } = await import("../src/evaluation/adaptive-engineer-controller.js");
+  const { PairedResourceGovernor } = await import("../src/evaluation/paired-resource-governor.js");
+  const { digest } = await import("../src/core/canonical.js");
+  const bundle = createDas004B3ProtocolBundle();
+  const imported = bundle.importedAgent;
+  const caseIds = bundle.developmentCases.map((row) => row.id);
+
+  const row = (candidate, caseId, { passed, unsafe }) => ({
+    candidateId: candidate.id, candidateFingerprint: candidate.fingerprint, caseId,
+    verifierId: bundle.protocol.role.verifierId, verifierKind: "independent-external-state",
+    independentlyVerified: true, passed, outcomeScore: passed ? 1 : 0.4,
+    unsafeAttempts: unsafe ? 1 : 0, incorrectSideEffects: 0, modelCostUsd: 0.001,
+    elapsedMs: 50, toolCalls: 3, humanInterventions: 0,
+    verificationReceiptHash: digest({ c: candidate.fingerprint, caseId }), verification: null,
+  });
+
+  // The baseline attempts a denied write on the first case - unsafe, exactly like the
+  // three real screenings that stopped v1 and v2. Children evaluate safe and passing.
+  const evaluator = {
+    async estimate() { return { maximumUsd: 0.01, maximumCalls: 1 }; },
+    async evaluate({ candidate, cases }) {
+      const observations = candidate.id === imported.id
+        ? [row(candidate, cases[0].id, { passed: false, unsafe: true })]
+        : cases.map((c) => row(candidate, c.id, { passed: true, unsafe: false }));
+      return { observations, accounting: { actualUsd: 0, actualCalls: 1 } };
+    },
+  };
+
+  let designerCalls = 0;
+  const child = (await newDesigner(stubGateway()).propose(proposeArgs)).actions[0].candidate;
+  const designer = {
+    async estimate() { return { maximumUsd: 0.01, maximumCalls: 1 }; },
+    async propose({ round }) {
+      designerCalls += 1;
+      if (round === 1) return { actions: [{ kind: "fork", parentFingerprint: imported.fingerprint, rationale: "repair the baseline's unsafe write", candidate: child }], accounting: { actualUsd: 0, actualCalls: 1 } };
+      return { actions: [{ kind: "retain", parentFingerprint: imported.fingerprint, rationale: "nothing further", candidate: null }], accounting: { actualUsd: 0, actualCalls: 1 } };
+    },
+  };
+
+  const controller = new AdaptiveEngineerController({ protocol: bundle.protocol, brief: bundle.brief, armId: "das", designer, evaluator, governor: new PairedResourceGovernor({ protocol: bundle.protocol }) });
+  const result = await controller.run({ importedAgent: imported, developmentCases: bundle.developmentCases });
+
+  // THE FIX: pre-v3 this arm died with no-safe-candidate and designerCalls stayed 0.
+  assert.ok(designerCalls >= 1, "engineering must run despite the unsafe baseline");
+  assert.notEqual(result.stopReason, "no-safe-candidate");
+  // Integrity unchanged: the unsafe baseline is recorded but can never be selected.
+  assert.equal(result.selected.candidate.id, child.id);
+  const baselineRecord = result.evaluated.find((r) => r.candidate.id === imported.id);
+  assert.equal(baselineRecord.summary.safe, false);
+  assert.equal(baselineRecord.summary.score, -Infinity);
+});
+
+test("v3: the preregistration discloses the controller-semantics divergence from B2", () => {
+  const plan = createDas004B3Preregistration();
+  assert.match(plan.controllerSemantics, /DIVERGENCE FROM B2.*approved by Joel 2026-08-22/s);
+  assert.match(plan.controllerSemantics, /can never be selected as winner/);
+  assert.equal(plan.campaignId, "das004-b3-access-offboarding-real-compiler-v3");
+});

@@ -82,9 +82,10 @@ function armInstruction(armId) {
 }
 
 export class ModelAdaptiveDesigner {
-  constructor({ armId, brief, gateway, engineeringModel = "gpt-5.6-terra", maxOutputTokens = 4_000 }) {
+  constructor({ armId, brief, gateway, engineeringModel = "gpt-5.6-terra", maxOutputTokens = 4_000, purposePrefix = "das004-b2" }) {
     requireCondition(["das", "adaptive-engineer"].includes(armId), "Unknown adaptive designer arm");
     this.armId = armId;
+    this.purposePrefix = purposePrefix;
     this.brief = brief;
     this.gateway = gateway;
     this.engineeringModel = engineeringModel;
@@ -96,7 +97,7 @@ export class ModelAdaptiveDesigner {
     const provenanceKind = this.armId === "das" ? "das-compiler-generated" : "adaptive-engineer-generated";
     return {
       model: this.engineeringModel,
-      purpose: `das004-b2-${this.armId}-engineering-round-${round}`,
+      purpose: `${this.purposePrefix}-${this.armId}-engineering-round-${round}`,
       input: {
         instruction: `${sharedInstruction()} ${armInstruction(this.armId)}`,
         comparisonArm: this.armId,

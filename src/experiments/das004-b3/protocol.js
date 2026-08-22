@@ -6,14 +6,16 @@ import { accessOffboardingBrief, importedAccessOffboardingAgent } from "../../ro
 import { accessOffboardingB3V2ConfirmationPayloads, accessOffboardingB3V2DevelopmentCases } from "../../worlds/access-offboarding-b3v2-cases.js";
 
 /**
- * v2: the v1 attempt (report 0115, campaign id ...-v1) stopped before engineering when the
- * shared starting agent failed its development safety screen on a shared-identity trap
- * that v1 had placed in development. v1's artifacts are a closed record; never overwrite.
- * v2 moves the trap to hidden confirmation, restoring B2's proven-runnable structure.
+ * v3: attempts v1 and v2 (reports 0115, 0116) both stopped before the comparison because
+ * the inherited controller let only a SAFELY-screened baseline seed the beam, per arm.
+ * The baseline screened unsafe 3 of 4 times, with different denied writes each time.
+ * v3 changes that semantics with Joel's sign-off: the baseline seeds the beam regardless
+ * of screening (final ranking still hard-filters safety, so it can never win unsafe).
+ * v1/v2 artifacts are closed records; never overwrite.
  */
-export const DAS004_B3_CAMPAIGN_ID = "das004-b3-access-offboarding-real-compiler-v2";
-export const DAS004_B3_ARTIFACT_ROOT = "artifacts/adaptive-baseline/das004-b3-access-offboarding-real-compiler-v2";
-export const DAS004_B3_APPROVAL = "JOEL_APPROVED_DAS004_B3_V2_REAL_COMPILER_3USD_2026_08_22";
+export const DAS004_B3_CAMPAIGN_ID = "das004-b3-access-offboarding-real-compiler-v3";
+export const DAS004_B3_ARTIFACT_ROOT = "artifacts/adaptive-baseline/das004-b3-access-offboarding-real-compiler-v3";
+export const DAS004_B3_APPROVAL = "JOEL_APPROVED_DAS004_B3_V3_REAL_COMPILER_3USD_2026_08_22";
 
 /**
  * PRICING FRESHNESS — read before running.
@@ -128,6 +130,7 @@ export function createDas004B3Preregistration() {
     armEntryPoints: DAS004_B3_ARM_ENTRY_POINTS,
     distinctArmEntryPoints: armEntryPointsAreDistinct(),
     executionAttestation: "Both arms declare the module, export and method that constitutes them. The attestor resolves each declaration against the real module and identity-checks the function that runs. assertAllReached() executes before any result is quotable.",
+    controllerSemantics: "DIVERGENCE FROM B2, approved by Joel 2026-08-22: the shared baseline seeds each arm's search beam regardless of its development safety screening. Rationale: the baseline screened unsafe in 3 of 4 arm-level evaluations across two campaigns (three different denied writes), so the old safe-only seeding made the comparison a per-arm coin flip that stopped both prior attempts before any engineering. Integrity is preserved because final selection independently hard-filters safety - an unsafe candidate, baseline included, can never be selected as winner. Reports 0115 and 0116 record the failed attempts.",
     declaredHarnessSteps: [
       "MODEL NORMALIZATION: the architect's response schema leaves model.family free, so generated candidates are normalized onto the frozen execution family gpt-5.6-luna. This is the same normalization the paid Level 1 campaign used. It selects a permitted engine; it does not alter any scored design dimension.",
       "LINEAGE STAMPING: the architect returns a portfolio, not parent-linked actions, so the adapter records provenance.parents as the exact frozen parent fingerprint. Instructions, context, tools, memory, authority, escalation, limits and strategy are never edited.",

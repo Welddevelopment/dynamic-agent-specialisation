@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "das.campaign-writer-lock.v1",
+  "lockVersion": 1,
+  "campaignId": "das004-b3-access-offboarding-real-compiler-v3",
+  "runnerVersion": "das004-b3-runner-v1",
+  "ownerId": "5789c60c-942e-4662-9d92-ada6da797861",
+  "pid": 54882,
+  "processStartedAt": "2026-08-22T08:27:13.072Z",
+  "acquiredAt": "2026-08-22T08:27:13.093Z",
+  "integrityHash": "8b3ef50564f2b5fd80fa8ac8c49a005e2d122e361781ceb79e6f0da3b7c8e721"
+}
