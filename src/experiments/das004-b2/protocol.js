@@ -1,6 +1,7 @@
 import { digest } from "../../core/canonical.js";
 import { createCaseVault } from "../../evaluation/case-vault.js";
 import { createAdaptiveEngineeringProtocol } from "../../evaluation/adaptive-engineering-protocol.js";
+import { declareArmEntryPoints } from "../../evaluation/execution-attestation.js";
 import { accessOffboardingBrief, importedAccessOffboardingAgent } from "../../roles/access-offboarding.js";
 import { accessOffboardingConfirmationPayloads, accessOffboardingDevelopmentCases } from "../../worlds/access-offboarding-cases.js";
 
@@ -17,6 +18,26 @@ export const DAS004_B2_PRICING_USD = Object.freeze({
 });
 export const DAS004_B2_PRICING_HASH = digest(DAS004_B2_PRICING_USD);
 export const DAS004_B2_PRICING_SOURCE = "https://developers.openai.com/api/docs/pricing";
+
+/**
+ * The module and export that actually constitutes each arm (PROP-0002).
+ *
+ * As this campaign stands BOTH arms run the same class and method, separated only by a
+ * persona prompt — that is erratum 0111a, stated here in code rather than in prose. The
+ * preregistration therefore records `distinctArmEntryPoints: false`, and any claim that
+ * this campaign compares architectures is false on its face. PROP-0004 is the approved-
+ * pending rerun that would point the `das` arm at the real compiler.
+ */
+export const DAS004_B2_ARM_ENTRY_POINTS = declareArmEntryPoints([
+  { armId: "das", module: "src/experiments/das004-b2/model-adaptive-designer.js", exportName: "ModelAdaptiveDesigner", methodName: "propose" },
+  { armId: "adaptive-engineer", module: "src/experiments/das004-b2/model-adaptive-designer.js", exportName: "ModelAdaptiveDesigner", methodName: "propose" },
+]);
+
+/** True only when every arm is constituted by a different module/export/method. */
+export function armEntryPointsAreDistinct(sealed = DAS004_B2_ARM_ENTRY_POINTS) {
+  const signatures = sealed.arms.map((row) => `${row.module}#${row.exportName}.${row.methodName ?? ""}`);
+  return new Set(signatures).size === signatures.length;
+}
 
 function developmentCases() {
   return accessOffboardingDevelopmentCases.map(({ id, ...payload }) => Object.freeze({ id, payload: Object.freeze(structuredClone(payload)) }));
@@ -71,6 +92,9 @@ export function createDas004B2Preregistration() {
       das: "Actual bounded DAS adaptive candidate controller with verifier-grounded diagnosis, complete-package generation and diverse-beam selection.",
       "adaptive-engineer": "Strong adaptive automated agent engineer that may inspect its own development feedback and retain, revise, fork or switch within the same contract.",
     },
+    armEntryPoints: DAS004_B2_ARM_ENTRY_POINTS,
+    distinctArmEntryPoints: armEntryPointsAreDistinct(),
+    executionAttestation: "Each arm declares the module and export that constitutes it. The runner obtains its entry point from this declaration and must prove it executed before any result is quotable.",
     sharedAccess: {
       sameImportedAgent: true,
       sameRoleToolsContextPoliciesAuthorityVerifier: true,
@@ -126,5 +150,8 @@ export function assertDas004B2Preregistration(plan) {
   if (!expected || digest(copy) !== expected) throw new Error("DAS-004/B2 preregistration integrity mismatch");
   if (plan.pricing.pricingHash !== DAS004_B2_PRICING_HASH || plan.pricing.verifiedUtcDate !== DAS004_B2_PRICING_DATE) throw new Error("DAS-004/B2 pricing freeze mismatch");
   if (plan.resources.hardCampaignCeilingUsd !== DAS004_B2_HARD_LIMIT_USD || plan.resources.plannedCombinedMaximumUsd > DAS004_B2_HARD_LIMIT_USD) throw new Error("DAS-004/B2 budget freeze mismatch");
+  if (!plan.armEntryPoints) throw new Error("DAS-004/B2 preregistration predates execution attestation (PROP-0002) and cannot be used for a new run; it declares no per-arm entry point");
+  if (plan.armEntryPoints.entryPointsHash !== DAS004_B2_ARM_ENTRY_POINTS.entryPointsHash) throw new Error("DAS-004/B2 arm entry-point declaration differs from the campaign definition");
+  if (plan.distinctArmEntryPoints !== armEntryPointsAreDistinct(plan.armEntryPoints)) throw new Error("DAS-004/B2 preregistration misreports whether its arms are distinct code paths");
   return plan;
 }

@@ -6,6 +6,7 @@ import { MeteredModelGateway } from "../../core/model-gateway.js";
 import { withCampaignWriterLock } from "../../core/campaign-writer-lock.js";
 import { OpenAIResponsesProvider } from "../../providers/openai-responses.js";
 import { AdaptiveBaselinePair, assertAdaptiveBaselinePairResult } from "../../evaluation/adaptive-baseline-pair.js";
+import { attestInstanceEntryPoint, attestorForSealedEntryPoints } from "../../evaluation/execution-attestation.js";
 import { analyzeDas004B2Result } from "./analyze-result.js";
 import { assertDas004B2Authorization } from "./authorization.js";
 import { LogicalCallGateway } from "./logical-call-gateway.js";
@@ -42,18 +43,27 @@ await withCampaignWriterLock({ stateDirectory: state, campaignId: DAS004_B2_CAMP
   }
   const bundle = createDas004B2ProtocolBundle();
   requireCondition(bundle.protocol.protocolHash === plan.protocol.protocolHash, "Runtime protocol differs from preregistration");
-  const designers = Object.fromEntries(plan.protocol.arms.map((armId) => [armId, new ModelAdaptiveDesigner({ armId, brief: bundle.brief, gateway: gatewaysByArm[armId] })]));
+  const attestor = await attestorForSealedEntryPoints(plan.armEntryPoints, { repositoryRoot: process.cwd() });
+  const designers = Object.fromEntries(plan.protocol.arms.map((armId) => {
+    const designer = new ModelAdaptiveDesigner({ armId, brief: bundle.brief, gateway: gatewaysByArm[armId] });
+    return [armId, attestInstanceEntryPoint(attestor, armId, designer)];
+  }));
   const evaluator = new AccessOffboardingAdaptiveEvaluator({ gatewaysByArm, evidence });
   const pair = new AdaptiveBaselinePair({ protocol: bundle.protocol, brief: bundle.brief, designers, developmentEvaluator: evaluator, confirmationEvaluator: evaluator, evidence });
   const startedAt = new Date().toISOString();
   evidence.append("das004-b2.campaign-started", { planHash: plan.planHash, protocolHash: plan.protocol.protocolHash, priorSettledSpendUsd: before.spentUsd });
   const pairResult = assertAdaptiveBaselinePairResult(await pair.run({ importedAgent: bundle.importedAgent, developmentCases: bundle.developmentCases, confirmationVault: bundle.confirmationVault }), bundle.protocol);
+  attestor.assertAllReached();
+  const attestation = attestor.receipt();
+  requireCondition(attestation.declarationsVerified, "DAS-004/B2 execution attestation was not verified against the declared modules");
+  evidence.append("das004-b2.execution-attested", { attestationHash: attestation.attestationHash, arms: attestation.arms });
   const budgetSnapshot = budget.snapshot();
   requireCondition(budgetSnapshot.calls.every((row) => !["reserved", "outcome-unknown"].includes(row.status)), "DAS-004/B2 ended with unresolved provider usage");
   const completedAt = new Date().toISOString();
   const analysis = analyzeDas004B2Result({ plan, pairResult, budget: budgetSnapshot, confirmationReleaseCount: bundle.confirmationVault.releaseCount(), startedAt, completedAt });
   evidence.append("das004-b2.campaign-completed", { pairResultHash: pairResult.resultHash, analysisHash: analysis.analysisHash, verdict: analysis.verdict, spendUsd: budgetSnapshot.spentUsd });
   requireCondition(evidence.verify(), "DAS-004/B2 evidence ledger failed integrity verification");
+  writePrivate(path.join(root, "execution-attestation.json"), attestation);
   writePrivate(path.join(root, "pair-result.json"), pairResult);
   writePrivate(finalPath, analysis);
   writePrivate(path.join(root, "completion-receipt.json"), {
@@ -69,6 +79,8 @@ await withCampaignWriterLock({ stateDirectory: state, campaignId: DAS004_B2_CAMP
     settledCalls: budgetSnapshot.calls.filter((row) => row.status === "settled").length,
     cancelledCalls: budgetSnapshot.calls.filter((row) => row.status === "cancelled").length,
     verdict: analysis.verdict,
+    executionAttestation: attestation,
+    distinctArmEntryPoints: plan.distinctArmEntryPoints,
     automaticActivation: false,
   });
   process.stdout.write(`${JSON.stringify({ status: "complete", verdict: analysis.verdict, materiallyBetterArm: analysis.materiallyBetterArm, spendUsd: budgetSnapshot.spentUsd, settledCalls: budgetSnapshot.calls.filter((row) => row.status === "settled").length, resultHash: pairResult.resultHash, analysisHash: analysis.analysisHash, artifactRoot: root }, null, 2)}\n`);

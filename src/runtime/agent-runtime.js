@@ -5,7 +5,7 @@ export class SpecialistAgentRuntime {
   }
   async run({ tenantId, candidate, goal, toolHost, externalVerifier }) {
     const startedAtMs = this.now();
-    const session = { tenantId, roleId: candidate.roleId, specialistVersion: candidate.version, runId: `${candidate.id}:run-${++this.#runSequence}`, memoryPolicy: structuredClone(candidate.memory ?? { kind: "task-scoped", scope: "current run" }), goal, observations: [], toolReceipts: [], reconciled: false, verificationRepairRounds: 0, consecutiveReads: 0, repeatedReadSignatures: {}, modelCostUsd: 0, modelElapsedMs: 0, elapsedMs: 0 };
+    const session = { tenantId, roleId: candidate.roleId, specialistVersion: candidate.version, runId: `${candidate.id}:run-${++this.#runSequence}`, memoryPolicy: structuredClone(candidate.memory ?? { kind: "task-scoped", scope: "current run" }), goal, observations: [], toolReceipts: [], reconciled: false, itemEscalations: [], verificationRepairRounds: 0, consecutiveReads: 0, repeatedReadSignatures: {}, modelCostUsd: 0, modelElapsedMs: 0, elapsedMs: 0 };
     if (candidate.verifier?.binding && externalVerifier?.id !== candidate.verifier.binding) {
       const reason = `verifier-binding-mismatch:${candidate.verifier.binding}`;
       this.evidence?.append("runtime.activation-blocked", { tenantId, candidateId: candidate.id, reason, suppliedVerifierId: externalVerifier?.id ?? null });
@@ -42,21 +42,34 @@ export class SpecialistAgentRuntime {
       if (session.elapsedMs > maxLatencyMs) return this.#limitOrVerifiedComplete({ tenantId, candidate, session, reason: "candidate-task-latency-limit-after-call", goal, toolHost, externalVerifier });
       if (decision.kind !== "escalate" && (decision.confidence ?? 1) < threshold) return this.#limitBlocked({ tenantId, candidate, session, reason: "confidence-below-candidate-threshold" });
       if (decision.kind === "escalate") {
-        const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState(), resolution: { kind: "handoff", blocker: decision.blocker } });
+        // DAS-019 slice: escalation scope decides whether the run ends. An item-scoped
+        // blocker means "this one item cannot proceed"; it records the blocker and keeps
+        // working the rest of the goal. Only a goal-scoped blocker is terminal. Scripted
+        // and legacy engines that omit the scope keep the original goal-scoped behaviour.
+        const escalationScope = decision.escalationScope ?? "goal";
+        if (escalationScope === "item") {
+          const subjectId = decision.subjectId ?? null;
+          const signature = `escalate-item:${decision.blocker}:${subjectId ?? ""}`;
+          session.itemEscalations.push({ blocker: decision.blocker, reason: decision.reason, subjectId, turn });
+          session.observations.push({ tool: "item-escalation-recorded", output: { blocker: decision.blocker, subjectId, reason: decision.reason } });
+          this.memory.append({ ...session, record: { kind: "item-escalation", blocker: decision.blocker, subjectId } });
+          this.evidence?.append("runtime.item-escalation", { tenantId, candidateId: candidate.id, turn, blocker: decision.blocker, subjectId });
+          session.consecutiveReads += 1;
+          session.repeatedReadSignatures[signature] = (session.repeatedReadSignatures[signature] ?? 0) + 1;
+          if (session.consecutiveReads > this.maxConsecutiveReads) return { status: "blocked", reason: "non-progress-read-limit", session };
+          if (session.repeatedReadSignatures[signature] > this.maxRepeatedIdenticalRead) return { status: "blocked", reason: `repeated-item-escalation:${decision.blocker}`, session };
+          continue;
+        }
+        const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState(), resolution: { kind: "handoff", scope: "goal", blocker: decision.blocker } });
         this.evidence?.append("runtime.external-verification", { tenantId, candidateId: candidate.id, verification });
+        if (!verification.passed && this.#authorizeRepair({ tenantId, candidate, session, verification })) continue;
         return { status: verification.passed ? "handoff" : "verification-failed", reason: decision.reason, blocker: decision.blocker, verification, session };
       }
       if (decision.kind === "complete") {
         const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState(), resolution: { kind: "complete", blocker: null, reconciled: session.reconciled } });
         this.evidence?.append("runtime.external-verification", { tenantId, candidateId: candidate.id, verification });
         if (!verification.passed) {
-          const repairable = verification.recoveryClass === "missing-outcome" && session.verificationRepairRounds < this.maxVerificationRepairRounds;
-          if (!repairable) return { status: "verification-failed", verification, session };
-          session.verificationRepairRounds += 1;
-          const feedback = { recoveryClass: verification.recoveryClass, itemChecks: structuredClone(verification.itemChecks ?? []), checks: structuredClone(verification.checks ?? {}) };
-          session.observations.push({ tool: "independent-verifier-feedback", output: feedback });
-          this.memory.append({ ...session, record: { kind: "verification-repair", feedback } });
-          this.evidence?.append("runtime.verification-repair-authorized", { tenantId, candidateId: candidate.id, round: session.verificationRepairRounds, feedback });
+          if (!this.#authorizeRepair({ tenantId, candidate, session, verification })) return { status: "verification-failed", verification, session };
           continue;
         }
         this.memory.append({ ...session, record: { kind: "verified-outcome", goal, verification } });
@@ -94,6 +107,24 @@ export class SpecialistAgentRuntime {
       this.evidence?.append("runtime.tool-executed", { tenantId, candidateId: candidate.id, turn, tool: decision.name, receipt });
     }
     return this.#limitOrVerifiedComplete({ tenantId, candidate, session, reason: "turn-limit-reached", goal, toolHost, externalVerifier });
+  }
+  /**
+   * One repair round for a recoverable verification failure.
+   *
+   * `resolution-only` (DAS-019) means the external world state is already exactly right
+   * and only the terminal decision kind was wrong — the B2 winner lost 2/2 on precisely
+   * that. Repairing it costs one round and cannot launder a wrong world state, because
+   * the class is only assigned when every other check already passes.
+   */
+  #authorizeRepair({ tenantId, candidate, session, verification }) {
+    const repairable = ["missing-outcome", "resolution-only"].includes(verification.recoveryClass) && session.verificationRepairRounds < this.maxVerificationRepairRounds;
+    if (!repairable) return false;
+    session.verificationRepairRounds += 1;
+    const feedback = { recoveryClass: verification.recoveryClass, itemChecks: structuredClone(verification.itemChecks ?? []), checks: structuredClone(verification.checks ?? {}) };
+    session.observations.push({ tool: "independent-verifier-feedback", output: feedback });
+    this.memory.append({ ...session, record: { kind: "verification-repair", feedback } });
+    this.evidence?.append("runtime.verification-repair-authorized", { tenantId, candidateId: candidate.id, round: session.verificationRepairRounds, feedback });
+    return true;
   }
   async #limitOrVerifiedComplete({ tenantId, candidate, session, reason, goal, toolHost, externalVerifier }) {
     const verification = await externalVerifier.verify({ goal, candidate, session, externalState: toolHost.externalState(), resolution: { kind: "complete", blocker: null, reconciled: session.reconciled, completionSource: "independent-limit-state-check" } });
