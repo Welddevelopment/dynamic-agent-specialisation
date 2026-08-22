@@ -7,7 +7,7 @@ import { CompilerArchitectDesigner } from "../src/experiments/das004-b3/compiler
 import { assertDas004B3Authorization } from "../src/experiments/das004-b3/authorization.js";
 import { runDas004B3Preflight, assertDas004B3PreflightReady } from "../src/experiments/das004-b3/preflight.js";
 import {
-  DAS004_B3_APPROVAL, DAS004_B3_ARM_ENTRY_POINTS, DAS004_B3_HARD_LIMIT_USD, DAS004_B3_PRICING_DATE, DAS004_B3_PRICING_HASH,
+  DAS004_B3_APPROVAL, DAS004_B3_ARM_ENTRY_POINTS, DAS004_B3_CAMPAIGN_ID, DAS004_B3_HARD_LIMIT_USD, DAS004_B3_PRICING_DATE, DAS004_B3_PRICING_HASH,
   armEntryPointsAreDistinct, assertDas004B3Preregistration, createDas004B3Preregistration, createDas004B3ProtocolBundle,
 } from "../src/experiments/das004-b3/protocol.js";
 
@@ -242,5 +242,8 @@ test("v3: the preregistration discloses the controller-semantics divergence from
   const plan = createDas004B3Preregistration();
   assert.match(plan.controllerSemantics, /DIVERGENCE FROM B2.*approved by Joel 2026-08-22/s);
   assert.match(plan.controllerSemantics, /can never be selected as winner/);
-  assert.equal(plan.campaignId, "das004-b3-access-offboarding-real-compiler-v3");
+  // Assert the id tracks the module constant rather than pinning a version literal -
+  // v3 -> v4 flipped this test without any semantic change, which is a test smell.
+  assert.equal(plan.campaignId, DAS004_B3_CAMPAIGN_ID);
+  assert.match(plan.campaignId, /^das004-b3-access-offboarding-real-compiler-v\d+$/);
 });

@@ -85,6 +85,16 @@ export async function runDas004B3Preflight({ repositoryRoot = process.cwd() } = 
     noConsumedCaseReuse: reusedIdentifiers.length === 0,
     confirmationSealedNotInPlan: leakedConfirmation.length === 0,
     confirmationVaultUnreleased: bundle.confirmationVault.releaseCount() === 0,
+    // v3 regression: a throwaway bundle's vault must accept the exact release-role string
+    // the pair uses. A label mismatch here killed v3 at the finals after $0.302 of
+    // development had already been spent.
+    confirmationReleasableWithPairRole: (() => {
+      try {
+        const throwaway = createDas004B3ProtocolBundle();
+        const released = throwaway.confirmationVault.release({ freezeHash: "preflight-dry-run", role: `adaptive-pair:${throwaway.brief.id}`, candidateHashes: { dry: "run" }, baselineHashes: { dry: "run" } });
+        return Array.isArray(released) && released.length === throwaway.protocol.confirmation.count;
+      } catch { return false; }
+    })(),
     entryPointsResolve: attestor.resolutionState === "resolved",
     armsAreDistinctCode: armsAreDistinct,
     noAuthorityGranted: plan.protocol.role.authorityHash === bundle.protocol.role.authorityHash,

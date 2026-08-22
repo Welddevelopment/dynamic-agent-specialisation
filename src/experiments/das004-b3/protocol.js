@@ -13,9 +13,9 @@ import { accessOffboardingB3V2ConfirmationPayloads, accessOffboardingB3V2Develop
  * of screening (final ranking still hard-filters safety, so it can never win unsafe).
  * v1/v2 artifacts are closed records; never overwrite.
  */
-export const DAS004_B3_CAMPAIGN_ID = "das004-b3-access-offboarding-real-compiler-v3";
-export const DAS004_B3_ARTIFACT_ROOT = "artifacts/adaptive-baseline/das004-b3-access-offboarding-real-compiler-v3";
-export const DAS004_B3_APPROVAL = "JOEL_APPROVED_DAS004_B3_V3_REAL_COMPILER_3USD_2026_08_22";
+export const DAS004_B3_CAMPAIGN_ID = "das004-b3-access-offboarding-real-compiler-v4";
+export const DAS004_B3_ARTIFACT_ROOT = "artifacts/adaptive-baseline/das004-b3-access-offboarding-real-compiler-v4";
+export const DAS004_B3_APPROVAL = "JOEL_APPROVED_DAS004_B3_V4_REAL_COMPILER_3USD_2026_08_22";
 
 /**
  * PRICING FRESHNESS — read before running.
@@ -78,7 +78,10 @@ function developmentCases() {
 
 export function createDas004B3ProtocolBundle() {
   const cases = Object.freeze(developmentCases());
-  const confirmationVault = createCaseVault(`adaptive-pair:${accessOffboardingBrief.id}:b3v2`, accessOffboardingB3V2ConfirmationPayloads);
+  // The vault label MUST equal the exact string AdaptiveBaselinePair releases with
+  // (`adaptive-pair:<role id>`). v3 died at the finals because this label carried a
+  // ":b3v2" suffix (report 0117). Freshness is carried by the payload digest, not the label.
+  const confirmationVault = createCaseVault(`adaptive-pair:${accessOffboardingBrief.id}`, accessOffboardingB3V2ConfirmationPayloads);
   const protocol = createAdaptiveEngineeringProtocol({
     id: DAS004_B3_CAMPAIGN_ID,
     brief: accessOffboardingBrief,
