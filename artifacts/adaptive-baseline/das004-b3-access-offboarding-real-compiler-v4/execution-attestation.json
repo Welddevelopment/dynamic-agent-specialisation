@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "das.execution-attestation.v2",
+  "declarationsVerified": true,
+  "resolutionState": "resolved",
+  "arms": [
+    {
+      "armId": "das",
+      "module": "src/compiler/model-architect.js",
+      "exportName": "ModelCandidateArchitect",
+      "methodName": "propose",
+      "invocations": 2
+    },
+    {
+      "armId": "adaptive-engineer",
+      "module": "src/experiments/das004-b2/model-adaptive-designer.js",
+      "exportName": "ModelAdaptiveDesigner",
+      "methodName": "propose",
+      "invocations": 2
+    }
+  ],
+  "attestationHash": "0fdf677999843adaeab30d5f5124fe9f7e884d60aa50fb7a1b1c7d823d875b5a"
+}

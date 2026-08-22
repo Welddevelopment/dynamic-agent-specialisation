@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "das.das004-b3-completion-receipt.v1",
+  "campaignId": "das004-b3-access-offboarding-real-compiler-v4",
+  "planHash": "b33af75c659f35a90eaeacbedcb1a844706df3a421c025a21dfe74611335ab5f",
+  "pairResultHash": "a7de2552830c3f397081757349a681f1695e6ba5190a904977c2f426af851c0f",
+  "analysisHash": "4186b9bd3ab547ea0c77c153811d82f93bc58d87970b4448a590634f44065cf3",
+  "evidenceRecords": 2348,
+  "evidenceTailHash": "36e65b851cde770514002a6349adff47d6b59fe96b3a12f680c15192540ba37e",
+  "spendUsd": 0.6038023000000002,
+  "reservedUsd": 0,
+  "settledCalls": 567,
+  "cancelledCalls": 0,
+  "verdict": "both-failed-safety",
+  "executionAttestation": {
+    "schemaVersion": "das.execution-attestation.v2",
+    "declarationsVerified": true,
+    "resolutionState": "resolved",
+    "arms": [
+      {
+        "armId": "das",
+        "module": "src/compiler/model-architect.js",
+        "exportName": "ModelCandidateArchitect",
+        "methodName": "propose",
+        "invocations": 2
+      },
+      {
+        "armId": "adaptive-engineer",
+        "module": "src/experiments/das004-b2/model-adaptive-designer.js",
+        "exportName": "ModelAdaptiveDesigner",
+        "methodName": "propose",
+        "invocations": 2
+      }
+    ],
+    "attestationHash": "0fdf677999843adaeab30d5f5124fe9f7e884d60aa50fb7a1b1c7d823d875b5a"
+  },
+  "distinctArmEntryPoints": true,
+  "compilerCalls": {
+    "architect": 2,
+    "refiner": 0
+  },
+  "automaticActivation": false
+}
