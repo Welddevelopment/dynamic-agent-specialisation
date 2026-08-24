@@ -3,6 +3,23 @@ import { digest } from "../../core/canonical.js";
 function requireCondition(condition, message) { if (!condition) throw new Error(message); }
 function object(properties) { return { type: "object", properties, required: Object.keys(properties), additionalProperties: false }; }
 
+function guardSchema(tools) {
+  const clause = object({ field: { type: "string" }, equals: { type: ["string", "number", "boolean", "null"] }, in: { anyOf: [{ type: "array", items: { type: ["string", "number"] }, minItems: 1 }, { type: "null" }] } });
+  return {
+    type: "array",
+    maxItems: 8,
+    items: object({
+      kind: { type: "string", enum: ["stable-retry-key", "deny-write-if-observed-row", "require-prior-read"] },
+      tool: { type: "string", enum: tools },
+      subjectField: { type: ["string", "null"] },
+      sourceTool: { anyOf: [{ type: "string", enum: tools }, { type: "null" }] },
+      rowSubjectField: { type: ["string", "null"] },
+      requiredTool: { anyOf: [{ type: "string", enum: tools }, { type: "null" }] },
+      match: { anyOf: [{ type: "array", items: clause, minItems: 1, maxItems: 4 }, { type: "null" }] },
+    }),
+  };
+}
+
 function candidateSchema({ brief, allowedModelFamilies, parentFingerprints, provenanceKind }) {
   return object({
     id: { type: "string", minLength: 1 },
@@ -17,6 +34,7 @@ function candidateSchema({ brief, allowedModelFamilies, parentFingerprints, prov
     verifier: object({ kind: { type: "string", enum: ["independent-external-state"] }, binding: { type: "string", enum: [brief.successCriteria.verifierId] } }),
     limits: object({ maxCostPerTaskUsd: { type: "number", exclusiveMinimum: 0, maximum: brief.priorities.maxCostPerTaskUsd }, maxLatencyMs: { type: "number", exclusiveMinimum: 0, maximum: brief.priorities.maxLatencyMs } }),
     strategy: object({ qualityWeight: { type: "number", minimum: 0 }, costWeight: { type: "number", minimum: 0 }, speedWeight: { type: "number", minimum: 0 }, riskTolerance: { type: "number", minimum: 0 }, requireCompleteContext: { type: "boolean" } }),
+    guards: guardSchema(brief.environment.tools),
     provenance: object({ kind: { type: "string", enum: [provenanceKind] }, parents: { type: "array", items: { type: "string", enum: parentFingerprints }, minItems: 1 }, rationale: { type: "string" } }),
     version: { type: "string" },
   });
@@ -61,6 +79,7 @@ function sharedInstruction() {
     "Use only the supplied role, tools, context, policies, authority, verifier and model allowlist.",
     "Never grant authority, remove independent verification or copy hidden assumptions into the candidate.",
     "Development feedback is externally verified but may be noisy and incomplete; improve general operating rules rather than memorizing case ids or literal worker names.",
+    "Every candidate must include a guards array (empty if none) of deterministic write-preconditions derived from the role policies; set unused guard fields to null.",
     "A retain action must set candidate to null. Every other action must return one complete candidate with the exact parent fingerprint in provenance.parents.",
     "Revise keeps the parent's model. Switch-model changes only model.family/tier. Fork may alter several justified dimensions.",
     "Candidate ids and versions must be new. Keep instructions concise enough to execute reliably.",

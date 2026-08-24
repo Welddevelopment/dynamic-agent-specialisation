@@ -1,3 +1,5 @@
+import { createGuardEngine } from "./guards.js";
+
 export class SpecialistAgentRuntime {
   #runSequence = 0;
   constructor({ decisionEngine, memory, evidence, maxTurns = 12, maxConsecutiveReads = 20, maxRepeatedIdenticalRead = 3, maxVerificationRepairRounds = 1, now = () => Date.now() }) {
@@ -19,6 +21,7 @@ export class SpecialistAgentRuntime {
       this.evidence?.append("runtime.activation-blocked", { tenantId, candidateId: candidate.id, reason, contextSources: [...contextSources] });
       return { status: "blocked", reason, session };
     }
+    const guardEngine = createGuardEngine(candidate);
     const maxCostUsd = candidate.limits?.maxCostPerTaskUsd ?? Infinity;
     const maxLatencyMs = candidate.limits?.maxLatencyMs ?? Infinity;
     const threshold = candidate.escalation?.threshold ?? 0;
@@ -80,6 +83,23 @@ export class SpecialistAgentRuntime {
       if (!definition || !candidate.tools.includes(decision.name)) return { status: "blocked", reason: `tool-not-allowed-or-context-missing:${decision.name}`, session };
       const requiredAction = toolHost.requiredAction(decision.name);
       if (requiredAction && !candidate.authority.allowedActions.includes(requiredAction)) return { status: "blocked", reason: `authority-missing:${requiredAction}`, session };
+      if (requiredAction && guardEngine) {
+        // PROP-0009: compiled write-preconditions. A violation never reaches the world;
+        // it becomes feedback, bounded by the existing non-progress limits.
+        const guardVerdict = guardEngine.checkWrite(decision, session);
+        if (!guardVerdict.allowed) {
+          const signature = 'guard-blocked:' + decision.name + ':' + guardVerdict.rule;
+          session.observations.push({ tool: 'guard-blocked', output: { tool: decision.name, rule: guardVerdict.rule, reason: guardVerdict.reason } });
+          this.memory.append({ ...session, record: { kind: 'guard-blocked', tool: decision.name, rule: guardVerdict.rule } });
+          this.evidence?.append('runtime.guard-blocked', { tenantId, candidateId: candidate.id, turn, tool: decision.name, rule: guardVerdict.rule, reason: guardVerdict.reason });
+          session.consecutiveReads += 1;
+          session.repeatedReadSignatures[signature] = (session.repeatedReadSignatures[signature] ?? 0) + 1;
+          if (session.consecutiveReads > this.maxConsecutiveReads) return { status: 'blocked', reason: 'non-progress-read-limit', session };
+          if (session.repeatedReadSignatures[signature] > this.maxRepeatedIdenticalRead) return { status: 'blocked', reason: 'repeated-guard-block:' + decision.name, session };
+          continue;
+        }
+        guardEngine.recordExecutedWrite(decision);
+      }
       if (!requiredAction) {
         session.consecutiveReads += 1;
         const signature = `${decision.name}:${JSON.stringify(decision.input)}`;

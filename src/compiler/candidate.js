@@ -1,9 +1,11 @@
+import { validateGuards } from "../runtime/guards.js";
 import { digest } from "../core/canonical.js";
 
 export const REQUIRED_CANDIDATE_FIELDS = ["id", "roleId", "model", "instructions", "context", "tools", "memory", "authority", "escalation", "verifier", "limits", "strategy", "provenance", "version"];
 
 export function validateCandidate(candidate, brief) {
   const reasons = [];
+  reasons.push(...validateGuards(candidate.guards, candidate));
   for (const field of REQUIRED_CANDIDATE_FIELDS) if (candidate[field] == null) reasons.push(`missing:${field}`);
   if (candidate.roleId !== brief.id) reasons.push("role-mismatch");
   if (!Array.isArray(candidate.tools) || candidate.tools.length === 0) reasons.push("no-tools");

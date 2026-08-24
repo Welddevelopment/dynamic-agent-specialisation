@@ -51,7 +51,7 @@ export class CompilerArchitectDesigner {
     this.knowledgeEntries = structuredClone(knowledgeEntries);
     // Public: the runner installs the attested entry point directly on this instance, so
     // the declaration in the preregistration is the code that runs.
-    this.architect = new ModelCandidateArchitect({ gateway, minimumCandidates, maxOutputTokens });
+    this.architect = new ModelCandidateArchitect({ gateway, minimumCandidates, maxOutputTokens, guardVocabulary: true });
     this.refiner = new ModelCandidateRefiner({ gateway, maxOutputTokens });
     this.calls = { architect: 0, refiner: 0 };
   }
