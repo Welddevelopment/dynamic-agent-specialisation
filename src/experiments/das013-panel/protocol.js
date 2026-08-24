@@ -4,8 +4,16 @@ import { createAdaptiveEngineeringProtocol } from "../../evaluation/adaptive-eng
 import { declareArmEntryPoints } from "../../evaluation/execution-attestation.js";
 import { PANEL_PHASES, PANEL_ROSTER } from "./roster.js";
 
-export const PANEL_CAMPAIGN_ID = "das013-decision-validity-panel-v1";
-export const PANEL_ARTIFACT_ROOT = "artifacts/adaptive-baseline/das013-decision-validity-panel-v1";
+/**
+ * v2: v1's Phase A died at the FIRST baseline reservation — the per-arm operating
+ * allowance (0.40, copied from B3) cannot even hold one 4-case evaluation reservation
+ * (4 x 0.10), let alone the 6-case CONF reservation (0.60). The governor refused before
+ * any meaningful spend (~$0.01 settled). Allowances are reservation-peak headroom, not
+ * expected spend; real money is capped by the phase budget guard. v1's artifacts stay
+ * as a closed record.
+ */
+export const PANEL_CAMPAIGN_ID = "das013-decision-validity-panel-v2";
+export const PANEL_ARTIFACT_ROOT = "artifacts/adaptive-baseline/das013-decision-validity-panel-v2";
 export const PANEL_APPROVAL = "JOEL_APPROVED_DAS013_PANEL_FULL_OVERNIGHT_2026_08_22";
 
 /**
@@ -39,9 +47,9 @@ const PER_ARM_LIMITS = Object.freeze({
   maximumChildrenPerParent: 1,
   maximumCandidatesEvaluated: 3,
   maximumEngineeringCalls: 2,
-  maximumOperatingCalls: 176,
+  maximumOperatingCalls: 512,
   maximumEngineeringSpendUsd: 0.25,
-  maximumOperatingSpendUsd: 0.40,
+  maximumOperatingSpendUsd: 0.90,
   maximumWallClockMs: 45 * 60 * 1_000,
 });
 
