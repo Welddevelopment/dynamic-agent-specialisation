@@ -76,7 +76,10 @@
     "fleet:console": "node src/fleet-console/server.js",
     "das004:b3:preflight": "node -e \"const m = await import('./src/experiments/das004-b3/preflight.js'); const r = m.assertDas004B3PreflightReady(await m.runDas004B3Preflight()); console.log(JSON.stringify({ready: r.ready, checks: r.checks, preflightHash: r.preflightHash}, null, 2))\" --input-type=module",
     "das004:b3:seal": "node src/experiments/das004-b3/build-plan.js",
-    "das004:b3:run": "node --env-file=.env src/experiments/das004-b3/run.js"
+    "das004:b3:run": "node --env-file=.env src/experiments/das004-b3/run.js",
+    "das013:panel:preflight": "node -e \"const m = await import('./src/experiments/das013-panel/preflight.js'); const r = m.assertPanelPreflightReady(await m.runPanelPreflight()); console.log(JSON.stringify({ready: r.ready, preflightHash: r.preflightHash}))\" --input-type=module",
+    "das013:panel:seal": "node src/experiments/das013-panel/build-plan.js",
+    "das013:panel:phase": "node --env-file=.env src/experiments/das013-panel/run-phase.js"
   },
   "dependencies": {
     "gsap": "^3.15.0"
