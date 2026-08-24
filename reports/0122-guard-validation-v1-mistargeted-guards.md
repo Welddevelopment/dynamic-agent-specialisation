@@ -35,7 +35,7 @@ plausible-looking, badly-aimed ones. Guard targeting — mapping a specific poli
 sentence to a specific tool, source, and match — is its own compilation problem and
 deserves its own compilation PASS, not a schema slot.
 
-Secondary observations, single-sample каждая: the adaptive arm produced one TRUTH-safe
+Secondary observations, each a single sample: the adaptive arm produced one TRUTH-safe
 winner (1/3 vs the panel's 0/3); the das r5 incumbent screened unsafe in its own lane
 (consistent with the panel's incumbent-unsafety finding); no unsafe activation anywhere
 — the gate's hard line is now 16-for-16 across three campaigns.
