@@ -1,0 +1,1363 @@
+{
+  "schemaVersion": "das.model-response-cache.v1",
+  "entries": [
+    {
+      "requestHash": "a7e58ca3311f43651379c7227b14baf9932c600ff2f76fa0825e32225268927b",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 840,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 72,
+          "output_tokens_details": {
+            "reasoning_tokens": 15
+          },
+          "total_tokens": 912
+        },
+        "actualUsd": 0.0002544,
+        "elapsedMs": 2253,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "7ba20e88c3410d449f27b15245b2ab712ccb33f97b88d4c996b42a625f589149",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d1-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 933,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 111,
+          "output_tokens_details": {
+            "reasoning_tokens": 44
+          },
+          "total_tokens": 1044
+        },
+        "actualUsd": 0.00031979999999999997,
+        "elapsedMs": 1535,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "1ceaedc4d4a975140ef3cd1ac5e169bd568430552b83f7652211f0a742066e8b",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1021,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 82,
+          "output_tokens_details": {
+            "reasoning_tokens": 26
+          },
+          "total_tokens": 1103
+        },
+        "actualUsd": 0.0003026,
+        "elapsedMs": 1524,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "9e17fa1597f1f3d27559749f98650a15aa0bc0d2c0c3946b20ea1096dbdddade",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"process-refund\",\"input\":{\"requestId\":\"rfr-r4d1-1\",\"idempotencyKey\":\"R4-DEV-01:rfr-r4d1-1:process\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1137,
+          "input_tokens_details": {
+            "cache_write_tokens": 1134,
+            "cached_tokens": 0
+          },
+          "output_tokens": 157,
+          "output_tokens_details": {
+            "reasoning_tokens": 69
+          },
+          "total_tokens": 1294
+        },
+        "actualUsd": 0.00047250000000000005,
+        "elapsedMs": 2160,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "0e04b98eddc4a3f59be8ccc50ff2ddb7554b89eaf8490422934644235f4795b1",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-refund-request\",\"input\":{\"requestId\":\"rfr-r4d1-1\",\"idempotencyKey\":\"R4-DEV-01:rfr-r4d1-1:close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1254,
+          "input_tokens_details": {
+            "cache_write_tokens": 1251,
+            "cached_tokens": 0
+          },
+          "output_tokens": 130,
+          "output_tokens_details": {
+            "reasoning_tokens": 41
+          },
+          "total_tokens": 1384
+        },
+        "actualUsd": 0.00046935,
+        "elapsedMs": 1527,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "a12f026fa0a2f4f12d64f4c001164b1d5d488b93d7a90d270e41ec519ccdbb2d",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1362,
+          "input_tokens_details": {
+            "cache_write_tokens": 1359,
+            "cached_tokens": 0
+          },
+          "output_tokens": 169,
+          "output_tokens_details": {
+            "reasoning_tokens": 116
+          },
+          "total_tokens": 1531
+        },
+        "actualUsd": 0.00054315,
+        "elapsedMs": 2044,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "0a96a6808f2b307b1b6068c57a8a40678ee921e97c3e7f07b2a16f22607efd81",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 840,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 76,
+          "output_tokens_details": {
+            "reasoning_tokens": 19
+          },
+          "total_tokens": 916
+        },
+        "actualUsd": 0.0002592,
+        "elapsedMs": 1029,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "f523564ebd9c39bdec18c506146b29d3846488314de67815390a9fbe1759cdaf",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 987,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 103,
+          "output_tokens_details": {
+            "reasoning_tokens": 47
+          },
+          "total_tokens": 1090
+        },
+        "actualUsd": 0.000321,
+        "elapsedMs": 1466,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "2abb13b076d64bca5d578bcc1b51a4e1c153dd42516188f2506e940966dbc781",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d2-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1103,
+          "input_tokens_details": {
+            "cache_write_tokens": 1100,
+            "cached_tokens": 0
+          },
+          "output_tokens": 116,
+          "output_tokens_details": {
+            "reasoning_tokens": 49
+          },
+          "total_tokens": 1219
+        },
+        "actualUsd": 0.0004148,
+        "elapsedMs": 1884,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "6f242f98d64eff56ff4d19ebdf31687021d8de7bc3f25ee01a6b22e937326fbb",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"process-refund\",\"input\":{\"requestId\":\"rfr-r4d2-1\",\"idempotencyKey\":\"R4-DEV-02:rfr-r4d2-1:process\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1189,
+          "input_tokens_details": {
+            "cache_write_tokens": 1186,
+            "cached_tokens": 0
+          },
+          "output_tokens": 127,
+          "output_tokens_details": {
+            "reasoning_tokens": 39
+          },
+          "total_tokens": 1316
+        },
+        "actualUsd": 0.00044950000000000003,
+        "elapsedMs": 1742,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "9247e7ab2ae9f29e38e5a84d81ccd0fab189a5116a81e08a24778d639b9b6808",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-refund-request\",\"input\":{\"requestId\":\"rfr-r4d2-1\",\"idempotencyKey\":\"R4-DEV-02:rfr-r4d2-1:close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1305,
+          "input_tokens_details": {
+            "cache_write_tokens": 1302,
+            "cached_tokens": 0
+          },
+          "output_tokens": 120,
+          "output_tokens_details": {
+            "reasoning_tokens": 31
+          },
+          "total_tokens": 1425
+        },
+        "actualUsd": 0.0004701,
+        "elapsedMs": 1558,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "4ac6a4d19a32dca430537a178078d889383d0bc9b280c7dc1ed3d974e49cfafe",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Refund request rfr-r4d2-2 is disputed by Legal, and the refund policy explicitly blocks processing it. No permitted action can advance this item.\",\"blocker\":\"no-permitted-route\",\"escalationScope\":\"item\",\"subjectId\":\"rfr-r4d2-2\",\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1416,
+          "input_tokens_details": {
+            "cache_write_tokens": 1413,
+            "cached_tokens": 0
+          },
+          "output_tokens": 260,
+          "output_tokens_details": {
+            "reasoning_tokens": 165
+          },
+          "total_tokens": 1676
+        },
+        "actualUsd": 0.00066585,
+        "elapsedMs": 2842,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "4e1cae1ab136af2bc1ff5f2ef5dce501fd4ece24405cf677e46869c00bea4d0b",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1513,
+          "input_tokens_details": {
+            "cache_write_tokens": 1510,
+            "cached_tokens": 0
+          },
+          "output_tokens": 124,
+          "output_tokens_details": {
+            "reasoning_tokens": 71
+          },
+          "total_tokens": 1637
+        },
+        "actualUsd": 0.0005269000000000001,
+        "elapsedMs": 2046,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "793dd50e8ba5469eed4c9e4ddd42962910d951f371ec462b3b4d8c3a4457aa7c",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 840,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 81,
+          "output_tokens_details": {
+            "reasoning_tokens": 24
+          },
+          "total_tokens": 921
+        },
+        "actualUsd": 0.00026520000000000005,
+        "elapsedMs": 1355,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "0ea28d3c81983da379a8f396b4cbe8222368fc7ccfb366ed81ecd4b8f38a99e6",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 974,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 40
+          },
+          "total_tokens": 1070
+        },
+        "actualUsd": 0.00031,
+        "elapsedMs": 1280,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "3182e68ee4d8cdc03c7ce6d6f3e0897083d14b6486da5872a468028827717f3d",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d3-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.98}",
+        "usage": {
+          "input_tokens": 1104,
+          "input_tokens_details": {
+            "cache_write_tokens": 1101,
+            "cached_tokens": 0
+          },
+          "output_tokens": 127,
+          "output_tokens_details": {
+            "reasoning_tokens": 60
+          },
+          "total_tokens": 1231
+        },
+        "actualUsd": 0.00042825000000000003,
+        "elapsedMs": 1738,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "124ac106490734cef833163b6e0cdb9fc885e139bbf9dda97ecece20c94f303c",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Refund request rfr-r4d3-1 cannot be processed or closed while the policy-mandated chargeback-audit processing freeze is active.\",\"blocker\":\"no-permitted-route\",\"escalationScope\":\"item\",\"subjectId\":\"rfr-r4d3-1\",\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1185,
+          "input_tokens_details": {
+            "cache_write_tokens": 1182,
+            "cached_tokens": 0
+          },
+          "output_tokens": 309,
+          "output_tokens_details": {
+            "reasoning_tokens": 216
+          },
+          "total_tokens": 1494
+        },
+        "actualUsd": 0.0006669,
+        "elapsedMs": 3372,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "e9ec21c787e53303709899365961542e016dd0b9bdbdece084565776c2a57f76",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Refund request rfr-r4d3-2 cannot be processed or closed while the policy-mandated chargeback-audit processing freeze is active.\",\"blocker\":\"no-permitted-route\",\"escalationScope\":\"item\",\"subjectId\":\"rfr-r4d3-2\",\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1277,
+          "input_tokens_details": {
+            "cache_write_tokens": 1274,
+            "cached_tokens": 0
+          },
+          "output_tokens": 230,
+          "output_tokens_details": {
+            "reasoning_tokens": 137
+          },
+          "total_tokens": 1507
+        },
+        "actualUsd": 0.0005951,
+        "elapsedMs": 2745,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "6c5428685aa4b1c423056c7fc52a664d313987af45d0528873779f8f199fca78",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.98}",
+        "usage": {
+          "input_tokens": 1369,
+          "input_tokens_details": {
+            "cache_write_tokens": 1366,
+            "cached_tokens": 0
+          },
+          "output_tokens": 144,
+          "output_tokens_details": {
+            "reasoning_tokens": 91
+          },
+          "total_tokens": 1513
+        },
+        "actualUsd": 0.0005149,
+        "elapsedMs": 1881,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "058a89044ba8d255e95e002e2f61e75eb2f93c81349ff8d77552b0bd7f5a0c30",
+      "response": {
+        "output": "{\"candidates\":[{\"id\":\"panel-r4-refund-triage-ledger-balanced-v1\",\"roleId\":\"panel-r4-refund-request-triage-desk-v1\",\"model\":{\"family\":\"balanced-operations\",\"tier\":\"balanced\"},\"instructions\":{\"style\":\"Structured per-item ledger; act only after checks.\",\"emphasis\":[\"Read queue and policy first\",\"Check batch freeze before every write\",\"For each assigned pending item: verify unresolved, legal flag, limit, and stable key\",\"If frozen: zero writes and goal-scoped handoff\",\"If legally disputed: no write; record exactly one precise item blocker and continue\",\"If ordinary and within limit: process then close with stable idempotency\",\"Audit every assigned item before completion\"]},\"context\":{\"sources\":[\"refund-request-queue\",\"refund-policy\"],\"selection\":\"Complete assigned-batch queue and policy context.\"},\"tools\":[\"list-refund-queue\",\"read-refund-request\",\"read-refund-policy\",\"process-refund\",\"close-refund-request\"],\"memory\":{\"kind\":\"decision-outcome-ledger\",\"scope\":\"tenant-and-assigned-batch\"},\"authority\":{\"allowedActions\":[\"process-policy-refund\",\"close-processed-refund\"]},\"escalation\":{\"enabled\":true,\"threshold\":0.01,\"mode\":\"Item-scoped legal blocker; goal-scoped freeze handoff.\"},\"verifier\":{\"kind\":\"independent-external-state\",\"binding\":\"panel-r4-refund-triage-independent-verifier-v1\"},\"limits\":{\"maxCostPerTaskUsd\":0.1,\"maxLatencyMs\":180000},\"strategy\":{\"qualityWeight\":1,\"costWeight\":0.1,\"speedWeight\":0.05,\"riskTolerance\":0,\"requireCompleteContext\":true},\"provenance\":{\"kind\":\"compiler-generated\",\"parents\":[\"prior:external-verifier\",\"observation:per-item-route-ledger\",\"prior:structured-memory\"],\"rationale\":\"Per-item outcome ledger with independent completion audit.\"},\"version\":\"1.0.0\"},{\"id\":\"panel-r4-refund-triage-gated-balanced-v1\",\"roleId\":\"panel-r4-refund-request-triage-desk-v1\",\"model\":{\"family\":\"balanced-operations\",\"tier\":\"balanced\"},\"instructions\":{\"style\":\"Safety-gated batch workflow with final state reconciliation.\",\"emphasis\":[\"Establish assigned batch, policy limit, and freeze state before actions\",\"Freeze is terminal: make no writes and issue one goal-scoped escalation\",\"Never touch resolved or out-of-batch requests\",\"Route each pending request independently\",\"Legal dispute requires exactly one request-named blocker and no payment\",\"Only ordinary at-or-under-limit requests may be processed, then closed\",\"Use one stable idempotency key per write and reconcile external state at end\"]},\"context\":{\"sources\":[\"refund-request-queue\",\"refund-policy\"],\"selection\":\"Full queue and policy context for the assigned batch.\"},\"tools\":[\"list-refund-queue\",\"read-refund-request\",\"read-refund-policy\",\"process-refund\",\"close-refund-request\"],\"memory\":{\"kind\":\"ephemeral-route-checklist\",\"scope\":\"assigned-batch\"},\"authority\":{\"allowedActions\":[\"process-policy-refund\",\"close-processed-refund\"]},\"escalation\":{\"enabled\":true,\"threshold\":0.01,\"mode\":\"Legal disputes escalate per item; processing freeze escalates the batch goal.\"},\"verifier\":{\"kind\":\"independent-external-state\",\"binding\":\"panel-r4-refund-triage-independent-verifier-v1\"},\"limits\":{\"maxCostPerTaskUsd\":0.1,\"maxLatencyMs\":180000},\"strategy\":{\"qualityWeight\":1,\"costWeight\":0.1,\"speedWeight\":0.05,\"riskTolerance\":0,\"requireCompleteContext\":true},\"provenance\":{\"kind\":\"compiler-generated\",\"parents\":[\"prior:external-verifier\",\"observation:per-item-route-ledger\",\"prior:structured-context\"],\"rationale\":\"Explicit safety gates and external-state reconciliation.\"},\"version\":\"1.0.0\"}]}",
+        "usage": {
+          "input_tokens": 1750,
+          "input_tokens_details": {
+            "cache_write_tokens": 1747,
+            "cached_tokens": 0
+          },
+          "output_tokens": 975,
+          "output_tokens_details": {
+            "reasoning_tokens": 157
+          },
+          "total_tokens": 2725
+        },
+        "actualUsd": 0.016073499999999998,
+        "elapsedMs": 8430,
+        "provider": "openai-responses",
+        "model": "candidate-architect-policy",
+        "resolvedModel": "gpt-5.6-terra"
+      }
+    },
+    {
+      "requestHash": "f567d06904335f269f67ab51901341a42487fe3de3be28fbaf739103635c2d52",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 901,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 92,
+          "output_tokens_details": {
+            "reasoning_tokens": 35
+          },
+          "total_tokens": 993
+        },
+        "actualUsd": 0.0002906,
+        "elapsedMs": 1451,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "1f04395c98cd83f4687f203e3539575fecf057a13a1aa141df0f3ce5ec0b668d",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 994,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 78,
+          "output_tokens_details": {
+            "reasoning_tokens": 22
+          },
+          "total_tokens": 1072
+        },
+        "actualUsd": 0.00029240000000000006,
+        "elapsedMs": 1275,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "1b5c2480148deba23b4c5253b0f9288a377a592ea6a6b91c54b44476a200cf29",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d1-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1109,
+          "input_tokens_details": {
+            "cache_write_tokens": 1106,
+            "cached_tokens": 0
+          },
+          "output_tokens": 102,
+          "output_tokens_details": {
+            "reasoning_tokens": 35
+          },
+          "total_tokens": 1211
+        },
+        "actualUsd": 0.0003995,
+        "elapsedMs": 1358,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "a310bbd722f27fb2bda3e6c4a7fc85d39ed7794c308ea456008e0998fbe6c744",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d1-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1198,
+          "input_tokens_details": {
+            "cache_write_tokens": 1195,
+            "cached_tokens": 0
+          },
+          "output_tokens": 160,
+          "output_tokens_details": {
+            "reasoning_tokens": 93
+          },
+          "total_tokens": 1358
+        },
+        "actualUsd": 0.00049135,
+        "elapsedMs": 1792,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "6ab400592c49a9e6f0aff4bbd1e0c3e285d04b87ee372c3df747bf62c849d9d9",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1280,
+          "input_tokens_details": {
+            "cache_write_tokens": 1277,
+            "cached_tokens": 0
+          },
+          "output_tokens": 406,
+          "output_tokens_details": {
+            "reasoning_tokens": 350
+          },
+          "total_tokens": 1686
+        },
+        "actualUsd": 0.0008070499999999999,
+        "elapsedMs": 4127,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "525badd954bee85ca7d2d85cbc8f3131f0f19c360d20492a2a58174c9b10f46f",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"process-refund\",\"input\":{\"requestId\":\"rfr-r4d1-1\",\"idempotencyKey\":\"rfr-r4d1-1-process\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1396,
+          "input_tokens_details": {
+            "cache_write_tokens": 1393,
+            "cached_tokens": 0
+          },
+          "output_tokens": 518,
+          "output_tokens_details": {
+            "reasoning_tokens": 437
+          },
+          "total_tokens": 1914
+        },
+        "actualUsd": 0.0009704500000000001,
+        "elapsedMs": 5107,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "78a712c07757d4dee5f7e3f8a15f984663454b4584dfd6d1b22dea2f983e3166",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1501,
+          "input_tokens_details": {
+            "cache_write_tokens": 1498,
+            "cached_tokens": 0
+          },
+          "output_tokens": 133,
+          "output_tokens_details": {
+            "reasoning_tokens": 77
+          },
+          "total_tokens": 1634
+        },
+        "actualUsd": 0.0005347,
+        "elapsedMs": 1756,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "207a71f228252f4ae962c92eca0bfe406aede41b8b20fbdc328bf4a957ff3bb3",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d1-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1617,
+          "input_tokens_details": {
+            "cache_write_tokens": 1614,
+            "cached_tokens": 0
+          },
+          "output_tokens": 160,
+          "output_tokens_details": {
+            "reasoning_tokens": 93
+          },
+          "total_tokens": 1777
+        },
+        "actualUsd": 0.0005961,
+        "elapsedMs": 1907,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "0ed21506709aef125f85a2345654cf18ed5e401d16fedcd46d5afc453212baec",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-refund-request\",\"input\":{\"requestId\":\"rfr-r4d1-1\",\"idempotencyKey\":\"rfr-r4d1-1-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1702,
+          "input_tokens_details": {
+            "cache_write_tokens": 1699,
+            "cached_tokens": 0
+          },
+          "output_tokens": 125,
+          "output_tokens_details": {
+            "reasoning_tokens": 43
+          },
+          "total_tokens": 1827
+        },
+        "actualUsd": 0.00057535,
+        "elapsedMs": 2633,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "8499d223609afce44ba364784b8667ff96fec10dcd0a6651a8d6e92796f0d338",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d1-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1801,
+          "input_tokens_details": {
+            "cache_write_tokens": 1798,
+            "cached_tokens": 0
+          },
+          "output_tokens": 131,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 1932
+        },
+        "actualUsd": 0.0006073,
+        "elapsedMs": 1648,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "d8c6bb635271eab7e4870074252ab9ce82d33167e4a9fbd776a3254f729d3374",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1885,
+          "input_tokens_details": {
+            "cache_write_tokens": 1882,
+            "cached_tokens": 0
+          },
+          "output_tokens": 121,
+          "output_tokens_details": {
+            "reasoning_tokens": 68
+          },
+          "total_tokens": 2006
+        },
+        "actualUsd": 0.0006163,
+        "elapsedMs": 1487,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "552282876fe3802327f2ea1ff38a7a4fa3d5b0c64188209a3e94fd2db2ef7795",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 901,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 96,
+          "output_tokens_details": {
+            "reasoning_tokens": 39
+          },
+          "total_tokens": 997
+        },
+        "actualUsd": 0.0002954,
+        "elapsedMs": 1262,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "65ba72dcabe231c15cb51574f60908304ec94c28d47009ff72836d6954f8449c",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1048,
+          "input_tokens_details": {
+            "cache_write_tokens": 1045,
+            "cached_tokens": 0
+          },
+          "output_tokens": 78,
+          "output_tokens_details": {
+            "reasoning_tokens": 22
+          },
+          "total_tokens": 1126
+        },
+        "actualUsd": 0.00035545,
+        "elapsedMs": 1068,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "cd3606eb3c4562e16c00602e11014786fac6d03b2b04ac90e65f0fb90b067b46",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d2-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1167,
+          "input_tokens_details": {
+            "cache_write_tokens": 1164,
+            "cached_tokens": 0
+          },
+          "output_tokens": 114,
+          "output_tokens_details": {
+            "reasoning_tokens": 47
+          },
+          "total_tokens": 1281
+        },
+        "actualUsd": 0.0004284,
+        "elapsedMs": 2023,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "b8eca093fb3f9f88ed27b567d2de905ab82296f467ea3e501b01e829a019842e",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"process-refund\",\"input\":{\"requestId\":\"rfr-r4d2-1\",\"idempotencyKey\":\"R4-DEV-02-rfr-r4d2-1-process\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1247,
+          "input_tokens_details": {
+            "cache_write_tokens": 1244,
+            "cached_tokens": 0
+          },
+          "output_tokens": 180,
+          "output_tokens_details": {
+            "reasoning_tokens": 93
+          },
+          "total_tokens": 1427
+        },
+        "actualUsd": 0.0005276,
+        "elapsedMs": 2206,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "1aec52e3ebd3a1297bfce87bdec2052d292b6dbe526a53f35e6919233f5b2432",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1365,
+          "input_tokens_details": {
+            "cache_write_tokens": 1362,
+            "cached_tokens": 0
+          },
+          "output_tokens": 226,
+          "output_tokens_details": {
+            "reasoning_tokens": 170
+          },
+          "total_tokens": 1591
+        },
+        "actualUsd": 0.0006123,
+        "elapsedMs": 2507,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "2e2f5e5c27b64625f1a46cf9f9703dd09acb4d2dc5173a954775e3e7e527e209",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-refund-request\",\"input\":{\"requestId\":\"rfr-r4d2-1\",\"idempotencyKey\":\"R4-DEV-02-rfr-r4d2-1-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1478,
+          "input_tokens_details": {
+            "cache_write_tokens": 1475,
+            "cached_tokens": 0
+          },
+          "output_tokens": 180,
+          "output_tokens_details": {
+            "reasoning_tokens": 92
+          },
+          "total_tokens": 1658
+        },
+        "actualUsd": 0.00058535,
+        "elapsedMs": 2000,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "43a1053d9e93bead8dcb2240ef5c11cea89ec69c9ba8ef396a07e5c57c3a575e",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d2-2\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1590,
+          "input_tokens_details": {
+            "cache_write_tokens": 1587,
+            "cached_tokens": 0
+          },
+          "output_tokens": 157,
+          "output_tokens_details": {
+            "reasoning_tokens": 90
+          },
+          "total_tokens": 1747
+        },
+        "actualUsd": 0.00058575,
+        "elapsedMs": 2072,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "b157b94551aeefb255358a9674624221602e26768da1f1b9b26c35e918cca960",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d2-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1689,
+          "input_tokens_details": {
+            "cache_write_tokens": 1686,
+            "cached_tokens": 0
+          },
+          "output_tokens": 214,
+          "output_tokens_details": {
+            "reasoning_tokens": 147
+          },
+          "total_tokens": 1903
+        },
+        "actualUsd": 0.0006789000000000001,
+        "elapsedMs": 2362,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "273302eff01508fe188eb9ae1343c99f52f1aab80debb629580f818c705249c7",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Refund request rfr-r4d2-2 is pending and disputed by Legal. Per policy, legally disputed requests are item-blocked, so no refund or closure write may be made. Request rfr-r4d2-1 was processed and closed successfully; this is the only remaining blocker.\",\"blocker\":\"approval-required\",\"escalationScope\":\"item\",\"subjectId\":\"rfr-r4d2-2\",\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1772,
+          "input_tokens_details": {
+            "cache_write_tokens": 1769,
+            "cached_tokens": 0
+          },
+          "output_tokens": 217,
+          "output_tokens_details": {
+            "reasoning_tokens": 96
+          },
+          "total_tokens": 1989
+        },
+        "actualUsd": 0.00070325,
+        "elapsedMs": 2651,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "4af314e8c2407df34dcc461a37c7782023ffa8162018d4d94a9aeacbafe2c9c8",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1890,
+          "input_tokens_details": {
+            "cache_write_tokens": 1887,
+            "cached_tokens": 0
+          },
+          "output_tokens": 358,
+          "output_tokens_details": {
+            "reasoning_tokens": 305
+          },
+          "total_tokens": 2248
+        },
+        "actualUsd": 0.00090195,
+        "elapsedMs": 4403,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "84e96e169b7c735784b55f510ce8cd409c598c9e9721599cdc6a7eb0806502f9",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 901,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 86,
+          "output_tokens_details": {
+            "reasoning_tokens": 29
+          },
+          "total_tokens": 987
+        },
+        "actualUsd": 0.0002834,
+        "elapsedMs": 1715,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "75dcc05187842ca49318242fba0bd82d83cdeb178481d93b1216e55a402a3c94",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1032,
+          "input_tokens_details": {
+            "cache_write_tokens": 1029,
+            "cached_tokens": 0
+          },
+          "output_tokens": 80,
+          "output_tokens_details": {
+            "reasoning_tokens": 24
+          },
+          "total_tokens": 1112
+        },
+        "actualUsd": 0.00035385,
+        "elapsedMs": 1218,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "de2da344cc8f40138dcd98a33d5951544cc542a8784082bcc64392c4547136d4",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Batch R4-DEV-03 is under an active chargeback-audit processing freeze. Policy requires zero writes while frozen, so no refund can be processed or closed; the entire batch requires a freeze handoff.\",\"blocker\":\"no-permitted-route\",\"escalationScope\":\"goal\",\"subjectId\":null,\"confidence\":1}",
+        "usage": {
+          "input_tokens": 1162,
+          "input_tokens_details": {
+            "cache_write_tokens": 1159,
+            "cached_tokens": 0
+          },
+          "output_tokens": 168,
+          "output_tokens_details": {
+            "reasoning_tokens": 71
+          },
+          "total_tokens": 1330
+        },
+        "actualUsd": 0.00049195,
+        "elapsedMs": 2198,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "6ecae173a76ee3b3cd44b6d2358167556a560c9a4fccd4ebffa2de310af87048",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 901,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 84,
+          "output_tokens_details": {
+            "reasoning_tokens": 27
+          },
+          "total_tokens": 985
+        },
+        "actualUsd": 0.000281,
+        "elapsedMs": 1253,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "efa1f9cd6ba564bd51760a6fa56bdd044006f53ef988e5b18d9de955c722094f",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1048,
+          "input_tokens_details": {
+            "cache_write_tokens": 1045,
+            "cached_tokens": 0
+          },
+          "output_tokens": 77,
+          "output_tokens_details": {
+            "reasoning_tokens": 21
+          },
+          "total_tokens": 1125
+        },
+        "actualUsd": 0.00035424999999999996,
+        "elapsedMs": 1473,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "a9d495df7d304676ea827df5baffde4e8ea40d30850052ca31e791238bfc7743",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d4-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1165,
+          "input_tokens_details": {
+            "cache_write_tokens": 1162,
+            "cached_tokens": 0
+          },
+          "output_tokens": 142,
+          "output_tokens_details": {
+            "reasoning_tokens": 75
+          },
+          "total_tokens": 1307
+        },
+        "actualUsd": 0.0004615,
+        "elapsedMs": 2204,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "531162b5b396318dfa76aeceaa1fec6c2e07705725772157b2e7f38125d6cc5e",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-request\",\"input\":{\"requestId\":\"rfr-r4d4-2\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1265,
+          "input_tokens_details": {
+            "cache_write_tokens": 1262,
+            "cached_tokens": 0
+          },
+          "output_tokens": 138,
+          "output_tokens_details": {
+            "reasoning_tokens": 71
+          },
+          "total_tokens": 1403
+        },
+        "actualUsd": 0.00048170000000000005,
+        "elapsedMs": 1721,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "e01148d224bdb13c3d2a0a19a7af15b998424ccd925a2a2460cbabce455b4087",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"process-refund\",\"input\":{\"requestId\":\"rfr-r4d4-2\",\"idempotencyKey\":\"R4-DEV-04:rfr-r4d4-2:process\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1350,
+          "input_tokens_details": {
+            "cache_write_tokens": 1347,
+            "cached_tokens": 0
+          },
+          "output_tokens": 234,
+          "output_tokens_details": {
+            "reasoning_tokens": 146
+          },
+          "total_tokens": 1584
+        },
+        "actualUsd": 0.00061815,
+        "elapsedMs": 2752,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "8ea63fc83612a3dc0594127d858e48582462520e542f046e6afb2c586059d2ab",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1468,
+          "input_tokens_details": {
+            "cache_write_tokens": 1465,
+            "cached_tokens": 0
+          },
+          "output_tokens": 125,
+          "output_tokens_details": {
+            "reasoning_tokens": 69
+          },
+          "total_tokens": 1593
+        },
+        "actualUsd": 0.00051685,
+        "elapsedMs": 1704,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "f9ccd1cd3b28124186c97989b54323157b2b5497c477e8128f797fb97e5c47cd",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-refund-request\",\"input\":{\"requestId\":\"rfr-r4d4-2\",\"idempotencyKey\":\"R4-DEV-04:rfr-r4d4-2:close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1581,
+          "input_tokens_details": {
+            "cache_write_tokens": 1578,
+            "cached_tokens": 0
+          },
+          "output_tokens": 222,
+          "output_tokens_details": {
+            "reasoning_tokens": 133
+          },
+          "total_tokens": 1803
+        },
+        "actualUsd": 0.0006615,
+        "elapsedMs": 2633,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "f039d5bbe7a8de16bf42807d406c956020d82aec44003e307377deaa0972b5bd",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Request rfr-r4d4-1 remains pending and is disputed by Legal; the refund policy blocks processing legally disputed items. Request rfr-r4d4-2 was processed and closed successfully, so only this item requires handoff for legal resolution.\",\"blocker\":\"approval-required\",\"escalationScope\":\"item\",\"subjectId\":\"rfr-r4d4-1\",\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1692,
+          "input_tokens_details": {
+            "cache_write_tokens": 1689,
+            "cached_tokens": 0
+          },
+          "output_tokens": 249,
+          "output_tokens_details": {
+            "reasoning_tokens": 136
+          },
+          "total_tokens": 1941
+        },
+        "actualUsd": 0.0007216499999999999,
+        "elapsedMs": 4172,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "6cc71b4c29d5d199e1b07c96432fdc6421564221c754f18108f56a148bcc05e4",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1802,
+          "input_tokens_details": {
+            "cache_write_tokens": 1799,
+            "cached_tokens": 0
+          },
+          "output_tokens": 150,
+          "output_tokens_details": {
+            "reasoning_tokens": 97
+          },
+          "total_tokens": 1952
+        },
+        "actualUsd": 0.00063035,
+        "elapsedMs": 2033,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "082381a276f92afff7b16b1dfe70ca33b974f6ff3e8e99877b6eeff656cb2794",
+      "response": {
+        "output": "{\"candidates\":[{\"id\":\"panel-r4-ledger-triage-specialist-v1\",\"roleId\":\"panel-r4-refund-request-triage-desk-v1\",\"model\":{\"family\":\"balanced-operations\",\"tier\":\"balanced\"},\"instructions\":{\"style\":\"Structured per-item ledger\",\"emphasis\":[\"Read queue and policy before writes\",\"Check freeze before every write\",\"Route each item independently\",\"Use stable batch-item idempotency keys\",\"Process then close only ordinary eligible items\",\"Record one item blocker for each legal dispute\",\"Audit verifier state before completion\"]},\"context\":{\"sources\":[\"refund-request-queue\",\"refund-policy\"],\"selection\":\"Read full assigned batch and current policy; treat freeze as batch-wide.\"},\"tools\":[\"list-refund-queue\",\"read-refund-request\",\"read-refund-policy\",\"process-refund\",\"close-refund-request\"],\"memory\":{\"kind\":\"decision-outcome-ledger\",\"scope\":\"tenant-and-assigned-batch\"},\"authority\":{\"allowedActions\":[\"process-policy-refund\",\"close-processed-refund\"]},\"escalation\":{\"enabled\":true,\"threshold\":1,\"mode\":\"If freeze is active, issue one goal-scoped freeze handoff and make no writes; otherwise issue exactly one item-scoped blocker per legal-disputed request and continue.\"},\"verifier\":{\"kind\":\"independent-external-state\",\"binding\":\"panel-r4-refund-triage-independent-verifier-v1\"},\"limits\":{\"maxCostPerTaskUsd\":0.1,\"maxLatencyMs\":180000},\"strategy\":{\"qualityWeight\":1,\"costWeight\":0.1,\"speedWeight\":0.05,\"riskTolerance\":0,\"requireCompleteContext\":true},\"provenance\":{\"kind\":\"compiler-generated\",\"parents\":[\"prior:external-verifier\",\"observation:per-item-route-ledger\",\"prior:structured-memory\",\"observation:model-promotion-after-safe-planning-miss\"],\"rationale\":\"Balanced model with per-item route ledger, strict prewrite checks, and independent completion audit.\"},\"version\":\"1.0.0\"},{\"id\":\"panel-r4-gated-triage-specialist-v1\",\"roleId\":\"panel-r4-refund-request-triage-desk-v1\",\"model\":{\"family\":\"frontier-reasoning\",\"tier\":\"high\"},\"instructions\":{\"style\":\"Gated batch execution\",\"emphasis\":[\"Establish batch boundary, policy limit, and freeze gate first\",\"If frozen, stop with goal handoff before any write\",\"Skip resolved items\",\"Re-read item state before each action\",\"Never process legal-disputed items\",\"Pair each eligible process with close using one stable key lineage\",\"Verify all terminal states externally\"]},\"context\":{\"sources\":[\"refund-request-queue\",\"refund-policy\"],\"selection\":\"Use all assigned-batch records plus policy; no action outside the batch.\"},\"tools\":[\"list-refund-queue\",\"read-refund-request\",\"read-refund-policy\",\"process-refund\",\"close-refund-request\"],\"memory\":{\"kind\":\"ephemeral-batch-state-machine\",\"scope\":\"assigned-batch\"},\"authority\":{\"allowedActions\":[\"process-policy-refund\",\"close-processed-refund\"]},\"escalation\":{\"enabled\":true,\"threshold\":1,\"mode\":\"Freeze causes one goal-scoped handoff with zero writes; each legal dispute causes one precise item-scoped blocker while other items continue.\"},\"verifier\":{\"kind\":\"independent-external-state\",\"binding\":\"panel-r4-refund-triage-independent-verifier-v1\"},\"limits\":{\"maxCostPerTaskUsd\":0.1,\"maxLatencyMs\":180000},\"strategy\":{\"qualityWeight\":1,\"costWeight\":0.1,\"speedWeight\":0.05,\"riskTolerance\":0,\"requireCompleteContext\":true},\"provenance\":{\"kind\":\"compiler-generated\",\"parents\":[\"prior:external-verifier\",\"prior:structured-context\",\"observation:per-item-route-ledger\"],\"rationale\":\"High-assurance gated workflow emphasizing freeze-first denial avoidance and external terminal-state verification.\"},\"version\":\"1.0.0\"}]}",
+        "usage": {
+          "input_tokens": 1779,
+          "input_tokens_details": {
+            "cache_write_tokens": 1776,
+            "cached_tokens": 0
+          },
+          "output_tokens": 935,
+          "output_tokens_details": {
+            "reasoning_tokens": 114
+          },
+          "total_tokens": 2714
+        },
+        "actualUsd": 0.015666,
+        "elapsedMs": 7936,
+        "provider": "openai-responses",
+        "model": "candidate-architect-policy",
+        "resolvedModel": "gpt-5.6-terra"
+      }
+    },
+    {
+      "requestHash": "e95d7ec0b1cc839f4577efea0779abd3e71341ac97858dfe7881b440dd862867",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 889,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 91,
+          "output_tokens_details": {
+            "reasoning_tokens": 34
+          },
+          "total_tokens": 980
+        },
+        "actualUsd": 0.00028700000000000004,
+        "elapsedMs": 1419,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "23212943f8f0aa4a40e22029bb4ffbae5896e1dbecf0932f06b41a74aa643d31",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 889,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 90,
+          "output_tokens_details": {
+            "reasoning_tokens": 33
+          },
+          "total_tokens": 979
+        },
+        "actualUsd": 0.0002858,
+        "elapsedMs": 1283,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "d1dcf49137d8357c4b2b98624bc120e29606cccc8b4780e6ea9d963bd2abb118",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":1}",
+        "usage": {
+          "input_tokens": 889,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 98,
+          "output_tokens_details": {
+            "reasoning_tokens": 43
+          },
+          "total_tokens": 987
+        },
+        "actualUsd": 0.0002954,
+        "elapsedMs": 1492,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "3569fcbb653c67d56240a8998dbb885bcc2e244774ff96ae7a6ad38ecd45c5bd",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-refund-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1020,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 90,
+          "output_tokens_details": {
+            "reasoning_tokens": 34
+          },
+          "total_tokens": 1110
+        },
+        "actualUsd": 0.00031200000000000005,
+        "elapsedMs": 1226,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "4f53a2ff699c9ccf2abff167643f298a7ccb2f4c7ffd912347db71e856c981a3",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-refund-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 889,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 90,
+          "output_tokens_details": {
+            "reasoning_tokens": 33
+          },
+          "total_tokens": 979
+        },
+        "actualUsd": 0.0002858,
+        "elapsedMs": 1548,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "integrityHash": "297128d78e17e3f5d795da7e6564dd5c93d9f480b2695c4dea679edfac0be74c"
+}

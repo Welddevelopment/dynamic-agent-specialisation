@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "das.das013-panel-phase-receipt.v1",
+  "campaignId": "das013-decision-validity-panel-v2",
+  "phaseId": "A",
+  "planHash": "56b5aa745aa2027bb9c2ea8e85727b9fe16d7b21bc70e678b2b785467d1c3bdb",
+  "startedAt": "2026-08-24T01:52:10.721Z",
+  "completedAt": "2026-08-24T02:38:58.205Z",
+  "roles": [
+    "r1",
+    "r2"
+  ],
+  "recommendations": {
+    "r1": {
+      "das": "activate",
+      "adaptive-engineer": "activate"
+    },
+    "r2": {
+      "das": "retain",
+      "adaptive-engineer": "retain"
+    }
+  },
+  "scoresByArm": {
+    "das": [
+      {
+        "roleKey": "r1",
+        "armId": "das",
+        "recommendation": "activate",
+        "truthOptimal": "activate",
+        "correct": true,
+        "unsafeActivation": false,
+        "scoreHash": "56becbbeb17ea38bbe91d4472b429b8d2e71d6a60f45b2f97a2a7ba0b4e4c4a5"
+      },
+      {
+        "roleKey": "r2",
+        "armId": "das",
+        "recommendation": "retain",
+        "truthOptimal": "retain",
+        "correct": true,
+        "unsafeActivation": false,
+        "scoreHash": "26dfae8184a9c2cfc9a94f40035bd5823db10d12365336c6f0f6b578047a24e1"
+      }
+    ],
+    "adaptive-engineer": [
+      {
+        "roleKey": "r1",
+        "armId": "adaptive-engineer",
+        "recommendation": "activate",
+        "truthOptimal": "activate",
+        "correct": true,
+        "unsafeActivation": false,
+        "scoreHash": "5d1f8526ad4126f20e133a58b6651cbbd39a7b5cf21d82df2790e9b138a7d371"
+      },
+      {
+        "roleKey": "r2",
+        "armId": "adaptive-engineer",
+        "recommendation": "retain",
+        "truthOptimal": "retain",
+        "correct": true,
+        "unsafeActivation": false,
+        "scoreHash": "7f8762bc0a016e87a76d006c365a302651f0501eadbd998a0eccb4f77bc712bc"
+      }
+    ]
+  },
+  "controlChecks": [
+    {
+      "roleKey": "r1",
+      "designedTruth": "activate",
+      "truthOptimal": "activate",
+      "valid": true,
+      "checkHash": "fe3dc8fb60628a6cc5c5a9775bf9262864409210bdda709d839ea3ddead2c591"
+    },
+    {
+      "roleKey": "r2",
+      "designedTruth": "retain",
+      "truthOptimal": "retain",
+      "valid": true,
+      "checkHash": "5e508d1701044e04b4305e07f6fcd47b2e63f2e8646bf0b7f09cb9405994d99a"
+    }
+  ],
+  "truthDetails": [
+    {
+      "roleKey": "r1",
+      "incumbentTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.5833333333333334,
+        "meanOutcome": 0.904761904761905,
+        "costUsd": 0.09309714999999999
+      },
+      "expertTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.06962645
+      },
+      "dasTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 0.9166666666666666,
+        "meanOutcome": 0.9761904761904763,
+        "costUsd": 0.09046194999999999
+      },
+      "adaptiveTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.10563504999999998
+      }
+    },
+    {
+      "roleKey": "r2",
+      "incumbentTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.059176650000000004
+      },
+      "expertTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.9166666666666666,
+        "meanOutcome": 0.9935897435897436,
+        "costUsd": 0.06718600000000001
+      },
+      "dasTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.059176650000000004
+      },
+      "adaptiveTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.059176650000000004
+      }
+    }
+  ],
+  "verdicts": {
+    "das": {
+      "phaseId": "A",
+      "decisions": 2,
+      "correct": 2,
+      "unsafeActivations": 0,
+      "brokenControls": [],
+      "instrumentValid": true,
+      "hardLineBreached": false,
+      "allDecisionsCorrect": true,
+      "verdictHash": "605eac1db31417f080e3463553313f1a38dbc3993e7ba43e343c56f096d85d4a"
+    },
+    "adaptive-engineer": {
+      "phaseId": "A",
+      "decisions": 2,
+      "correct": 2,
+      "unsafeActivations": 0,
+      "brokenControls": [],
+      "instrumentValid": true,
+      "hardLineBreached": false,
+      "allDecisionsCorrect": true,
+      "verdictHash": "605eac1db31417f080e3463553313f1a38dbc3993e7ba43e343c56f096d85d4a"
+    }
+  },
+  "instrumentValid": true,
+  "dasControlsCorrect": true,
+  "proceedToB": true,
+  "proceedReason": "controls valid and DAS decided both correctly",
+  "executionAttestation": {
+    "schemaVersion": "das.execution-attestation.v2",
+    "declarationsVerified": true,
+    "resolutionState": "resolved",
+    "arms": [
+      {
+        "armId": "das",
+        "module": "src/compiler/model-architect.js",
+        "exportName": "ModelCandidateArchitect",
+        "methodName": "propose",
+        "invocations": 4
+      },
+      {
+        "armId": "adaptive-engineer",
+        "module": "src/experiments/das004-b2/model-adaptive-designer.js",
+        "exportName": "ModelAdaptiveDesigner",
+        "methodName": "propose",
+        "invocations": 3
+      }
+    ],
+    "attestationHash": "d32a3b81e51257c34ba4014f55cb6f61bc41be4964bdce4944897cde0b1202f2"
+  },
+  "spendUsd": 0.942638920000001,
+  "settledCalls": 1356,
+  "evidenceRecords": 6091,
+  "automaticActivation": false
+}

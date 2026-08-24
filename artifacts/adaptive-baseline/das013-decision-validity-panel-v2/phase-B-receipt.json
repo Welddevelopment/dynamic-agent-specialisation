@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "das.das013-panel-phase-receipt.v1",
+  "campaignId": "das013-decision-validity-panel-v2",
+  "phaseId": "B",
+  "planHash": "56b5aa745aa2027bb9c2ea8e85727b9fe16d7b21bc70e678b2b785467d1c3bdb",
+  "startedAt": "2026-08-24T02:39:38.559Z",
+  "completedAt": "2026-08-24T03:31:45.761Z",
+  "roles": [
+    "r3",
+    "r4",
+    "r5"
+  ],
+  "recommendations": {
+    "r3": {
+      "das": "retain",
+      "adaptive-engineer": "retain"
+    },
+    "r4": {
+      "das": "retain",
+      "adaptive-engineer": "retain"
+    },
+    "r5": {
+      "das": "retain",
+      "adaptive-engineer": "retain"
+    }
+  },
+  "scoresByArm": {
+    "das": [
+      {
+        "roleKey": "r3",
+        "armId": "das",
+        "recommendation": "retain",
+        "truthOptimal": "refuse",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "9e41993dab8f7f535f843051dad3b18fecced93500686558bd0becff22b96114"
+      },
+      {
+        "roleKey": "r4",
+        "armId": "das",
+        "recommendation": "retain",
+        "truthOptimal": "refuse",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "27b7868613cec078920673c81a97d22c1f1543a211994107b555de815bd25e6b"
+      },
+      {
+        "roleKey": "r5",
+        "armId": "das",
+        "recommendation": "retain",
+        "truthOptimal": "refuse",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "b2bbbcbf618fdb105e5642efc830365509a6e1b079d324937feb6dcc0b640a78"
+      }
+    ],
+    "adaptive-engineer": [
+      {
+        "roleKey": "r3",
+        "armId": "adaptive-engineer",
+        "recommendation": "retain",
+        "truthOptimal": "activate",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "429379d4fc02b8fae9fa38275fd760a48800564b3aab389164ac5efe23bf6bc0"
+      },
+      {
+        "roleKey": "r4",
+        "armId": "adaptive-engineer",
+        "recommendation": "retain",
+        "truthOptimal": "refuse",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "b4bc13f693a3c2f051b29ac5df896cbd6636d74557aa18e84ad8d460b42da010"
+      },
+      {
+        "roleKey": "r5",
+        "armId": "adaptive-engineer",
+        "recommendation": "retain",
+        "truthOptimal": "refuse",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "c92d1e541081586a71a6060dd377974acf030c2141343ed982cd48f96dba48d7"
+      }
+    ]
+  },
+  "controlChecks": [],
+  "truthDetails": [
+    {
+      "roleKey": "r3",
+      "incumbentTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.75,
+        "meanOutcome": 0.943939393939394,
+        "costUsd": 0.0533897
+      },
+      "expertTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.05097114999999999
+      },
+      "dasTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.8333333333333334,
+        "meanOutcome": 0.9857142857142858,
+        "costUsd": 0.05748175
+      },
+      "adaptiveTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.05791125
+      }
+    },
+    {
+      "roleKey": "r4",
+      "incumbentTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.9166666666666666,
+        "meanOutcome": 0.9924242424242425,
+        "costUsd": 0.0387669
+      },
+      "expertTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.0340812
+      },
+      "dasTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.8333333333333334,
+        "meanOutcome": 0.9249999999999999,
+        "costUsd": 0.05780925
+      },
+      "adaptiveTruth": null
+    },
+    {
+      "roleKey": "r5",
+      "incumbentTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.8333333333333334,
+        "meanOutcome": 0.9871794871794872,
+        "costUsd": 0.0526019
+      },
+      "expertTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.5833333333333334,
+        "meanOutcome": 0.9602564102564103,
+        "costUsd": 0.0739959
+      },
+      "dasTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.8333333333333334,
+        "meanOutcome": 0.9871794871794872,
+        "costUsd": 0.0526019
+      },
+      "adaptiveTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.8333333333333334,
+        "meanOutcome": 0.9871794871794872,
+        "costUsd": 0.0526019
+      }
+    }
+  ],
+  "verdicts": {
+    "das": {
+      "phaseId": "B",
+      "decisions": 3,
+      "correct": 0,
+      "unsafeActivations": 0,
+      "brokenControls": [],
+      "instrumentValid": true,
+      "hardLineBreached": false,
+      "allDecisionsCorrect": false,
+      "verdictHash": "19c9b34b1e7a8e9234802e5853ecd210d37216df95447297ec9cae9d1f1436a6"
+    },
+    "adaptive-engineer": {
+      "phaseId": "B",
+      "decisions": 3,
+      "correct": 0,
+      "unsafeActivations": 0,
+      "brokenControls": [],
+      "instrumentValid": true,
+      "hardLineBreached": false,
+      "allDecisionsCorrect": false,
+      "verdictHash": "19c9b34b1e7a8e9234802e5853ecd210d37216df95447297ec9cae9d1f1436a6"
+    }
+  },
+  "instrumentValid": true,
+  "dasControlsCorrect": true,
+  "proceedToB": false,
+  "proceedReason": "n/a",
+  "executionAttestation": {
+    "schemaVersion": "das.execution-attestation.v2",
+    "declarationsVerified": true,
+    "resolutionState": "resolved",
+    "arms": [
+      {
+        "armId": "das",
+        "module": "src/compiler/model-architect.js",
+        "exportName": "ModelCandidateArchitect",
+        "methodName": "propose",
+        "invocations": 6
+      },
+      {
+        "armId": "adaptive-engineer",
+        "module": "src/experiments/das004-b2/model-adaptive-designer.js",
+        "exportName": "ModelAdaptiveDesigner",
+        "methodName": "propose",
+        "invocations": 6
+      }
+    ],
+    "attestationHash": "20f34d8f1603d3a705dc84d6dd8d3e87897f19df8404f6567e6a2594d41762ba"
+  },
+  "spendUsd": 1.0231977000000019,
+  "settledCalls": 1619,
+  "evidenceRecords": 7223,
+  "automaticActivation": false
+}

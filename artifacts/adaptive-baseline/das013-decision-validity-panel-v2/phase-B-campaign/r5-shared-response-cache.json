@@ -1,0 +1,1156 @@
+{
+  "schemaVersion": "das.model-response-cache.v1",
+  "entries": [
+    {
+      "requestHash": "7c6010c63196d694a72efb73d252cb97cbb94c422e575136e598582dae5ec043",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 932,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 93,
+          "output_tokens_details": {
+            "reasoning_tokens": 34
+          },
+          "total_tokens": 1025
+        },
+        "actualUsd": 0.000298,
+        "elapsedMs": 1557,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "f76070e7562735f94a937e39e98208c3772b6274f7040cbf107ae85edef2b5d1",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-adjustment-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1058,
+          "input_tokens_details": {
+            "cache_write_tokens": 1055,
+            "cached_tokens": 0
+          },
+          "output_tokens": 102,
+          "output_tokens_details": {
+            "reasoning_tokens": 46
+          },
+          "total_tokens": 1160
+        },
+        "actualUsd": 0.00038675,
+        "elapsedMs": 2476,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "8f382c272b4827d792f7e6d4cb38621a098ba20d07126322de495a82cd87f1f4",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-stock-level\",\"input\":{\"sku\":\"stk-r5c1-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1224,
+          "input_tokens_details": {
+            "cache_write_tokens": 1221,
+            "cached_tokens": 0
+          },
+          "output_tokens": 127,
+          "output_tokens_details": {
+            "reasoning_tokens": 63
+          },
+          "total_tokens": 1351
+        },
+        "actualUsd": 0.00045825,
+        "elapsedMs": 1718,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "fa269fe8774b830a93f37a1c9c8cda4bd9b05418a1d0248aaebd631348dbd9f8",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c1-1\",\"idempotencyKey\":\"R5-CONF-01-disc-r5c1-1-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1288,
+          "input_tokens_details": {
+            "cache_write_tokens": 1285,
+            "cached_tokens": 0
+          },
+          "output_tokens": 146,
+          "output_tokens_details": {
+            "reasoning_tokens": 58
+          },
+          "total_tokens": 1434
+        },
+        "actualUsd": 0.00049705,
+        "elapsedMs": 1862,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "edbc5b36f6b8a19e8f49c1ff9adb1c703c944d71792c48a39073b9ec92234210",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c1-1\",\"idempotencyKey\":\"R5-CONF-01-disc-r5c1-1-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1435,
+          "input_tokens_details": {
+            "cache_write_tokens": 1432,
+            "cached_tokens": 0
+          },
+          "output_tokens": 144,
+          "output_tokens_details": {
+            "reasoning_tokens": 54
+          },
+          "total_tokens": 1579
+        },
+        "actualUsd": 0.0005314,
+        "elapsedMs": 1923,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "db80f7997b76ff893649111cf13a73f822919b42c0768fa60007095a4815f904",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1551,
+          "input_tokens_details": {
+            "cache_write_tokens": 1548,
+            "cached_tokens": 0
+          },
+          "output_tokens": 132,
+          "output_tokens_details": {
+            "reasoning_tokens": 73
+          },
+          "total_tokens": 1683
+        },
+        "actualUsd": 0.000546,
+        "elapsedMs": 1849,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "340991f43f3dddc1869ad72e3481723400f26f82b56583fec8013313a8c144b4",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1685,
+          "input_tokens_details": {
+            "cache_write_tokens": 1682,
+            "cached_tokens": 0
+          },
+          "output_tokens": 108,
+          "output_tokens_details": {
+            "reasoning_tokens": 55
+          },
+          "total_tokens": 1793
+        },
+        "actualUsd": 0.0005507,
+        "elapsedMs": 1606,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "e336ec5bfb5c91dab8919c57e533261ff56f6c6e7706d8d521d4142423846415",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 932,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 79,
+          "output_tokens_details": {
+            "reasoning_tokens": 20
+          },
+          "total_tokens": 1011
+        },
+        "actualUsd": 0.0002812,
+        "elapsedMs": 1275,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "a52bf23f6ab2f587e96b908a7345e5013907e237432a1e1005a53a537e5841ef",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-adjustment-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1134,
+          "input_tokens_details": {
+            "cache_write_tokens": 1131,
+            "cached_tokens": 0
+          },
+          "output_tokens": 95,
+          "output_tokens_details": {
+            "reasoning_tokens": 39
+          },
+          "total_tokens": 1229
+        },
+        "actualUsd": 0.00039735000000000004,
+        "elapsedMs": 1459,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "7e7fa09944e60acc5b6663ccf5f1e1ab17839bffa3529fcb6b5cf4a274a41128",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-stock-level\",\"input\":{\"sku\":\"stk-r5c2-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1293,
+          "input_tokens_details": {
+            "cache_write_tokens": 1290,
+            "cached_tokens": 0
+          },
+          "output_tokens": 158,
+          "output_tokens_details": {
+            "reasoning_tokens": 94
+          },
+          "total_tokens": 1451
+        },
+        "actualUsd": 0.0005126999999999999,
+        "elapsedMs": 3056,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "d8cf1a6b8cd4ab2af17d2d5ad7dab10c10e023734e14d7aacf8bf0fa484c12e7",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c2-1\",\"idempotencyKey\":\"r5-conf-02-disc-r5c2-1-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1364,
+          "input_tokens_details": {
+            "cache_write_tokens": 1361,
+            "cached_tokens": 0
+          },
+          "output_tokens": 127,
+          "output_tokens_details": {
+            "reasoning_tokens": 40
+          },
+          "total_tokens": 1491
+        },
+        "actualUsd": 0.00049325,
+        "elapsedMs": 1535,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "d1de426e05da5c641ff91cb4d6f53493096e89eb115a8a624b3c6791838b3241",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c2-1\",\"idempotencyKey\":\"r5-conf-02-disc-r5c2-1-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1506,
+          "input_tokens_details": {
+            "cache_write_tokens": 1503,
+            "cached_tokens": 0
+          },
+          "output_tokens": 144,
+          "output_tokens_details": {
+            "reasoning_tokens": 55
+          },
+          "total_tokens": 1650
+        },
+        "actualUsd": 0.00054915,
+        "elapsedMs": 1809,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "338994dfd617a66181a3f735cd7991b19922d7e3f535eb6cf68d35ba4ace9bb0",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c2-2\",\"idempotencyKey\":\"r5-conf-02-disc-r5c2-2-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1619,
+          "input_tokens_details": {
+            "cache_write_tokens": 1616,
+            "cached_tokens": 0
+          },
+          "output_tokens": 241,
+          "output_tokens_details": {
+            "reasoning_tokens": 154
+          },
+          "total_tokens": 1860
+        },
+        "actualUsd": 0.0006938000000000001,
+        "elapsedMs": 2777,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "d5f5cbfb2f54db1f325387370124e691bb4708a247d2b585fe2cb2d7c482050b",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c2-2\",\"idempotencyKey\":\"r5-conf-02-disc-r5c2-2-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1766,
+          "input_tokens_details": {
+            "cache_write_tokens": 1763,
+            "cached_tokens": 0
+          },
+          "output_tokens": 123,
+          "output_tokens_details": {
+            "reasoning_tokens": 34
+          },
+          "total_tokens": 1889
+        },
+        "actualUsd": 0.00058895,
+        "elapsedMs": 1311,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "520f6c77e32a40602871271a3ee894edd83faf61927b31515c16ffab9986e85e",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1880,
+          "input_tokens_details": {
+            "cache_write_tokens": 1877,
+            "cached_tokens": 0
+          },
+          "output_tokens": 139,
+          "output_tokens_details": {
+            "reasoning_tokens": 80
+          },
+          "total_tokens": 2019
+        },
+        "actualUsd": 0.00063665,
+        "elapsedMs": 1739,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "17f1c895fb0a1ab81008774138f7c8b87967d261a69208f9b3880bad0456d9b3",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2085,
+          "input_tokens_details": {
+            "cache_write_tokens": 2082,
+            "cached_tokens": 0
+          },
+          "output_tokens": 114,
+          "output_tokens_details": {
+            "reasoning_tokens": 61
+          },
+          "total_tokens": 2199
+        },
+        "actualUsd": 0.0006579,
+        "elapsedMs": 1677,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "d19d56c2ab6fc4b7356157da87b509f6286987f7e9c384e3b9e55eed2b249f11",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 932,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 84,
+          "output_tokens_details": {
+            "reasoning_tokens": 25
+          },
+          "total_tokens": 1016
+        },
+        "actualUsd": 0.0002872,
+        "elapsedMs": 1172,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "6ce2e2b18cd31b9c85ee25b495a8d2c2737505a42a5fb9f57e8a41aa0e5b3bf6",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c3-2\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1133,
+          "input_tokens_details": {
+            "cache_write_tokens": 1130,
+            "cached_tokens": 0
+          },
+          "output_tokens": 111,
+          "output_tokens_details": {
+            "reasoning_tokens": 41
+          },
+          "total_tokens": 1244
+        },
+        "actualUsd": 0.0004163,
+        "elapsedMs": 1926,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "2ea0ea34d290198cfa901dc15bed33ecee3049be8fadbe3075da1e0aaf355d11",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-adjustment-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1253,
+          "input_tokens_details": {
+            "cache_write_tokens": 1250,
+            "cached_tokens": 0
+          },
+          "output_tokens": 94,
+          "output_tokens_details": {
+            "reasoning_tokens": 38
+          },
+          "total_tokens": 1347
+        },
+        "actualUsd": 0.0004259,
+        "elapsedMs": 1277,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "625606c4e3bdb63ea2dee1491ad98a1700c549419ebb5f54bc3b4a3b05ab06c2",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-stock-level\",\"input\":{\"sku\":\"stk-r5c3-2\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1412,
+          "input_tokens_details": {
+            "cache_write_tokens": 1409,
+            "cached_tokens": 0
+          },
+          "output_tokens": 137,
+          "output_tokens_details": {
+            "reasoning_tokens": 73
+          },
+          "total_tokens": 1549
+        },
+        "actualUsd": 0.00051725,
+        "elapsedMs": 1788,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "9e34bf2a25f45a5ce06b7a371cf82e109ca84d765dd7cd2871c81385cc64525e",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c3-2\",\"idempotencyKey\":\"r5-conf-03-disc-r5c3-2-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1484,
+          "input_tokens_details": {
+            "cache_write_tokens": 1481,
+            "cached_tokens": 0
+          },
+          "output_tokens": 133,
+          "output_tokens_details": {
+            "reasoning_tokens": 46
+          },
+          "total_tokens": 1617
+        },
+        "actualUsd": 0.00053045,
+        "elapsedMs": 1945,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "e2aa0991bee251b335b55810be1bf0875d257844bd7bacfc94d8d30394a754f7",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c3-2\",\"idempotencyKey\":\"r5-conf-03-disc-r5c3-2-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1626,
+          "input_tokens_details": {
+            "cache_write_tokens": 1623,
+            "cached_tokens": 0
+          },
+          "output_tokens": 158,
+          "output_tokens_details": {
+            "reasoning_tokens": 69
+          },
+          "total_tokens": 1784
+        },
+        "actualUsd": 0.00059595,
+        "elapsedMs": 2273,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "a3d275abd587ba2540683500cc10bcb8664094fd0f52844bc943f0f08996fb3f",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1739,
+          "input_tokens_details": {
+            "cache_write_tokens": 1736,
+            "cached_tokens": 0
+          },
+          "output_tokens": 140,
+          "output_tokens_details": {
+            "reasoning_tokens": 81
+          },
+          "total_tokens": 1879
+        },
+        "actualUsd": 0.0006026,
+        "elapsedMs": 2014,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "edb57e02b978c15bb12a0d1b0666440f964a561aeb6183073c4c74c31c6fb882",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1945,
+          "input_tokens_details": {
+            "cache_write_tokens": 1942,
+            "cached_tokens": 0
+          },
+          "output_tokens": 171,
+          "output_tokens_details": {
+            "reasoning_tokens": 118
+          },
+          "total_tokens": 2116
+        },
+        "actualUsd": 0.0006912999999999999,
+        "elapsedMs": 2630,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "f50ccb7d3bf785d1870d633c5ed0aae431c43bc3eac6bc72a7f8f2a6b3404379",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 932,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 78,
+          "output_tokens_details": {
+            "reasoning_tokens": 19
+          },
+          "total_tokens": 1010
+        },
+        "actualUsd": 0.00028,
+        "elapsedMs": 1594,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "9e9daca34b5f8171f7db0eabc483376bd54da998650f59cbb92ec8249a29fe35",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-adjustment-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1199,
+          "input_tokens_details": {
+            "cache_write_tokens": 1196,
+            "cached_tokens": 0
+          },
+          "output_tokens": 92,
+          "output_tokens_details": {
+            "reasoning_tokens": 36
+          },
+          "total_tokens": 1291
+        },
+        "actualUsd": 0.00041,
+        "elapsedMs": 1229,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "8a28dd2e326f61c1744aa3883c52f424aab84ed771b26dc789dc600ce975de55",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-stock-level\",\"input\":{\"sku\":\"stk-r5c4-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.98}",
+        "usage": {
+          "input_tokens": 1365,
+          "input_tokens_details": {
+            "cache_write_tokens": 1362,
+            "cached_tokens": 0
+          },
+          "output_tokens": 140,
+          "output_tokens_details": {
+            "reasoning_tokens": 76
+          },
+          "total_tokens": 1505
+        },
+        "actualUsd": 0.0005091,
+        "elapsedMs": 2036,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "6eea1929a0c9d43d8a12da52f9e9aeddcb086f43eecdaed8afe1b4a349fe2d89",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c4-1\",\"idempotencyKey\":\"r5-conf-04-disc-r5c4-1-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1437,
+          "input_tokens_details": {
+            "cache_write_tokens": 1434,
+            "cached_tokens": 0
+          },
+          "output_tokens": 160,
+          "output_tokens_details": {
+            "reasoning_tokens": 73
+          },
+          "total_tokens": 1597
+        },
+        "actualUsd": 0.0005511,
+        "elapsedMs": 3304,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "5a550aff039212ce73c1c300b168d89ad1c732cacf903318f0f67d5a1bbe2a15",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c4-1\",\"idempotencyKey\":\"r5-conf-04-disc-r5c4-1-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1581,
+          "input_tokens_details": {
+            "cache_write_tokens": 1578,
+            "cached_tokens": 0
+          },
+          "output_tokens": 163,
+          "output_tokens_details": {
+            "reasoning_tokens": 74
+          },
+          "total_tokens": 1744
+        },
+        "actualUsd": 0.0005907,
+        "elapsedMs": 2721,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "dc0babe6cc5cbb2f1e7dc9095784e296e0b988c32e82e468da8479160bc58f97",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-stock-level\",\"input\":{\"sku\":\"stk-r5c4-2\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1691,
+          "input_tokens_details": {
+            "cache_write_tokens": 1688,
+            "cached_tokens": 0
+          },
+          "output_tokens": 147,
+          "output_tokens_details": {
+            "reasoning_tokens": 83
+          },
+          "total_tokens": 1838
+        },
+        "actualUsd": 0.000599,
+        "elapsedMs": 2123,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "61f409aa72e7ef543f9f357aa9f241528e69abf977204ab52e6cd3c35bac1493",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c4-2\",\"idempotencyKey\":\"r5-conf-04-disc-r5c4-2-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1764,
+          "input_tokens_details": {
+            "cache_write_tokens": 1761,
+            "cached_tokens": 0
+          },
+          "output_tokens": 130,
+          "output_tokens_details": {
+            "reasoning_tokens": 43
+          },
+          "total_tokens": 1894
+        },
+        "actualUsd": 0.00059685,
+        "elapsedMs": 1738,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "993b0da28be54d939c5ae3fc8466dfca7078f925e509ed3d05422e12692688e9",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c4-2\",\"idempotencyKey\":\"r5-conf-04-disc-r5c4-2-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1903,
+          "input_tokens_details": {
+            "cache_write_tokens": 1900,
+            "cached_tokens": 0
+          },
+          "output_tokens": 123,
+          "output_tokens_details": {
+            "reasoning_tokens": 34
+          },
+          "total_tokens": 2026
+        },
+        "actualUsd": 0.0006232,
+        "elapsedMs": 2811,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "ad7b8d23dce8d6f3935f9ebe3ffad42f619e9c11c61b301484971322d1e49c61",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-stock-level\",\"input\":{\"sku\":\"stk-r5c4-3\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2019,
+          "input_tokens_details": {
+            "cache_write_tokens": 2016,
+            "cached_tokens": 0
+          },
+          "output_tokens": 138,
+          "output_tokens_details": {
+            "reasoning_tokens": 74
+          },
+          "total_tokens": 2157
+        },
+        "actualUsd": 0.0006702,
+        "elapsedMs": 2043,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "c9138744e1bcbcd2fcecb902382d652267f718365a40b2a1c8d6cf24a76c16ce",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c4-3\",\"idempotencyKey\":\"r5-conf-04-disc-r5c4-3-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2088,
+          "input_tokens_details": {
+            "cache_write_tokens": 2085,
+            "cached_tokens": 0
+          },
+          "output_tokens": 119,
+          "output_tokens_details": {
+            "reasoning_tokens": 32
+          },
+          "total_tokens": 2207
+        },
+        "actualUsd": 0.00066465,
+        "elapsedMs": 1759,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "3c4b4929cc29d6d37c4b78b4a8a4a5af7575a5867a929ac5adecb0e4aef59cb3",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c4-3\",\"idempotencyKey\":\"r5-conf-04-disc-r5c4-3-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2235,
+          "input_tokens_details": {
+            "cache_write_tokens": 2232,
+            "cached_tokens": 0
+          },
+          "output_tokens": 125,
+          "output_tokens_details": {
+            "reasoning_tokens": 36
+          },
+          "total_tokens": 2360
+        },
+        "actualUsd": 0.0007086,
+        "elapsedMs": 2130,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "537ae7c786a12df456f8692355d50268fe40628eb6e4b4443900217ba84f7e04",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2348,
+          "input_tokens_details": {
+            "cache_write_tokens": 2345,
+            "cached_tokens": 0
+          },
+          "output_tokens": 143,
+          "output_tokens_details": {
+            "reasoning_tokens": 84
+          },
+          "total_tokens": 2491
+        },
+        "actualUsd": 0.0007584499999999999,
+        "elapsedMs": 2188,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "4ede3041da8e40577d85d816cd44abeb6b396784f017866d7e4a77ce18a02a86",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2624,
+          "input_tokens_details": {
+            "cache_write_tokens": 2621,
+            "cached_tokens": 0
+          },
+          "output_tokens": 110,
+          "output_tokens_details": {
+            "reasoning_tokens": 57
+          },
+          "total_tokens": 2734
+        },
+        "actualUsd": 0.0007878500000000001,
+        "elapsedMs": 2264,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "0cec7e33d0a07faf35053988adc92ada0427238f99f7370ca884e39a31869eb2",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 932,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 89,
+          "output_tokens_details": {
+            "reasoning_tokens": 30
+          },
+          "total_tokens": 1021
+        },
+        "actualUsd": 0.00029319999999999997,
+        "elapsedMs": 1412,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "2450dc604b055c102dddd172dcdac9383eaf0017231d416e7b16f03ee938e9ec",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-adjustment-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1066,
+          "input_tokens_details": {
+            "cache_write_tokens": 1063,
+            "cached_tokens": 0
+          },
+          "output_tokens": 94,
+          "output_tokens_details": {
+            "reasoning_tokens": 38
+          },
+          "total_tokens": 1160
+        },
+        "actualUsd": 0.00037915,
+        "elapsedMs": 2874,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "72550479f6292bc769d4871cead13fafcb4872c2052df7194ca5b2adc161f2ae",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c5-1\",\"idempotencyKey\":\"r5-conf-05-disc-r5c5-1-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.98}",
+        "usage": {
+          "input_tokens": 1225,
+          "input_tokens_details": {
+            "cache_write_tokens": 1222,
+            "cached_tokens": 0
+          },
+          "output_tokens": 158,
+          "output_tokens_details": {
+            "reasoning_tokens": 71
+          },
+          "total_tokens": 1383
+        },
+        "actualUsd": 0.0004957,
+        "elapsedMs": 3887,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "5cbfd72e8a27f912b94344d1f9b97c3b05663ab6be91832e35e1fb000beb8100",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c5-1\",\"idempotencyKey\":\"r5-conf-05-disc-r5c5-1-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1367,
+          "input_tokens_details": {
+            "cache_write_tokens": 1364,
+            "cached_tokens": 0
+          },
+          "output_tokens": 167,
+          "output_tokens_details": {
+            "reasoning_tokens": 78
+          },
+          "total_tokens": 1534
+        },
+        "actualUsd": 0.000542,
+        "elapsedMs": 1787,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "ba33a8bb47128b53fc5f51b8e544062f4e484654c837438a47e904510dea850e",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1478,
+          "input_tokens_details": {
+            "cache_write_tokens": 1475,
+            "cached_tokens": 0
+          },
+          "output_tokens": 107,
+          "output_tokens_details": {
+            "reasoning_tokens": 48
+          },
+          "total_tokens": 1585
+        },
+        "actualUsd": 0.00049775,
+        "elapsedMs": 1645,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "9ee10fa2b0133c2855124cacfb70ea309951cee3547bfefd308337296129feb9",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1609,
+          "input_tokens_details": {
+            "cache_write_tokens": 1606,
+            "cached_tokens": 0
+          },
+          "output_tokens": 128,
+          "output_tokens_details": {
+            "reasoning_tokens": 75
+          },
+          "total_tokens": 1737
+        },
+        "actualUsd": 0.0005557,
+        "elapsedMs": 1431,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "61d3a4b6066abe26e1c124a1a21713b15a9b93aff1e6b7f9585d9fd3e2f1fcde",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-discrepancy-queue\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 932,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 89,
+          "output_tokens_details": {
+            "reasoning_tokens": 30
+          },
+          "total_tokens": 1021
+        },
+        "actualUsd": 0.00029319999999999997,
+        "elapsedMs": 2067,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "7f09504887ad8a875d9810725995f1bb694040b31a2163ad27f9c51285de13f9",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-adjustment-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1134,
+          "input_tokens_details": {
+            "cache_write_tokens": 1131,
+            "cached_tokens": 0
+          },
+          "output_tokens": 87,
+          "output_tokens_details": {
+            "reasoning_tokens": 31
+          },
+          "total_tokens": 1221
+        },
+        "actualUsd": 0.00038775,
+        "elapsedMs": 1823,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "d6c5f31f1b53cc2bb4ac83f2864c7e085186b9789afc358cc8dfa0bbd6fce3b0",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c6-1\",\"idempotencyKey\":\"r5-conf-06-disc-r5c6-1-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1293,
+          "input_tokens_details": {
+            "cache_write_tokens": 1290,
+            "cached_tokens": 0
+          },
+          "output_tokens": 166,
+          "output_tokens_details": {
+            "reasoning_tokens": 79
+          },
+          "total_tokens": 1459
+        },
+        "actualUsd": 0.0005223,
+        "elapsedMs": 2263,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "8962d6e68bd5bdd1f8b7e08a2a16ccb6c9964533b8711ae123f562ce32d9851b",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c6-1\",\"idempotencyKey\":\"r5-conf-06-disc-r5c6-1-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.98}",
+        "usage": {
+          "input_tokens": 1437,
+          "input_tokens_details": {
+            "cache_write_tokens": 1434,
+            "cached_tokens": 0
+          },
+          "output_tokens": 166,
+          "output_tokens_details": {
+            "reasoning_tokens": 77
+          },
+          "total_tokens": 1603
+        },
+        "actualUsd": 0.0005583,
+        "elapsedMs": 2416,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "5121a870de427743bbfecf746158614f89b0993b7f03d3d81bcf35671a321db4",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"adjust-stock-level\",\"input\":{\"discrepancyId\":\"disc-r5c6-2\",\"idempotencyKey\":\"r5-conf-06-disc-r5c6-2-adjust\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1550,
+          "input_tokens_details": {
+            "cache_write_tokens": 1547,
+            "cached_tokens": 0
+          },
+          "output_tokens": 135,
+          "output_tokens_details": {
+            "reasoning_tokens": 48
+          },
+          "total_tokens": 1685
+        },
+        "actualUsd": 0.00054935,
+        "elapsedMs": 1502,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "7fd43c4448e7ae9a0ef77e14a25a8203159ee7e6643ad36087cae8f317121a06",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-discrepancy\",\"input\":{\"discrepancyId\":\"disc-r5c6-2\",\"idempotencyKey\":\"r5-conf-06-disc-r5c6-2-close\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1692,
+          "input_tokens_details": {
+            "cache_write_tokens": 1689,
+            "cached_tokens": 0
+          },
+          "output_tokens": 128,
+          "output_tokens_details": {
+            "reasoning_tokens": 39
+          },
+          "total_tokens": 1820
+        },
+        "actualUsd": 0.00057645,
+        "elapsedMs": 1740,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "0fdaa6c6b9456b2d411ec5823a8e112449be0f25f2eda4a01fb8c4adebf811f8",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1810,
+          "input_tokens_details": {
+            "cache_write_tokens": 1807,
+            "cached_tokens": 0
+          },
+          "output_tokens": 137,
+          "output_tokens_details": {
+            "reasoning_tokens": 84
+          },
+          "total_tokens": 1947
+        },
+        "actualUsd": 0.00061675,
+        "elapsedMs": 1877,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "integrityHash": "d311c159866e821df00a3d430ce7dd33709026fbec8dad9f20eb0c5a683e805a"
+}

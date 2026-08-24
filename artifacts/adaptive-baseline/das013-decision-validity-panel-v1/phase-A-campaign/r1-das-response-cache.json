@@ -1,0 +1,581 @@
+{
+  "schemaVersion": "das.model-response-cache.v1",
+  "entries": [
+    {
+      "requestHash": "91a8f8e60fde81240b712c8b7c481d686abc66b5c8c14c560981998b444dc7b2",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-pending-renewals\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1010,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 94,
+          "output_tokens_details": {
+            "reasoning_tokens": 36
+          },
+          "total_tokens": 1104
+        },
+        "actualUsd": 0.0003148,
+        "elapsedMs": 3516,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "cf5dbe314baa3a6b1d8a7cbd9343bd42c29b77998ccce38188cec2663c241cd2",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-account\",\"input\":{\"accountId\":\"acct-r1d1-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.98}",
+        "usage": {
+          "input_tokens": 1140,
+          "input_tokens_details": {
+            "cache_write_tokens": 1137,
+            "cached_tokens": 0
+          },
+          "output_tokens": 125,
+          "output_tokens_details": {
+            "reasoning_tokens": 61
+          },
+          "total_tokens": 1265
+        },
+        "actualUsd": 0.00043484999999999997,
+        "elapsedMs": 2600,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "fcbe6753fc772c0d001fa86a85e4272c55ae140d332be979c6054e7369013b92",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-renewal-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1251,
+          "input_tokens_details": {
+            "cache_write_tokens": 1248,
+            "cached_tokens": 0
+          },
+          "output_tokens": 114,
+          "output_tokens_details": {
+            "reasoning_tokens": 57
+          },
+          "total_tokens": 1365
+        },
+        "actualUsd": 0.0004494,
+        "elapsedMs": 1843,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "2a3a606f7470f3780b9c5c27f3363198c2d9161e2691b23e5f03186e76c1d876",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"verify-payment-method\",\"input\":{\"accountId\":\"acct-r1d1-1\",\"idempotencyKey\":\"R1-DEV-01-acct-r1d1-1-verify-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1388,
+          "input_tokens_details": {
+            "cache_write_tokens": 1385,
+            "cached_tokens": 0
+          },
+          "output_tokens": 126,
+          "output_tokens_details": {
+            "reasoning_tokens": 34
+          },
+          "total_tokens": 1514
+        },
+        "actualUsd": 0.00049805,
+        "elapsedMs": 2337,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "ebe2875830f51a32f1d3310eb9133420e10379140fc7e9bdd23d1b92e567124e",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"apply-renewal\",\"input\":{\"accountId\":\"acct-r1d1-1\",\"idempotencyKey\":\"R1-DEV-01-acct-r1d1-1-apply-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1516,
+          "input_tokens_details": {
+            "cache_write_tokens": 1513,
+            "cached_tokens": 0
+          },
+          "output_tokens": 121,
+          "output_tokens_details": {
+            "reasoning_tokens": 28
+          },
+          "total_tokens": 1637
+        },
+        "actualUsd": 0.0005240500000000001,
+        "elapsedMs": 2622,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "e6a1b6c35aee085316902a6005343736126be911b783ec2bb5cb33f40e5e3a94",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"record-renewal-confirmation\",\"input\":{\"accountId\":\"acct-r1d1-1\",\"term\":\"annual\",\"amountUsd\":240,\"idempotencyKey\":\"R1-DEV-01-acct-r1d1-1-confirm-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1652,
+          "input_tokens_details": {
+            "cache_write_tokens": 1649,
+            "cached_tokens": 0
+          },
+          "output_tokens": 132,
+          "output_tokens_details": {
+            "reasoning_tokens": 29
+          },
+          "total_tokens": 1784
+        },
+        "actualUsd": 0.00057125,
+        "elapsedMs": 1877,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "cd482fcebd7d5fddfc25bde2b4488b7834bd1264570fe1ccec5c1320e71fbe42",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-renewal-request\",\"input\":{\"accountId\":\"acct-r1d1-1\",\"idempotencyKey\":\"R1-DEV-01-acct-r1d1-1-close-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1795,
+          "input_tokens_details": {
+            "cache_write_tokens": 1792,
+            "cached_tokens": 0
+          },
+          "output_tokens": 134,
+          "output_tokens_details": {
+            "reasoning_tokens": 41
+          },
+          "total_tokens": 1929
+        },
+        "actualUsd": 0.0006094,
+        "elapsedMs": 1819,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "22ceaddaf7b5dbfdc0de754ad1d88f84481dcada702cc9b25adfdb1123972d1e",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1921,
+          "input_tokens_details": {
+            "cache_write_tokens": 1918,
+            "cached_tokens": 0
+          },
+          "output_tokens": 94,
+          "output_tokens_details": {
+            "reasoning_tokens": 41
+          },
+          "total_tokens": 2015
+        },
+        "actualUsd": 0.0005929,
+        "elapsedMs": 1883,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "fa91d5c7c9d9804ea5d09266f7d4c83bc88bd9d3d9bf0e8ea23748c93d04eac1",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-pending-renewals\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1010,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 86,
+          "output_tokens_details": {
+            "reasoning_tokens": 28
+          },
+          "total_tokens": 1096
+        },
+        "actualUsd": 0.00030520000000000005,
+        "elapsedMs": 1572,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "14e68e1d46bd6775b8966b8f854471d739b21e231af62c963910e7ff2a83138f",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-account\",\"input\":{\"accountId\":\"acct-r1d2-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.98}",
+        "usage": {
+          "input_tokens": 1143,
+          "input_tokens_details": {
+            "cache_write_tokens": 1140,
+            "cached_tokens": 0
+          },
+          "output_tokens": 127,
+          "output_tokens_details": {
+            "reasoning_tokens": 63
+          },
+          "total_tokens": 1270
+        },
+        "actualUsd": 0.000438,
+        "elapsedMs": 1919,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "135ee3e12a2136ac61b2da46604b3d6ef8d4060756ef399c05f1ce920d2355f3",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-renewal-policy\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1259,
+          "input_tokens_details": {
+            "cache_write_tokens": 1256,
+            "cached_tokens": 0
+          },
+          "output_tokens": 98,
+          "output_tokens_details": {
+            "reasoning_tokens": 41
+          },
+          "total_tokens": 1357
+        },
+        "actualUsd": 0.0004322,
+        "elapsedMs": 1570,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "2d180938eff3a7fd2d5a5a828600cd12f8c8dd86fc3744948cb53d309dd37f44",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"verify-payment-method\",\"input\":{\"accountId\":\"acct-r1d2-1\",\"idempotencyKey\":\"R1-DEV-02-acct-r1d2-1-verify-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1396,
+          "input_tokens_details": {
+            "cache_write_tokens": 1393,
+            "cached_tokens": 0
+          },
+          "output_tokens": 131,
+          "output_tokens_details": {
+            "reasoning_tokens": 39
+          },
+          "total_tokens": 1527
+        },
+        "actualUsd": 0.00050605,
+        "elapsedMs": 1831,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "4f1be9f170a6dbb6c6d49f1bcf5925a1c9be6a69838611cbce47bdc4cca04ba6",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"apply-renewal\",\"input\":{\"accountId\":\"acct-r1d2-1\",\"idempotencyKey\":\"R1-DEV-02-acct-r1d2-1-apply-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1522,
+          "input_tokens_details": {
+            "cache_write_tokens": 1519,
+            "cached_tokens": 0
+          },
+          "output_tokens": 120,
+          "output_tokens_details": {
+            "reasoning_tokens": 27
+          },
+          "total_tokens": 1642
+        },
+        "actualUsd": 0.00052435,
+        "elapsedMs": 1828,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "93b23ab8417c21a56c777ebe75abcbea8e737d6125172a54ac728a3f6c0a1859",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"record-renewal-confirmation\",\"input\":{\"accountId\":\"acct-r1d2-1\",\"term\":\"monthly\",\"amountUsd\":25,\"idempotencyKey\":\"R1-DEV-02-acct-r1d2-1-confirm-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1663,
+          "input_tokens_details": {
+            "cache_write_tokens": 1660,
+            "cached_tokens": 0
+          },
+          "output_tokens": 140,
+          "output_tokens_details": {
+            "reasoning_tokens": 37
+          },
+          "total_tokens": 1803
+        },
+        "actualUsd": 0.0005836,
+        "elapsedMs": 2014,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "27ff47ddf319b2b884a077bbdffb92c4e054e7f9efc6ba4723d21169c661c842",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"close-renewal-request\",\"input\":{\"accountId\":\"acct-r1d2-1\",\"idempotencyKey\":\"R1-DEV-02-acct-r1d2-1-close-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 1804,
+          "input_tokens_details": {
+            "cache_write_tokens": 1801,
+            "cached_tokens": 0
+          },
+          "output_tokens": 143,
+          "output_tokens_details": {
+            "reasoning_tokens": 50
+          },
+          "total_tokens": 1947
+        },
+        "actualUsd": 0.0006224500000000001,
+        "elapsedMs": 2136,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "9d5e88fe1c3f5ac3ecd1d29fa8a1e189b1122b4bdff6e891479411c7b0575d53",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-pending-renewals\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.98}",
+        "usage": {
+          "input_tokens": 1923,
+          "input_tokens_details": {
+            "cache_write_tokens": 1920,
+            "cached_tokens": 0
+          },
+          "output_tokens": 184,
+          "output_tokens_details": {
+            "reasoning_tokens": 126
+          },
+          "total_tokens": 2107
+        },
+        "actualUsd": 0.0007014,
+        "elapsedMs": 2393,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "80dd396e81b0fd831b54f7d102dec8889aef7bd4fd91c47b2c07fceec4e75c5d",
+      "response": {
+        "output": "{\"kind\":\"complete\",\"name\":null,\"input\":null,\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2050,
+          "input_tokens_details": {
+            "cache_write_tokens": 2047,
+            "cached_tokens": 0
+          },
+          "output_tokens": 86,
+          "output_tokens_details": {
+            "reasoning_tokens": 33
+          },
+          "total_tokens": 2136
+        },
+        "actualUsd": 0.0006155500000000001,
+        "elapsedMs": 1374,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "1c9f2d9235f04060d6ca2ecd0a1680a45198119c05f0fca2ccfdf9a6289897fd",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"verify-payment-method\",\"input\":{\"accountId\":\"acct-r1d2-1\",\"idempotencyKey\":\"R1-DEV-02-acct-r1d2-1-verify-2026-C9\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.96}",
+        "usage": {
+          "input_tokens": 2253,
+          "input_tokens_details": {
+            "cache_write_tokens": 2250,
+            "cached_tokens": 0
+          },
+          "output_tokens": 172,
+          "output_tokens_details": {
+            "reasoning_tokens": 80
+          },
+          "total_tokens": 2425
+        },
+        "actualUsd": 0.0007695,
+        "elapsedMs": 2692,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "088150c619a51e7aa1d319524c31462e595f89ae5b4f9ffa88812e62bea4875f",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"list-pending-renewals\",\"input\":{},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.96}",
+        "usage": {
+          "input_tokens": 2390,
+          "input_tokens_details": {
+            "cache_write_tokens": 2387,
+            "cached_tokens": 0
+          },
+          "output_tokens": 221,
+          "output_tokens_details": {
+            "reasoning_tokens": 163
+          },
+          "total_tokens": 2611
+        },
+        "actualUsd": 0.0008625499999999999,
+        "elapsedMs": 3046,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "7696960b025398b695dfac45fdc35a033e2a9bd4c19d9faba0f3fa39aef4439d",
+      "response": {
+        "output": "{\"kind\":\"tool\",\"name\":\"read-account\",\"input\":{\"accountId\":\"acct-r1d2-1\"},\"reason\":null,\"blocker\":null,\"escalationScope\":null,\"subjectId\":null,\"confidence\":0.88}",
+        "usage": {
+          "input_tokens": 2518,
+          "input_tokens_details": {
+            "cache_write_tokens": 2515,
+            "cached_tokens": 0
+          },
+          "output_tokens": 172,
+          "output_tokens_details": {
+            "reasoning_tokens": 108
+          },
+          "total_tokens": 2690
+        },
+        "actualUsd": 0.00083575,
+        "elapsedMs": 2298,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "a298ad45a536e843585fcc024ba06f60d42d24902bf3f6a4919e8a485e383984",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Account acct-r1d2-1 is applied, confirmed, and closed, but the independent verifier still reports payment verification as incorrect. The request is already closed and policy forbids touching closed requests, so no permitted action remains to repair the verification outcome without risking an out-of-scope write.\",\"blocker\":\"no-permitted-route\",\"escalationScope\":\"item\",\"subjectId\":\"acct-r1d2-1\",\"confidence\":0.97}",
+        "usage": {
+          "input_tokens": 2635,
+          "input_tokens_details": {
+            "cache_write_tokens": 2632,
+            "cached_tokens": 0
+          },
+          "output_tokens": 382,
+          "output_tokens_details": {
+            "reasoning_tokens": 261
+          },
+          "total_tokens": 3017
+        },
+        "actualUsd": 0.001117,
+        "elapsedMs": 4509,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "17c8a0ae107b138c42f1b2a111644ebcd42be7156713376d72693eeaf6e1b9e5",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Account acct-r1d2-1 is applied, confirmed, and closed, but payment verification remains incorrect according to the independent verifier. Closed requests are untouchable and no permitted repair action remains.\",\"blocker\":\"no-permitted-route\",\"escalationScope\":\"item\",\"subjectId\":\"acct-r1d2-1\",\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2751,
+          "input_tokens_details": {
+            "cache_write_tokens": 2748,
+            "cached_tokens": 0
+          },
+          "output_tokens": 310,
+          "output_tokens_details": {
+            "reasoning_tokens": 208
+          },
+          "total_tokens": 3061
+        },
+        "actualUsd": 0.0010596,
+        "elapsedMs": 3399,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "e85ad0b70c6000cfdc746358662571156e25151fc286442f28c8845d8fc746ae",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Account acct-r1d2-1 is applied, confirmed, and closed, but the independent verifier still reports payment verification as incorrect. The request is already closed and policy forbids touching closed requests; no permitted repair action remains without risking an out-of-scope write.\",\"blocker\":\"no-permitted-route\",\"escalationScope\":\"item\",\"subjectId\":\"acct-r1d2-1\",\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2854,
+          "input_tokens_details": {
+            "cache_write_tokens": 2851,
+            "cached_tokens": 0
+          },
+          "output_tokens": 211,
+          "output_tokens_details": {
+            "reasoning_tokens": 95
+          },
+          "total_tokens": 3065
+        },
+        "actualUsd": 0.0009665499999999999,
+        "elapsedMs": 2512,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "a74e9cf79c4b7ee83613a7df736e625ac97d1c2906abf5830f087307ae0f0424",
+      "response": {
+        "output": "{\"kind\":\"escalate\",\"name\":null,\"input\":null,\"reason\":\"Account acct-r1d2-1 is applied, confirmed, and closed, but payment verification remains incorrect according to the independent verifier. Closed requests are untouchable, and no permitted repair action remains without risking an out-of-scope write.\",\"blocker\":\"no-permitted-route\",\"escalationScope\":\"item\",\"subjectId\":\"acct-r1d2-1\",\"confidence\":0.99}",
+        "usage": {
+          "input_tokens": 2965,
+          "input_tokens_details": {
+            "cache_write_tokens": 2962,
+            "cached_tokens": 0
+          },
+          "output_tokens": 207,
+          "output_tokens_details": {
+            "reasoning_tokens": 96
+          },
+          "total_tokens": 3172
+        },
+        "actualUsd": 0.0009895,
+        "elapsedMs": 2282,
+        "provider": "openai-responses",
+        "model": "gpt-5.6-luna",
+        "resolvedModel": "gpt-5.6-luna"
+      }
+    },
+    {
+      "requestHash": "8d655152aa1a4834f34b657d0362255dbed1a86744f0a3f3364016533425145e",
+      "response": {
+        "output": "{\"candidates\":[{\"id\":\"panel-r1-renewal-ledger-balanced-v1\",\"roleId\":\"panel-r1-subscription-renewal-desk-v1\",\"model\":{\"family\":\"balanced\",\"tier\":\"standard\"},\"instructions\":{\"style\":\"Execute a per-request ledger workflow.\",\"emphasis\":[\"List assigned pending requests and identify closed items without writing to them.\",\"For each pending item, confirm batch scope, account data, policy, current-cycle payment status, and a stable idempotency key.\",\"Verify payment only when not already verified for the current cycle; then apply renewal, record exact term and amount confirmation, then close.\",\"Keep evidence and completion checks separate for every request; retry only idempotently.\",\"Finish only after every assigned pending request is independently verified as applied, exactly confirmed, and closed.\"]},\"context\":{\"sources\":[\"renewal-request-queue\",\"account-directory\",\"renewal-policy\",\"confirmation-log\"],\"selection\":\"Read complete assigned-batch context; use account and policy facts per request, confirmation log for exactness and duplicate prevention.\"},\"tools\":[\"list-pending-renewals\",\"read-account\",\"read-renewal-policy\",\"verify-payment-method\",\"apply-renewal\",\"record-renewal-confirmation\",\"close-renewal-request\"],\"memory\":{\"kind\":\"tenant-scoped outcome ledger\",\"scope\":\"Assigned batch only; retain per-request state, idempotency key, term, amount, and completion evidence.\"},\"authority\":{\"allowedActions\":[\"verify-payment-method\",\"apply-authorized-renewal\",\"record-renewal-confirmation\",\"close-completed-request\"]},\"escalation\":{\"enabled\":true,\"threshold\":0.9,\"mode\":\"Escalate and perform no unresolved write when scope, payment status, policy, exact term or amount, prior-write state, or idempotency is uncertain.\"},\"verifier\":{\"kind\":\"independent-external-state\",\"binding\":\"panel-r1-renewal-desk-independent-verifier-v1\"},\"limits\":{\"maxCostPerTaskUsd\":0.1,\"maxLatencyMs\":180000},\"strategy\":{\"qualityWeight\":1,\"costWeight\":0.1,\"speedWeight\":0.05,\"riskTolerance\":0.05,\"requireCompleteContext\":true},\"provenance\":{\"kind\":\"compiler-generated\",\"parents\":[\"prior:external-verifier\",\"observation:model-promotion-after-safe-planning-miss\",\"observation:per-item-route-ledger\",\"prior:structured-memory\"],\"rationale\":\"Balanced workflow candidate using item-isolated evidence, idempotent writes, and independent completion verification.\"},\"version\":\"1.0.0\"},{\"id\":\"panel-r1-renewal-policy-gated-v1\",\"roleId\":\"panel-r1-subscription-renewal-desk-v1\",\"model\":{\"family\":\"frontier\",\"tier\":\"audit\"},\"instructions\":{\"style\":\"Use policy-gated state transitions with a final batch audit.\",\"emphasis\":[\"Load the complete assigned batch and classify each request as pending or already closed; never act on closed requests.\",\"For each pending request, establish scope and a stable idempotency key before any write.\",\"Permit transitions only in order: current-cycle verification when needed, authorized renewal application, exact confirmation with policy-derived term and amount, then closure.\",\"Before each write, check existing external state to avoid duplicates; never change price, delete ledger records, or reopen requests.\",\"Run a final independent audit covering every assigned pending request and all protected-state constraints before declaring completion.\"]},\"context\":{\"sources\":[\"renewal-request-queue\",\"account-directory\",\"renewal-policy\",\"confirmation-log\"],\"selection\":\"Use all declared sources for full batch state; treat policy as the source for authorized term and amount and logs as confirmation and idempotency evidence.\"},\"tools\":[\"list-pending-renewals\",\"read-account\",\"read-renewal-policy\",\"verify-payment-method\",\"apply-renewal\",\"record-renewal-confirmation\",\"close-renewal-request\"],\"memory\":{\"kind\":\"tenant-scoped transition journal\",\"scope\":\"Assigned batch only; store request classification, allowed next transition, external evidence, and stable idempotency key.\"},\"authority\":{\"allowedActions\":[\"verify-payment-method\",\"apply-authorized-renewal\",\"record-renewal-confirmation\",\"close-completed-request\"]},\"escalation\":{\"enabled\":true,\"threshold\":0.8,\"mode\":\"Escalate and halt the affected request when any required transition precondition or exact confirmation value cannot be proven from external state.\"},\"verifier\":{\"kind\":\"independent-external-state\",\"binding\":\"panel-r1-renewal-desk-independent-verifier-v1\"},\"limits\":{\"maxCostPerTaskUsd\":0.1,\"maxLatencyMs\":180000},\"strategy\":{\"qualityWeight\":1,\"costWeight\":0.1,\"speedWeight\":0.05,\"riskTolerance\":0.02,\"requireCompleteContext\":true},\"provenance\":{\"kind\":\"compiler-generated\",\"parents\":[\"prior:external-verifier\",\"observation:per-item-route-ledger\",\"prior:structured-context\"],\"rationale\":\"Audit-focused candidate using explicit state gates, complete structured context, and conservative escalation.\"},\"version\":\"1.0.0\"}]}",
+        "usage": {
+          "input_tokens": 1719,
+          "input_tokens_details": {
+            "cache_write_tokens": 1716,
+            "cached_tokens": 0
+          },
+          "output_tokens": 1203,
+          "output_tokens_details": {
+            "reasoning_tokens": 154
+          },
+          "total_tokens": 2922
+        },
+        "actualUsd": 0.018732000000000002,
+        "elapsedMs": 10719,
+        "provider": "openai-responses",
+        "model": "candidate-architect-policy",
+        "resolvedModel": "gpt-5.6-terra"
+      }
+    }
+  ],
+  "integrityHash": "5d324b4fde7d3f523d9d0624bbffaed8af37539c04233af7d7e4d70317f1bd71"
+}
