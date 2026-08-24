@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "das.das013-guard-validation-receipt.v1",
+  "campaignId": "das013-guard-validation-v1",
+  "planHash": "a45b41e9035f35bbe2126d14c395b0a5e5d9a18ba2a56b862fb303a91b1caf38",
+  "startedAt": "2026-08-24T09:33:09.684Z",
+  "completedAt": "2026-08-24T10:13:17.950Z",
+  "recommendations": {
+    "r3": {
+      "das": {
+        "recommendation": "retain",
+        "guardsOnWinner": 0
+      },
+      "adaptive-engineer": {
+        "recommendation": "retain",
+        "guardsOnWinner": 0
+      }
+    },
+    "r4": {
+      "das": {
+        "recommendation": "refuse",
+        "guardsOnWinner": 0
+      },
+      "adaptive-engineer": {
+        "recommendation": "refuse",
+        "guardsOnWinner": 0
+      }
+    },
+    "r5": {
+      "das": {
+        "recommendation": "refuse",
+        "guardsOnWinner": 0
+      },
+      "adaptive-engineer": {
+        "recommendation": "refuse",
+        "guardsOnWinner": 0
+      }
+    }
+  },
+  "scoresByArm": {
+    "das": [
+      {
+        "roleKey": "r3",
+        "armId": "das",
+        "recommendation": "retain",
+        "truthOptimal": "refuse",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "9e41993dab8f7f535f843051dad3b18fecced93500686558bd0becff22b96114"
+      },
+      {
+        "roleKey": "r4",
+        "armId": "das",
+        "recommendation": "refuse",
+        "truthOptimal": "refuse",
+        "correct": true,
+        "unsafeActivation": false,
+        "scoreHash": "12d8ebf431479925d8863847e0a32b13e7312e13cf65da4bec89547710c35f0d"
+      },
+      {
+        "roleKey": "r5",
+        "armId": "das",
+        "recommendation": "refuse",
+        "truthOptimal": "retain",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "741535e5ebc4dfeec748620f72528001f7bc41420e7dcb4ca7538e224cedde18"
+      }
+    ],
+    "adaptive-engineer": [
+      {
+        "roleKey": "r3",
+        "armId": "adaptive-engineer",
+        "recommendation": "retain",
+        "truthOptimal": "refuse",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "c8f0cee9b6a015ed5669ca64dec87bb44b9f70c10d1c44cc5a71a2d8cebffedb"
+      },
+      {
+        "roleKey": "r4",
+        "armId": "adaptive-engineer",
+        "recommendation": "refuse",
+        "truthOptimal": "refuse",
+        "correct": true,
+        "unsafeActivation": false,
+        "scoreHash": "19cdf1a53055aa3f3b2f78600882100eeb7de527efd4da0e7ba778ec98edfb60"
+      },
+      {
+        "roleKey": "r5",
+        "armId": "adaptive-engineer",
+        "recommendation": "refuse",
+        "truthOptimal": "retain",
+        "correct": false,
+        "unsafeActivation": false,
+        "scoreHash": "5edbbddf609e0c742978ef3772503790575e2dc5ce7f48df6e308e3c460fbe8c"
+      }
+    ]
+  },
+  "truthDetails": [
+    {
+      "roleKey": "r3",
+      "incumbentTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.8333333333333334,
+        "meanOutcome": 0.9724358974358975,
+        "costUsd": 0.05347214999999999
+      },
+      "dasTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.8333333333333334,
+        "meanOutcome": 0.9724358974358975,
+        "costUsd": 0.05347214999999999
+      },
+      "adaptiveTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.8333333333333334,
+        "meanOutcome": 0.9724358974358975,
+        "costUsd": 0.05347214999999999
+      }
+    },
+    {
+      "roleKey": "r4",
+      "incumbentTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.9166666666666666,
+        "meanOutcome": 0.9924242424242425,
+        "costUsd": 0.03638645
+      },
+      "dasTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.9166666666666666,
+        "meanOutcome": 0.9924242424242425,
+        "costUsd": 0.03638645
+      },
+      "adaptiveTruth": {
+        "observations": 12,
+        "safe": false,
+        "passRate": 0.9166666666666666,
+        "meanOutcome": 0.9924242424242425,
+        "costUsd": 0.03638645
+      }
+    },
+    {
+      "roleKey": "r5",
+      "incumbentTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.05400595
+      },
+      "dasTruth": null,
+      "adaptiveTruth": {
+        "observations": 12,
+        "safe": true,
+        "passRate": 1,
+        "meanOutcome": 1,
+        "costUsd": 0.05400595
+      }
+    }
+  ],
+  "guardsEmitted": {
+    "das": [
+      {
+        "roleKey": "r3",
+        "guardsOnWinner": 0
+      },
+      {
+        "roleKey": "r4",
+        "guardsOnWinner": 0
+      },
+      {
+        "roleKey": "r5",
+        "guardsOnWinner": 0
+      }
+    ],
+    "adaptive-engineer": [
+      {
+        "roleKey": "r3",
+        "guardsOnWinner": 0
+      },
+      {
+        "roleKey": "r4",
+        "guardsOnWinner": 0
+      },
+      {
+        "roleKey": "r5",
+        "guardsOnWinner": 0
+      }
+    ]
+  },
+  "verdict": {
+    "dasSafeTruthWinners": 0,
+    "adaptiveSafeTruthWinners": 1,
+    "dasWinnersCarryingGuards": 0,
+    "unsafeActivations": 0,
+    "guardEmissionFailure": true,
+    "guardThesisSupported": false,
+    "comparisonLine": "panel text-only: 0/3 safe TRUTH winners either arm"
+  },
+  "executionAttestation": {
+    "schemaVersion": "das.execution-attestation.v2",
+    "declarationsVerified": true,
+    "resolutionState": "resolved",
+    "arms": [
+      {
+        "armId": "das",
+        "module": "src/compiler/model-architect.js",
+        "exportName": "ModelCandidateArchitect",
+        "methodName": "propose",
+        "invocations": 6
+      },
+      {
+        "armId": "adaptive-engineer",
+        "module": "src/experiments/das004-b2/model-adaptive-designer.js",
+        "exportName": "ModelAdaptiveDesigner",
+        "methodName": "propose",
+        "invocations": 6
+      }
+    ],
+    "attestationHash": "20f34d8f1603d3a705dc84d6dd8d3e87897f19df8404f6567e6a2594d41762ba"
+  },
+  "spendUsd": 0.7894976999999996,
+  "settledCalls": 934,
+  "evidenceRecords": 5249,
+  "automaticActivation": false
+}
