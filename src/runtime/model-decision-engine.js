@@ -47,6 +47,10 @@ export class ModelDecisionEngine {
       input: { instruction: "Choose exactly one next decision. For a tool decision, provide its exact permitted name and input, with null for optional filters you do not use; reason and blocker must be null. For complete, set name, input, reason, and blocker to null. For escalate, set name and input to null, give a precise reason, select the exact blocker, and choose escalationScope. Escalation scope decides whether the run ends: \"item\" records that one subject cannot proceed and you keep working the rest of the goal, so set subjectId to that subject; \"goal\" ends the run immediately and nothing further can be done, so use it only when no part of the goal can be advanced, and set subjectId to null. For tool and complete decisions set escalationScope and subjectId to null. Report calibrated confidence from 0 to 1. If confidence would be below the configured threshold for acting or completing, escalate instead of acting. Never claim completion until the external state should satisfy the entire goal. Never escalate merely because investigation is unfinished.", instructions: candidate.instructions, goal, turn, boundedContext: candidate.context, observations, memory, tools, authority: candidate.authority, escalation: candidate.escalation, strategy: candidate.strategy, limits: candidate.limits, memoryPolicy: candidate.memory, remainingBudget: { modelCostUsd: Number.isFinite(remainingCostUsd) ? remainingCostUsd : null, latencyMs: Number.isFinite(remainingLatencyMs) ? remainingLatencyMs : null } },
       responseFormat: runtimeDecisionResponseFormat(tools),
       maxOutputTokens: 1_200,
+      // remainingBudget is advisory context; the hard limits are enforced by the runtime
+      // and gateway. Excluding it from cache identity lets a resumed campaign replay
+      // instead of re-paying (report 0118).
+      cacheKeyExclusions: ["input.remainingBudget"],
     };
     const projectedUsd = this.gateway.projectCost(request);
     if (projectedUsd > remainingCostUsd) throw new Error("candidate-task-cost-limit-before-call");

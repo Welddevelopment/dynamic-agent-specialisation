@@ -6,9 +6,35 @@ function redact(value, secrets) {
   return text;
 }
 
+
+/**
+ * Cache identity for a model request.
+ *
+ * A request may declare `cacheKeyExclusions`: dot-paths of ADVISORY fields that must not
+ * change its cached identity. This exists because wall-clock-derived advisory values
+ * (`input.remainingBudget`) made replayed requests hash differently, so a resumed
+ * campaign re-paid for calls it had already made (DAS report 0118 records ~$0.29 lost
+ * that way). Hard budget and latency limits are enforced by the runtime and gateway
+ * outside the model call, so excluding the advisory copy never weakens a guard. The
+ * exclusion list itself stays inside the digest: requests that exclude different fields
+ * are different requests.
+ */
+export function modelRequestCacheKey(request) {
+  const exclusions = Array.isArray(request?.cacheKeyExclusions) ? request.cacheKeyExclusions : [];
+  if (!exclusions.length) return digest(request);
+  const copy = structuredClone(request);
+  for (const dotPath of exclusions) {
+    const parts = String(dotPath).split(".");
+    let cursor = copy;
+    for (const part of parts.slice(0, -1)) cursor = cursor?.[part];
+    if (cursor && typeof cursor === "object") delete cursor[parts.at(-1)];
+  }
+  return digest(copy);
+}
+
 export class ModelResponseCache {
   #values = new Map();
-  key(request) { return digest(request); }
+  key(request) { return modelRequestCacheKey(request); }
   get(request) { const value = this.#values.get(this.key(request)); return value ? structuredClone(value) : null; }
   set(request, response) { this.#values.set(this.key(request), structuredClone(response)); }
   size() { return this.#values.size; }

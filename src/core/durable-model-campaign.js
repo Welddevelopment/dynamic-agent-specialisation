@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { digest } from "./canonical.js";
+import { modelRequestCacheKey } from "./model-gateway.js";
 
 function requireCondition(condition, message) { if (!condition) throw new Error(message); }
 function withoutHash(value, key) { const copy = structuredClone(value); delete copy[key]; return copy; }
@@ -30,7 +31,7 @@ export class PersistentModelResponseCache {
     state.integrityHash = digest(state);
     writePrivate(this.filePath, state);
   }
-  key(request) { return digest(request); }
+  key(request) { return modelRequestCacheKey(request); }
   get(request) { const value = this.values.get(this.key(request)); return value ? structuredClone(value) : null; }
   set(request, response) { this.values.set(this.key(request), structuredClone(response)); this.#save(); }
   size() { return this.values.size; }
